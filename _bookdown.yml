@@ -1,0 +1,5 @@
+book_filename: "telling_stories_with_data"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "

@@ -1,0 +1,34 @@
+Electoral district number - Numéro de la circonscription,Electoral district name,Nom de la circonscription,Type of results*,Type de résultats**,Surname - Nom de famille,Middle name(s) - Autre(s) prénom(s),Given name - Prénom,Political affiliation,Appartenance politique,Votes obtained - Votes obtenus,% Votes obtained - Votes obtenus %,Rejected ballots - Bulletins rejetés***,Total number of ballots cast - Nombre total de votes déposés
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Chang,NA,Brian,NDP-New Democratic Party,NPD-Nouveau Parti démocratique,4280,17,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Clarke,NA,Kevin,Independent,Indépendant(e),123,0.5,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Ien,NA,Marci,Liberal,Libéral,10579,42,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Komar,NA,Keith,Libertarian,Libertarien,135,0.5,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Paul,NA,Annamie,Green Party,Parti Vert,8250,32.7,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Sharma,NA,Benjamin Gauri,Conservative,Conservateur,1435,5.7,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Znoneofthe,NA,Above,No Affiliation,Aucune appartenance,56,0.2,0,25203
+35108,Toronto Centre,Toronto-Centre,validated,validés,Bawa,NA,Baljit,People's Party - PPC,Parti populaire - PPC,269,1.1,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Cappelletti,NA,Dwayne,Free Party Canada,Parti Libre Canada,76,0.3,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Chang,NA,Brian,NDP-New Democratic Party,NPD-Nouveau Parti démocratique,4280,17,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Clarke,NA,Kevin,Independent,Indépendant(e),123,0.5,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Ien,NA,Marci,Liberal,Libéral,10581,42,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Komar,NA,Keith,Libertarian,Libertarien,135,0.5,118,25323
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Cappelletti,NA,Dwayne,Free Party Canada,Parti Libre Canada,74,0.3,0,25203
+35108,Toronto Centre,Toronto-Centre,preliminary,préliminaires,Bawa,NA,Baljit,People's Party - PPC,Parti populaire - PPC,271,1.1,0,25203
+35108,Toronto Centre,Toronto-Centre,validated,validés,Paul,NA,Annamie,Green Party,Parti Vert,8250,32.7,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Znoneofthe,NA,Above,No Affiliation,Aucune appartenance,56,0.2,118,25323
+35108,Toronto Centre,Toronto-Centre,validated,validés,Sharma,NA,Benjamin Gauri,Conservative,Conservateur,1435,5.7,118,25323
+35118,York Centre,York-Centre,preliminary,préliminaires,Bernier,NA,Max,People's Party - PPC,Parti populaire - PPC,642,3.6,0,18058
+35118,York Centre,York-Centre,preliminary,préliminaires,Saks,NA,Ya'ara,Liberal,Libéral,8253,45.7,0,18058
+35118,York Centre,York-Centre,validated,validés,Zavarella,NA,Sasha,Green Party,Parti Vert,461,2.6,166,18224
+35118,York Centre,York-Centre,validated,validés,Vásquez Jiménez,NA,Andrea,NDP-New Democratic Party,NPD-Nouveau Parti démocratique,1046,5.8,166,18224
+35118,York Centre,York-Centre,preliminary,préliminaires,Tiangson,NA,Julius,Conservative,Conservateur,7552,41.8,0,18058
+35118,York Centre,York-Centre,preliminary,préliminaires,Turmel,NA,John The Engineer,Independent,Indépendant(e),104,0.6,0,18058
+35118,York Centre,York-Centre,preliminary,préliminaires,Vásquez Jiménez,NA,Andrea,NDP-New Democratic Party,NPD-Nouveau Parti démocratique,1046,5.8,0,18058
+35118,York Centre,York-Centre,preliminary,préliminaires,Zavarella,NA,Sasha,Green Party,Parti Vert,461,2.6,0,18058
+35118,York Centre,York-Centre,validated,validés,Bernier,NA,Max,People's Party - PPC,Parti populaire - PPC,642,3.6,166,18224
+35118,York Centre,York-Centre,validated,validés,Saks,NA,Ya'ara,Liberal,Libéral,8253,45.7,166,18224
+35118,York Centre,York-Centre,validated,validés,Tiangson,NA,Julius,Conservative,Conservateur,7552,41.8,166,18224
+35118,York Centre,York-Centre,validated,validés,Turmel,NA,John The Engineer,Independent,Indépendant(e),104,0.6,166,18224
+*Type of results: preliminary results are unofficial results from election night; validated results are official results validated by each returning officer; judicially certified results are official results validated by a judge following a judicial recount.,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+**Type de résultats : les résultats préliminaires sont les résultats non officiels du soir d'élection; les résultats validés sont les résultats officiels validés par le directeur du scrutin; les résultats de dépouillement judiciaire sont les résultats officiels validés par un juge après un dépouillement judiciaire.,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+***The rejected ballots count is not available for the preliminary results. / Le nombre de bulletins de vote rejetés n'est pas disponible pour les résultats préliminaires.,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

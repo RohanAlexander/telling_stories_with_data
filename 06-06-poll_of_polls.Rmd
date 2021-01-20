@@ -1,0 +1,65 @@
+---
+date: November 8, 2020
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+# Poll of polls
+
+**Required reading**
+
+- Arnold, Jeffrey B., 2018, 'Simon Jackman's Bayesian Model Examples in Stan', Ch 13, 7 May, https://jrnold.github.io/bugs-examples-in-stan/campaign.html.
+- Gelman, Andrew, Jessica Hullman, and Christopher Wlezien, 2020, 'Information, incentives, and goals in election forecasts', 8 September, available at: http://www.stat.columbia.edu/~gelman/research/unpublished/forecast_incentives3.pdf 
+- Gelman, Andrew, Merlin Heidemanns, and Elliott Morris, 2020, '2020 US POTUS model', The Economist, freely available: https://github.com/TheEconomist/us-potus-model.
+- Jackman, Simon, 2005, 'Pooling the polls over an election campaign', *Australian Journal of Political Science*, 40 (4), pp. 499-517.
+
+
+**Required viewing**
+
+- Jackman, Simon, 2020, 'The triumph of the quants?: Model-based poll aggregation for election forecasting', *Ihaka Lecture Series*, https://youtu.be/MvGYsKIsLFs.
+
+
+
+**Recommended reading**
+
+- Imai, Kosuke, 2017, Quantitative Social Science: An Introduction, Princeton University Press, Ch 4.1, and 5.3.
+- Leigh, Andrew, and Justin Wolfers, 2006, 'Competing approaches to forecasting elections: Economic models, opinion polling and prediction markets', Economic Record, 82 (258), pp.325-340.
+- Nickerson, David W., and Todd Rogers, 2014, 'Political campaigns and big data', Journal of Economic Perspectives, 28 (2), pp. 51-74.
+- Shirani-Mehr, Houshmand, David Rothschild, Sharad Goel, and Andrew Gelman, 2018, 'Disentangling bias and variance in election polls', Journal of the American Statistical Association, 113 (522), pp. 607-614.
+
+**Key concepts/skills/etc**
+
+- 
+
+**Key libraries**
+
+- 
+
+
+**Key functions/etc**
+
+- 
+
+**Quiz**
+
+- 
+
+**Lab**
+
+- Following the guidance of the TA, please examine various poll-of-polls models, make changes to them, and then see how their output changes.
+
+
+
+## Introduction
+
+> [The Presidential election of] 2016 was the largest analytics failure in US political history.
+> 
+> David Shor, 13 August 2020
+
+In this section we look at poll-of-polls (equally pooling-the-polls or poll aggregation) approaches which use a statistical model to bring together the outcomes of polls. 
+
+

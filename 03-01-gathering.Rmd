@@ -1,0 +1,2045 @@
+---
+date: January 18, 2021
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  R.options = list(width = 80)
+)
+
+library(pdftools)
+library(tidyverse)
+library(gt)
+
+```
+
+# (PART) Hunt and gather {-}
+
+# Gathering data
+
+**Required reading**
+
+- Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/.
+- Gelfand, Sharla, 2019, 'Crying @ Sephora', 8 November, https://sharla.party/post/crying-sephora/.
+- Luscombe, Alex, 2020, 'Getting your .pdfs into R', 5 August, https://alexluscombe.ca/post/r-pdftools/.
+- Luscombe, Alex, 2020, 'Parsing your .pdfs in R', 10 August, https://alexluscombe.ca/post/parsing-pdfs/.
+- Silge, Julia and David Robinson, 2020, *Text Mining with R*, Chapters 1, 3, and 6, https://www.tidytextmining.com/.
+- Wickham, Hadley, nd, 'Getting started with httr', https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html.
+- Wickham, Hadley, 2014, 'rvest: easy web scraping with R', 24 November, https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/.
+
+
+
+**Recommended reading**
+
+- Alexander, Rohan, 2019, 'Gathering and analysing text data', 3 January, https://rohanalexander.com/posts/2019-01-03-gathering-and-analysing-text-data/. (Example of web-scraping.)
+- Benoit, Kenneth, 2019, 'Text as data: An overview', 17 July, https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf.
+- Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/. (Example of web-scraping.)
+- Bryan, Jennifer, and Jim Hester, 2020, 'What They Forgot to Teach You About R', chapter 7, https://rstats.wtf/index.html.
+- Clavelle, Tyler, 2017, 'Using R to extract data from web APIs', 5 June, https://www.tylerclavelle.com/code/2017/randapis/.
+- Dogucu, Mine, and Mine Çetinkaya-Runde, 2020,'Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities', 6 May. (Walks through some basics.) 
+- Goldman, Shayna, 2019, 'How Much Do NHL Players Really Make? Part 2: Taxes', https://hockey-graphs.com/2019/01/08/how-much-do-nhl-players-really-make-part-2-taxes/. (Example of web-scraping.)
+- Graham, Shawn, 2019, 'Scraping with rvest', 7 November, https://electricarchaeology.ca/2019/11/07/scraping-with-rvest/. (Example of web-scraping.)
+- Henze, Martin, 2020, 'Web Scraping with rvest + Astro Throwback', 23 January, https://heads0rtai1s.github.io/2020/01/23/rvest-intro-astro/. (Example of web-scraping.)
+- Hudon, Caitlin, 2017, ''Blue Christmas: A data-driven search for the most depressing Christmas song', 22 December, https://caitlinhudon.com/2017/12/22/blue-christmas/.
+- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, Chapter 6, http://faculty.marshall.usc.edu/gareth-james/ISL/.
+- Luscombe, Alex, 2020, 'A Gentle Introduction to Tesseract OCR', 3 June, https://alexluscombe.ca/post/ocr-tutorial/.
+- Marshall, James, 'HTML Made Really Easy', https://www.jmarshall.com/easy/html/. (Primer on HTML.)
+- Marshall, James, 'HTTP Made Really Easy', https://www.jmarshall.com/easy/http/.
+- Nakagawara, Ryo, 2020, 'Intro to {polite} Web Scraping of Soccer Data with R!', 14 May, https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/. (Introduction to the `polite` package.)
+- Pavlik, Kaylin, 2020, 'How do fiber types appear together in yarn blends?', https://www.kaylinpavlik.com/ravelry-yarn-fibers/.
+- Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/. (Example of web-scraping.)
+- Silge, Julia, 2018, 'The game is afoot! Topic modeling of Sherlock Holmes stories', 25 January, https://juliasilge.com/blog/sherlock-holmes-stm/.
+- Silge, Julia, 2018, 'Training, evaluating, and interpreting topic models', 8 September, https://juliasilge.com/blog/evaluating-stm/.
+- Smale, David, 2020, 'Daniel Johnston', https://davidsmale.netlify.com/portfolio/daniel-johnston/. 
+- Taddy, Matt, 2019, *Business Data Science*, Chapter 8, pp. 231-259.
+- Wickham, Hadley, 'Managing Secrets', https://cran.r-project.org/web/packages/httr/vignettes/secrets.html.
+
+
+**Recommended viewing**
+
+- D'Agostino McGowan, Lucy, 2020 'Harnessing the Power of the Web via R Clients for Web APIs', talk at ASA Joint Statistical Meeting 2018, https://www.lucymcgowan.com/talk/asa_joint_statistical_meeting_2018/.
+- Tatman, Rachel, 2018, 'Character Encoding and You', 21 February, https://youtu.be/2U9EHYqc59Y.
+
+**Key concepts/skills/etc**
+
+- Use APIs where possible because the data provider has specified the data they would like to make available to you, and the conditions under which they are making it available.
+- Often R packages have been written to make it easier to use APIs.
+- Use R environments to manage your keys.
+- Using the verb GET ('a GET request') means providing a URL and the server will return something, using the verb POST (a POST request') means providing some data and the server will deal with that data.
+- Cleaning data
+- Graphing data to tell a story
+- Respectfully scraping data
+- Approaching extracting text from PDFs as a workflow.
+- Planning what is needed at the start.
+- Starting small and then iterating.
+- Putting in place checks.
+- Gathering text data.
+- Preparing text datasets.
+
+
+**Key libraries**
+
+- `babynames`
+- `broom`
+- `dplyr`
+- `ggplot2`
+- `glmnet`
+- `gutenbergr`
+- `janitor`
+- `jsonlite`
+- `pdftools`
+- `purrr`
+- `rtweet`
+- `rvest`
+- `spotifyr`
+- `stringi`
+- `tidymodels`
+- `tidytext`
+- `tidyverse`
+- `usethis`
+
+
+**Key functions/etc**
+
+- `augment()`
+- `bind_tf_idf()`
+- `cast_dtm()`
+- `edit_r_environ()`
+- `fromJSON()`
+- `geom_segment()`
+- `get_artist_audio_features()`
+- `get_favorites()`
+- `get_my_top_artists_or_tracks()`
+- `glance()`
+- `glmnet()`
+- `gutenberg_download()`
+- `html_nodes()`
+- `html_text()`
+- `map_dfr()`
+- `pdf_text()`
+- `pmap_dfr()`
+- `read_csv()`
+- `read_html()`
+- `safely()`
+- `search_tweets()`
+- `SelectorGadget`
+- `separate()`
+- `separate_rows()`
+- `str_detect()`
+- `str_replace()`
+- `str_squish()`
+- `tidy()`
+- `tokens()`
+- `unnest_tokens()`
+- `walk2()`
+
+
+
+
+**Quiz**
+
+1. In your own words, what is an API (write a paragraph or two)?
+2. Find two APIs and discuss how you could use them to tell interesting stories  (write a paragraph or two for each). 
+3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories? (Write a paragraph or two for each.)
+4. What is the main argument to the GET method (pick one)?
+    a. 
+    b. 
+    c. 
+    d. 
+5. Name three reasons why we should be respectful when getting scraping data from websites (write a paragraph or two).
+6. What features of a website do we typically take advantage of when we parse the code (select all)?
+    a. 
+    b. 
+    c. 
+    d. 
+7. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
+8. Which of these are functions from the `purrr` package (select all)?
+    a. 
+    b. 
+    c. 
+    d. 
+9. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
+10. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (pick one)? (Hint: See the 'strings' cheatsheet.)
+    a. 
+    b. 
+    c. 
+    d. 
+11. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each).
+12. If you are interested in demographic data then what are three checks that you might like to do? What are three if you are interested in economic data such as GDP, interest rates, and exchange rates?  (Write an explanation for each.)
+13. What does the `purrr` package do (select all)?
+    a. 
+    b. 
+    c. 
+    d. 
+14. Why should we use `safely()` when scraping data (select all)?
+    a. 
+    b. 
+    c. 
+    d. 
+
+
+
+
+
+
+## APIs
+
+### Introduction
+
+In everyday language, and for our purposes, an Application Programming Interface (API) is simply a situation in which someone has set up specific files on their computer such that you can follow their instructions to get them. For instance, when you use a gif on Slack, Slack asks Giphy's server for the appropriate gif, Giphy's server gives that gif to Slack and then Slack inserts it into your chat. The way in which Slack and Giphy interact is determined by Giphy's API. More strictly, an API is just an application that runs on a server that we access using the HTTP protocol. 
+
+In our case, we are going to focus on using APIs for gathering data. So I'll tailor the language that I use toward that, and so:
+
+> [a]n API is the tool that makes a website's data digestible for a computer. Through it, a computer can view and edit data, just like a person can by loading pages and submitting forms. [@zapierapis, Chapter 1]
+
+For instance, you could go to [Google Maps](https://www.google.ca/maps) and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: https://www.google.ca/maps/@-35.2812958,149.1248113,16z. You just used the Google Maps API.^[There are at least six great coffee shops shown just in this section of map including: Mocan & Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn't classify as 'great' including: The Street Theatre Cafe; and the CBE Cafe.]
+
+The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include things like rate limits (i.e. how often you can ask for data), and what you can do with the data (e.g. maybe you're not allowed to use it for commercial purposes, or to republish it, or whatever). Additionally, because the API is being provided specifically for you to use it, it is less likely to be subject to unexpected changes. Because of this it is ethically and legally clear that when an API is available you should try to use it.
+
+In this chapter we introduce some APIs in R. In particular, we will first introduce some R packages that wrap around APIs and make it easier to use an API, and we will then deal directly with APIs.
+
+
+
+
+### R packages that wrap around APIs
+
+There are a lot of R packages that wrap around APIs making it easier for you to use an API within 'familiar surroundings'. Here, I'll run through some useful and/or fun ones.
+
+### Using APIs directly
+
+In this section we introduce GET requests in which we use an API directly. We will use the `httr` package @citehttr. A GET request tries to obtain some specific data.
+
+You make a GET request, using, `GET()`, which takes a URL as an argument.
+
+**TBD**
+
+
+## Case study - rtweet
+
+Twitter is a rich source of text and other data. The Twitter API is the way in which Twitter ask that you interact with Twitter in order to gather these data. The `rtweet` package [@rtweet-package] is built around this API and allows us to interact with it in ways that are similar to using any other R package. Initially all you need a regular Twitter account.
+
+Get started by install the library if you need and then calling it.
+
+```{r loadpackages, warning=FALSE, message=FALSE}
+# install.packages('rtweet')
+library(rtweet)
+library(tidyverse)
+```
+
+To get started we need to authorise rtweet. We start that process by calling a function from the package. 
+
+```{r initialise_rtweet, eval=FALSE}
+get_favorites(user = "RohanAlexander")
+```
+
+This will open a browser on your computer, and you will then have to log into your regular Twitter account as shown in Figure \@ref(fig:rtweetlogin).
+
+```{r rtweetlogin, echo=FALSE, fig.cap="rtweet authorisation page", out.width = '90%'}
+knitr::include_graphics(here::here("figures/rtweet.png"))
+```
+
+Once that is done we can actually get my favourites and then save them.
+
+```{r get_rohan_favs, eval = FALSE}
+rohans_favs <- get_favorites("RohanAlexander")
+
+saveRDS(rohans_favs, "dont_push/rohans_favs.rds")
+```
+
+```{r, include = FALSE}
+rohans_favs <- readRDS("dont_push/rohans_favs.rds")
+```
+
+And then looking at the most recent favourite, we can see it was when Professor Bolton tweeted about one of the stellar students in ISSC.
+
+```{r look_at_rohans_favs}
+rohans_favs %>% 
+  arrange(desc(created_at)) %>% 
+  slice(1) %>% 
+  select(screen_name, text)
+```
+
+Let's look at who is tweeting about R, using one of the common R hashtags: #rstats. I've removed retweets so that we hopefully get some actual interesting projects.
+
+```{r get_rstats, eval = FALSE}
+rstats_tweets <- search_tweets(
+  q = "#rstats",
+  include_rts = FALSE
+)
+
+saveRDS(rstats_tweets, "dont_push/rstats_tweets.rds")
+```
+
+
+```{r, include = FALSE}
+rstats_tweets <- readRDS("dont_push/rstats_tweets.rds")
+```
+
+And then have a look at them.
+
+```{r look_at_rstats}
+names(rstats_tweets)
+
+rstats_tweets %>% 
+  select(screen_name, text) %>% 
+  head()
+```
+
+
+There is a bunch of other things that you can do just using a regular user account, and if you're interested then you should try the examples in the `rtweet` package documentation: https://rtweet.info/index.html. But more is available once you register as a developer (https://developer.twitter.com/en/apply-for-access). The Twitter API document is surprisingly readable and you may enjoy some of it: https://developer.twitter.com/en/docs. 
+
+When I introduced APIs I said that the 'data provider specifies exactly the data that they are willing to provide...' and we have certainly been able to take advantage of what they provide But I continued '...and the terms under which they will provide it' and here we haven't done our part. In particular, I took some tweets and saved them. If I had pushed these to GitHub then it's possible I may have accidently stored sensitive information if there happened to be some in the tweets. Or if I had taken enough tweets to start to do some reasonable statistical analysis then even if there wasn't sensitive information I may have violated the terms if I had pushed those saved tweets to GitHub. Finally, I linked a Twitter user name, in this case `@Liza_Bolton` with Professor Bolton. I happened to ask her if this was okay, but if I hadn't done that then I would have been violating the Twitter terms of service.
+
+If you use Twitter data, please take a moment to look at the terms: https://developer.twitter.com/en/developer-terms/more-on-restricted-use-cases.
+
+
+
+## Case study - spotifyr
+
+For the next example I will introduce the `spotifyr` package [@spotifyr]. Again, this is a wrapper that has been developed around an API, in this case the Spotify API.
+
+https://www.rcharlie.com/spotifyr/
+
+```{r}
+# devtools::install_github('charlie86/spotifyr')
+library(spotifyr)
+```
+
+
+In order to use this account you need a Spotify Developer Account, which you can set-up here: https://developer.spotify.com/dashboard/. That'll have you log in with your Spotify details and then accept their terms (it's worth looking at some of these and I'll follow up on a few below) as in Figure \@ref(fig:spotifyaccept).
+
+```{r spotifyaccept, echo=FALSE, fig.cap="rtweet authorisation page", out.width = '90%'}
+knitr::include_graphics(here::here("figures/spotify.png"))
+```
+
+What we need from here is a 'Client ID' and you can just fill out some basic details. In our case we probably 'don't know' what we're building, which means that Spotify requires us to use a non-commercial agreement, which is fine. In order to use the Spotify API we need a Client ID and a Client Secret. 
+
+These are things that you want to keep to yourself. There are a variety of ways of keeping this secret, (and my understanding is that a helpful package is on its way) but we'll keep them in our System Environment. In this way, when we push to GitHub they won't be included. To do this we need to be careful about the naming, because `spotifyr` will look in our environment for specifically named keys. 
+
+To do this we are going to use the `usethis` package @citeusethis. So if you don't have that then please install it. There is a file called '.Renviron' which we will open and add our secrets to. This file also controls things like your default library location and more information is available at @renvironrstudio and @whattheyforgot. 
+
+```{r, eval = FALSE}
+usethis::edit_r_environ() 
+```
+
+When you run that function it will open a file. There you can add your Spotify secrets.
+
+```{r, eval = FALSE}
+SPOTIFY_CLIENT_ID = 'PUT_YOUR_CLIENT_ID_HERE'
+SPOTIFY_CLIENT_SECRET = 'PUT_YOUR_SECRET_HERE'
+```
+
+Save your '.Renviron' file, and then restart R (Session -> Restart R). You can now draw on that variable when you need.
+
+Some functions that require your secrets as arguments will now just work. For instance, we will get information about Radiohead using `get_artist_audio_features()`. One of the arguments is `authorization`, but as that is set to default to look at the R Environment, we don't need to do anything further.
+
+
+```{r, eval = FALSE}
+radiohead <- get_artist_audio_features('radiohead')
+saveRDS(radiohead, "inputs/radiohead.rds")
+```
+
+```{r}
+radiohead <- readRDS("inputs/radiohead.rds")
+
+names(radiohead)
+
+radiohead %>% 
+  select(artist_name, track_name, album_name) %>% 
+  head()
+```
+
+Let's just make a quick graph looking at track length over time.
+
+```{r}
+radiohead %>% 
+  ggplot(aes(x = album_release_year, y = duration_ms)) +
+  geom_point()
+```
+
+Just because we can, let's settle an argument. I've always said that Radiohead of quite depressing, but they're my wife's favourite band. So let's see how depressing they are. Spotify provides various information about each track, including 'valence', which Spotify [define](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/) as '(a) measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).' So higher values are happier. Let's compare someone who we know it likely to be happy - Taylor Swift - with Radiohead.
+
+```{r, eval = FALSE}
+swifty <- get_artist_audio_features('taylor swift')
+saveRDS(swifty, "inputs/swifty.rds")
+```
+
+```{r}
+swifty <- readRDS("inputs/swifty.rds")
+
+tibble(name = c(swifty$artist_name, radiohead$artist_name),
+       year = c(swifty$album_release_year, radiohead$album_release_year),
+       valence = c(swifty$valence, radiohead$valence)
+               ) %>% 
+  ggplot(aes(x = year, y = valence, color = name)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Year",
+       y = "Valence",
+       color = "Name") +
+  scale_color_brewer(palette = "Set1")
+```
+
+Finally, for the sake of embarrassment, let's look at our most played artists.
+
+```{r, eval = FALSE}
+top_artists <- get_my_top_artists_or_tracks(type = 'artists', time_range = 'long_term', limit = 20)
+
+saveRDS(top_artists, "inputs/top_artists.rds")
+```
+
+
+
+```{r}
+top_artists <- readRDS("inputs/top_artists.rds")
+
+top_artists %>% 
+  select(name, popularity)
+```
+
+So pretty much my wife and I like what everyone else likes, with the exception of Ainslie Wills, who is an Australian and I suspect we used to listen to her when we were homesick.
+
+
+How amazing that we live in a world that all that information is available with very little effort or cost.
+
+Again, there is a lot more at the package's website: https://www.rcharlie.com/spotifyr/. A very nice little application of the Spotify API using some statistical analysis is @kaylinpavlik.
+
+
+<!-- ## NBA statistics -->
+
+<!-- NBA: https://github.com/toddwschneider/ballr -->
+
+
+
+
+<!-- ## tidyquant -->
+
+<!-- Financial markets data: tidyquant -->
+
+<!-- ## Danish statistics -->
+
+<!-- https://cran.r-project.org/web/packages/danstat/vignettes/Introduction_to_danstat.html -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Scraping
+
+
+
+### Introduction
+
+Web-scraping is a way to get data from websites into R. Rather than going to a website ourselves through a browser, we write code that does it for us. This opens up a lot of data to us, but on the other hand, it is not typically data that is being made available for these purposes and so it is important to be respectful of it. While generally not illegal, the specifics with regard to the legality of web-scraping depends on jurisdictions and the specifics of what you're doing, and so it is also important to be mindful of this. And finally, web-scraping imposes a cost on the website host, and so it is important to reduce this to the extent that it's possible.
+
+That all said, web-scraping is an invaluable source of data. But they are typically a datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principals guide my web-scraping.
+
+1. Avoid it. Try to use an API wherever possible.
+2. Abide by their desires. Some websites have a file 'robots.txt' that contains information about what they are comfortable with scrapers doing, for instance 'https://www.google.com/robots.txt'. If they have one of these then you should read it and abide by it.
+3. Reduce the impact. 
+    - Firstly, slow down your scraper, for instance, rather than having it visit the website every second, slow it down (using `sys.sleep()`). If you're only after a few hundred files then why not just have it visit once a minute, running in the background overnight?
+   - Secondly, consider the timing of when you run the scraper. For instance, if it's a retailer then why not set your script to run from 10pm through to the morning, when fewer customers are likely to need the site? If it's a government website and they have a big monthly release then why not avoid that day?
+4. Take only what you need. For instance, don't scrape the entire of Wikipedia if all you need is to know the names of the 10 largest cities in Canada. This reduces the impact on their website and allows you to more easily justify what you are doing.
+5. Only scrape once. Save everything as you go so that you don't have to re-collect data. Similarly, once you have the data, you should keep that separate and not modify it. Of course, if you need data over time then you will need to go back, but this is different to needlessly re-scraping a page.
+6. Don't republish the pages that you scraped. (This is in contrast to datasets that you create from it.)
+7. Take ownership and ask permission if possible. At a minimum level your scripts should have your contact details in them. Depending on the circumstances, it may be worthwhile asking for permission before you scrape.
+
+
+### Getting started
+
+
+Webscraping is possible by taking advantage of the underlying structure of a webpage. We use patterns in the HTML/CSS to get the data that we want. To look at the underlying HTML/CSS you can either: 1) open a browser, right-click, and choose something like 'Inspect'; or 2) save the website and then open it with a text editor rather than a browser.
+
+HTML/CSS is a markup language comprised of matching tags. So if you want text to be bold then you would use something like:
+
+```{CSS, eval = FALSE, echo = TRUE}
+<b>My bold text</b>
+```
+
+Similarly, if you want a list then you start and end the list as well as each item. 
+
+```{CSS, eval = FALSE, echo = TRUE}
+<ul>
+  <li>Learn webscraping</li>
+  <li>Do data science</li>
+  <li>Proft</li>
+</ul>
+```
+
+When webscraping we will search for these tags.
+
+To get started, this is some HTML/CSS from my website. Let's say that we want to grab my name from it. We can see that the name is in bold, so we want to probably focus on that feature and extract it.
+
+```{r, eval = TRUE, echo = TRUE}
+website_extract <- "<p>Hi, I’m <b>Rohan</b> Alexander.</p>"
+```
+
+We will use the `rvest` package @citervest. 
+
+```{r, eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE}
+# install.packages("rvest")
+library(rvest)
+
+rohans_data <- read_html(website_extract)
+
+rohans_data
+```
+
+The language used by `rvest` to look for tags is 'node', so we will focus on bold nodes. By default `html_nodes()` returns the tags as well. So we can focus on the text that they contain, using `html_text()`.
+
+```{r, eval = TRUE, echo = TRUE}
+rohans_data %>% 
+  html_nodes("b")
+
+first_name <- 
+  rohans_data %>% 
+  html_nodes("b") %>%
+  html_text()
+
+first_name
+```
+
+The result is that we learn my first name.
+
+
+
+
+
+
+
+
+## Case study - Rohan's books
+
+
+### Introduction
+
+In this case study we are going to scrape a list of books that I own, clean it, and look at the distribution of the first letters of author surnames. It is slightly more complicated than the example above, but the underlying approach is the same - download the website, look for the nodes of interest, extract the information, clean it.
+
+
+### Gather
+
+Again, the key library that we are using is the `rvest` library. This makes it easier to download a website, and to then navigate the html to find the aspects that we are interested in. You should create a new project in a new folder (File -> New Project). Within that new folder you should make three new folders: `inputs`, `outputs`, and `scripts.`
+
+In the scripts folder you should write and save a script along these lines. This script loads the libraries that we need, then visits my website, and saves a local copy.
+
+
+```{r, include = TRUE, eval = FALSE, echo = TRUE}
+#### Contact details ####
+# Title: Get data from rohanalexander.com
+# Purpose: This script gets data from Rohan's website about the books that he 
+# owns. It calls his website and then saves the dataset to inputs.
+# Author: Rohan Alexander
+# Contact: rohan.alexander@utoronto.ca
+# Last updated: 20 May 2020
+
+
+#### Set up workspace ####
+library(rvest)
+library(tidyverse)
+
+
+#### Get html ####
+rohans_data <- read_html("https://rohanalexander.com/bookshelf.html")
+# This takes a website as an input and will read it into R, in the same way that we 
+# can read a, say, CSV into R.
+
+write_html(rohans_data, "inputs/my_website/raw_data.html") 
+# Always save your raw dataset as soon as you get it so that you have a record 
+# of it. This is the equivalent of, say, write_csv() that we have used earlier.
+```
+
+
+
+### Clean
+
+Now we need to navigate the HTML to get the aspects that we want, and to then put them into some sensible structure. I always try to get the data into a tibble as early as possible. While it's possible to work with the nested data, I move to a tibble so that the usual verbs that I'm used to can be used.
+
+In the scripts folder you should write and save a new R script along these lines. First, we need to add the top matter, read in the libraries and the data that we scraped.
+
+```{r, include = TRUE, eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE}
+#### Contact details ####
+# Title: Clean data from rohanaledander.com
+# Purpose: This script cleans data that was downloaded in 01-get_data.R.
+# Author: Rohan Alexander
+# Contact: rohan.alexander@utoronto.ca
+# Pre-requisites: Need to have run 01_get_data.R and have saved the data.
+# Last updated: 20 May 2020
+
+
+#### Set up workspace ####
+library(tidyverse)
+library(rvest)
+
+rohans_data <- read_html("inputs/my_website/raw_data.html")
+
+rohans_data
+```
+
+
+Now we need to identify the data that we are interested in using html tags and convert it to a tibble. If you look at the website, then you should notice that we are likely trying to focus on list items (Figure \@ref(fig:rohansbooks)).
+
+```{r rohansbooks, echo=FALSE, fig.cap="Some of Rohan's books", out.width = '90%'}
+knitr::include_graphics(here::here("figures/rohansbooks.png"))
+```
+
+Let's look at the source (Figure \@ref(fig:rohanssourceone)).
+
+```{r rohanssourceone, echo=FALSE, fig.cap="Source code for top of the page", out.width = '90%'}
+knitr::include_graphics(here::here("figures/sourcetop.png"))
+```
+
+There's a lot of debris, but scrolling down we eventually get to a list (Figure \@ref(fig:rohanssourcetwo)).
+
+```{r rohanssourcetwo, echo=FALSE, fig.cap="Source code for list", out.width = '90%'}
+knitr::include_graphics(here::here("figures/sourcelist.png"))
+```
+
+
+The tag for a list item is 'li', so we modify the earlier code to focus on that and to get the text.
+
+```{r, include = TRUE, eval = TRUE, echo = TRUE}
+#### Clean data ####
+# Identify the lines that have books on them based on the list html tag
+text_data <- rohans_data %>%
+  html_nodes("li") %>%
+  html_text()
+
+all_books <- tibble(books = text_data)
+
+head(all_books)
+```
+
+We now need to clean the data. First we want to separate the title and the author
+
+```{r, include = TRUE, eval = TRUE, echo = TRUE}
+# All content is just one string, so need to separate title and author
+all_books <-
+  all_books %>%
+  separate(books, into = c("title", "author"), sep = "”")
+
+# Remove leading comma and clean up the titles a little
+all_books <-
+  all_books %>%
+  mutate(author = str_remove_all(author, "^, "),
+         author = str_squish(author),
+         title = str_remove(title, "“"),
+         title = str_remove(title, "^-")
+         )
+
+head(all_books)
+```
+
+Finally, some specific cleaning is needed.
+
+```{r, include = TRUE, eval = TRUE, echo = TRUE}
+# Some authors have comments after their name, so need to get rid of them, although there are some exceptions that will not work
+# J. K. Rowling.
+# M. Mitchell Waldrop.
+# David A. Price
+all_books <-
+  all_books %>%
+  mutate(author = str_replace_all(author,
+                              c("J. K. Rowling." = "J K Rowling.",
+                                "M. Mitchell Waldrop." = "M Mitchell Waldrop.",
+                                "David A. Price" = "David A Price")
+                              )
+         ) %>%
+  separate(author, into = c("author_correct", "throw_away"), sep = "\\.", extra = "drop") %>%
+  select(-throw_away) %>%
+  rename(author = author_correct)
+
+# Some books have multiple authors, so need to separate them
+# One has multiple authors:
+# "Daniela Witten, Gareth James, Robert Tibshirani, and Trevor Hastie"
+all_books <-
+  all_books %>%
+  mutate(author = str_replace(author,
+                              "Daniela Witten, Gareth James, Robert Tibshirani, and Trevor Hastie",
+                              "Daniela Witten and Gareth James and Robert Tibshirani and Trevor Hastie")) %>%
+  separate(author, into = c("author_first", "author_second", "author_third", "author_fourth"), sep = " and ", fill = "right") %>%
+  pivot_longer(cols = starts_with("author_"),
+               names_to = "author_position",
+               values_to = "author") %>%
+  select(-author_position) %>%
+  filter(!is.na(author))
+
+head(all_books)
+```
+
+It looks there is some at the end because I have a best of. I'll just get rid of those manually because it's not the focus.
+
+```{r, include = TRUE, eval = TRUE, echo = TRUE}
+all_books <- 
+  all_books %>% 
+  slice(1:118)
+```
+
+
+### Explore
+
+Finally, just because we have the data now, so we may as well try to do something with it, let's look at the distribution of the first letter of the author names. 
+
+```{r, eval = TRUE, echo = TRUE}
+all_books %>% 
+  mutate(
+    first_letter = str_sub(author, 1, 1)
+    ) %>% 
+  group_by(first_letter) %>% 
+  count()
+```
+
+
+
+
+
+
+
+
+
+
+
+## Case study - Canadian Prime Ministers
+
+
+### Introduction
+
+In this case study we are interested in how long Canadian prime ministers lived, based on the year that they were born. We will scrape data from Wikipedia, clean it, and then make a graph.
+
+The key library that we will use for scraping is `rvest`. This adds a lot of functions that will make life easier. That said, every time you scrape a website things will change. Each scrape will largely be bespoke, even if you can borrow some code from earlier projects that you have completed. It is completely normal to feel frustrated at times. It helps to begin with an end in mind. 
+
+To that end, let's generate some simulated data. Ideally, we want a table that has a row for each prime minister, a column for their name, and a column each for the birth and death years. If they are still alive, then that death year can be empty. We know that birth and death years should be somewhere between 1700 and 1990, and that death year should be larger than birth year. Finally, we also know that the years should be integers, and the names should be characters. So, we want something that looks roughly like this:
+
+```{r, warning = FALSE, message = FALSE, echo =  TRUE}
+library(babynames)
+library(tidyverse)
+
+simulated_dataset <- 
+  tibble(prime_minister = sample(x = babynames %>% filter(prop > 0.01) %>% 
+                                   select(name) %>% unique() %>% unlist(), 
+                                 size = 10, replace = FALSE),
+         birth_year = sample(x = c(1700:1990), size = 10, replace = TRUE),
+         years_lived = sample(x = c(50:100), size = 10, replace = TRUE),
+         death_year = birth_year + years_lived) %>% 
+  select(prime_minister, birth_year, death_year, years_lived) %>% 
+  arrange(birth_year)
+
+head(simulated_dataset)
+```
+
+One of the advantages of generating a simulated dataset is that if you are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we want something like Figure \@ref(fig:pmsgraphexample).
+
+```{r pmsgraphexample, echo=FALSE, fig.cap="Sketch of planned graph.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/IMG_4185.jpeg"))
+```
+
+
+
+
+### Gather
+
+We are starting with a question that is of interest, which how long each Canadian prime minister lived. As such, we need to identify a source of data While there are likely to be plenty of data sources that have the births and deaths of each prime minister, we want one that we can trust, and as we are going to be scraping, we want one that has some structure to it. The Wikipedia page (https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Canada) fits both these criteria. As it is a popular page the information is more likely to be correct, and the data are available in a table.
+
+We load the library and then we read in the data from the relevant page. The key function here is `read_html()`, which you can use in the same way as, say, `read_csv()`, except that it takes a html page as an input. Once you call `read_html()` then the page is downloaded to your own computer, and it is usually a good idea to save this, using `write_html()` as it is your raw data. Saving it also means that we don't have to keep visiting the website when we want to start again with our cleaning, and so it is part of being polite. However, it is likely not our property (in the case of Wikipedia, we might be okay), and so you should probably not share it. 
+
+```{r, warning = FALSE, message = FALSE, echo = TRUE}
+library(rvest)
+```
+
+```{r, include = TRUE, eval = FALSE, echo = TRUE}
+raw_data <- read_html("https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Canada")
+write_html(raw_data, "inputs/wiki/pms.html") # Note that we save the file as a html file.
+```
+
+
+### Clean
+
+Websites are made up of html, which is a markup language. We are looking for patterns in the mark-up that we can use to help us get closer to the data that we want. This is an iterative process and requires a lot of trial and error. Even simple examples will take time. You can look at the html by using a browser, right clicking, and then selecting `view page source`. Similarly, you could open the html file using a text editor.
+
+#### By inspection
+
+We are looking for patterns that we can use to select the information that is of interest - names, birth year, and death year. When we look at the html it looks like there is something going on with `<tr>`, and then `<td>` (thanks to Thomas Rosenthal for identifying this). We select those nodes using `html_nodes()`, which takes the tags as an input. If you only want the first one then there is a singular version, `html_node()`.
+
+```{r, echo = TRUE}
+# Read in our saved data
+raw_data <- read_html("inputs/wiki/pms.html")
+
+# We can parse tags in order
+parse_data_inspection <- 
+  raw_data %>% 
+  html_nodes("tr") %>% 
+  html_nodes("td") %>% 
+  html_text() # html_text removes any remaining html tags
+
+# But this code does exactly the same thing - the nodes are just pushed into 
+# the one function call
+parse_data_inspection <- 
+  raw_data %>% 
+  html_nodes("tr td") %>% 
+  html_text()
+
+head(parse_data_inspection)
+```
+
+At this point our data is in a character vector, we want to convert it to a table, and reduce the data down to just the information that we want. The key that is going to allow us to do this is the fact that there seems to be a blank line (which in html is denoted by `\n`) before the key information that we need. So, once we identify that line then we can filter to just the line below it!
+
+```{r, echo = TRUE}
+parsed_data <- 
+  tibble(raw_text = parse_data_inspection) %>% # Convert the character vector to a table
+  mutate(is_PM = if_else(raw_text == "\n\n", 1, 0), # Look for the blank line that is 
+         # above the row that we want
+         is_PM = lag(is_PM, n = 1)) %>% # Identify the actual row that we want
+  filter(is_PM == 1) # Just get the rows that we want
+
+head(parsed_data)
+```
+
+
+#### Using the selector gadget
+
+If you are comfortable with html then you might be able to see patterns, but one tool that may help is the SelectorGadget: https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html. This allows you to pick and choose the elements that you want, and then gives you the input to give to `html_nodes()` (Figure \@ref(fig:selectorgadget))
+
+```{r selectorgadget, echo=FALSE, fig.cap="Using the Selector Gadget to identify the tag, as at 13 March 2020.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/selectorgadget.png"))
+```
+
+
+
+
+```{r, echo = TRUE}
+# Read in our saved data
+raw_data <- read_html("inputs/wiki/pms.html")
+
+# We can parse tags in order
+parse_data_selector_gadget <- 
+  raw_data %>% 
+  html_nodes("td:nth-child(3)") %>% 
+  html_text() # html_text removes any remaining html tags
+
+head(parse_data_selector_gadget)
+```
+
+In this case there is one prime minister - Robert Borden - who changed party and we would need to filter away that row: `\nUnionist Party\n"`.
+
+
+#### Clean data
+
+Now that we have the parsed data, we need to clean it to match what we wanted. In particular we want a names column, as well as columns for birth year and death year. We will use `separate()` to take advantage of the fact that it looks like the dates are distinguished by brackets.
+
+```{r, echo = TRUE}
+initial_clean <- 
+  parsed_data %>% 
+  separate(raw_text, 
+            into = c("Name", "not_name"), 
+            sep = "\\(",
+            remove = FALSE) %>% # The remove = FALSE option here means that we 
+  # keep the original column that we are separating.
+  separate(not_name, 
+            into = c("Date", "all_the_rest"), 
+            sep = "\\)",
+            remove = FALSE)
+
+head(initial_clean)
+```
+
+Finally, we need to clean up the columns.
+
+```{r, warning = FALSE, message = FALSE, echo = TRUE}
+cleaned_data <- 
+  initial_clean %>% 
+  select(Name, Date) %>% 
+  separate(Date, into = c("Birth", "Died"), sep = "–", remove = FALSE) %>% # The 
+  # PMs who have died have their birth and death years separated by a hyphen, but 
+  # you need to be careful with the hyphen as it seems to be a slightly odd type of 
+  # hyphen and you need to copy/paste it.
+  mutate(Birth = str_remove(Birth, "b. ")) %>% # Alive PMs have slightly different format
+  select(-Date) %>% 
+  mutate(Name = str_remove(Name, "\n")) %>% # Remove some html tags that remain
+  mutate_at(vars(Birth, Died), ~as.integer(.)) %>% # Change birth and death to integers
+  mutate(Age_at_Death = Died - Birth) %>%  # Add column of the number of years they lived
+  distinct() # Some of the PMs had two goes at it.
+
+head(cleaned_data)
+```
+
+
+### Explore
+
+At this point we'd like to make a graph that illustrates how long each prime minister lived. If they are still alive then we would like them to run to the end, but we would like to colour them differently.
+
+```{r, echo = TRUE}
+cleaned_data %>% 
+  mutate(still_alive = if_else(is.na(Died), "Yes", "No"),
+         Died = if_else(is.na(Died), as.integer(2020), Died)) %>% 
+  mutate(Name = as_factor(Name)) %>% 
+  ggplot(aes(x = Birth, 
+             xend = Died,
+             y = Name,
+             yend = Name, 
+             color = still_alive)) +
+  geom_segment() +
+  labs(x = "Year of birth",
+       y = "Prime minister",
+       color = "PM is alive",
+       title = "Canadian Prime Minister, by year of birth") +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## PDFs
+
+
+
+### Introduction
+
+In contrast to an API, a PDF is usually only produced for human (not computer) consumption. The nice thing about PDFs is that they are static and constant. And it is nice that they make data available at all. But the trade-off is that:
+
+- It is not overly useful to do larger-scale statistical analysis.
+- We don't know how the PDF was put together so we don't know whether we can trust it.
+- We can't manipulate the data to get results that we are interested in.
+
+Indeed, sometimes governments publish data as PDFs because they don't actually want you to be able to analyse it! Being able to get data from PDFs opens up a large number of dataset for you, some of which we'll see in this chapter. 
+
+There are two important aspects to keep in mind when approaching a PDF with a mind to extracting data from it:
+
+1. Begin with an end in mind. Planning and then literally sketching out what you want from a final dataset/graph/paper stops you wasting time and keeps you focused. 
+2. Start simple, then iterate. The quickest way to make a complicated model is often to first build a simple model and then complicate it. Start with just trying to get one page of the PDF working or even just one line. Then iterate from there.
+
+In this chapter we start by walking through several examples and then go through three case studies of varying difficulty.
+
+
+### Getting started
+
+Figure \@ref(fig:firstpdfexample) is a PDF that consists of just the first sentence from Jane Eyre taken from Project Gutenberg @janeeyre.
+
+```{r firstpdfexample, echo=FALSE, fig.cap = "First sentence of Jane Eyre", out.width = '90%'}
+knitr::include_graphics(here::here("inputs/pdfs/first_example.png"))
+```
+
+We will use the package `pdftools` @citepdftools to get the text in this one page PDF into R.
+
+```{r, echo=TRUE}
+# install.packages("pdftools")
+library(pdftools)
+library(tidyverse)
+
+first_example <- pdftools::pdf_text("inputs/pdfs/first_example.pdf")
+
+first_example
+
+class(first_example)
+```
+
+We can see that the PDF has been correctly read in, as a character vector.
+
+We will now try a slightly more complicated example that consists of the first few paragraphs of Jane Eyre (Figure \@ref(fig:secondpdfexample)). Also notice that now we have the chapter heading as well.
+
+```{r secondpdfexample, echo=FALSE, fig.cap = "First few paragraphs of Jane Eyre", out.width = '90%'}
+knitr::include_graphics(here::here("inputs/pdfs/second_example.png"))
+```
+
+We use the same function as before.
+
+```{r, echo=TRUE}
+second_example <- pdftools::pdf_text("inputs/pdfs/second_example.pdf")
+
+second_example
+
+class(second_example)
+```
+
+Again, we have a character vector. The end of each line is signalled by '\\n', but other than that it looks pretty good.
+
+Finally, we consider the first two pages.
+
+We use the same function as before.
+
+```{r, echo=TRUE}
+third_example <- pdftools::pdf_text("inputs/pdfs/third_example.pdf")
+
+third_example
+
+class(third_example)
+```
+
+Now, notice that the first page is the first element of the character vector and the second page is the second element. 
+
+As we're most familiar with rectangular data we'll try to get it into that format as quickly as possible. And then we can use our regular tools to deal with it.
+
+First we want to convert the character vector into a tibble. At this point we may like to add page numbers as well.
+
+```{r, echo=TRUE}
+jane_eyre <- tibble(raw_text = third_example,
+                    page_number = c(1:2))
+```
+
+We probably now want to separate the lines so that each line is an observation. We can do that by looking for the '\\n' remembering that we need to escape the backslash as it's a special character.
+
+```{r, echo=TRUE}
+jane_eyre <- separate_rows(jane_eyre, raw_text, sep = "\\n", convert = FALSE)
+head(jane_eyre)
+```
+
+
+
+
+
+
+
+## Case-study: US Total Fertility Rate, by state and year (2000-2018)
+
+### Introduction
+
+If you're married to a demographer it is not too long until you are asked to look at a US Department of Health and Human Services Vital Statistics Report. In this case we are interested in trying to get the total fertility rate (the average number of births per woman assuming that woman experience the current age-specific fertility rates throughout their reproductive years)^[And if you'd like to know more about this then I'd recommend starting a PhD with [Monica Alexander](https://www.monicaalexander.com/).] for each state for nineteen years. Annoyingly, the US persists in only making this data available in PDFs, but it makes a nice case study.
+
+
+In the case of the year 2000 the table that we are interested in is on page 40 of a PDF that is available https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf and it is the column labelled: "Total fertility rate" (Figure \@ref(fig:dhsexample)). 
+
+```{r dhsexample, echo=FALSE, fig.cap="Example Vital Statistics Report, from 2000", out.width = '90%'}
+knitr::include_graphics(here::here("figures/dhs_example.png"))
+```
+
+
+### Begin with an end in mind
+
+The first step when getting data out of a PDF is to sketch out what you eventually want. A PDF typically contains a lot of information, and so it is handy to be very clear about what you need. This helps keep you focused, and prevents scope creep, but it is also helpful when thinking about data checks. Literally write down on paper what you have in mind.
+
+In this case, what is needed is a table with a column for state, year and TFR (Figure \@ref(fig:tfrdesired)). 
+
+```{r tfrdesired, echo=FALSE, fig.cap="Desired output from the PDF", out.width = '90%'}
+knitr::include_graphics(here::here("figures/tfr_desired.jpeg"))
+```
+
+
+
+### Start simple, then iterate. 
+
+There are 19 different PDFs and we are interested in a particular column in a particular table in each of them. Unfortunately there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.
+
+```{r}
+monicas_data <- read_csv("inputs/tfr_tables_info.csv")
+
+monicas_data %>% 
+  select(year, page, table, column_name, url) %>% 
+  gt()
+```
+
+The first step is to get some code that works for one of them. I'll step through the code in a lot more detail than normal because we're going to use these pieces a lot. 
+
+We will choose the year 2000. We first download the data and save it.
+
+```{r justfirstyear, eval = FALSE, echo=TRUE}
+download.file(url = monicas_data$url[1], 
+              destfile = "inputs/pdfs/dhs/year_2000.pdf")
+```
+
+We now want to read the PDF in as a character vector.
+
+```{r, echo=TRUE}
+dhs_2000 <- pdftools::pdf_text("inputs/pdfs/dhs/year_2000.pdf")
+```
+
+Convert it to a tibble, so that we can use familiar verbs on it.
+
+```{r, echo=TRUE}
+dhs_2000 <- tibble(raw_data = dhs_2000)
+
+head(dhs_2000)
+```
+
+Grab the page that is of interest (remembering that each page is a element of the character vector, hence a row in the tibble).
+
+```{r, echo=TRUE}
+dhs_2000 <- 
+  dhs_2000 %>% 
+  slice(monicas_data$page[1])
+
+head(dhs_2000)
+```
+
+Now we want to separate the rows.
+
+```{r, echo=TRUE}
+dhs_2000 <- 
+  dhs_2000 %>% 
+  separate_rows(raw_data, sep = "\\n", convert = FALSE)
+
+head(dhs_2000)
+```
+
+Now we are searching for patterns that we can use. (If you have a lot of tables that you are interested in grabbing from PDFs then it may also be worthwhile considering the tabulizer package which is specifically designed for that. The issue is that it depends on Java and I always seem to run into trouble when I need to use Java so I avoid it when I can.)
+
+Let's look at the first ten lines of content.
+
+```{r, echo=TRUE}
+dhs_2000[13:22,]
+```
+
+It doesn't get much better than this:
+
+1. We have dots separating the states from the data.
+2. We have a space between each of the columns.
+
+So we can now separate this in to separate columns. First we want to match on when there is at least two dots (remembering that the dot is a special character and so needs to be escaped).
+
+```{r, echo=TRUE}
+dhs_2000 <- 
+  dhs_2000 %>% 
+  separate(col = raw_data, 
+           into = c("state", "data"), 
+           sep = "\\.{2,}", 
+           remove = FALSE,
+           fill = "right"
+           )
+
+head(dhs_2000)
+```
+
+We get the expected warnings about the top and the bottom as they don't have multiple dots.
+
+(Another option here is to use the `pdf_data()` function which would allow us to use location rather than delimiters.)
+
+We can now separate the data based on spaces. There is an inconsistent number of spaces, so we first squish any example of more than one space into just one.
+
+```{r, echo=TRUE}
+dhs_2000 <- 
+  dhs_2000 %>%
+  mutate(data = str_squish(data)) %>% 
+  tidyr::separate(col = data, 
+           into = c("number_of_births", 
+                    "birth_rate", 
+                    "fertility_rate", 
+                    "TFR", 
+                    "teen_births_all", 
+                    "teen_births_15_17", 
+                    "teen_births_18_19"), 
+           sep = "\\s", 
+           remove = FALSE
+           )
+
+head(dhs_2000)
+```
+
+
+
+
+This is all looking fairly great. The only thing left is to clean up.
+
+```{r, echo=TRUE}
+dhs_2000 <- 
+  dhs_2000 %>% 
+  select(state, TFR) %>% 
+  slice(13:69) %>% 
+  mutate(year = 2000)
+
+dhs_2000
+```
+
+
+
+And we're done for that year. Now we want to take these pieces, put them into a function and then run that function over all 19 years.
+
+
+
+### Iterating
+
+#### Get the PDFs
+
+The first part is downloading each of the 19 PDFs that we need. We're going to build on the code that we used before. That code was:
+
+```{r, eval = FALSE, echo = TRUE}
+download.file(url = monicas_data$url[1], destfile = "inputs/pdfs/dhs/year_2000.pdf")
+```
+
+
+
+
+To modify this we need:
+
+1. To have it iterate through each of the lines in the dataset that contains our CSVs (i.e. where it says 1, we want 1, then 2, then 3, etc.). 
+2. Where it has a filename, we need it to iterate through our desired filenames (i.e. year_2000, then year_2001, then year_2002, etc). 
+3. We'd like for it to do all of this in a way that is a little robust to errors. For instance, if one of the URLs is wrong or the internet drops out then we'd like it to just move onto the next PDF, and then warn us at the end that it missed one, not to stop. (This doesn't really matter because it's only 19 files, but it's pretty easy to find yourself doing this for thousands of files). 
+
+We will draw on the `purrr` package for this @citepurrr.
+
+```{r, echo = TRUE}
+library(purrr)
+monicas_data <- 
+  monicas_data %>% 
+  mutate(pdf_name = paste0("inputs/pdfs/dhs/year_", year, ".pdf"))
+```
+
+
+
+```{r, eval = FALSE, echo = TRUE}
+purrr::walk2(monicas_data$url, monicas_data$pdf_name, purrr::safely(~download.file(.x , .y)))
+```
+
+What this code does it take the function `download.file()` and give it two arguments: `.x` and `.y`. The function `walk2()` then applies that function to the inputs that we give it, in this case the URLs columns is the `.x` and the pdf_names column is the `.y`. Finally, the `safely()` function means that if there are any failures then it just moves onto the next file instead of throwing an error.
+
+We now have each of the PDFs saved and we can move onto getting the data from them.
+
+
+
+#### Get data from the PDFs
+
+Now we need to get the data from the PDFs. As before, we're going to build on the code that we used before. That code (overly condensed) was:
+
+```{r, echo=TRUE, eval = FALSE}
+dhs_2000 <- pdftools::pdf_text("inputs/pdfs/dhs/year_2000.pdf")
+
+dhs_2000 <- 
+  tibble(raw_data = dhs_2000) %>% 
+  slice(monicas_data$page[1]) %>% 
+  separate_rows(raw_data, sep = "\\n", convert = FALSE) %>% 
+  separate(col = raw_data, into = c("state", "data"), sep = "\\.{2,}", remove = FALSE) %>% 
+  mutate(data = str_squish(data)) %>% 
+  separate(col = data, 
+           into = c("number_of_births", "birth_rate", "fertility_rate", "TFR", "teen_births_all", "teen_births_15_17", "teen_births_18_19"), 
+           sep = "\\s", 
+           remove = FALSE) %>% 
+  select(state, TFR) %>% 
+  slice(13:69) %>% 
+  mutate(year = 2000)
+
+dhs_2000
+```
+
+
+
+
+There are a bunch of aspects here that have been hardcoded, but the first thing that we want to iterate is the argument to `pdf_text()`, then the number in in `slice()` will also need to change (that is doing the work to get only the page that we are interested in).
+
+Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works. Finally, we add the year only at the end, whereas we'd need to bring that up earlier in the process. 
+
+We'll start by writing a function that will go through all the files, grab the data, get the page of interest, and then expand the rows. We'll then use a function from `purrr` to apply that function to all of the PDFs and to output a tibble.
+
+```{r, echo = TRUE}
+get_pdf_convert_to_tibble <- function(pdf_name, page, year){
+  
+  dhs_table_of_interest <- 
+    tibble(raw_data = pdftools::pdf_text(pdf_name)) %>% 
+    slice(page) %>% 
+    separate_rows(raw_data, sep = "\\n", convert = FALSE) %>% 
+    separate(col = raw_data, 
+             into = c("state", "data"), 
+             sep = "[�|\\.]\\s+(?=[[:digit:]])", 
+             remove = FALSE) %>% 
+    mutate(
+      data = str_squish(data),
+      year_of_data = year)
+
+  print(paste("Done with", year))
+  
+  return(dhs_table_of_interest)
+}
+
+raw_dhs_data <- purrr::pmap_dfr(monicas_data %>% select(pdf_name, page, year),
+                                get_pdf_convert_to_tibble)
+
+head(raw_dhs_data)
+```
+
+Now we need to clean up the state names and then filter on them.
+
+
+
+```{r, echo = TRUE}
+states <- c("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
+            "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", 
+            "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", 
+            "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", 
+            "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", 
+            "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", 
+            "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", 
+            "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", 
+            "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", 
+            "Wyoming", "District of Columbia")
+
+raw_dhs_data <- 
+  raw_dhs_data %>% 
+  mutate(state = str_remove_all(state, "\\."),
+         state = str_remove_all(state, "�"),
+         state = str_remove_all(state, ""),
+         state = str_replace_all(state, "United States 1", "United States"),
+         state = str_replace_all(state, "United States1", "United States"),
+         state = str_replace_all(state, "United States 2", "United States"),
+         state = str_replace_all(state, "United States2", "United States"),
+         state = str_replace_all(state, "United States²", "United States"),
+         ) %>% 
+  mutate(state = str_squish(state)) %>% 
+  filter(state %in% states)
+
+head(raw_dhs_data)
+```
+
+The next step is to separate the data and get the correct column from it. We're going to separate based on spaces once it is cleaned up.
+
+
+```{r, echo = TRUE}
+raw_dhs_data <- 
+  raw_dhs_data %>% 
+  mutate(data = str_remove_all(data, "\\*")) %>% 
+  separate(data, into = c("col_1", "col_2", "col_3", "col_4", "col_5", 
+                          "col_6", "col_7", "col_8", "col_9", "col_10"), 
+           sep = " ",
+           remove = FALSE)
+head(raw_dhs_data)
+```
+
+We can now grab the correct column.
+
+```{r, echo = TRUE}
+tfr_data <- 
+  raw_dhs_data %>% 
+  mutate(TFR = if_else(year_of_data < 2008, col_4, col_3)) %>% 
+  select(state, year_of_data, TFR) %>% 
+  rename(year = year_of_data)
+head(tfr_data)
+```
+
+
+Finally, we need to convert the case.
+
+```{r, echo = TRUE}
+head(tfr_data)
+
+tfr_data <- 
+  tfr_data %>% 
+  mutate(TFR = str_remove_all(TFR, ","),
+         TFR = as.numeric(TFR))
+
+head(tfr_data)
+```
+
+And run some checks.
+
+```{r, echo = TRUE}
+# tfr_data %>% 
+#   skimr::skim()
+```
+
+In particular we want for there to be 51 states and for there to be 19 years.
+
+And we're done.
+
+```{r, echo = TRUE}
+head(tfr_data)
+
+write_csv(tfr_data, "outputs/monicas_tfr.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## Case-study: Kenyan census data
+
+The distribution of population by age, sex, and administrative unit from the 2019 Kenyan census can be downloaded here: https://www.knbs.or.ke/?wpdmpro=2019-kenya-population-and-housing-census-volume-iii-distribution-of-population-by-age-sex-and-administrative-units. 
+
+And while it is great that they make it easily available, and it is easy to look-up a particular result, it is not overly useful to do larger-scale data analysis, such as building a Bayesian hierarchical model. 
+
+In this section we will convert a PDF of Kenyan census results of counts, by age and sex, by county and sub-county, into a tidy dataset that can be analysed. I will draw on and introduce a bunch of handy packages including: `janitor` by @janitor, `pdftools` by @pdftools, `tidyverse` by @tidyverse, and `stringi` by @stringi. 
+
+
+### Set-up
+
+To get started I need to load the necessary packages.
+
+```{r, warning=FALSE, message=FALSE, echo = TRUE}
+library(janitor)
+library(pdftools)
+library(tidyverse)
+library(stringi)
+```
+
+And then I need to read in the PDF that I want to convert. 
+
+```{r, echo = TRUE}
+# Read in the PDF
+all_content <- pdftools::pdf_text("inputs/pdfs/2019_Kenya_census.pdf")
+```
+
+The `pdf_text` function from `pdftools` is useful when you have a PDF and you want to read the content into R. For many recently produced PDFs it'll work pretty well, but there are alternatives. If the PDF is an image, then it won't work and you'll need to turn to OCR.
+
+You can see a page of the PDF here:
+
+```{r, out.width = "85%"}
+knitr::include_graphics("figures/2020-04-10-screenshot-of-census.png") 
+```
+
+
+
+### Extract
+
+The first challenge is to get the dataset into a format that we can more easily manipulate. The way that I am going to do this is to consider each page of the PDF and extract the relevant parts. To do this, I first write a function that I want to apply to each page. 
+
+```{r, echo = TRUE}
+# The function is going to take an input of a page
+get_data <- function(i){
+  # Just look at the page of interest
+  # Based on https://stackoverflow.com/questions/47793326/tabulize-function-in-r
+  just_page_i <- stringi::stri_split_lines(all_content[[i]])[[1]] 
+  
+  # Grab the name of the location
+  area <- just_page_i[3] %>% str_squish()
+  area <- str_to_title(area)
+  
+  # Grab the type of table
+  type_of_table <- just_page_i[2] %>% str_squish()
+  
+  # Get rid of the top matter
+  just_page_i_no_header <- just_page_i[5:length(just_page_i)] # Just manually for now, but could create some rules if needed
+  
+  # Get rid of the bottom matter
+  just_page_i_no_header_no_footer <- just_page_i_no_header[1:62] # Just manually for now, but could create some rules if needed
+  
+  # Convert into a tibble
+  demography_data <- tibble(all = just_page_i_no_header_no_footer)
+  
+  # # Split columns
+  demography_data <-
+    demography_data %>%
+    mutate(all = str_squish(all)) %>% # Any space more than two spaces is squished down to one
+    mutate(all = str_replace(all, "10 -14", "10-14")) %>% 
+    mutate(all = str_replace(all, "Not Stated", "NotStated")) %>% # Any space more than two spaces is squished down to one
+    separate(col = all,
+             into = c("age", "male", "female", "total", "age_2", "male_2", "female_2", "total_2"),
+             sep = " ", # Just looking for a space. Seems to work fine because the tables are pretty nicely laid out
+             remove = TRUE,
+             fill = "right"
+    )
+  
+  # They are side by side at the moment, need to append to bottom
+  demography_data_long <-
+    rbind(demography_data %>% select(age, male, female, total),
+          demography_data %>%
+            select(age_2, male_2, female_2, total_2) %>%
+            rename(age = age_2, male = male_2, female = female_2, total = total_2)
+    )
+  
+  # There is one row of NAs, so remove it
+  demography_data_long <- 
+    demography_data_long %>% 
+    janitor::remove_empty(which = c("rows"))
+  
+  # Add the area and the page
+  demography_data_long$area <- area
+  demography_data_long$table <- type_of_table
+  demography_data_long$page <- i
+  
+  rm(just_page_i,
+     i,
+     area,
+     type_of_table,
+     just_page_i_no_header,
+     just_page_i_no_header_no_footer,
+     demography_data)
+  
+  return(demography_data_long)
+}
+```
+
+At this point, I have a function that does what I need to each page of the PDF. I'm going to use the function `map_dfr` from the `purrr` package to apply that function to each page, and then combine all the outputs into one tibble.
+
+```{r, echo = TRUE}
+# Run through each relevant page and get the data
+pages <- c(30:513)
+all_tables <- map_dfr(pages, get_data)
+rm(pages, get_data, all_content)
+```
+
+
+### Clean
+
+I now need to clean the dataset to make it useful.
+
+#### Values
+
+The first step is to make the numbers into actual numbers, rather than characters. Before I can convert the type I need to remove anything that is not a number otherwise it'll be converted into an NA. So I first identify any values that are not numbers so that I can remove them. 
+
+```{r, echo = TRUE}
+# Need to convert male, female, and total to integers
+# First find the characters that should not be in there
+all_tables %>% 
+  select(male, female, total) %>%
+  mutate_all(~str_remove_all(., "[:digit:]")) %>% 
+  mutate_all(~str_remove_all(., ",")) %>%
+  mutate_all(~str_remove_all(., "_")) %>%
+  mutate_all(~str_remove_all(., "-")) %>% 
+  distinct()
+# We clearly need to remove ",", "_", and "-". 
+# This also highlights a few issues on p. 185 that need to be manually adjusted
+# https://twitter.com/RohanAlexander/status/1244337583016022018
+all_tables$male[all_tables$male == "23-Jun"] <- 4923
+all_tables$male[all_tables$male == "15-Aug"] <- 4611
+```
+
+
+While you could use the `janitor` package here, it is worthwhile at least first looking at what is going on because sometimes there is odd stuff that janitor (and other packages) will deal with, but not in a way that you want. In this case, they've used Excel or similar and this has converted a couple of their entries into dates. If we just took the numbers from the column then we'd have 23 and 15 here, but by inspecting the column we can use Excel to reverse the process and enter the correct values of 4,923 and 4,611, respectively.
+
+Having identified everything that needs to be removed, we can do the actual removal and convert our character column of numbers to integers.
+
+```{r, echo = TRUE}
+all_tables <-
+  all_tables %>%
+  mutate_at(vars(male, female, total), ~str_remove_all(., ",")) %>% # First get rid of commas
+  mutate_at(vars(male, female, total), ~str_replace(., "_", "0")) %>%
+  mutate_at(vars(male, female, total), ~str_replace(., "-", "0")) %>%
+  mutate_at(vars(male, female, total), ~as.integer(.))
+```
+
+
+#### Areas
+
+The next thing to clean is the areas. We know that there are 47 counties in Kenya, and a whole bunch of sub-counties. They give us a list on pages 19 to 22 of the PDF (document pages 7 to 10). However, this list is not complete, and there are a few minor issues that we'll deal with later.
+
+In any case, I first need to fix a few inconsistencies.
+
+```{r, echo = TRUE}
+# Fix some area names
+all_tables$area[all_tables$area == "Taita/ Taveta"] <- "Taita/Taveta"
+all_tables$area[all_tables$area == "Elgeyo/ Marakwet"] <- "Elgeyo/Marakwet"
+all_tables$area[all_tables$area == "Nairobi City"] <- "Nairobi"
+```
+
+Kenya has 47 counties, each of which has sub-counties. The PDF has them arranged as the county data then the sub-counties, without designating which is which. We can use the names, to a certain extent, but in a handful of cases, there is a sub-county that has the same name as a county so we need to first fix that.
+
+The PDF is made-up of three tables.
+
+```{r, echo = TRUE}
+all_tables$table %>% table()
+```
+
+So I can first get the names of the counties based on those first two tables and then reconcile them to get a list of the counties.
+
+```{r, echo = TRUE}
+# Get a list of the counties 
+list_counties <- 
+  all_tables %>% 
+  filter(table %in% c("Table 2.4a: Distribution of Rural Population by Age, Sex* and County",
+                      "Table 2.4b: Distribution of Urban Population by Age, Sex* and County")
+         ) %>% 
+  select(area) %>% 
+  distinct()
+```
+
+As I hoped, there are 47 of them. But before I can add a flag based on those names, I need to deal with the sub-counties that share their name. We will do this based on the page, then looking it up and deciding which is the county page and which is the sub-county page.
+
+```{r, echo = TRUE}
+# The following have the issue of the name being used for both a county and a sub-county:
+all_tables %>% 
+  filter(table == "Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County") %>% 
+  filter(area %in% c("Busia",
+                     "Garissa",
+                     "Homa Bay",
+                     "Isiolo",
+                     "Kiambu",
+                     "Machakos",
+                     "Makueni",
+                     "Samburu",
+                     "Siaya",
+                     "Tana River",
+                     "Vihiga",
+                     "West Pokot")
+         ) %>% 
+  select(area, page) %>% 
+  distinct()
+```
+
+Now we can add the flag for whether the area is a county and adjust for the ones that are troublesome,
+
+```{r, echo = TRUE}
+# Add flag for whether it is a county or a sub-county
+all_tables <- 
+  all_tables %>% 
+  mutate(area_type = if_else(area %in% list_counties$area, "county", "sub-county"))
+# Fix the flag for the ones that have their names used twice
+all_tables <- 
+  all_tables %>% 
+  mutate(area_type = case_when(
+    area == "Samburu" & page == 42 ~ "sub-county",
+    area == "Tana River" & page == 56 ~ "sub-county",
+    area == "Garissa" & page == 69 ~ "sub-county",
+    area == "Isiolo" & page == 100 ~ "sub-county",
+    area == "Machakos" & page == 154 ~ "sub-county",
+    area == "Makueni" & page == 164 ~ "sub-county",
+    area == "Kiambu" & page == 213 ~ "sub-county",
+    area == "West Pokot" & page == 233 ~ "sub-county",
+    area == "Vihiga" & page == 333 ~ "sub-county",
+    area == "Busia" & page == 353 ~ "sub-county",
+    area == "Siaya" & page == 360 ~ "sub-county",
+    area == "Homa Bay" & page == 375 ~ "sub-county",
+    TRUE ~ area_type
+    )
+  )
+
+rm(list_counties)
+```
+
+
+
+#### Ages
+
+Now we can deal with the ages.
+
+First we need to fix some errors.
+
+```{r}
+# Clean up ages
+table(all_tables$age) %>% head()
+unique(all_tables$age) %>% head()
+# Looks like there should be 484, so need to follow up on some:
+all_tables$age[all_tables$age == "NotStated"] <- "Not Stated"
+all_tables$age[all_tables$age == "43594"] <- "5-9"
+all_tables$age[all_tables$age == "43752"] <- "10-14"
+all_tables$age[all_tables$age == "9-14"] <- "5-9"
+all_tables$age[all_tables$age == "10-19"] <- "10-14"
+```
+
+The census has done some of the work of putting together age-groups for us, but we want to make it easy to just focus on the counts by single-year-age. As such I'll add a flag as to the type of age it is: an age group, such as ages 0 to 5, or a single age, such as 1.
+
+```{r}
+# Add a flag as to whether it's a summary or not
+all_tables$age_type <- if_else(str_detect(all_tables$age, c("-")), "age-group", "single-year")
+all_tables$age_type <- if_else(str_detect(all_tables$age, c("Total")), "age-group", all_tables$age_type)
+```
+
+At the moment, age is a character variable. We have a decision to make here, because we don't want it to be a character variable (because it won't graph properly), but we don't want it to be a numeric, because there is `total` and also `100+` in there. So for now, we'll just make it into a factor, and at least that will be able to be nicely graphed.
+
+```{r}
+all_tables$age <- as_factor(all_tables$age)
+```
+
+
+
+### Check
+
+#### Gender sum
+
+Given the format of the data, at this point it is easy to check that `total` is the sum of `male` and `female`.
+
+```{r, echo = TRUE}
+# Check the parts and the sums
+follow_up <- 
+  all_tables %>% 
+  mutate(check_sum = male + female,
+         totals_match = if_else(total == check_sum, 1, 0)
+         ) %>% 
+  filter(totals_match == 0)
+```
+
+There is just one that seems wrong.
+
+```{r, echo = TRUE}
+# There is just one that looks wrong
+all_tables$male[all_tables$age == "10" & all_tables$page == 187] <- as.integer(1)
+
+rm(follow_up)
+```
+
+
+#### Rural-urban split
+
+The census provides different tables for the total of each county and sub-county; and then within each county, for the number in an urban area in that county, and the number in a urban area in that county. Some counties only have an urban count, but we'd like to make sure that the sum of rural and urban counts equals the total count. This requires reshaping the data from a long to wide format.
+
+First, construct different tables for each of the three. I just do it manually, but I could probably do this a nicer way.
+
+```{r, echo = TRUE}
+# Table 2.3
+table_2_3 <- all_tables %>% 
+  filter(table == "Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County")
+table_2_4a <- all_tables %>% 
+  filter(table == "Table 2.4a: Distribution of Rural Population by Age, Sex* and County")
+table_2_4b <- all_tables %>% 
+  filter(table == "Table 2.4b: Distribution of Urban Population by Age, Sex* and County")
+```
+
+Having constructed the constituent parts, I now join then based on age, area, and whether it is a county.
+
+```{r, echo = TRUE}
+both_2_4s <- full_join(table_2_4a, table_2_4b, by = c("age", "area", "area_type"), suffix = c("_rural", "_urban"))
+
+all <- full_join(table_2_3, both_2_4s, by = c("age", "area", "area_type"), suffix = c("_all", "_"))
+
+all <- 
+  all %>% 
+  mutate(page = glue::glue('Total from p. {page}, rural from p. {page_rural}, urban from p. {page_urban}')) %>% 
+  select(-page, -page_rural, -page_urban,
+         -table, -table_rural, -table_urban,
+         -age_type_rural, -age_type_urban
+         )
+
+rm(both_2_4s, table_2_3, table_2_4a, table_2_4b)
+```
+
+We can now check that the sum of rural and urban is the same as the total.
+
+```{r, echo = TRUE}
+# Check that the urban + rural = total
+follow_up <- 
+  all %>% 
+  mutate(total_from_bits = total_rural + total_urban,
+         check_total_is_rural_plus_urban = if_else(total == total_from_bits, 1, 0),
+         total_from_bits - total) %>% 
+  filter(check_total_is_rural_plus_urban == 0)
+
+head(follow_up)
+rm(follow_up)
+```
+
+There are just a few, but they only have a a difference of 1, so I'll just move on.
+
+
+#### Ages sum to age-groups
+
+Finally, I want to check that the single age counts sum to the age-groups.
+
+```{r, echo = TRUE}
+# One last thing to check is that the ages sum to their age-groups.
+follow_up <- 
+  all %>% 
+  mutate(groups = case_when(age %in% c("0", "1", "2", "3", "4", "0-4") ~ "0-4",
+                            age %in% c("5", "6", "7", "8", "9", "5-9") ~ "5-9",
+                            age %in% c("10", "11", "12", "13", "14", "10-14") ~ "10-14",
+                            age %in% c("15", "16", "17", "18", "19", "15-19") ~ "15-19",
+                            age %in% c("20", "21", "22", "23", "24", "20-24") ~ "20-24",
+                            age %in% c("25", "26", "27", "28", "29", "25-29") ~ "25-29",
+                            age %in% c("30", "31", "32", "33", "34", "30-34") ~ "30-34",
+                            age %in% c("35", "36", "37", "38", "39", "35-39") ~ "35-39",
+                            age %in% c("40", "41", "42", "43", "44", "40-44") ~ "40-44",
+                            age %in% c("45", "46", "47", "48", "49", "45-49") ~ "45-49",
+                            age %in% c("50", "51", "52", "53", "54", "50-54") ~ "50-54",
+                            age %in% c("55", "56", "57", "58", "59", "55-59") ~ "55-59",
+                            age %in% c("60", "61", "62", "63", "64", "60-64") ~ "60-64",
+                            age %in% c("65", "66", "67", "68", "69", "65-69") ~ "65-69",
+                            age %in% c("70", "71", "72", "73", "74", "70-74") ~ "70-74",
+                            age %in% c("75", "76", "77", "78", "79", "75-79") ~ "75-79",
+                            age %in% c("80", "81", "82", "83", "84", "80-84") ~ "80-84",
+                            age %in% c("85", "86", "87", "88", "89", "85-89") ~ "85-89",
+                            age %in% c("90", "91", "92", "93", "94", "90-94") ~ "90-94",
+                            age %in% c("95", "96", "97", "98", "99", "95-99") ~ "95-99",
+                            TRUE ~ "Other")
+         ) %>% 
+  group_by(area_type, area, groups) %>% 
+  mutate(group_sum = sum(total, na.rm = FALSE),
+         group_sum = group_sum / 2,
+         difference = total - group_sum) %>% 
+  ungroup() %>% 
+  filter(age == groups) %>% 
+  filter(total != group_sum) 
+
+head(follow_up)
+
+rm(follow_up)
+```
+
+Mt. Kenya Forest, Aberdare Forest, Kakamega Forest are all slightly dodgy. I can't see it in the documentation, but it looks like they have apportioned these between various countries. It's understandable why they'd do this and it's probably not a big deal, so I'll just move on. 
+
+
+### Tidy-up
+
+Now that we are confident that everything is looking good, we can just convert it to long-format so that it is easy to work with. 
+
+```{r}
+all <- 
+  all %>% 
+  rename(male_total = male,
+         female_total = female,
+         total_total = total) %>% 
+  pivot_longer(cols = c(male_total, female_total, total_total, male_rural, female_rural, total_rural, male_urban, female_urban, total_urban),
+               names_to = "type",
+               values_to = "number"
+               ) %>% 
+  separate(col = type, into = c("gender", "part_of_area"), sep = "_") %>% 
+  select(area, area_type, part_of_area, age, age_type, gender, number)
+
+write_csv(all, path = "outputs/data/cleaned_kenya_2019_census.csv")
+
+head(all)
+```
+
+
+
+
+
+### Make Monica's dataset
+
+The original purpose of all of this was to make a table for Monica. She needed single-year counts, by gender, for the counties.
+
+```{r, echo = TRUE}
+monicas_dataset <- 
+  all %>% 
+  filter(area_type == "county") %>% 
+  filter(part_of_area == "total") %>%
+  filter(age_type == "single-year") %>% 
+  select(area, age, gender, number)
+
+head(monicas_dataset)
+```
+
+
+```{r}
+write_csv(monicas_dataset, "outputs/data/monicas_dataset.csv")
+```
+
+I'll leave the fancy stats to Monica, but I'll just make a quick graph of Nairobi.
+
+```{r, echo = TRUE}
+monicas_dataset %>% 
+  filter(area == "Nairobi") %>%
+  ggplot() +
+  geom_col(aes(x = age, y = number, fill = gender), position = "dodge") + 
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_discrete(breaks = c(seq(from = 0, to = 99, by = 5), "100+")) +
+  theme_classic()+
+  scale_fill_brewer(palette = "Set1") +
+  labs(y = "Number",
+       x = "Age",
+       fill = "Gender",
+       title = "Distribution of age and gender in Nairobi in 2019",
+       caption = "Data source: 2019 Kenya Census")
+```
+
+
+
+
+## Optical Character Recognition
+
+All of the above is predicated on having a PDF that is already 'digitized'. But what if it is images? In that case you need to first use Optical Character Recognition (OCR). The go-to package is Tesseract @citetesseract.
+
+**TBD**
+
+
+
+
+
+
+
+## Text
+
+*Aspects of this section have been previously published.*
+
+
+
+### Introduction
+
+Text data is all around us, and in many cases is some of the earliest types of data that we are exposed to. Recent increases in computational power, the development of new methods, and the enormous availability of text, means that there has been a great deal of interest in using text as data. Initial methods tend to focus, essentially, on converting text into numbers and then analysing them using traditional methods. More recent methods have begun to take advantage of the structure that is inherent in text, to draw additional meaning. The difference is perhaps akin to a child who can group similar colors, compared with a child who knows what objects are; although both crocodiles and trees are green, and you can do something with that knowledge, you can do more by knowing that a crocodile could eat you, and a tree probably won't.
+
+In this section we cover a variety of techniques designed to equip you with the basics of using text as data. One of the great things about text data is that it is typically not generated for the purposes of our analysis. That's great because it removes one of the unobservable variables that we typically have to worry about. The trade-off is that we typically have to do a bunch more work to get it into a form that we can work with.
+
+
+
+
+
+### Getting text data
+
+Text as data is an exciting tool to apply. But many guides assume that you already have a nice dataset. Because we've focused on workflow in these notes, we know that's not likely to be true! In this section we will scrape some text from a website. We've already seen examples of scraping, but in general those were focused on exploiting tables in the website. Here we're going to instead focus on paragraphs of text, hence we'll focus on different html/css tags. 
+
+We're going to us the `rvest` package to make it easier to scrape data. We're also going to use the `purrr` package to apply a function to a bunch of different URLs. For those of you with a little bit of programming, this is an alternative to using a for loop. For those of you with a bit of CS, this is a package that adds functional programming to R. 
+
+```{r, message=FALSE}
+library(rvest)
+library(tidyverse)
+
+# Some websites
+address_to_visit <- c("https://www.rba.gov.au/monetary-policy/rba-board-minutes/2020/2020-03-03.html",
+                    "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2020/2020-02-04.html",
+                    "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-12-03.html",
+                    "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-11-05.html",
+                    "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-10-01.html",
+                    "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-09-03.html"
+                    )
+
+# Save names
+save_name <- address_to_visit %>% 
+  str_remove("https://www.rba.gov.au/monetary-policy/rba-board-minutes/") %>% 
+  str_remove(".html") %>%
+  str_remove("20[:digit:]{2}/") %>% 
+  str_c("inputs/rba/", ., ".csv")
+```
+
+
+Create the function that will visit address_to_visit and save to save_name files.
+
+```{r}
+visit_address_and_save_content <-
+  function(name_of_address_to_visit,
+           name_of_file_to_save_as) {
+    # The function takes two inputs
+    name_of_address_to_visit <- address_to_visit[1]
+    name_of_file_to_save_as <- save_name[1]
+    
+    read_html(name_of_address_to_visit) %>% # Go to the website and read the html
+      html_node("#content") %>% # Find the content part
+      html_text() %>% # Extract the text of the content part
+      write_lines(name_of_file_to_save_as) # Save as a text file
+    print(paste("Done with", name_of_address_to_visit, "at", Sys.time()))  
+    # Helpful so that you know progress when running it on all the records
+    Sys.sleep(sample(30:60, 1)) # Space out each request by somewhere between 
+    # 30 and 60 seconds each so that we don't overwhelm their server
+  }
+
+# If there is an error then ignore it and move to the next one
+visit_address_and_save_content <-
+  safely(visit_address_and_save_content)
+```
+
+We now apply that function to our list of URLs.
+
+```{r, eval = FALSE}
+# Walk through the addresses and apply the function to each
+walk2(address_to_visit,
+      save_name,
+      ~ visit_address_and_save_content(.x, .y))
+```
+
+The result is a bunch of files with saved text data. 
+
+In this case we used scraping, but there are, of course, many ways. We may be able to use APIs, for instance, In the case of the Airbnb dataset that we examined earlier in the notes. If you are lucky then it may simply be that there is a column that contains text data in your dataset. 
+
+
+### Preparing text datasets
+
+*This section draws on Sharla Gelfand's blog post, linked in the required readings.*
+
+As much as I would like to stick with Australian economics and politics examples, I realise that this is probably only of limited interest to most of you. As such, in this section we will consider a dataset of Sephora reviews. Please read Sharla's blog post (https://sharla.party/post/crying-sephora/) for another take on this dataset.
+
+In this section we assume that there is some text data that you have gathered. At this point we need to change it into a form that we can work with. For some applications this will be counts of words. For others it may be some variant of this. The dataset that we are going to use is from Sephora, was scraped by [Connie](https://twitter.com/crabbage_/) and I originally became aware of it because of [Sharla](https://sharla.party/post/crying-sephora/).
+
+First let's read in the data.
+
+```{r}
+# This code is taken from https://sharla.party/post/crying-sephora/
+library(dplyr)
+library(jsonlite)
+library(tidytext)
+
+crying <- fromJSON("https://raw.githubusercontent.com/everestpipkin/datagardens/master/students/khanniie/5_newDataSet/crying_dataset.json",
+  simplifyDataFrame = TRUE
+)
+
+crying <- as_tibble(crying[["reviews"]])
+
+head(crying)
+```
+
+```{r}
+names(crying)
+```
+
+We'll focus on the `review_body` variable and the number of stars `stars` that the reviewer gave. Most of them are 5 stars, so we'll just focus on whether or not the review is five stars.
+
+```{r}
+crying <- 
+  crying %>% 
+  select(review_body, stars) %>% 
+  mutate(stars = str_remove(stars, " stars?"),  # The question mark at the end means it'l get rid of 'star' and 'stars'.
+         stars = as.integer(stars)
+         ) %>% 
+  mutate(five_stars = if_else(stars == 5, 1, 0))
+
+table(crying$stars)
+```
+
+In this example we are going to split everything into separate words. When we do this it is just searching for a space, and so what other types of elements are going to be considered 'words'?
+
+```{r}
+crying_by_words <- 
+  crying %>%
+  unnest_tokens(word, review_body, token = "words")
+
+head(crying_by_words)
+```
+
+We now want to count the number of times each word is used by each of the star classifications.
+
+```{r}
+crying_by_words <- 
+  crying_by_words %>% 
+  count(stars, word, sort = TRUE)
+
+head(crying_by_words)
+
+crying_by_words %>% 
+  filter(stars == 1) %>% 
+  head()
+```
+
+So you can see that the most popular word for five star reviews is 'i', and that the most popular word for one star reviews is 'the'.
+
+At this point, we can use the data to do a whole bunch of different things, but one nice measure to look at is term frequency e.g. in this case how many times is a word used in reviews with a particular star rating. The issue is that there are a lot of words that are commonly used regardless of context. As such, we may also like to look at the inverse document frequency in which we 'penalise' words that occur in many particular star ratings. For instance, 'the' probably occurs in both one star and five star reviews and so its idf is lower than 'hate' which probably only occurs in one star reviews. The term frequency–inverse document frequency (tf-idf) is then the product of these.
+
+We can create this value using the `bind_tf_idf()` function from the `tidytext` package, and this will create a bunch of new columns, one for each word and star combination. 
+
+```{r}
+# This code, and the one in the next block, is from Julia Silge: https://juliasilge.com/blog/sherlock-holmes-stm/
+crying_by_words_tf_idf <- 
+  crying_by_words %>%
+  bind_tf_idf(word, stars, n) %>%
+  arrange(-tf_idf)
+
+head(crying_by_words_tf_idf)
+```
+
+
+```{r}
+crying_by_words_tf_idf %>% 
+  group_by(stars) %>%
+  top_n(10) %>%
+  ungroup %>% 
+  mutate(word = reorder_within(word, tf_idf, stars)) %>%
+  mutate(stars = as_factor(stars)) %>%
+  filter(stars %in% c(1, 5)) %>% 
+  ggplot(aes(word, tf_idf, fill = stars)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(vars(stars), scales = "free") +
+    scale_x_reordered() +
+    coord_flip() +
+    labs(x = "Word", 
+         y = "tf-idf") +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set1")
+```
+
+

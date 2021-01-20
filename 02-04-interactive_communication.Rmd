@@ -1,0 +1,426 @@
+---
+date: May 17, 2020
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  R.options = list(width = 80)
+)
+```
+
+# Interactive communication
+
+**THIS ENTIRE CHAPTER NEEDS TO BE UPDATED AND RE-DONE.**
+
+## Making a website
+
+### Getting started with Blogdown
+
+**Required reading**
+
+- Hill, Alison, 2017, 'Up & Running with blogdown', 12 June, freely available at: https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/.
+- Salmon, Maëlle, 2020, 'What to know before you adopt Hugo/blogdown', 29 February, freely available at: https://masalmon.eu/2020/02/29/hugo-maintenance/.
+- Xie, Yihui, Amber Thomas, and Alison Presmanes Hill, 2020, *blogdown: Creating Websites with R Markdown*', as at 6 February, freely available at: https://bookdown.org/yihui/blogdown/.
+
+**Recommended reading**
+
+- Hill, Alison, 2019, 'A Spoonful of Hugo: Troubleshooting Your Build', 4 March, freely available at: https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/.
+- De Leon, Desirée, 2019, 'Trying out Blogdown', 4 September, freely available at: http://desiree.rbind.io/post/2019/trying-out-blogdown/. 
+- Navarro, Danielle, 2018, 'Day 1: Getting started with blogdown', 27 April, freely available at: https://djnavarro.net/post/starting-blogdown/.
+
+
+
+**Key concepts/skills/etc**
+
+- Building a website using blogdown and hugo.
+
+**Key libraries**
+
+- `blogdown`
+- `tidyverse`
+
+
+
+
+### Introduction
+
+*These notes were originally developed for a workshop at the ANU delivered in 2017, and published to my website. Thank you to Minhee Chae and Peter Gibbard for helpful comments.*
+
+A website is a critical part of communication. If you are searching for a job then it acts as one place to bring everything that you can do together. If you are using R, then you might like a website that makes it easy to share your work. This is where `blogdown` helps.
+
+`blogdown` is a package that allows you to make websites (not just blogs, notwithstanding its name) largely within R Studio. It builds on Hugo, which is a popular tool for making websites. `blogdown` lets you freely and quickly get a website up-and-running. It is easy to add content from time-to-time. It integrates with R Markdown which lets you easily share your work. And the separation of content and styling allows you to relatively quickly change your website's design.
+
+That said, using `blogdown` is more work than Google sites or Squarespace. It requires a little more knowledge than using a basic Wordpress site. And if you want to customise many aspects of your website, or need everything to be 'just so' then `blogdown` may not be for you. `blogdown` is still under active development and various aspects may break in future releases. That said, the investment of time required to set up a `blogdown` website is unlikely to be wasted. Even if `blogdown` were shuttered tomorrow most of the content could be repurposed for a regular Hugo website.
+
+This post is a simplified version of the `blogdown` user-guide and the blog post by Alison Presmanes Hill. It sticks to the basics and doesn't require much decision-making. The purpose is to allow someone without much experience to use `blogdown` to get a website up-and-running. Head to those two resources once you've got a website working and want to dive a bit deeper.
+
+
+### Foundations
+
+To use `blogdown` you need R and R Studio, but if you have made it this far in the course then you probably know that. We'll install the `blogdown` package then use GitHub to create a new folder where we'll create our website.
+
+First install blogdown:
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("blogdown")
+```
+
+Now we want to create a folder in GitHub (because it will be easier to put your website onto the internet if you have a GitHub account). We have seen GitHub earlier in this notes, but if you didn't do this at that point, then please create a free GitHub account at https://github.com/. 
+
+Once you have an account, create a new repository by clicking on the plus and call it 'my_website' (or whatever you want).
+
+```{r, echo=FALSE}
+knitr::include_graphics("figures/images/blogdown_github_1.png")
+```
+
+Don't worry about including a readme or gitignore. Once you get to the 'Quick setup' page, copy the website address.
+
+```{r, echo=FALSE}
+knitr::include_graphics("figures/images/blogdown_github_2.png")
+```
+
+
+At this point, we want to get that folder onto our own computer. So open RStudio, select `Files`, `New Project`, `Version Control`, `Git`, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking 'Open in new session'. This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.
+
+We can now construct a frame for our website in that folder.
+
+
+### Build the frame
+
+Open R Studio and install Hugo via the blogdown package with the following code:
+
+```{r, eval=FALSE, echo=TRUE}
+blogdown::install_hugo()
+```
+
+In R Studio create a new project in the folder that you just created 'my_website'. To do this click on: <tt>File -> New Project -> Existing Directory</tt>. Then navigate to the folder 'my_website'. This will open a new R Studio session. Creating a project just adds a .proj file in the folder that makes it easier to come back to your website later.
+
+Using that new R Studio session create your website with the following code:
+
+```{r, eval=FALSE, echo=TRUE}
+blogdown::new_site(theme = "gcushen/hugo-academic", theme_example = TRUE)
+```
+
+This will: 
+
+* download files into your 'my_website' folder; 
+* open a R Markdown file that you can close for now; and
+* begin serving the site in your R Studio viewer.
+
+The console and viewer of your R Studio session should look like this:
+
+```{r, echo=FALSE}
+knitr::include_graphics("figures/images/blogdown_serve_site.png")
+```
+
+Now that we have a frame, we can add our own content.
+
+
+### Add content
+
+At this point, the default website is being 'served' locally. This means that changes you make will be reflected in the website that you see in your R Studio Viewer. To see the website in a web browser click the 'show in new window' button on the top left of the Viewer. This is circled in the above image. That will open the website using the address that the R Studio also tells you.
+
+#### Headshot
+The first change to make is to update the headshot. In your folder, go to my_website -> static -> img. Replace 'portrait.jpg' with your own square headshot jpg. If you do this correctly then when you go back to your website the image will have updated.
+
+#### Personal details, contacts, and main menu
+To update the biography and other details in that first pane, go to <tt>File -> Open File</tt> in the R Studio menu and open <tt>config.toml</tt> which is in <tt>my_website -> config.toml</tt>. This file will either open in a text editor or in R Studio -- it doesn't matter which. When you save the file the changes will be reflected in the website.
+
+Search for 'title' or go to line 2. It should say:
+
+```{r, eval=FALSE, echo=TRUE}
+'title = "Academic"'
+```
+
+Change that to:
+
+```{r, eval=FALSE, echo=TRUE}
+'title = "Your Name"'
+```
+
+Search for '[params]' or go to line 21. There you can update parameters such as name, role, and contact details. If you don't want a particular parameter to show up on your website then set it equal to "". (An example of this is on line 33.)
+
+Once you've updated these parameters, search for '[[params.social]]' or go to line 126. There you can update your contact details, such as email, twitter, etc. Just delete or comment out the full four lines if you don't want a particular contact type displayed on your website. You can always add more later.
+
+Finally, search for '[[menu.main]]' or go to line 152. There you can change the menu items that are displayed on the top right of your website. For instance if you don't want a blog then delete or comment out the four lines:
+
+```{r, eval=FALSE, echo=TRUE}
+[[menu.main]]
+  name = "Posts"
+  url = "#posts"
+  weight = 3
+```
+
+If you want to change the order of the items then change the 'weight'. Ascending values from left to right.
+
+#### Biography
+In your folder, go to <tt>my_website -> content -> home -> about.md</tt>. That should open in R Studio or your text editor. Any changes that you save should immediately show up in your website.
+
+Search for '# List your academic interests.' or go to line 12. There you can change your academic interests. If you don't want this to show up on your website then you can just delete or comment out lines 12-18.
+
+Search for '# List your qualifications (such as academic degrees).' or go to line 20. There you can change your academic qualification. If you don't want this to show up on your website then you can just delete or comment out these lines. 
+
+The 'year' is a numeric field. If you'd prefer to include duration (e.g. 2013 -- 2017), then replace the '2012' with '"2013 -- 2017"' (the "" are important). Or similarly, if you are expecting a degree then you could replace the 'year' with '"Expected month year"'.
+
+Search for '# Biography' or go to line 43. There you can add a brief biography.
+
+#### Teaching
+Most of the other files in <tt>my_website -> content -> home</tt> just display content from elsewhere. This is because of the setup of the website. The exception is teaching.md. Open that and edit everything after line 15.
+
+#### Publications
+In your folder, go to <tt>my_website -> content -> publication</tt>. There are two default publications added there. You can edit those and then copy them to add extra publications.
+
+#### Posts
+If you want a blog in your website then the content is saved in: <tt>my_website -> content -> post</tt>. If you don't want a blog then just delete this folder and comment out the posts menu item from <tt>my_website -> config.toml</tt> file so it doesn't show up in the menu.
+
+Once your website is working, if you want a new blog post, then you can simply use the R Studio menu bar: <tt>Tools -> Addins -> New Post</tt>.
+
+#### Etc
+Go through the different parts and change it as you need.
+
+#### Subsequent editing
+To come back to editing your website once you've closed R Studio, go to the 'my_website' folder and then double-click on the Rproj file, 'blogdown_test.Rproj'. That will open a new instance of R Studio. 
+
+From there you can type 'blogdown:::serve_site()' into the console to serve your site and then continue editing, or you could use the R Studio menu bar: 
+<tt>Tools -> Addins -> Serve Site.</tt> 
+
+
+### Making your website public
+
+#### Commit
+So far everything has happened on your own computer. The first step to making your website public is to commit these changes to GitHub. To do this open Terminal again and as before use <tt>cd</tt> and <tt>ls</tt> to navigate to 'my_website'.
+
+Once there, type each of the following lines (adding your own description) and follow each by 'return'
+
+```{r, eval=FALSE, echo=TRUE}
+git add -A
+git commit -m "DESCRIBE THE CHANGE YOU ARE ADDING"
+git push
+```
+
+(You may be asked for your GitHub password. Terminal is a bit tricky to type passwords into because you don't know how many characters you've typed, but have a go and follow it by 'return'.)
+
+
+#### Netlify
+
+There are many ways to make your website public, but one way is to use Netlify. What we are going to do is to link GitHub and Netlify, so that when you make a change in GitHub then Netlify automatically updates. Once you have an account then click "New site from Git" and at that point you can link your GitHub account. Once it has been authorised, then you should select the repo that you want to make public. The publish director is 'public'.
+
+Once this is all specified then you can "Deploy site". Netlify gives you a default address, but you can change this. However it will still have .netlify.com. To get rid of this you need to purchase a domain, and then go through the custom domains setting in Netlify.
+
+
+
+## Interactive maps
+
+
+
+**Required reading**
+
+- Cooley, David, 2020, 'mapdeck', freely available at: https://symbolixau.github.io/mapdeck/index.html.
+- Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, freely available at: https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
+- Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, freely available at: https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
+- 'Leaflet for R', freely available at: https://rstudio.github.io/leaflet/.
+
+**Required viewing**
+
+- Kuriwaki, Shiro, 2020, 'Making maps in R with sf', 1 March, freely available at: https://vimeo.com/394800836.
+
+
+
+
+**Key concepts/skills/etc**
+
+- Thinking of maps as a (often fiddly, but strangely enjoyable) variant of a usual ggplot.
+- Broadening the data that we make available via interactive maps, while still telling a clear story.
+- Becoming comfortable with (and excited about) creating both static and interactive maps.
+
+**Key libraries**
+
+- `ggmap`
+- `leaflet`
+- `maps`
+- `mapdeck`
+
+**Key functions/etc**
+
+- `add_arc()`
+- `addCircleMarkers()`
+- `addMarkers()`
+- `addTiles()`
+- `canada.cities`
+- `geom_polygon()`
+- `get_stamenmap()`
+- `ggmap()`
+- `leaflet()`
+- `map()`
+- `map_data()`
+- `mapdeck()`
+- `mapdeck_style()`
+
+
+
+
+
+
+
+## Interactive maps
+
+The nice thing about interactive maps is that you can let your users decide what they are interested in. Additionally, if there is a lot of information then you may like to leave it to your users as to selectively focus on what they are interested in. For instance, in the case of Canadian politics, some people will be interested in Toronto ridings, while others will be interested in Manitoba, etc. But it would be difficult to present a map that focuses on both of those, so an interactive map is a great option for allowing users to zoom in on what they want.
+
+#### Leaflet
+
+The `leaflet` package is originally a JavaScript library of the same name that has been brought over to R. It makes it easy to make interactive maps. The basics are fairly similar to the `ggmap` set-up, but of course after that, there are many, many, options.
+
+Let's redo the bike map from earlier, and possibly the interaction will allow us to see what the issue is with the data. 
+
+In the same way as a graph in `ggplot` begins with the `ggplot()` function, a map in the `leaflet` package begins with a call to the `leaflet()` function. This allows you to specify data, and a bunch of other options such as width and height. After this, we add 'layers', in the same way that we added them in `ggplot`. The first layer that we'll add is a tile with the function `addTiles()`. In this case, the default is from OpenStreeMap. After that we'll add markers that show the location of each bike parking spot with `addMarkers()`. 
+
+```{r}
+library(leaflet)
+library(tidyverse)
+
+bike_data <- read_csv("outputs/data/bikes.csv")
+
+leaflet(data = bike_data) %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng = bike_data$longitude, 
+             lat = bike_data$latitude, 
+             popup = bike_data$street_address,
+             label = ~as.character(bike_data$number_of_spots))
+```
+
+There are two options here that may not be familiar. The first is popup, and this is what happens when you click on the marker. In this example this is giving the address. The second is label, which is what happens when you hover over the marker. In this example it is given the number of spots.
+
+
+
+#### COVID-19
+
+Let's have another go, this time with Ontario data on COVID-19.
+
+We can download the latest data from the Ontario Data Catalogue. This is a fast moving situation in which they are likely to make breaking changes to this dataset. To ensure these notes work, I will save and then use the dataset as at 4 April 2020, but you are able to get the up-to-date dataset using the link and the code.
+
+```{r, warning=FALSE, message=FALSE, eval = FALSE}
+ontario_covid <- read_csv("https://data.ontario.ca/datastore/dump/455fd63b-603d-4608-8216-7d8647f43350?bom=True")
+write_csv(ontario_covid, "inputs/data/ontario_covid_2020-04-04.csv")
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+ontario_covid <- read_csv("inputs/data/ontario_covid_2020-04-04.csv")
+head(ontario_covid)
+```
+
+There is a lot of information here, but we'll just plot the number of cases, by the reporting area (health areas). So this isn't the location of the person, but the location of the responsible health unit. Because of this, we'll add a little bit of noise so that the marker for each person can be seen. We do this with `jitter()`.
+
+```{r, warning=FALSE, message=FALSE}
+ontario_covid <- 
+  ontario_covid %>% 
+  mutate(Reporting_PHU_Latitude = jitter(Reporting_PHU_Latitude, amount = 0.1),
+         Reporting_PHU_Longitude = jitter(Reporting_PHU_Longitude, amount = 0.1))
+```
+
+We will introduce a different type of marker here, which is circles. This will allow us to use different colours for the outcomes of each case. There are three possible outcomes: the case is resolved, it is not resolved, or it was fatal. 
+
+```{r}
+library(leaflet)
+
+pal <- colorFactor("Dark2", domain = ontario_covid$OUTCOME1 %>% unique())
+
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addCircleMarkers(
+    data = ontario_covid,
+    lng = ontario_covid$Reporting_PHU_Longitude, 
+    lat = ontario_covid$Reporting_PHU_Latitude, 
+    color = pal(ontario_covid$OUTCOME1),
+    popup = paste("<b>Age-group:</b>", as.character(ontario_covid$Age_Group), "<br>",
+                  "<b>Gender:</b>", as.character(ontario_covid$CLIENT_GENDER), "<br>",
+                  "<b>Acquisition:</b>", as.character(ontario_covid$CASE_ACQUISITIONINFO), "<br>",
+                  "<b>Episode date:</b>", as.character(ontario_covid$ACCURATE_EPISODE_DATE), "<br>")
+    ) %>% 
+  addLegend("bottomright", 
+            pal = pal, 
+            values = ontario_covid$OUTCOME1 %>% unique(),
+    title = "Case outcome",
+    opacity = 1
+  )
+```
+
+
+
+#### mapdeck
+
+**Thank you to [Shaun Ratcliff](https://shaunratcliff.com/) for introducing me to mapdeck.**
+
+The package `mapdeck` is an R package that is built on top of Mapbox (https://www.mapbox.com). It is based on WebGL, which means that your web browser does a lot of work for you. The nice thing is that because of this, it can do a bunch of things that leaflet struggles with, especially dealing with larger datasets. Mapbox is a full-featured application that many businesses that you may have heard of use: https://www.mapbox.com/showcase. To close out these notes on mapping, I want to briefly touch on `mapdeck`, as it is a newer, but very exciting, package.
+
+To this point we have used stamen maps as our tile, but mapdeck uses mapbox - https://www.mapbox.com/ - and so you need to register and get a token for this. (It's free.) Once you have that token you add it to R using:
+
+```{r, eval = FALSE}
+library(mapdeck)
+set_token("asdf") # replace asdf with your token.
+mapdeck_tokens()
+
+set_token(test$key)
+```
+
+```{r, include = FALSE, message = FALSE, warning = FALSE}
+library(mapdeck)
+secrets <- read_csv("~/Documents/projects/secrets/secrets.csv") %>% filter(service == "mapdeck") %>% select(key)
+set_token(secrets$key)
+rm(secrets)
+```
+
+(Don't add it into your script otherwise everyone will be able to take it and use it, especially once you add it to GitHub.)
+
+Then we need some data. Here we're going to just use the example dataset, which is about flights.
+
+```{r, warning=FALSE, message=FALSE}
+# Code taken from the example: https://github.com/SymbolixAU/mapdeck
+library(mapdeck)
+
+url <- 'https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv'
+flights <- read.csv(url)
+flights$info <- paste0("<b>",flights$airport1, " - ", flights$airport2, "</b>")
+
+head(flights)
+```
+
+Finally, we can call the map. Again, this is just the example in the package's website.
+
+```{r, warning = FALSE, message = FALSE}
+mapdeck(style = mapdeck_style('dark')
+        ) %>%
+  add_arc(
+    data = flights
+    , origin = c("start_lon", "start_lat")
+    , destination = c("end_lon", "end_lat")
+    , stroke_from = "airport1"
+    , stroke_to = "airport2"
+    , tooltip = "info"
+    , layer_id = 'arclayer'
+  )
+```
+
+And this is pretty nice!
+
+
+
+
+
+
+
+## Shiny
+
+**TBD**
+
+

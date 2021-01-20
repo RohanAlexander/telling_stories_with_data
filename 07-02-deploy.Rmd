@@ -1,0 +1,31 @@
+---
+date: May 17, 2020
+bibliography: bibliography.bib
+---
+
+
+# Deploy
+
+**Required reading**
+
+- 
+
+**Recommended reading**
+
+- 
+
+**Key concepts/skills/etc**
+
+- 
+
+
+
+
+
+## Introduction
+
+
+
+<!-- Created a website that finds the best car deals on Craigslist. Scraped Craigslist ads using Python and regular expressions. Modeled car prices using Random Forest regression. Deployed on AWS using Flask, Bootstrap, and d3.js. -->
+
+<!-- Using GET/POST requests to get data from a model -->

@@ -1,0 +1,36 @@
+---
+date: May 17, 2020
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+# (PART) Clean {-}
+
+# Cleaning and preparing data
+
+**Required reading**
+
+
+**Recommended reading**
+
+
+
+**Key concepts/skills/etc**
+
+- 
+
+**Key libraries**
+
+- 
+
+**Key functions/etc**
+
+- 
+
+
+**Quiz**
+

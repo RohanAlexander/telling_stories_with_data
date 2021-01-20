@@ -1,0 +1,4422 @@
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.12)  19 JAN 2021 16:58
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**telling_stories_with_data.tex
+(./telling_stories_with_data.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-01-09> xparse <2020-03-03> (/Users/rohanalexander/Li
+brary/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count173
+\c@chapter=\count174
+\c@section=\count175
+\c@subsection=\count176
+\c@subsubsection=\count177
+\c@paragraph=\count178
+\c@subparagraph=\count179
+\c@figure=\count180
+\c@table=\count181
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.st
+y
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.s
+ty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip49
+For additional information on amsmath, use the `?' option.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen139
+)) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.s
+ty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen140
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.st
+y
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count182
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count183
+\leftroot@=\count184
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count185
+\DOTSCASE@=\count186
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count187
+\c@MaxMatrixCols=\count188
+\dotsspace@=\muskip16
+\c@parentequation=\count189
+\dspbrk@lvl=\count190
+\tag@help=\toks17
+\row@=\count191
+\column@=\count192
+\maxfields@=\count193
+\andhelp@=\toks18
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks19
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifluatex.st
+y
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicod
+e-math.sty (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/l3kernel
+/expl3.sty
+Package: expl3 2021-01-09 L3 programming layer (loader) 
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend
+-xetex.def
+File: l3backend-xetex.def 2021-01-09 L3 backend support: XeTeX
+(|extractbb --version)
+\c__kernel_sys_dvipdfmx_version_int=\count194
+\l__kernel_color_stack_int=\count195
+\g__graphics_track_int=\count196
+\l__pdf_internal_box=\box49
+\g__pdf_backend_object_int=\count197
+\g__pdf_backend_annotation_int=\count198
+\g__pdf_backend_link_int=\count199
+))
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicod
+e-math-xetex.sty
+Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
+TeX
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/x
+parse.sty
+Package: xparse 2020-10-27 L3 Experimental document command parser
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/x
+parse-generic.tex))
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e
+/l3keys2e.sty
+Package: l3keys2e 2020-10-27 LaTeX2e option processing using LaTeX3 keys
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.s
+ty
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-x
+etex.sty
+Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count266
+\l__fontspec_language_int=\count267
+\l__fontspec_strnum_int=\count268
+\l__fontspec_tmp_int=\count269
+\l__fontspec_tmpa_int=\count270
+\l__fontspec_tmpb_int=\count271
+\l__fontspec_tmpc_int=\count272
+\l__fontspec_em_int=\count273
+\l__fontspec_emdef_int=\count274
+\l__fontspec_strong_int=\count275
+\l__fontspec_strongdef_int=\count276
+\l__fontspec_tmpa_dim=\dimen148
+\l__fontspec_tmpb_dim=\dimen149
+\l__fontspec_tmpc_dim=\dimen150
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.c
+fg))) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/fix-cm.s
+ty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+))
+\g__um_fam_int=\count277
+\g__um_fonts_used_int=\count278
+\l__um_primecount_int=\count279
+\g__um_primekern_muskip=\muskip17
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicod
+e-math-table.tex)))
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2020-06-15 v2.0f non-zero parskip adjustments
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions
+.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.s
+ty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetke
+ys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.s
+ty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count280
+)) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.st
+y
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.
+cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.
+def
+File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.s
+ty
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftex
+cmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infware
+rr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvde
+finekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfesca
+pe.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxm
+acro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen151
+\Hy@linkcounter=\count281
+\Hy@pagecounter=\count282
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.s
+ty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds
+.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count283
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count284
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5076.
+\XeTeXLinkMargin=\dimen152
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigint
+calc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count285
+\Field@Width=\dimen153
+\Fld@charsize=\dimen154
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.s
+ty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
+)
+\Hy@abspage=\count286
+\c@Item=\count287
+\c@Hfootnote=\count288
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringe
+nc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box50
+\c@Hy@AnnotLevel=\count289
+\HyField@AnnotCount=\count290
+\Fld@listcount=\count291
+\c@bookmark@seq@number=\count292
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/reru
+nfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.
+sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uni
+quecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip52
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.s
+ty
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count293
+\FV@InFile=\read2
+\FV@TabBox=\box51
+\c@FancyVerbLine=\count294
+\FV@StepNumber=\count295
+\FV@OutFile=\write3
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip53
+\fb@frw=\dimen155
+\fb@frh=\dimen156
+\FrameRule=\dimen157
+\FrameSep=\dimen158
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count296
+\LTcapwidth=\dimen159
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@cols=\count297
+\LT@rows=\count298
+\c@LT@tables=\count299
+\c@LT@chunks=\count300
+\LT@p@ftn=\toks22
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.s
+ty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen160
+\lightrulewidth=\dimen161
+\cmidrulewidth=\dimen162
+\belowrulesep=\dimen163
+\belowbottomsep=\dimen164
+\aboverulesep=\dimen165
+\abovetopsep=\dimen166
+\cmidrulesep=\dimen167
+\cmidrulekern=\dimen168
+\defaultaddspace=\dimen169
+\@cmidla=\count301
+\@cmidlb=\count302
+\@aboverulesep=\dimen170
+\@belowrulesep=\dimen171
+\@thisruleclass=\count303
+\@lastruleclass=\count304
+\@thisrulewidth=\dimen172
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.s
+ty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box56
+\fn@width=\dimen173
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.s
+ty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.s
+ty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphi
+cs.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 105.
+)
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/grffile/grffile.sty
+Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
+y)
+Package grffile Info: This package is an empty stub for compatibility on input 
+line 40.
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.st
+y
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen176
+\captionmargin@=\dimen177
+\captionwidth=\dimen178
+\caption@tempdima=\dimen179
+\caption@indent=\dimen180
+\caption@parindent=\dimen181
+\caption@hangindent=\dimen182
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count305
+\c@continuedfloat=\count306
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.s
+ty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen183
+\ar@mcellbox=\box57
+\extrarowheight=\dimen184
+\NC@list=\toks23
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box58
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.s
+ty
+Package: multirow 2021/01/02 v2.6 Span multiple rows of a table
+\multirow@colwidth=\skip60
+\multirow@cntb=\count307
+\multirow@dima=\skip61
+\bigstrutjot=\dimen185
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen186
+\WF@size=\dimen187
+\c@WF@wrappedlines=\count308
+\WF@box=\box59
+\WF@everypar=\toks24
+Package: wrapfig 2003/01/31  v 3.6
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count309
+\float@exts=\toks25
+\float@box=\box60
+\@float@everytoks=\toks26
+\@floatcapt=\box61
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.s
+ty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks27
+\minrowclearance=\skip62
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape
+.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.s
+ty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box62
+\sift@deathcycles=\count310
+\@vwid@loff=\dimen188
+\@vwid@roff=\dimen189
+)
+\c@taburow=\count311
+\tabu@nbcols=\count312
+\tabu@cnt=\count313
+\tabu@Xcol=\count314
+\tabu@alloc=\count315
+\tabu@nested=\count316
+\tabu@target=\dimen190
+\tabu@spreadtarget=\dimen191
+\tabu@naturalX=\dimen192
+\tabucolX=\dimen193
+\tabu@Xsum=\dimen194
+\extrarowdepth=\dimen195
+\abovetabulinesep=\dimen196
+\belowtabulinesep=\dimen197
+\tabustrutrule=\dimen198
+\tabu@thebody=\toks28
+\tabu@footnotes=\toks29
+\tabu@box=\box63
+\tabu@arstrutbox=\box64
+\tabu@hleads=\box65
+\tabu@vleads=\box66
+\tabu@cellskip=\skip63
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/thre
+eparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box67
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/thr
+eeparttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspac
+es.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip64
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box68
+\UL@hyphenbox=\box69
+\UL@skip=\skip65
+\UL@hook=\toks30
+\UL@height=\dimen199
+\UL@pe=\count317
+\UL@pixel=\dimen256
+\ULC@box=\box70
+Package: ulem 2019/11/18
+\ULdepth=\dimen257
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.s
+ty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen258
+\c@nlinenum=\count318
+\TeXr@lab=\toks31
+) (/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip66
+\bibsep=\skip67
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count319
+)
+No file telling_stories_with_data.aux.
+\openout1 = `telling_stories_with_data.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
+LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 134.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 134.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 134.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 134.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 134.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 134.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 134.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
+t line 134.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:sc
+ript=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT
+:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math
+.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:scrip
+t=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 134.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 134.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 134.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 134.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 1
+34.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 134.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 134
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 134.
+Package hyperref Info: Link coloring OFF on input line 134.
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.st
+y
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.s
+ty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/ge
+ttitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count320
+)
+LaTeX Info: Redefining \ref on input line 134.
+LaTeX Info: Redefining \pageref on input line 134.
+LaTeX Info: Redefining \nameref on input line 134.
+\@outlinefile=\write4
+\openout4 = `telling_stories_with_data.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 136.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+36.
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 136.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 136.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 136
+.
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 136
+.
+(/Users/rohanalexander/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+] [2
+
+]
+\tf@toc=\write5
+\openout5 = `telling_stories_with_data.toc'.
+
+[3] [4
+
+] [5] [6]
+Chapter 1.
+[7
+
+]
+
+Package natbib Warning: Citation `raju2005' on page 8 undefined on input line 2
+77.
+
+[8]
+
+Package natbib Warning: Citation `meng2018statistical' on page 9 undefined on i
+nput line 284.
+
+[9]
+
+Package natbib Warning: Citation `mangosolutions' on page 10 undefined on input
+ line 329.
+
+
+Package natbib Warning: Citation `robinsonnolis2020' on page 10 undefined on in
+put line 331.
+
+
+Package natbib Warning: Citation `citeR' on page 10 undefined on input line 336
+.
+
+
+Underfull \vbox (badness 5726) has occurred while \output is active []
+
+[10]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 340.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 340.
+[11] [12]
+Chapter 2.
+
+Underfull \hbox (badness 2393) in paragraph at lines 404--406
+[]\TU/lmr/m/n/10 Hoa, Karen, 2019, ’This is how AI bias really happens - and
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 404--406
+\TU/lmr/m/n/10 why it’s so hard to fix, \TU/lmr/m/it/10 MIT Technology Review\T
+U/lmr/m/n/10 , 4 February,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--406
+[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][] [] [][][] [] 
+[] [] [][][][][][] [] [][][][] [][] [][] [][] [][][] [][] [][] [][] [][][][] []
+[] [][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 2318) in paragraph at lines 430--432
+[]\TU/lmr/m/n/10 Hall, Megan, 2019, ‘An Introduction to R With Hockey Data’,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
+[]$[][][][][] [] [] [] [][][][][][] [][] [][][][][][] [] [][][] [] [][][][] [] 
+[][] [] [][] [] [][] [][] [][][][][][][][][][][][] [][] [][] [][] [] [][] [][][
+][] [][]
+ []
+
+[13
+
+]
+Underfull \hbox (badness 1189) in paragraph at lines 432--434
+[]\TU/lmr/m/n/10 Hanretty, Chris, 2020, ‘ConveRt’, slides []$[][][][] [] [] [] 
+[][][][][][][][][][][][][] [] [][] [] [][] []
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 452--454
+[]\TU/lmr/m/n/10 Silge, Julia, 2019, ‘Reordering and facetting for ggplot2’, []
+$[][][][][] []
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 454--455
+[]\TU/lmr/m/n/10 Smale, David, 2019, ‘Happy Days’, []$[][][][][] [] [] [] [][][
+][][][][][][][] [] [][][][][][][] [] [][][] []
+ []
+
+[14] [15] [16]
+
+Package natbib Warning: Citation `citeBarrett' on page 17 undefined on input li
+ne 778.
+
+
+LaTeX Warning: Reference `fig:covid' on page 17 undefined on input line 781.
+
+
+Package natbib Warning: Citation `ftcoronavirus' on page 17 undefined on input 
+line 781.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/covid.p
+ng Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/covid.png>
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/county_
+election.jpg Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/county_elect
+ion.jpg>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[17] [18]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 820.
+
+Package natbib Warning: Citation `Wickham2017' on page 19 undefined on input li
+ne 826.
+
+
+Package natbib Warning: Citation `janitor' on page 19 undefined on input line 8
+26.
+
+
+Package natbib Warning: Citation `here' on page 19 undefined on input line 826.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[19]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 892--892
+[]\TU/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 892--892
+[]\TU/lmtt/m/n/10 ##   `Electoral district number - Numéro de la circonscriptio
+n` = col_character(),[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 892--892
+[]\TU/lmtt/m/n/10 ##   `Total number of ballots cast - Nombre total de votes dé
+posés` = col_double()[] 
+ []
+
+
+Underfull \vbox (badness 1616) has occurred while \output is active []
+
+[20]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ##   riding_number riding         party                    su
+rname     votes[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ##   <chr>         <chr>          <chr>                    <c
+hr>       <dbl>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 1 35108         Toronto Centre People's Party - PPC     Ba
+wa          1.1[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 2 35108         Toronto Centre Free Party Canada        Ca
+ppelletti   0.3[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 3 35108         Toronto Centre NDP-New Democratic Party Ch
+ang        17[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 4 35108         Toronto Centre Independent              Cl
+arke        0.5[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 5 35108         Toronto Centre Liberal                  Ie
+n          42[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 937--937
+[]\TU/lmtt/m/n/10 ## 6 35108         Toronto Centre Libertarian              Ko
+mar         0.5[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[21]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 971--971
+[]\TU/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-8-1.pdf Graphi
+c file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-8-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[22]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1024--1024
+[]\TU/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1049--1049
+[]\TU/lmtt/m/n/10 ##  riding_number      riding             party             s
+urname[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1049--1049
+[]\TU/lmtt/m/n/10 ##  Min.   :35108   Length:15          Length:15          Len
+gth:15[] 
+ []
+
+[23]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1049--1049
+[]\TU/lmtt/m/n/10 ##  1st Qu.:35108   Class :character   Class :character   Cla
+ss :character[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1049--1049
+[]\TU/lmtt/m/n/10 ##  Median :35108   Mode  :character   Mode  :character   Mod
+e  :character[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1069--1069
+[]\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
+rgument)[] 
+ []
+
+[24]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1153--1153
+[]\TU/lmtt/m/n/10 ##   R Core Team (2020). R: A language and environment for st
+atistical[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1153--1153
+[]\TU/lmtt/m/n/10 ##   computing. R Foundation for Statistical Computing, Vienn
+a, Austria.[] 
+ []
+
+[25]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1153--1153
+[]\TU/lmtt/m/n/10 ##     title = {R: A Language and Environment for Statistical
+ Computing},[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1153--1153
+[]\TU/lmtt/m/n/10 ## We have invested a lot of time and effort in creating R, p
+lease cite it[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1153--1153
+[]\TU/lmtt/m/n/10 ## when using it for data analysis. See also 'citation("pkgna
+me")' for[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1179--1179
+[]\TU/lmtt/m/n/10 ##   Wickham et al., (2019). Welcome to the tidyverse. Journa
+l of Open[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1179--1179
+[]\TU/lmtt/m/n/10 ##   Source Software, 4(43), 1686, https://doi.org/10.21105/j
+oss.01686[] 
+ []
+
+
+Overfull \hbox (2080.5pt too wide) in paragraph at lines 1179--1179
+[]\TU/lmtt/m/n/10 ##     author = {Hadley Wickham and Mara Averick and Jennifer
+ Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Ga
+rrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and
+ Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller
+ and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and
+ Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yu
+tani},[] 
+ []
+
+[26]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1219--1219
+[]\TU/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ##      id occupancy_date      organization_na~ shelter_name 
+shelter_address[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ##   <dbl> <dttm>              <chr>            <chr>        
+<chr>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 1     1 2017-01-01 00:00:00 COSTI Immigrant~ COSTI Recep~ 
+100 Lippincott~[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 2     2 2017-01-01 00:00:00 Christie Ossing~ Christie Os~ 
+973 Lansdowne ~[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 3     3 2017-01-01 00:00:00 Christie Ossing~ Christie Os~ 
+973 Lansdowne ~[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 4     4 2017-01-01 00:00:00 Christie Refuge~ Christie Re~ 
+43 Christie St~[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 5     5 2017-01-01 00:00:00 City of Toronto  Birchmount ~ 
+1673 Kingston ~[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## 6     6 2017-01-01 00:00:00 City of Toronto  Birkdale Re~ 
+1229 Ellesmere~[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## # ... with 8 more variables: shelter_city <chr>, shelter_p
+rovince <chr>,[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1240--1240
+[]\TU/lmtt/m/n/10 ## #   shelter_postal_code <chr>, facility_name <chr>, progra
+m_name <chr>,[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1245--1245
+[][][][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][] [] [][]
+[][] [] [][][][][][][] [] [][] [] [][][][][][] [] [][][][] [] [][][][] [] [][][
+][] [] [][] [] [][] [] [][][][] []
+ []
+
+[27]
+Overfull \hbox (248.25pt too wide) in paragraph at lines 1263--1263
+[]\TU/lmtt/m/n/10 ## Skipping install of 'decemberLB' from a github remote, the
+ SHA1 (2cc38a25) has not changed since last install.[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1291--1291
+[]\TU/lmtt/m/n/10 ## `geom_smooth()` using method = 'gam' and formula 'y ~ s(x,
+ bs = "cs")'[] 
+ []
+
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-15-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-15-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[28] [29]
+
+Package natbib Warning: Citation `tidyversewebsite' on page 30 undefined on inp
+ut line 1327.
+
+[30]
+
+Package natbib Warning: Citation `keyes2009' on page 31 undefined on input line
+ 1369.
+
+[31]
+File: figures/probability.png Graphic file (type bmp)
+<figures/probability.png>
+
+Underfull \hbox (badness 1622) in paragraph at lines 1399--1400
+[][][][][][][][] [] [][][]$[]\TU/lmr/m/n/10 , if you are in Australia then you 
+can download R here:
+ []
+
+
+Underfull \hbox (badness 3989) in paragraph at lines 1399--1400
+[]$[][][][][] [] [] [] [][][][] [] [][][][][] [] [][][]$[]\TU/lmr/m/n/10 , othe
+rwise you should go here - []$[][][][][] [] [] [] [][][][] [] [] [][]
+ []
+
+[32] [33]
+
+LaTeX Warning: Reference `fig:first' on page 34 undefined on input line 1432.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r
+_essentials/01.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r_esse
+ntials/01.png>
+[34]
+
+LaTeX Warning: Reference `fig:second' on page 35 undefined on input line 1483.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r
+_essentials/02.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r_esse
+ntials/02.png>
+[35]
+
+LaTeX Warning: Reference `fig:third' on page 36 undefined on input line 1529.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r
+_essentials/03.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/01-03_r_esse
+ntials/03.png>
+[36]
+
+Package natbib Warning: Citation `tidyverse' on page 37 undefined on input line
+ 1555.
+
+
+Package natbib Warning: Citation `citedplyr' on page 37 undefined on input line
+ 1555.
+
+
+Package natbib Warning: Citation `citeggplot' on page 37 undefined on input lin
+e 1555.
+
+[37]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1600--1600
+[]\TU/lmtt/m/n/10 ## -- Column specification ----------------------------------
+----------------------[] 
+ []
+
+
+Underfull \vbox (badness 2050) has occurred while \output is active []
+
+[38]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 1 Abbott1~ Abbott  Richard Hart~ Richard   <NA>       Abbo
+tt, Ri~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 2 Abbott1~ Abbott  Percy Phipps  Percy     <NA>       Abbo
+tt, Pe~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 3 Abbott1~ Abbott  Macartney     Macartney Mac        Abbo
+tt, Mac[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 4 Abbott1~ Abbott  Charles Lydi~ Charles   Aubrey     Abbo
+tt, Au~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 5 Abbott1~ Abbott  Joseph Palmer Joseph    <NA>       Abbo
+tt, Jo~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## 6 Abbott1~ Abbott  Anthony John  Anthony   Tony       Abbo
+tt, To~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1648--1648
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+[39]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1686--1686
+[]\TU/lmtt/m/n/10 ## [1] "Richard"   "Percy"     "Macartney" "Charles"   "Josep
+h"    "Anthony"[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1703--1703
+[]\TU/lmtt/m/n/10 ## [1] "Richard"   "Percy"     "Macartney" "Charles"   "Josep
+h"    "Anthony"[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames commonName displayName e
+arlierOrLaterN~ title[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##    <chr>    <chr>   <chr>         <chr>      <chr>       <
+chr>            <chr>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  1 Abbott1~ Abbott  Richard Hart~ <NA>       Abbott, Ri~ <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  2 Abbott1~ Abbott  Percy Phipps  <NA>       Abbott, Pe~ <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  3 Abbott1~ Abbott  Macartney     Mac        Abbott, Mac <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  4 Abbott1~ Abbott  Charles Lydi~ Aubrey     Abbott, Au~ <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  5 Abbott1~ Abbott  Joseph Palmer <NA>       Abbott, Jo~ <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  6 Abbott1~ Abbott  Anthony John  Tony       Abbott, To~ <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  7 Abel1939 Abel    John Arthur   <NA>       Abel, John  <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  8 Abetz19~ Abetz   Eric          <NA>       Abetz, Eric <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ##  9 Adams19~ Adams   Judith Anne   <NA>       Adams, Jud~ n
+ee Bird         <NA>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ## 10 Adams19~ Adams   Dick Godfrey~ <NA>       Adams, Dick <
+NA>             <NA>[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 12 more variables: gender 
+<chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ## #   birthDate <date>, birthYear <dbl>, birthPlace <chr>, d
+eathDate <date>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1732--1732
+[]\TU/lmtt/m/n/10 ## #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>, w
+ikidataID <chr>,[] 
+ []
+
+[40]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  1 Abbott1~ Abbott  Anthony John  Anthony   Tony       Abb
+ott, To~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  2 Barton1~ Barton  Edmund        Edmund    <NA>       Bar
+ton, Ed~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  3 Bruce18~ Bruce   Stanley Melb~ Stanley   <NA>       Bru
+ce, Sta~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  4 Chifley~ Chifley Joseph Bened~ Joseph    Ben        Chi
+fley, B~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  5 Cook1860 Cook    Joseph        Joseph    <NA>       Coo
+k, Jose~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  6 Curtin1~ Curtin  John Joseph ~ John      <NA>       Cur
+tin, Jo~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  7 Deakin1~ Deakin  Alfred        Alfred    <NA>       Dea
+kin, Al~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  8 Fadden1~ Fadden  Arthur Willi~ Arthur    Arthur     Fad
+den, Ar~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ##  9 Fisher1~ Fisher  Andrew        Andrew    <NA>       Fis
+her, An~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ## 10 Forde18~ Forde   Francis Mich~ Francis   Frank      For
+de, Fra~[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ## # ... with 20 more rows, and 14 more variables: earlierOrL
+aterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1791--1791
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+[41]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## 1 Chifley~ Chifley Joseph Bened~ Joseph    Ben        Chif
+ley, B~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## 2 Cook1860 Cook    Joseph        Joseph    <NA>       Cook
+, Jose~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## 3 Lyons18~ Lyons   Joseph Aloys~ Joseph    <NA>       Lyon
+s, Jos~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1813--1813
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## 1 Chifley~ Chifley Joseph Bened~ Joseph    Ben        Chif
+ley, B~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## 2 Cook1860 Cook    Joseph        Joseph    <NA>       Cook
+, Jose~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## 3 Lyons18~ Lyons   Joseph Aloys~ Joseph    <NA>       Lyon
+s, Jos~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1835--1835
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## 1 Coleman~ Coleman Ruth Nancy    Ruth      <NA>       Cole
+man, R~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## 2 Ferrick~ Ferric~ Myles Aloysi~ Myles     <NA>       Ferr
+icks, ~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## 3 Webber1~ Webber  Ruth Stephan~ Ruth      <NA>       Webb
+er, Ru~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1857--1857
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+[42]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ## 1 Jarman1~ Jarman  Alan William  Alan      <NA>       Jarm
+an, Al~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1896--1896
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ## 1 Jarman1~ Jarman  Alan William  Alan      <NA>       Jarm
+an, Al~[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1916--1916
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  1 Abbott1~ Abbott  Richard Hart~ Richard   <NA>       Abb
+ott, Ri~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  2 Abbott1~ Abbott  Percy Phipps  Percy     <NA>       Abb
+ott, Pe~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  3 Abbott1~ Abbott  Macartney     Macartney Mac        Abb
+ott, Mac[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  4 Abbott1~ Abbott  Charles Lydi~ Charles   Aubrey     Abb
+ott, Au~[] 
+ []
+
+[43]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  5 Abbott1~ Abbott  Joseph Palmer Joseph    <NA>       Abb
+ott, Jo~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  6 Abbott1~ Abbott  Anthony John  Anthony   Tony       Abb
+ott, To~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  7 Abel1939 Abel    John Arthur   John      <NA>       Abe
+l, John[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  8 Abetz19~ Abetz   Eric          Eric      <NA>       Abe
+tz, Eric[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ##  9 Adams19~ Adams   Judith Anne   Judith    <NA>       Ada
+ms, Jud~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ## 10 Adams19~ Adams   Dick Godfrey~ Dick      <NA>       Ada
+ms, Dick[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 14 more variables: earlier
+OrLaterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1949--1949
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  1 Zimmerm~ Zimmer~ Trent Moir    Trent     <NA>       Zim
+merman,~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  2 Zeal1830 Zeal    William Aust~ William   <NA>       Zea
+l, Will~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  3 Zappia1~ Zappia  Antonio       Antonio   Tony       Zap
+pia, To~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  4 Zammit1~ Zammit  Paul John     Paul      <NA>       Zam
+mit, Pa~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  5 Zakharo~ Zakhar~ Alice Olive   Alice     Olive      Zak
+harov, ~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  6 Zahra19~ Zahra   Christian Jo~ Christian <NA>       Zah
+ra, Chr~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  7 Young19~ Young   Harold Willi~ Harold    <NA>       You
+ng, Har~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  8 Young19~ Young   Michael Jero~ Michael   Mick       You
+ng, Mick[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ##  9 Young19~ Young   Terry James   Terry     <NA>       You
+ng, Ter~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ## 10 Yates18~ Yates   George Edwin  George    Gunner     Yat
+es, Gun~[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 14 more variables: earlier
+OrLaterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 1979--1979
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  1 Blain18~ Blain   Adair Macali~ Adair     <NA>       Bla
+in, Ada~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  2 Armstro~ Armstr~ Adam Alexand~ Adam      Bill       Arm
+strong,~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  3 Bandt19~ Bandt   Adam Paul     Adam      <NA>       Ban
+dt, Adam[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  4 Dein1889 Dein    Adam Kemball  Adam      Dick       Dei
+n, Dick[] 
+ []
+
+[44]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  5 Ridgewa~ Ridgew~ Aden Derek    Aden      <NA>       Rid
+geway, ~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  6 Bennett~ Bennett Adrian Frank  Adrian    <NA>       Ben
+nett, A~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  7 Gibson1~ Gibson  Adrian        Adrian    <NA>       Gib
+son, Ad~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  8 Wynne18~ Wynne   Agar          Agar      <NA>       Wyn
+ne, Agar[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ##  9 Roberts~ Robert~ Agnes Robert~ Agnes     <NA>       Rob
+ertson,~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ## 10 Bird1906 Bird    Alan Charles  Alan      <NA>       Bir
+d, Alan[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 14 more variables: earlier
+OrLaterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2009--2009
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  1 Abbott1~ Abbott  Anthony John  Anthony   Tony       Abb
+ott, To~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  2 Abbott1~ Abbott  Charles Lydi~ Charles   Aubrey     Abb
+ott, Au~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  3 Abbott1~ Abbott  Joseph Palmer Joseph    <NA>       Abb
+ott, Jo~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  4 Abbott1~ Abbott  Macartney     Macartney Mac        Abb
+ott, Mac[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  5 Abbott1~ Abbott  Percy Phipps  Percy     <NA>       Abb
+ott, Pe~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  6 Abbott1~ Abbott  Richard Hart~ Richard   <NA>       Abb
+ott, Ri~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  7 Abel1939 Abel    John Arthur   John      <NA>       Abe
+l, John[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  8 Abetz19~ Abetz   Eric          Eric      <NA>       Abe
+tz, Eric[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ##  9 Adams19~ Adams   Dick Godfrey~ Dick      <NA>       Ada
+ms, Dick[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ## 10 Adams19~ Adams   Judith Anne   Judith    <NA>       Ada
+ms, Jud~[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 14 more variables: earlier
+OrLaterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2040--2040
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##    uniqueID surname allOtherNames firstName commonName dis
+playName[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  1 Abbott1~ Abbott  Anthony John  Anthony   Tony       Abb
+ott, To~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  2 Abbott1~ Abbott  Charles Lydi~ Charles   Aubrey     Abb
+ott, Au~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  3 Abbott1~ Abbott  Joseph Palmer Joseph    <NA>       Abb
+ott, Jo~[] 
+ []
+
+[45]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  4 Abbott1~ Abbott  Macartney     Macartney Mac        Abb
+ott, Mac[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  5 Abbott1~ Abbott  Percy Phipps  Percy     <NA>       Abb
+ott, Pe~[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  6 Abbott1~ Abbott  Richard Hart~ Richard   <NA>       Abb
+ott, Ri~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  7 Abel1939 Abel    John Arthur   John      <NA>       Abe
+l, John[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  8 Abetz19~ Abetz   Eric          Eric      <NA>       Abe
+tz, Eric[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ##  9 Adams19~ Adams   Dick Godfrey~ Dick      <NA>       Ada
+ms, Dick[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ## 10 Adams19~ Adams   Judith Anne   Judith    <NA>       Ada
+ms, Jud~[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ## # ... with 1,766 more rows, and 14 more variables: earlier
+OrLaterNames <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ## #   title <chr>, gender <chr>, birthDate <date>, birthYear
+ <dbl>,[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ## #   birthPlace <chr>, deathDate <date>, member <dbl>, sena
+tor <dbl>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2070--2070
+[]\TU/lmtt/m/n/10 ## #   wasPrimeMinister <dbl>, wikidataID <chr>, wikipedia <c
+hr>, adb <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ##   uniqueID surname allOtherNames firstName commonName disp
+layName[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 1 Roberts~ Robert~ Agnes Robert~ Agnes     <NA>       Robe
+rtson,~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 2 MacTier~ MacTie~ Alannah Joan~ Alannah   <NA>       MacT
+iernan~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 3 Zakharo~ Zakhar~ Alice Olive   Alice     Olive      Zakh
+arov, ~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 4 Blain18~ Blain   Adair Macali~ Adair     <NA>       Blai
+n, Ada~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 5 Armstro~ Armstr~ Adam Alexand~ Adam      Bill       Arms
+trong,~[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## 6 Bandt19~ Bandt   Adam Paul     Adam      <NA>       Band
+t, Adam[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## # ... with 14 more variables: earlierOrLaterNames <chr>, t
+itle <chr>,[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## #   gender <chr>, birthDate <date>, birthYear <dbl>, birth
+Place <chr>,[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## #   deathDate <date>, member <dbl>, senator <dbl>, wasPrim
+eMinister <dbl>,[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2101--2101
+[]\TU/lmtt/m/n/10 ## #   wikidataID <chr>, wikipedia <chr>, adb <chr>, comments
+ <chr>[] 
+ []
+
+[46]
+Underfull \hbox (badness 1661) in paragraph at lines 2171--2172
+[]\TU/lmr/m/n/10 The \TU/lmtt/m/n/10 summarise() \TU/lmr/m/n/10 function is par
+ticularly powerful in conjunction with
+ []
+
+[47]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2183--2183
+[]\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
+rgument)[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2208--2208
+[]\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
+rgument)[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2233--2233
+[]\TU/lmtt/m/n/10 ## `summarise()` regrouping output by 'gender' (override with
+ `.groups` argument)[] 
+ []
+
+[48] [49] [50]
+Overfull \vbox (2.24417pt too high) detected at line 2437
+ []
+
+[51]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-63-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-63-1.pdf>
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-64-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-64-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[52]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-65-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-65-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[53]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-66-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-66-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-67-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-67-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[55]
+
+Package natbib Warning: Citation `r4ds' on page 56 undefined on input line 2519
+.
+
+[56]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##    person observation another_observation fav_colour names
+  website[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##     <int>       <dbl>               <dbl> <chr>      <chr>
+  <chr>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  1      1     -0.360                9.52  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  2      2     -0.0406               0.586 " white "  monic
+a monicaalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  3      3     -1.78                 2.48  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  4      4     -1.12                 5.80  " white "  monic
+a monicaalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  5      5     -1.00                 5.26  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  6      6      1.78                 4.09  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  7      7     -1.39                 3.97  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  8      8     -0.497                2.52  " white "  monic
+a monicaalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ##  9      9     -0.558                6.29  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2576--2576
+[]\TU/lmtt/m/n/10 ## 10     10     -0.824                8.57  "blue"     rohan
+  rohanalexander.com[] 
+ []
+
+
+Package natbib Warning: Citation `citestringr' on page 57 undefined on input li
+ne 2581.
+
+
+Overfull \hbox (17.58702pt too wide) in paragraph at lines 2583--2584
+[]\TU/lmr/m/n/10 I’ll just cover a few essentials: \TU/lmtt/m/n/10 stringr::str
+_detect()\TU/lmr/m/n/10 , \TU/lmtt/m/n/10 stringr::str_replace()\TU/lmr/m/n/10 
+,
+ []
+
+[57]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2618--2618
+[]\TU/lmtt/m/n/10 ##   names  website            fav_colour is_rohan make_howle
+tt     fav_colour_trim[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2618--2618
+[]\TU/lmtt/m/n/10 ##   <chr>  <chr>              <chr>      <lgl>    <chr>     
+       <chr>[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 2618--2618
+[]\TU/lmtt/m/n/10 ## 1 rohan  rohanalexander.com "blue"     TRUE     rohanhowle
+tt.com blue[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2618--2618
+[]\TU/lmtt/m/n/10 ## 2 monica monicaalexander.c~ " white "  FALSE    monicahowl
+ett.c~ white[] 
+ []
+
+[58]
+
+Package natbib Warning: Citation `citeforcats' on page 59 undefined on input li
+ne 2699.
+
+[59] [60] [61] [62
+
+]
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2835--2837
+[]$[][][][][] [] [] [] [][][][][][][][][][][] [] [][][] [] [][][][] [] [][][][]
+[][][][] [] [][][][] [] [][] [] [][] [] [][][] [][] [][][][][][][] [][] [][][][
+][][][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2841--2843
+\TU/lmr/m/n/10 ter 4.3, []$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] []
+[][][][][][][][][] [] [][][][][] [] [] [][] [][][][][] [][] [][][][][] [][] [][
+][][][] [][]
+ []
+
+[63]
+Underfull \hbox (badness 4341) in paragraph at lines 2859--2861
+[]\TU/lmr/m/n/10 AirbnbEng, 2016, ‘Scaling Knowledge at Airbnb’, 25 February,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2859--2861
+[]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][] [][] [][][][][][]
+[][][][][] [] [][][][][][][] [][] [][][][][][][][][] [][] [][] [][] [][][][][][
+] [][]
+ []
+
+
+Underfull \hbox (badness 7256) in paragraph at lines 2863--2865
+\TU/lmr/m/n/10 Beginner’s Guide’, []$[][][][][] [] [] [] [][][][][][][][][] [] 
+[][][][][][] [] [][] [] [][][][] [] [][][][][][][] [][] [][][][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2865--2867
+[][][][][] [][] [][][][][][][] [][] [][] [][] [][][][][][][] [][] [][][][][][][
+][][][] [][] [][][] [][] [][][] [][] [][][][] [][] [][] [][] [][][][][][][][][]
+[][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2881--2883
+\TU/lmr/m/n/10 ary, []$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][] [] 
+[][] [] [][][][] [][] [][] [][] [][] [][] [][] [][] [][][][] [][] [][] [][] [][
+][][][][][] [][] [][] [][]
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 2885--2887
+\TU/lmr/m/n/10 4 May, []$[][][][][] [] [] [] [][][][][][][][][][][][][] [] [][]
+[][][][][] [] [][][] [] [][][][] [] [][][][][][][][][] [][] [][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 2887--2889
+\TU/lmr/m/n/10 Was Calculating Candidates’ Demographic Strengths’, 19 February,
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2887--2889
+[]$[][][][][] [] [] [] [][][][][][][][][][][][][][][] [] [][][] [] [][][][][][]
+[][] [] [][] [][] [][][][][] [][] [] [][] [][][][][][][] [][] [][] [][] [][][] 
+[][] [][][] [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2911--2912
+[][][][][][][][] [][] [][][][] [][] [][] [][] [][][][][][][][] [][] [][][][][][
+][][] [][] [][][][][][][][][] [][] [][] [][] [][][] [][] [] [][] [][][][][][][]
+[] [][] [][][][][][] [][]
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 2975--2977
+[]\TU/lmr/m/n/10 Commit your changes: \TU/lmtt/m/n/10 git commit -m "Short desc
+ription of
+ []
+
+[66]
+
+Package natbib Warning: Citation `Alexander2019' on page 67 undefined on input 
+line 3087.
+
+[67]
+
+Package natbib Warning: Citation `Gelman2016' on page 68 undefined on input lin
+e 3089.
+
+
+Package natbib Warning: Citation `Gelman2016' on page 68 undefined on input lin
+e 3091.
+
+
+Package natbib Warning: Citation `Simpson2017' on page 68 undefined on input li
+ne 3091.
+
+
+Package natbib Warning: Citation `Simpson2017' on page 68 undefined on input li
+ne 3093.
+
+
+Package natbib Warning: Citation `Simpson2017' on page 68 undefined on input li
+ne 3093.
+
+
+LaTeX Warning: Reference `fig:mattsonexamplemap' on page 68 undefined on input 
+line 3097.
+
+
+Package natbib Warning: Citation `Mattson2017' on page 68 undefined on input li
+ne 3097.
+
+File: figures/gayface_extract.png Graphic file (type bmp)
+<figures/gayface_extract.png>
+
+Package natbib Warning: Citation `Mattson2017' on page 68 undefined on input li
+ne 3103.
+
+[68] [69] [70]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-79-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-79-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[71] [72]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3250--3250
+[]    \TU/lmtt/m/n/10 title = {R: A Language and Environment for Statistical Co
+mputing},[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3263--3263
+[]    \TU/lmtt/m/n/10 title = {R: A Language and Environment for Statistical Co
+mputing},[] 
+ []
+
+
+Package natbib Warning: Citation `citeR' on page 73 undefined on input line 326
+5.
+
+
+Package natbib Warning: Citation `citeR' on page 73 undefined on input line 326
+5.
+
+
+LaTeX Warning: Reference `fig:billssssss' on page 73 undefined on input line 32
+70.
+
+[73]
+File: telling_stories_with_data_files/figure-latex/billssssss-1.pdf Graphic fil
+e (type pdf)
+<use telling_stories_with_data_files/figure-latex/billssssss-1.pdf>
+
+LaTeX Warning: Reference `tab:penguinhead' on page 74 undefined on input line 3
+291.
+
+
+Overfull \hbox (12.18pt too wide) in paragraph at lines 3291--3292
+[]\TU/lmr/m/n/10 You can do similar for tables and equations e.g \TU/lmtt/m/n/1
+0 (Table \@ref(tab:penguinhead))
+ []
+
+[74]
+
+LaTeX Warning: Reference `eq:slope' on page 75 undefined on input line 3323.
+
+
+Overfull \hbox (1.44pt too wide) in paragraph at lines 3342--3343
+\TU/lmr/m/n/10 stead of reading a csv from \TU/lmtt/m/n/10 "~/Documents/toronto
+/teaching/INF2178/data/"
+ []
+
+[75]
+Underfull \hbox (badness 6268) in paragraph at lines 3367--3368
+\TU/lmtt/m/n/10 first_go-fixed-with-mons-edits.R\TU/lmr/m/n/10 . But this soon 
+becomes cumber-
+ []
+
+
+LaTeX Warning: Reference `fig:hackernews' on page 76 undefined on input line 33
+71.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/hacker_
+news.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/hacker_news.
+png>
+[76]
+
+LaTeX Warning: Reference `fig:gitone' on page 77 undefined on input line 3394.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/git_one
+.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/git_one.png>
+
+
+Package natbib Warning: Citation `happygit' on page 77 undefined on input line 
+3400.
+
+[77]
+
+Package natbib Warning: Citation `happygit' on page 78 undefined on input line 
+3416.
+
+
+LaTeX Warning: Reference `fig:githubone' on page 78 undefined on input line 342
+1.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/github_
+1.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/github_1.png
+>
+
+LaTeX Warning: Reference `fig:githubtwo' on page 78 undefined on input line 342
+7.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/github_
+2.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/github_2.png
+>
+
+LaTeX Warning: Reference `fig:githubthree' on page 78 undefined on input line 3
+433.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/github_
+3.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/github_3.png
+>
+[78]
+
+LaTeX Warning: Reference `fig:githubfour' on page 79 undefined on input line 34
+39.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/github_
+4.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/github_4.png
+>
+[79]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[80]
+
+LaTeX Warning: Reference `fig:rstudiogit' on page 81 undefined on input line 34
+78.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/RStudio
+_git.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/RStudio_git.
+png>
+
+Package natbib Warning: Citation `happygit' on page 81 undefined on input line 
+3484.
+
+
+Package natbib Warning: Citation `happygit' on page 81 undefined on input line 
+3489.
+
+[81] [82]
+
+Package natbib Warning: Citation `citereprex' on page 83 undefined on input lin
+e 3551.
+
+[83]
+
+Package natbib Warning: Citation `citeTidymodels' on page 84 undefined on input
+ line 3575.
+
+[84]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3637--3637
+[]\TU/lmtt/m/n/10 # - Maybe you need some data or some other script to have bee
+n run?[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 3637--3637
+[]\TU/lmtt/m/n/10 # Don't keep the install.packages line - just comment out if 
+need be[] 
+ []
+
+[85]
+Underfull \hbox (badness 1867) in paragraph at lines 3647--3649
+[][]\TU/lmr/m/n/10 R Ladies[] ‘is a world-wide organization to promote gender d
+iver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3647--3649
+[] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][][]$[] \TU/lmr/m/n/10 
+and []$[][][][][] [] [] [] [][][][][][][] [] [][][] [] [][][][][][][][][][][][]
+$[]
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 3647--3649
+\TU/lmr/m/n/10 (where someone takes over the account for the week, so the en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3647--3649
+\TU/lmr/m/n/10 ter is: []$[][][][][] [] [] [] [][][][][][][] [] [][][] [] [][][
+][][][] [][] [][][][][][][] [] [][][][][][][][] [] [][][][][][][][]$[] and
+ []
+
+
+Package natbib Warning: Citation `gertler2016impact' on page 86 undefined on in
+put line 3672.
+
+[86]
+
+Package natbib Warning: Citation `hulley2007designing' on page 87 undefined on 
+input line 3689.
+
+
+Package natbib Warning: Citation `farrugia2010research' on page 87 undefined on
+ input line 3707.
+
+[87]
+File: figures/humpty.png Graphic file (type bmp)
+<figures/humpty.png>
+[88]
+
+Package natbib Warning: Citation `citeGoogleAIbreastcancer' on page 89 undefine
+d on input line 3742.
+
+
+Package natbib Warning: Citation `citeWiredonGoogle' on page 89 undefined on in
+put line 3744.
+
+[89] [90
+
+] [91] [92]
+Chapter 4.
+
+Underfull \hbox (badness 1931) in paragraph at lines 3767--3769
+[]\TU/lmr/m/n/10 Zinsser, William, 2009, ‘Writing English as a Second Language’
+,
+ []
+
+
+Underfull \hbox (badness 5203) in paragraph at lines 3767--3769
+\TU/lmr/m/n/10 Lecture, Columbia Graduate School of Journalism, 11 August,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3767--3769
+[]$[][][][][] [] [] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][]
+[][][][] [][] [][][][][][][] [][] [][] [][] [] [][] [][][][][][] [][] [][][][][
+][][][][]$[]\TU/lmr/m/n/10 .
+ []
+
+[93
+
+]
+Underfull \hbox (badness 1769) in paragraph at lines 3787--3789
+[]\TU/lmr/m/n/10 Cochrane, John H., 2005, ‘Writing Tips for Ph. D. Students’,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3787--3789
+[]$[][][][][] [] [] [] [][][][][][][] [] [][][][][][][][][][][][] [] [][][] [] 
+[][][][] [] [][][][][][][][] [] [][][][][][][][] [] [][][][][][] [] [][][] []
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 3791--3793
+[]\TU/lmr/m/n/10 Five Thirty Eight, 2020, Pick almost any article in their spor
+ts
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 3793--3795
+[]\TU/lmr/m/n/10 Graham, Paul, 2005, ‘Writing, Briefly’, []$[][][][] [] [] [] [
+][][][][][][][][][] [] [][][] []
+ []
+
+[94] [95] [96]
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/jerry.p
+ng Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/jerry.png>
+
+Underfull \vbox (badness 4168) has occurred while \output is active []
+
+[97]
+
+Package natbib Warning: Citation `citedatasauRus' on page 98 undefined on input
+ line 3964.
+
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-87-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-87-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[98]
+Overfull \vbox (1.23695pt too high) detected at line 4036
+ []
+
+[99]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-90-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-90-1.pdf>
+
+LaTeX Warning: Reference `fig:myfrstgraph' on page 100 undefined on input line 
+4070.
+
+[100]
+File: telling_stories_with_data_files/figure-latex/myfrstgraph-1.pdf Graphic fi
+le (type pdf)
+<use telling_stories_with_data_files/figure-latex/myfrstgraph-1.pdf>
+
+LaTeX Warning: Reference `fig:mysecndgraph' on page 101 undefined on input line
+ 4091.
+
+[101]
+File: telling_stories_with_data_files/figure-latex/mysecndgraph-1.pdf Graphic f
+ile (type pdf)
+<use telling_stories_with_data_files/figure-latex/mysecndgraph-1.pdf>
+
+LaTeX Warning: Reference `fig:mysthidgraph' on page 102 undefined on input line
+ 4113.
+
+File: telling_stories_with_data_files/figure-latex/mysthidgraph-1.pdf Graphic f
+ile (type pdf)
+<use telling_stories_with_data_files/figure-latex/mysthidgraph-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[102] [103]
+
+LaTeX Warning: Reference `fig:scattorplot' on page 104 undefined on input line 
+4172.
+
+File: telling_stories_with_data_files/figure-latex/scattorplot-1.pdf Graphic fi
+le (type pdf)
+<use telling_stories_with_data_files/figure-latex/scattorplot-1.pdf>
+
+LaTeX Warning: Reference `fig:scattorplottwo' on page 104 undefined on input li
+ne 4199.
+
+[104]
+File: telling_stories_with_data_files/figure-latex/scattorplottwo-1.pdf Graphic
+ file (type pdf)
+<use telling_stories_with_data_files/figure-latex/scattorplottwo-1.pdf>
+
+LaTeX Warning: Reference `fig:hisogramone' on page 105 undefined on input line 
+4228.
+
+[105]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4245--4245
+[]\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `bi
+nwidth`.[] 
+ []
+
+File: telling_stories_with_data_files/figure-latex/hisogramone-1.pdf Graphic fi
+le (type pdf)
+<use telling_stories_with_data_files/figure-latex/hisogramone-1.pdf>
+
+Package natbib Warning: Citation `citepatchwork' on page 106 undefined on input
+ line 4256.
+
+
+Overfull \hbox (77.89pt too wide) in paragraph at lines 4256--4257
+\TU/lmr/m/n/10 age (\TU/lmr/bx/n/10 ?\TU/lmr/m/n/10 ) and the \TU/lmtt/m/n/10 p
+enguins \TU/lmr/m/n/10 package for data. Don’t forget \TU/lmtt/m/n/10 install.p
+ackages("palmerpenguins")
+ []
+
+[106]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-92-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-92-1.pdf>
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-93-1.pdf Graph
+ic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-93-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[107]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4313--4313
+[]\TU/lmtt/m/n/10 ## `summarise()` ungrouping output (override with `.groups` a
+rgument)[] 
+ []
+
+[108]
+
+Package natbib Warning: Citation `citekableextra' on page 109 undefined on inpu
+t line 4364.
+
+
+Package natbib Warning: Citation `citegt' on page 109 undefined on input line 4
+366.
+
+
+Underfull \vbox (badness 10000) detected at line 4386
+ []
+
+
+Package natbib Warning: Citation `citemodelsummary' on page 109 undefined on in
+put line 4416.
+
+
+Overfull \vbox (81.1458pt too high) has occurred while \output is active []
+
+[109] [110] [111]
+File: figures/johnson.png Graphic file (type bmp)
+<figures/johnson.png>
+[112]
+Underfull \hbox (badness 1584) in paragraph at lines 4513--4515
+\TU/lmr/m/n/10 huge, colossal, humungous length coming from some depart-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4513--4515
+\TU/lmr/m/n/10 ments’ []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][]
+[][][][][][][][][][] [] [][][] [] [][] [] [][][][][][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 4516--4518
+\TU/lmr/m/n/10 Villiers talked about the civil service’s ‘frustrating tendency
+ []
+
+
+Underfull \hbox (badness 7558) in paragraph at lines 4516--4518
+\TU/lmr/m/n/10 drafting: []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][
+][][][][][][][][][][][] [] [][][] [] [][] [] [][][][][][][][][] [][]
+ []
+
+[113] [114]
+Chapter 5.
+[115
+
+] [116] [117]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-103-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-103-1.pdf>
+[118]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-105-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-105-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[119]
+Underfull \hbox (badness 1527) in paragraph at lines 4791--4792
+\TU/lmr/m/n/10 vision’ (the Australian equivalent to ‘ridings’ in Canada) it is
+. This
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 4791--4792
+\TU/lmr/m/n/10 is available here: []$[][][][][] [] [] [] [][][][][][][] [] [][]
+[] [] [][][] [] [][] [] [][][][][] [] [][][][][][][] [] [][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 4791--4792
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][] [][][][][] []
+ [][][]$[]\TU/lmr/m/n/10 . (The Australian Electoral
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ##   State DivisionID DivisionNm PollingPlaceID PollingPlaceT
+yp~ PollingPlaceNm[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ##   <chr>      <dbl> <chr>               <dbl>            <d
+bl> <chr>[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 1 ACT          318 Bean                93925              
+  5 Belconnen BEA~[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 2 ACT          318 Bean                93927              
+  5 BLV Bean PPVC[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 3 ACT          318 Bean                11877              
+  1 Bonython[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 4 ACT          318 Bean                11452              
+  1 Calwell[] 
+ []
+
+[120]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 5 ACT          318 Bean                 8761              
+  1 Chapman[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## 6 ACT          318 Bean                 8763              
+  1 Chisholm[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## # ... with 9 more variables: PremisesNm <chr>, PremisesAdd
+ress1 <chr>,[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## #   PremisesAddress2 <chr>, PremisesAddress3 <chr>, Premis
+esSuburb <chr>,[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 4818--4818
+[]\TU/lmtt/m/n/10 ## #   PremisesStateAb <chr>, PremisesPostCode <chr>, Latitud
+e <dbl>,[] 
+ []
+
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-108-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-108-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[121] [122] [123]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-114-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-114-1.pdf>
+
+Underfull \vbox (badness 5954) has occurred while \output is active []
+
+[124] [125]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ##   `_id` ROW_ID ACCURATE_EPISODE_D~ Age_Group CLIENT_GENDER
+ CASE_ACQUISITIO~[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ##   <dbl>  <dbl> <dttm>              <chr>     <chr>        
+ <chr>[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 1     1      1 2020-03-07 00:00:00 40s       MALE         
+ Neither[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 2     2      2 2020-03-08 00:00:00 20s       MALE         
+ Neither[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 3     3      3 2020-03-10 00:00:00 40s       FEMALE       
+ Neither[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 4     4      4 2020-03-11 00:00:00 50s       FEMALE       
+ Neither[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 5     5      5 2020-03-12 00:00:00 30s       FEMALE       
+ Neither[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## 6     6      6 2020-03-15 00:00:00 50s       MALE         
+ Neither[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## # ... with 8 more variables: OUTCOME1 <chr>, Reporting_PHU
+ <chr>,[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## #   Reporting_PHU_Postal_Code <chr>, Reporting_PHU_Website
+ <chr>,[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 5036--5036
+[]\TU/lmtt/m/n/10 ## #   Reporting_PHU_Latitude <dbl>, Reporting_PHU_Longitude 
+<dbl>[] 
+ []
+
+[126] [127]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ##   start_lat start_lon  end_lat    end_lon airline airport1
+ airport2 cnt[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 1  32.89595 -97.03720 35.04022 -106.60919      AA      DFW
+      ABQ 444[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 2  41.97960 -87.90446 30.19453  -97.66987      AA      ORD
+      AUS 166[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 3  32.89595 -97.03720 41.93887  -72.68323      AA      DFW
+      BDL 162[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 4  18.43942 -66.00183 41.93887  -72.68323      AA      SJU
+      BDL  56[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 5  32.89595 -97.03720 33.56294  -86.75355      AA      DFW
+      BHM 168[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5129--5129
+[]\TU/lmtt/m/n/10 ## 6  25.79325 -80.29056 36.12448  -86.67818      AA      MIA
+      BNA  56[] 
+ []
+
+[128]
+Chapter 6.
+
+Underfull \hbox (badness 1688) in paragraph at lines 5162--5164
+\TU/lmr/m/n/10 available at: []$[][][][][] [] [] [] [][][][][][] [] [][][][][] 
+[] [][] [] [][][][] [] [][][][] [][] [][] [][] [][] [][] [][] [][] [][][] [][] 
+[][][][][][][] [][]
+ []
+
+[129
+
+] [130]
+File: figures/images/blogdown_github_1.png Graphic file (type bmp)
+<figures/images/blogdown_github_1.png>
+
+Overfull \hbox (691.496pt too wide) in paragraph at lines 5229--5230
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[131] [132]
+File: figures/images/blogdown_github_2.png Graphic file (type bmp)
+<figures/images/blogdown_github_2.png>
+
+Overfull \hbox (716.12906pt too wide) in paragraph at lines 5233--5234
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[133]
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+[134]
+File: figures/images/blogdown_serve_site.png Graphic file (type bmp)
+<figures/images/blogdown_serve_site.png>
+
+Overfull \hbox (839.48294pt too wide) in paragraph at lines 5274--5275
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[135]
+Underfull \vbox (badness 3492) has occurred while \output is active []
+
+[136] [137] [138] [139] [140
+
+]
+Chapter 7.
+[141] [142
+
+] [143] [144]
+Chapter 8.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5432--5434
+[]$[][][][][] [] [] [] [][][][][][][][][][][][][][] [] [][][] [] [][][][][] [] 
+[][][][] [][] [][] [][] [][] [][] [][][][][][][][][] [][] [][][] [][] [][][][][
+][][][][] [][]
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 5434--5436
+[]\TU/lmr/m/n/10 Benoit, Kenneth, 2019, ‘Text as data: An overview’, 17 July,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5434--5436
+[]$[][][][][] [] [] [] [][][][][][][][][] [] [][][] [] [][][][] [] [][] [] [][]
+[][][][][][] [] [][][][][][] [] [][][][] [] [][][][][][] []
+ []
+
+[145
+
+]
+Missing character: There is no ̧ in font [lmroman10-regular]:mapping=tex-text;!
+
+Underfull \hbox (badness 1521) in paragraph at lines 5444--5446
+\TU/lmr/m/n/10 2: Taxes’, []$[][][][][] [] [] [] [][][][][][] [][] [][][][][][]
+ [] [][][] [] [][][][] [] [][] [] [][] [] [][][] [][] [][][][] [][] [][] [][] [
+][][] [][]
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 5446--5448
+[]\TU/lmr/m/n/10 Graham, Shawn, 2019, ‘Scraping with rvest’, 7 November, []$[][
+][][][] []
+ []
+
+
+Underfull \hbox (badness 6542) in paragraph at lines 5448--5450
+\TU/lmr/m/n/10 January, []$[][][][][] [] [] [] [][][][][][][][][][][][] [] [][]
+[][][][] [] [][] [] [][][][] [] [][] [] [][] [] [][][][][] [][] [][][][][] [][]
+ [][][][][][]$[].
+ []
+
+
+Underfull \hbox (badness 4205) in paragraph at lines 5450--5452
+[]\TU/lmr/m/n/10 Hudon, Caitlin, 2017, ‘’Blue Christmas: A data-driven search
+ []
+
+
+Underfull \hbox (badness 4391) in paragraph at lines 5450--5452
+\TU/lmr/m/n/10 for the most depressing Christmas song’, 22 December, []$[][][][
+][] []
+ []
+
+[146] [147] [148] [149]
+
+Package natbib Warning: Citation `zapierapis' on page 150 undefined on input li
+ne 5723.
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 5726--5727
+\TU/lmr/m/n/10 your browser: []$[][][][][] [] [] [] [][][] [] [][][][][][] [] [
+][] [] [][][][] [] [] [][] [][] [] [][][][][][][] [][] [][][] [] [][][][][][][]
+ [][] [][][]$[].
+ []
+
+
+Package natbib Warning: Citation `citehttr' on page 150 undefined on input line
+ 5740.
+
+
+Package natbib Warning: Citation `rtweet-package' on page 150 undefined on inpu
+t line 5749.
+
+[150]
+
+LaTeX Warning: Reference `fig:rtweetlogin' on page 151 undefined on input line 
+5769.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/rtweet.
+png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/rtweet.png>
+Missing character: There is no 💜 in font [lmmono10-regular]:!
+
+Overfull \hbox (88.3pt too wide) in paragraph at lines 5801--5801
+[]\TU/lmtt/m/n/10 ## 1 Liza_Bolton One of our awesome @UofTStatSci students! I 
+💜 learning about the ~[] 
+ []
+
+
+Overfull \vbox (1.26411pt too high) detected at line 5814
+ []
+
+[151] [152] [153]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 1 CRANberriesFeed CRAN updates: gstat hdme opalr tinytest 
+https://t.co/y5W2NTKS~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 2 CRANberriesFeed New CRAN package FeatureImpCluster with 
+initial version 0.1.2~[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 3 CRANberriesFeed CRAN updates: crfsuite https://t.co/y5W2
+NTKSXT #rstats[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 4 CRANberriesFeed CRAN updates: DSI https://t.co/y5W2NTKSX
+T #rstats[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 5 CRANberriesFeed New CRAN package arcos with initial vers
+ion 1.1 https://t.co/~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5890--5890
+[]\TU/lmtt/m/n/10 ## 6 CRANberriesFeed CRAN updates: COVID19 gaiah mosaic smoot
+hSurv https://t.co/y5~[] 
+ []
+
+
+Package natbib Warning: Citation `spotifyr' on page 154 undefined on input line
+ 5901.
+
+[154]
+
+LaTeX Warning: Reference `fig:spotifyaccept' on page 155 undefined on input lin
+e 5912.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/spotify
+.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/spotify.png>
+
+
+Package natbib Warning: Citation `citeusethis' on page 155 undefined on input l
+ine 5922.
+
+
+Package natbib Warning: Citation `renvironrstudio' on page 155 undefined on inp
+ut line 5922.
+
+
+Package natbib Warning: Citation `whattheyforgot' on page 155 undefined on inpu
+t line 5922.
+
+[155]
+Underfull \hbox (badness 2334) in paragraph at lines 5941--5942
+[]\TU/lmr/m/n/10 Some functions that require your secrets as arguments will now
+ just
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 5941--5942
+\TU/lmr/m/n/10 work. For instance, we will get information about Radiohead usin
+g
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5979--5979
+[]\TU/lmtt/m/n/10 ##  [7] "album_release_year"           "album_release_date_pr
+ecision"[] 
+ []
+
+[156]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-144-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-144-1.pdf>
+[157]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-146-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-146-1.pdf>
+
+Overfull \vbox (0.544pt too high) detected at line 6064
+ []
+
+[158]
+
+Package natbib Warning: Citation `kaylinpavlik' on page 159 undefined on input 
+line 6094.
+
+[159] [160]
+
+Package natbib Warning: Citation `citervest' on page 161 undefined on input lin
+e 6168.
+
+[161] [162]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6293--6293
+[]\TU/lmtt/m/n/10 ## <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lan
+g="">[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 6293--6293
+[]\TU/lmtt/m/n/10 ## [1] <head>\n<meta http-equiv="Content-Type" content="text/
+html; charset=UTF-8 ...[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 6293--6293
+[]\TU/lmtt/m/n/10 ## [2] <body>\n\n<!--radix_placeholder_front_matter-->\n\n<sc
+ript id="distill-fr ...[] 
+ []
+
+
+LaTeX Warning: Reference `fig:rohansbooks' on page 163 undefined on input line 
+6295.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/rohansb
+ooks.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/rohansbooks.
+png>
+
+LaTeX Warning: Reference `fig:rohanssourceone' on page 163 undefined on input l
+ine 6301.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/sourcet
+op.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/sourcetop.pn
+g>
+
+LaTeX Warning: Reference `fig:rohanssourcetwo' on page 163 undefined on input l
+ine 6307.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/sourcel
+ist.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/sourcelist.p
+ng>
+[163] [164] [165]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6339--6339
+[]\TU/lmtt/m/n/10 ## 3 "“Is There Life After Housework”, Don Aslett.\nGot given
+ this at the Museum o~[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 6373--6373
+[]\TU/lmtt/m/n/10 ## 1 A Little Life          Hanya Yanighara. Recommended by L
+auren.[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6373--6373
+[]\TU/lmtt/m/n/10 ## 3 Is There Life After H~ Don Aslett. Got given this at the
+ Museum of Clean in P~[] 
+ []
+
+[166]
+Underfull \vbox (badness 6526) has occurred while \output is active []
+
+[167] [168]
+
+LaTeX Warning: Reference `fig:pmsgraphexample' on page 169 undefined on input l
+ine 6513.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/IMG_418
+5.jpeg Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/IMG_4185.jpe
+g>
+[169] [170]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6579--6579
+[]\TU/lmtt/m/n/10 ## [2] "No.: Incumbent number, Min.: Ministry, Refs: Referenc
+es\n"[] 
+ []
+
+Missing character: There is no   in font [lmmono10-regular]:!
+
+Overfull \hbox (961.75pt too wide) in paragraph at lines 6579--6579
+[]\TU/lmtt/m/n/10 ## [4] "\n\n  Liberal Party of Canada\n \n  Historical Conser
+vative parties (including Liberal-Conservative, Conservative (Historical),     
+Unionist, National Liberal and Conservative, Progressive Conservative) \n  Cons
+ervative Party of Canada\n\n"[] 
+ []
+
+
+Overfull \hbox (269.25pt too wide) in paragraph at lines 6579--6579
+[]\TU/lmtt/m/n/10 ## [6] "AB: Alberta, BC: British Columbia, MB: Manitoba, NS: 
+Nova Scotia,ON: Ontario, QC: Quebec, SK: Saskatchewan\n"[] 
+ []
+
+
+Overfull \vbox (0.56288pt too high) detected at line 6594
+ []
+
+[171]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ##   raw_text                                                
+                 is_PM[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ##   <chr>                                                   
+                 <dbl>[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 1 "\nSir John A. MacDonald(1815–1891)MP for Kingston, ON\n
+"                    1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 2 "\nAlexander Mackenzie(1822–1892)MP for Lambton, ON\n"  
+                     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 3 "\nSir John A. MacDonald(1815–1891)MP for Victoria, BC u
+ntil 1882MP for~     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 4 "\nSir John Abbott(1821–1893)Senator for Quebec\n"      
+                     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 5 "\nSir John Thompson(1845–1894)MP for Antigonish, NS\n" 
+                     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6606--6606
+[]\TU/lmtt/m/n/10 ## 6 "\nSir Mackenzie Bowell(1823–1917)Senator for Ontario\n"
+                     1[] 
+ []
+
+
+LaTeX Warning: Reference `fig:selectorgadget' on page 172 undefined on input li
+ne 6611.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/selecto
+rgadget.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/selectorgadg
+et.png>
+
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+[172]
+Overfull \hbox (306.0pt too wide) in paragraph at lines 6639--6639
+[]\TU/lmtt/m/n/10 ## [3] "\nSir John A. MacDonald(1815–1891)MP for Victoria, BC
+ until 1882MP for Carleton, ON until 1887MP for Kingston, ON\n"[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ##   raw_text           Name     not_name          Date  all_
+the_rest         is_PM[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ##   <chr>              <chr>    <chr>             <chr> <chr
+>                <dbl>[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 1 "\nSir John A. Ma~ "\nSir ~ "1815–1891)MP fo~ 1815~ "MP 
+for Kingston, O~     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 2 "\nAlexander Mack~ "\nAlex~ "1822–1892)MP fo~ 1822~ "MP 
+for Lambton, ON~     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 3 "\nSir John A. Ma~ "\nSir ~ "1815–1891)MP fo~ 1815~ "MP 
+for Victoria, B~     1[] 
+ []
+
+[173]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 4 "\nSir John Abbot~ "\nSir ~ "1821–1893)Senat~ 1821~ "Sen
+ator for Quebec~     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 5 "\nSir John Thomp~ "\nSir ~ "1845–1894)MP fo~ 1845~ "MP 
+for Antigonish,~     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6676--6676
+[]\TU/lmtt/m/n/10 ## 6 "\nSir Mackenzie ~ "\nSir ~ "1823–1917)Senat~ 1823~ "Sen
+ator for Ontari~     1[] 
+ []
+
+[174]
+File: telling_stories_with_data_files/figure-latex/unnamed-chunk-169-1.pdf Grap
+hic file (type pdf)
+<use telling_stories_with_data_files/figure-latex/unnamed-chunk-169-1.pdf>
+[175]
+
+LaTeX Warning: Reference `fig:firstpdfexample' on page 176 undefined on input l
+ine 6776.
+
+
+Package natbib Warning: Citation `janeeyre' on page 176 undefined on input line
+ 6776.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/inputs/pdfs/fir
+st_example.pdf Graphic file (type pdf)
+<use /Users/rohanalexander/Documents/telling_stories_with_data/inputs/pdfs/firs
+t_example.pdf>
+
+Package natbib Warning: Citation `citepdftools' on page 176 undefined on input 
+line 6782.
+
+
+LaTeX Warning: Reference `fig:secondpdfexample' on page 176 undefined on input 
+line 6812.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/inputs/pdfs/sec
+ond_example.pdf Graphic file (type pdf)
+<use /Users/rohanalexander/Documents/telling_stories_with_data/inputs/pdfs/seco
+nd_example.pdf>
+
+Overfull \hbox (6354.0pt too wide) in paragraph at lines 6830--6830
+[]\TU/lmtt/m/n/10 ## [1] "CHAPTER I\nThere was no possibility of taking a walk 
+that day. We had been wandering, indeed, in the\nleafless shrubbery an hour in 
+the morning; but since dinner (Mrs. Reed, when there was no\ncompany, dined ear
+ly) the cold winter wind had brought with it clouds so sombre, and a rain so\np
+enetrating, that further out-door exercise was now out of the question.\nI was 
+glad of it: I never liked long walks, especially on chilly afternoons: dreadful
+ to me was the\ncoming home in the raw twilight, with nipped fingers and toes, 
+and a heart saddened by the\nchidings of Bessie, the nurse, and humbled by the 
+consciousness of my physical inferiority to\nEliza, John, and Georgiana Reed.\n
+The said Eliza, John, and Georgiana were now clustered round their mama in the 
+drawing-room:\nshe lay reclined on a sofa by the fireside, and with her darling
+s about her (for the time neither\nquarrelling nor crying) looked perfectly hap
+py. Me, she had dispensed from joining the group;\nsaying, “She regretted to be
+ under the necessity of keeping me at a distance; but that until she\nheard fro
+m Bessie, and could discover by her own observation, that I was endeavouring in
+ good\nearnest to acquire a more sociable and childlike disposition, a more att
+ractive and sprightly\nmanner—
+ []
+
+
+Overfull \hbox (6086.25pt too wide) in paragraph at lines 6830--6830
+\TU/lmtt/m/n/10 something lighter, franker, more natural, as it were—she really
+ must exclude me from\nprivileges intended only for contented, happy, little ch
+ildren.”\n“What does Bessie say I have done?” I asked.\n“Jane, I don’t like cav
+illers or questioners; besides, there is something truly forbidding in a child\
+ntaking up her elders in that manner. Be seated somewhere; and until you can sp
+eak pleasantly,\nremain silent.”\nA breakfast-room adjoined the drawing-room, I
+ slipped in there. It contained a bookcase: I soon\npossessed myself of a volum
+e, taking care that it should be one stored with pictures. I mounted\ninto the 
+window-seat: gathering up my feet, I sat cross-legged, like a Turk; and, having
+ drawn the\nred moreen curtain nearly close, I was shrined in double retirement
+.\nFolds of scarlet drapery shut in my view to the right hand; to the left were
+ the clear panes of\nglass, protecting, but not separating me from the drear No
+vember day. At intervals, while\nturning over the leaves of my book, I studied 
+the aspect of that winter afternoon. Afar, it offered\na pale blank of mist and
+ cloud; near a scene of wet lawn and storm-beat shrub, with ceaseless\nrain swe
+eping away wildly before a long and lamentable blast.\n"[] 
+ []
+
+[176] [177] [178]
+Overfull \hbox (6354.0pt too wide) in paragraph at lines 6859--6859
+[]\TU/lmtt/m/n/10 ## [1] "CHAPTER I\nThere was no possibility of taking a walk 
+that day. We had been wandering, indeed, in the\nleafless shrubbery an hour in 
+the morning; but since dinner (Mrs. Reed, when there was no\ncompany, dined ear
+ly) the cold winter wind had brought with it clouds so sombre, and a rain so\np
+enetrating, that further out-door exercise was now out of the question.\nI was 
+glad of it: I never liked long walks, especially on chilly afternoons: dreadful
+ to me was the\ncoming home in the raw twilight, with nipped fingers and toes, 
+and a heart saddened by the\nchidings of Bessie, the nurse, and humbled by the 
+consciousness of my physical inferiority to\nEliza, John, and Georgiana Reed.\n
+The said Eliza, John, and Georgiana were now clustered round their mama in the 
+drawing-room:\nshe lay reclined on a sofa by the fireside, and with her darling
+s about her (for the time neither\nquarrelling nor crying) looked perfectly hap
+py. Me, she had dispensed from joining the group;\nsaying, “She regretted to be
+ under the necessity of keeping me at a distance; but that until she\nheard fro
+m Bessie, and could discover by her own observation, that I was endeavouring in
+ good\nearnest to acquire a more sociable and childlike disposition, a more att
+ractive and sprightly\nmanner—
+ []
+
+
+Overfull \hbox (6196.5pt too wide) in paragraph at lines 6859--6859
+\TU/lmtt/m/n/10 something lighter, franker, more natural, as it were—she really
+ must exclude me from\nprivileges intended only for contented, happy, little ch
+ildren.”\n“What does Bessie say I have done?” I asked.\n“Jane, I don’t like cav
+illers or questioners; besides, there is something truly forbidding in a child\
+ntaking up her elders in that manner. Be seated somewhere; and until you can sp
+eak pleasantly,\nremain silent.”\nA breakfast-room adjoined the drawing-room, I
+ slipped in there. It contained a bookcase: I soon\npossessed myself of a volum
+e, taking care that it should be one stored with pictures. I mounted\ninto the 
+window-seat: gathering up my feet, I sat cross-legged, like a Turk; and, having
+ drawn the\nred moreen curtain nearly close, I was shrined in double retirement
+.\nFolds of scarlet drapery shut in my view to the right hand; to the left were
+ the clear panes of\nglass, protecting, but not separating me from the drear No
+vember day. At intervals, while\nturning over the leaves of my book, I studied 
+the aspect of that winter afternoon. Afar, it offered\na pale blank of mist and
+ cloud; near a scene of wet lawn and storm-beat shrub, with ceaseless\nrain swe
+eping away wildly before a long and lamentable blast.\nI returned to my book—
+ []
+
+
+Overfull \hbox (1965.0pt too wide) in paragraph at lines 6859--6859
+\TU/lmtt/m/n/10 Bewick’s History of British Birds: the letterpress thereof I ca
+red little\nfor, generally speaking; and yet there were certain introductory pa
+ges that, child as I was, I could\nnot pass quite as a blank. They were those w
+hich treat of the haunts of sea-fowl; of “the solitary\nrocks and promontories”
+ by them only inhabited; of the coast of Norway, studded with isles from\nits s
+outhern extremity, the Lindeness, or Naze, to the North Cape—
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 6859--6859
+\TU/lmtt/m/n/10 \n“Where the Northern Ocean, in vast whirls,\nBoils round the n
+aked, melancholy isles\n"[] 
+ []
+
+
+Overfull \hbox (1251.0pt too wide) in paragraph at lines 6859--6859
+[]\TU/lmtt/m/n/10 ## [2] "Of farthest Thule; and the Atlantic surge\nPours in a
+mong the stormy Hebrides.”\nNor could I pass unnoticed the suggestion of the bl
+eak shores of Lapland, Siberia, Spitzbergen,\nNova Zembla, Iceland, Greenland, 
+with “the vast sweep of the Arctic Zone, and those forlorn\nregions of dreary s
+pace,—
+ []
+
+
+Overfull \hbox (11493.75pt too wide) in paragraph at lines 6859--6859
+\TU/lmtt/m/n/10 that reservoir of frost and snow, where firm fields of ice, the
+\naccumulation of centuries of winters, glazed in Alpine heights above heights,
+ surround the pole,\nand concentre the multiplied rigours of extreme cold.” Of 
+these death-white realms I formed an\nidea of my own: shadowy, like all the hal
+f-comprehended notions that float dim through\nchildren’s brains, but strangely
+ impressive. The words in these introductory pages connected\nthemselves with t
+he succeeding vignettes, and gave significance to the rock standing up alone in
+\na sea of billow and spray; to the broken boat stranded on a desolate coast; t
+o the cold and ghastly\nmoon glancing through bars of cloud at a wreck just sin
+king.\nI cannot tell what sentiment haunted the quite solitary churchyard, with
+ its inscribed headstone;\nits gate, its two trees, its low horizon, girdled by
+ a broken wall, and its newly-risen crescent,\nattesting the hour of eventide.\
+nThe two ships becalmed on a torpid sea, I believed to be marine phantoms.\nThe
+ fiend pinning down the thief’s pack behind him, I passed over quickly: it was 
+an object of\nterror.\nSo was the black horned thing seated aloof on a rock, su
+rveying a distant crowd surrounding a\ngallows.\nEach picture told a story; mys
+terious often to my undeveloped understanding and imperfect\nfeelings, yet ever
+ profoundly interesting: as interesting as the tales Bessie sometimes narrated 
+on\nwinter evenings, when she chanced to be in good humour; and when, having br
+ought her ironing-\ntable to the nursery hearth, she allowed us to sit about it
+, and while she got up Mrs. Reed’s lace\nfrills, and crimped her nightcap borde
+rs, fed our eager attention with passages of love and\nadventure taken from old
+ fairy tales and other ballads; or (as at a later period I discovered) from\nth
+e pages of Pamela, and Henry, Earl of Moreland.\nWith Bewick on my knee, I was 
+then happy: happy at least in my way. I feared nothing but\ninterruption, and t
+hat came too soon. The breakfast-room door opened.\n“Boh! Madam Mope!” cried th
+e voice of John Reed; then he paused: he found the room\napparently empty.\n“Wh
+ere the dickens is she!” he continued. “Lizzy! Georgy! (calling to his sisters)
+ Joan is not\nhere: tell mama she is run out into the rain—
+ []
+
+
+Overfull \hbox (1125.0pt too wide) in paragraph at lines 6859--6859
+\TU/lmtt/m/n/10 bad animal!”\n“It is well I drew the curtain,” thought I; and I
+ wished fervently he might not discover my hiding-\nplace: nor would John Reed 
+have found it out himself; he was not quick either of vision or\nconception; bu
+t Eliza just put her head in at the door, and said at once—
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ##   raw_text                                                
+           page_number[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ##   <chr>                                                   
+                 <int>[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 1 CHAPTER I                                               
+                     1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 2 There was no possibility of taking a walk that day. We h
+ad been w~           1[] 
+ []
+
+[179]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 3 leafless shrubbery an hour in the morning; but since din
+ner (Mrs.~           1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 4 company, dined early) the cold winter wind had brought w
+ith it cl~           1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 5 penetrating, that further out-door exercise was now out 
+of the qu~           1[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6903--6903
+[]\TU/lmtt/m/n/10 ## 6 I was glad of it: I never liked long walks, especially o
+n chilly ~           1[] 
+ []
+
+
+LaTeX Warning: Reference `fig:dhsexample' on page 180 undefined on input line 6
+913.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/dhs_exa
+mple.png Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/dhs_example.
+png>
+
+LaTeX Warning: Reference `fig:tfrdesired' on page 180 undefined on input line 6
+924.
+
+File: /Users/rohanalexander/Documents/telling_stories_with_data/figures/tfr_des
+ired.jpeg Graphic file (type bmp)
+</Users/rohanalexander/Documents/telling_stories_with_data/figures/tfr_desired.
+jpeg>
+[180]
+Overfull \hbox (64.63232pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.8.  CASE-STUDY: US TOTAL FERTILITY RATE, BY STATE AND YEAR (2
+000-2018) \TU/lmr/m/n/10 181
+ []
+
+[181]
+Overfull \hbox (140.18001pt too wide) in alignment at lines 6946--6969
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 6969
+ []
+
+
+Overfull \hbox (140.18001pt too wide) in alignment at lines 6969--6972
+ [] [] [] [] [] 
+ []
+
+[182]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 1 "Volume 50, Number 5                                    
+                     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 2 "2     National Vital Statistics Report, Vol. 50, No. 5,
+ February 12, 2002\nH~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 3 "                                                       
+                     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 4 "4     National Vital Statistics Report, Vol. 50, No. 5,
+ February 12, 2002\nD~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 5 "                                                       
+                     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7013--7013
+[]\TU/lmtt/m/n/10 ## 6 "6     National Vital Statistics Report, Vol. 50, No. 5,
+ February 12, 2002\n ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7032--7032
+[]\TU/lmtt/m/n/10 ## 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Re
+vised May 15, 20022\n~[] 
+ []
+
+
+Overfull \hbox (64.63232pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.8.  CASE-STUDY: US TOTAL FERTILITY RATE, BY STATE AND YEAR (2
+000-2018) \TU/lmr/m/n/10 183
+ []
+
+[183]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 7056--7056
+[]\TU/lmtt/m/n/10 ## 1 40 National Vital Statistics Report, Vol. 50, No. 5, Rev
+ised May 15, 20022[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7056--7056
+[]\TU/lmtt/m/n/10 ## 2 Table 10. Number of births, birth rates, fertility rates
+, total fertility rat~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7056--7056
+[]\TU/lmtt/m/n/10 ## 4 [By place of residence. Birth rates are live births per 
+1,000 estimated popul~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7056--7056
+[]\TU/lmtt/m/n/10 ## 5 estimated in each area; total fertility rates are sums o
+f birth rates for 5-y~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  1 United States 1 .......................................
+...............      ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  2 Alabama ...............................................
+................     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  3 Alaska ................................................
+...................  ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  4 Arizona ...............................................
+..................   ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  5 Arkansas ..............................................
+.................    ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  6 California ............................................
+..................   ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  7 Colorado ..............................................
+.................    ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  8 Connecticut ...........................................
+................     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ##  9 Delaware ..............................................
+................     ~[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7082--7082
+[]\TU/lmtt/m/n/10 ## 10 District of Columbia ..................................
+............         ~[] 
+ []
+
+[184]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ##   raw_data                              state             
+                 data[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ##   <chr>                                 <chr>             
+                 <chr>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 1 40 National Vital Statistics Report,~ 40 National Vital 
+Statistics Repo~ <NA>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 2 Table 10. Number of births, birth ra~ Table 10. Number o
+f births, birth~ <NA>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 3 United States, each State and territ~ United States, eac
+h State and ter~ <NA>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 4 [By place of residence. Birth rates ~ [By place of resid
+ence. Birth rat~ <NA>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 5 estimated in each area; total fertil~ estimated in each 
+area; total fer~ <NA>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7122--7122
+[]\TU/lmtt/m/n/10 ## 6 age group estimated in each area]     age group estimate
+d in each area]  <NA>[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ##   raw_data state data  number_of_births birth_rate fertili
+ty_rate TFR[] 
+ []
+
+
+Overfull \hbox (64.63232pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.8.  CASE-STUDY: US TOTAL FERTILITY RATE, BY STATE AND YEAR (2
+000-2018) \TU/lmr/m/n/10 185
+ []
+
+[185]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ##   <chr>    <chr> <chr> <chr>            <chr>      <chr>  
+        <chr>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 1 40 Nati~ 40 N~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 2 Table 1~ Tabl~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 3 United ~ Unit~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 4 [By pla~ [By ~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 5 estimat~ esti~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## 6 age gro~ age ~ <NA>  <NA>             <NA>       <NA>   
+        <NA>[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 7163--7163
+[]\TU/lmtt/m/n/10 ## # ... with 3 more variables: teen_births_all <chr>, teen_b
+irths_15_17 <chr>,[] 
+ []
+
+[186]
+
+Package natbib Warning: Citation `citepurrr' on page 187 undefined on input lin
+e 7225.
+
+
+Overfull \hbox (64.63232pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.8.  CASE-STUDY: US TOTAL FERTILITY RATE, BY STATE AND YEAR (2
+000-2018) \TU/lmr/m/n/10 187
+ []
+
+[187]
+Missing character: There is no � in font [lmmono10-regular]:!
+[188]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ##   raw_data                       state                    
+    data  year_of_data[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ##   <chr>                          <chr>                    
+    <chr>        <dbl>[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 1 40 National Vital Statistics ~ 40 National Vital Statist
+ic~ 50, ~         2000[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 2 Table 10. Number of births, b~ Table 10. Number of birth
+s,~ <NA>          2000[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 3 United States, each State and~ United States, each State
+ a~ <NA>          2000[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 4 [By place of residence. Birth~ [By place of residence. B
+ir~ <NA>          2000[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 5 estimated in each area; total~ estimated in each area; t
+ot~ <NA>          2000[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 7345--7345
+[]\TU/lmtt/m/n/10 ## 6 age group estimated in each a~ age group estimated in ea
+ch~ <NA>          2000[] 
+ []
+
+Missing character: There is no � in font [lmmono10-regular]:!
+! Text line contains an invalid character.
+l.7366 ..._all}\NormalTok{(state, }\StringTok{"^^H
+                                                  "}\NormalTok{),} 
+Here is how much of TeX's memory you used:
+ 20231 strings out of 479212
+ 376839 string characters out of 5873361
+ 835274 words of memory out of 5000000
+ 39434 multiletter control sequences out of 15000+600000
+ 410043 words of font info for 88 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 98i,10n,122p,3082b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on telling_stories_with_data.pdf (188 pages).

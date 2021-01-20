@@ -1,0 +1,347 @@
+---
+date: November 26, 2020
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+
+```{r setup0604, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  R.options = list(width = 80)
+)
+```
+
+
+# Instrumental variables
+
+**Required reading**
+
+- Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapter 5.
+
+**Required viewing**
+
+- Kuriwaki, Shiro, 2020, 'Instrumental variables in R', 11 April, freely available at: https://vimeo.com/406629459.
+
+
+
+**Recommended reading**
+
+- Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 4. 
+- Cunningham, Scott, 'Causal Inference: The Mixtape', Chapter 'Instrumental variables', freely available at: http://www.scunning.com/causalinference_norap.pdf.
+- Grogger, Jeffrey, Andreas Steinmayr, Joachim Winter, 2020, 'The Wage Penalty of Regional Accents', NBER Working Paper No. 26719.
+- Taddy, Matt, 2019, *Business Data Science*, Chapter 5, pp. 152-162.
+
+<!-- https://declaredesign.org/blog/2019-02-05-instrumental-variables.html -->
+
+<!-- https://raw.githack.com/edrubin/EC421W19/master/LectureNotes/11InstrumentalVariables/11_instrumental_variables.html#41 -->
+
+
+**Key concepts/skills/etc**
+
+- Identifying opportunities for instrumental variables.
+- Implementing instrumental variables.
+- Challenges to the validity of instrumental variables.
+
+**Key libraries**
+
+- `estimatr`
+- `tidyverse`
+
+**Key functions/etc**
+
+- `iv_robust()`
+
+
+**Pre-quiz**
+
+- What is an instrumental variable?
+- What are some circumstances in which instrumental variables might be useful?
+- What conditions must instrumental variables satisfy?
+- Who were some of the early instrumental variable authors?
+- Can you please think of and explain an application of instrumental variables in your own life?
+
+
+## Introduction
+
+
+Instrumental variables (IV) is an approach that can be handy when we have some type of treatment and control going on, but we have a lot of correlation with other variables and we possibly don't have a variable that actually measures what we are interested in. So adjusting for observables will not be enough to create a good estimate. Instead we find some variable - the eponymous instrumental variable - that is:
+
+1. correlated with the treatment variable, but
+2. not correlated with the outcome.
+
+This solves our problem because the only way the instrumental variable can have an effect is through the treatment variable, and so we are able to adjust our understanding of the effect of the treatment variable appropriately. The trade-off is that instrumental variables must satisfy a bunch of different assumptions, and that, frankly, they are difficult to identify *ex ante*. Nonetheless, when you are able to use them they are a powerful tool for speaking about causality.
+
+The canonical instrumental variables example is smoking. These days we know that smoking causes cancer. But because smoking is correlated with a lot of other variables, for instance, education, it could be that it was actually education that causes cancer. RCTs may be possible, but they are likely to be troublesome in terms of speed and ethics, and so instead we look for some other variable that is correlated with smoking, but not, in and of itself, with lung cancer. In this case, we look to tax rates, and other policy responses, on cigarettes. As the tax rates on cigarettes are correlated with the number of cigarettes that are smoked, but not correlated with lung cancer, other than through their impact on cigarette smoking, through them we can assess the effect of cigarettes smoked on lung cancer. 
+
+To implement instrumental variables we first regress tax rates on cigarette smoking to get some coefficient on the instrumental variable, and then (in a separate regression) regress tax rates on lung cancer to again get some coefficient on the instrumental variable. Our estimate is then the ratio of these coefficients. [@gelmanandhill, p. 219] describe this ratio as the 'Wald estimate'.
+
+Following the language of [@gelmanandhill, p. 216] when we use instrumental variables we make a variety of assumptions including:
+
+- Ignorability of the instrument.
+- Correlation between the instrumental variable and the treatment variable.
+- Monotonicity.
+- Exclusion restriction.
+
+To summarise exactly what instrumental variables is about, I cannot do better than recommend the first few pages of the 'Instrumental Variables' chapter in @cunninghamnorap, and this key paragraph in particular (by way of background, Cunningham has explained why it would have been impossible to randomly allocate 'clean' and 'dirty' water through a randomised controlled trial and then continues...):
+
+> Snow would need a way to trick the data such that the allocation of clean and dirty water to people was not associated with the other determinants of cholera mortality, such as hygiene and poverty. He just would need for someone or something to be making this treatment assignment for him.
+> 
+> Fortunately for Snow, and the rest of London, that someone or something existed. In the London of the 1800s, there were many different water companies serving different areas of the city. Some were served by more than one company. Several took their water from the Thames, which was heavily polluted by sewage. The service areas of such companies had much higher rates of cholera. The Chelsea water company was an exception, but it had an exceptionally good filtration system. That’s when Snow had a major insight. In 1849, Lambeth water company moved the intake point upstream along the Thames, above the main sewage discharge point, giving its customers purer water. Southwark and Vauxhall water company, on the other hand, left their intake point downstream from where the sewage discharged. Insofar as the kinds of people that each company serviced were approximately the same, then comparing the cholera rates between the two houses could be the experiment that Snow so desperately needed to test his hypothesis.
+
+
+
+## History
+
+
+The history of instrumental variables is a rare statistical mystery, and @stock2003retrospectives provide a brief overview. The method was first published in @wright1928tariff. This is a book about the effect of tariffs on animal and vegetable oil. So why might instrumental variables be important in a book about tariffs on animal and vegetable oil? The fundamental problem is that the effect of tariffs depends on both supply and demand. But we only know prices and quantities, so we don't know what is driving the effect. We can use instrumental variables to pin down causality.
+
+Where is gets interesting, and becomes something of a mystery, is that the instrumental variables discussion is only in Appendix B. If you made a major statistical break-through would you hide it in an appendix? Further, Philip G. Wright, the book's author, had a son Sewall Wright, who had considerable expertise in statistics and the specific method used in Appendix B. Hence the mystery of Appendix B - did Philip or Sewall write it? Both @cunninghamnorap and @stock2003retrospectives go into more detail, but on balance feel that it is likely that Philip did actually author the work.
+
+
+
+
+## Simulated example
+
+
+Let's generate some data. We will explore a simulation related to the canonical example of health status, smoking, and tax rates. So we are looking to explain how healthy someone is based on the amount they smoke, via the tax rate on smoking. We are going to generate different tax rates by provinces. My understanding is that the tax rate on cigarettes is now pretty much the same in each of the provinces, but that this is fairly recent. So we'll pretend that Alberta had a low tax, and Nova Scotia had a high tax.
+
+<!-- We first want a count for the number of cigarettes that a person smokes. The Poisson distribution can provide a distribution over the integers, so we'll sample from that.  -->
+
+As a reminder, we are simulating data for illustrative purposes, so we need to impose the answer that we want. When you actually use instrumental variables you will be reversing the process.
+
+```{r, warnings = FALSE, message = FALSE}
+library(broom)
+library(tidyverse)
+
+set.seed(853)
+
+number_of_observation <- 10000
+
+iv_example_data <- tibble(person = c(1:number_of_observation),
+                          smoker = sample(x = c(0:1),
+                                          size = number_of_observation, 
+                                          replace = TRUE)
+                          )
+```
+
+Now we need to relate the number of cigarettes that someone smoked to their health. We'll model health status as a draw from the normal distribution, with either a high or low mean depending on whether the person smokes.
+
+```{r, warnings = FALSE, message = FALSE}
+iv_example_data <- 
+  iv_example_data %>% 
+  mutate(health = if_else(smoker == 0,
+                          rnorm(n = n(), mean = 1, sd = 1),
+                          rnorm(n = n(), mean = 0, sd = 1)
+                          )
+         )
+# So health will be one standard deviation higher for people who don't or barely smoke.
+```
+
+Now we need a relationship between cigarettes and the province (because in this illustration, the provinces have different tax rates).
+
+```{r, warnings = FALSE, message = FALSE}
+iv_example_data <- 
+  iv_example_data %>% 
+  rowwise() %>% 
+  mutate(province = case_when(smoker == 0 ~ sample(x = c("Nova Scotia", "Alberta"),
+                                                                       size = 1, 
+                                                                       replace = FALSE, 
+                                                                       prob = c(1/2, 1/2)),
+                              smoker == 1 ~ sample(x = c("Nova Scotia", "Alberta"),
+                                                                       size = 1, 
+                                                                       replace = FALSE, 
+                                                                       prob = c(1/4, 3/4)))) %>% 
+  ungroup()
+
+iv_example_data <- 
+  iv_example_data %>% 
+  mutate(tax = case_when(province == "Alberta" ~ 0.3,
+                         province == "Nova Scotia" ~ 0.5,
+                         TRUE ~ 9999999
+  )
+  )
+
+iv_example_data$tax %>% table()
+
+head(iv_example_data)
+```
+
+Now we can look at our data. 
+
+```{r}
+iv_example_data %>% 
+  mutate(smoker = as_factor(smoker)) %>% 
+  ggplot(aes(x = health, fill = smoker)) +
+  geom_histogram(position = "dodge", binwidth = 0.2) +
+  theme_minimal() +
+  labs(x = "Health rating",
+       y = "Number of people",
+       fill = "Smoker") +
+  scale_fill_brewer(palette = "Set1") +
+  facet_wrap(vars(province))
+```
+
+Finally, we can use the tax rate as an instrumental variable to estimate the effect of smoking on health.
+
+```{r}
+health_on_tax <- lm(health ~ tax, data = iv_example_data)
+smoker_on_tax <- lm(smoker ~ tax, data = iv_example_data)
+
+coef(health_on_tax)["tax"] / coef(smoker_on_tax)["tax"]
+```
+
+So we find, luckily, that if you smoke then your health is likely to be worse than if you don't smoke.
+
+Equivalently, we can think of instrumental variables in a two-stage regression context. 
+
+```{r}
+first_stage <- lm(smoker ~ tax, data = iv_example_data)
+health_hat <- first_stage$fitted.values
+second_stage <- lm(health ~ health_hat, data = iv_example_data)
+
+summary(second_stage)
+```
+
+
+
+
+## Implementation
+
+
+As with regression discontinuity, although it is possible to use existing functions, it might be worth looking at specialised packages. Instrumental variables has a few moving pieces, so a specialised package can help keep everything organised, and additionally, standard errors need to be adjusted and specialised packages make this easier. The package `estimatr` is a recommendation, although there are others available and you should try those if you are interested. The `estimatr` package is from the same team as DeclareDesign.
+
+Let's look at our example using `iv_robust()`.
+
+```{r}
+library(estimatr)
+iv_robust(health ~ smoker | tax, data = iv_example_data) %>% 
+  summary()
+```
+
+
+## Assumptions
+
+
+As discussed earlier, there are a variety of assumptions that are made when using instrumental variables. The two most important are:
+
+1. Exclusion Restriction. This assumption is that the instrumental variable only affects the dependent variable through the independent variable of interest.
+2. Relevance. There must actually be a relationship between the instrumental variable and the independent variable. 
+
+There is typically a trade-off between these two. There are plenty of variables that 
+
+When thinking about potential instrumental variables @cunninghamnorap, p. 211, puts it brilliantly:
+
+> But, let's say you think you do have a good instrument. How might you defend it as such to someone else? A necessary but not a sufficient condition for having an instrument that can satisfy the exclusion restriction is if people are confused when you tell them about the instrument's relationship to the outcome. Let me explain. No one is going to be confused when you tell them that you think family size will reduce female labor supply. They don't need a Becker model to convince them that women who have more children probably work less than those with fewer children. It's common sense. But, what would they think if you told them that mothers whose first two children were the same gender worked less than those whose children had a balanced sex ratio? They would probably give you a confused look. What does the gender composition of your children have to do with whether a woman works?
+> 
+> It doesn't – it only matters, in fact, if people whose first two children are the same gender decide to have a third child. Which brings us back to the original point – people buy that family size can cause women to work less, but they're confused when you say that women work less when their first two kids are the same gender. But if when you point out to them that the two children's gender induces people to have larger families than they would have otherwise, the person
+"gets it", then you might have an excellent instrument.
+
+Relevance can be tested using regression and other tests for correlation. The exclusion restriction cannot be tested. You need to present evidence and convincing arguments. As @cunninghamnorap p. 225 says 'Instruments have a certain ridiculousness to them[.] That is, you know you have a good instrument if the instrument itself doesn't seem relevant for explaining the outcome of interest because that's what the exclusion restriction implies.'
+
+
+
+
+
+<!-- ## Example - Sesame Street -->
+
+<!-- ### Overview -->
+
+<!-- Here we'll use the example that IEP introduces, which is @kearney2019early. @kearney2019early are interested in whether Sesame Street improved educational and labor market outcomes. To illustrate why this may in need of investigation consider if Sesame Street is found to result in higher rates of education. The issue is that we don't know if it is just that there are other factors that are associated with watching Sesame Street that are causing this increase or if it is actually Sesame Street. -->
+
+<!-- Sesame Street 'initially aired in 1969' in the US, but it was not available to all US children immediately. It 'mainly aired on stations affiliated with the Public Broadcasting System (PBS), which often broadcast on ultra-high frequency (UHF) channels. UHF reception was inferior to reception on very high frequency (VHF) channels for physical reasons and because many television sets at that time did not have the capability to receive a UHF signal'. Hence, @kearney2019early have something that will do the randomisation for them because different US counties got access to Sesame Street at different times. -->
+
+<!-- @kearney2019early look at 'whether ther educational outcomes among birth cohorts who were age six and under in 1969 and who lived in locations where broadcast reception for the show was high improved relative to older cohorts and those who lived in locations with limited broadcast reception.'  -->
+
+<!-- They find that Sesame Street had a positive effect in terms of ensuring that students did not fall behind their peer group. (Sesame Street was designed to 'reduce the educational deficits experienced by disadvantaged youth based on differences in their preschool environment' and so this is the expected results.)  -->
+
+
+<!-- ### Data -->
+
+<!-- The main variable of interest is whether an area is able to receive Sesame Street. @kearney2019early characterise 'two-thirds of households' as being 'able to receive the signal broadcasting Sesame Street when the show began in 1969.' This turns on distance from a television tower and whether the tower broadcasts UHF or VHF. One key aspect is that this decision (which is what @kearney2019early use to randomise) is made independent on the Sesame Street decision. @kearney2019early argue convincingly that it was. This is the exclusion restriction.  -->
+
+<!-- In a series of two maps @kearney2019early illustrate the coverage (Figures X and Y). -->
+
+<!-- ADD FIGURES -->
+
+<!-- The next step is to argue that there is a relationship between being able to watch Sesame Street, and watching Sesame Street. -->
+
+<!-- FML, this isn't IV, this is diff-in-diff. -->
+
+
+## Example - Effect of Police on Crime
+
+
+### Overview
+
+Here we'll use an example of @levitt2002using that looks at the effect of police on crime. This is interesting because you might think, that more police is associated with lower crime. But, it could actually be the opposite, if more crime causes more police to be hired - how many police would a hypothetical country with no crime need? Hence there is a need to find some sort of instrumental variable that affects crime only through its relationship with the number of police (that is, not in and of itself, related to crime), and yet is also correlated with police numbers. @levitt2002using suggests the number of firefighters in a city.
+
+@levitt2002using argues that firefighters are appropriate as an instrument, because '(f)actors such as the power of public sector unions, citizen tastes for government services, affirmative action initiatives, or a mayor's desire to provide spoils might all be expected to jointly influence the number of firefighters and police.'. @levitt2002using also argues that the relevance assumption is met by showing that 'changes in the number of police officers and firefighters within a city are highly correlated over time'.
+
+In terms of satisfying the exclusion restriction, @levitt2002using argues that the number of firefighters should not have a 'direct impact on crime.' However, it may be that there are common factors, and so @levitt2002using adjusts for this in the regression.
+
+
+### Data
+
+The dataset is based on 122 US cities between 1975 and 1995. Summary statistics are provided in Figure \@ref(fig:levittcrime).
+
+```{r levittcrime, echo=FALSE, fig.cap="Summary statistics for Levitt 2002.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/levitt_summary_stats.png"))
+```
+Source: @levitt2002using p. 1,246.
+
+
+
+
+### Model
+
+In the first stage @levitt2002using looks at police as a function of firefighters, and a bunch of adjustment variables:
+$$\ln(\mbox{Police}_{ct}) = \gamma \ln(\mbox{Fire}_{ct}) + X'_{ct}\Gamma + \lambda_t + \phi_c + \epsilon_{ct}.$$
+The important part of this is the police and firefighters numbers which are on a per capita basis. There are a bunch of adjustment variables in $X$ which includes things like state prisoners per capita, the unemployment rate, etc, as well as year dummy variables and fixed-effects for each city.
+
+Having established the relationship between police and firefights, @levitt2002using can then use the estimates of the number of police, based on the number of firefighters, to explain crime rates:
+$$\Delta\ln(\mbox{Crime}_{ct}) = \beta_1 \ln(\mbox{Police}_{ct-1}) + X'_{ct}\Gamma + \Theta_c + \mu_{ct}.$$
+
+The typical way to present instrumental variable results is to show both stages. Figure \@ref(fig:levittcrimefirst) shows the relationship between police and firefighters.
+
+```{r levittcrimefirst, echo=FALSE, fig.cap="The relationship between firefighters, police and crime.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/levitt_first.png"))
+```
+Source: @levitt2002using p. 1,247.
+
+And then Figure \@ref(fig:levittcrimesecond) shows the relationship between police and crime, where is it the IV results that are the ones of interest.
+
+```{r levittcrimesecond, echo=FALSE, fig.cap="The impact of police on crime.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/levitt_second.png"))
+```
+Source: @levitt2002using p. 1,248.
+
+### Discussion
+
+The key finding of @levitt2002using is that there is a negative effect of the number of police on the amount of crime.
+
+There are a variety of points that I want to raise in regard to this paper. They will come across as a little negative, but this is mostly just because this a paper from 2002, that I am reading today, and so the standards have changed.
+
+1. It's fairly remarkable how reliant on various model specifications the results are. The results bounce around a fair bit and that's just the ones that are reported. Chances are there are a bunch of other results that were not reported, but it would be of interest to see their impact.
+2. On that note, there is fairly limited model validation. This is probably something that I am more aware of these days, but it seems likely that there is a fair degree of over-fitting here. 
+3. @levitt2002using is actually a response, after another researcher, @mccrary2002using, found some issues with the original paper: @levitt87using. While Levitt appears quite decent about it, it is jarring to see that Levitt was thanked by @mccrary2002using for providing 'both the data and computer code.' What if Levitt had not been decent about providing the data and code? Or what if the code was unintelligible? In some ways it is nice to see how far that we have come - the author of a similar paper these days would be forced to make their code and data available as part of the paper, we wouldn't have to ask them for it. But it reinforces the importance of open data and reproducible science.
+
+
+## Conclusion
+
+
+Instrumental variables is a useful approach because one can obtain causal estimates even without explicit randomisation. Finding instrumental variables used to be a bit of a white whale, especially in academia. However, I will leave the final (and hopefully motivating) word to @taddy2019, p. 162:
+
+> As a final point on the importance of IV models and analysis, note that when you are on the inside of a firm---especially on the inside of a modern technology firm---explicitly randomised instruments are everywhere.... But it is often the case that decision-makers want to understand the effects of policies that are not themselves randomised but are rather downstream of the things being AB tested. For example, suppose an algorithm is used to predict the creditworthiness of potential borrowers and assign loans. Even if the process of loan assignment is never itself randomised, if the parameters in the machine learning algorithms used to score credit are AB tested, then those experiments can be used as instruments for the loan assignment treatment. Such 'upstream randomisation' is extremely common and IV analysis is your key tool for doing causal inference in that setting.'
+
+
+
+
+
+

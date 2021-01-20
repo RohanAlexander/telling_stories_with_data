@@ -1,0 +1,90 @@
+---
+date: January 18, 2021
+bibliography: bibliography.bib
+output:
+  pdf_document:
+    citation_package: natbib
+  bookdown::pdf_book:
+    citation_package: biblatex
+---
+
+# Other sources
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  R.options = list(width = 80)
+)
+```
+
+
+**Required reading**
+
+
+**Recommended reading**
+
+
+
+**Key concepts/skills/etc**
+
+- 
+
+**Key libraries**
+
+- 
+
+**Key functions/etc**
+
+- 
+
+
+**Pre-quiz**
+
+
+
+**Key sources of data**
+
+- University of Toronto Dataverse: https://dataverse.scholarsportal.info/dataverse/toronto.
+- Data is Plural structured archive: https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0.
+- Kaggle Datasets: https://www.kaggle.com/datasets.
+- Figure Eight: https://www.figure-eight.com/data-for-everyone/.
+- Google dataset search: https://datasetsearch.research.google.com/.
+- Awesome Data: https://github.com/awesomedata/awesome-public-datasets.
+
+
+**Quiz** 
+
+- Please identify three other sources of data that you are interested in and describe where are they available (please include a link if possible)? 
+- Please focus on one of those sources. What steps do you have to go through in order to get a dataset that can be analysed in R?
+- Let's say you take a job at RBC (a Canadian bank) and they already have some quantitative data for you to use. What are some questions that you should explore when deciding whether that data will be useful to you?
+1. Please identify three sources of government data in your country and describe where are they available (please include a link if possible)? 
+2. Please focus on one of those sources. What steps do you have to go through in order to get a dataset such that it can be analysed in R?
+- Please identify three other sources of data that you are interested in and describe where are they available (please include a link if possible)? 
+- Please focus on one of those sources. What steps do you have to go through in order to get a dataset that can be analysed in R?
+- Let's say you take a job at RBC (a Canadian bank) and they already have some quantitative data for you to use. What are some questions that you should explore when deciding whether that data will be useful to you?
+
+
+## Open Government Data
+
+
+- Canadian Government Open Data: https://open.canada.ca/en/open-data.
+
+
+### Canadian Census
+
+### City of Toronto Open Data Portal 
+
+
+
+## Electoral Studies
+
+### Canadian Electoral Study
+
+### Australian Electoral Study
+
+
+
+
+

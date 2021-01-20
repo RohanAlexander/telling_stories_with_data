@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 15 Difference in differences | Telling Stories With Data</title>
+  <meta name="description" content="This book is about learning how to tell stories with data." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 15 Difference in differences | Telling Stories With Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is about learning how to tell stories with data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 15 Difference in differences | Telling Stories With Data" />
+  
+  <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
+  
+
+<meta name="author" content="Rohan Alexander" />
+
+
+<meta name="date" content="2021-01-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regression-essentials.html"/>
+<link rel="next" href="instrumental-variables.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Telling Stories With Data</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Essentials</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a><ul>
+<li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
+<li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
+<li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-essentials.html"><a href="r-essentials.html#arranging"><i class="fa fa-check"></i><b>3.4.4</b> Arranging</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-essentials.html"><a href="r-essentials.html#grouping"><i class="fa fa-check"></i><b>3.4.5</b> Grouping</a></li>
+<li class="chapter" data-level="3.4.6" data-path="r-essentials.html"><a href="r-essentials.html#mutating"><i class="fa fa-check"></i><b>3.4.6</b> Mutating</a></li>
+<li class="chapter" data-level="3.4.7" data-path="r-essentials.html"><a href="r-essentials.html#summarise"><i class="fa fa-check"></i><b>3.4.7</b> Summarise</a></li>
+<li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
+<li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-essentials"><i class="fa fa-check"></i><b>3.6</b> ggplot essentials</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-essentials.html"><a href="r-essentials.html#strings"><i class="fa fa-check"></i><b>3.7.4</b> Strings</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-essentials.html"><a href="r-essentials.html#pivot"><i class="fa fa-check"></i><b>3.7.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
+<li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
+<li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
+<li class="chapter" data-level="4.2.4" data-path="workflow.html"><a href="workflow.html#abstracts-and-pdf-outputs"><i class="fa fa-check"></i><b>4.2.4</b> Abstracts and PDF outputs</a></li>
+<li class="chapter" data-level="4.2.5" data-path="workflow.html"><a href="workflow.html#references"><i class="fa fa-check"></i><b>4.2.5</b> References</a></li>
+<li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
+<li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
+<li class="chapter" data-level="4.5.4" data-path="workflow.html"><a href="workflow.html#code-comments"><i class="fa fa-check"></i><b>4.5.4</b> Code comments</a></li>
+<li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+</ul></li>
+<li class="part"><span><b>II Communicate</b></span></li>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a><ul>
+<li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
+<li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a><ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+</ul></li>
+<li class="part"><span><b>III Hunt and gather</b></span></li>
+<li class="chapter" data-level="7" data-path="gathering-data.html"><a href="gathering-data.html"><i class="fa fa-check"></i><b>7</b> Gathering data</a><ul>
+<li class="chapter" data-level="7.1" data-path="gathering-data.html"><a href="gathering-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-6"><i class="fa fa-check"></i><b>7.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.2" data-path="gathering-data.html"><a href="gathering-data.html#r-packages-that-wrap-around-apis"><i class="fa fa-check"></i><b>7.1.2</b> R packages that wrap around APIs</a></li>
+<li class="chapter" data-level="7.1.3" data-path="gathering-data.html"><a href="gathering-data.html#using-apis-directly"><i class="fa fa-check"></i><b>7.1.3</b> Using APIs directly</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="gathering-data.html"><a href="gathering-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.2</b> Case study - rtweet</a></li>
+<li class="chapter" data-level="7.3" data-path="gathering-data.html"><a href="gathering-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.3</b> Case study - spotifyr</a></li>
+<li class="chapter" data-level="7.4" data-path="gathering-data.html"><a href="gathering-data.html#scraping"><i class="fa fa-check"></i><b>7.4</b> Scraping</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-7"><i class="fa fa-check"></i><b>7.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.4.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.4.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="gathering-data.html"><a href="gathering-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.5</b> Case study - Rohan’s books</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-8"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.5.2" data-path="gathering-data.html"><a href="gathering-data.html#gather"><i class="fa fa-check"></i><b>7.5.2</b> Gather</a></li>
+<li class="chapter" data-level="7.5.3" data-path="gathering-data.html"><a href="gathering-data.html#clean"><i class="fa fa-check"></i><b>7.5.3</b> Clean</a></li>
+<li class="chapter" data-level="7.5.4" data-path="gathering-data.html"><a href="gathering-data.html#explore"><i class="fa fa-check"></i><b>7.5.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="gathering-data.html"><a href="gathering-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.6</b> Case study - Canadian Prime Ministers</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-9"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.6.2" data-path="gathering-data.html"><a href="gathering-data.html#gather-1"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
+<li class="chapter" data-level="7.6.3" data-path="gathering-data.html"><a href="gathering-data.html#clean-1"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
+<li class="chapter" data-level="7.6.4" data-path="gathering-data.html"><a href="gathering-data.html#explore-1"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="gathering-data.html"><a href="gathering-data.html#pdfs"><i class="fa fa-check"></i><b>7.7</b> PDFs</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-10"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.7.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.7.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="gathering-data.html"><a href="gathering-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.8</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-11"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.8.2" data-path="gathering-data.html"><a href="gathering-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.8.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="7.8.3" data-path="gathering-data.html"><a href="gathering-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.8.3</b> Start simple, then iterate.</a></li>
+<li class="chapter" data-level="7.8.4" data-path="gathering-data.html"><a href="gathering-data.html#iterating"><i class="fa fa-check"></i><b>7.8.4</b> Iterating</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="gathering-data.html"><a href="gathering-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.9</b> Case-study: Kenyan census data</a><ul>
+<li class="chapter" data-level="7.9.1" data-path="gathering-data.html"><a href="gathering-data.html#set-up"><i class="fa fa-check"></i><b>7.9.1</b> Set-up</a></li>
+<li class="chapter" data-level="7.9.2" data-path="gathering-data.html"><a href="gathering-data.html#extract"><i class="fa fa-check"></i><b>7.9.2</b> Extract</a></li>
+<li class="chapter" data-level="7.9.3" data-path="gathering-data.html"><a href="gathering-data.html#clean-2"><i class="fa fa-check"></i><b>7.9.3</b> Clean</a></li>
+<li class="chapter" data-level="7.9.4" data-path="gathering-data.html"><a href="gathering-data.html#check"><i class="fa fa-check"></i><b>7.9.4</b> Check</a></li>
+<li class="chapter" data-level="7.9.5" data-path="gathering-data.html"><a href="gathering-data.html#tidy-up"><i class="fa fa-check"></i><b>7.9.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="7.9.6" data-path="gathering-data.html"><a href="gathering-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.9.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="gathering-data.html"><a href="gathering-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.10</b> Optical Character Recognition</a></li>
+<li class="chapter" data-level="7.11" data-path="gathering-data.html"><a href="gathering-data.html#text"><i class="fa fa-check"></i><b>7.11</b> Text</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-12"><i class="fa fa-check"></i><b>7.11.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.11.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.11.2</b> Getting text data</a></li>
+<li class="chapter" data-level="7.11.3" data-path="gathering-data.html"><a href="gathering-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.11.3</b> Preparing text datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hunting-data.html"><a href="hunting-data.html"><i class="fa fa-check"></i><b>8</b> Hunting data</a><ul>
+<li class="chapter" data-level="8.1" data-path="hunting-data.html"><a href="hunting-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-13"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.2" data-path="hunting-data.html"><a href="hunting-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="hunting-data.html"><a href="hunting-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
+<li class="chapter" data-level="8.1.4" data-path="hunting-data.html"><a href="hunting-data.html#anova"><i class="fa fa-check"></i><b>8.1.4</b> ANOVA</a></li>
+<li class="chapter" data-level="8.1.5" data-path="hunting-data.html"><a href="hunting-data.html#treatment-and-control"><i class="fa fa-check"></i><b>8.1.5</b> Treatment and control</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="hunting-data.html"><a href="hunting-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>8.2</b> Case study - Fisher’s tea party</a></li>
+<li class="chapter" data-level="8.3" data-path="hunting-data.html"><a href="hunting-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
+<li class="chapter" data-level="8.4" data-path="hunting-data.html"><a href="hunting-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="8.5" data-path="hunting-data.html"><a href="hunting-data.html#ab-testing"><i class="fa fa-check"></i><b>8.5</b> A/B testing</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-14"><i class="fa fa-check"></i><b>8.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.5.2" data-path="hunting-data.html"><a href="hunting-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.5.2</b> Unique complications of A/B testing</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="hunting-data.html"><a href="hunting-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.6</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.7" data-path="hunting-data.html"><a href="hunting-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.7</b> Sampling and survey essentials</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-15"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunting-data.html"><a href="hunting-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.7.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunting-data.html"><a href="hunting-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.7.3</b> Stratified and cluster sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="hunting-data.html"><a href="hunting-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.8</b> Implementing surveys</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="hunting-data.html"><a href="hunting-data.html#google"><i class="fa fa-check"></i><b>8.8.1</b> Google</a></li>
+<li class="chapter" data-level="8.8.2" data-path="hunting-data.html"><a href="hunting-data.html#facebook"><i class="fa fa-check"></i><b>8.8.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.8.3" data-path="hunting-data.html"><a href="hunting-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.8.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.8.4" data-path="hunting-data.html"><a href="hunting-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.8.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.8.5" data-path="hunting-data.html"><a href="hunting-data.html#prolific"><i class="fa fa-check"></i><b>8.8.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.8.6" data-path="hunting-data.html"><a href="hunting-data.html#qualtrics"><i class="fa fa-check"></i><b>8.8.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.8.7" data-path="hunting-data.html"><a href="hunting-data.html#other-2"><i class="fa fa-check"></i><b>8.8.7</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="hunting-data.html"><a href="hunting-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.9</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-sources.html"><a href="other-sources.html"><i class="fa fa-check"></i><b>9</b> Other sources</a><ul>
+<li class="chapter" data-level="9.1" data-path="other-sources.html"><a href="other-sources.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="other-sources.html"><a href="other-sources.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
+<li class="chapter" data-level="9.1.2" data-path="other-sources.html"><a href="other-sources.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="other-sources.html"><a href="other-sources.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="other-sources.html"><a href="other-sources.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
+<li class="chapter" data-level="9.2.2" data-path="other-sources.html"><a href="other-sources.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Clean</b></span></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
+<li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
+<li class="part"><span><b>V Model</b></span></li>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
+<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+<li class="chapter" data-level="13.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.9</b> Case study - Airbnb listing in Toronto</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.9.1</b> Essentials</a></li>
+<li class="chapter" data-level="13.9.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.9.2</b> Set up</a></li>
+<li class="chapter" data-level="13.9.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.9.3</b> Get data</a></li>
+<li class="chapter" data-level="13.9.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.9.4</b> Clean data</a></li>
+<li class="chapter" data-level="13.9.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.9.5</b> Explore data</a></li>
+<li class="chapter" data-level="13.9.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.9.6</b> Model data</a></li>
+<li class="chapter" data-level="13.9.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#next-steps-2"><i class="fa fa-check"></i><b>13.9.7</b> Next steps</a></li>
+<li class="chapter" data-level="13.9.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#references-1"><i class="fa fa-check"></i><b>13.9.8</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regression-essentials.html"><a href="regression-essentials.html"><i class="fa fa-check"></i><b>14</b> Regression essentials</a><ul>
+<li class="chapter" data-level="14.1" data-path="regression-essentials.html"><a href="regression-essentials.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="regression-essentials.html"><a href="regression-essentials.html#introduction-17"><i class="fa fa-check"></i><b>14.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1.2" data-path="regression-essentials.html"><a href="regression-essentials.html#competing-relationships"><i class="fa fa-check"></i><b>14.1.2</b> Competing relationships</a></li>
+<li class="chapter" data-level="14.1.3" data-path="regression-essentials.html"><a href="regression-essentials.html#implementing-this-in-r"><i class="fa fa-check"></i><b>14.1.3</b> Implementing this in R</a></li>
+<li class="chapter" data-level="14.1.4" data-path="regression-essentials.html"><a href="regression-essentials.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.4</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.5" data-path="regression-essentials.html"><a href="regression-essentials.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.5</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.6" data-path="regression-essentials.html"><a href="regression-essentials.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.6</b> Adding more and varied explanatory variables</a></li>
+<li class="chapter" data-level="14.1.7" data-path="regression-essentials.html"><a href="regression-essentials.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.7</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.1.8" data-path="regression-essentials.html"><a href="regression-essentials.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.8</b> More credible outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="regression-essentials.html"><a href="regression-essentials.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
+<li class="chapter" data-level="14.3" data-path="regression-essentials.html"><a href="regression-essentials.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="regression-essentials.html"><a href="regression-essentials.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.3.2" data-path="regression-essentials.html"><a href="regression-essentials.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a><ul>
+<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-19"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
+<li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
+<li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-20"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
+<li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
+<li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
+<li class="chapter" data-level="15.3.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#results"><i class="fa fa-check"></i><b>15.3.5</b> Results</a></li>
+<li class="chapter" data-level="15.3.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#other-points"><i class="fa fa-check"></i><b>15.3.6</b> Other points</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a><ul>
+<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
+<li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
+<li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
+<li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
+<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a><ul>
+<li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
+<li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
+<li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
+<li class="chapter" data-level="16.6.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#discussion"><i class="fa fa-check"></i><b>16.6.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a><ul>
+<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
+<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
+<li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#implementation-1"><i class="fa fa-check"></i><b>17.5</b> Implementation</a></li>
+<li class="chapter" data-level="17.6" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#fuzzy-rdd"><i class="fa fa-check"></i><b>17.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="17.7" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#threats-to-validity"><i class="fa fa-check"></i><b>17.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="17.8" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#weaknesses"><i class="fa fa-check"></i><b>17.8</b> Weaknesses</a></li>
+<li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a><ul>
+<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a><ul>
+<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
+<li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
+<li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
+<li class="chapter" data-level="19.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>19.5</b> Your turn!</a></li>
+<li class="chapter" data-level="19.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>19.6</b> Adding layers</a></li>
+<li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
+<li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a><ul>
+<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-1"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
+<li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="20.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>20.3.4</b> Warnings and extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>20.4</b> Word embedding</a></li>
+<li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>VI Scale</b></span></li>
+<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a><ul>
+<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-26"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
+<li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
+<li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a><ul>
+<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-27"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+</ul></li>
+<li class="part"><span><b>VII Assessment</b></span></li>
+<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a><ul>
+<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
+<li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
+<li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
+<li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a><ul>
+<li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
+<li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="23.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>23.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a><ul>
+<li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
+<li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a><ul>
+<li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
+<li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a><ul>
+<li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
+<li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a><ul>
+<li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
+<li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Telling Stories With Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="difference-in-differences" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> Difference in differences</h1>
+<p><strong>TODO: Replace the arm matching with <a href="https://kosukeimai.github.io/MatchIt/index.html" class="uri">https://kosukeimai.github.io/MatchIt/index.html</a></strong></p>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Angelucci, Charles, and Julia Cagé, 2019, ‘Newspapers in times of low advertising revenues’, American Economic Journal: Microeconomics, vol. 11, no. 3, pp. 319-364, DOI: 10.1257/mic.20170306, available at: <a href="https://www.aeaweb.org/articles?id=10.1257/mic.20170306" class="uri">https://www.aeaweb.org/articles?id=10.1257/mic.20170306</a>.</li>
+<li>Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, ‘Impact Evaluation in Practice’, Chapters 7 and 8.</li>
+<li>Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, Regression and Other Stories, Cambridge University Press, Chs 18 - 21.</li>
+<li>McElreath, Richard, 2020, Statistical Rethinking, 2nd Edition, CRC Press, Ch 14.</li>
+<li>Wong, Jeffrey, and Colin McFarland, 2020, ‘Computational Causal Inference at Netflix’, Netflix Technology Blog, 11 Aug, <a href="https://netflixtechblog.com/computational-causal-inference-at-netflix-293591691c62" class="uri">https://netflixtechblog.com/computational-causal-inference-at-netflix-293591691c62</a></li>
+</ul>
+<p><strong>Required viewing</strong></p>
+<ul>
+<li>Gelman, Andrew, 2020 ‘100 Stories of Causal Inference’, 4 August, <a href="https://www.youtube.com/watch?v=jnI5KI843Lk" class="uri">https://www.youtube.com/watch?v=jnI5KI843Lk</a>.</li>
+<li>King, Gary, 2020, ‘Research Designs’, Lectures on Quantitative Social Science Methods 1, freely available: <a href="https://youtu.be/27grU_VM5Ps" class="uri">https://youtu.be/27grU_VM5Ps</a>.</li>
+<li>Kuriwaki, Shiro, 2020, ‘Difference-in-Differences Estimation in R (parts 1 and 2)’, 18 April, <a href="https://vimeo.com/409267138" class="uri">https://vimeo.com/409267138</a> and <a href="https://vimeo.com/409267190" class="uri">https://vimeo.com/409267190</a>.</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>Alexander, Monica, Polimis, Kivan, and Zagheni, Emilio, 2019,’ The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data’, <em>Population and Development Review</em>. (Example of using diff-in-diff to measure the effect of Hurricane Maria.)</li>
+<li>Alexander, Rohan, and Zachary Ward, 2018, ‘Age at arrival and assimilation during the age of mass migration’, <em>The Journal of Economic History</em>, 78, no. 3, 904-937. (Example where I used differences between brothers to estimate the effect of education.)</li>
+<li>Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, <em>Mostly harmless econometrics: An empiricist’s companion</em>, Princeton University Press, Chapters 3.3.2 and 5.</li>
+<li>Austin, Peter C., 2011, ‘An Introduction to Propensity Score Methods for Reducing the Effects of Confounding in Observational Studies’, <em>Multivariate Behavioral Research</em>, vol. 46, no. 3, pp.399-424. (Broad overview of propensity score matching, with a nice discussion of the comparison to randomised controlled trials.)</li>
+<li>Baker, Andrew, 2019, ‘Difference-in-Differences Methodology’, 25 September, <a href="https://andrewcbaker.netlify.app/2019/09/25/difference-in-differences-methodology/" class="uri">https://andrewcbaker.netlify.app/2019/09/25/difference-in-differences-methodology/</a>.</li>
+<li>Cunningham, Scott, <em>Causal Inference: The Mixtape</em>, chapters ‘Matching and subclassifications’ and ‘Differences-in-differences’, <a href="http://www.scunning.com/causalinference_norap.pdf" class="uri">http://www.scunning.com/causalinference_norap.pdf</a>. (Very well-written notes on diff-in-diff.)</li>
+<li>Gelman, Andrew, and Jennifer Hill, 2007, <em>Data Analysis Using Regression and Muiltilevel/Hierarchical Models</em>, Chapter 10, pp. 207-212.</li>
+<li>King, Gary, and Richard Nielsen, 2019, ‘Why Propensity Scores Should Not Be Used for Matching’, <em>Political Analysis</em>. (Academic paper on the limits of propensity score matching. Propensity score matching was a big thing in the 90s but everyone knew about these weaknesses and so it died off. Lately, there has been a resurgence because of the CS/ML folks using it without thinking so King and Nielsen wrote a nice paper about the flaws. I mean, you can’t say you weren’t warned.)</li>
+<li>Saeed, Sahar, Erica E. M. Moodie, Erin C. Strumpf, Marina B. Klein, 2019, ‘Evaluating the impact of health policies: using a difference-in-differences approach’, <em>International Journal of Public Health</em>, 64, pp. 637–642, <a href="https://doi.org/10.1007/s00038-018-1195-2" class="uri">https://doi.org/10.1007/s00038-018-1195-2</a>.</li>
+<li>Taddy, Matt, 2019, <em>Business Data Science</em>, Chapter 5. (Some brief notes on diff-in-diff that may appeal to some students.)</li>
+<li>Tang, John, 2015, ‘Pollution havens and the trade in toxic chemicals: evidence from U.S. trade flows’, <em>Ecological Economics</em>, vol. 112, pp. 150-160. (Example of using diff-in-diff to estimate pollution.)</li>
+<li>Valencia Caicedo, Felipe. ‘The mission: Human capital transmission, economic persistence, and culture in South America.’ The Quarterly Journal of Economics 134.1 (2019): 507-556. (Data available at: Valencia Caicedo, Felipe, 2018, “Replication Data for: ‘The Mission: Human Capital Transmission, Economic Persistence, and Culture in South America’”, <a href="https://doi.org/10.7910/DVN/ML1155" class="uri">https://doi.org/10.7910/DVN/ML1155</a>, Harvard Dataverse, V1.).</li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<p><em>Difference-in-differences</em></p>
+<ul>
+<li>Essential matching methods.</li>
+<li>Weaknesses of matching.</li>
+<li>Difference-in-differences.</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li><code>broom</code></li>
+<li><code>tidyverse</code></li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li><code>tidy()</code></li>
+<li><code>lm()</code></li>
+</ul>
+<p><strong>Pre-quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>Sharla Gelfand has been ‘(s)haring two #rstats functions most days - one I know and love, and one that’s new to me!’. Please go to Sharla’s GitHub page: <a href="https://github.com/sharlagelfand/twofunctionsmostdays" class="uri">https://github.com/sharlagelfand/twofunctionsmostdays</a>. Please find a package that she mentions that you have never used. Please find the relevant website for the package. Please describe what the package does and a context in which it could be useful to you.</li>
+<li>Sharla Gelfand has been ‘(s)haring two #rstats functions most days - one I know and love, and one that’s new to me!’. Please go to Sharla’s GitHub page: <a href="https://github.com/sharlagelfand/twofunctionsmostdays" class="uri">https://github.com/sharlagelfand/twofunctionsmostdays</a>. Please find a function that she mentions that you have never used. Please look at the help file for that function. Please detail the arguments of the function, and a context in which it could be useful to you.</li>
+<li>What is propensity score matching? If you were matching people, then what are some of the features that you would like to match on? What sort of ethical questions does collecting and storing such information raise for you?</li>
+<li>Putting to one side, the ethical issues, what are some statistical weaknesses with propensity score matching?</li>
+<li>What is the key assumption when using diff-in-diff?</li>
+<li>Please read the fascinating article in The Markup about car insurance algorithms: <a href="https://themarkup.org/allstates-algorithm/2020/02/25/car-insurance-suckers-list" class="uri">https://themarkup.org/allstates-algorithm/2020/02/25/car-insurance-suckers-list</a>. Please read the article and tell me what you think. You may wish to focus on ethical, legal, social, statistical, or other, aspects.</li>
+<li>Please go to the GitHub page related to the fascinating article in The Markup about car insurance algorithms: <a href="https://github.com/the-markup/investigation-allstates-algorithm" class="uri">https://github.com/the-markup/investigation-allstates-algorithm</a>. What is great about their work? What could be improved?</li>
+</ol>
+<div id="introduction-18" class="section level2">
+<h2><span class="header-section-number">15.1</span> Introduction</h2>
+<p>Life it grand when you can conduct experiments to be able to speak to causality. But what if you can only run the survey - you can’t run an experiment? Here we begin our discussion of the circumstances and methods that would allow you to nonetheless speak to causality. We use (relatively) simple methods, in sophisticated, well-developed, ways (cf, much of what is done these days) and our applied statistics draw from a variety of social sciences including economics, and political science.</p>
+</div>
+<div id="matching-and-difference-in-differences" class="section level2">
+<h2><span class="header-section-number">15.2</span> Matching and difference-in-differences</h2>
+<div id="introduction-19" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> Introduction</h3>
+<p>The ideal situation, as described in the previous chapter, is rarely possible in a data science setting. Can we really reasonably expect that Netflix would allow us to change prices. And even if they did once, would they let us do it again, and again, and again? Further, rarely can we explicitly create treatment and control groups. Finally, experiments are really expensive and potentially unethical. Instead, we need to make do with what we have. Rather than our counterfactual coming to us through randomisation, and hence us knowing that the two are the same but for the treatment, we try to identify groups that were similar before the treatment, and hence any differences can be attributed to the treatment. In practice, we tend to even have differences between our two groups before we treat. Provided those pre-treatment differences satisfy some assumptions (basically that they were consistent, and we expect that consistency to continue in the absence of the treatment) – the ‘parallel trends’ assumption – then we can look to any difference in the differences as the effect of the treatment. One of the lovely aspects of difference in differences analysis is that we can do it using fairly straight-forward quantitative methods - linear regression with a dummy variable is all that is needed to do a convincing job.</p>
+</div>
+<div id="motivation" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> Motivation</h3>
+<p>Consider us wanting to know the effect of a new tennis racket on serve speed. One way to test this would be to measure the difference between Roger Federer’s serve speed without the tennis racket and mine with the tennis racket. Sure, we’d find a difference but how do we know how much to attribute to the tennis racket? Another way would be to consider the difference between my serve speed without the tennis racket and my serve speed with the tennis racket. But what if serves were just getting faster naturally over time? Instead, let’s combine the two to look at the difference in the differences!</p>
+<p>In this world we measure Federer’s serve and compare it to my serve without the new racket. We then measure Federer’s serve again and measure my serve with the new racket. That difference in the differences would then be our estimate of the effect of the new racket.</p>
+<p>What sorts of assumptions jump out at you that we are going to have to make in order for this analysis to be appropriate?</p>
+<ol style="list-style-type: decimal">
+<li>Is there something else that may have affected only me, and not Roger that could affect my serve speed? Probably.</li>
+<li>Is it likely that Roger Federer and I have the same trajectory of serve speed improvement? Probably not. This is the ‘parallel trends’ assumption, and it dominates any discussion of difference in differences analysis. Finally, is it likely that the variance of our serve speeds is the same? Probably not.</li>
+</ol>
+<p>Why might this be powerful? We don’t need the treatment and control group to be the same before the treatment. We just need to have a good idea of how they differ.</p>
+</div>
+<div id="simulated-example" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> Simulated example</h3>
+<p>Let’s generate some data.</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="difference-in-differences.html#cb606-1"></a><span class="kw">library</span>(broom)</span>
+<span id="cb606-2"><a href="difference-in-differences.html#cb606-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb606-3"><a href="difference-in-differences.html#cb606-3"></a></span>
+<span id="cb606-4"><a href="difference-in-differences.html#cb606-4"></a><span class="kw">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb606-5"><a href="difference-in-differences.html#cb606-5"></a></span>
+<span id="cb606-6"><a href="difference-in-differences.html#cb606-6"></a>diff_in_diff_example_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">person =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>), <span class="dt">times =</span> <span class="dv">2</span>),</span>
+<span id="cb606-7"><a href="difference-in-differences.html#cb606-7"></a>                       <span class="dt">time =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">0</span>, <span class="dt">times =</span> <span class="dv">1000</span>), <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dt">times =</span> <span class="dv">1000</span>)),</span>
+<span id="cb606-8"><a href="difference-in-differences.html#cb606-8"></a>                       <span class="dt">treatment_group =</span> <span class="kw">rep</span>(<span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">size  =</span> <span class="dv">1000</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dt">times =</span> <span class="dv">2</span>)</span>
+<span id="cb606-9"><a href="difference-in-differences.html#cb606-9"></a>                       )</span>
+<span id="cb606-10"><a href="difference-in-differences.html#cb606-10"></a><span class="co"># We want to make the outcome slightly more likely if they were treated than if not.</span></span>
+<span id="cb606-11"><a href="difference-in-differences.html#cb606-11"></a>diff_in_diff_example_data &lt;-<span class="st"> </span></span>
+<span id="cb606-12"><a href="difference-in-differences.html#cb606-12"></a><span class="st">  </span>diff_in_diff_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb606-13"><a href="difference-in-differences.html#cb606-13"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb606-14"><a href="difference-in-differences.html#cb606-14"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">serve_speed =</span> <span class="kw">case_when</span>(</span>
+<span id="cb606-15"><a href="difference-in-differences.html#cb606-15"></a>    time <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>treatment_group <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb606-16"><a href="difference-in-differences.html#cb606-16"></a>    time <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>treatment_group <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb606-17"><a href="difference-in-differences.html#cb606-17"></a>    time <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>treatment_group <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">8</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb606-18"><a href="difference-in-differences.html#cb606-18"></a>    time <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>treatment_group <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">14</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb606-19"><a href="difference-in-differences.html#cb606-19"></a>    )</span>
+<span id="cb606-20"><a href="difference-in-differences.html#cb606-20"></a>    )</span>
+<span id="cb606-21"><a href="difference-in-differences.html#cb606-21"></a></span>
+<span id="cb606-22"><a href="difference-in-differences.html#cb606-22"></a><span class="kw">head</span>(diff_in_diff_example_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+## # Rowwise: 
+##   person  time treatment_group serve_speed
+##    &lt;int&gt; &lt;dbl&gt;           &lt;int&gt;       &lt;dbl&gt;
+## 1      1     0               0        4.43
+## 2      2     0               1        6.96
+## 3      3     0               1        7.77
+## 4      4     0               0        5.31
+## 5      5     0               0        4.09
+## 6      6     0               0        4.85</code></pre>
+<p>Let’s make a graph.</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="difference-in-differences.html#cb608-1"></a>diff_in_diff_example_data<span class="op">$</span>treatment_group &lt;-<span class="st"> </span><span class="kw">as.factor</span>(diff_in_diff_example_data<span class="op">$</span>treatment_group)</span>
+<span id="cb608-2"><a href="difference-in-differences.html#cb608-2"></a>diff_in_diff_example_data<span class="op">$</span>time &lt;-<span class="st"> </span><span class="kw">as.factor</span>(diff_in_diff_example_data<span class="op">$</span>time)</span>
+<span id="cb608-3"><a href="difference-in-differences.html#cb608-3"></a></span>
+<span id="cb608-4"><a href="difference-in-differences.html#cb608-4"></a>diff_in_diff_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb608-5"><a href="difference-in-differences.html#cb608-5"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> time,</span>
+<span id="cb608-6"><a href="difference-in-differences.html#cb608-6"></a>             <span class="dt">y =</span> serve_speed,</span>
+<span id="cb608-7"><a href="difference-in-differences.html#cb608-7"></a>             <span class="dt">color =</span> treatment_group)) <span class="op">+</span></span>
+<span id="cb608-8"><a href="difference-in-differences.html#cb608-8"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb608-9"><a href="difference-in-differences.html#cb608-9"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> person), <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb608-10"><a href="difference-in-differences.html#cb608-10"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb608-11"><a href="difference-in-differences.html#cb608-11"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Time period&quot;</span>,</span>
+<span id="cb608-12"><a href="difference-in-differences.html#cb608-12"></a>       <span class="dt">y =</span> <span class="st">&quot;Serve speed&quot;</span>,</span>
+<span id="cb608-13"><a href="difference-in-differences.html#cb608-13"></a>       <span class="dt">color =</span> <span class="st">&quot;Person got a new racket&quot;</span>) <span class="op">+</span></span>
+<span id="cb608-14"><a href="difference-in-differences.html#cb608-14"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-362-1.png" width="672" /></p>
+<p>As it is a simple example, we could do this manually, by getting the average difference of the differences.</p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="difference-in-differences.html#cb609-1"></a>average_differences &lt;-<span class="st"> </span></span>
+<span id="cb609-2"><a href="difference-in-differences.html#cb609-2"></a><span class="st">  </span>diff_in_diff_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb609-3"><a href="difference-in-differences.html#cb609-3"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> time,</span>
+<span id="cb609-4"><a href="difference-in-differences.html#cb609-4"></a>              <span class="dt">values_from =</span> serve_speed,</span>
+<span id="cb609-5"><a href="difference-in-differences.html#cb609-5"></a>              <span class="dt">names_prefix =</span> <span class="st">&quot;time_&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb609-6"><a href="difference-in-differences.html#cb609-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">difference =</span> time_<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>time_<span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb609-7"><a href="difference-in-differences.html#cb609-7"></a><span class="st">  </span><span class="kw">group_by</span>(treatment_group) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb609-8"><a href="difference-in-differences.html#cb609-8"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average_difference =</span> <span class="kw">mean</span>(difference))</span>
+<span id="cb609-9"><a href="difference-in-differences.html#cb609-9"></a></span>
+<span id="cb609-10"><a href="difference-in-differences.html#cb609-10"></a>average_differences<span class="op">$</span>average_difference[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>average_differences<span class="op">$</span>average_difference[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 5.058414</code></pre>
+<p>Let’s use OLS to do the same analysis. The general regression equation is:
+<span class="math display">\[Y_{i,t} = \beta_0 + \beta_1\mbox{Treatment group dummy}_i + \beta_2\mbox{Time dummy}_t + \beta_3(\mbox{Treatment group dummy} \times\mbox{Time dummy})_{i,t} + \epsilon_{i,t}\]</span></p>
+<p>If we use <code>*</code> in the regression then it automatically includes the separate aspects as well as their interaction. It’s the estimate of <span class="math inline">\(\beta_3\)</span> which is of interest.</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="difference-in-differences.html#cb611-1"></a>diff_in_diff_example_regression &lt;-<span class="st"> </span><span class="kw">lm</span>(serve_speed <span class="op">~</span><span class="st"> </span>treatment_group<span class="op">*</span>time, </span>
+<span id="cb611-2"><a href="difference-in-differences.html#cb611-2"></a>                         <span class="dt">data =</span> diff_in_diff_example_data)</span>
+<span id="cb611-3"><a href="difference-in-differences.html#cb611-3"></a></span>
+<span id="cb611-4"><a href="difference-in-differences.html#cb611-4"></a><span class="kw">tidy</span>(diff_in_diff_example_regression)</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 5
+##   term                   estimate std.error statistic  p.value
+##   &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)                4.97    0.0428     116.  0.      
+## 2 treatment_group1           3.03    0.0622      48.7 0.      
+## 3 time1                      1.01    0.0605      16.6 2.97e-58
+## 4 treatment_group1:time1     5.06    0.0880      57.5 0.</code></pre>
+<p>Fortunately, our estimates are the same!</p>
+</div>
+<div id="assumptions" class="section level3">
+<h3><span class="header-section-number">15.2.4</span> Assumptions</h3>
+<p>If we want to use difference in differences, then we need to satisfy the assumptions. There were three that were touched on earlier, but here I want to focus on one: the ‘parallel trends’ assumption. The parallel trends assumption haunts everything to do with diff-in-diff analysis because we can never prove it, we can just be convinced of it.</p>
+<p>To see why we can never prove it, consider an example in which we want to know the effect of a new stadium on a professional sports team’s wins/loses. To do this we consider two teams: the Warriors and the Raptors. The Warriors changed stadiums at the start of the 2019-20 season (the Raptors did not), so we will consider four time periods: the 2016-17 season, 2017-18 season, 2018-19 season, and finally we will compare the performance with the one after they moved, so in the 2019-20 season. The Raptors here act as our counterfactual. This means that we assume the relationship between the Warriors and the Raptors, in the absence of a new stadium, would have continued to change in a consistent way. But we can never know that for certain. We have to present sufficient evidence to assuage any concerns that a reader may have.</p>
+<p>For a variety of reasons, it is worth having tougher than normal requirements around the evidence it would take to convince you of an effect.</p>
+<p>There are four main ‘threats to validity’ when you are using difference in differences and you should address all of these (Cunningham, 2020, pp. 272–277):</p>
+<ol style="list-style-type: decimal">
+<li>Non-parallel trends. The treatment and control groups may be based on differences. As such it can be difficult to convincingly argue for parallel trends. In this case, maybe try to find another factor to consider in your model that may adjust for some of that. This may require difference in difference in differences (in the earlier example, perhaps could add in the San Francisco 49ers as they are in the same broad geographic area as the Warriors). Or maybe re-think your analysis to see if you can make a different control group. Adding additional earlier time periods may help but may introduce more issues (see third point).</li>
+<li>Compositional differences. This is a concern when working with repeated cross-sections. What if the composition of those cross-sections change? For instance, if we work at Tik Tok or some other app that is rapidly growing and want to look at the effect of some change. In our initial cross-section, we may have mostly young people, but in a subsequent cross-section, we may have more older people as the demographics of the app usage change. Hence our results may just be an age-effect, not an effect of the change that we are interested in.</li>
+<li>Long-term effects vs. reliability. As we discussed in the last chapter, there is a trade-off between the length of the analysis that we run. As we run the analysis for longer there is more opportunity for other factors to affect the results. There is also increased chance for someone who was not treated to be treated. But, on the other hand, it can be difficult to convincingly argue that short-term results will continue in the long-term.</li>
+<li>Functional form dependence. This is less of an issue when the outcomes are similar, but if they are different then functional form may be responsible for some aspects of the results.</li>
+</ol>
+</div>
+<div id="matching" class="section level3">
+<h3><span class="header-section-number">15.2.5</span> Matching</h3>
+<p><em>This section draws on material from Gelman and Hill, 2007, pp. 207-212.</em></p>
+<p>Difference in differences is a powerful analysis framework. After I learnt about it I began to see opportunities to implement it everywhere. But it can be tough to identify appropriate treatment and control groups. In Alexander and Ward, 2018, we compare migrant brothers - one of whom had most of their education in a different country, and the other who had most of their education in the US. Is this really the best match?</p>
+<p>We may be able to match based on observable variables. For instance, age-group or education. At two different times we compare smoking rates in 18-year-olds in one city with smoking rates in 18-year-olds in another city. That is fine, but it is fairly coarse. We know that there are differences between 18-year-olds, even in terms of the variables that we commonly observe, say gender and education. One way to deal with this may be to create sub-groups: 18-year-old males with a high school education, etc. But the sample sizes are likely to quickly become small. How do we deal with continuous variables? And also, is the difference between an 18-year-old and a 19-year-old really so different? Shouldn’t we also compare with them?</p>
+<p>One way to proceed is to consider a nearest neighbour approach. But there is limited concern for uncertainty in this approach. There is also an issue if you have a large number of variables because you end up with a high-dimension graph. This leads us to propensity score matching.</p>
+<p>Propensity score matching involves assigning some probability to each observation. We construct that probability based on the observation’s values for the independent variables, at their values before the treatment. That probability is our best guess at the probability of the observation being treated, regardless of whether it was treated or not. For instance, if 18-year-old males were treated but 19-year-old males were not, then as there is not much difference between 18-year-old males and 19-year-old males our assigned probability would be fairly similar. We can then compare the outcomes of observations with similar propensity scores.</p>
+<p>One advantage of propensity score matching is that is allows us to easily consider many independent variables at once, and it can be constructed using logistic regression.</p>
+<p>Let’s generate some data to illustrate propensity score matching. Let’s pretend that we work for Amazon. We are going to treat some individuals with free-shipping to see what happens to their average purchase.</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="difference-in-differences.html#cb613-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="difference-in-differences.html#cb614-1"></a>sample_size &lt;-<span class="st"> </span><span class="dv">10000</span></span>
+<span id="cb614-2"><a href="difference-in-differences.html#cb614-2"></a><span class="kw">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb614-3"><a href="difference-in-differences.html#cb614-3"></a></span>
+<span id="cb614-4"><a href="difference-in-differences.html#cb614-4"></a>amazon_purchase_data &lt;-</span>
+<span id="cb614-5"><a href="difference-in-differences.html#cb614-5"></a><span class="st">  </span><span class="kw">tibble</span>(</span>
+<span id="cb614-6"><a href="difference-in-differences.html#cb614-6"></a>    <span class="dt">unique_person_id =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>sample_size),</span>
+<span id="cb614-7"><a href="difference-in-differences.html#cb614-7"></a>    <span class="dt">age =</span> <span class="kw">runif</span>(<span class="dt">n =</span> sample_size,</span>
+<span id="cb614-8"><a href="difference-in-differences.html#cb614-8"></a>                <span class="dt">min =</span> <span class="dv">18</span>,</span>
+<span id="cb614-9"><a href="difference-in-differences.html#cb614-9"></a>                <span class="dt">max =</span> <span class="dv">100</span>),</span>
+<span id="cb614-10"><a href="difference-in-differences.html#cb614-10"></a>    <span class="dt">city =</span> <span class="kw">sample</span>(</span>
+<span id="cb614-11"><a href="difference-in-differences.html#cb614-11"></a>      <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Toronto&quot;</span>, <span class="st">&quot;Montreal&quot;</span>, <span class="st">&quot;Calgary&quot;</span>),</span>
+<span id="cb614-12"><a href="difference-in-differences.html#cb614-12"></a>      <span class="dt">size =</span> sample_size,</span>
+<span id="cb614-13"><a href="difference-in-differences.html#cb614-13"></a>      <span class="dt">replace =</span> <span class="ot">TRUE</span></span>
+<span id="cb614-14"><a href="difference-in-differences.html#cb614-14"></a>      ),</span>
+<span id="cb614-15"><a href="difference-in-differences.html#cb614-15"></a>    <span class="dt">gender =</span> <span class="kw">sample</span>(</span>
+<span id="cb614-16"><a href="difference-in-differences.html#cb614-16"></a>      <span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Other/decline&quot;</span>),</span>
+<span id="cb614-17"><a href="difference-in-differences.html#cb614-17"></a>      <span class="dt">size =</span> sample_size,</span>
+<span id="cb614-18"><a href="difference-in-differences.html#cb614-18"></a>      <span class="dt">replace =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb614-19"><a href="difference-in-differences.html#cb614-19"></a>      <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.49</span>, <span class="fl">0.47</span>, <span class="fl">0.02</span>)</span>
+<span id="cb614-20"><a href="difference-in-differences.html#cb614-20"></a>      ),</span>
+<span id="cb614-21"><a href="difference-in-differences.html#cb614-21"></a>    <span class="dt">income =</span> <span class="kw">rlnorm</span>(<span class="dt">n =</span> sample_size,</span>
+<span id="cb614-22"><a href="difference-in-differences.html#cb614-22"></a>                    <span class="dt">meanlog =</span> <span class="fl">0.5</span>, </span>
+<span id="cb614-23"><a href="difference-in-differences.html#cb614-23"></a>                    <span class="dt">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb614-24"><a href="difference-in-differences.html#cb614-24"></a>    )</span></code></pre></div>
+<p>Now we need to add some probability of being treated with free shipping, which depends on our variables. Younger, higher-income, male and in Toronto all make it slightly more likely.</p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="difference-in-differences.html#cb615-1"></a>amazon_purchase_data &lt;-</span>
+<span id="cb615-2"><a href="difference-in-differences.html#cb615-2"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb615-3"><a href="difference-in-differences.html#cb615-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">age_num =</span> <span class="kw">case_when</span>(</span>
+<span id="cb615-4"><a href="difference-in-differences.html#cb615-4"></a>           age <span class="op">&lt;</span><span class="st"> </span><span class="dv">30</span> <span class="op">~</span><span class="st"> </span><span class="dv">3</span>,</span>
+<span id="cb615-5"><a href="difference-in-differences.html#cb615-5"></a>           age <span class="op">&lt;</span><span class="st"> </span><span class="dv">50</span> <span class="op">~</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb615-6"><a href="difference-in-differences.html#cb615-6"></a>           age <span class="op">&lt;</span><span class="st"> </span><span class="dv">70</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb615-7"><a href="difference-in-differences.html#cb615-7"></a>           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>),</span>
+<span id="cb615-8"><a href="difference-in-differences.html#cb615-8"></a>         <span class="dt">city_num =</span> <span class="kw">case_when</span>(</span>
+<span id="cb615-9"><a href="difference-in-differences.html#cb615-9"></a>           city <span class="op">==</span><span class="st"> &quot;Toronto&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">3</span>,</span>
+<span id="cb615-10"><a href="difference-in-differences.html#cb615-10"></a>           city <span class="op">==</span><span class="st"> &quot;Montreal&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb615-11"><a href="difference-in-differences.html#cb615-11"></a>           city <span class="op">==</span><span class="st"> &quot;Calgary&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb615-12"><a href="difference-in-differences.html#cb615-12"></a>           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>),</span>
+<span id="cb615-13"><a href="difference-in-differences.html#cb615-13"></a>         <span class="dt">gender_num =</span> <span class="kw">case_when</span>(</span>
+<span id="cb615-14"><a href="difference-in-differences.html#cb615-14"></a>           gender <span class="op">==</span><span class="st"> &quot;Male&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">3</span>,</span>
+<span id="cb615-15"><a href="difference-in-differences.html#cb615-15"></a>           gender <span class="op">==</span><span class="st"> &quot;Female&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb615-16"><a href="difference-in-differences.html#cb615-16"></a>           gender <span class="op">==</span><span class="st"> &quot;Other/decline&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb615-17"><a href="difference-in-differences.html#cb615-17"></a>           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>),</span>
+<span id="cb615-18"><a href="difference-in-differences.html#cb615-18"></a>         <span class="dt">income_num =</span> <span class="kw">case_when</span>(</span>
+<span id="cb615-19"><a href="difference-in-differences.html#cb615-19"></a>           income <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">~</span><span class="st"> </span><span class="dv">3</span>,</span>
+<span id="cb615-20"><a href="difference-in-differences.html#cb615-20"></a>           income <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">~</span><span class="st"> </span><span class="dv">2</span>,</span>
+<span id="cb615-21"><a href="difference-in-differences.html#cb615-21"></a>           income <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb615-22"><a href="difference-in-differences.html#cb615-22"></a>           <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb615-23"><a href="difference-in-differences.html#cb615-23"></a>         ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb615-24"><a href="difference-in-differences.html#cb615-24"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb615-25"><a href="difference-in-differences.html#cb615-25"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sum_num =</span> <span class="kw">sum</span>(age_num, city_num, gender_num, income_num),</span>
+<span id="cb615-26"><a href="difference-in-differences.html#cb615-26"></a>         <span class="dt">softmax_prob =</span> <span class="kw">exp</span>(sum_num)<span class="op">/</span><span class="kw">exp</span>(<span class="dv">12</span>),</span>
+<span id="cb615-27"><a href="difference-in-differences.html#cb615-27"></a>         <span class="dt">free_shipping =</span> <span class="kw">sample</span>(</span>
+<span id="cb615-28"><a href="difference-in-differences.html#cb615-28"></a>           <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>),</span>
+<span id="cb615-29"><a href="difference-in-differences.html#cb615-29"></a>           <span class="dt">size =</span> <span class="dv">1</span>,</span>
+<span id="cb615-30"><a href="difference-in-differences.html#cb615-30"></a>           <span class="dt">replace =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb615-31"><a href="difference-in-differences.html#cb615-31"></a>           <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">-</span>softmax_prob, softmax_prob)</span>
+<span id="cb615-32"><a href="difference-in-differences.html#cb615-32"></a>           )</span>
+<span id="cb615-33"><a href="difference-in-differences.html#cb615-33"></a>         ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb615-34"><a href="difference-in-differences.html#cb615-34"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb615-35"><a href="difference-in-differences.html#cb615-35"></a></span>
+<span id="cb615-36"><a href="difference-in-differences.html#cb615-36"></a>amazon_purchase_data &lt;-</span>
+<span id="cb615-37"><a href="difference-in-differences.html#cb615-37"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb615-38"><a href="difference-in-differences.html#cb615-38"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>age_num, <span class="op">-</span>city_num, <span class="op">-</span>gender_num, <span class="op">-</span>income_num, <span class="op">-</span>sum_num, <span class="op">-</span>softmax_prob)</span></code></pre></div>
+<p>Finally, we need to have some measure of a person’s average spend. We want those with free shipping to be slightly higher than those without.</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="difference-in-differences.html#cb616-1"></a>amazon_purchase_data &lt;-</span>
+<span id="cb616-2"><a href="difference-in-differences.html#cb616-2"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-3"><a href="difference-in-differences.html#cb616-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mean_spend =</span> <span class="kw">if_else</span>(free_shipping <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">60</span>, <span class="dv">50</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-4"><a href="difference-in-differences.html#cb616-4"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-5"><a href="difference-in-differences.html#cb616-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">average_spend =</span> <span class="kw">rnorm</span>(<span class="dv">1</span>, mean_spend, <span class="dt">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb616-6"><a href="difference-in-differences.html#cb616-6"></a>    ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-7"><a href="difference-in-differences.html#cb616-7"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-8"><a href="difference-in-differences.html#cb616-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>mean_spend)</span>
+<span id="cb616-9"><a href="difference-in-differences.html#cb616-9"></a></span>
+<span id="cb616-10"><a href="difference-in-differences.html#cb616-10"></a><span class="co"># Fix the class on some</span></span>
+<span id="cb616-11"><a href="difference-in-differences.html#cb616-11"></a>amazon_purchase_data &lt;-</span>
+<span id="cb616-12"><a href="difference-in-differences.html#cb616-12"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb616-13"><a href="difference-in-differences.html#cb616-13"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(city, gender, free_shipping), <span class="op">~</span><span class="kw">as.factor</span>(.)) <span class="co"># Change some to factors</span></span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="difference-in-differences.html#cb617-1"></a><span class="kw">table</span>(amazon_purchase_data<span class="op">$</span>free_shipping)</span></code></pre></div>
+<pre><code>## 
+##    0    1 
+## 9629  371</code></pre>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="difference-in-differences.html#cb619-1"></a><span class="kw">head</span>(amazon_purchase_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 7
+##   unique_person_id   age city     gender income free_shipping average_spend
+##              &lt;int&gt; &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;   &lt;dbl&gt; &lt;fct&gt;                 &lt;dbl&gt;
+## 1                1  47.5 Calgary  Female  1.72  0                      41.1
+## 2                2  27.8 Montreal Male    1.54  0                      55.7
+## 3                3  57.7 Toronto  Female  3.16  0                      56.5
+## 4                4  43.9 Toronto  Male    0.636 0                      50.5
+## 5                5  21.1 Toronto  Female  1.43  0                      44.7
+## 6                6  51.1 Calgary  Male    1.18  0                      48.8</code></pre>
+<p>Now we construct a logistic regression model that ‘explains’ whether a person was treated as a function of the variables that we think explain it.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="difference-in-differences.html#cb621-1"></a>propensity_score &lt;-<span class="st"> </span><span class="kw">glm</span>(free_shipping <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>city <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>income, </span>
+<span id="cb621-2"><a href="difference-in-differences.html#cb621-2"></a>                        <span class="dt">family =</span> binomial,</span>
+<span id="cb621-3"><a href="difference-in-differences.html#cb621-3"></a>                        <span class="dt">data =</span> amazon_purchase_data)</span></code></pre></div>
+<p>We will now add our forecast to our dataset.</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="difference-in-differences.html#cb622-1"></a>amazon_purchase_data &lt;-<span class="st"> </span></span>
+<span id="cb622-2"><a href="difference-in-differences.html#cb622-2"></a><span class="st">  </span><span class="kw">augment</span>(propensity_score, </span>
+<span id="cb622-3"><a href="difference-in-differences.html#cb622-3"></a>          <span class="dt">data =</span> amazon_purchase_data,</span>
+<span id="cb622-4"><a href="difference-in-differences.html#cb622-4"></a>          <span class="dt">type.predict =</span> <span class="st">&quot;response&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb622-5"><a href="difference-in-differences.html#cb622-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>.resid, <span class="op">-</span>.std.resid, <span class="op">-</span>.hat, <span class="op">-</span>.sigma, <span class="op">-</span>.cooksd) </span></code></pre></div>
+<p>Now we use our forecast to create matches. There are a variety of ways to do this. In a moment I’ll step through some code that does it all at once, but as this is a worked example and we only have a small number of possibilities, we can just do it manually.</p>
+<p>For every person who was actually treated (given free shipping) we want the untreated person who was considered as similar to them (based on propensity score) as possible.</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="difference-in-differences.html#cb623-1"></a>amazon_purchase_data &lt;-<span class="st"> </span></span>
+<span id="cb623-2"><a href="difference-in-differences.html#cb623-2"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb623-3"><a href="difference-in-differences.html#cb623-3"></a><span class="st">  </span><span class="kw">arrange</span>(.fitted, free_shipping)</span></code></pre></div>
+<p>Here we’re going to use a matching function from the <code>arm</code> package. This finds which is the closest of the ones that were not treated, to each one that was treated.</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="difference-in-differences.html#cb624-1"></a>amazon_purchase_data<span class="op">$</span>treated &lt;-<span class="st"> </span><span class="kw">if_else</span>(amazon_purchase_data<span class="op">$</span>free_shipping <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb624-2"><a href="difference-in-differences.html#cb624-2"></a>amazon_purchase_data<span class="op">$</span>treated &lt;-<span class="st"> </span><span class="kw">as.integer</span>(amazon_purchase_data<span class="op">$</span>treated)</span>
+<span id="cb624-3"><a href="difference-in-differences.html#cb624-3"></a></span>
+<span id="cb624-4"><a href="difference-in-differences.html#cb624-4"></a>matches &lt;-<span class="st"> </span>arm<span class="op">::</span><span class="kw">matching</span>(<span class="dt">z =</span> amazon_purchase_data<span class="op">$</span>treated, <span class="dt">score =</span> amazon_purchase_data<span class="op">$</span>.fitted)</span>
+<span id="cb624-5"><a href="difference-in-differences.html#cb624-5"></a></span>
+<span id="cb624-6"><a href="difference-in-differences.html#cb624-6"></a>amazon_purchase_data &lt;-<span class="st"> </span><span class="kw">cbind</span>(amazon_purchase_data, matches)</span></code></pre></div>
+<p>Now we reduce the dataset to just those that are matched. We had 371 treated, so we expect a dataset of 742 observations.</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="difference-in-differences.html#cb625-1"></a>amazon_purchase_data_matched &lt;-<span class="st"> </span></span>
+<span id="cb625-2"><a href="difference-in-differences.html#cb625-2"></a><span class="st">  </span>amazon_purchase_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb625-3"><a href="difference-in-differences.html#cb625-3"></a><span class="st">  </span><span class="kw">filter</span>(match.ind <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb625-4"><a href="difference-in-differences.html#cb625-4"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>match.ind, <span class="op">-</span>pairs, <span class="op">-</span>treated)</span>
+<span id="cb625-5"><a href="difference-in-differences.html#cb625-5"></a></span>
+<span id="cb625-6"><a href="difference-in-differences.html#cb625-6"></a><span class="kw">head</span>(amazon_purchase_data_matched)</span></code></pre></div>
+<pre><code>##   unique_person_id      age     city gender     income free_shipping
+## 1             5710 81.15636 Montreal Female 0.67505625             0
+## 2             9458 97.04859 Montreal Female 9.49752179             1
+## 3             6428 83.21262  Calgary   Male 0.05851482             0
+## 4             2022 98.97504 Montreal   Male 1.66683768             1
+## 5             9824 64.61936  Calgary Female 3.35263989             1
+## 6             1272 97.09546  Toronto Female 0.71813784             0
+##   average_spend     .fitted cnts
+## 1      47.36258 0.001375987    1
+## 2      61.15317 0.001376161    1
+## 3      49.90080 0.001560150    1
+## 4      57.75673 0.001560418    1
+## 5      64.69709 0.002207195    1
+## 6      56.64754 0.002207514    1</code></pre>
+<p>Finally, we can examine the ‘effect’ of being treated on average spend in the ‘usual’ way.</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="difference-in-differences.html#cb627-1"></a>propensity_score_regression &lt;-<span class="st"> </span><span class="kw">lm</span>(average_spend <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>city <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>income <span class="op">+</span><span class="st"> </span>free_shipping, </span>
+<span id="cb627-2"><a href="difference-in-differences.html#cb627-2"></a>                                  <span class="dt">data =</span> amazon_purchase_data_matched)</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="difference-in-differences.html#cb628-1"></a>huxtable<span class="op">::</span><span class="kw">huxreg</span>(propensity_score_regression)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-376">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-376">Table 15.1: </span> </caption><col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1)</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">49.694 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.809)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">age</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.005&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.011)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">cityMontreal</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.169&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.734)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">cityToronto</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.652&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.623)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">genderMale</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.968 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.422)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">genderOther/decline</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1.973&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(2.621)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">income</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.009&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.021)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">free_shipping1</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">10.488 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.380)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">742&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.513&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">logLik</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-2267.486&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">4552.971&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="2" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</table>
+
+<p>I cover propensity score matching here because it is widely used. Hence, you need to know how to use it. People would think it’s weird if you didn’t, in the same way that we have to cover ANOVA people would think it’s weird if we had an entire experimental design course and didn’t cover it even though there are more modern ways of looking at differences between two means. But at the same time you need to know that there are flaws with propensity score matching. I will now discuss some of them.</p>
+<ol style="list-style-type: decimal">
+<li>Matching. Propensity score matching cannot match on unobserved variables. This may be fine in a class-room setting, but in more realistic settings it will likely cause issues.</li>
+<li>Modelling. The results tend to be specific to the model that is used. King and Nielsen, 2019, discuss this thoroughly.</li>
+<li>Statistically. We are using the data twice.</li>
+</ol>
+</div>
+</div>
+<div id="case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974" class="section level2">
+<h2><span class="header-section-number">15.3</span> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</h2>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Angelucci, Charles, and Julia Cagé, 2019, ‘Newspapers in times of low advertising revenues’, <em>American Economic Journal: Microeconomics</em>, vol. 11, no. 3, pp. 319-364, DOI: 10.1257/mic.20170306, available at: <a href="https://www.aeaweb.org/articles?id=10.1257/mic.20170306" class="uri">https://www.aeaweb.org/articles?id=10.1257/mic.20170306</a>.</li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>Reading in foreign data.</li>
+<li>Difference in differences.</li>
+<li>Replicating work.</li>
+<li>Displaying multiple regression results.</li>
+<li>Discussing results.</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li><code>haven</code></li>
+<li><code>huxtable</code></li>
+<li><code>scales</code></li>
+<li><code>tidyverse</code></li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li><code>dollar_format()</code></li>
+<li><code>hux_reg()</code></li>
+<li><code>lm()</code></li>
+<li><code>mutate_at()</code></li>
+<li><code>read_dta()</code></li>
+</ul>
+<div id="introduction-20" class="section level3">
+<h3><span class="header-section-number">15.3.1</span> Introduction</h3>
+<p>In this case study we introduce Angelucci and Cagé, 2019, and replicate its main findings. Angelucci and Cagé, 2019, is a paper in which difference in differences is used to examine the effect of the reduction in advertising revenues on newspapers’ content and prices. They create a dataset of ‘French newspapers between 1960 and 1974’. They ‘perform a difference-in-differences analysis’ and exploit ‘the introduction of advertising on television’ as this change ‘affected national newspapers more severely than local ones’. They ‘find robust evidence of a decrease in the amount of journalistic-intensive content produced and the subscription price.’</p>
+<p>In order to conduct this analysis we will use the dataset that they provide alongside their paper. This dataset is available at: <a href="https://www.openicpsr.org/openicpsr/project/116438/version/V1/view" class="uri">https://www.openicpsr.org/openicpsr/project/116438/version/V1/view</a>. It is available for you to download after registration. As their dataset is in Stata data format, we will use the haven package to read it in (Wickham and Miller, 2019).</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="difference-in-differences.html#cb629-1"></a><span class="kw">library</span>(here)</span>
+<span id="cb629-2"><a href="difference-in-differences.html#cb629-2"></a><span class="kw">library</span>(haven)</span>
+<span id="cb629-3"><a href="difference-in-differences.html#cb629-3"></a><span class="kw">library</span>(huxtable)</span>
+<span id="cb629-4"><a href="difference-in-differences.html#cb629-4"></a><span class="kw">library</span>(scales)</span>
+<span id="cb629-5"><a href="difference-in-differences.html#cb629-5"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="background" class="section level3">
+<h3><span class="header-section-number">15.3.2</span> Background</h3>
+<p>Newspapers are in trouble. We can probably all think of a local newspaper that has closed recently because of pressure brought on by the internet. But this issue isn’t new. When television started, there were similar concerns. In this paper, Angelucci and Cagé use the introduction of television advertising in France, announced in 1967, to examine the effect of decreased advertising revenue on newspapers.</p>
+<p>The reason this is important is because it allows us to disentangle a few competing effects. For instance, are newspapers becoming redundant because they can no longer charge high prices for their ads or because consumers prefer to get their news in other ways? Are fewer journalists needed because smartphones and other technology mean they can be more productive? Angelucci and Cagé look at advertising revenue and a few other features, when a new advertising platform arrives, in this case television advertising.</p>
+</div>
+<div id="data" class="section level3">
+<h3><span class="header-section-number">15.3.3</span> Data</h3>
+<blockquote>
+<p>(The) dataset contains annual data on local and national newspapers between 1960 and 1974, as well as detailed information on television content. In 1967, the French government announced it would relax long-standing regulations that prohibited television advertising. We provide evidence that this reform can be plausibly interpreted as an exogenous and negative shock to the advertising side of the newspaper industry… [I]t is likely that the introduction of television advertising constituted a direct shock to the advertising side of the newspaper industry and only an indirect shock to the reader side… (O)ur empirical setting constitutes a unique opportunity to isolate the consequences of a decrease in newspapers’ advertising revenues on their choices regarding the size of their newsroom, the amount of information to produce, and the prices they charge to both sides of the market.</p>
+</blockquote>
+<p>The authors’ argue that national newspapers were affected by the television advertising change, but local newspapers were not. So the national newspapers are the treatment group and the local newspapers are the control group.</p>
+<p>The dataset can be read in using <code>read_dta()</code>, which is a function within the <code>haven</code> package for reading in Stata dta files. This is equivalent to <code>read_csv()</code>.</p>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="difference-in-differences.html#cb630-1"></a>newspapers &lt;-<span class="st"> </span><span class="kw">read_dta</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;inputs/data/116438-V1/data/dta/Angelucci_Cage_AEJMicro_dataset.dta&quot;</span>))</span>
+<span id="cb630-2"><a href="difference-in-differences.html#cb630-2"></a></span>
+<span id="cb630-3"><a href="difference-in-differences.html#cb630-3"></a><span class="kw">dim</span>(newspapers)</span></code></pre></div>
+<pre><code>## [1] 1196   52</code></pre>
+<p>There are 1,196 observations in the dataset and 52 variables. The authors are interested in the 1960-1974 time period which has around 100 newspapers. There are 14 national newspapers at the beginning of the period and 12 at the end.</p>
+<p>We just want to replicate their main results, so we don’t need all their variables. As such we will just <code>select()</code> the ones that we are interested in and change the <code>class()</code> where needed.</p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="difference-in-differences.html#cb632-1"></a>newspapers &lt;-<span class="st"> </span></span>
+<span id="cb632-2"><a href="difference-in-differences.html#cb632-2"></a><span class="st">  </span>newspapers <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb632-3"><a href="difference-in-differences.html#cb632-3"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(year, id_news, after_national, local, national, <span class="co"># Diff in diff variables</span></span>
+<span id="cb632-4"><a href="difference-in-differences.html#cb632-4"></a>         ra_cst, qtotal, ads_p4_cst, ads_s, <span class="co"># Advertising side dependents</span></span>
+<span id="cb632-5"><a href="difference-in-differences.html#cb632-5"></a>         ps_cst, po_cst, qtotal, qs_s, rs_cst) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#Reader side dependents</span></span>
+<span id="cb632-6"><a href="difference-in-differences.html#cb632-6"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ra_cst_div_qtotal =</span> ra_cst <span class="op">/</span><span class="st"> </span>qtotal) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># An advertising side dependents needs to be built</span></span>
+<span id="cb632-7"><a href="difference-in-differences.html#cb632-7"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(id_news, after_national, local, national), <span class="op">~</span><span class="kw">as.factor</span>(.)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Change some to factors</span></span>
+<span id="cb632-8"><a href="difference-in-differences.html#cb632-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.integer</span>(year))</span></code></pre></div>
+<p>We can now have a look at the main variables of interest for both national (Figure <a href="difference-in-differences.html#fig:frenchnewspaperssummarystats">15.1</a>) and local daily newspapers (Figure <a href="difference-in-differences.html#fig:frenchlocalnewspaperssummarystats">15.2</a>).</p>
+<div class="figure"><span id="fig:frenchnewspaperssummarystats"></span>
+<img src="figures/french_national_newspapers_summary_stats.png" alt="Angelucci and Cagé, 2019, summary statistics: national daily newspapers" width="90%" />
+<p class="caption">
+Figure 15.1: Angelucci and Cagé, 2019, summary statistics: national daily newspapers
+</p>
+</div>
+<p>Source: Angelucci and Cagé, 2019, p. 333.</p>
+<div class="figure"><span id="fig:frenchlocalnewspaperssummarystats"></span>
+<img src="figures/french_local_newspapers_summary_stats.png" alt="Angelucci and Cagé, 2019, summary statistics: local daily newspapers" width="90%" />
+<p class="caption">
+Figure 15.2: Angelucci and Cagé, 2019, summary statistics: local daily newspapers
+</p>
+</div>
+<p>Source: Angelucci and Cagé, 2019, p. 334.</p>
+<p>Please read this section of their paper to see how they describe their dataset.</p>
+<p>We are interested in the change from 1967 onward.</p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="difference-in-differences.html#cb633-1"></a>newspapers <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb633-2"><a href="difference-in-differences.html#cb633-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">type =</span> <span class="kw">if_else</span>(local <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Local&quot;</span>, <span class="st">&quot;National&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb633-3"><a href="difference-in-differences.html#cb633-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> ra_cst)) <span class="op">+</span></span>
+<span id="cb633-4"><a href="difference-in-differences.html#cb633-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb633-5"><a href="difference-in-differences.html#cb633-5"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> <span class="kw">dollar_format</span>(<span class="dt">prefix=</span><span class="st">&quot;$&quot;</span>, <span class="dt">suffix =</span> <span class="st">&quot;M&quot;</span>, <span class="dt">scale =</span> <span class="fl">0.000001</span>)) <span class="op">+</span></span>
+<span id="cb633-6"><a href="difference-in-differences.html#cb633-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb633-7"><a href="difference-in-differences.html#cb633-7"></a>       <span class="dt">y =</span> <span class="st">&quot;Advertising revenue&quot;</span>) <span class="op">+</span></span>
+<span id="cb633-8"><a href="difference-in-differences.html#cb633-8"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(type),</span>
+<span id="cb633-9"><a href="difference-in-differences.html#cb633-9"></a>               <span class="dt">nrow =</span> <span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb633-10"><a href="difference-in-differences.html#cb633-10"></a><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span></span>
+<span id="cb633-11"><a href="difference-in-differences.html#cb633-11"></a><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="fl">1966.5</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-380-1.png" width="672" /></p>
+</div>
+<div id="model" class="section level3">
+<h3><span class="header-section-number">15.3.4</span> Model</h3>
+<p>The model that we are interested in estimating is:
+<span class="math display">\[\mbox{ln}(y_{n,t}) = \beta_0 + \beta_1(\mbox{National dummy}\times\mbox{1967 onward dummy}) + \lambda_n + \gamma_y + \epsilon.\]</span>
+The <span class="math inline">\(\lambda_n\)</span> is a fixed effect for each newspaper, and the <span class="math inline">\(\gamma_y\)</span> is a fixed effect for each year. We just use regular linear regression, with a few different dependent variables. It is the <span class="math inline">\(\beta_1\)</span> coefficient that we are interested in.</p>
+</div>
+<div id="results" class="section level3">
+<h3><span class="header-section-number">15.3.5</span> Results</h3>
+<p>We can run the models using <code>lm()</code>.</p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="difference-in-differences.html#cb634-1"></a><span class="co"># Advertising side</span></span>
+<span id="cb634-2"><a href="difference-in-differences.html#cb634-2"></a>ad_revenue &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(ra_cst) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-3"><a href="difference-in-differences.html#cb634-3"></a>ad_revenue_div_circulation &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(ra_cst_div_qtotal) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-4"><a href="difference-in-differences.html#cb634-4"></a>ad_price &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(ads_p4_cst) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-5"><a href="difference-in-differences.html#cb634-5"></a>ad_space &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(ads_s) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-6"><a href="difference-in-differences.html#cb634-6"></a></span>
+<span id="cb634-7"><a href="difference-in-differences.html#cb634-7"></a><span class="co"># Consumer side</span></span>
+<span id="cb634-8"><a href="difference-in-differences.html#cb634-8"></a>subscription_price &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(ps_cst) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-9"><a href="difference-in-differences.html#cb634-9"></a>unit_price &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(po_cst) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-10"><a href="difference-in-differences.html#cb634-10"></a>circulation &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(qtotal) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-11"><a href="difference-in-differences.html#cb634-11"></a>share_of_sub &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(qs_s) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span>
+<span id="cb634-12"><a href="difference-in-differences.html#cb634-12"></a>revenue_from_sales &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(rs_cst) <span class="op">~</span><span class="st"> </span>after_national <span class="op">+</span><span class="st"> </span>id_news <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> newspapers)</span></code></pre></div>
+<p>Looking at the advertising-side variables.</p>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="difference-in-differences.html#cb635-1"></a>omit_me &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;id_news3&quot;</span>, <span class="st">&quot;id_news6&quot;</span>, <span class="st">&quot;id_news7&quot;</span>, <span class="st">&quot;id_news13&quot;</span>, </span>
+<span id="cb635-2"><a href="difference-in-differences.html#cb635-2"></a>             <span class="st">&quot;id_news16&quot;</span>, <span class="st">&quot;id_news25&quot;</span>, <span class="st">&quot;id_news28&quot;</span>, <span class="st">&quot;id_news34&quot;</span>, <span class="st">&quot;id_news38&quot;</span>, </span>
+<span id="cb635-3"><a href="difference-in-differences.html#cb635-3"></a>             <span class="st">&quot;id_news44&quot;</span>, <span class="st">&quot;id_news48&quot;</span>, <span class="st">&quot;id_news51&quot;</span>, <span class="st">&quot;id_news53&quot;</span>, <span class="st">&quot;id_news54&quot;</span>, </span>
+<span id="cb635-4"><a href="difference-in-differences.html#cb635-4"></a>             <span class="st">&quot;id_news57&quot;</span>, <span class="st">&quot;id_news60&quot;</span>, <span class="st">&quot;id_news62&quot;</span>, <span class="st">&quot;id_news66&quot;</span>, <span class="st">&quot;id_news67&quot;</span>, </span>
+<span id="cb635-5"><a href="difference-in-differences.html#cb635-5"></a>             <span class="st">&quot;id_news70&quot;</span>, <span class="st">&quot;id_news71&quot;</span>, <span class="st">&quot;id_news72&quot;</span>, <span class="st">&quot;id_news80&quot;</span>, <span class="st">&quot;id_news82&quot;</span>, </span>
+<span id="cb635-6"><a href="difference-in-differences.html#cb635-6"></a>             <span class="st">&quot;id_news88&quot;</span>, <span class="st">&quot;id_news95&quot;</span>, <span class="st">&quot;id_news97&quot;</span>, <span class="st">&quot;id_news98&quot;</span>, <span class="st">&quot;id_news103&quot;</span>, </span>
+<span id="cb635-7"><a href="difference-in-differences.html#cb635-7"></a>             <span class="st">&quot;id_news105&quot;</span>, <span class="st">&quot;id_news106&quot;</span>, <span class="st">&quot;id_news118&quot;</span>, <span class="st">&quot;id_news119&quot;</span>, <span class="st">&quot;id_news127&quot;</span>, </span>
+<span id="cb635-8"><a href="difference-in-differences.html#cb635-8"></a>             <span class="st">&quot;id_news136&quot;</span>, <span class="st">&quot;id_news138&quot;</span>, <span class="st">&quot;id_news148&quot;</span>, <span class="st">&quot;id_news151&quot;</span>, <span class="st">&quot;id_news153&quot;</span>, </span>
+<span id="cb635-9"><a href="difference-in-differences.html#cb635-9"></a>             <span class="st">&quot;id_news154&quot;</span>, <span class="st">&quot;id_news157&quot;</span>, <span class="st">&quot;id_news158&quot;</span>, <span class="st">&quot;id_news161&quot;</span>, <span class="st">&quot;id_news163&quot;</span>, </span>
+<span id="cb635-10"><a href="difference-in-differences.html#cb635-10"></a>             <span class="st">&quot;id_news167&quot;</span>, <span class="st">&quot;id_news169&quot;</span>, <span class="st">&quot;id_news179&quot;</span>, <span class="st">&quot;id_news184&quot;</span>, <span class="st">&quot;id_news185&quot;</span>, </span>
+<span id="cb635-11"><a href="difference-in-differences.html#cb635-11"></a>             <span class="st">&quot;id_news187&quot;</span>, <span class="st">&quot;id_news196&quot;</span>, <span class="st">&quot;id_news206&quot;</span>, <span class="st">&quot;id_news210&quot;</span>, <span class="st">&quot;id_news212&quot;</span>, </span>
+<span id="cb635-12"><a href="difference-in-differences.html#cb635-12"></a>             <span class="st">&quot;id_news213&quot;</span>, <span class="st">&quot;id_news224&quot;</span>, <span class="st">&quot;id_news225&quot;</span>, <span class="st">&quot;id_news234&quot;</span>, <span class="st">&quot;id_news236&quot;</span>, </span>
+<span id="cb635-13"><a href="difference-in-differences.html#cb635-13"></a>             <span class="st">&quot;id_news245&quot;</span>, <span class="st">&quot;id_news247&quot;</span>, <span class="st">&quot;id_news310&quot;</span>, <span class="st">&quot;id_news452&quot;</span>, <span class="st">&quot;id_news467&quot;</span>, </span>
+<span id="cb635-14"><a href="difference-in-differences.html#cb635-14"></a>             <span class="st">&quot;id_news469&quot;</span>, <span class="st">&quot;id_news480&quot;</span>, <span class="st">&quot;id_news20040&quot;</span>, <span class="st">&quot;id_news20345&quot;</span>, </span>
+<span id="cb635-15"><a href="difference-in-differences.html#cb635-15"></a>             <span class="st">&quot;id_news20346&quot;</span>, <span class="st">&quot;id_news20347&quot;</span>, <span class="st">&quot;id_news20352&quot;</span>, <span class="st">&quot;id_news20354&quot;</span>, </span>
+<span id="cb635-16"><a href="difference-in-differences.html#cb635-16"></a>             <span class="st">&quot;id_news21006&quot;</span>, <span class="st">&quot;id_news21025&quot;</span>, <span class="st">&quot;id_news21173&quot;</span>, <span class="st">&quot;id_news21176&quot;</span>, </span>
+<span id="cb635-17"><a href="difference-in-differences.html#cb635-17"></a>             <span class="st">&quot;id_news33718&quot;</span>, <span class="st">&quot;id_news34689&quot;</span>, <span class="st">&quot;id_news73&quot;</span>)</span>
+<span id="cb635-18"><a href="difference-in-differences.html#cb635-18"></a></span>
+<span id="cb635-19"><a href="difference-in-differences.html#cb635-19"></a><span class="kw">huxreg</span>(<span class="st">&quot;Ad. rev.&quot;</span> =<span class="st"> </span>ad_revenue, </span>
+<span id="cb635-20"><a href="difference-in-differences.html#cb635-20"></a>       <span class="st">&quot;Ad rev. div. circ.&quot;</span> =<span class="st"> </span>ad_revenue_div_circulation, </span>
+<span id="cb635-21"><a href="difference-in-differences.html#cb635-21"></a>       <span class="st">&quot;Ad price&quot;</span> =<span class="st"> </span>ad_price, </span>
+<span id="cb635-22"><a href="difference-in-differences.html#cb635-22"></a>       <span class="st">&quot;Ad space&quot;</span> =<span class="st"> </span>ad_space,</span>
+<span id="cb635-23"><a href="difference-in-differences.html#cb635-23"></a>        <span class="dt">omit_coefs =</span> omit_me, </span>
+<span id="cb635-24"><a href="difference-in-differences.html#cb635-24"></a>        <span class="dt">number_format =</span> <span class="dv">2</span></span>
+<span id="cb635-25"><a href="difference-in-differences.html#cb635-25"></a>        )</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-382">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-382">Table 15.2: </span> </caption><col><col><col><col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Ad. rev.</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Ad rev. div. circ.</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Ad price</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Ad space</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">after_national1</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.23 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.15 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.31 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.01&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.03)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.03)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.07)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.05)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">year</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.05 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.04 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.04 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.02 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">809&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.99&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.90&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.89&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.72&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">logLik</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">345.34&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">449.52&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-277.71&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-164.01&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-526.68&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-735.05&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">705.43&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">478.02&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="5" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</table>
+
+<p>Similarly, we can look at the reader-side variables.</p>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="difference-in-differences.html#cb636-1"></a>omit_me &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;(Intercept)&quot;</span>, <span class="st">&quot;id_news3&quot;</span>, <span class="st">&quot;id_news6&quot;</span>, <span class="st">&quot;id_news7&quot;</span>, <span class="st">&quot;id_news13&quot;</span>, </span>
+<span id="cb636-2"><a href="difference-in-differences.html#cb636-2"></a>             <span class="st">&quot;id_news16&quot;</span>, <span class="st">&quot;id_news25&quot;</span>, <span class="st">&quot;id_news28&quot;</span>, <span class="st">&quot;id_news34&quot;</span>, <span class="st">&quot;id_news38&quot;</span>, </span>
+<span id="cb636-3"><a href="difference-in-differences.html#cb636-3"></a>             <span class="st">&quot;id_news44&quot;</span>, <span class="st">&quot;id_news48&quot;</span>, <span class="st">&quot;id_news51&quot;</span>, <span class="st">&quot;id_news53&quot;</span>, <span class="st">&quot;id_news54&quot;</span>, </span>
+<span id="cb636-4"><a href="difference-in-differences.html#cb636-4"></a>             <span class="st">&quot;id_news57&quot;</span>, <span class="st">&quot;id_news60&quot;</span>, <span class="st">&quot;id_news62&quot;</span>, <span class="st">&quot;id_news66&quot;</span>, <span class="st">&quot;id_news67&quot;</span>, </span>
+<span id="cb636-5"><a href="difference-in-differences.html#cb636-5"></a>             <span class="st">&quot;id_news70&quot;</span>, <span class="st">&quot;id_news71&quot;</span>, <span class="st">&quot;id_news72&quot;</span>, <span class="st">&quot;id_news80&quot;</span>, <span class="st">&quot;id_news82&quot;</span>, </span>
+<span id="cb636-6"><a href="difference-in-differences.html#cb636-6"></a>             <span class="st">&quot;id_news88&quot;</span>, <span class="st">&quot;id_news95&quot;</span>, <span class="st">&quot;id_news97&quot;</span>, <span class="st">&quot;id_news98&quot;</span>, <span class="st">&quot;id_news103&quot;</span>, </span>
+<span id="cb636-7"><a href="difference-in-differences.html#cb636-7"></a>             <span class="st">&quot;id_news105&quot;</span>, <span class="st">&quot;id_news106&quot;</span>, <span class="st">&quot;id_news118&quot;</span>, <span class="st">&quot;id_news119&quot;</span>, <span class="st">&quot;id_news127&quot;</span>, </span>
+<span id="cb636-8"><a href="difference-in-differences.html#cb636-8"></a>             <span class="st">&quot;id_news136&quot;</span>, <span class="st">&quot;id_news138&quot;</span>, <span class="st">&quot;id_news148&quot;</span>, <span class="st">&quot;id_news151&quot;</span>, <span class="st">&quot;id_news153&quot;</span>, </span>
+<span id="cb636-9"><a href="difference-in-differences.html#cb636-9"></a>             <span class="st">&quot;id_news154&quot;</span>, <span class="st">&quot;id_news157&quot;</span>, <span class="st">&quot;id_news158&quot;</span>, <span class="st">&quot;id_news161&quot;</span>, <span class="st">&quot;id_news163&quot;</span>, </span>
+<span id="cb636-10"><a href="difference-in-differences.html#cb636-10"></a>             <span class="st">&quot;id_news167&quot;</span>, <span class="st">&quot;id_news169&quot;</span>, <span class="st">&quot;id_news179&quot;</span>, <span class="st">&quot;id_news184&quot;</span>, <span class="st">&quot;id_news185&quot;</span>, </span>
+<span id="cb636-11"><a href="difference-in-differences.html#cb636-11"></a>             <span class="st">&quot;id_news187&quot;</span>, <span class="st">&quot;id_news196&quot;</span>, <span class="st">&quot;id_news206&quot;</span>, <span class="st">&quot;id_news210&quot;</span>, <span class="st">&quot;id_news212&quot;</span>, </span>
+<span id="cb636-12"><a href="difference-in-differences.html#cb636-12"></a>             <span class="st">&quot;id_news213&quot;</span>, <span class="st">&quot;id_news224&quot;</span>, <span class="st">&quot;id_news225&quot;</span>, <span class="st">&quot;id_news234&quot;</span>, <span class="st">&quot;id_news236&quot;</span>, </span>
+<span id="cb636-13"><a href="difference-in-differences.html#cb636-13"></a>             <span class="st">&quot;id_news245&quot;</span>, <span class="st">&quot;id_news247&quot;</span>, <span class="st">&quot;id_news310&quot;</span>, <span class="st">&quot;id_news452&quot;</span>, <span class="st">&quot;id_news467&quot;</span>, </span>
+<span id="cb636-14"><a href="difference-in-differences.html#cb636-14"></a>             <span class="st">&quot;id_news469&quot;</span>, <span class="st">&quot;id_news480&quot;</span>, <span class="st">&quot;id_news20040&quot;</span>, <span class="st">&quot;id_news20345&quot;</span>, </span>
+<span id="cb636-15"><a href="difference-in-differences.html#cb636-15"></a>             <span class="st">&quot;id_news20346&quot;</span>, <span class="st">&quot;id_news20347&quot;</span>, <span class="st">&quot;id_news20352&quot;</span>, <span class="st">&quot;id_news20354&quot;</span>, </span>
+<span id="cb636-16"><a href="difference-in-differences.html#cb636-16"></a>             <span class="st">&quot;id_news21006&quot;</span>, <span class="st">&quot;id_news21025&quot;</span>, <span class="st">&quot;id_news21173&quot;</span>, <span class="st">&quot;id_news21176&quot;</span>, </span>
+<span id="cb636-17"><a href="difference-in-differences.html#cb636-17"></a>             <span class="st">&quot;id_news33718&quot;</span>, <span class="st">&quot;id_news34689&quot;</span>, <span class="st">&quot;id_news73&quot;</span>)</span>
+<span id="cb636-18"><a href="difference-in-differences.html#cb636-18"></a></span>
+<span id="cb636-19"><a href="difference-in-differences.html#cb636-19"></a><span class="kw">huxreg</span>(<span class="st">&quot;Subscription price&quot;</span> =<span class="st"> </span>subscription_price, </span>
+<span id="cb636-20"><a href="difference-in-differences.html#cb636-20"></a>       <span class="st">&quot;Unit price&quot;</span> =<span class="st"> </span>unit_price, </span>
+<span id="cb636-21"><a href="difference-in-differences.html#cb636-21"></a>       <span class="st">&quot;Circulation&quot;</span> =<span class="st"> </span>circulation, </span>
+<span id="cb636-22"><a href="difference-in-differences.html#cb636-22"></a>       <span class="st">&quot;Share of sub&quot;</span> =<span class="st"> </span>share_of_sub,</span>
+<span id="cb636-23"><a href="difference-in-differences.html#cb636-23"></a>       <span class="st">&quot;Revenue from sales&quot;</span> =<span class="st"> </span>revenue_from_sales,</span>
+<span id="cb636-24"><a href="difference-in-differences.html#cb636-24"></a>       <span class="dt">omit_coefs =</span> omit_me, </span>
+<span id="cb636-25"><a href="difference-in-differences.html#cb636-25"></a>       <span class="dt">number_format =</span> <span class="dv">2</span></span>
+<span id="cb636-26"><a href="difference-in-differences.html#cb636-26"></a>       )</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-383">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-383">Table 15.3: </span> </caption><col><col><col><col><col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Subscription price</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Unit price</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Circulation</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Share of sub</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Revenue from sales</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">after_national1</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.04 *&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.06 **&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.06 **&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.19 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.06 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.02)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.02)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.02)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.03)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.03)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">year</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.05 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.05 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.01 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.01 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.05 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.00)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1044&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1063&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1072&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.88&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.87&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.99&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.97&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.99&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">logLik</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">882.14&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">907.28&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">759.57&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">321.91&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">451.11&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1600.28&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1650.57&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1355.15&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-477.81&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-738.22&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="6" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</table>
+
+</div>
+<div id="other-points" class="section level3">
+<h3><span class="header-section-number">15.3.6</span> Other points</h3>
+<ul>
+<li>We certainly find that in many cases there appears to be a difference from 1967 onward.</li>
+<li>In general, we are able to obtain results that are similar to Angelucci and Cagé, 2019. If we spent more time, we could probably replicate their findings perfectly. Isn’t this great! What else could do?</li>
+<li>Parallel trends: Notice the wonderful way in which they test the ‘parallel trends’ assumption on pp. 350-351.</li>
+<li>Discussion: Look at their wonderful discussion (pp. 353-358) of interpretation, external validity, and robustness.</li>
+</ul>
+</div>
+</div>
+<div id="tutorial---propensity-score-matching---lalonde" class="section level2">
+<h2><span class="header-section-number">15.4</span> Tutorial - Propensity score matching - Lalonde</h2>
+<!-- Need to add the student who identified this. -->
+<p><a href="http://sekhon.berkeley.edu/matching/lalonde.html" class="uri">http://sekhon.berkeley.edu/matching/lalonde.html</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regression-essentials.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="instrumental-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

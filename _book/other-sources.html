@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Other sources | Telling Stories With Data</title>
+  <meta name="description" content="This book is about learning how to tell stories with data." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Other sources | Telling Stories With Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is about learning how to tell stories with data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Other sources | Telling Stories With Data" />
+  
+  <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
+  
+
+<meta name="author" content="Rohan Alexander" />
+
+
+<meta name="date" content="2021-01-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hunting-data.html"/>
+<link rel="next" href="cleaning-and-preparing-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Telling Stories With Data</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Essentials</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a><ul>
+<li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
+<li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
+<li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-essentials.html"><a href="r-essentials.html#arranging"><i class="fa fa-check"></i><b>3.4.4</b> Arranging</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-essentials.html"><a href="r-essentials.html#grouping"><i class="fa fa-check"></i><b>3.4.5</b> Grouping</a></li>
+<li class="chapter" data-level="3.4.6" data-path="r-essentials.html"><a href="r-essentials.html#mutating"><i class="fa fa-check"></i><b>3.4.6</b> Mutating</a></li>
+<li class="chapter" data-level="3.4.7" data-path="r-essentials.html"><a href="r-essentials.html#summarise"><i class="fa fa-check"></i><b>3.4.7</b> Summarise</a></li>
+<li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
+<li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-essentials"><i class="fa fa-check"></i><b>3.6</b> ggplot essentials</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-essentials.html"><a href="r-essentials.html#strings"><i class="fa fa-check"></i><b>3.7.4</b> Strings</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-essentials.html"><a href="r-essentials.html#pivot"><i class="fa fa-check"></i><b>3.7.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
+<li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
+<li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
+<li class="chapter" data-level="4.2.4" data-path="workflow.html"><a href="workflow.html#abstracts-and-pdf-outputs"><i class="fa fa-check"></i><b>4.2.4</b> Abstracts and PDF outputs</a></li>
+<li class="chapter" data-level="4.2.5" data-path="workflow.html"><a href="workflow.html#references"><i class="fa fa-check"></i><b>4.2.5</b> References</a></li>
+<li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
+<li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
+<li class="chapter" data-level="4.5.4" data-path="workflow.html"><a href="workflow.html#code-comments"><i class="fa fa-check"></i><b>4.5.4</b> Code comments</a></li>
+<li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+</ul></li>
+<li class="part"><span><b>II Communicate</b></span></li>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a><ul>
+<li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
+<li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a><ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+</ul></li>
+<li class="part"><span><b>III Hunt and gather</b></span></li>
+<li class="chapter" data-level="7" data-path="gathering-data.html"><a href="gathering-data.html"><i class="fa fa-check"></i><b>7</b> Gathering data</a><ul>
+<li class="chapter" data-level="7.1" data-path="gathering-data.html"><a href="gathering-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-6"><i class="fa fa-check"></i><b>7.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.2" data-path="gathering-data.html"><a href="gathering-data.html#r-packages-that-wrap-around-apis"><i class="fa fa-check"></i><b>7.1.2</b> R packages that wrap around APIs</a></li>
+<li class="chapter" data-level="7.1.3" data-path="gathering-data.html"><a href="gathering-data.html#using-apis-directly"><i class="fa fa-check"></i><b>7.1.3</b> Using APIs directly</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="gathering-data.html"><a href="gathering-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.2</b> Case study - rtweet</a></li>
+<li class="chapter" data-level="7.3" data-path="gathering-data.html"><a href="gathering-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.3</b> Case study - spotifyr</a></li>
+<li class="chapter" data-level="7.4" data-path="gathering-data.html"><a href="gathering-data.html#scraping"><i class="fa fa-check"></i><b>7.4</b> Scraping</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-7"><i class="fa fa-check"></i><b>7.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.4.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.4.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="gathering-data.html"><a href="gathering-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.5</b> Case study - Rohan’s books</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-8"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.5.2" data-path="gathering-data.html"><a href="gathering-data.html#gather"><i class="fa fa-check"></i><b>7.5.2</b> Gather</a></li>
+<li class="chapter" data-level="7.5.3" data-path="gathering-data.html"><a href="gathering-data.html#clean"><i class="fa fa-check"></i><b>7.5.3</b> Clean</a></li>
+<li class="chapter" data-level="7.5.4" data-path="gathering-data.html"><a href="gathering-data.html#explore"><i class="fa fa-check"></i><b>7.5.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="gathering-data.html"><a href="gathering-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.6</b> Case study - Canadian Prime Ministers</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-9"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.6.2" data-path="gathering-data.html"><a href="gathering-data.html#gather-1"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
+<li class="chapter" data-level="7.6.3" data-path="gathering-data.html"><a href="gathering-data.html#clean-1"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
+<li class="chapter" data-level="7.6.4" data-path="gathering-data.html"><a href="gathering-data.html#explore-1"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="gathering-data.html"><a href="gathering-data.html#pdfs"><i class="fa fa-check"></i><b>7.7</b> PDFs</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-10"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.7.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.7.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="gathering-data.html"><a href="gathering-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.8</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-11"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.8.2" data-path="gathering-data.html"><a href="gathering-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.8.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="7.8.3" data-path="gathering-data.html"><a href="gathering-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.8.3</b> Start simple, then iterate.</a></li>
+<li class="chapter" data-level="7.8.4" data-path="gathering-data.html"><a href="gathering-data.html#iterating"><i class="fa fa-check"></i><b>7.8.4</b> Iterating</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="gathering-data.html"><a href="gathering-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.9</b> Case-study: Kenyan census data</a><ul>
+<li class="chapter" data-level="7.9.1" data-path="gathering-data.html"><a href="gathering-data.html#set-up"><i class="fa fa-check"></i><b>7.9.1</b> Set-up</a></li>
+<li class="chapter" data-level="7.9.2" data-path="gathering-data.html"><a href="gathering-data.html#extract"><i class="fa fa-check"></i><b>7.9.2</b> Extract</a></li>
+<li class="chapter" data-level="7.9.3" data-path="gathering-data.html"><a href="gathering-data.html#clean-2"><i class="fa fa-check"></i><b>7.9.3</b> Clean</a></li>
+<li class="chapter" data-level="7.9.4" data-path="gathering-data.html"><a href="gathering-data.html#check"><i class="fa fa-check"></i><b>7.9.4</b> Check</a></li>
+<li class="chapter" data-level="7.9.5" data-path="gathering-data.html"><a href="gathering-data.html#tidy-up"><i class="fa fa-check"></i><b>7.9.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="7.9.6" data-path="gathering-data.html"><a href="gathering-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.9.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="gathering-data.html"><a href="gathering-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.10</b> Optical Character Recognition</a></li>
+<li class="chapter" data-level="7.11" data-path="gathering-data.html"><a href="gathering-data.html#text"><i class="fa fa-check"></i><b>7.11</b> Text</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="gathering-data.html"><a href="gathering-data.html#introduction-12"><i class="fa fa-check"></i><b>7.11.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.11.2" data-path="gathering-data.html"><a href="gathering-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.11.2</b> Getting text data</a></li>
+<li class="chapter" data-level="7.11.3" data-path="gathering-data.html"><a href="gathering-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.11.3</b> Preparing text datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hunting-data.html"><a href="hunting-data.html"><i class="fa fa-check"></i><b>8</b> Hunting data</a><ul>
+<li class="chapter" data-level="8.1" data-path="hunting-data.html"><a href="hunting-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-13"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.2" data-path="hunting-data.html"><a href="hunting-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="hunting-data.html"><a href="hunting-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
+<li class="chapter" data-level="8.1.4" data-path="hunting-data.html"><a href="hunting-data.html#anova"><i class="fa fa-check"></i><b>8.1.4</b> ANOVA</a></li>
+<li class="chapter" data-level="8.1.5" data-path="hunting-data.html"><a href="hunting-data.html#treatment-and-control"><i class="fa fa-check"></i><b>8.1.5</b> Treatment and control</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="hunting-data.html"><a href="hunting-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>8.2</b> Case study - Fisher’s tea party</a></li>
+<li class="chapter" data-level="8.3" data-path="hunting-data.html"><a href="hunting-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
+<li class="chapter" data-level="8.4" data-path="hunting-data.html"><a href="hunting-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="8.5" data-path="hunting-data.html"><a href="hunting-data.html#ab-testing"><i class="fa fa-check"></i><b>8.5</b> A/B testing</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-14"><i class="fa fa-check"></i><b>8.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.5.2" data-path="hunting-data.html"><a href="hunting-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.5.2</b> Unique complications of A/B testing</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="hunting-data.html"><a href="hunting-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.6</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.7" data-path="hunting-data.html"><a href="hunting-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.7</b> Sampling and survey essentials</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="hunting-data.html"><a href="hunting-data.html#introduction-15"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunting-data.html"><a href="hunting-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.7.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunting-data.html"><a href="hunting-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.7.3</b> Stratified and cluster sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="hunting-data.html"><a href="hunting-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.8</b> Implementing surveys</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="hunting-data.html"><a href="hunting-data.html#google"><i class="fa fa-check"></i><b>8.8.1</b> Google</a></li>
+<li class="chapter" data-level="8.8.2" data-path="hunting-data.html"><a href="hunting-data.html#facebook"><i class="fa fa-check"></i><b>8.8.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.8.3" data-path="hunting-data.html"><a href="hunting-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.8.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.8.4" data-path="hunting-data.html"><a href="hunting-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.8.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.8.5" data-path="hunting-data.html"><a href="hunting-data.html#prolific"><i class="fa fa-check"></i><b>8.8.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.8.6" data-path="hunting-data.html"><a href="hunting-data.html#qualtrics"><i class="fa fa-check"></i><b>8.8.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.8.7" data-path="hunting-data.html"><a href="hunting-data.html#other-2"><i class="fa fa-check"></i><b>8.8.7</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="hunting-data.html"><a href="hunting-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.9</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-sources.html"><a href="other-sources.html"><i class="fa fa-check"></i><b>9</b> Other sources</a><ul>
+<li class="chapter" data-level="9.1" data-path="other-sources.html"><a href="other-sources.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="other-sources.html"><a href="other-sources.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
+<li class="chapter" data-level="9.1.2" data-path="other-sources.html"><a href="other-sources.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="other-sources.html"><a href="other-sources.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="other-sources.html"><a href="other-sources.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
+<li class="chapter" data-level="9.2.2" data-path="other-sources.html"><a href="other-sources.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Clean</b></span></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
+<li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
+<li class="part"><span><b>V Model</b></span></li>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
+<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+<li class="chapter" data-level="13.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.9</b> Case study - Airbnb listing in Toronto</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.9.1</b> Essentials</a></li>
+<li class="chapter" data-level="13.9.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.9.2</b> Set up</a></li>
+<li class="chapter" data-level="13.9.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.9.3</b> Get data</a></li>
+<li class="chapter" data-level="13.9.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.9.4</b> Clean data</a></li>
+<li class="chapter" data-level="13.9.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.9.5</b> Explore data</a></li>
+<li class="chapter" data-level="13.9.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.9.6</b> Model data</a></li>
+<li class="chapter" data-level="13.9.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#next-steps-2"><i class="fa fa-check"></i><b>13.9.7</b> Next steps</a></li>
+<li class="chapter" data-level="13.9.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#references-1"><i class="fa fa-check"></i><b>13.9.8</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regression-essentials.html"><a href="regression-essentials.html"><i class="fa fa-check"></i><b>14</b> Regression essentials</a><ul>
+<li class="chapter" data-level="14.1" data-path="regression-essentials.html"><a href="regression-essentials.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="regression-essentials.html"><a href="regression-essentials.html#introduction-17"><i class="fa fa-check"></i><b>14.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1.2" data-path="regression-essentials.html"><a href="regression-essentials.html#competing-relationships"><i class="fa fa-check"></i><b>14.1.2</b> Competing relationships</a></li>
+<li class="chapter" data-level="14.1.3" data-path="regression-essentials.html"><a href="regression-essentials.html#implementing-this-in-r"><i class="fa fa-check"></i><b>14.1.3</b> Implementing this in R</a></li>
+<li class="chapter" data-level="14.1.4" data-path="regression-essentials.html"><a href="regression-essentials.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.4</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.5" data-path="regression-essentials.html"><a href="regression-essentials.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.5</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.6" data-path="regression-essentials.html"><a href="regression-essentials.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.6</b> Adding more and varied explanatory variables</a></li>
+<li class="chapter" data-level="14.1.7" data-path="regression-essentials.html"><a href="regression-essentials.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.7</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.1.8" data-path="regression-essentials.html"><a href="regression-essentials.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.8</b> More credible outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="regression-essentials.html"><a href="regression-essentials.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
+<li class="chapter" data-level="14.3" data-path="regression-essentials.html"><a href="regression-essentials.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="regression-essentials.html"><a href="regression-essentials.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.3.2" data-path="regression-essentials.html"><a href="regression-essentials.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a><ul>
+<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-19"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
+<li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
+<li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-20"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
+<li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
+<li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
+<li class="chapter" data-level="15.3.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#results"><i class="fa fa-check"></i><b>15.3.5</b> Results</a></li>
+<li class="chapter" data-level="15.3.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#other-points"><i class="fa fa-check"></i><b>15.3.6</b> Other points</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a><ul>
+<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
+<li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
+<li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
+<li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
+<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a><ul>
+<li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
+<li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
+<li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
+<li class="chapter" data-level="16.6.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#discussion"><i class="fa fa-check"></i><b>16.6.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a><ul>
+<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
+<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
+<li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#implementation-1"><i class="fa fa-check"></i><b>17.5</b> Implementation</a></li>
+<li class="chapter" data-level="17.6" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#fuzzy-rdd"><i class="fa fa-check"></i><b>17.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="17.7" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#threats-to-validity"><i class="fa fa-check"></i><b>17.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="17.8" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#weaknesses"><i class="fa fa-check"></i><b>17.8</b> Weaknesses</a></li>
+<li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a><ul>
+<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a><ul>
+<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
+<li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
+<li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
+<li class="chapter" data-level="19.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>19.5</b> Your turn!</a></li>
+<li class="chapter" data-level="19.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>19.6</b> Adding layers</a></li>
+<li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
+<li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a><ul>
+<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-1"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
+<li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="20.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>20.3.4</b> Warnings and extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>20.4</b> Word embedding</a></li>
+<li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>VI Scale</b></span></li>
+<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a><ul>
+<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-26"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
+<li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
+<li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a><ul>
+<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-27"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+</ul></li>
+<li class="part"><span><b>VII Assessment</b></span></li>
+<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a><ul>
+<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
+<li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
+<li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
+<li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a><ul>
+<li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
+<li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="23.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>23.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a><ul>
+<li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
+<li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a><ul>
+<li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
+<li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a><ul>
+<li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
+<li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a><ul>
+<li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
+<li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Telling Stories With Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="other-sources" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Other sources</h1>
+<p><strong>Required reading</strong></p>
+<p><strong>Recommended reading</strong></p>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Pre-quiz</strong></p>
+<p><strong>Key sources of data</strong></p>
+<ul>
+<li>University of Toronto Dataverse: <a href="https://dataverse.scholarsportal.info/dataverse/toronto" class="uri">https://dataverse.scholarsportal.info/dataverse/toronto</a>.</li>
+<li>Data is Plural structured archive: <a href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0" class="uri">https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0</a>.</li>
+<li>Kaggle Datasets: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a>.</li>
+<li>Figure Eight: <a href="https://www.figure-eight.com/data-for-everyone/" class="uri">https://www.figure-eight.com/data-for-everyone/</a>.</li>
+<li>Google dataset search: <a href="https://datasetsearch.research.google.com/" class="uri">https://datasetsearch.research.google.com/</a>.</li>
+<li>Awesome Data: <a href="https://github.com/awesomedata/awesome-public-datasets" class="uri">https://github.com/awesomedata/awesome-public-datasets</a>.</li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ul>
+<li>Please identify three other sources of data that you are interested in and describe where are they available (please include a link if possible)?</li>
+<li>Please focus on one of those sources. What steps do you have to go through in order to get a dataset that can be analysed in R?</li>
+<li>Let’s say you take a job at RBC (a Canadian bank) and they already have some quantitative data for you to use. What are some questions that you should explore when deciding whether that data will be useful to you?</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Please identify three sources of government data in your country and describe where are they available (please include a link if possible)?</li>
+<li>Please focus on one of those sources. What steps do you have to go through in order to get a dataset such that it can be analysed in R?</li>
+</ol>
+<ul>
+<li>Please identify three other sources of data that you are interested in and describe where are they available (please include a link if possible)?</li>
+<li>Please focus on one of those sources. What steps do you have to go through in order to get a dataset that can be analysed in R?</li>
+<li>Let’s say you take a job at RBC (a Canadian bank) and they already have some quantitative data for you to use. What are some questions that you should explore when deciding whether that data will be useful to you?</li>
+</ul>
+<div id="open-government-data" class="section level2">
+<h2><span class="header-section-number">9.1</span> Open Government Data</h2>
+<ul>
+<li>Canadian Government Open Data: <a href="https://open.canada.ca/en/open-data" class="uri">https://open.canada.ca/en/open-data</a>.</li>
+</ul>
+<div id="canadian-census" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Canadian Census</h3>
+</div>
+<div id="city-of-toronto-open-data-portal" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> City of Toronto Open Data Portal</h3>
+</div>
+</div>
+<div id="electoral-studies" class="section level2">
+<h2><span class="header-section-number">9.2</span> Electoral Studies</h2>
+<div id="canadian-electoral-study" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Canadian Electoral Study</h3>
+</div>
+<div id="australian-electoral-study" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Australian Electoral Study</h3>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hunting-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cleaning-and-preparing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
