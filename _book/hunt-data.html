@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Hunt data | Telling Stories With Data</title>
+  <meta name="description" content="This book is about learning how to tell stories with data." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Hunt data | Telling Stories With Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is about learning how to tell stories with data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Hunt data | Telling Stories With Data" />
+  
+  <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
+  
+
+<meta name="author" content="Rohan Alexander" />
+
+
+<meta name="date" content="2021-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gather-data.html"/>
+<link rel="next" href="farm-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Telling Stories With Data</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Essentials</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a><ul>
+<li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
+<li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
+<li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-essentials.html"><a href="r-essentials.html#arranging"><i class="fa fa-check"></i><b>3.4.4</b> Arranging</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-essentials.html"><a href="r-essentials.html#grouping"><i class="fa fa-check"></i><b>3.4.5</b> Grouping</a></li>
+<li class="chapter" data-level="3.4.6" data-path="r-essentials.html"><a href="r-essentials.html#mutating"><i class="fa fa-check"></i><b>3.4.6</b> Mutating</a></li>
+<li class="chapter" data-level="3.4.7" data-path="r-essentials.html"><a href="r-essentials.html#summarise"><i class="fa fa-check"></i><b>3.4.7</b> Summarise</a></li>
+<li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
+<li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-essentials"><i class="fa fa-check"></i><b>3.6</b> ggplot essentials</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-essentials.html"><a href="r-essentials.html#strings"><i class="fa fa-check"></i><b>3.7.4</b> Strings</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-essentials.html"><a href="r-essentials.html#pivot"><i class="fa fa-check"></i><b>3.7.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
+<li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
+<li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
+<li class="chapter" data-level="4.2.4" data-path="workflow.html"><a href="workflow.html#abstracts-and-pdf-outputs"><i class="fa fa-check"></i><b>4.2.4</b> Abstracts and PDF outputs</a></li>
+<li class="chapter" data-level="4.2.5" data-path="workflow.html"><a href="workflow.html#references"><i class="fa fa-check"></i><b>4.2.5</b> References</a></li>
+<li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
+<li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
+<li class="chapter" data-level="4.5.4" data-path="workflow.html"><a href="workflow.html#code-comments"><i class="fa fa-check"></i><b>4.5.4</b> Code comments</a></li>
+<li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+</ul></li>
+<li class="part"><span><b>II Communicate</b></span></li>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a><ul>
+<li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
+<li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a><ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+</ul></li>
+<li class="part"><span><b>III Hunt gather and farm</b></span></li>
+<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a><ul>
+<li class="chapter" data-level="7.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="gather-data.html"><a href="gather-data.html#introduction-6"><i class="fa fa-check"></i><b>7.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.1.2" data-path="gather-data.html"><a href="gather-data.html#r-packages-that-wrap-around-apis"><i class="fa fa-check"></i><b>7.1.2</b> R packages that wrap around APIs</a></li>
+<li class="chapter" data-level="7.1.3" data-path="gather-data.html"><a href="gather-data.html#using-apis-directly"><i class="fa fa-check"></i><b>7.1.3</b> Using APIs directly</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="gather-data.html"><a href="gather-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.2</b> Case study - rtweet</a></li>
+<li class="chapter" data-level="7.3" data-path="gather-data.html"><a href="gather-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.3</b> Case study - spotifyr</a></li>
+<li class="chapter" data-level="7.4" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.4</b> Scraping</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="gather-data.html"><a href="gather-data.html#introduction-7"><i class="fa fa-check"></i><b>7.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.4.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.4.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.5</b> Case study - Rohan’s books</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="gather-data.html"><a href="gather-data.html#introduction-8"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.5.2" data-path="gather-data.html"><a href="gather-data.html#gather"><i class="fa fa-check"></i><b>7.5.2</b> Gather</a></li>
+<li class="chapter" data-level="7.5.3" data-path="gather-data.html"><a href="gather-data.html#clean"><i class="fa fa-check"></i><b>7.5.3</b> Clean</a></li>
+<li class="chapter" data-level="7.5.4" data-path="gather-data.html"><a href="gather-data.html#explore"><i class="fa fa-check"></i><b>7.5.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.6</b> Case study - Canadian Prime Ministers</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="gather-data.html"><a href="gather-data.html#introduction-9"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.6.2" data-path="gather-data.html"><a href="gather-data.html#gather-1"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
+<li class="chapter" data-level="7.6.3" data-path="gather-data.html"><a href="gather-data.html#clean-1"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
+<li class="chapter" data-level="7.6.4" data-path="gather-data.html"><a href="gather-data.html#explore-1"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.7</b> PDFs</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="gather-data.html"><a href="gather-data.html#introduction-10"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.7.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.7.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.8</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a><ul>
+<li class="chapter" data-level="7.8.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.8.2" data-path="gather-data.html"><a href="gather-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.8.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="7.8.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.8.3</b> Start simple, then iterate.</a></li>
+<li class="chapter" data-level="7.8.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>7.8.4</b> Iterating</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.9</b> Case-study: Kenyan census data</a><ul>
+<li class="chapter" data-level="7.9.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>7.9.1</b> Set-up</a></li>
+<li class="chapter" data-level="7.9.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>7.9.2</b> Extract</a></li>
+<li class="chapter" data-level="7.9.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>7.9.3</b> Clean</a></li>
+<li class="chapter" data-level="7.9.4" data-path="gather-data.html"><a href="gather-data.html#check"><i class="fa fa-check"></i><b>7.9.4</b> Check</a></li>
+<li class="chapter" data-level="7.9.5" data-path="gather-data.html"><a href="gather-data.html#tidy-up"><i class="fa fa-check"></i><b>7.9.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="7.9.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.9.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.10</b> Optical Character Recognition</a></li>
+<li class="chapter" data-level="7.11" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.11</b> Text</a><ul>
+<li class="chapter" data-level="7.11.1" data-path="gather-data.html"><a href="gather-data.html#introduction-12"><i class="fa fa-check"></i><b>7.11.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.11.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.11.2</b> Getting text data</a></li>
+<li class="chapter" data-level="7.11.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.11.3</b> Preparing text datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a><ul>
+<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.2" data-path="hunt-data.html"><a href="hunt-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="hunt-data.html"><a href="hunt-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
+<li class="chapter" data-level="8.1.4" data-path="hunt-data.html"><a href="hunt-data.html#anova"><i class="fa fa-check"></i><b>8.1.4</b> ANOVA</a></li>
+<li class="chapter" data-level="8.1.5" data-path="hunt-data.html"><a href="hunt-data.html#treatment-and-control"><i class="fa fa-check"></i><b>8.1.5</b> Treatment and control</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="hunt-data.html"><a href="hunt-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>8.2</b> Case study - Fisher’s tea party</a></li>
+<li class="chapter" data-level="8.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
+<li class="chapter" data-level="8.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="8.5" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.5</b> A/B testing</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.5.2" data-path="hunt-data.html"><a href="hunt-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.5.2</b> Unique complications of A/B testing</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.6</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.7</b> Sampling and survey essentials</a><ul>
+<li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-15"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.7.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.7.3</b> Stratified and cluster sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.8</b> Implementing surveys</a><ul>
+<li class="chapter" data-level="8.8.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.8.1</b> Google</a></li>
+<li class="chapter" data-level="8.8.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.8.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.8.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.8.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.8.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.8.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.8.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.8.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.8.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.8.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.8.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.8.7</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.9</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a><ul>
+<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="farm-data.html"><a href="farm-data.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
+<li class="chapter" data-level="9.1.2" data-path="farm-data.html"><a href="farm-data.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="farm-data.html"><a href="farm-data.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
+<li class="chapter" data-level="9.2.2" data-path="farm-data.html"><a href="farm-data.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Clean</b></span></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
+<li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
+<li class="part"><span><b>V Model</b></span></li>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
+<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+<li class="chapter" data-level="13.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.9</b> Case study - Airbnb listing in Toronto</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.9.1</b> Essentials</a></li>
+<li class="chapter" data-level="13.9.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.9.2</b> Set up</a></li>
+<li class="chapter" data-level="13.9.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.9.3</b> Get data</a></li>
+<li class="chapter" data-level="13.9.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.9.4</b> Clean data</a></li>
+<li class="chapter" data-level="13.9.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.9.5</b> Explore data</a></li>
+<li class="chapter" data-level="13.9.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.9.6</b> Model data</a></li>
+<li class="chapter" data-level="13.9.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#next-steps-2"><i class="fa fa-check"></i><b>13.9.7</b> Next steps</a></li>
+<li class="chapter" data-level="13.9.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#references-1"><i class="fa fa-check"></i><b>13.9.8</b> References</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regression-essentials.html"><a href="regression-essentials.html"><i class="fa fa-check"></i><b>14</b> Regression essentials</a><ul>
+<li class="chapter" data-level="14.1" data-path="regression-essentials.html"><a href="regression-essentials.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="regression-essentials.html"><a href="regression-essentials.html#introduction-17"><i class="fa fa-check"></i><b>14.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="14.1.2" data-path="regression-essentials.html"><a href="regression-essentials.html#competing-relationships"><i class="fa fa-check"></i><b>14.1.2</b> Competing relationships</a></li>
+<li class="chapter" data-level="14.1.3" data-path="regression-essentials.html"><a href="regression-essentials.html#implementing-this-in-r"><i class="fa fa-check"></i><b>14.1.3</b> Implementing this in R</a></li>
+<li class="chapter" data-level="14.1.4" data-path="regression-essentials.html"><a href="regression-essentials.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.4</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.5" data-path="regression-essentials.html"><a href="regression-essentials.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.5</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.6" data-path="regression-essentials.html"><a href="regression-essentials.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.6</b> Adding more and varied explanatory variables</a></li>
+<li class="chapter" data-level="14.1.7" data-path="regression-essentials.html"><a href="regression-essentials.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.7</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.1.8" data-path="regression-essentials.html"><a href="regression-essentials.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.8</b> More credible outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="regression-essentials.html"><a href="regression-essentials.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
+<li class="chapter" data-level="14.3" data-path="regression-essentials.html"><a href="regression-essentials.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="regression-essentials.html"><a href="regression-essentials.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.3.2" data-path="regression-essentials.html"><a href="regression-essentials.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a><ul>
+<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-19"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
+<li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
+<li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-20"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
+<li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
+<li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
+<li class="chapter" data-level="15.3.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#results"><i class="fa fa-check"></i><b>15.3.5</b> Results</a></li>
+<li class="chapter" data-level="15.3.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#other-points"><i class="fa fa-check"></i><b>15.3.6</b> Other points</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a><ul>
+<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
+<li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
+<li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
+<li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
+<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a><ul>
+<li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
+<li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
+<li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
+<li class="chapter" data-level="16.6.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#discussion"><i class="fa fa-check"></i><b>16.6.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a><ul>
+<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
+<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a><ul>
+<li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
+<li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#implementation-1"><i class="fa fa-check"></i><b>17.5</b> Implementation</a></li>
+<li class="chapter" data-level="17.6" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#fuzzy-rdd"><i class="fa fa-check"></i><b>17.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="17.7" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#threats-to-validity"><i class="fa fa-check"></i><b>17.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="17.8" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#weaknesses"><i class="fa fa-check"></i><b>17.8</b> Weaknesses</a></li>
+<li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a><ul>
+<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a><ul>
+<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
+<li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
+<li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
+<li class="chapter" data-level="19.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>19.5</b> Your turn!</a></li>
+<li class="chapter" data-level="19.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>19.6</b> Adding layers</a></li>
+<li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
+<li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a><ul>
+<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-1"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
+<li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="20.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>20.3.4</b> Warnings and extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>20.4</b> Word embedding</a></li>
+<li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>VI Scale</b></span></li>
+<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a><ul>
+<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-26"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
+<li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
+<li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a><ul>
+<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-27"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+</ul></li>
+<li class="part"><span><b>VII Assessment</b></span></li>
+<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a><ul>
+<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
+<li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="23.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>23.1.5</b> Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
+<li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a><ul>
+<li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
+<li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a><ul>
+<li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
+<li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="23.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>23.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a><ul>
+<li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
+<li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a><ul>
+<li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
+<li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a><ul>
+<li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
+<li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a><ul>
+<li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
+<li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Telling Stories With Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hunt-data" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Hunt data</h1>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Banerjee, Abhijit Vinayak, 2020, ‘Field Experiments and the Practice of Economics’, <em>American Economic Review</em>, Vol. 110, No. 7, pp. 1937-1951.</li>
+<li>Duflo, Esther, 2020, ‘Field Experiments and the Practice of Policy’, <em>American Economic Review</em>, Vol. 110, No. 7, pp. 1952-1973 (or watch the speech detailed below).</li>
+<li>Fisher, Ronald, 1935, <em>The Design of Experiments</em>, pp. 20-29, <a href="https://archive.org/details/in.ernet.dli.2015.502684/page/n33/mode/2up" class="uri">https://archive.org/details/in.ernet.dli.2015.502684/page/n33/mode/2up</a>.</li>
+<li>Fry, Hanna, 2020, ‘Experiments on Trial’, <em>The New Yorker</em>, 2 March, pp. 61-65, <a href="https://www.newyorker.com/magazine/2020/03/02/big-tech-is-testing-you" class="uri">https://www.newyorker.com/magazine/2020/03/02/big-tech-is-testing-you</a>.</li>
+<li>Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, <em>Impact Evaluation in Practice</em>, Chapters 3 and 4, <a href="https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice" class="uri">https://www.worldbank.org/en/programs/sief-trust-fund/publication/impact-evaluation-in-practice</a>.</li>
+<li>Hill, Austin Bradford, 1965, ‘The Environment and Disease: Association or Causation?’, <em>Proceedings of the Royal Society of Medicine</em>, 58, 5, 295-300.</li>
+<li>Kohavi, Ron and Stefan Thomke, 2017, ‘The Surprising Power of Online Experiments’, <em>Harvard Business Review</em>, September-October, <a href="https://hbr.org/2017/09/the-surprising-power-of-online-experiments" class="uri">https://hbr.org/2017/09/the-surprising-power-of-online-experiments</a>.</li>
+<li>Kohavi, Ron, Diane Tang, and Ya Xu, 2020, <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>, Cambridge University Press. (This sounds like a lot, but it’s a light book - it’s more about providing examples of issues to think about.) (Freely available through the U of T library.)</li>
+<li>Taback, Nathan, 2020, <em>Design of Experiments and Observational Studies</em>, Chapter 8 - Completely Randomized Designs: Comparing More Than Two Treatments, <a href="https://scidesign.github.io/designbook/completely-randomized-designs-comparing-more-than-two-treatments.html" class="uri">https://scidesign.github.io/designbook/completely-randomized-designs-comparing-more-than-two-treatments.html</a>.</li>
+<li>Taylor, Sean, Dean Eckles, 2017, ‘Randomized experiments to detect and estimate social influence in networks’, <em>arXiv</em>, <a href="https://arxiv.org/abs/1709.09636v1" class="uri">https://arxiv.org/abs/1709.09636v1</a>.</li>
+<li>Wu, Changbao and Mary E. Thompson, 2020, <em>Sampling Theory and Practice</em>, Springer, Chapters 1-3, and 5 (freely available through the U of T library).</li>
+</ul>
+<p><strong>Required viewing</strong></p>
+<ul>
+<li>Register, Yim, 2020, ‘Introduction to Sampling and Randomization’, <em>Online Causal Inference Seminar</em>, 14 November, <a href="https://youtu.be/U272FFxG8LE" class="uri">https://youtu.be/U272FFxG8LE</a>.</li>
+<li>Xu, Ya, 2020, ‘Causal inference challenges in industry, a perspective from experiences at LinkedIn’, <em>Online Causal Inference Seminar</em>, 16 July, <a href="https://youtu.be/OoKsLAvyIYA" class="uri">https://youtu.be/OoKsLAvyIYA</a>.</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, <em>Mostly harmless econometrics: An empiricist’s companion</em>, Princeton University Press, Chapter 2.</li>
+<li>Banerjee, Abhijit Vinayak, Esther Duflo, Rachel Glennerster, and Dhruva Kothari, 2010, ‘Improving immunisation coverage in rural India: clustered randomised controlled evaluation of immunisation campaigns with and without incentives’, <em>BMJ</em>, 340, c2220.</li>
+<li>Beaumont, Jean-François, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’, <em>Survey Methodology</em>, 46 (1), Statistics Canada, Catalogue No. 12-001-X.</li>
+<li>Christian, Brian, 2012, ‘The A/B Test: Inside the Technology That’s Changing the Rules of Business’, <em>Wired</em>, 25 April, <a href="https://www.wired.com/2012/04/ff-abtesting/" class="uri">https://www.wired.com/2012/04/ff-abtesting/</a>.</li>
+<li>Dablander, Fabian, 2020, “An Introduction to Causal Inference”, <em>PsyArXiv</em>, 13 February, <a href="doi:10.31234/osf.io/b3fkw" class="uri">doi:10.31234/osf.io/b3fkw</a>, <a href="https://psyarxiv.com/b3fkw" class="uri">https://psyarxiv.com/b3fkw</a>.</li>
+<li>Deaton, Angus, 2010, ‘Instruments, Randomization, and Learning about Development’, <em>Journal of Economic Literature</em>, vol. 48, no. 2, pp. 424-455.</li>
+<li>Duflo, Esther, Rachel Glennerster, and Michael Kremer, 2007, ‘Using Randomization In Development Economics Research: A Toolkit’, <a href="https://economics.mit.edu/files/806" class="uri">https://economics.mit.edu/files/806</a>.</li>
+<li>Gordon, Brett R., Florian Zettelmeyer, Neha Bhargava, and Dan Chapsky, 2019, ‘A Comparison of Approaches to Advertising Measurement: Evidence from Big Field Experiments at Facebook’, <em>Marketing Science</em>, Vol. 38, No. 2, March–April, pp. 193–225.</li>
+<li>Groves, Robert M., 2011, ‘Three Eras of Survey Research’, <em>Public Opinion Quarterly</em>, 75 (5), pp. 861–871, <a href="https://doi.org/10.1093/poq/nfr057" class="uri">https://doi.org/10.1093/poq/nfr057</a>.</li>
+<li>Hillygus, D. Sunshine, 2011, ‘The evolution of election polling in the United States’, <em>Public Opinion Quarterly</em>, 75 (5), pp. 962-981.</li>
+<li>Imai, Kosuke, 2017, <em>Quantitative Social Science: An Introduction</em>, Princeton University Press, Ch 2.3, 2.4, 4.3.</li>
+<li>Jeffries, Adrianne, Leon Yin, and Surya Mattu, 2020, ‘Swinging the Vote?’, <em>The Markup</em>, 26 February, <a href="https://themarkup.org/google-the-giant/2020/02/26/wheres-my-email" class="uri">https://themarkup.org/google-the-giant/2020/02/26/wheres-my-email</a>.</li>
+<li>Kohavi, Ron, Alex Deng, Brian Frasca, Roger Longbotham, Toby Walker, and Ya Xu. 2012. Trustworthy online controlled experiments: five puzzling outcomes explained. In Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD ’12). Association for Computing Machinery, New York, NY, USA, 786–794. <a href="DOI:https://doi.org/10.1145/2339530.2339653" class="uri">DOI:https://doi.org/10.1145/2339530.2339653</a></li>
+<li>Landesberg, Eddie, Molly Davies, and Stephanie Yee, 2019, ‘Want to make good business decisions? Learn causality’, <em>MultiThreaded, Stitchfix blog</em>, 19 December, <a href="https://multithreaded.stitchfix.com/blog/2019/12/19/good-marketing-decisions/" class="uri">https://multithreaded.stitchfix.com/blog/2019/12/19/good-marketing-decisions/</a>.</li>
+<li>Levay, Kevin E., Jeremy Freese, and James N. Druckman, 2016, ‘The demographic and political composition of Mechanical Turk samples’, <em>Sage Open</em>, 6 (1), 2158244016636433.</li>
+<li>Lewis, Randall A., and David H. Reiley, 2014 ‘Online ads and offline sales: Measuring the effects of retail advertising via a controlled experiment on Yahoo!’, <em>Quantitative Marketing and Economics</em>, Vol 12, pp. 235–266.</li>
+<li>Mullinix, Kevin J., Leeper, Thomas J., Druckman, James N. and Freese, Jeremy, 2015, ‘The generalizability of survey experiments’, <em>Journal of Experimental Political Science</em>, 2 (2), pp. 109-138.</li>
+<li>Novak, Greg, Sven Schmit, and Dave Spiegel, 2020, Experimentation with resource constraints, 18 November, StitchFix Blog, <a href="https://multithreaded.stitchfix.com/blog/2020/11/18/virtual-warehouse/" class="uri">https://multithreaded.stitchfix.com/blog/2020/11/18/virtual-warehouse/</a>.</li>
+<li>Prepared for the AAPOR Executive Council by a Task Force operating under the auspices of the AAPOR Standards Committee, with members including:, Reg Baker, Stephen J. Blumberg, J. Michael Brick, Mick P. Couper, Melanie Courtright, J. Michael Dennis, Don Dillman, Martin R. Frankel, Philip Garland, Robert M. Groves, Courtney Kennedy, Jon Krosnick, Paul J. Lavrakas, Sunghee Lee, Michael Link, Linda Piekarski, Kumar Rao, Randall K. Thomas, Dan Zahs, 2010, ‘Research Synthesis: AAPOR Report on Online Panels’, <em>Public Opinion Quarterly</em>, 74 (4), pp. 711–781, <a href="https://doi.org/10.1093/poq/nfq048" class="uri">https://doi.org/10.1093/poq/nfq048</a>.</li>
+<li>Ryan, A. C., A. R. MacKenzie, S. Watkins, and R. Timmis, 2012, ‘World War II contrails: a case study of aviation‐induced cloudiness’, <em>International journal of climatology</em>, 32, no. 11, pp. 1745-1753.</li>
+<li>Said, Chris, 2020, ‘Optimizing sample sizes in A/B testing, Part I: General summary’, 10 January, <a href="https://chris-said.io/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/" class="uri">https://chris-said.io/2020/01/10/optimizing-sample-sizes-in-ab-testing-part-I/</a>. (See also parts 2 and 3).</li>
+<li>Stolberg, Michael, 2006, ‘Inventing the randomized double-blind trial: the Nuremberg salt test of 1835’, <em>Journal of the Royal Society of Medicine</em>, 99, no. 12, pp. 642-643.</li>
+<li>Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel, 2019, popular science background, <a href="https://www.nobelprize.org/uploads/2019/10/popular-economicsciencesprize2019-2.pdf" class="uri">https://www.nobelprize.org/uploads/2019/10/popular-economicsciencesprize2019-2.pdf</a>.</li>
+<li>Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel, 2019, scientific background, <a href="https://www.nobelprize.org/uploads/2019/10/advanced-economicsciencesprize2019.pdf" class="uri">https://www.nobelprize.org/uploads/2019/10/advanced-economicsciencesprize2019.pdf</a>.</li>
+<li>Taddy, Matt, 2019, <em>Business Data Science</em>, Chapter 5.</li>
+<li>Urban, Steve, Rangarajan Sreenivasan, and Vineet Kannan, 2016, ‘It’s All A/Bout Testing: The Netflix Experimentation Platform’, <em>Netflix Technology Blog</em>, 29 April, <a href="https://netflixtechblog.com/its-all-a-bout-testing-the-netflix-experimentation-platform-4e1ca458c15" class="uri">https://netflixtechblog.com/its-all-a-bout-testing-the-netflix-experimentation-platform-4e1ca458c15</a>.</li>
+<li>VWO, ‘A/B Testing Guide’, <a href="https://vwo.com/ab-testing/" class="uri">https://vwo.com/ab-testing/</a>.</li>
+<li>Yeager, David S., Jon A. Krosnick, LinChiat Chang, Harold S. Javitz, Matthew S. Levendusky, Alberto Simpser, Rui Wang, 2011, ‘Comparing the Accuracy of RDD Telephone Surveys and Internet Surveys Conducted with Probability and Non-Probability Samples’, <em>Public Opinion Quarterly</em>, 75 (4), pp. 709–747, <a href="https://doi.org/10.1093/poq/nfr020" class="uri">https://doi.org/10.1093/poq/nfr020</a>.</li>
+<li>Yin, Xuan and Ercan Yildiz, 2020, ‘The Causal Analysis of Cannibalization in Online Products’, <em>Code as Craft, Etsy blog</em>, 24 February, <a href="https://codeascraft.com/2020/02/24/the-causal-analysis-of-cannibalization-in-online-products/" class="uri">https://codeascraft.com/2020/02/24/the-causal-analysis-of-cannibalization-in-online-products/</a>.</li>
+</ul>
+<p><strong>Recommended listening</strong></p>
+<ul>
+<li>Galef, Julia, 2020, ‘Episode 246: Deaths of despair / Effective altruism (Angus Deaton)’, <em>Rationally Speaking</em>, from 35:30 through to the end, available at: <a href="http://rationallyspeakingpodcast.org/show/episode-246-deaths-of-despair-effective-altruism-angus-deato.html" class="uri">http://rationallyspeakingpodcast.org/show/episode-246-deaths-of-despair-effective-altruism-angus-deato.html</a>.</li>
+</ul>
+<p><strong>Recommended viewing</strong></p>
+<ul>
+<li>Duflo, Esther, 2020, ‘Inteview with Esther Duflo’, 12 October, <em>Online Causal Inference Seminar</em>, <a href="https://youtu.be/WWW9q3oMYxU" class="uri">https://youtu.be/WWW9q3oMYxU</a>.</li>
+<li>Duflo, Esther, 2019, ‘Nobel Prize Lecture’, 8 December 2019, Stockholm: <a href="https://www.nobelprize.org/prizes/economic-sciences/2019/duflo/lecture/" class="uri">https://www.nobelprize.org/prizes/economic-sciences/2019/duflo/lecture/</a>.</li>
+<li>Tipton, Elizabeth, 2020, ‘Will this Intervention Work in this Population? Designing Randomized Trials for Generalization’, <em>Online Causal Inference Seminar</em>, 14 April, <a href="https://youtu.be/HYP32wzEZMA" class="uri">https://youtu.be/HYP32wzEZMA</a>.</li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>Treatment and control groups.</li>
+<li>Internal and external validity.</li>
+<li>Average treatment effect.</li>
+<li>Generating simulated datasets.</li>
+<li>Defining populations, frames and samples.</li>
+<li>Distinguishing probability and non-probability sampling</li>
+<li>Distinguishing strata and clusters.</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li><code>broom</code></li>
+<li><code>ggplot2</code></li>
+<li><code>tidyverse</code></li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li><code>aov()</code></li>
+<li><code>rnorm()</code></li>
+<li><code>sample()</code></li>
+<li><code>t.test()</code></li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>In your own words, what is the role of randomisation in constructing a counterfactual (write two or three paragraphs)?</li>
+<li>What is external validity (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>Findings from an experiment hold in that setting.</li>
+<li>Findings from an experiment hold outside that setting.</li>
+<li>Findings from an experiment that has been repeated many times.</li>
+<li>Findings from an experiment for which code and data are available.</li>
+</ol></li>
+<li>What is internal validity (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>Findings from an experiment hold in that setting.</li>
+<li>Findings from an experiment hold outside that setting.</li>
+<li>Findings from an experiment that has been repeated many times.</li>
+<li>Findings from an experiment for which code and data are available.</li>
+</ol></li>
+<li>If we have a dataset named ‘netflix_data’, with the columns ‘person’ and ‘tv_show’ and ‘hours’, (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
+</ol>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="hunt-data.html#cb396-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb396-2"><a href="hunt-data.html#cb396-2"></a>netflix_data &lt;-<span class="st"> </span></span>
+<span id="cb396-3"><a href="hunt-data.html#cb396-3"></a><span class="st">  </span><span class="kw">tibble</span>(<span class="dt">person =</span> <span class="kw">c</span>(<span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, </span>
+<span id="cb396-4"><a href="hunt-data.html#cb396-4"></a>                    <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Helen&quot;</span>),</span>
+<span id="cb396-5"><a href="hunt-data.html#cb396-5"></a>         <span class="dt">tv_show =</span> <span class="kw">c</span>(<span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, </span>
+<span id="cb396-6"><a href="hunt-data.html#cb396-6"></a>                     <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>),</span>
+<span id="cb396-7"><a href="hunt-data.html#cb396-7"></a>         <span class="dt">hours =</span> <span class="kw">c</span>(<span class="fl">6.8</span>, <span class="fl">8.0</span>, <span class="fl">0.8</span>, <span class="fl">9.2</span>, <span class="fl">3.2</span>, <span class="fl">4.0</span>, <span class="fl">0.2</span>, <span class="fl">10.2</span>)</span>
+<span id="cb396-8"><a href="hunt-data.html#cb396-8"></a>         )</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>In the context of randomisation, what does stratification mean to you (write a paragraph or two)?</li>
+<li>How could you check that your randomisation had been done appropriately (write two or three paragraphs)?</li>
+<li>Identify three companies that conduct A/B testing commercially and write a short paper about how they work and the trade-offs of each. Are there any notable Toronto-based or Canadian companies? Why do you think this might be the case?</li>
+<li>Pretend that you work as a junior analyst for a large consulting firm. Further, pretend that your consulting firm has taken a contract to put together a facial recognition model for the Canada Border Services Agency’s Inland Enforcement branch. Taking a page or two, please discuss your thoughts on this matter. What would you do and why?</li>
+<li>What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?</li>
+<li>There have been some substantial political polling ‘misses’ in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?</li>
+<li>What is an estimate (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>A rule for calculating an estimate of a given quantity based on observed data.</li>
+<li>The quantity of interest.</li>
+<li>The result.</li>
+<li>Unknown numbers that determine a statistical model.</li>
+</ol></li>
+<li>What is an estimator (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>A rule for calculating an estimate of a given quantity based on observed data.</li>
+<li>The quantity of interest.</li>
+<li>The result.</li>
+<li>Unknown numbers that determine a statistical model.</li>
+</ol></li>
+<li>What is an estimand (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>A rule for calculating an estimate of a given quantity based on observed data.</li>
+<li>The quantity of interest.</li>
+<li>The result.</li>
+<li>Unknown numbers that determine a statistical model.</li>
+</ol></li>
+<li>What is a parameter (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>A rule for calculating an estimate of a given quantity based on observed data.</li>
+<li>The quantity of interest.</li>
+<li>The result.</li>
+<li>Unknown numbers that determine a statistical model.</li>
+</ol></li>
+<li>It seems like a lot of businesses have closed in downtown Toronto since the pandemic. To investigate this, I decide to walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, I open a map of Toronto, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>Cluster sampling.</li>
+<li>Systematic sampling.</li>
+<li>Stratified sampling.</li>
+<li>Simple random sampling.</li>
+<li>Convenience sampling.</li>
+</ol></li>
+<li>Please name some reasons why you may wish to use cluster sampling (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>Balance in responses.</li>
+<li>Administrative convenience.</li>
+<li>Efficiency in terms of money.</li>
+<li>Underlying systematic concerns.</li>
+<li>Estimation of sub-populations.</li>
+</ol></li>
+<li>Please consider Beaumont, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?</li>
+</ol>
+<div id="experiments-and-randomised-controlled-trials" class="section level2">
+<h2><span class="header-section-number">8.1</span> Experiments and randomised controlled trials</h2>
+<div id="introduction-13" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Introduction</h3>
+<p><em>First a note on Ronald Fisher and Francis Galton. Fisher and Galton are the intellectual grandfathers of much of the work that we cover. In some cases it is directly their work, in other cases it is work that built on their contributions. Both of these men believed in eugenics, amongst other things that are generally reprehensible.</em></p>
+<p>This chapter is about experiments. This is a situation in which we can explicitly control and vary some aspects. The advantage of this is that identification should be clear. There is a treatment group that is treated and a control group that is not. These are randomly split. And so if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely, because our ability to speak to internal validity affects our ability to speak to external validity.</p>
+<p>It’s also important to note that the statistics of this were designed in agricultural settings ‘does fertilizer work?’, etc. In those settings you can more easily divide a field into ‘treated’ and ‘non-treated’, and the magnitude of the effect is large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about ‘having enough power’ and similar phrases, then it’s <em>not</em> necessarily that they’re <em>not</em> right, but it usually pays to take a step back and really think about what is being done and whether they really know what they’re doing.</p>
+</div>
+<div id="motivation-and-notation" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Motivation and notation</h3>
+<blockquote>
+<p>Never forget: if your sampling is in any way non-representative, your observe[d] data is not sufficient for population estimates. You <em>must</em> deal with design, sampling issues, data quality, and misclassification. Otherwise you’ll just be wrong.</p>
+<p>Dan Simpson, <a href="https://twitter.com/dan_p_simpson/status/1222924987667046400">30 January 2020</a>.</p>
+</blockquote>
+<p>When Monica and I moved to San Francisco, the Giants immediately won the baseball, and the Warriors began a historic streak. We moved to Chicago and the Cubs won the baseball for the first time in a hundred years. We then moved to Massachusetts, and the Patriots won the Super Bowl again and again and again. Finally, we moved to Toronto, and the Raptors won the basketball. Should a city pay us to live there or could their funds be better spent elsewhere?</p>
+<p>One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send us to live there for a year. If we had enough lifetimes, then we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. Experiments and randomised controlled trials are circumstances in which we try to randomly allocate some treatment, so as to have a belief that everything else was constant (or at least ignorable).</p>
+<p>In the words of <span class="citation">Hernan and Robins (<a href="#ref-hernanrobins2020" role="doc-biblioref">2020</a>, 3)</span> an action, <span class="math inline">\(A\)</span>, is also known ‘as an intervention, an exposure, or a treatment.’ I’ll typically use ‘treated/control’ language, reflecting whether an action was imposed or not. That treatment random variable will typically be binary, that is 0 or 1, ‘treated’ or ‘not treated/control/comparison’. We’ll then typically have some outcome random variable, <span class="math inline">\(Y\)</span>, which will typically be binary, able to be made binary, or continuous, although we’ll touch on other options. An example of a binary outcome could be vote choice - ‘Conservative’ vs ‘Not Conservative’ - noticing there that I grouped all the other parties into simply ‘Not Conservative’ to force the binary outcome.</p>
+<p>Further following <span class="citation">Hernan and Robins (<a href="#ref-hernanrobins2020" role="doc-biblioref">2020</a>, 4)</span>, but in the notation of <span class="citation">Gertler et al. (<a href="#ref-gertler2016impact" role="doc-biblioref">2016</a>, 48)</span> we describe a treatment as ‘causal’ when <span class="math inline">\((Y|a=0)\neq (Y|a=1)\)</span>. As discussed above, the fundamental problem of casual inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>To quote from <span class="citation">Gertler et al. (<a href="#ref-gertler2016impact" role="doc-biblioref">2016</a>, 48)</span>, in the context of evaluating income in response to an intervention program:</p>
+<blockquote>
+<p>To put it another way, we would like to measure income at the same point in time for the same unit of observation (a person, in this case), but in two different states of the world. If it were possible to do this, we would be observing how much income the same individual would have had at the same point in time both with and without the program, so that the only possible explanation for any difference in that person’s income would be the program. By comparing the same individual with herself at the same moment, we would have managed to eliminate any outside factors that might also have explained the difference in outcomes. We could then be confident that the relationship between the vocational training program and the change in income is causal… [A] unit either participated in the program or did not participate. The unit cannot be observed simultaneously in two different states (in other words, with and without the program).</p>
+</blockquote>
+<p>As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups - all those treated and all those not. We are looking to estimate the counterfactual. We usually consider a default that there’s no effect and we require evidence for us to change our mind. As we’re interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we’ll make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average across the population, it’s probably not the case.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+<p>It’s worth pointing out that we don’t just have to be interested in the average effect. We may consider the median, or variance, or whatever. Nonetheless, if we were interested in the average effect, then one way to proceed would be to divide the dataset into two - treated and not treated - have an effect column of 0s and 1s, sum the column and divide it by the length of the column, and then look at the ratio. This would be an estimator, which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. To give another example, following <span class="citation">Gelman, Hill, and Vehtari (<a href="#ref-gelmanhillvehtari2020" role="doc-biblioref">2020</a>)</span>:</p>
+<blockquote>
+<p>An estimand, or quantity of interest, is some summary of parameters or data that somebody is interested in estimating. For example, in the regression model, <span class="math inline">\(y = a + bx + \epsilon\)</span>, the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> might be of interest…. We use the data to construct estimates of parameters and other quantities of interest.</p>
+</blockquote>
+<p>More broadly, <span class="citation">Cunningham (<a href="#ref-Cunningham2021" role="doc-biblioref">2021</a>)</span> defines causal inference as ‘…the leveraging of theory and deep knowledge of institutional details to estimate the impact of events and choices on a given outcome of interest.’ In the previous chapter we discussed gathering data which we observed about the world. In this chapter we are going to be more active. <span class="citation">Cunningham (<a href="#ref-Cunningham2021" role="doc-biblioref">2021</a>)</span> says that experimental data ‘is collected in something akin to a laboratory environment. In a traditional experiment, the researcher participates actively in the process being recorded.’ That is, if we want to use this data then as researchers we have to go out and hunt it, if you like.</p>
+</div>
+<div id="randomised-sampling" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Randomised sampling</h3>
+<p>Correlation can be enough in some settings, but in order to be able to make forecasts when things change and the circumstances are slightly different we need to understand causation. The key is the counterfactual - what would have happened in the absence of the treatment. Ideally we could keep everything else constant, randomly divide the world into two groups, and then treat one and not the other. Then we can be pretty confident that any difference between the two groups is due to that treatment. The reason for this is that if we have some population and we randomly select two groups from it, then our two groups (so long as they are both big enough) should have the same characteristics as the population. Randomised controlled trials (RCTs) and A/B testing attempts to get us as close to this ‘gold standard’ as we can hope. RCTs are often described as the ‘gold standard’, for instance by <span class="citation">Athey and Imbens (<a href="#ref-athey2017state" role="doc-biblioref">2017</a>)</span>. In doing so, we’re not saying that RCTs are perfect, just that they’re generally better than most of the other options. There is plenty that is wrong with RCTs.</p>
+<p>Remember that our challenge is <span class="citation">(Gertler et al. <a href="#ref-gertler2016impact" role="doc-biblioref">2016</a>, 51–52)</span>:</p>
+<blockquote>
+<p>…to identify a treatment group and a comparison group that are statistically identical, on average, in the absence of the program. If the two groups are identical, with the sole exception that one group participates in the program and the other does not, then we can be sure that any difference in outcomes must be due to the program. Finding such comparison groups is the crux of any impact evaluation, regardless of what type of program is being evaluated. Simply put, without a comparison group that yields an accurate estimate of the counterfactual, the true impact of a program cannot be established.</p>
+</blockquote>
+<p>We might be worried about underlying trends (the issues with before/after comparison), or selection bias (the issue with self-selection), either of which would result in biased estimators. Our solution is randomisation.</p>
+<p>To get started, let’s generate a simulated dataset and then sample from it. In general, this is a good way to approach problems:</p>
+<ol style="list-style-type: decimal">
+<li>generate a simulated dataset;</li>
+<li>do your analysis on the simulated dataset; and</li>
+<li>take your analysis to the real dataset.</li>
+</ol>
+<p>The reason this is a good approach is that you know roughly what the outcomes should be in step 2, whereas if you go directly to the real dataset then you don’t know if unexpected outcomes are likely due to your own analysis errors, or actual results. The first time you generate a simulated dataset it will take a while, but after a bit of practice you’ll get good at it. There are also packages that can help, including <code>DeclareDesign</code> <span class="citation">(Blair et al. <a href="#ref-citedeclaredesign" role="doc-biblioref">2019</a>)</span> and <code>survey</code> <span class="citation">(Lumley <a href="#ref-citesurvey" role="doc-biblioref">2020</a>)</span>. Another good reason it’s useful to take this approach of simulation is that when you’re working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="hunt-data.html#cb397-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb397-2"><a href="hunt-data.html#cb397-2"></a></span>
+<span id="cb397-3"><a href="hunt-data.html#cb397-3"></a><span class="kw">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb397-4"><a href="hunt-data.html#cb397-4"></a><span class="co"># Construct a population so that 25 per cent of people like blue and 75 per cent </span></span>
+<span id="cb397-5"><a href="hunt-data.html#cb397-5"></a><span class="co"># like white.</span></span>
+<span id="cb397-6"><a href="hunt-data.html#cb397-6"></a>population &lt;-<span class="st"> </span></span>
+<span id="cb397-7"><a href="hunt-data.html#cb397-7"></a><span class="st">  </span><span class="kw">tibble</span>(<span class="dt">person =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>),</span>
+<span id="cb397-8"><a href="hunt-data.html#cb397-8"></a>         <span class="dt">favourite_color =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;White&quot;</span>), </span>
+<span id="cb397-9"><a href="hunt-data.html#cb397-9"></a>                                  <span class="dt">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb397-10"><a href="hunt-data.html#cb397-10"></a>                                  <span class="dt">replace =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb397-11"><a href="hunt-data.html#cb397-11"></a>                                  <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>)),</span>
+<span id="cb397-12"><a href="hunt-data.html#cb397-12"></a>         <span class="dt">supports_the_leafs =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
+<span id="cb397-13"><a href="hunt-data.html#cb397-13"></a>                                  <span class="dt">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb397-14"><a href="hunt-data.html#cb397-14"></a>                                  <span class="dt">replace =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb397-15"><a href="hunt-data.html#cb397-15"></a>                                  <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.80</span>, <span class="fl">0.20</span>)),</span>
+<span id="cb397-16"><a href="hunt-data.html#cb397-16"></a>         ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb397-17"><a href="hunt-data.html#cb397-17"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">in_frame =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>),</span>
+<span id="cb397-18"><a href="hunt-data.html#cb397-18"></a>                        <span class="dt">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb397-19"><a href="hunt-data.html#cb397-19"></a>                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb397-20"><a href="hunt-data.html#cb397-20"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">group =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</span>
+<span id="cb397-21"><a href="hunt-data.html#cb397-21"></a>                        <span class="dt">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb397-22"><a href="hunt-data.html#cb397-22"></a>                        <span class="dt">replace =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb397-23"><a href="hunt-data.html#cb397-23"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">group =</span> <span class="kw">ifelse</span>(in_frame <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, group, <span class="ot">NA</span>))</span></code></pre></div>
+<p>We’ll get more into this terminology later, but the sampling frame is subset of the population that can actually be sampled, for instance they are listed somewhere. For instance, <a href="https://jazzystats.com/">Lauren Kennedy</a> likes to use the analogy of a city’s population, and the phonebook - almost everyone is in there (or at least they used to be), so the population and the sampling frame are almost the same, but they are not.</p>
+<p>Now look at the mean for two groups drawn out of the sampling frame.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="hunt-data.html#cb398-1"></a>population <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb398-2"><a href="hunt-data.html#cb398-2"></a><span class="st">  </span><span class="kw">filter</span>(in_frame <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb398-3"><a href="hunt-data.html#cb398-3"></a><span class="st">  </span><span class="kw">filter</span>(group <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb398-4"><a href="hunt-data.html#cb398-4"></a><span class="st">  </span><span class="kw">group_by</span>(group, favourite_color) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb398-5"><a href="hunt-data.html#cb398-5"></a><span class="st">  </span><span class="kw">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   group, favourite_color [4]
+##   group favourite_color     n
+##   &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+## 1     1 Blue              114
+## 2     1 White             420
+## 3     2 Blue              105
+## 4     2 White             369</code></pre>
+<p>We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we can use a t-test.</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="hunt-data.html#cb400-1"></a><span class="kw">library</span>(broom)</span>
+<span id="cb400-2"><a href="hunt-data.html#cb400-2"></a></span>
+<span id="cb400-3"><a href="hunt-data.html#cb400-3"></a>population &lt;-<span class="st"> </span></span>
+<span id="cb400-4"><a href="hunt-data.html#cb400-4"></a><span class="st">  </span>population <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-5"><a href="hunt-data.html#cb400-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">color_as_integer =</span> <span class="kw">case_when</span>(</span>
+<span id="cb400-6"><a href="hunt-data.html#cb400-6"></a>    favourite_color <span class="op">==</span><span class="st"> &quot;White&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>,</span>
+<span id="cb400-7"><a href="hunt-data.html#cb400-7"></a>    favourite_color <span class="op">==</span><span class="st"> &quot;Blue&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb400-8"><a href="hunt-data.html#cb400-8"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">999</span></span>
+<span id="cb400-9"><a href="hunt-data.html#cb400-9"></a>  ))</span>
+<span id="cb400-10"><a href="hunt-data.html#cb400-10"></a></span>
+<span id="cb400-11"><a href="hunt-data.html#cb400-11"></a>group_<span class="dv">1</span> &lt;-<span class="st"> </span></span>
+<span id="cb400-12"><a href="hunt-data.html#cb400-12"></a><span class="st">  </span>population <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-13"><a href="hunt-data.html#cb400-13"></a><span class="st">  </span><span class="kw">filter</span>(group <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-14"><a href="hunt-data.html#cb400-14"></a><span class="st">  </span><span class="kw">select</span>(color_as_integer) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-15"><a href="hunt-data.html#cb400-15"></a><span class="st">  </span><span class="kw">as.vector</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-16"><a href="hunt-data.html#cb400-16"></a><span class="st">  </span><span class="kw">unlist</span>()</span>
+<span id="cb400-17"><a href="hunt-data.html#cb400-17"></a></span>
+<span id="cb400-18"><a href="hunt-data.html#cb400-18"></a>group_<span class="dv">2</span> &lt;-<span class="st"> </span></span>
+<span id="cb400-19"><a href="hunt-data.html#cb400-19"></a><span class="st">  </span>population <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-20"><a href="hunt-data.html#cb400-20"></a><span class="st">  </span><span class="kw">filter</span>(group <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-21"><a href="hunt-data.html#cb400-21"></a><span class="st">  </span><span class="kw">select</span>(color_as_integer) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb400-22"><a href="hunt-data.html#cb400-22"></a><span class="st">  </span><span class="kw">unlist</span>()</span>
+<span id="cb400-23"><a href="hunt-data.html#cb400-23"></a></span>
+<span id="cb400-24"><a href="hunt-data.html#cb400-24"></a><span class="kw">t.test</span>(group_<span class="dv">1</span>, group_<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  group_1 and group_2
+## t = -0.30825, df = 988.57, p-value = 0.758
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.05919338  0.04312170
+## sample estimates:
+## mean of x mean of y 
+## 0.2134831 0.2215190</code></pre>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="hunt-data.html#cb402-1"></a><span class="co"># We could also use the tidy function in the broom package.</span></span>
+<span id="cb402-2"><a href="hunt-data.html#cb402-2"></a><span class="kw">tidy</span>(<span class="kw">t.test</span>(group_<span class="dv">1</span>, group_<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431
+## # … with 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+<p>If properly done then not only will we get a ‘representative’ share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven’t randomised on these variables? Let’s start by looking at our dataset.</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="hunt-data.html#cb404-1"></a>population <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb404-2"><a href="hunt-data.html#cb404-2"></a><span class="st">  </span><span class="kw">filter</span>(in_frame <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb404-3"><a href="hunt-data.html#cb404-3"></a><span class="st">  </span><span class="kw">filter</span>(group <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb404-4"><a href="hunt-data.html#cb404-4"></a><span class="st">  </span><span class="kw">group_by</span>(group, supports_the_leafs) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb404-5"><a href="hunt-data.html#cb404-5"></a><span class="st">  </span><span class="kw">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   group, supports_the_leafs [4]
+##   group supports_the_leafs     n
+##   &lt;int&gt; &lt;chr&gt;              &lt;int&gt;
+## 1     1 No                   102
+## 2     1 Yes                  432
+## 3     2 No                    81
+## 4     2 Yes                  393</code></pre>
+<p>This is very exciting. We have a representative share on ‘unobservables’ (in this case we do ‘observe’ them - to illustrate the point - but we didn’t select on them). We get this because they were correlated. But it will breakdown in a number of ways that we will discuss. It also assumes large enough groups - if we sampled in Toronto are we likely to get a ‘representative’ share of people who support the Canadiens? What about <a href="https://www.fc-hansa.de/">F.C. Hansa Rostock</a>? If we want to check that the two groups are the same then what can we do? Exactly what we did above - just check if we can identify a difference between the two groups based on observables (we looked at the mean, but we could look at other aspects as well).</p>
+</div>
+<div id="anova" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> ANOVA</h3>
+<p>Analysis of Variation (ANOVA) was introduced by Fisher while he was working on statistical problems in agriculture. To steal <a href="https://darrendahly.github.io">Darren L Dahly’s</a> ‘favorite joke of all time’ <span class="citation">(Dahly <a href="#ref-citeDahly" role="doc-biblioref">2020</a>)</span>:</p>
+<blockquote>
+<p>Q: “What’s the difference between agricultural and medical research?”</p>
+<p>A: “The former isn’t conducted by farmers.”</p>
+</blockquote>
+<p>We need to cover ANOVA because of its importance historically, but in general you probably shouldn’t actually use ANOVA day-to-day. There’s nothing wrong with it, in the right circumstances, it’s more just that it is a hundred years old and the number of modern use-case where it’s still your best-bet is pretty small. In any case, typically, the null is that all of the groups are from the same distribution.</p>
+<p>We can run ANOVA with the function built into R - <code>aov()</code>.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="hunt-data.html#cb406-1"></a>just_two_groups &lt;-<span class="st"> </span>population <span class="op">%&gt;%</span></span>
+<span id="cb406-2"><a href="hunt-data.html#cb406-2"></a><span class="st">  </span><span class="kw">filter</span>(in_frame <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb406-3"><a href="hunt-data.html#cb406-3"></a><span class="st">  </span><span class="kw">filter</span>(group <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb406-4"><a href="hunt-data.html#cb406-4"></a></span>
+<span id="cb406-5"><a href="hunt-data.html#cb406-5"></a><span class="kw">aov</span>(group <span class="op">~</span><span class="st"> </span>favourite_color, </span>
+<span id="cb406-6"><a href="hunt-data.html#cb406-6"></a>    <span class="dt">data =</span> just_two_groups) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-7"><a href="hunt-data.html#cb406-7"></a><span class="st">  </span><span class="kw">tidy</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 6
+##   term               df    sumsq meansq statistic p.value
+##   &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 favourite_color     1   0.0238 0.0238    0.0952   0.758
+## 2 Residuals        1006 251.     0.250    NA       NA</code></pre>
+<p>In this case, we fail to reject the null that the samples are the same. This all said, it’s just linear regression. So I’m not sure why it got a fancy name.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="hunt-data.html#cb408-1"></a><span class="kw">lm</span>(group <span class="op">~</span><span class="st"> </span>favourite_color, </span>
+<span id="cb408-2"><a href="hunt-data.html#cb408-2"></a>    <span class="dt">data =</span> just_two_groups) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb408-3"><a href="hunt-data.html#cb408-3"></a><span class="st">  </span><span class="kw">tidy</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term                 estimate std.error statistic   p.value
+##   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)            1.48      0.0338    43.8   1.67e-235
+## 2 favourite_colorWhite  -0.0118    0.0382    -0.308 7.58e-  1</code></pre>
+<p>My favourite discussion of ANOVA is <span class="citation">Taback (<a href="#ref-taback2020" role="doc-biblioref">2020</a> Chapter 8)</span>.</p>
+</div>
+<div id="treatment-and-control" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> Treatment and control</h3>
+<p>If the treated and control groups are the same in all ways and remain that way, then we have internal validity, which is to say that our control will work as a counterfactual and our results can speak to a difference between these groups in that study.</p>
+<p>In the words of <span class="citation">Gertler et al. (<a href="#ref-gertler2016impact" role="doc-biblioref">2016</a>, 71)</span>:</p>
+<blockquote>
+<p>Internal validity means that the estimated impact of the program is net of all other potential confounding factors—or, in other words, that the comparison group provides an accurate estimate of the counterfactual, so that we are estimating the true impact of the program.</p>
+</blockquote>
+<p>If the group to which we applied our randomisation were representative of the broader population, and the experimental set-up were fairly similar to outside conditions, then we further have external validity. That means that the difference that we find does not just apply in our own experiment, but also in the broader population.</p>
+<p>Again, in the words of <span class="citation">Gertler et al. (<a href="#ref-gertler2016impact" role="doc-biblioref">2016</a>, 73)</span>:</p>
+<blockquote>
+<p>External validity means that the evaluation sample accurately represents the population of eligible units. The results of the evaluation can then be generalized to the population of eligible units. We use random sampling to ensure that the evaluation sample accurately reflects the population of eligible units so that impacts identified in the evaluation sample can be extrapolated to the population.</p>
+</blockquote>
+<p>But this means we need randomisation twice. How does this trade-off happen and to what extent does it matter?</p>
+<p>As such, we are interested in the effect of being ‘treated’. This may be that we charge different prices (continuous treatment variable), or that we compare different colours on a website (discrete treatment variable, and a staple of A/B testing). If we consider just discrete treatments (so that we can use dummy variables) then need to make sure that all of the groups are otherwise the same. How can we do this? One way is to ignore the treatment variable and to examine all other variables - can you detect a difference between the groups based on any other variables? In the website example, are there a similar number of:</p>
+<ul>
+<li>PC/Mac users?</li>
+<li>Safari/Chrome/Firefox/other users?</li>
+<li>Mobile/desktop users?</li>
+<li>Users from certain locations?</li>
+</ul>
+<p>These are all threats to the validity of our claims.</p>
+<p>But if done properly, that is if the treatment is truly independent, then we can estimate an ‘average treatment effect’, which in a binary treatment variable setting is:
+<span class="math display">\[\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].\]</span></p>
+<p>That is, the difference between the treated group, <span class="math inline">\(d = 1\)</span>, and the control group, <span class="math inline">\(d = 1\)</span>, when measured by the expected value of some outcome variable, <span class="math inline">\(y\)</span>. So the mean causal effect is simply the difference between the two expectations!</p>
+<p>Let’s again get stuck into some code. First we need to generate some data.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="hunt-data.html#cb410-1"></a><span class="kw">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb410-2"><a href="hunt-data.html#cb410-2"></a>example_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">person =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>),</span>
+<span id="cb410-3"><a href="hunt-data.html#cb410-3"></a>                       <span class="dt">treatment =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">size  =</span> <span class="dv">1000</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb410-4"><a href="hunt-data.html#cb410-4"></a>                       )</span>
+<span id="cb410-5"><a href="hunt-data.html#cb410-5"></a><span class="co"># We want to make the outcome slightly more likely if they were treated than if not.</span></span>
+<span id="cb410-6"><a href="hunt-data.html#cb410-6"></a>example_data &lt;-<span class="st"> </span></span>
+<span id="cb410-7"><a href="hunt-data.html#cb410-7"></a><span class="st">  </span>example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb410-8"><a href="hunt-data.html#cb410-8"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb410-9"><a href="hunt-data.html#cb410-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">outcome =</span> <span class="kw">if_else</span>(treatment <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, </span>
+<span id="cb410-10"><a href="hunt-data.html#cb410-10"></a>                           <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb410-11"><a href="hunt-data.html#cb410-11"></a>                           <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb410-12"><a href="hunt-data.html#cb410-12"></a>                           )</span>
+<span id="cb410-13"><a href="hunt-data.html#cb410-13"></a>         )</span>
+<span id="cb410-14"><a href="hunt-data.html#cb410-14"></a></span>
+<span id="cb410-15"><a href="hunt-data.html#cb410-15"></a>example_data<span class="op">$</span>treatment &lt;-<span class="st"> </span><span class="kw">as.factor</span>(example_data<span class="op">$</span>treatment)</span>
+<span id="cb410-16"><a href="hunt-data.html#cb410-16"></a></span>
+<span id="cb410-17"><a href="hunt-data.html#cb410-17"></a>example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb410-18"><a href="hunt-data.html#cb410-18"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> outcome, </span>
+<span id="cb410-19"><a href="hunt-data.html#cb410-19"></a>             <span class="dt">fill =</span> treatment)) <span class="op">+</span></span>
+<span id="cb410-20"><a href="hunt-data.html#cb410-20"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>,</span>
+<span id="cb410-21"><a href="hunt-data.html#cb410-21"></a>                 <span class="dt">binwidth =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb410-22"><a href="hunt-data.html#cb410-22"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb410-23"><a href="hunt-data.html#cb410-23"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Outcome&quot;</span>,</span>
+<span id="cb410-24"><a href="hunt-data.html#cb410-24"></a>       <span class="dt">y =</span> <span class="st">&quot;Number of people&quot;</span>,</span>
+<span id="cb410-25"><a href="hunt-data.html#cb410-25"></a>       <span class="dt">fill =</span> <span class="st">&quot;Person was treated&quot;</span>) <span class="op">+</span></span>
+<span id="cb410-26"><a href="hunt-data.html#cb410-26"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-237-1.png" width="672" /></p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="hunt-data.html#cb411-1"></a>example_regression &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> example_data)</span>
+<span id="cb411-2"><a href="hunt-data.html#cb411-2"></a></span>
+<span id="cb411-3"><a href="hunt-data.html#cb411-3"></a><span class="kw">tidy</span>(example_regression)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)     5.00    0.0430     116.  0.      
+## 2 treatment1      1.01    0.0625      16.1 5.14e-52</code></pre>
+<p>But then reality happens. Your experiment cannot run for too long otherwise people may be treated many times, or become inured to the treatment, but it cannot be too short otherwise you can’t measure longer term outcomes. You cannot have a ‘representative’ sample on every cross-tab, but if not then the treatment and control will be different. Practical difficulties may make it difficult to follow up with certain groups.</p>
+<p>Questions to ask (if they haven’t been answered already) include:</p>
+<ul>
+<li>How are the participants being selected into the frame for consideration?</li>
+<li>How are they being selected for treatment? We would hope this is a lottery, but this term is applied to a variety of situations. Additionally, early ‘success’ can lead to pressure to treat everyone.</li>
+<li>How is treatment being assessed?</li>
+<li>To what extent is random allocation ethical and fair? Some argue that shortages mean it is reasonable to randomly allocate, but that may depend on how linear the benefits are. It may also be difficult to establish boundaries. If we only want to include people in Ontario then that may be clear, but what about ‘students’ in Ontario - who is a student, and who is making the decision?</li>
+</ul>
+<p>Bias and other issues are not the end of the world. But you need to think about it carefully. In the famous example, Abraham Wald was given data on the planes that came back to Britain after being shot at in WW2. The question is where to place the armour. One option is to place it over the bullet holes. Wald recognised that there is a selection effect here - these are the planes that made it back - they didn’t need the armour, but instead we should put the armour where there were no bullet holes.</p>
+<p>To consider an example that may be closer to home - how would the results of a survey differ if I only asked students who completed this course what was difficult about it and not those who dropped out? While, as Dan suggests, we should work to try to make the dataset as good as possible, it may be possible to use the model to control for some of the bias. If there is a variable that is correlated with say, attrition, then we can add it to the model. Either by itself, or as an interaction.</p>
+<!-- **Add code** -->
+<p>What if there is a correlation between the individuals? For instance, what if there were some ‘hidden variable’ that we didn’t know about, such as province, and it turned out that people from the same province were similar? In that case we could use ‘wider’ standard errors.</p>
+<!-- **Add code** -->
+<p>But a better way to deal with this may be to change the experiment. For instance, we discussed stratified sampling - perhaps we should stratify by province? How would we implement this? And of course, these days we’d not really use a 100-year-old method but would instead use Bayes-based approaches.</p>
+<!-- **TBD: Add code** -->
+</div>
+</div>
+<div id="case-study---fishers-tea-party" class="section level2">
+<h2><span class="header-section-number">8.2</span> Case study - Fisher’s tea party</h2>
+<div class="figure"><span id="fig:ladiesdrinkingtea"></span>
+<img src="figures/drinking_tea.jpg" alt="Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party." width="90%" />
+<p class="caption">
+Figure 8.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from <a href="https://artvee.com/dl/afternoon-tea-party" class="uri">https://artvee.com/dl/afternoon-tea-party</a>.
+</p>
+</div>
+<p>Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+<p>From <span class="citation">Fisher (<a href="#ref-fisherdesignofexperiments" role="doc-biblioref">1935</a>, 13)</span>:</p>
+<blockquote>
+<p>A lady declares that by tasting a cup of tea made with milk she can discriminate whether the milk or the tea infusion was first added to the cup. We will consider the problem of designing an experiment by means of which this assertion can be tested.</p>
+</blockquote>
+<p>Fisher continues:</p>
+<blockquote>
+<p>Our experiment consists in mixing eight cups of tea, four in one way and four in the other, and presenting them to the subject for judgment in a random order. The subject has been told in advance of what the test will consist, namely that she will be asked to taste eight cups, that these shall be four of each kind, and that they shall be presented to her in a random order, that is in an order not determined arbitrarily by human choice, but by the actual manipulation of the physical apparatus used in games of chance, cards, dice, roulettes, etc., or, more expeditiously, from a published collection of random sampling-numbers purporting to give the actual results of such manipulation. Her task is to divide the 8 cups into two sets of 4, agreeing, if possible, with the treatments received.</p>
+</blockquote>
+<p>To summarize, the set-up is:</p>
+<ul>
+<li>Eight randomly ordered cups of tea.</li>
+<li>Four had tea put in first.</li>
+<li>Four had milk put in first.</li>
+<li>The person has to choose the four that are the same.</li>
+<li>The person knows it’s an experiment.</li>
+</ul>
+<p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="hunt-data.html#cb413-1"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>), <span class="dt">size =</span> <span class="dv">8</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 3 7 6 4 1 8 2 5</code></pre>
+<p>Then have your friend guess which four you put milk in first and which four you put milk in last!</p>
+<p>To decide if the person’s choices were likely to have occurred at random or not, we need to think about the probability of this happening by chance. First count the number of successes out of the four that were chosen. <span class="citation">Fisher (<a href="#ref-fisherdesignofexperiments" role="doc-biblioref">1935</a>, 14)</span> claims there are: <span class="math inline">\({8 \choose 4} = \frac{8!}{4!(8-4)!}=70\)</span> possible outcomes.</p>
+<p>By chance, there are two ways for the person to be perfectly correct (because we are only asking them to be grouped): correctly identify all the ones that were milk-first (one outcome out of 70) or correctly identify all the ones that were tea-first (one outcome out of 70), so the chance of that is <span class="math inline">\(2/70 \approx 0.028\)</span>. Now, as <span class="citation">Fisher (<a href="#ref-fisherdesignofexperiments" role="doc-biblioref">1935</a>, 15)</span> says,</p>
+<blockquote>
+<p>‘[i]t is open to the experimenter to be more or less exacting in respect of the smallness of the probability he would require before he would be willing to admit that his observations have demonstrated a positive result’.</p>
+</blockquote>
+<p>You need to decide what evidence it takes for you to be convinced. If there’s no possible evidence that will dissuade you from your view (that there is no difference between milk-first and tea-first) then what is the point of doing an experiment? In any case, if the null is that they can’t distinguish, but they correctly separate them all, then at the five-per-cent level, we reject the null.</p>
+<p>What if they miss one? Similarly, by chance there are 16 ways for a person to be ‘off-by-one’. Either they think there was one that was milk-first when it was tea-first - there are, <span class="math inline">\({4 \choose 1}\)</span>, four ways this could happen - or they think there was one that was tea-first when it was milk-first - again, there are, <span class="math inline">\({4 \choose 1}\)</span>, four ways this could happen. But these outcomes are independent, so the probability is <span class="math inline">\(\frac{4\times 4}{70} \approx 0.228\)</span>. And so on. So, we fail to reject the null.</p>
+<p>Finally, an aside on this magical ‘5 per cent’. Fisher himself describes this as merely ‘usual and convenient’ <span class="citation">(Fisher <a href="#ref-fisherdesignofexperiments" role="doc-biblioref">1935</a>, 15)</span>. <span class="citation">Fisher (<a href="#ref-fisherdesignofexperiments" role="doc-biblioref">1935</a>, 16)</span> continues:</p>
+<blockquote>
+<p>In order to assert that a natural phenomenon is experimentally demonstrable we need, not an isolated record, but a reliable method of procedure. In relation to the test of significance, we may say that a phenomenon is experimentally demonstrable when we know how to conduct an experiment which will rarely fail to give us a statistically significant result.</p>
+</blockquote>
+<p>At the start of these notes, I said that Fisher held views that we would consider reprehensible today. My guess is, were he around today, he would think our use of p-values as discrediting. Do not just go searching for meaning in constellations of stars. Thoroughly interrogate your data and think precisely about the statistical methods you are applying. For conclusions that you want to hold up in the long-run, aim to use as simple, and as understandable, statistical methods as you can. Ensure that you can explain and justify your statistical decisions without recourse to astrology.</p>
+<p><img src="https://imgs.xkcd.com/comics/significant.png" width="60%" />
+Source: <a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a></p>
+<div class="figure"><span id="fig:unnamed-chunk-240"></span>
+<img src="figures/wisdom_over_fortune.jpg" alt="'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune." width="90%" />
+<p class="caption">
+Figure 8.2: ‘The triumph of wisdom over fortune’ by Otto van Veen (Flemish, 1556 - 1629), as downloaded from <a href="https://artvee.com/dl/the-triumph-of-wisdom-over-fortune" class="uri">https://artvee.com/dl/the-triumph-of-wisdom-over-fortune</a>.
+</p>
+</div>
+</div>
+<div id="case-study---tuskegee-syphilis-study" class="section level2">
+<h2><span class="header-section-number">8.3</span> Case study - Tuskegee Syphilis Study</h2>
+<p>The Tuskegee Syphilis Study is an infamous medical trial in which Black Americans with syphilis (and a ‘control group’ without) were not given appropriate treatment, nor even told they had syphilis, well after standard syphilis treatments were established in the mid-1940s <span class="citation">(Alsan and Wanamaker <a href="#ref-marcella" role="doc-biblioref">2018</a>)</span>. The study began in 1932 when poor Black Americans in the South were identified and offered compensation including ‘hot meals, the guise of treatment, and burial payments’ <span class="citation">(Alsan and Wanamaker <a href="#ref-marcella" role="doc-biblioref">2018</a>)</span>. The men were not treated for syphilis. Further, and this is almost unbelievable, some of the men were drafted, told they had syphilis, and ordered to get treatment. This treatment was blocked. By the time the study was stopped, ‘the majority of the study’s victims were deceased, many from syphilis-related causes.’ <span class="citation">(Alsan and Wanamaker <a href="#ref-marcella" role="doc-biblioref">2018</a>)</span>.</p>
+<p>The study continued through to 1972, only stopping when it was leaked and published in newspapers. In response the US established requirements for Institutional Review Boards and President Clinton made a formal apology in 1997. <span class="citation">Brandt (<a href="#ref-brandt1978racism" role="doc-biblioref">1978</a>)</span> as quoted by <span class="citation">Alsan and Wanamaker (<a href="#ref-marcella" role="doc-biblioref">2018</a>)</span> says ‘“In retrospect the Tuskegee Study revealed more about the pathology of racism than the pathology of syphilis; more about the nature of scientific inquiry than the nature of the disease process…. The degree of deception and the damages have been severely underestimated.”’</p>
+<p>On the Tuskegee Syphilis Study <a href="https://www.monicaalexander.com">Professor Monica Alexander</a> says:</p>
+<blockquote>
+<p>While it may be illegal to do this exact research these days, it doesn’t mean that unethical research doesn’t still happen, and we see it all the time in ML and health. Just because you can’t explicitly discriminate when you design experiments, doesn’t mean you can’t implicitly discriminate.</p>
+</blockquote>
+<p>For an example of this, start with <span class="citation">Obermeyer et al. (<a href="#ref-obermeyer2019dissecting" role="doc-biblioref">2019</a>)</span>:</p>
+<blockquote>
+<p>Health systems rely on commercial prediction algorithms to identify and help patients with complex health needs. We show that a widely used algorithm, typical of this industry-wide approach and affecting millions of patients, exhibits significant racial bias: At a given risk score, Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses. Remedying this disparity would increase the percentage of Black patients receiving additional help from 17.7 to 46.5%. The bias arises because the algorithm predicts health care costs rather than illness, but unequal access to care means that we spend less money caring for Black patients than for White patients. Thus, despite health care cost appearing to be an effective proxy for health by some measures of predictive accuracy, large racial biases arise. We suggest that the choice of convenient, seemingly effective proxies for ground truth can be an important source of algorithmic bias in many contexts.</p>
+</blockquote>
+</div>
+<div id="case-study---the-oregon-health-insurance-experiment" class="section level2">
+<h2><span class="header-section-number">8.4</span> Case study - The Oregon Health Insurance Experiment</h2>
+<p>The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that <span class="citation">(Finkelstein et al. <a href="#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span>:</p>
+<blockquote>
+<p>In the year after random assignment, the treatment group selected by the lottery was about 25 percentage points more likely to have insurance than the control group that was not selected. We find that in this first year, the treatment group had substantively and statistically significantly higher health care utilization (including primary and preventive care as well as hospitalizations), lower out-of-pocket medical expenditures and medical debt (including fewer bills sent to collection), and better self-reported physical and mental health than the control group.</p>
+</blockquote>
+<p>A lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid. This random allocation of insurance allowed the researchers to understand the effect of health insurance. It’s not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who don’t - that decision is ‘confounded’ with other variables. They use administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is actually fairly restrained and so they included a survey conducted via mail.</p>
+<p>Turning to external validity, the authors restrain themselves and say <span class="citation">(Finkelstein et al. <a href="#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span>:</p>
+<blockquote>
+<p>Our estimates of the impact of public health insurance apply to able-bodied uninsured adults below 100 percent of poverty who express interest in insurance coverage. This is a population of considerable policy interest.</p>
+</blockquote>
+<p>A lottery was used to allocate 10,000 places in the state-run Medicaid. A lottery was judged fair because ‘the state (correctly) anticipated that the demand for the program among eligible individuals would far exceed the 10,000 available new enrollment slots’ <span class="citation">(Finkelstein et al. <a href="#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span>. People had a month to sign up to enter the draw. The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely.</p>
+<p>The model they consider is <span class="citation">(Finkelstein et al. <a href="#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span>:</p>
+<p><span class="math display" id="eq:oregon">\[\begin{equation}
+y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} \tag{8.1}
+\end{equation}\]</span></p>
+<p>Equation <a href="hunt-data.html#eq:oregon">(8.1)</a> explains various <span class="math inline">\(j\)</span> outcomes (such as health) for an individual <span class="math inline">\(i\)</span> in household <span class="math inline">\(h\)</span> as a function of an indicator variable as to whether household <span class="math inline">\(h\)</span> was selected by the lottery. Hence, ‘(t)he coefficient on Lottery, <span class="math inline">\(\beta_1\)</span>, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).’</p>
+<p>To complete the specification of Equation <a href="hunt-data.html#eq:oregon">(8.1)</a>, <span class="math inline">\(X_{ih}\)</span> is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, <span class="math inline">\(V_{ih}\)</span> is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.</p>
+<p>There is a wide range of literature related to this intervention. More papers are available <a href="https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states">here</a>.</p>
+</div>
+<div id="ab-testing" class="section level2">
+<h2><span class="header-section-number">8.5</span> A/B testing</h2>
+<div id="introduction-14" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> Introduction</h3>
+<p>The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While they have several interesting features, which we will discuss, at their heart they are still just surveys that result in data that need to be analysed. In this section of the notes we augment our main textbooks with a less formal book focused on A/B testing that is very popular in industry at the moment.</p>
+<p>I can’t do much better than to quote their opening example <span class="citation">Kohavi, Tang, and Xu (<a href="#ref-kohavi" role="doc-biblioref">2020</a>, 3)</span>.</p>
+<blockquote>
+<p>In 2012, an employee working on Bing, Microsoft’s search engine, suggested changing how ad headlines display (Kohavi and Thomke 2017). The idea was to lengthen the title line of ads by combining it with the text from the first line below the title, as shown in Figure 1.1.</p>
+<p>Nobody thought this simple change, among the hundreds suggested, would be the best revenue-generating idea in Bing’s history!</p>
+<p>The feature was prioritized low and languished in the backlog for more than six months until a software developer decided to try the change, given how easy it was to code. He implemented the idea and began evaluating the idea on real users, randomly showing some of them the new title layout and others the old one. User interactions with the website were recorded, including ad clicks and the revenue generated from them. This is an example of an A/B test, the simplest type of controlled experiment that compares two variants: A and B, or a Control and a Treatment.</p>
+<p>A few hours after starting the test, a revenue-too-high alert triggered, indicating that something was wrong with the experiment. The Treatment, that is, the new title layout, was generating too much money from ads. Such “too good to be true” alerts are very useful, as they usually indicate a serious bug, such as cases where revenue was logged twice (double billing) or where only ads displayed, and the rest of the web page was broken.</p>
+<p>For this experiment, however, the revenue increase was valid. Bing’s revenue increased by a whopping 12%, which at the time translated to over $100M annually in the US alone, without significantly hurting key user-experience metrics. The experiment was replicated multiple times over a long period.</p>
+<p>The example typifies several key themes in online controlled experiments:</p>
+<ul>
+<li>It is hard to assess the value of an idea. In this case, a simple change worth over $100M/year was delayed for months.</li>
+<li>Small changes can have a big impact. A $100M/year return-on-investment (ROI) on a few days’ work for one engineer is about as extreme as it gets.</li>
+<li>Experiments with big impact are rare. Bing runs over 10,000 experiments a year, but simple features resulting in such a big improvement happen only once every few years.</li>
+<li>The overhead of running an experiment must be small. Bing’s engineers had access to ExP, Microsoft’s experimentation system, which made it easy to scientifically evaluate the idea.</li>
+<li>The overall evaluation criterion (OEC, described more later in this chapter) must be clear. In this case, revenue was a key component of the OEC, but revenue alone is insufficient as an OEC. It could lead to plastering the web site with ads, which is known to hurt the user experience. Bing uses an OEC that weighs revenue against user-experience metrics, including Sessions per user (are users abandoning or increasing engagement) and several other components. The key point is that user-experience metrics did not significantly degrade even though revenue increased dramatically.</li>
+</ul>
+</blockquote>
+<p>In these notes, I’m going to use A/B testing to strictly refer to the situation in which we’re dealing with a tech firm, and some type of change in code. If we are dealing with the physical world then we’ll stick with RCTs. You may think that it’s easy to go to a workplace and say ‘hey, let’s test stuff before we spend thousands/millions of dollars’. You’d be wrong. The hardest part of A/B testing isn’t the science, it’s the politics.</p>
+</div>
+<div id="unique-complications-of-ab-testing" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> Unique complications of A/B testing</h3>
+<div id="delivery" class="section level4">
+<h4><span class="header-section-number">8.5.2.1</span> Delivery</h4>
+<p><strong>This is from Chapter 12 of <span class="citation">Kohavi, Tang, and Xu (<a href="#ref-kohavi" role="doc-biblioref">2020</a>)</span>.</strong></p>
+<p>In the case of a RCT it’s fairly obvious how we deliver the treatment - for instance, make them come to a doctor’s clinic and inject them with the drug or a placebo. In the case of A/B testing, it’s less obvious - do you run it ‘server-side’ or ‘client-side’? E.g. do you just change the website - ‘server side’, or do you change an app - ‘client side’.</p>
+<p>This may seem like a silly issue, but it affects two aspects:</p>
+<ol style="list-style-type: decimal">
+<li>Release.</li>
+<li>Data transmission.</li>
+</ol>
+<p>In the case of the effect on release, it’s easy and normal to update a website all the time, so small changes can be easily implemented in the case of server-side. However, in the case of client-side, let’s say an app, it’s likely a much bigger deal.</p>
+<ol style="list-style-type: decimal">
+<li>It needs to get through an app store (a bigger or lesser deal depending on which one).</li>
+<li>It need to go through a release cycle (a bigger or lesser deal depending on the specifics of the company and how it ships).</li>
+<li>Users have the opportunity to not upgrade. Are they likely different to those that do upgrade? (Yes.)</li>
+</ol>
+<p>Now, in the case of the effect on data transmission, again server-side is less of a big deal - you kind of get the data as part of the user interacting. But in the case of client-side - it’s not necessarily the case that the user will have the internet at the time they’re using your application, and if they do they may have limitations on the data uploads. The phone may limit data transmission depending on its effect on battery, CPU, general performance, etc. So then you decide to cache, but then the user may find it weird that some minor app takes up as much size as their photos.</p>
+<p>The effect of all this is that you need to plan, and build this into your expectations - don’t promise results the day after a release if you’re evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.</p>
+</div>
+<div id="instrumentation" class="section level4">
+<h4><span class="header-section-number">8.5.2.2</span> Instrumentation</h4>
+<p><strong>This is from Chapter 13 of <span class="citation">Kohavi, Tang, and Xu (<a href="#ref-kohavi" role="doc-biblioref">2020</a>)</span>.</strong></p>
+<p>I would change the name of this from instrumentation, but I don’t have a good replacement. The point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to ‘download’ some tiny thing they don’t notice so that you know they’ve gone somewhere - see ‘email’ etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?</p>
+<p>There are likely different servers and databases for different faces of the product. For instance, Twitter in Australia, compared with Twitter in Canada, compared with Twitter on my phone’s app, compared with Twitter accessed via the browser. Joining these different datasets can be difficult and requires either a unique id or some probabilistic approach.</p>
+<p><span class="citation">Kohavi, Tang, and Xu (<a href="#ref-kohavi" role="doc-biblioref">2020</a>, 165)</span> recommend changing the culture of your workplace to ensure instrumentation is normalised, which I mean, yeah.</p>
+</div>
+<div id="randomisation-unit" class="section level4">
+<h4><span class="header-section-number">8.5.2.3</span> Randomisation unit</h4>
+<p><strong>This is from Chapter 13 of <span class="citation">Kohavi, Tang, and Xu (<a href="#ref-kohavi" role="doc-biblioref">2020</a>)</span>.</strong></p>
+<p>What are we actually randomising over? Okay, again, this is something that’s kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let’s consider the malaria netting experiments - either a person/village/state gets a net or it doesn’t. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user?</p>
+<p>To think about this, let’s think about colour. Let’s say that we change our logo from red to blue on the ‘home’ page. If we’re randomising at the page level, then when the user goes to the ‘about’ page the logo could be back to red. If we’re randomising at the session level, then it’ll be blue while they’re using the website that time, but if they close it and come back then it’ll be red. Finally, if we’re randomising at a user level then it’ll always be red for me, but always blue for my friend. That last bit assumes perfect identity tracking, which might be generally okay if you’re Google or Facebook, but for anyone else is going to be a challenge - what if you visit cbc.ca on your phone and then on your laptop? You’re likely considered a different ‘user’.</p>
+<p>Does this matter? It’s a trade-off between consistency and importance.</p>
+<!-- ## Speed vs quality vs risk -->
+<!-- **This is from Chapter 14 of @kohavi.** -->
+<!-- This concern is also seen in RCTs, but it's especially of interest -->
+</div>
+</div>
+</div>
+<div id="case-study---upworthy" class="section level2">
+<h2><span class="header-section-number">8.6</span> Case study - Upworthy</h2>
+<p>To see this in action let’s look at the Upworthy dataset <span class="citation">Matias et al. (<a href="#ref-upworthy" role="doc-biblioref">2019</a>)</span>.</p>
+</div>
+<div id="sampling-and-survey-essentials" class="section level2">
+<h2><span class="header-section-number">8.7</span> Sampling and survey essentials</h2>
+<div id="introduction-15" class="section level3">
+<h3><span class="header-section-number">8.7.1</span> Introduction</h3>
+<p>Let’s say that we have some data. For instance, a particular toddler goes to sleep at 6:00pm every night. We might be interested to know whether that bed-time is common more generally among all toddlers, or if we have an unusual toddler. We only have one toddler so our ability to use his bed time to speak about all toddlers is limited. But what about if we talk to our friends who also have toddlers? How many friends, and friends of friends, do we have to ask because we can begin to feel comfortable speaking about some underlying truth of toddler bedtime?</p>
+<p>In the wonderful phrase of <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 3)</span> ‘[s]tatistics is the science of how to collect and analyze data, and draw statements and conclusions about unknown populations. The term population usually refers to a real or hypothetical set of units with characteristics and attributes which can be modelled by random variables and their respective probability distributions.’. In my own much less wonderful phrasing, ‘statistics involves having some data and trying to say something sensible about it’. I mean, it’s really up to you which one you want to go with.</p>
+<p>In the case of surveys, our population is a finite set of <span class="math inline">\(N\)</span> labels: ‘person 1’, ‘person 2’, ‘person 3’, …, ‘person <span class="math inline">\(N\)</span>’. It is important here to recognise that there is a difference between the population of interest to a survey and a population in the sense that it is used when we talk of limits and similar infinity concepts in statistics. For instance, from time to time, you hear people who work with census data say that they don’t need to worry about confidence intervals because they have the whole population of the country. Nothing could be further from the truth.</p>
+<p><span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 4)</span> have a lovely example of the ambiguity that surrounds the definition of a population. Let’s consider the population of voters. In Canada that means anyone who is 18 or older. Fine. But what if we are interested in consumers - what is the definition of hipsters? I regularly eat avocado toast, (+1), but I’ve never had bullet coffee (-1). Am I in the population or not?</p>
+<p>More things are formally defined than you may realise. For instance, the idea of a rural area is precisely defined. A property is either in a rural area or not. But then we come to the lovely example of <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 4)</span> when it comes to whether someone is a smoker. If a 15 year old has had 100 cigarettes then it’s pretty clear that we need to treat them differently than if they have had none. But if a 100 year old has had 100 cigarettes then we consider them to have none. That’s fine, but what is the age at which this changes? Further, think about how this changes over time. At one point, parents used to be worried if children had more than two hours of screen time, now those same children (and possibly even the parents) regularly likely spend more than eight hours in front of a screen if they work in an office job.</p>
+<p>So we come to some critical terminology:</p>
+<ol style="list-style-type: decimal">
+<li>Population: ‘The set of all units covered by the main objective of the study.’ <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 5)</span>.</li>
+<li>Frame: ‘Lists of sampling units’ <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 9)</span> where sampling units are either the observational units themselves or the clusters.</li>
+<li>Sample: Those who complete and return the survey.</li>
+</ol>
+<p>To be a little more concrete about this, consider that we are trying to conduct a survey about the attitudes Australians who live in Toronto. So the target population is all Australians who live in Toronto, the frame might be all those Australians who live in Toronto who use Facebook, because we are going to use Facebook to choose who to sample. And then finally, if we take that Facebook list of all Australians living in Canada and we gave each one a chance at being surveyed then that would be our sampled population, but if we just picked the ones that I know then it would just be Dan, Monica, and Liza (from New Zealand but we’ll claim her because that’s a thing that Australians do).</p>
+<p>In that example the target population and the frame will be different because not all Australians who live in Toronto are on Facebook. Similarly, if not everyone that we gave the survey to actually completed the survey then the sample and the frame would be different.</p>
+<p>Having identified a population of interest and a frame (i.e. a list that gets the closest to that population) At this point we distinguish between probability and non-probability sampling.</p>
+<p>With probability sampling, every member of the frame has some chance of being sampled. Consider the example of the Australian Election Study - they get a list of all the addresses in Australia, and then randomly choose some to send letters to. The ‘randomista’ and RCT revolution that we discuss later, is needed because of a lack of probability sampling, but when it exists it plays a role here. Importantly it ensure that we are clear about the role of uncertainty <span class="citation">(Wu and Thompson <a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 11)</span>. The trade-off is that it is expensive and difficult. Note that each unit in the frame doesn’t have to have the same probability necessarily, it just needs to be determined by a probability measure.</p>
+<p>In contrast, with non-probability sampling we focus on populations that are ‘readily available’ or convenient, satisfy certain quotas, based on judgement, or those that volunteer. The difference between probability and non-probability sampling is that of degree - we typically cannot force someone to take our survey, and hence, there is almost also as aspect of volunteering.</p>
+<p>While acknowledging that it is a spectrum, most of statistics was developed based on probability sampling. But much of modern sampling is done using non-probability sampling. In particular, a common approach is to have a bunch of Facebook ads trying to recruit a panel of people in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this - what type of people are likely to respond to such an ad? I don’t know who Canada’s richest person is, but are they likely to be in this panel? Is your grandmother likely to respond to that ad? What about you - do you even use Facebook?</p>
+<p>In some cases it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them - they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be. Hence, the role of surveys. Note, however that censuses will typically have many of the same concerns.</p>
+<p>When we consider our population, it will typically have some ordering. This may be as simple as a country having states/provinces. We consider a stratified structure to be one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata. Examples of strata in <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 8)</span> include provinces, federal electoral districts, or health regions. But strata need not be geographic, and it may be possible to use different majors. We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, if we surveyed provinces in proportion to their population, then even a survey of 10,000 responses would only expect to have 10 responses from the Yukon.</p>
+<p>The other word that is used that takes advantage of the ordering of some population is clusters. Again, these are collectively exhaustive and mutually exclusive. Again, they may be geographically based, but need not be. The difference between stratified sampling and cluster sampling, is that ‘under stratified sampling, sample data are collected from every stratum, (whereas) under cluster sampling, only a portion of the clusters has members in the final sample’ <span class="citation">Wu and Thompson (<a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 8)</span>. That all said, this difference can become less clear in practice, especially <em>ex post</em> - what if you stratify then randomly sample within that strata, but no one is selected - but in terms of intention the difference is clear.</p>
+<p>We now turn to the first of our claims, which is that if we have a perfect frame and no non-response, then our sample results will match that of the population. We’d of course be very worried if that weren’t the case, but it’s nice to have it stated. We establish some type of population mean for the study variable, <span class="math inline">\(\mu_y\)</span>, and population means for the auxiliary variables <span class="math inline">\(\mu_x\)</span>, which could be things like age, gender, etc. Remembering that when we do this in the real world, we may have many study variables, and indeed, some overlap. If a variable is an indicator then in this set-up all we have to do is to work out the proportion in order to estimate it, which is <span class="math inline">\(P\)</span>. And finally, we get a rule of thumb for large samples whereby the variance in this binary and perfect setting becomes <span class="math inline">\(\sigma_y^2 = P/(1-P)\)</span> <span class="citation">(Wu and Thompson <a href="#ref-wuandthompson" role="doc-biblioref">2020</a>, 11)</span>.</p>
+<p>Finally, we conclude with the steps that you should consider. These are all critical. Strong reports would grapple with all of these.</p>
+</div>
+<div id="simple-random-sampling" class="section level3">
+<h3><span class="header-section-number">8.7.2</span> Simple random sampling</h3>
+<p>TBD</p>
+</div>
+<div id="stratified-and-cluster-sampling" class="section level3">
+<h3><span class="header-section-number">8.7.3</span> Stratified and cluster sampling</h3>
+<p>TBD</p>
+</div>
+</div>
+<div id="implementing-surveys" class="section level2">
+<h2><span class="header-section-number">8.8</span> Implementing surveys</h2>
+<div id="google" class="section level3">
+<h3><span class="header-section-number">8.8.1</span> Google</h3>
+</div>
+<div id="facebook" class="section level3">
+<h3><span class="header-section-number">8.8.2</span> Facebook</h3>
+</div>
+<div id="survey-monkey" class="section level3">
+<h3><span class="header-section-number">8.8.3</span> Survey Monkey</h3>
+</div>
+<div id="mechanical-turk" class="section level3">
+<h3><span class="header-section-number">8.8.4</span> Mechanical Turk</h3>
+</div>
+<div id="prolific" class="section level3">
+<h3><span class="header-section-number">8.8.5</span> Prolific</h3>
+</div>
+<div id="qualtrics" class="section level3">
+<h3><span class="header-section-number">8.8.6</span> Qualtrics</h3>
+</div>
+<div id="other-2" class="section level3">
+<h3><span class="header-section-number">8.8.7</span> Other</h3>
+</div>
+</div>
+<div id="next-steps-1" class="section level2">
+<h2><span class="header-section-number">8.9</span> Next steps</h2>
+<p>Large scale experiments are happening all around us. These days I feel we all know a lot more about healthcare experiments than perhaps we’d like to know and the AstraZeneca/Oxford situation is especially interesting, for instance, <span class="citation">Oxford-AstraZeneca (<a href="#ref-OxfordAstraZeneca" role="doc-biblioref">2020</a>)</span>, but see <span class="citation">Bastian (<a href="#ref-Bastian2020" role="doc-biblioref">2020</a>)</span> for how this is actually possibly more complicated.</p>
+<p>There are also well-known experiments that tried to see if big government programs are effective, such as:</p>
+<ul>
+<li>The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 <span class="citation">(Brook et al. <a href="#ref-randhealth" role="doc-biblioref">1984</a>)</span>.</li>
+<li>The Oregon Health Study randomly gave health insurance in Oregon in 2008 <span class="citation">(Finkelstein et al. <a href="#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span>.</li>
+</ul>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-marcella">
+<p>Alsan, Marcella, and Marianne Wanamaker. 2018. “Tuskegee and the Health of Black Men.” <em>The Quarterly Journal of Economics</em> 133 (1): 407–55.</p>
+</div>
+<div id="ref-athey2017state">
+<p>Athey, Susan, and Guido W Imbens. 2017. “The State of Applied Econometrics: Causality and Policy Evaluation.” <em>Journal of Economic Perspectives</em> 31 (2): 3–32.</p>
+</div>
+<div id="ref-Bastian2020">
+<p>Bastian, Hilda. 2020. “A Timeline of the Oxford-Astrazeneca Covid-19 Vaccine Trials.” <a href="http://hildabastian.net/index.php/100">http://hildabastian.net/index.php/100</a>.</p>
+</div>
+<div id="ref-citedeclaredesign">
+<p>Blair, Graeme, Jasper Cooper, Alexander Coppock, and Macartan Humphreys. 2019. “Declaring and Diagnosing Research Designs.” <em>American Political Science Review</em> 113 (3): 838–59. <a href="https://declaredesign.org/paper.pdf">https://declaredesign.org/paper.pdf</a>.</p>
+</div>
+<div id="ref-brandt1978racism">
+<p>Brandt, Allan M. 1978. “Racism and Research: The Case of the Tuskegee Syphilis Study.” <em>Hastings Center Report</em>, 21–29.</p>
+</div>
+<div id="ref-randhealth">
+<p>Brook, Robert H, John E Ware, William H Rogers, Emmett B Keeler, Allyson Ross Davies, Cathy D Sherbourne, George A Goldberg, Kathleen N Lohr, Patricia Camp, and Joseph P Newhouse. 1984. “The Effect of Coinsurance on the Health of Adults: Results from the Rand Health Insurance Experiment.”</p>
+</div>
+<div id="ref-Cunningham2021">
+<p>Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. Yale Press.</p>
+</div>
+<div id="ref-citeDahly">
+<p>Dahly, Darren. 2020. <em>A Brief History of Medical Statistics and Its Impact on Reproducibility.</em> <a href="https://statsepi.substack.com/p/a-brief-history-of-medical-statistics">https://statsepi.substack.com/p/a-brief-history-of-medical-statistics</a>.</p>
+</div>
+<div id="ref-finkelstein2012oregon">
+<p>Finkelstein, Amy, Sarah Taubman, Bill Wright, Mira Bernstein, Jonathan Gruber, Joseph P Newhouse, Heidi Allen, Katherine Baicker, and Oregon Health Study Group. 2012. “The Oregon Health Insurance Experiment: Evidence from the First Year.” <em>The Quarterly Journal of Economics</em> 127 (3): 1057–1106.</p>
+</div>
+<div id="ref-fisherdesignofexperiments">
+<p>Fisher, Ronald. 1935. <em>The Design of Experiments</em>. Oliver; Boyd.</p>
+</div>
+<div id="ref-gelmanhillvehtari2020">
+<p>Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and Other Stories</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-gertler2016impact">
+<p>Gertler, Paul J, Sebastian Martinez, Patrick Premand, Laura B Rawlings, and Christel MJ Vermeersch. 2016. <em>Impact Evaluation in Practice</em>. The World Bank.</p>
+</div>
+<div id="ref-hernanrobins2020">
+<p>Hernan, Miguel A, and James M Robins. 2020. <em>What If</em>. CRC Press.</p>
+</div>
+<div id="ref-kohavi">
+<p>Kohavi, Ron, Diane Tang, and Ya Xu. 2020. <em>Trustworthy Online Controlled Experiments: A Practical Guide to a/B Testing</em>. Cambridge University Press.</p>
+</div>
+<div id="ref-citesurvey">
+<p>Lumley, Thomas. 2020. “Survey: Analysis of Complex Survey Samples.”</p>
+</div>
+<div id="ref-upworthy">
+<p>Matias, J. Nathan, Kevin Munger, Marianne Aubin Le Quere, and Charles Ebersole. 2019. “The Upworthy Research Archive.” <a href="https://upworthy.natematias.com">https://upworthy.natematias.com</a>.</p>
+</div>
+<div id="ref-obermeyer2019dissecting">
+<p>Obermeyer, Ziad, Brian Powers, Christine Vogeli, and Sendhil Mullainathan. 2019. “Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations.” <em>Science</em> 366 (6464): 447–53.</p>
+</div>
+<div id="ref-OxfordAstraZeneca">
+<p>Oxford-AstraZeneca. 2020. “AZD1222 Vaccine Met Primary Efficacy Endpoint in Preventing Covid-19.” <a href="https://www.astrazeneca.com/media-centre/press-releases/2020/azd1222hlr.html">https://www.astrazeneca.com/media-centre/press-releases/2020/azd1222hlr.html</a>.</p>
+</div>
+<div id="ref-taback2020">
+<p>Taback, Nathan. 2020. <em>Design of Experiments and Observational Studies</em>. <a href="https://scidesign.github.io/designbook/">https://scidesign.github.io/designbook/</a>.</p>
+</div>
+<div id="ref-wuandthompson">
+<p>Wu, Changbao, and Mary E Thompson. 2020. <em>Sampling Theory and Practice</em>. Springer.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>There’s a joke in statistics, okay, well, TBH, I have a joke about statistics, and it’s that at some point every professor is like ‘… and so X really just boils down to a missing data problem’ and it’s funny because, that’s kind of the fundamental issue of statistics, we’d not really need the science if we had all the data. In hindsight, this is not really a joke, but I’m a father now so I’ll just lean into it.<a href="hunt-data.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>As someone who oddly is somewhat superstitious, believes fully in the irony gods, and does have a pair of lucky, fun, socks, this example was not randomly chosen.<a href="hunt-data.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>I’m personally very attached to this example as this issue also matters a lot to my father<a href="hunt-data.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>For posteriority, 2020 was quite a year.<a href="hunt-data.html#fnref9" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gather-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="farm-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

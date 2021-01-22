@@ -57,6 +57,71 @@ bibliography: bibliography.bib
 - Can I use Python? No. If you already know Python then it doesn't hurt to learn another language.
 - Why do I need to cite R, when I don't need to cite Word? R is a free statistical programming language with academic origins so it's appropriate to acknowledge the work of others. It's also important for reproducibility.
 
+### Rubric
+
+- Go/no-go #1: R is cited - [1 'Yes', 0 'No']
+	- Both referred to in the main content and included in the reference list.
+	- If not, no need to continue marking, just give paper 0 overall.
+- Title - [2 'Exceptional', 1 'Yes', 0 'Poor or not done']
+	- An informative title is included.
+	- Tell the reader what your story is - don't waste their time. 
+	- Ideally tell them what happens at the end of the story.
+	- 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.
+- Author, date, and repo - [2 'Yes', 0 'Poor or not done']
+	- The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').
+- Abstract - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- An abstract is included and appropriately pitched to a general audience.
+	- The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level).
+	- If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason.
+	- Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?
+- Introduction - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context.
+	- Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. 
+	- A reader should be able to read only your introduction and have a good idea about the research that you carried out. 
+	- It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). 
+	- It must outline the structure of the paper.
+	- For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.
+- Data - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+	- When you discuss the dataset (in the data section) you should make sure to discuss at least:
+	- The source of the data.
+	- The methodology and approach that is used to collect and process the data.
+	- The population, the frame, and the sample (as appropriate).
+	- Information about how respondents were found. What happened to non-response?
+	- What are its key features, strengths, and weaknesses about the survey generally.
+	- You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
+	- What do the data look like?
+	- Plot the actual data that you're using (or as close as you can get to it).
+	- Discuss these plots and the other features of these data.
+	- These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.
+	- 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).
+- Numbering - [2 'Yes', 0 'Poor or not done']
+	- All figures, tables, equations, etc are numbered and referred to in the text.
+- Proofreading - [2 'Yes', 0 'Poor or not done']
+	- All aspects of submission are free of noticeable typos.
+- Graphs/tables/etc - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- You must include graphs and tables in your paper and they must be to a high standard. 
+	- They must be well formatted and camera-ready They should be clear and digestible.
+	- They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).
+- References - [4 'Perfect', 3 'One minor issue', 0 'Poor or not done']
+	- All data/software/literature/etc are appropriately noted and cited.
+	- You must cite the software and software packages that you use.
+	- You must cite the datasets that you use.
+	- You must cite literature that you refer to (and you should refer to literature).
+	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
+	- If you take a large chunk of code then cite it fully.
+	- 3 means one minor issue. More than one minor issues receives 0.
+- Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The paper and analysis must be fully reproducible.
+	- A detailed README is included.
+	- All code should be thoroughly documented.
+	- An R project is used. Do not use `setwd()`.
+	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- Code must have a preamble etc.
+	- You must appropriately document your scripts such that someone coming in could follow them.
+	- Your repo must be thoroughly organized.
+- General excellence - [3 'Exceptional', 2 'Wow', 1 'Huh, that's interesting',  0 'None']
+  - There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.
+
 
 
 ## 'These numbers mean dial it up'

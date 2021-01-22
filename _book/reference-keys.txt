@@ -183,7 +183,7 @@ leaflet
 covid-19
 mapdeck
 shiny
-gathering-data
+gather-data
 apis
 introduction-6
 r-packages-that-wrap-around-apis
@@ -234,7 +234,7 @@ text
 introduction-12
 getting-text-data
 preparing-text-datasets
-hunting-data
+hunt-data
 experiments-and-randomised-controlled-trials
 introduction-13
 motivation-and-notation
@@ -264,7 +264,7 @@ prolific
 qualtrics
 other-2
 next-steps-1
-other-sources
+farm-data
 open-government-data
 canadian-census
 city-of-toronto-open-data-portal
@@ -418,6 +418,7 @@ task
 guidance
 check-offs-points
 faq
+rubric
 these-numbers-mean-dial-it-up
 task-1
 guidance-1
