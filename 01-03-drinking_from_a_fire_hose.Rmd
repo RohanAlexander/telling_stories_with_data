@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - Barrett, Malcolm, 2021, 'Data science as an atomic habit', 16 January, https://malco.io/2021/01/04/data-science-as-an-atomic-habit/.
 - Gelfand, Sharla, 2019, 'Cleaning up after the federal election', https://sharla.party/talk/2019-10-24-uoft-brown-bag/.
-- Hoa, Karen, 2019, 'This is how AI bias really happens - and why it's so hard to fix, *MIT Technology Review*, 4 February, https://www.technologyreview.com/s/612876/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/.
+- Hao, Karen, 2019, 'This is how AI bias really happens - and why it's so hard to fix, *MIT Technology Review*, 4 February, https://www.technologyreview.com/s/612876/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/.
 - Keyes, Os, 2019, 'Counting the Countless', *Real Life*, 8 April, freely available at: https://reallifemag.com/counting-the-countless/.
 
 
@@ -81,7 +81,6 @@ To jump in we will get some data from the wild, make a graph with it, and then u
 > Hadley Wickham as quoted by @citeBarrett.
 
 One of the great things about graphs is that sometimes this is all you need to have a convincing story, as Figure \@ref(fig:covid) from @ftcoronavirus show.
-
 
 ```{r covid, echo=FALSE, fig.cap="New confirmed cases of Covid-19 in United States, United Kingdom, Canada and Australia, as at 22 December 2020.", out.width = '90%'}
 knitr::include_graphics(here::here("figures/covid.png"))

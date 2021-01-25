@@ -210,7 +210,7 @@ One way to get at the answer would be to run an experiment. Make a list of the N
 
 In the words of @hernanrobins2020 [p. 3] an action, $A$, is also known 'as an intervention, an exposure, or a treatment.' I'll  typically use 'treated/control' language, reflecting whether an action was imposed or not. That treatment random variable will typically be binary, that is 0 or 1, 'treated' or 'not treated/control/comparison'. We'll then typically have some outcome random variable, $Y$, which will typically be binary, able to be made binary, or continuous, although we'll touch on other options.  An example of a binary outcome could be vote choice - 'Conservative' vs 'Not Conservative' - noticing there that I grouped all the other parties into simply 'Not Conservative' to force the binary outcome. 
 
-Further following @hernanrobins2020 [p. 4], but in the notation of @gertler2016impact [p. 48] we describe a treatment as 'causal' when $(Y|a=0)\neq (Y|a=1)$. As discussed above, the fundamental problem of casual inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.^[There's a joke in statistics, okay, well, TBH, I have a joke about statistics, and it's that at some point every professor is like '... and so X really just boils down to a missing data problem' and it's funny because, that's kind of the fundamental issue of statistics, we'd not really need the science if we had all the data. In hindsight, this is not really a joke, but I'm a father now so I'll just lean into it.]
+Further following @hernanrobins2020 [p. 4], but in the notation of @gertler2016impact [p. 48] we describe a treatment as 'causal' when $(Y|a=0)\neq (Y|a=1)$. As discussed above, the fundamental problem of causal inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.^[There's a joke in statistics, okay, well, TBH, I have a joke about statistics, and it's that at some point every professor is like '... and so X really just boils down to a missing data problem' and it's funny because, that's kind of the fundamental issue of statistics, we'd not really need the science if we had all the data. In hindsight, this is not really a joke, but I'm a father now so I'll just lean into it.]
 
 To quote from @gertler2016impact [p.48], in the context of evaluating income in response to an intervention program:
 
@@ -387,7 +387,7 @@ These are all threats to the validity of our claims.
 But if done properly, that is if the treatment is truly independent, then we can estimate an 'average treatment effect', which in a binary treatment variable setting is:
 $$\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].$$
 
-That is, the difference between the treated group, $d = 1$, and the control group, $d = 1$, when measured by the expected value of some outcome variable, $y$. So the mean causal effect is simply the difference between the two expectations!
+That is, the difference between the treated group, $d = 1$, and the control group, $d = 0$, when measured by the expected value of some outcome variable, $y$. So the mean causal effect is simply the difference between the two expectations!
 
 Let's again get stuck into some code. First we need to generate some data.
 
@@ -560,6 +560,46 @@ Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an 
 To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.
 
 There is a wide range of literature related to this intervention. More papers are available [here](https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states).
+
+
+
+## Case study -  Student Coaching: How Far Can Technology Go?
+
+There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn't scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015.
+
+The intervention was administered to students as part of an economics class. Students received 2 per cent of their grade for completing the exercise. The specific exercise depended on the group of the student. The intervention involved three treatments as well as a control group that was just given a Big Five personality traits test. Additional information that was obtained included 'the highest level of education obtained by students’ parents, the amount of education they expect to obtain, whether they are first-year or international students, and their work and study time plans for the upcoming year.' [@Oreopoulos2018, p. 6].
+
+The treatments were [@Oreopoulos2018, p. 4]:
+
+1. '[A] one-time, online exercise completed during the first two weeks of class in the fall'. This exercise was 'designed to get them thinking about the future they envision and the steps they could take in the upcoming year at U of T to help make that future a reality. They were told that the exercise was designed for their benefit and to take their time while completing it. The online module lasted approximately 60 to 90 minutes and led students through a series of writing exercises in which they wrote about their ideal futures, both at work and at home, what they would like to accomplish in the current year at U of T, how they intend on following certain study strategies to meet their goals, and whether they want to get involved with extracurricular activities at the university' [@Oreopoulos2018, p. 6].
+2. '[T]he online intervention plus text and email messaging throughout the full academic year'. This involved the students being given 'the opportunity to provide their phone numbers and participate in a text and email messaging campaign lasting throughout both the fall semester in 2015 and the winter semester in 2016' [@Oreopoulos2018, p. 8]. All students in this group got the emails, but only those that provided phone numbers got the messages. They were able to opt out, but 'few chose to do so' [@Oreopoulos2018, p. 8]. This was a two-way interaction in which students could ask questions. Some asked for the 'locations of certain facilities on campus or how to stay on residence during the holiday break, while others said they need help with English skills or specific courses. Some students expressed relatively deep emotions, such as feeling anxious about family pressure to succeed in school or from doing poorly on an evaluation' [@Oreopoulos2018, p. 9]. A response was usually given within an hour.
+3. '[T]he online intervention plus one-on-one coaching in which students are assigned to upper-year undergraduate coaches'. 'Coaches were available to meet with students to answer any questions via Skype, phone, or in person, and would send their students regular text and email messages of advice, encouragement, and motivation, much like the You@UofT program described above. In contrast to the messaging program, however, coaches were instructed to be proactive and regularly monitor their students’ progress. Whereas the You@UofT program attempts to “nudge” students in the right direction with academic advice, coaches play a greater “support” role, sensitively guiding students through problems.' [@Oreopoulos2018, p. 11]. This coaching program was only available at UTM. 'Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined.'
+
+> Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined. 
+>
+> [@Oreopoulos2018, p. 14]
+
+The model they consider is [@Oreopoulos2018, p. 15]:
+
+\begin{equation}
+y_{ij} = \alpha + \beta_1\mbox{Online}_i + \beta_2\mbox{Text}_i + + \beta_3\mbox{Coach}_i + \delta_j + \mu \mbox{First year}_i + \epsilon_{ij} (\#eq:toronto)
+\end{equation}
+
+Equation \@ref(eq:toronto) explains the outcome of student $i$ at campus $j$ based on 'indicators for each of the three treatment exercises students were given, campus fixed effects, and a first-year student indicator.' The main parameters of interest are $\beta_1$, $\beta_2$ and $\beta_3$. The main outcomes were course grades, GPA, credits earned and failed.
+
+It was found, that the one-on-one coaching 'increased grades by approximately 5 percentage points', while the other treatments had 'had no detectable impact'. One set of results are summarised in Figure \@ref(fig:toronto_intervention).
+
+```{r toronto_intervention, echo=FALSE, fig.cap = "Example of the results of the intervention.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/toronto_intervention.png"))
+```
+
+
+The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available [here](https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go).
+
+
+
+
+
 
 
 ## A/B testing

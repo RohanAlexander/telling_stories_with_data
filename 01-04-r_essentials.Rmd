@@ -752,7 +752,7 @@ my_function(c("rohan", "monica"))
 
 
 
-## ggplot essentials
+## ggplot I
 
 The `ggplot` package is the plotting package that is part of the `tidyverse` collection of packages. 
 

@@ -1,5 +1,5 @@
 ---
-date: January 18, 2021
+date: January 25, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -51,12 +51,11 @@ library(gt)
 - Graham, Shawn, 2019, 'Scraping with rvest', 7 November, https://electricarchaeology.ca/2019/11/07/scraping-with-rvest/. (Example of web-scraping.)
 - Henze, Martin, 2020, 'Web Scraping with rvest + Astro Throwback', 23 January, https://heads0rtai1s.github.io/2020/01/23/rvest-intro-astro/. (Example of web-scraping.)
 - Hudon, Caitlin, 2017, ''Blue Christmas: A data-driven search for the most depressing Christmas song', 22 December, https://caitlinhudon.com/2017/12/22/blue-christmas/.
-- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, Chapter 6, http://faculty.marshall.usc.edu/gareth-james/ISL/.
 - Luscombe, Alex, 2020, 'A Gentle Introduction to Tesseract OCR', 3 June, https://alexluscombe.ca/post/ocr-tutorial/.
 - Marshall, James, 'HTML Made Really Easy', https://www.jmarshall.com/easy/html/. (Primer on HTML.)
 - Marshall, James, 'HTTP Made Really Easy', https://www.jmarshall.com/easy/http/.
 - Nakagawara, Ryo, 2020, 'Intro to {polite} Web Scraping of Soccer Data with R!', 14 May, https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/. (Introduction to the `polite` package.)
-- Pavlik, Kaylin, 2020, 'How do fiber types appear together in yarn blends?', https://www.kaylinpavlik.com/ravelry-yarn-fibers/.
+- Pavlik, Kaylin, 2020, 'How do fiber types appear together in yarn blends?', 17 February, https://www.kaylinpavlik.com/ravelry-yarn-fibers/.
 - Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/. (Example of web-scraping.)
 - Silge, Julia, 2018, 'The game is afoot! Topic modeling of Sherlock Holmes stories', 25 January, https://juliasilge.com/blog/sherlock-holmes-stm/.
 - Silge, Julia, 2018, 'Training, evaluating, and interpreting topic models', 8 September, https://juliasilge.com/blog/evaluating-stm/.
@@ -151,41 +150,58 @@ library(gt)
 1. In your own words, what is an API (write a paragraph or two)?
 2. Find two APIs and discuss how you could use them to tell interesting stories  (write a paragraph or two for each). 
 3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories? (Write a paragraph or two for each.)
-4. What is the main argument to the GET method (pick one)?
-    a. 
-    b. 
-    c. 
-    d. 
+4. What is the main argument to `httr::GET()` (pick one)?
+    a. 'url'
+    b. 'website'
+    c. 'domain'
+    d. 'location'
 5. Name three reasons why we should be respectful when getting scraping data from websites (write a paragraph or two).
 6. What features of a website do we typically take advantage of when we parse the code (select all)?
-    a. 
-    b. 
-    c. 
-    d. 
+    a. HTML/CSS mark-up.
+    b. Cookies.
+    c. Facebook beacons.
+    d. Code comments.
 7. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
-8. Which of these are functions from the `purrr` package (select all)?
-    a. 
-    b. 
-    c. 
-    d. 
-9. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
-10. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (pick one)? (Hint: See the 'strings' cheatsheet.)
-    a. 
-    b. 
-    c. 
-    d. 
-11. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each).
-12. If you are interested in demographic data then what are three checks that you might like to do? What are three if you are interested in economic data such as GDP, interest rates, and exchange rates?  (Write an explanation for each.)
-13. What does the `purrr` package do (select all)?
-    a. 
-    b. 
-    c. 
-    d. 
-14. Why should we use `safely()` when scraping data (select all)?
-    a. 
-    b. 
-    c. 
-    d. 
+8. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
+9. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (hint: see the 'strings' cheatsheet) (pick one)? 
+    a. `.`
+    b. `\.`
+    c. `\..`
+    d. `\...`
+10. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each).
+11. If you are interested in demographic data then what are three checks that you might like to do? What are three if you are interested in economic data such as GDP, interest rates, and exchange rates?  (Write an explanation for each.)
+12. What does the `purrr` package do (select all)?
+    a. Enhances R's functional programming toolkit.
+    b. Makes loops easier to code and read.
+    c. Checks the consistency of datasets.
+    d. Identifies issues in data structures and proposes replacements.
+13. Which of these are functions from the `purrr` package (select all)?
+    a. `map()`
+    b. `walk()`
+    c. `run()`
+    d. `safely()`
+14. Why should we use `safely()` when scraping data (pick one)?
+    a. To protect us from hackers.
+    b. To avoid side effects of pages with issues.
+    c. To slow down our scraping to an appropriate speed.
+15. What are some principles to follow when scraping (select all)?
+    a. Avoid it if possible
+    b. Follow the site’s guidance
+    c. Slow down
+    d. Use a scalpel not an axe.  
+16. What is a robots.txt file (pick one)?
+    a. The instructions that Frankenstein followed.
+    b. Notes that web scrapers should follow when scraping.
+17. What is the html tag for an item in list (pick one)?
+    a. `li`
+    b. `body`
+    c. `b`
+    d. `em`
+18. If I have the following text data 'rohan_alexander' in a column called ‘names’ and want to split it into first name and surname based on the underbar what function should I use (pick one)?
+    a. `separate()`
+    b. `slice()`
+    c. `spacing()`
+    d. `text_to_columns()`
 
 
 
@@ -194,34 +210,44 @@ library(gt)
 
 ## APIs
 
-### Introduction
-
 In everyday language, and for our purposes, an Application Programming Interface (API) is simply a situation in which someone has set up specific files on their computer such that you can follow their instructions to get them. For instance, when you use a gif on Slack, Slack asks Giphy's server for the appropriate gif, Giphy's server gives that gif to Slack and then Slack inserts it into your chat. The way in which Slack and Giphy interact is determined by Giphy's API. More strictly, an API is just an application that runs on a server that we access using the HTTP protocol. 
 
-In our case, we are going to focus on using APIs for gathering data. So I'll tailor the language that I use toward that, and so:
+In our case, we are going to focus on using APIs for gathering data. I'll tailor the language that I use toward that:
 
-> [a]n API is the tool that makes a website's data digestible for a computer. Through it, a computer can view and edit data, just like a person can by loading pages and submitting forms. [@zapierapis, Chapter 1]
+> [a]n API is the tool that makes a website's data digestible for a computer. Through it, a computer can view and edit data, just like a person can by loading pages and submitting forms. 
+>
+> @zapierapis, Chapter 1.
 
-For instance, you could go to [Google Maps](https://www.google.ca/maps) and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: https://www.google.ca/maps/@-35.2812958,149.1248113,16z. You just used the Google Maps API.^[There are at least six great coffee shops shown just in this section of map including: Mocan & Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn't classify as 'great' including: The Street Theatre Cafe; and the CBE Cafe.]
+For instance, you could go to [Google Maps](https://www.google.ca/maps) and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: https://www.google.ca/maps/@-35.2812958,149.1248113,16z. You just used the Google Maps API.^[There are at least six great coffee shops shown just in this section of map including: Mocan & Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn't classify as 'great' including: The Street Theatre Cafe; and the CBE Cafe.] The result should be a map that looks something like Figure \@ref(fig:focuson2020) .
+
+```{r focuson2020, echo=FALSE, fig.cap = "Example of Google Maps, as at 25 January 2021.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/googlemaps.png"))
+```
 
 The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include things like rate limits (i.e. how often you can ask for data), and what you can do with the data (e.g. maybe you're not allowed to use it for commercial purposes, or to republish it, or whatever). Additionally, because the API is being provided specifically for you to use it, it is less likely to be subject to unexpected changes. Because of this it is ethically and legally clear that when an API is available you should try to use it.
 
-In this chapter we introduce some APIs in R. In particular, we will first introduce some R packages that wrap around APIs and make it easier to use an API, and we will then deal directly with APIs.
+We're going to run through some case studies interacting with APIs in R. In the first we will deal directly with an API. That works and is a handy skill to have, but there are a lot of R packages that wrap around APIs making it easier for you to use an API within 'familiar surroundings'. So I'll also run through two fun APIs that have R packages built around them.
 
 
 
 
-### R packages that wrap around APIs
 
-There are a lot of R packages that wrap around APIs making it easier for you to use an API within 'familiar surroundings'. Here, I'll run through some useful and/or fun ones.
+## Case study - arXiv
 
-### Using APIs directly
+In this section we introduce GET requests in which we use an API directly. We will use the `httr` package [@citehttr]. A GET request tries to obtain some specific data and the main argument is `url`. Exactly as before with the Google Maps example! In that case, the specific information was a map and some information about it. 
 
-In this section we introduce GET requests in which we use an API directly. We will use the `httr` package @citehttr. A GET request tries to obtain some specific data.
+For this example we'll look at [arXiv](https://arxiv.org), which is a repository for academic articles before they go through peer-review. I'll ask arXiv to return some information about a paper that I recently uploaded with a former student. The content that is returned will be a series of information about that paper.
 
-You make a GET request, using, `GET()`, which takes a URL as an argument.
+```{r}
+# install.packages('httr')
+library(httr)
+arxiv <- httr::GET('http://export.arxiv.org/api/query?id_list=2101.05225')
+class(arxiv)
+content(arxiv, "text") %>% 
+  cat("\n")
+```
 
-**TBD**
+We get a variety of information about this paper including the title, abstract, and authors.
 
 
 ## Case study - rtweet
@@ -451,7 +477,7 @@ Again, there is a lot more at the package's website: https://www.rcharlie.com/sp
 
 Web-scraping is a way to get data from websites into R. Rather than going to a website ourselves through a browser, we write code that does it for us. This opens up a lot of data to us, but on the other hand, it is not typically data that is being made available for these purposes and so it is important to be respectful of it. While generally not illegal, the specifics with regard to the legality of web-scraping depends on jurisdictions and the specifics of what you're doing, and so it is also important to be mindful of this. And finally, web-scraping imposes a cost on the website host, and so it is important to reduce this to the extent that it's possible.
 
-That all said, web-scraping is an invaluable source of data. But they are typically a datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principals guide my web-scraping.
+That all said, web-scraping is an invaluable source of data. But they are typically a datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principles guide my web-scraping.
 
 1. Avoid it. Try to use an API wherever possible.
 2. Abide by their desires. Some websites have a file 'robots.txt' that contains information about what they are comfortable with scrapers doing, for instance 'https://www.google.com/robots.txt'. If they have one of these then you should read it and abide by it.
@@ -1846,11 +1872,22 @@ monicas_dataset %>%
 
 ## Optical Character Recognition
 
-All of the above is predicated on having a PDF that is already 'digitized'. But what if it is images? In that case you need to first use Optical Character Recognition (OCR). The go-to package is Tesseract @citetesseract.
+All of the above is predicated on having a PDF that is already 'digitized'. But what if it is images? In that case you need to first use Optical Character Recognition (OCR). The go-to package is Tesseract [@citetesseract]. This is a R wrapper around the Tesseract open source OCR engine.
 
-**TBD**
+Let's see an example with a scan from the first page of Jane Eyre (Figure \@ref(fig:janescan)).
+
+```{r janescan, echo=FALSE, fig.cap = "Scan of first page of Jane Eyre.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/jane_scan.png"))
+```
 
 
+```{r}
+# install.packages('tesseract')
+library(tesseract)
+# eng <- tesseract("eng")
+text <- tesseract::ocr(here::here("figures/jane_scan.png"), engine = tesseract("eng"))
+cat(text)
+```
 
 
 

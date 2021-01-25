@@ -81,7 +81,7 @@ Unfortunately, such a set-up is rarely possible in modern applied statistics app
 
 ## Telling stories with data
 
-The aim of these notes is to equip you with everything you need to be able to write short(ish), technical, memos, that convince a reader of the story you are telling. These notes encourage research-based, independent learning. This means that you should develop your own questions and answer them to the extent that you can. We focus on methods that can provide convincing stories even when we cannot conduct traditional experiments. Importantly, these approaches do not rely on 'big data' (which is widely known by practitioners to not be a panacea [@meng2018statistical]), but instead on better using the data that are available. The purpose of the notes is to allow you to tell convincing stories using data and quantitative analysis. They blend theory and case studies to equip you to with practical skills, a sophisticated workflow, and an appreciation for how more-advanced methods build on what is covered here.
+The aim of these notes is to equip you with everything you need to be able to write short(ish), technical, memos, that convince a reader of the story you are telling. These notes encourage research-based, independent learning. This means that you should develop your own questions and answer them to the extent that you can. We focus on methods that can provide convincing stories even when we cannot conduct traditional experiments. Importantly, these approaches do not rely on 'big data' -- which is widely known by practitioners to not be a panacea [@meng2018statistical] -- but instead on better using the data that are available. The purpose of the notes is to allow you to tell convincing stories using data and quantitative analysis. They blend theory and case studies to equip you to with practical skills, a sophisticated workflow, and an appreciation for how more-advanced methods build on what is covered here.
 
 Data science is multi-disciplinary. It takes the 'best' bits from fields such as statistics, data visualisation, programming, and experimental design (to name a few). As such, data science projects require a blend of these skills. These are hands-on notes in which you will learn these skills by conducting research projects using real-world data. This means that you will: 
 
@@ -141,19 +141,21 @@ There are problem sets throughout these notes. These are opportunities for you t
 
 Many people gave generously of their time, code, and data to help develop these notes. 
 
-Thank you to [Monica Alexander](https://www.monicaalexander.com/), Michael Chong, and [Sharla Gelfand](https://sharla.party/) for allowing their code to be used. 
+Thank you to [Monica Alexander](https://www.monicaalexander.com/), [Michael Chong](https://michael-chong.github.io/index), and [Sharla Gelfand](https://sharla.party/) for allowing their code to be used. 
 
 Thank you to Kelly Lyons, Hareem Naveed, and Periklis Andritsos for helpful comments. 
 
+Thank you to Greg Wilson for giving me a structure to think about teaching. 
+
 These notes have greatly benefited from the notes and teaching materials of others that are freely available online, especially:
 
-- [Chris Bail](https://cbail.github.io/textasdata/Text_as_Data.html)'s *Text as Data*;
-- [Andrew Heiss](https://www.andrewheiss.com/)'s *Program Evaluation for Public Service*;
-- [Grant McDermott](https://grantmcdermott.com/)'s *Data Science for Economists*; 
-- [David Mimno](https://mimno.infosci.cornell.edu/info3350/)'s *Text Mining for History and Literature*
-- [Ed Rubin](http://edrub.in/)'s *PhD Econometrics (III)* and *Introduction to Econometrics (II)*;
+- [Chris Bail](https://cbail.github.io/textasdata/Text_as_Data.html) - *Text as Data*;
+- [Andrew Heiss](https://www.andrewheiss.com/) - *Program Evaluation for Public Service*;
+- [Grant McDermott](https://grantmcdermott.com/) - *Data Science for Economists*; 
+- [David Mimno](https://mimno.infosci.cornell.edu/info3350/) - *Text Mining for History and Literature*
+- [Ed Rubin](http://edrub.in/) - *PhD Econometrics (III)* and *Introduction to Econometrics (II)*;
 
-Thank you to the following students who identified specific improvements in these notes: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Hong Shi, Mounica Thanam, and Wijdan Tariq.
+Thank you to the following students who identified specific improvements in these notes: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Mounica Thanam, Wijdan Tariq, and Yang Wu.
 
 Finally, thank you to the Winter 2020 and 2021 INF2178 and Fall 2020 Term STA304 students at the University of Toronto, whose feedback greatly improved all aspects.
 

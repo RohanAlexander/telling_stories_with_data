@@ -13,11 +13,14 @@ pre code {
   white-space: inherit;
 }
 h1 {
-  color: #FF3366;
+  color: #003049;
 }
 h2 {
-  color: #016FB9;
+  color: #D62828;
 }
 h3 {
-  color: #00C49A;
+  color: #F77F00;
+}
+h4 {
+  color: #8BE8CB;
 }
