@@ -27,41 +27,35 @@ library(gt)
 
 # Gather data
 
-**Required reading**
-
-- Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/.
-- Gelfand, Sharla, 2019, 'Crying @ Sephora', 8 November, https://sharla.party/post/crying-sephora/.
-- Luscombe, Alex, 2020, 'Getting your .pdfs into R', 5 August, https://alexluscombe.ca/post/r-pdftools/.
-- Luscombe, Alex, 2020, 'Parsing your .pdfs in R', 10 August, https://alexluscombe.ca/post/parsing-pdfs/.
-- Silge, Julia and David Robinson, 2020, *Text Mining with R*, Chapters 1, 3, and 6, https://www.tidytextmining.com/.
-- Wickham, Hadley, nd, 'Getting started with httr', https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html.
-- Wickham, Hadley, 2014, 'rvest: easy web scraping with R', 24 November, https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/.
-
 
 
 **Recommended reading**
 
-- Alexander, Rohan, 2019, 'Gathering and analysing text data', 3 January, https://rohanalexander.com/posts/2019-01-03-gathering-and-analysing-text-data/. (Example of web-scraping.)
 - Benoit, Kenneth, 2019, 'Text as data: An overview', 17 July, https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf.
-- Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/. (Example of web-scraping.)
-- Bryan, Jennifer, and Jim Hester, 2020, 'What They Forgot to Teach You About R', chapter 7, https://rstats.wtf/index.html.
+- Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/.
+- Bryan, Jennifer, and Jim Hester, 2020, *What They Forgot to Teach You About R*, Chapter 7, https://rstats.wtf/index.html.
 - Clavelle, Tyler, 2017, 'Using R to extract data from web APIs', 5 June, https://www.tylerclavelle.com/code/2017/randapis/.
-- Dogucu, Mine, and Mine Çetinkaya-Runde, 2020,'Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities', 6 May. (Walks through some basics.) 
-- Goldman, Shayna, 2019, 'How Much Do NHL Players Really Make? Part 2: Taxes', https://hockey-graphs.com/2019/01/08/how-much-do-nhl-players-really-make-part-2-taxes/. (Example of web-scraping.)
-- Graham, Shawn, 2019, 'Scraping with rvest', 7 November, https://electricarchaeology.ca/2019/11/07/scraping-with-rvest/. (Example of web-scraping.)
-- Henze, Martin, 2020, 'Web Scraping with rvest + Astro Throwback', 23 January, https://heads0rtai1s.github.io/2020/01/23/rvest-intro-astro/. (Example of web-scraping.)
+- Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/.
+- Dogucu, Mine, and Mine Çetinkaya-Runde, 2020,'Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities', 6 May.
+- Gelfand, Sharla, 2019, 'Crying @ Sephora', 8 November, https://sharla.party/post/crying-sephora/.
+- Goldman, Shayna, 2019, 'How Much Do NHL Players Really Make? Part 2: Taxes', https://hockey-graphs.com/2019/01/08/how-much-do-nhl-players-really-make-part-2-taxes/.
+- Graham, Shawn, 2019, 'Scraping with rvest', 7 November, https://electricarchaeology.ca/2019/11/07/scraping-with-rvest/.
+- Henze, Martin, 2020, 'Web Scraping with rvest + Astro Throwback', 23 January, https://heads0rtai1s.github.io/2020/01/23/rvest-intro-astro/.
 - Hudon, Caitlin, 2017, ''Blue Christmas: A data-driven search for the most depressing Christmas song', 22 December, https://caitlinhudon.com/2017/12/22/blue-christmas/.
 - Luscombe, Alex, 2020, 'A Gentle Introduction to Tesseract OCR', 3 June, https://alexluscombe.ca/post/ocr-tutorial/.
-- Marshall, James, 'HTML Made Really Easy', https://www.jmarshall.com/easy/html/. (Primer on HTML.)
+- Luscombe, Alex, 2020, 'Getting your .pdfs into R', 5 August, https://alexluscombe.ca/post/r-pdftools/.
+- Luscombe, Alex, 2020, 'Parsing your .pdfs in R', 10 August, https://alexluscombe.ca/post/parsing-pdfs/.
+- Marshall, James, 'HTML Made Really Easy', https://www.jmarshall.com/easy/html/.
 - Marshall, James, 'HTTP Made Really Easy', https://www.jmarshall.com/easy/http/.
-- Nakagawara, Ryo, 2020, 'Intro to {polite} Web Scraping of Soccer Data with R!', 14 May, https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/. (Introduction to the `polite` package.)
+- Nakagawara, Ryo, 2020, 'Intro to {polite} Web Scraping of Soccer Data with R!', 14 May, https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/.
 - Pavlik, Kaylin, 2020, 'How do fiber types appear together in yarn blends?', 17 February, https://www.kaylinpavlik.com/ravelry-yarn-fibers/.
-- Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/. (Example of web-scraping.)
-- Silge, Julia, 2018, 'The game is afoot! Topic modeling of Sherlock Holmes stories', 25 January, https://juliasilge.com/blog/sherlock-holmes-stm/.
-- Silge, Julia, 2018, 'Training, evaluating, and interpreting topic models', 8 September, https://juliasilge.com/blog/evaluating-stm/.
+- Silge, Julia and David Robinson, 2020, *Text Mining with R*, Chapters 1, 3, and 6, https://www.tidytextmining.com/.
+- Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/.
 - Smale, David, 2020, 'Daniel Johnston', https://davidsmale.netlify.com/portfolio/daniel-johnston/. 
 - Taddy, Matt, 2019, *Business Data Science*, Chapter 8, pp. 231-259.
 - Wickham, Hadley, 'Managing Secrets', https://cran.r-project.org/web/packages/httr/vignettes/secrets.html.
+- Wickham, Hadley, 2014, 'rvest: easy web scraping with R', 24 November, https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/.
+- Wickham, Hadley, nd, 'Getting started with httr', https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html.
 
 
 **Recommended viewing**
@@ -92,7 +86,6 @@ library(gt)
 - `broom`
 - `dplyr`
 - `ggplot2`
-- `glmnet`
 - `gutenbergr`
 - `janitor`
 - `jsonlite`
@@ -110,37 +103,36 @@ library(gt)
 
 **Key functions/etc**
 
-- `augment()`
+- `as_factor()`
+- `as_tibble()`
 - `bind_tf_idf()`
-- `cast_dtm()`
+- `c()`
+- `case_when()`
+- `cat()`
 - `edit_r_environ()`
+- `file()`
 - `fromJSON()`
-- `geom_segment()`
+- `function()`
+- `GET()`
 - `get_artist_audio_features()`
 - `get_favorites()`
 - `get_my_top_artists_or_tracks()`
-- `glance()`
-- `glmnet()`
-- `gutenberg_download()`
+- `html_node()`
 - `html_nodes()`
 - `html_text()`
-- `map_dfr()`
+- `pdf_data()`
 - `pdf_text()`
 - `pmap_dfr()`
-- `read_csv()`
 - `read_html()`
+- `readRDS()`
 - `safely()`
 - `search_tweets()`
-- `SelectorGadget`
-- `separate()`
-- `separate_rows()`
-- `str_detect()`
-- `str_replace()`
-- `str_squish()`
-- `tidy()`
-- `tokens()`
+- `sleep()`
+- `tesseract()`
 - `unnest_tokens()`
 - `walk2()`
+- `write_html()`
+- `write_lines()`
 
 
 
@@ -148,7 +140,7 @@ library(gt)
 **Quiz**
 
 1. In your own words, what is an API (write a paragraph or two)?
-2. Find two APIs and discuss how you could use them to tell interesting stories  (write a paragraph or two for each). 
+2. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each). 
 3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories? (Write a paragraph or two for each.)
 4. What is the main argument to `httr::GET()` (pick one)?
     a. 'url'
@@ -163,11 +155,11 @@ library(gt)
     d. Code comments.
 7. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
 8. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
-9. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (hint: see the 'strings' cheatsheet) (pick one)? 
+9. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (hint: see the 'strings' cheat sheet) (pick one)? 
     a. `.`
     b. `\.`
-    c. `\..`
-    d. `\...`
+    c. `\\.`
+    d. `\\\.`
 10. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each).
 11. If you are interested in demographic data then what are three checks that you might like to do? What are three if you are interested in economic data such as GDP, interest rates, and exchange rates?  (Write an explanation for each.)
 12. What does the `purrr` package do (select all)?
@@ -202,7 +194,7 @@ library(gt)
     b. `slice()`
     c. `spacing()`
     d. `text_to_columns()`
-
+19. Gather some data yourself using a method that is introduced here - APIs directly or via a wrapper package, web scraping, PDF parsing, OCR, or text. Write a few paragraphs about the data source, what you gathered, and how you went about it. What took longer than you expected? When did it become fun? What would you do differently next time you do this? Please include a link to your GitHub repo so I can see the code, but it won't be strictly marked - this is more about encouraging you to have a go. (Start with something tiny and very specific, get that working, and then increase the scope - almost everything will be more difficult and time-consuming than you think - and don't forget to plan it out before you start.)
 
 
 
@@ -226,7 +218,7 @@ knitr::include_graphics(here::here("figures/googlemaps.png"))
 
 The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include things like rate limits (i.e. how often you can ask for data), and what you can do with the data (e.g. maybe you're not allowed to use it for commercial purposes, or to republish it, or whatever). Additionally, because the API is being provided specifically for you to use it, it is less likely to be subject to unexpected changes. Because of this it is ethically and legally clear that when an API is available you should try to use it.
 
-We're going to run through some case studies interacting with APIs in R. In the first we will deal directly with an API. That works and is a handy skill to have, but there are a lot of R packages that wrap around APIs making it easier for you to use an API within 'familiar surroundings'. So I'll also run through two fun APIs that have R packages built around them.
+We're going to run through some case studies interacting with APIs in R. In the first we will deal directly with an API. That works and is a handy skill to have, but there are a lot of R packages that wrap around APIs making it easier for you to use an API within 'familiar surroundings'. I'll also run through two fun APIs that have R packages built around them.
 
 
 
@@ -352,7 +344,7 @@ What we need from here is a 'Client ID' and you can just fill out some basic det
 
 These are things that you want to keep to yourself. There are a variety of ways of keeping this secret, (and my understanding is that a helpful package is on its way) but we'll keep them in our System Environment. In this way, when we push to GitHub they won't be included. To do this we need to be careful about the naming, because `spotifyr` will look in our environment for specifically named keys. 
 
-To do this we are going to use the `usethis` package @citeusethis. So if you don't have that then please install it. There is a file called '.Renviron' which we will open and add our secrets to. This file also controls things like your default library location and more information is available at @renvironrstudio and @whattheyforgot. 
+To do this we are going to use the `usethis` package @citeusethis. If you don't have that then please install it. There is a file called '.Renviron' which we will open and add our secrets to. This file also controls things like your default library location and more information is available at @renvironrstudio and @whattheyforgot. 
 
 ```{r, eval = FALSE}
 usethis::edit_r_environ() 
@@ -393,7 +385,7 @@ radiohead %>%
   geom_point()
 ```
 
-Just because we can, let's settle an argument. I've always said that Radiohead of quite depressing, but they're my wife's favourite band. So let's see how depressing they are. Spotify provides various information about each track, including 'valence', which Spotify [define](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/) as '(a) measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).' So higher values are happier. Let's compare someone who we know it likely to be happy - Taylor Swift - with Radiohead.
+Just because we can, let's settle an argument. I've always said that Radiohead of quite depressing, but they're my wife's favourite band. Let's see how depressing they are. Spotify provides various information about each track, including 'valence', which Spotify [define](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/) as '(a) measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).' Higher values are happier. Let's compare someone who we know it likely to be happy - Taylor Swift - with Radiohead.
 
 ```{r, eval = FALSE}
 swifty <- get_artist_audio_features('taylor swift')
@@ -477,7 +469,7 @@ Again, there is a lot more at the package's website: https://www.rcharlie.com/sp
 
 Web-scraping is a way to get data from websites into R. Rather than going to a website ourselves through a browser, we write code that does it for us. This opens up a lot of data to us, but on the other hand, it is not typically data that is being made available for these purposes and so it is important to be respectful of it. While generally not illegal, the specifics with regard to the legality of web-scraping depends on jurisdictions and the specifics of what you're doing, and so it is also important to be mindful of this. And finally, web-scraping imposes a cost on the website host, and so it is important to reduce this to the extent that it's possible.
 
-That all said, web-scraping is an invaluable source of data. But they are typically a datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principles guide my web-scraping.
+That all said, web-scraping is an invaluable source of data. But they are typically datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principles guide my web-scraping.
 
 1. Avoid it. Try to use an API wherever possible.
 2. Abide by their desires. Some websites have a file 'robots.txt' that contains information about what they are comfortable with scrapers doing, for instance 'https://www.google.com/robots.txt'. If they have one of these then you should read it and abide by it.
@@ -493,9 +485,9 @@ That all said, web-scraping is an invaluable source of data. But they are typica
 ### Getting started
 
 
-Webscraping is possible by taking advantage of the underlying structure of a webpage. We use patterns in the HTML/CSS to get the data that we want. To look at the underlying HTML/CSS you can either: 1) open a browser, right-click, and choose something like 'Inspect'; or 2) save the website and then open it with a text editor rather than a browser.
+Web-scraping is possible by taking advantage of the underlying structure of a webpage. We use patterns in the HTML/CSS to get the data that we want. To look at the underlying HTML/CSS you can either: 1) open a browser, right-click, and choose something like 'Inspect'; or 2) save the website and then open it with a text editor rather than a browser.
 
-HTML/CSS is a markup language comprised of matching tags. So if you want text to be bold then you would use something like:
+HTML/CSS is a markup language comprised of matching tags. If you want text to be bold then you would use something like:
 
 ```{CSS, eval = FALSE, echo = TRUE}
 <b>My bold text</b>
@@ -511,7 +503,7 @@ Similarly, if you want a list then you start and end the list as well as each it
 </ul>
 ```
 
-When webscraping we will search for these tags.
+When scraping we will search for these tags.
 
 To get started, this is some HTML/CSS from my website. Let's say that we want to grab my name from it. We can see that the name is in bold, so we want to probably focus on that feature and extract it.
 
@@ -530,7 +522,7 @@ rohans_data <- read_html(website_extract)
 rohans_data
 ```
 
-The language used by `rvest` to look for tags is 'node', so we will focus on bold nodes. By default `html_nodes()` returns the tags as well. So we can focus on the text that they contain, using `html_text()`.
+The language used by `rvest` to look for tags is 'node', so we will focus on bold nodes. By default `html_nodes()` returns the tags as well. We can focus on the text that they contain, using `html_text()`.
 
 ```{r, eval = TRUE, echo = TRUE}
 rohans_data %>% 
@@ -957,7 +949,7 @@ In contrast to an API, a PDF is usually only produced for human (not computer) c
 - We don't know how the PDF was put together so we don't know whether we can trust it.
 - We can't manipulate the data to get results that we are interested in.
 
-Indeed, sometimes governments publish data as PDFs because they don't actually want you to be able to analyse it! Being able to get data from PDFs opens up a large number of dataset for you, some of which we'll see in this chapter. 
+Indeed, sometimes governments publish data as PDFs because they don't actually want you to be able to analyse it! Being able to get data from PDFs opens up a large number of datasets for you, some of which we'll see in this chapter. 
 
 There are two important aspects to keep in mind when approaching a PDF with a mind to extracting data from it:
 
@@ -1522,7 +1514,7 @@ I now need to clean the dataset to make it useful.
 
 #### Values
 
-The first step is to make the numbers into actual numbers, rather than characters. Before I can convert the type I need to remove anything that is not a number otherwise it'll be converted into an NA. So I first identify any values that are not numbers so that I can remove them. 
+The first step is to make the numbers into actual numbers, rather than characters. Before I can convert the type I need to remove anything that is not a number otherwise it'll be converted into an NA. I first identify any values that are not numbers so that I can remove them. 
 
 ```{r, echo = TRUE}
 # Need to convert male, female, and total to integers
@@ -1671,7 +1663,7 @@ all_tables$age_type <- if_else(str_detect(all_tables$age, c("-")), "age-group", 
 all_tables$age_type <- if_else(str_detect(all_tables$age, c("Total")), "age-group", all_tables$age_type)
 ```
 
-At the moment, age is a character variable. We have a decision to make here, because we don't want it to be a character variable (because it won't graph properly), but we don't want it to be a numeric, because there is `total` and also `100+` in there. So for now, we'll just make it into a factor, and at least that will be able to be nicely graphed.
+At the moment, age is a character variable. We have a decision to make here, because we don't want it to be a character variable (because it won't graph properly), but we don't want it to be a numeric, because there is `total` and also `100+` in there. For now, we'll just make it into a factor, and at least that will be able to be nicely graphed.
 
 ```{r}
 all_tables$age <- as_factor(all_tables$age)
@@ -1872,7 +1864,7 @@ monicas_dataset %>%
 
 ## Optical Character Recognition
 
-All of the above is predicated on having a PDF that is already 'digitized'. But what if it is images? In that case you need to first use Optical Character Recognition (OCR). The go-to package is Tesseract [@citetesseract]. This is a R wrapper around the Tesseract open source OCR engine.
+All of the above is predicated on having a PDF that is already 'digitized'. But what if it is images? In that case you need to first use Optical Character Recognition (OCR). The go-to package is Tesseract [@citetesseract]. This is a R wrapper around the Tesseract open-source OCR engine.
 
 Let's see an example with a scan from the first page of Jane Eyre (Figure \@ref(fig:janescan)).
 
@@ -1884,7 +1876,6 @@ knitr::include_graphics(here::here("figures/jane_scan.png"))
 ```{r}
 # install.packages('tesseract')
 library(tesseract)
-# eng <- tesseract("eng")
 text <- tesseract::ocr(here::here("figures/jane_scan.png"), engine = tesseract("eng"))
 cat(text)
 ```

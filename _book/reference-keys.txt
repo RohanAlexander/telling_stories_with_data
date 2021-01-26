@@ -329,7 +329,7 @@ model-data
 logistic-regression-1
 next-steps-2
 references-1
-regression-essentials
+its-just-a-linear-model
 linear-regression
 introduction-16
 competing-relationships

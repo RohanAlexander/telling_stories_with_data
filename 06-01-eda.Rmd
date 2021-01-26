@@ -12,9 +12,6 @@ output:
 
 # Exploratory data analysis
 
-The `skim` function from the `skimr` package is just a quick way of looking at the data. It can be handy when you get a new dataset to quickly come to terms with it. The p0, p25, p50, etc, values that it provides are percentiles. So for instance, P50 is the 50th percentile which means that 50 per cent of the data are below this, and 50 per cent are above i.e. the median. P0 should be the minimum, and p100 should be the maximum. The middle ones are similarly defined, so p25, means that 25 per cent of the data are below this point and 75 per cent of it is above this point. The general idea of both the percentiles and the histogram is to give you a quick idea of how skewed your data is. 
-
-
 
 **This chapter was written with [Monica Alexander](https://www.monicaalexander.com/).**
 
@@ -22,7 +19,7 @@ The `skim` function from the `skimr` package is just a quick way of looking at t
 
 **Required reading**
 
-- Wickham, Hadley, and Garrett Grolemund, 2017, 'R for Data Science', Chapters 3 and 7, freely available here: https://r4ds.had.co.nz/.
+- Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapters 3 and 7, freely available here: https://r4ds.had.co.nz/.
 
 **Recommended reading**
 
@@ -43,7 +40,7 @@ The `skim` function from the `skimr` package is just a quick way of looking at t
 - `tidyverse`
 - `ggplot2`
 
-**Pre-quiz**
+**Quiz**
 
 - In your own words what is exploratory data analysis?
 - If you have a dataset called 'my_data', which has two columns: 'first_col' and 'second_col', then could you please write some rough R code that would generate a graph (the type of graph doesn't matter).
