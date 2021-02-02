@@ -27,7 +27,7 @@ library(gt)
 
 # Gather data
 
-
+*Last updated: `r format(Sys.time(), "%d %B %Y")`.*
 
 **Recommended reading**
 
@@ -324,9 +324,7 @@ If you use Twitter data, please take a moment to look at the terms: https://deve
 
 ## Case study - spotifyr
 
-For the next example I will introduce the `spotifyr` package [@spotifyr]. Again, this is a wrapper that has been developed around an API, in this case the Spotify API.
-
-https://www.rcharlie.com/spotifyr/
+For the next example I will introduce the `spotifyr` package [@spotifyr]. Again, this is a wrapper that has been developed around an API, in this case the Spotify API. You should install the package from the developer's GitHub repo using `devtools` [@citeDevtools].
 
 ```{r}
 # devtools::install_github('charlie86/spotifyr')

@@ -10,29 +10,26 @@ output:
 
 # It’s Just A Linear Model
 
-## Linear regression
+*Last updated: `r format(Sys.time(), "%d %B %Y")`.*
 
-This chapter is about quantitatively describing a linear relationship. You're meant to have taken an intro stats course, but will I briefly cover the basics. Then we'll get stuck into some data and try to see how much of our understanding holds up.
 
 **Required reading**
 
-(You are welcome to refer to your favourite linear regression textbook instead of these.)
-
-- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, Chapter 3, freely available at: http://faculty.marshall.usc.edu/gareth-james/ISL/.
-- Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, freely available at: https://r4ds.had.co.nz/.
+- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, Chapter 3, https://www.statlearning.com.
+- Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/.
 
 
 **Recommended reading**
 
 - Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 3.4.3.
-- Cunningham, Scott, *Causal Inference: The Mixtape*, Chapters 'Probability theory and statistics review' and 'Properties of Regression', freely available at: http://www.scunning.com/causalinference_norap.pdf.
-- ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', freely available at: https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/.
+- Cunningham, Scott, *Causal Inference: The Mixtape*, Chapters 'Probability theory and statistics review' and 'Properties of Regression', http://www.scunning.com/causalinference_norap.pdf.
+- ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/.
 - Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman. "Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations." European journal of epidemiology 31, no. 4 (2016): 337-350.
 - Ioannidis, John PA, 2005, 'Why most published research findings are false', PLos med 2, no. 8, e124.
 - Ronald L. Wasserstein and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108.
-- Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', freely available at: https://juliasilge.com/blog/salary-gender/.
-- Silge, Julia, 2019, 'Opioid prescribing habits in Texas', freely available at: https://juliasilge.com/blog/texas-opioids/.
-- Silge, Julia, 2019, 'Tidymodels', freely available at: https://juliasilge.com/blog/intro-tidymodels/.
+- Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', https://juliasilge.com/blog/salary-gender/.
+- Silge, Julia, 2019, 'Opioid prescribing habits in Texas', https://juliasilge.com/blog/texas-opioids/.
+- Silge, Julia, 2019, 'Tidymodels', https://juliasilge.com/blog/intro-tidymodels/.
 - Taddy, Matt, 2019, *Business Data Science*, Chapter 2.
 
 
@@ -63,7 +60,7 @@ This chapter is about quantitatively describing a linear relationship. You're me
 
 
 
-**Pre-quiz**
+**Quiz**
 
 - Please write a linear relationship between some response variable, Y, and some predictor, X. What is the intercept term? What is the slope term? What would adding a hat to these indicate?
 - What is the least squares criterion? Similarly, what is RSS and what are we trying to do when we run least squares regression?
@@ -72,26 +69,23 @@ This chapter is about quantitatively describing a linear relationship. You're me
 
 
 
+## Linear regression
 
-
-### Introduction
-
-I am going to follow a combination of ISLR and R4DS. Sometimes the language that is used for specific terms differs over time and between disciplines. For instance, ISLR is written from a machine learning perspective, R4DS is written from a data science perspective, and if you come from a different discipline then the terminology may be slightly different. You're welcome to use whatever you are comfortable with, but here I'll follow ISLR and R4DS.
+### Brief reminder
 
 If we have two variables, $Y$ and $X$, then we could characterise the relationship between these as:
 $$Y \sim \beta_0 + \beta_1 X.$$
 
-There are two coefficients/parameters, and the intercept is $\beta_0$, the slope is $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. 
+There are two coefficients/parameters: the 'intercept' is $\beta_0$, and the 'slope' is $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. 
 
 We may then take this relationship to the data that we have about the relationship in order to estimate these coefficients for those particular values that we have:
 $$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x.$$
 
-
-### Competing relationships
+We are saying this is a linear regression because we assume that if $x$ doubles then $y$ would also double.
 
 I want to focus on data, so we'll make this example concrete, by generating some data and then discussing everything in the context of that. The example will be looking at someone's time for running five kilometers, compared with their time for running a marathon. 
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 library(tidyverse)
 set.seed(853)
 number_of_observations <- 100
@@ -108,35 +102,16 @@ running_data <-
 running_data %>% 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() +
-  labs(x = "Five km time (minutes)",
+  labs(x = "Five-kilometer time (minutes)",
        y = "Marathon time (minutes)") +
   theme_classic()
 ```
 
 In this set-up we may like to use $x$, which is the five-kilometer time, to produce estimates of $y$, which is the marathon time. This would involve also estimating values of $\beta_0$ and $\beta_1$, which is why they have a hat on them.
 
-But how should we estimate the coefficients? Even if we impose a linear relationship there are a lot of options, but here are some:
+But how should we estimate the coefficients? Even if we impose a linear relationship there are a lot of options (how many straight lines can you fit on a piece of paper?). But clearly some of the fits are not all that great. 
 
-```{r}
-# This great idea of showing some possible fits is from Wickham, Hadley, and Garrett Grolemund, 2017.
-set.seed(853)
-models <- tibble(
-  a1 = runif(750, -40, 400),
-  a2 = runif(750, -16, 16)
-  )
-
-ggplot() + 
-  geom_abline(data = models, 
-              aes(intercept = a1, slope = a2), 
-              alpha = 1/4) +
-  geom_point(data = running_data, aes(x = five_km_time, 
-                                      y = marathon_time)) +
-  labs(x = "five-kilometer time (minutes)",
-       y = "Marathon time (minutes)") +
-  theme_classic()
-```
-
-Clearly some of these fits are not all that great. One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. One way is to choose the one that minimises the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
+One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. One way is to choose the one that minimises the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
 $$ e_i = y_i - \hat{y}_i.$$
 
 The residual sum of squares (RSS) then requires summing across all the points:
@@ -147,15 +122,20 @@ This results in one 'linear best-fit' line, but it is worth thinking about all o
 running_data %>% 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() + 
-  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") +
-  labs(x = "five-kilometer time (minutes)",
+  geom_smooth(method = "lm", 
+              se = FALSE, 
+              color = "black", 
+              linetype = "dashed",
+              formula = 'y ~ x') +
+  labs(x = "Five-kilometer time (minutes)",
        y = "Marathon time (minutes)") +
   theme_classic()
 ```
 
 With the least squares criterion we want the values of $\hat{\beta}_0$ and $\hat{\beta}_1$ that result in the smallest RSS.
 
-### Implementing this in R
+
+### Implementing it in R
 
 Within R, the main function for doing linear regression is `lm`. This is included in base R, so you don't need to call any packages, but in a moment we will call a bunch of packages that will surround `lm` within an environment that we are more familiar with. You specify the relationship with the dependent variable first, then `~`, then the independent variables. Finally, you should specify the dataset (or you could pipe to it as usual).
 
@@ -228,12 +208,10 @@ ggplot(running_data, aes(five_km_time, .resid)) +
   geom_hline(yintercept = 0, linetype = "dotted", color = "grey") +
   theme_classic() +
   labs(y = "Residuals",
-       x = "five-kilometer time (minutes)")
+       x = "Five-kilometer time (minutes)")
 ```
 
 When we say our estimate is unbiased we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. (A pro hockey player may sometimes shoot right of the net, and sometimes left of the net, but we'd hope that on average they'd be right in the middle of the net ;)).
-
-**TODO: Add my favourite graph**
 
 But we want to try to speak to the 'true' relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyse. And this is where standard error comes in. It tells us how off our estimate is compared with the actual. 
 
@@ -243,8 +221,12 @@ From standard errors, we can compute a confidence interval. A 95 per cent confid
 running_data %>% 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() + 
-  geom_smooth(method = "lm", se = TRUE, color = "black", linetype = "dashed") +
-  labs(x = "five-kilometer time (minutes)",
+  geom_smooth(method = "lm", 
+              se = TRUE, 
+              color = "black", 
+              linetype = "dashed",
+              formula = 'y ~ x') +
+  labs(x = "Five-kilometer time (minutes)",
        y = "Marathon time (minutes)") +
   theme_classic()
 ```
@@ -269,13 +251,13 @@ To this point we've just considered one explanatory variable. But we'll usually 
 
 > This slightly counterintuitive result is very common in many real life situations. Consider an absurd example to illustrate the point. Running a regression of shark attacks versus ice cream sales for data collected at a given beach community over a period of time would show a positive relationship, similar to that seen between sales and newspapers. Of course no one (yet) has suggested that ice creams should be banned at beaches to reduce shark attacks. In reality, higher temperatures cause more people to visit the beach, which in turn results in more ice cream sales and mores hark attacks. A multiple regression of attacks versus ice cream sales and temperature reveals that, as intuition implies, the former predictor is no longer significant after adjusting for temperature.
 >
-> James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, p. 74.
+> [@islr, p. 74].
 
 We may also like to consider variables that do not have an inherent ordering. For instance, pregnant or not. When there are only two options then we can use a binary variable which is 0 or 1. If there are more than two levels then use a combination of binary variables, where the 'missing' outcome (baseline) gets pushed onto the intercept.
 
 In other languages you may need to explicitly construct dummy variables, but as R was designed as a language to do statistical programming, it does a lot of the work here for you and is fairly forgiving. For instance, if you have a column of character values that only had two values: `c("Monica", "Rohan", "Rohan", "Monica", "Monica", "Rohan")`, and you used this as a independent variable in your usual regression set up then R would treat it as a dummy variable.
 
-```{r, include = TRUE, eval = FALSE}
+```{r, include = TRUE}
 running_data_rain_model <- lm(marathon_time ~ five_km_time + was_raining, 
                                data = running_data)
 summary(running_data_rain_model)
@@ -305,7 +287,7 @@ Source: By [Kai Arzheimer](https://twitter.com/kai_arzheimer/status/122899871864
 
 ### Threats to validity and aspects to think about 
 
-There are a variety of weaknesses and aspects that you should discuss when you use linear regression. A quick list includes (James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, p. 92):
+There are a variety of weaknesses and aspects that you should discuss when you use linear regression. A quick list includes [@islr, p. 92]:
 
 1. Non-linearity of the response-predictor relationships.
 2. Correlation of error terms.
@@ -314,7 +296,7 @@ There are a variety of weaknesses and aspects that you should discuss when you u
 5. High-leverage points.
 6. Collinearity
 
-These are also aspects that you should discuss if you use linear regression. Including plots tends to be handy here to illustrate your points. Other aspects that you may consider discussing include (James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, p. 75):
+These are also aspects that you should discuss if you use linear regression. Including plots tends to be handy here to illustrate your points. Other aspects that you may consider discussing include [@islr, p. 75]:
 
 1. Is at least one of the predictors $X_1, X_2, \dots, X_p$ useful in predicting the response?
 2. Do all the predictors help to explain $Y$, or is only a subset of the predictors useful?
@@ -325,11 +307,65 @@ These are also aspects that you should discuss if you use linear regression. Inc
 
 ### More credible outputs
 
-Finally, after creating beautiful graphs and tables you may want your regression output to look just as nice. There are a variety of packages in R that will automatically format your regression outputs. You should try `huxtable`.
+Finally, after creating beautiful graphs and tables you may want your regression output to look just as nice. There are a variety of packages in R that will automatically format your regression outputs. One that is particuarly nice is `huxtable` [@citehuxtable].
 
 ```{r, warning = FALSE, message = FALSE}
-# library(huxtable)
-# huxreg(running_data_first_model)
+library(huxtable)
+huxreg(running_data_first_model, running_data_rain_model)
+```
+
+
+
+### Tidymodels
+
+The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There's nothing wrong with that. And that's the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.
+
+`Tidymodels` [@citeTidymodels] is what all the cool kids are using these days. It's an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they've crashed and burned, but hopefully this time is different.) The issue is that lets say you want to run a simple linear regression and then run a random forest. The language that you'd use to code these models is fairly different. `Tidymodels` is the latest attempt to bring a coherent grammar to this. It's also a package of packages.
+
+We'll create test and training datasets.
+
+```{r}
+set.seed(853)
+library(tidymodels)
+
+running_data_split <- rsample::initial_split(running_data, prop = 0.80)
+running_data_split
+```
+
+So we have 81 points in our training set, 19 in our test set and 100 in total.
+
+We can then make datasets for the test and training samples.
+
+```{r}
+running_data_train <- rsample::training(running_data_split)
+running_data_test  <-  rsample::testing(running_data_split)
+```
+
+If we have a look at the dataset that we made we can see that it's got fewer rows. We could have reached the same outcome with something like:
+
+```{r}
+running_data <- 
+  running_data %>% 
+  mutate(magic_number = sample(x = c(1:nrow(running_data)), size = nrow(running_data), replace = FALSE))
+
+running_data_test <- 
+  running_data %>% 
+  filter(magic_number <= 20)
+
+running_data_train <- 
+  running_data %>% 
+  filter(magic_number > 20)
+```
+
+
+
+```{r}
+first_go <- 
+  parsnip::linear_reg() %>%
+  parsnip::set_engine(engine = "lm") %>% 
+  parsnip::fit(marathon_time ~ five_km_time + was_raining, 
+               data = running_data_train
+               )
 ```
 
 
@@ -338,12 +374,13 @@ Finally, after creating beautiful graphs and tables you may want your regression
 
 
 
-<!-- The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There's nothing wrong with that. And that's the way that most people get started, but you may want to take an approach that scales more easily. -->
 
 
+### Bayesian approaches
 
+The `tidymodels` will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the role of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly.
 
-
+There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to `R`, which is designed for more general statistical computing. We will use Stan in these notes within the context of our familiar R environment.
 
 
 
@@ -435,15 +472,15 @@ asdf
 
 <!-- **Recommended reading** -->
 
-<!-- - Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', freely available at: https://www.kaylinpavlik.com/classifying-songs-genres/. -->
-<!-- - Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', freely available at: https://www.kaylinpavlik.com/dog-names-tfidf/. -->
-<!-- - Silge, Julia, 2020, '#TidyTuesday hotel bookings and recipes', freely available at: https://juliasilge.com/blog/hotels-recipes/. -->
-<!-- - Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', freely available at: https://juliasilge.com/blog/food-hyperparameter-tune/.  -->
+<!-- - Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', https://www.kaylinpavlik.com/classifying-songs-genres/. -->
+<!-- - Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', https://www.kaylinpavlik.com/dog-names-tfidf/. -->
+<!-- - Silge, Julia, 2020, '#TidyTuesday hotel bookings and recipes', https://juliasilge.com/blog/hotels-recipes/. -->
+<!-- - Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', https://juliasilge.com/blog/food-hyperparameter-tune/.  -->
 <!-- - Taddy, Matt, 2019, *Business Data Science*, Chapter 4. -->
 
 <!-- **Fun reading!** -->
 
-<!-- - Chellel, Kit, 2018, 'The Gambler Who Cracked the Horse-Racing Code', *Bloomberg Businessweek*, 3 May, freely available at: https://www.bloomberg.com/news/features/2018-05-03/the-gambler-who-cracked-the-horse-racing-code. -->
+<!-- - Chellel, Kit, 2018, 'The Gambler Who Cracked the Horse-Racing Code', *Bloomberg Businessweek*, 3 May, https://www.bloomberg.com/news/features/2018-05-03/the-gambler-who-cracked-the-horse-racing-code. -->
 
 
 <!-- **Key concepts/skills/etc** -->

@@ -24,7 +24,7 @@
 <meta name="author" content="Rohan Alexander" />
 
 
-<meta name="date" content="2021-01-25" />
+<meta name="date" content="2021-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="difference-in-differences.html"/>
 <link rel="next" href="regression-discontinuity-design.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,17 +51,16 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
 <script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
 <script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
 <script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
@@ -77,18 +77,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -108,7 +107,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -158,11 +157,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>I Essentials</b></span></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
 <li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
 <li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
@@ -170,30 +171,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a><ul>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
-<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a><ul>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
 <li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
 <li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a><ul>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a><ul>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
 <li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
-<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a><ul>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
 <li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
 <li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a><ul>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
 <li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
 <li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
@@ -204,16 +211,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
 <li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a><ul>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
 <li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a><ul>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
 <li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a><ul>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
 <li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
 <li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
@@ -223,9 +233,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
 <li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
 <li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
@@ -234,14 +246,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
-<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
 <li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
 <li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
 <li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a><ul>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
 <li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
@@ -251,27 +265,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
 </ul></li>
 <li class="part"><span><b>II Communicate</b></span></li>
-<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a><ul>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a><ul>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
 <li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
 <li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
-<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a><ul>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
 <li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a><ul>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
 <li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
 <li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
 <li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a><ul>
-<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a><ul>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
 <li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
 <li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
@@ -284,38 +304,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
 </ul></li>
 <li class="part"><span><b>III Hunt gather and farm</b></span></li>
-<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a><ul>
+<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a></li>
 <li class="chapter" data-level="7.2" data-path="gather-data.html"><a href="gather-data.html#case-study---arxiv"><i class="fa fa-check"></i><b>7.2</b> Case study - arXiv</a></li>
 <li class="chapter" data-level="7.3" data-path="gather-data.html"><a href="gather-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.3</b> Case study - rtweet</a></li>
 <li class="chapter" data-level="7.4" data-path="gather-data.html"><a href="gather-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.4</b> Case study - spotifyr</a></li>
-<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a><ul>
+<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="gather-data.html"><a href="gather-data.html#introduction-6"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.5.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.5.2</b> Getting started</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a><ul>
+<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="gather-data.html"><a href="gather-data.html#introduction-7"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.6.2" data-path="gather-data.html"><a href="gather-data.html#gather"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
 <li class="chapter" data-level="7.6.3" data-path="gather-data.html"><a href="gather-data.html#clean"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
 <li class="chapter" data-level="7.6.4" data-path="gather-data.html"><a href="gather-data.html#explore"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a><ul>
+<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a>
+<ul>
 <li class="chapter" data-level="7.7.1" data-path="gather-data.html"><a href="gather-data.html#introduction-8"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.7.2" data-path="gather-data.html"><a href="gather-data.html#gather-1"><i class="fa fa-check"></i><b>7.7.2</b> Gather</a></li>
 <li class="chapter" data-level="7.7.3" data-path="gather-data.html"><a href="gather-data.html#clean-1"><i class="fa fa-check"></i><b>7.7.3</b> Clean</a></li>
 <li class="chapter" data-level="7.7.4" data-path="gather-data.html"><a href="gather-data.html#explore-1"><i class="fa fa-check"></i><b>7.7.4</b> Explore</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a><ul>
+<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="gather-data.html"><a href="gather-data.html#introduction-9"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.8.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.8.2</b> Getting started</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a><ul>
+<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="gather-data.html"><a href="gather-data.html#introduction-10"><i class="fa fa-check"></i><b>7.9.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.9.2" data-path="gather-data.html"><a href="gather-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.9.2</b> Begin with an end in mind</a></li>
 <li class="chapter" data-level="7.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.9.3</b> Start simple, then iterate.</a></li>
 <li class="chapter" data-level="7.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>7.9.4</b> Iterating</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a><ul>
+<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>7.10.1</b> Set-up</a></li>
 <li class="chapter" data-level="7.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>7.10.2</b> Extract</a></li>
 <li class="chapter" data-level="7.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>7.10.3</b> Clean</a></li>
@@ -324,14 +351,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.10.6</b> Make Monica’s dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.11</b> Optical Character Recognition</a></li>
-<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a><ul>
+<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>7.12.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.12.2</b> Getting text data</a></li>
 <li class="chapter" data-level="7.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.12.3</b> Preparing text datasets</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a><ul>
-<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a><ul>
+<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-12"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.1.2" data-path="hunt-data.html"><a href="hunt-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
 <li class="chapter" data-level="8.1.3" data-path="hunt-data.html"><a href="hunt-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
@@ -342,33 +372,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
 <li class="chapter" data-level="8.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
 <li class="chapter" data-level="8.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>8.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
-<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.6</b> A/B testing</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.6.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.6.2" data-path="hunt-data.html"><a href="hunt-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.6.2</b> Unique complications of A/B testing</a></li>
+<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>8.6</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.7</b> A/B testing</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.7.2</b> Unique complications of A/B testing</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.7</b> Case study - Upworthy</a></li>
-<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.8</b> Sampling and survey essentials</a><ul>
-<li class="chapter" data-level="8.8.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.8.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.8.2</b> Simple random sampling</a></li>
-<li class="chapter" data-level="8.8.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.8.3</b> Stratified and cluster sampling</a></li>
+<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.8</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.9</b> Sampling and survey essentials</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.9.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.9.3</b> Stratified and cluster sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.9</b> Implementing surveys</a><ul>
-<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.9.1</b> Google</a></li>
-<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.9.2</b> Facebook</a></li>
-<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.9.3</b> Survey Monkey</a></li>
-<li class="chapter" data-level="8.9.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.9.4</b> Mechanical Turk</a></li>
-<li class="chapter" data-level="8.9.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.9.5</b> Prolific</a></li>
-<li class="chapter" data-level="8.9.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.9.6</b> Qualtrics</a></li>
-<li class="chapter" data-level="8.9.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.9.7</b> Other</a></li>
+<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.10</b> Implementing surveys</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.10.1</b> Google</a></li>
+<li class="chapter" data-level="8.10.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.10.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.10.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.10.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.10.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.10.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.10.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.10.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.10.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.10.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.10.7</b> Other</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.10</b> Next steps</a></li>
+<li class="chapter" data-level="8.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.11</b> Next steps</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a><ul>
-<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a><ul>
+<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a>
+<ul>
 <li class="chapter" data-level="9.1.1" data-path="farm-data.html"><a href="farm-data.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
 <li class="chapter" data-level="9.1.2" data-path="farm-data.html"><a href="farm-data.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a><ul>
+<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="farm-data.html"><a href="farm-data.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
 <li class="chapter" data-level="9.2.2" data-path="farm-data.html"><a href="farm-data.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
 </ul></li>
@@ -378,12 +415,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
 <li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
 <li class="part"><span><b>V Model</b></span></li>
-<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
 <li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
 <li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
-<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a><ul>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a>
+<ul>
 <li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
 <li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
 <li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
@@ -393,51 +432,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
 </ul></li>
 <li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
-<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a><ul>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a>
+<ul>
 <li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
 <li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
 <li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
-<li class="chapter" data-level="13.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.9</b> Case study - Airbnb listing in Toronto</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.9.1</b> Essentials</a></li>
-<li class="chapter" data-level="13.9.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.9.2</b> Set up</a></li>
-<li class="chapter" data-level="13.9.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.9.3</b> Get data</a></li>
-<li class="chapter" data-level="13.9.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.9.4</b> Clean data</a></li>
-<li class="chapter" data-level="13.9.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.9.5</b> Explore data</a></li>
-<li class="chapter" data-level="13.9.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.9.6</b> Model data</a></li>
-<li class="chapter" data-level="13.9.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#next-steps-2"><i class="fa fa-check"></i><b>13.9.7</b> Next steps</a></li>
-<li class="chapter" data-level="13.9.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#references-1"><i class="fa fa-check"></i><b>13.9.8</b> References</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a><ul>
-<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#introduction-16"><i class="fa fa-check"></i><b>14.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#competing-relationships"><i class="fa fa-check"></i><b>14.1.2</b> Competing relationships</a></li>
-<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementing-this-in-r"><i class="fa fa-check"></i><b>14.1.3</b> Implementing this in R</a></li>
-<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.4</b> Tidy up with broom</a></li>
-<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.5</b> Testing hypothesis</a></li>
-<li class="chapter" data-level="14.1.6" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.6</b> Adding more and varied explanatory variables</a></li>
-<li class="chapter" data-level="14.1.7" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.7</b> Threats to validity and aspects to think about</a></li>
-<li class="chapter" data-level="14.1.8" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.8</b> More credible outputs</a></li>
+<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#brief-reminder"><i class="fa fa-check"></i><b>14.1.1</b> Brief reminder</a></li>
+<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementing-it-in-r"><i class="fa fa-check"></i><b>14.1.2</b> Implementing it in R</a></li>
+<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.3</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.4</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.5</b> Adding more and varied explanatory variables</a></li>
+<li class="chapter" data-level="14.1.6" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.6</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.1.7" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.7</b> More credible outputs</a></li>
+<li class="chapter" data-level="14.1.8" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidymodels"><i class="fa fa-check"></i><b>14.1.8</b> Tidymodels</a></li>
+<li class="chapter" data-level="14.1.9" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#bayesian-approaches"><i class="fa fa-check"></i><b>14.1.9</b> Bayesian approaches</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
-<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
 <li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a><ul>
-<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-17"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
-<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-16"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-17"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
 <li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
 <li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
 <li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a><ul>
-<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-19"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
 <li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
 <li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
@@ -446,13 +483,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a><ul>
-<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-20"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-19"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 <li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
 <li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
 <li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
 <li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
-<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a><ul>
+<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a>
+<ul>
 <li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
 <li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
 <li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
@@ -460,13 +499,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a><ul>
-<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-21"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a><ul>
+<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-20"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a><ul>
+<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a>
+<ul>
 <li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
 <li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
 </ul></li>
@@ -477,11 +519,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
 <li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a><ul>
-<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a><ul>
-<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
 <li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
 <li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
@@ -490,10 +534,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
 <li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a><ul>
-<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-24"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
 <li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
-<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a><ul>
+<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-1"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
 <li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
 <li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
@@ -503,38 +549,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>VI Scale</b></span></li>
-<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a><ul>
-<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-25"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
 <li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
 <li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
 <li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
 <li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a><ul>
-<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
-<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a><ul>
-<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a><ul>
+<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a>
+<ul>
 <li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
 <li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
 <li class="chapter" data-level="23.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>23.1.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a><ul>
+<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a>
+<ul>
 <li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
 <li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a><ul>
+<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
 <li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a><ul>
+<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a>
+<ul>
 <li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
 <li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
@@ -542,32 +595,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
 <li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a><ul>
+<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a>
+<ul>
 <li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
 <li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a><ul>
+<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a>
+<ul>
 <li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
 <li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a><ul>
+<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a>
+<ul>
 <li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
 <li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a><ul>
+<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a>
+<ul>
 <li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
 <li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -585,21 +642,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="instrumental-variables" class="section level1">
+<div id="instrumental-variables" class="section level1" number="16">
 <h1><span class="header-section-number">Chapter 16</span> Instrumental variables</h1>
 <p><strong>Required reading</strong></p>
 <ul>
-<li>Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, ‘Impact Evaluation in Practice’, Chapter 5.</li>
+<li>Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, ‘Impact Evaluation in Practice,’ Chapter 5.</li>
 </ul>
 <p><strong>Required viewing</strong></p>
 <ul>
-<li>Kuriwaki, Shiro, 2020, ‘Instrumental variables in R’, 11 April, freely available at: <a href="https://vimeo.com/406629459" class="uri">https://vimeo.com/406629459</a>.</li>
+<li>Kuriwaki, Shiro, 2020, ‘Instrumental variables in R,’ 11 April, freely available at: <a href="https://vimeo.com/406629459" class="uri">https://vimeo.com/406629459</a>.</li>
 </ul>
 <p><strong>Recommended reading</strong></p>
 <ul>
 <li>Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, <em>Mostly harmless econometrics: An empiricist’s companion</em>, Princeton University Press, Chapter 4.</li>
-<li>Cunningham, Scott, ‘Causal Inference: The Mixtape’, Chapter ‘Instrumental variables’, freely available at: <a href="http://www.scunning.com/causalinference_norap.pdf" class="uri">http://www.scunning.com/causalinference_norap.pdf</a>.</li>
-<li>Grogger, Jeffrey, Andreas Steinmayr, Joachim Winter, 2020, ‘The Wage Penalty of Regional Accents’, NBER Working Paper No. 26719.</li>
+<li>Cunningham, Scott, ‘Causal Inference: The Mixtape,’ Chapter ‘Instrumental variables,’ freely available at: <a href="http://www.scunning.com/causalinference_norap.pdf" class="uri">http://www.scunning.com/causalinference_norap.pdf</a>.</li>
+<li>Grogger, Jeffrey, Andreas Steinmayr, Joachim Winter, 2020, ‘The Wage Penalty of Regional Accents,’ NBER Working Paper No. 26719.</li>
 <li>Taddy, Matt, 2019, <em>Business Data Science</em>, Chapter 5, pp. 152-162.</li>
 </ul>
 <!-- https://declaredesign.org/blog/2019-02-05-instrumental-variables.html -->
@@ -627,7 +684,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Who were some of the early instrumental variable authors?</li>
 <li>Can you please think of and explain an application of instrumental variables in your own life?</li>
 </ul>
-<div id="introduction-20" class="section level2">
+<div id="introduction-19" class="section level2" number="16.1">
 <h2><span class="header-section-number">16.1</span> Introduction</h2>
 <p>Instrumental variables (IV) is an approach that can be handy when we have some type of treatment and control going on, but we have a lot of correlation with other variables and we possibly don’t have a variable that actually measures what we are interested in. So adjusting for observables will not be enough to create a good estimate. Instead we find some variable - the eponymous instrumental variable - that is:</p>
 <ol style="list-style-type: decimal">
@@ -636,80 +693,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>This solves our problem because the only way the instrumental variable can have an effect is through the treatment variable, and so we are able to adjust our understanding of the effect of the treatment variable appropriately. The trade-off is that instrumental variables must satisfy a bunch of different assumptions, and that, frankly, they are difficult to identify <em>ex ante</em>. Nonetheless, when you are able to use them they are a powerful tool for speaking about causality.</p>
 <p>The canonical instrumental variables example is smoking. These days we know that smoking causes cancer. But because smoking is correlated with a lot of other variables, for instance, education, it could be that it was actually education that causes cancer. RCTs may be possible, but they are likely to be troublesome in terms of speed and ethics, and so instead we look for some other variable that is correlated with smoking, but not, in and of itself, with lung cancer. In this case, we look to tax rates, and other policy responses, on cigarettes. As the tax rates on cigarettes are correlated with the number of cigarettes that are smoked, but not correlated with lung cancer, other than through their impact on cigarette smoking, through them we can assess the effect of cigarettes smoked on lung cancer.</p>
-<p>To implement instrumental variables we first regress tax rates on cigarette smoking to get some coefficient on the instrumental variable, and then (in a separate regression) regress tax rates on lung cancer to again get some coefficient on the instrumental variable. Our estimate is then the ratio of these coefficients. <span class="citation">(Gelman and Hill <a href="#ref-gelmanandhill" role="doc-biblioref">2007</a>, 219)</span> describe this ratio as the ‘Wald estimate’.</p>
-<p>Following the language of <span class="citation">(Gelman and Hill <a href="#ref-gelmanandhill" role="doc-biblioref">2007</a>, 216)</span> when we use instrumental variables we make a variety of assumptions including:</p>
+<p>To implement instrumental variables we first regress tax rates on cigarette smoking to get some coefficient on the instrumental variable, and then (in a separate regression) regress tax rates on lung cancer to again get some coefficient on the instrumental variable. Our estimate is then the ratio of these coefficients. <span class="citation">(<a href="references-1.html#ref-gelmanandhill" role="doc-biblioref">Gelman and Hill 2007, 219</a>)</span> describe this ratio as the ‘Wald estimate.’</p>
+<p>Following the language of <span class="citation">(<a href="references-1.html#ref-gelmanandhill" role="doc-biblioref">Gelman and Hill 2007, 216</a>)</span> when we use instrumental variables we make a variety of assumptions including:</p>
 <ul>
 <li>Ignorability of the instrument.</li>
 <li>Correlation between the instrumental variable and the treatment variable.</li>
 <li>Monotonicity.</li>
 <li>Exclusion restriction.</li>
 </ul>
-<p>To summarise exactly what instrumental variables is about, I cannot do better than recommend the first few pages of the ‘Instrumental Variables’ chapter in <span class="citation">Cunningham (<a href="#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span>, and this key paragraph in particular (by way of background, Cunningham has explained why it would have been impossible to randomly allocate ‘clean’ and ‘dirty’ water through a randomised controlled trial and then continues…):</p>
+<p>To summarise exactly what instrumental variables is about, I cannot do better than recommend the first few pages of the ‘Instrumental Variables’ chapter in <span class="citation"><a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">Cunningham</a> (<a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span>, and this key paragraph in particular (by way of background, Cunningham has explained why it would have been impossible to randomly allocate ‘clean’ and ‘dirty’ water through a randomised controlled trial and then continues…):</p>
 <blockquote>
 <p>Snow would need a way to trick the data such that the allocation of clean and dirty water to people was not associated with the other determinants of cholera mortality, such as hygiene and poverty. He just would need for someone or something to be making this treatment assignment for him.</p>
 <p>Fortunately for Snow, and the rest of London, that someone or something existed. In the London of the 1800s, there were many different water companies serving different areas of the city. Some were served by more than one company. Several took their water from the Thames, which was heavily polluted by sewage. The service areas of such companies had much higher rates of cholera. The Chelsea water company was an exception, but it had an exceptionally good filtration system. That’s when Snow had a major insight. In 1849, Lambeth water company moved the intake point upstream along the Thames, above the main sewage discharge point, giving its customers purer water. Southwark and Vauxhall water company, on the other hand, left their intake point downstream from where the sewage discharged. Insofar as the kinds of people that each company serviced were approximately the same, then comparing the cholera rates between the two houses could be the experiment that Snow so desperately needed to test his hypothesis.</p>
 </blockquote>
 </div>
-<div id="history" class="section level2">
+<div id="history" class="section level2" number="16.2">
 <h2><span class="header-section-number">16.2</span> History</h2>
-<p>The history of instrumental variables is a rare statistical mystery, and <span class="citation">Stock and Trebbi (<a href="#ref-stock2003retrospectives" role="doc-biblioref">2003</a>)</span> provide a brief overview. The method was first published in <span class="citation">Wright (<a href="#ref-wright1928tariff" role="doc-biblioref">1928</a>)</span>. This is a book about the effect of tariffs on animal and vegetable oil. So why might instrumental variables be important in a book about tariffs on animal and vegetable oil? The fundamental problem is that the effect of tariffs depends on both supply and demand. But we only know prices and quantities, so we don’t know what is driving the effect. We can use instrumental variables to pin down causality.</p>
-<p>Where is gets interesting, and becomes something of a mystery, is that the instrumental variables discussion is only in Appendix B. If you made a major statistical break-through would you hide it in an appendix? Further, Philip G. Wright, the book’s author, had a son Sewall Wright, who had considerable expertise in statistics and the specific method used in Appendix B. Hence the mystery of Appendix B - did Philip or Sewall write it? Both <span class="citation">Cunningham (<a href="#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span> and <span class="citation">Stock and Trebbi (<a href="#ref-stock2003retrospectives" role="doc-biblioref">2003</a>)</span> go into more detail, but on balance feel that it is likely that Philip did actually author the work.</p>
+<p>The history of instrumental variables is a rare statistical mystery, and <span class="citation"><a href="references-1.html#ref-stock2003retrospectives" role="doc-biblioref">Stock and Trebbi</a> (<a href="references-1.html#ref-stock2003retrospectives" role="doc-biblioref">2003</a>)</span> provide a brief overview. The method was first published in <span class="citation"><a href="references-1.html#ref-wright1928tariff" role="doc-biblioref">Wright</a> (<a href="references-1.html#ref-wright1928tariff" role="doc-biblioref">1928</a>)</span>. This is a book about the effect of tariffs on animal and vegetable oil. So why might instrumental variables be important in a book about tariffs on animal and vegetable oil? The fundamental problem is that the effect of tariffs depends on both supply and demand. But we only know prices and quantities, so we don’t know what is driving the effect. We can use instrumental variables to pin down causality.</p>
+<p>Where is gets interesting, and becomes something of a mystery, is that the instrumental variables discussion is only in Appendix B. If you made a major statistical break-through would you hide it in an appendix? Further, Philip G. Wright, the book’s author, had a son Sewall Wright, who had considerable expertise in statistics and the specific method used in Appendix B. Hence the mystery of Appendix B - did Philip or Sewall write it? Both <span class="citation"><a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">Cunningham</a> (<a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span> and <span class="citation"><a href="references-1.html#ref-stock2003retrospectives" role="doc-biblioref">Stock and Trebbi</a> (<a href="references-1.html#ref-stock2003retrospectives" role="doc-biblioref">2003</a>)</span> go into more detail, but on balance feel that it is likely that Philip did actually author the work.</p>
 </div>
-<div id="simulated-example-1" class="section level2">
+<div id="simulated-example-1" class="section level2" number="16.3">
 <h2><span class="header-section-number">16.3</span> Simulated example</h2>
 <p>Let’s generate some data. We will explore a simulation related to the canonical example of health status, smoking, and tax rates. So we are looking to explain how healthy someone is based on the amount they smoke, via the tax rate on smoking. We are going to generate different tax rates by provinces. My understanding is that the tax rate on cigarettes is now pretty much the same in each of the provinces, but that this is fairly recent. So we’ll pretend that Alberta had a low tax, and Nova Scotia had a high tax.</p>
 <!-- We first want a count for the number of cigarettes that a person smokes. The Poisson distribution can provide a distribution over the integers, so we'll sample from that.  -->
 <p>As a reminder, we are simulating data for illustrative purposes, so we need to impose the answer that we want. When you actually use instrumental variables you will be reversing the process.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="instrumental-variables.html#cb643-1"></a><span class="kw">library</span>(broom)</span>
-<span id="cb643-2"><a href="instrumental-variables.html#cb643-2"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb643-3"><a href="instrumental-variables.html#cb643-3"></a></span>
-<span id="cb643-4"><a href="instrumental-variables.html#cb643-4"></a><span class="kw">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb643-5"><a href="instrumental-variables.html#cb643-5"></a></span>
-<span id="cb643-6"><a href="instrumental-variables.html#cb643-6"></a>number_of_observation &lt;-<span class="st"> </span><span class="dv">10000</span></span>
-<span id="cb643-7"><a href="instrumental-variables.html#cb643-7"></a></span>
-<span id="cb643-8"><a href="instrumental-variables.html#cb643-8"></a>iv_example_data &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">person =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>number_of_observation),</span>
-<span id="cb643-9"><a href="instrumental-variables.html#cb643-9"></a>                          <span class="dt">smoker =</span> <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>),</span>
-<span id="cb643-10"><a href="instrumental-variables.html#cb643-10"></a>                                          <span class="dt">size =</span> number_of_observation, </span>
-<span id="cb643-11"><a href="instrumental-variables.html#cb643-11"></a>                                          <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb643-12"><a href="instrumental-variables.html#cb643-12"></a>                          )</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="instrumental-variables.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb547-2"><a href="instrumental-variables.html#cb547-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb547-3"><a href="instrumental-variables.html#cb547-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-4"><a href="instrumental-variables.html#cb547-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb547-5"><a href="instrumental-variables.html#cb547-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-6"><a href="instrumental-variables.html#cb547-6" aria-hidden="true" tabindex="-1"></a>number_of_observation <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb547-7"><a href="instrumental-variables.html#cb547-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-8"><a href="instrumental-variables.html#cb547-8" aria-hidden="true" tabindex="-1"></a>iv_example_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>number_of_observation),</span>
+<span id="cb547-9"><a href="instrumental-variables.html#cb547-9" aria-hidden="true" tabindex="-1"></a>                          <span class="at">smoker =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>),</span>
+<span id="cb547-10"><a href="instrumental-variables.html#cb547-10" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">size =</span> number_of_observation, </span>
+<span id="cb547-11"><a href="instrumental-variables.html#cb547-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb547-12"><a href="instrumental-variables.html#cb547-12" aria-hidden="true" tabindex="-1"></a>                          )</span></code></pre></div>
 <p>Now we need to relate the number of cigarettes that someone smoked to their health. We’ll model health status as a draw from the normal distribution, with either a high or low mean depending on whether the person smokes.</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="instrumental-variables.html#cb644-1"></a>iv_example_data &lt;-<span class="st"> </span></span>
-<span id="cb644-2"><a href="instrumental-variables.html#cb644-2"></a><span class="st">  </span>iv_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb644-3"><a href="instrumental-variables.html#cb644-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">health =</span> <span class="kw">if_else</span>(smoker <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</span>
-<span id="cb644-4"><a href="instrumental-variables.html#cb644-4"></a>                          <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">mean =</span> <span class="dv">1</span>, <span class="dt">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb644-5"><a href="instrumental-variables.html#cb644-5"></a>                          <span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb644-6"><a href="instrumental-variables.html#cb644-6"></a>                          )</span>
-<span id="cb644-7"><a href="instrumental-variables.html#cb644-7"></a>         )</span>
-<span id="cb644-8"><a href="instrumental-variables.html#cb644-8"></a><span class="co"># So health will be one standard deviation higher for people who don&#39;t or barely smoke.</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="instrumental-variables.html#cb548-1" aria-hidden="true" tabindex="-1"></a>iv_example_data <span class="ot">&lt;-</span> </span>
+<span id="cb548-2"><a href="instrumental-variables.html#cb548-2" aria-hidden="true" tabindex="-1"></a>  iv_example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb548-3"><a href="instrumental-variables.html#cb548-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">health =</span> <span class="fu">if_else</span>(smoker <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb548-4"><a href="instrumental-variables.html#cb548-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb548-5"><a href="instrumental-variables.html#cb548-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb548-6"><a href="instrumental-variables.html#cb548-6" aria-hidden="true" tabindex="-1"></a>                          )</span>
+<span id="cb548-7"><a href="instrumental-variables.html#cb548-7" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb548-8"><a href="instrumental-variables.html#cb548-8" aria-hidden="true" tabindex="-1"></a><span class="co"># So health will be one standard deviation higher for people who don&#39;t or barely smoke.</span></span></code></pre></div>
 <p>Now we need a relationship between cigarettes and the province (because in this illustration, the provinces have different tax rates).</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="instrumental-variables.html#cb645-1"></a>iv_example_data &lt;-<span class="st"> </span></span>
-<span id="cb645-2"><a href="instrumental-variables.html#cb645-2"></a><span class="st">  </span>iv_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb645-3"><a href="instrumental-variables.html#cb645-3"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb645-4"><a href="instrumental-variables.html#cb645-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">province =</span> <span class="kw">case_when</span>(smoker <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Nova Scotia&quot;</span>, <span class="st">&quot;Alberta&quot;</span>),</span>
-<span id="cb645-5"><a href="instrumental-variables.html#cb645-5"></a>                                                                       <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb645-6"><a href="instrumental-variables.html#cb645-6"></a>                                                                       <span class="dt">replace =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb645-7"><a href="instrumental-variables.html#cb645-7"></a>                                                                       <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)),</span>
-<span id="cb645-8"><a href="instrumental-variables.html#cb645-8"></a>                              smoker <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">~</span><span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;Nova Scotia&quot;</span>, <span class="st">&quot;Alberta&quot;</span>),</span>
-<span id="cb645-9"><a href="instrumental-variables.html#cb645-9"></a>                                                                       <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb645-10"><a href="instrumental-variables.html#cb645-10"></a>                                                                       <span class="dt">replace =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb645-11"><a href="instrumental-variables.html#cb645-11"></a>                                                                       <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">4</span>, <span class="dv">3</span><span class="op">/</span><span class="dv">4</span>)))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb645-12"><a href="instrumental-variables.html#cb645-12"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
-<span id="cb645-13"><a href="instrumental-variables.html#cb645-13"></a></span>
-<span id="cb645-14"><a href="instrumental-variables.html#cb645-14"></a>iv_example_data &lt;-<span class="st"> </span></span>
-<span id="cb645-15"><a href="instrumental-variables.html#cb645-15"></a><span class="st">  </span>iv_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb645-16"><a href="instrumental-variables.html#cb645-16"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tax =</span> <span class="kw">case_when</span>(province <span class="op">==</span><span class="st"> &quot;Alberta&quot;</span> <span class="op">~</span><span class="st"> </span><span class="fl">0.3</span>,</span>
-<span id="cb645-17"><a href="instrumental-variables.html#cb645-17"></a>                         province <span class="op">==</span><span class="st"> &quot;Nova Scotia&quot;</span> <span class="op">~</span><span class="st"> </span><span class="fl">0.5</span>,</span>
-<span id="cb645-18"><a href="instrumental-variables.html#cb645-18"></a>                         <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">9999999</span></span>
-<span id="cb645-19"><a href="instrumental-variables.html#cb645-19"></a>  )</span>
-<span id="cb645-20"><a href="instrumental-variables.html#cb645-20"></a>  )</span>
-<span id="cb645-21"><a href="instrumental-variables.html#cb645-21"></a></span>
-<span id="cb645-22"><a href="instrumental-variables.html#cb645-22"></a>iv_example_data<span class="op">$</span>tax <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="instrumental-variables.html#cb549-1" aria-hidden="true" tabindex="-1"></a>iv_example_data <span class="ot">&lt;-</span> </span>
+<span id="cb549-2"><a href="instrumental-variables.html#cb549-2" aria-hidden="true" tabindex="-1"></a>  iv_example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb549-3"><a href="instrumental-variables.html#cb549-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb549-4"><a href="instrumental-variables.html#cb549-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">province =</span> <span class="fu">case_when</span>(smoker <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Nova Scotia&quot;</span>, <span class="st">&quot;Alberta&quot;</span>),</span>
+<span id="cb549-5"><a href="instrumental-variables.html#cb549-5" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">size =</span> <span class="dv">1</span>, </span>
+<span id="cb549-6"><a href="instrumental-variables.html#cb549-6" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">replace =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb549-7"><a href="instrumental-variables.html#cb549-7" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)),</span>
+<span id="cb549-8"><a href="instrumental-variables.html#cb549-8" aria-hidden="true" tabindex="-1"></a>                              smoker <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Nova Scotia&quot;</span>, <span class="st">&quot;Alberta&quot;</span>),</span>
+<span id="cb549-9"><a href="instrumental-variables.html#cb549-9" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">size =</span> <span class="dv">1</span>, </span>
+<span id="cb549-10"><a href="instrumental-variables.html#cb549-10" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">replace =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb549-11"><a href="instrumental-variables.html#cb549-11" aria-hidden="true" tabindex="-1"></a>                                                                       <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>, <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>)))) <span class="sc">%&gt;%</span> </span>
+<span id="cb549-12"><a href="instrumental-variables.html#cb549-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb549-13"><a href="instrumental-variables.html#cb549-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-14"><a href="instrumental-variables.html#cb549-14" aria-hidden="true" tabindex="-1"></a>iv_example_data <span class="ot">&lt;-</span> </span>
+<span id="cb549-15"><a href="instrumental-variables.html#cb549-15" aria-hidden="true" tabindex="-1"></a>  iv_example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb549-16"><a href="instrumental-variables.html#cb549-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tax =</span> <span class="fu">case_when</span>(province <span class="sc">==</span> <span class="st">&quot;Alberta&quot;</span> <span class="sc">~</span> <span class="fl">0.3</span>,</span>
+<span id="cb549-17"><a href="instrumental-variables.html#cb549-17" aria-hidden="true" tabindex="-1"></a>                         province <span class="sc">==</span> <span class="st">&quot;Nova Scotia&quot;</span> <span class="sc">~</span> <span class="fl">0.5</span>,</span>
+<span id="cb549-18"><a href="instrumental-variables.html#cb549-18" aria-hidden="true" tabindex="-1"></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">9999999</span></span>
+<span id="cb549-19"><a href="instrumental-variables.html#cb549-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb549-20"><a href="instrumental-variables.html#cb549-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb549-21"><a href="instrumental-variables.html#cb549-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-22"><a href="instrumental-variables.html#cb549-22" aria-hidden="true" tabindex="-1"></a>iv_example_data<span class="sc">$</span>tax <span class="sc">%&gt;%</span> <span class="fu">table</span>()</span></code></pre></div>
 <pre><code>## .
 ##  0.3  0.5 
 ## 6206 3794</code></pre>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="instrumental-variables.html#cb647-1"></a><span class="kw">head</span>(iv_example_data)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-388">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-388">Table 16.1: </span> </caption><col><col><col><col><col><tr>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="instrumental-variables.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iv_example_data)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-340">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-340">Table 16.1: </span> </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">person</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">smoker</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">health</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">province</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">tax</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.11&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alberta</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.3</td></tr>
@@ -726,31 +783,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 <p>Now we can look at our data.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="instrumental-variables.html#cb648-1"></a>iv_example_data <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb648-2"><a href="instrumental-variables.html#cb648-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">smoker =</span> <span class="kw">as_factor</span>(smoker)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb648-3"><a href="instrumental-variables.html#cb648-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> health, <span class="dt">fill =</span> smoker)) <span class="op">+</span></span>
-<span id="cb648-4"><a href="instrumental-variables.html#cb648-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">binwidth =</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb648-5"><a href="instrumental-variables.html#cb648-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb648-6"><a href="instrumental-variables.html#cb648-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Health rating&quot;</span>,</span>
-<span id="cb648-7"><a href="instrumental-variables.html#cb648-7"></a>       <span class="dt">y =</span> <span class="st">&quot;Number of people&quot;</span>,</span>
-<span id="cb648-8"><a href="instrumental-variables.html#cb648-8"></a>       <span class="dt">fill =</span> <span class="st">&quot;Smoker&quot;</span>) <span class="op">+</span></span>
-<span id="cb648-9"><a href="instrumental-variables.html#cb648-9"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></span>
-<span id="cb648-10"><a href="instrumental-variables.html#cb648-10"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(province))</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-389-1.png" width="672" /></p>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="instrumental-variables.html#cb552-1" aria-hidden="true" tabindex="-1"></a>iv_example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb552-2"><a href="instrumental-variables.html#cb552-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">smoker =</span> <span class="fu">as_factor</span>(smoker)) <span class="sc">%&gt;%</span> </span>
+<span id="cb552-3"><a href="instrumental-variables.html#cb552-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> health, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
+<span id="cb552-4"><a href="instrumental-variables.html#cb552-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb552-5"><a href="instrumental-variables.html#cb552-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb552-6"><a href="instrumental-variables.html#cb552-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Health rating&quot;</span>,</span>
+<span id="cb552-7"><a href="instrumental-variables.html#cb552-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of people&quot;</span>,</span>
+<span id="cb552-8"><a href="instrumental-variables.html#cb552-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Smoker&quot;</span>) <span class="sc">+</span></span>
+<span id="cb552-9"><a href="instrumental-variables.html#cb552-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb552-10"><a href="instrumental-variables.html#cb552-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(province))</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
 <p>Finally, we can use the tax rate as an instrumental variable to estimate the effect of smoking on health.</p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="instrumental-variables.html#cb649-1"></a>health_on_tax &lt;-<span class="st"> </span><span class="kw">lm</span>(health <span class="op">~</span><span class="st"> </span>tax, <span class="dt">data =</span> iv_example_data)</span>
-<span id="cb649-2"><a href="instrumental-variables.html#cb649-2"></a>smoker_on_tax &lt;-<span class="st"> </span><span class="kw">lm</span>(smoker <span class="op">~</span><span class="st"> </span>tax, <span class="dt">data =</span> iv_example_data)</span>
-<span id="cb649-3"><a href="instrumental-variables.html#cb649-3"></a></span>
-<span id="cb649-4"><a href="instrumental-variables.html#cb649-4"></a><span class="kw">coef</span>(health_on_tax)[<span class="st">&quot;tax&quot;</span>] <span class="op">/</span><span class="st"> </span><span class="kw">coef</span>(smoker_on_tax)[<span class="st">&quot;tax&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="instrumental-variables.html#cb553-1" aria-hidden="true" tabindex="-1"></a>health_on_tax <span class="ot">&lt;-</span> <span class="fu">lm</span>(health <span class="sc">~</span> tax, <span class="at">data =</span> iv_example_data)</span>
+<span id="cb553-2"><a href="instrumental-variables.html#cb553-2" aria-hidden="true" tabindex="-1"></a>smoker_on_tax <span class="ot">&lt;-</span> <span class="fu">lm</span>(smoker <span class="sc">~</span> tax, <span class="at">data =</span> iv_example_data)</span>
+<span id="cb553-3"><a href="instrumental-variables.html#cb553-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-4"><a href="instrumental-variables.html#cb553-4" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(health_on_tax)[<span class="st">&quot;tax&quot;</span>] <span class="sc">/</span> <span class="fu">coef</span>(smoker_on_tax)[<span class="st">&quot;tax&quot;</span>]</span></code></pre></div>
 <pre><code>##        tax 
 ## -0.8554502</code></pre>
 <p>So we find, luckily, that if you smoke then your health is likely to be worse than if you don’t smoke.</p>
 <p>Equivalently, we can think of instrumental variables in a two-stage regression context.</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="instrumental-variables.html#cb651-1"></a>first_stage &lt;-<span class="st"> </span><span class="kw">lm</span>(smoker <span class="op">~</span><span class="st"> </span>tax, <span class="dt">data =</span> iv_example_data)</span>
-<span id="cb651-2"><a href="instrumental-variables.html#cb651-2"></a>health_hat &lt;-<span class="st"> </span>first_stage<span class="op">$</span>fitted.values</span>
-<span id="cb651-3"><a href="instrumental-variables.html#cb651-3"></a>second_stage &lt;-<span class="st"> </span><span class="kw">lm</span>(health <span class="op">~</span><span class="st"> </span>health_hat, <span class="dt">data =</span> iv_example_data)</span>
-<span id="cb651-4"><a href="instrumental-variables.html#cb651-4"></a></span>
-<span id="cb651-5"><a href="instrumental-variables.html#cb651-5"></a><span class="kw">summary</span>(second_stage)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="instrumental-variables.html#cb555-1" aria-hidden="true" tabindex="-1"></a>first_stage <span class="ot">&lt;-</span> <span class="fu">lm</span>(smoker <span class="sc">~</span> tax, <span class="at">data =</span> iv_example_data)</span>
+<span id="cb555-2"><a href="instrumental-variables.html#cb555-2" aria-hidden="true" tabindex="-1"></a>health_hat <span class="ot">&lt;-</span> first_stage<span class="sc">$</span>fitted.values</span>
+<span id="cb555-3"><a href="instrumental-variables.html#cb555-3" aria-hidden="true" tabindex="-1"></a>second_stage <span class="ot">&lt;-</span> <span class="fu">lm</span>(health <span class="sc">~</span> health_hat, <span class="at">data =</span> iv_example_data)</span>
+<span id="cb555-4"><a href="instrumental-variables.html#cb555-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-5"><a href="instrumental-variables.html#cb555-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(second_stage)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = health ~ health_hat, data = iv_example_data)
@@ -770,13 +827,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.009134,   Adjusted R-squared:  0.009034 
 ## F-statistic: 92.16 on 1 and 9998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div id="implementation" class="section level2">
+<div id="implementation" class="section level2" number="16.4">
 <h2><span class="header-section-number">16.4</span> Implementation</h2>
 <p>As with regression discontinuity, although it is possible to use existing functions, it might be worth looking at specialised packages. Instrumental variables has a few moving pieces, so a specialised package can help keep everything organised, and additionally, standard errors need to be adjusted and specialised packages make this easier. The package <code>estimatr</code> is a recommendation, although there are others available and you should try those if you are interested. The <code>estimatr</code> package is from the same team as DeclareDesign.</p>
 <p>Let’s look at our example using <code>iv_robust()</code>.</p>
-<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="instrumental-variables.html#cb653-1"></a><span class="kw">library</span>(estimatr)</span>
-<span id="cb653-2"><a href="instrumental-variables.html#cb653-2"></a><span class="kw">iv_robust</span>(health <span class="op">~</span><span class="st"> </span>smoker <span class="op">|</span><span class="st"> </span>tax, <span class="dt">data =</span> iv_example_data) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb653-3"><a href="instrumental-variables.html#cb653-3"></a><span class="st">  </span><span class="kw">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="instrumental-variables.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
+<span id="cb557-2"><a href="instrumental-variables.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">iv_robust</span>(health <span class="sc">~</span> smoker <span class="sc">|</span> tax, <span class="at">data =</span> iv_example_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb557-3"><a href="instrumental-variables.html#cb557-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## iv_robust(formula = health ~ smoker | tax, data = iv_example_data)
@@ -791,7 +848,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.1971 ,    Adjusted R-squared:  0.197 
 ## F-statistic:   113 on 1 and 9998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div id="assumptions-1" class="section level2">
+<div id="assumptions-1" class="section level2" number="16.5">
 <h2><span class="header-section-number">16.5</span> Assumptions</h2>
 <p>As discussed earlier, there are a variety of assumptions that are made when using instrumental variables. The two most important are:</p>
 <ol style="list-style-type: decimal">
@@ -799,13 +856,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Relevance. There must actually be a relationship between the instrumental variable and the independent variable.</li>
 </ol>
 <p>There is typically a trade-off between these two. There are plenty of variables that</p>
-<p>When thinking about potential instrumental variables <span class="citation">Cunningham (<a href="#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span>, p. 211, puts it brilliantly:</p>
+<p>When thinking about potential instrumental variables <span class="citation"><a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">Cunningham</a> (<a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span>, p. 211, puts it brilliantly:</p>
 <blockquote>
 <p>But, let’s say you think you do have a good instrument. How might you defend it as such to someone else? A necessary but not a sufficient condition for having an instrument that can satisfy the exclusion restriction is if people are confused when you tell them about the instrument’s relationship to the outcome. Let me explain. No one is going to be confused when you tell them that you think family size will reduce female labor supply. They don’t need a Becker model to convince them that women who have more children probably work less than those with fewer children. It’s common sense. But, what would they think if you told them that mothers whose first two children were the same gender worked less than those whose children had a balanced sex ratio? They would probably give you a confused look. What does the gender composition of your children have to do with whether a woman works?</p>
 <p>It doesn’t – it only matters, in fact, if people whose first two children are the same gender decide to have a third child. Which brings us back to the original point – people buy that family size can cause women to work less, but they’re confused when you say that women work less when their first two kids are the same gender. But if when you point out to them that the two children’s gender induces people to have larger families than they would have otherwise, the person
-“gets it”, then you might have an excellent instrument.</p>
+“gets it,” then you might have an excellent instrument.</p>
 </blockquote>
-<p>Relevance can be tested using regression and other tests for correlation. The exclusion restriction cannot be tested. You need to present evidence and convincing arguments. As <span class="citation">Cunningham (<a href="#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span> p. 225 says ‘Instruments have a certain ridiculousness to them[.] That is, you know you have a good instrument if the instrument itself doesn’t seem relevant for explaining the outcome of interest because that’s what the exclusion restriction implies.’</p>
+<p>Relevance can be tested using regression and other tests for correlation. The exclusion restriction cannot be tested. You need to present evidence and convincing arguments. As <span class="citation"><a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">Cunningham</a> (<a href="references-1.html#ref-cunninghamnorap" role="doc-biblioref">2020</a>)</span> p. 225 says ‘Instruments have a certain ridiculousness to them[.] That is, you know you have a good instrument if the instrument itself doesn’t seem relevant for explaining the outcome of interest because that’s what the exclusion restriction implies.’</p>
 <!-- ## Example - Sesame Street -->
 <!-- ### Overview -->
 <!-- Here we'll use the example that IEP introduces, which is @kearney2019early. @kearney2019early are interested in whether Sesame Street improved educational and labor market outcomes. To illustrate why this may in need of investigation consider if Sesame Street is found to result in higher rates of education. The issue is that we don't know if it is just that there are other factors that are associated with watching Sesame Street that are causing this increase or if it is actually Sesame Street. -->
@@ -819,15 +876,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- The next step is to argue that there is a relationship between being able to watch Sesame Street, and watching Sesame Street. -->
 <!-- FML, this isn't IV, this is diff-in-diff. -->
 </div>
-<div id="example---effect-of-police-on-crime" class="section level2">
+<div id="example---effect-of-police-on-crime" class="section level2" number="16.6">
 <h2><span class="header-section-number">16.6</span> Example - Effect of Police on Crime</h2>
-<div id="overview" class="section level3">
+<div id="overview" class="section level3" number="16.6.1">
 <h3><span class="header-section-number">16.6.1</span> Overview</h3>
-<p>Here we’ll use an example of <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> that looks at the effect of police on crime. This is interesting because you might think, that more police is associated with lower crime. But, it could actually be the opposite, if more crime causes more police to be hired - how many police would a hypothetical country with no crime need? Hence there is a need to find some sort of instrumental variable that affects crime only through its relationship with the number of police (that is, not in and of itself, related to crime), and yet is also correlated with police numbers. <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> suggests the number of firefighters in a city.</p>
-<p><span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> argues that firefighters are appropriate as an instrument, because ‘(f)actors such as the power of public sector unions, citizen tastes for government services, affirmative action initiatives, or a mayor’s desire to provide spoils might all be expected to jointly influence the number of firefighters and police.’. <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> also argues that the relevance assumption is met by showing that ‘changes in the number of police officers and firefighters within a city are highly correlated over time’.</p>
-<p>In terms of satisfying the exclusion restriction, <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> argues that the number of firefighters should not have a ‘direct impact on crime.’ However, it may be that there are common factors, and so <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> adjusts for this in the regression.</p>
+<p>Here we’ll use an example of <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> that looks at the effect of police on crime. This is interesting because you might think, that more police is associated with lower crime. But, it could actually be the opposite, if more crime causes more police to be hired - how many police would a hypothetical country with no crime need? Hence there is a need to find some sort of instrumental variable that affects crime only through its relationship with the number of police (that is, not in and of itself, related to crime), and yet is also correlated with police numbers. <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> suggests the number of firefighters in a city.</p>
+<p><span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> argues that firefighters are appropriate as an instrument, because ‘(f)actors such as the power of public sector unions, citizen tastes for government services, affirmative action initiatives, or a mayor’s desire to provide spoils might all be expected to jointly influence the number of firefighters and police.’ <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> also argues that the relevance assumption is met by showing that ‘changes in the number of police officers and firefighters within a city are highly correlated over time.’</p>
+<p>In terms of satisfying the exclusion restriction, <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> argues that the number of firefighters should not have a ‘direct impact on crime.’ However, it may be that there are common factors, and so <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> adjusts for this in the regression.</p>
 </div>
-<div id="data-1" class="section level3">
+<div id="data-1" class="section level3" number="16.6.2">
 <h3><span class="header-section-number">16.6.2</span> Data</h3>
 <p>The dataset is based on 122 US cities between 1975 and 1995. Summary statistics are provided in Figure <a href="instrumental-variables.html#fig:levittcrime">16.1</a>.</p>
 <div class="figure"><span id="fig:levittcrime"></span>
@@ -836,14 +893,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 16.1: Summary statistics for Levitt 2002.
 </p>
 </div>
-<p>Source: <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,246.</p>
+<p>Source: <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,246.</p>
 </div>
-<div id="model-1" class="section level3">
+<div id="model-1" class="section level3" number="16.6.3">
 <h3><span class="header-section-number">16.6.3</span> Model</h3>
-<p>In the first stage <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> looks at police as a function of firefighters, and a bunch of adjustment variables:
+<p>In the first stage <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> looks at police as a function of firefighters, and a bunch of adjustment variables:
 <span class="math display">\[\ln(\mbox{Police}_{ct}) = \gamma \ln(\mbox{Fire}_{ct}) + X&#39;_{ct}\Gamma + \lambda_t + \phi_c + \epsilon_{ct}.\]</span>
 The important part of this is the police and firefighters numbers which are on a per capita basis. There are a bunch of adjustment variables in <span class="math inline">\(X\)</span> which includes things like state prisoners per capita, the unemployment rate, etc, as well as year dummy variables and fixed-effects for each city.</p>
-<p>Having established the relationship between police and firefights, <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> can then use the estimates of the number of police, based on the number of firefighters, to explain crime rates:
+<p>Having established the relationship between police and firefights, <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> can then use the estimates of the number of police, based on the number of firefighters, to explain crime rates:
 <span class="math display">\[\Delta\ln(\mbox{Crime}_{ct}) = \beta_1 \ln(\mbox{Police}_{ct-1}) + X&#39;_{ct}\Gamma + \Theta_c + \mu_{ct}.\]</span></p>
 <p>The typical way to present instrumental variable results is to show both stages. Figure <a href="instrumental-variables.html#fig:levittcrimefirst">16.2</a> shows the relationship between police and firefighters.</p>
 <div class="figure"><span id="fig:levittcrimefirst"></span>
@@ -852,7 +909,7 @@ The important part of this is the police and firefighters numbers which are on a
 Figure 16.2: The relationship between firefighters, police and crime.
 </p>
 </div>
-<p>Source: <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,247.</p>
+<p>Source: <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,247.</p>
 <p>And then Figure <a href="instrumental-variables.html#fig:levittcrimesecond">16.3</a> shows the relationship between police and crime, where is it the IV results that are the ones of interest.</p>
 <div class="figure"><span id="fig:levittcrimesecond"></span>
 <img src="figures/levitt_second.png" alt="The impact of police on crime." width="90%" />
@@ -860,53 +917,26 @@ Figure 16.2: The relationship between firefighters, police and crime.
 Figure 16.3: The impact of police on crime.
 </p>
 </div>
-<p>Source: <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,248.</p>
+<p>Source: <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> p. 1,248.</p>
 </div>
-<div id="discussion" class="section level3">
+<div id="discussion" class="section level3" number="16.6.4">
 <h3><span class="header-section-number">16.6.4</span> Discussion</h3>
-<p>The key finding of <span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> is that there is a negative effect of the number of police on the amount of crime.</p>
+<p>The key finding of <span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> is that there is a negative effect of the number of police on the amount of crime.</p>
 <p>There are a variety of points that I want to raise in regard to this paper. They will come across as a little negative, but this is mostly just because this a paper from 2002, that I am reading today, and so the standards have changed.</p>
 <ol style="list-style-type: decimal">
 <li>It’s fairly remarkable how reliant on various model specifications the results are. The results bounce around a fair bit and that’s just the ones that are reported. Chances are there are a bunch of other results that were not reported, but it would be of interest to see their impact.</li>
 <li>On that note, there is fairly limited model validation. This is probably something that I am more aware of these days, but it seems likely that there is a fair degree of over-fitting here.</li>
-<li><span class="citation">Levitt (<a href="#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> is actually a response, after another researcher, <span class="citation">McCrary (<a href="#ref-mccrary2002using" role="doc-biblioref">2002</a>)</span>, found some issues with the original paper: <span class="citation">Levitt (<a href="#ref-levitt87using" role="doc-biblioref">1997</a>)</span>. While Levitt appears quite decent about it, it is jarring to see that Levitt was thanked by <span class="citation">McCrary (<a href="#ref-mccrary2002using" role="doc-biblioref">2002</a>)</span> for providing ‘both the data and computer code.’ What if Levitt had not been decent about providing the data and code? Or what if the code was unintelligible? In some ways it is nice to see how far that we have come - the author of a similar paper these days would be forced to make their code and data available as part of the paper, we wouldn’t have to ask them for it. But it reinforces the importance of open data and reproducible science.</li>
+<li><span class="citation"><a href="references-1.html#ref-levitt2002using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt2002using" role="doc-biblioref">2002</a>)</span> is actually a response, after another researcher, <span class="citation"><a href="references-1.html#ref-mccrary2002using" role="doc-biblioref">McCrary</a> (<a href="references-1.html#ref-mccrary2002using" role="doc-biblioref">2002</a>)</span>, found some issues with the original paper: <span class="citation"><a href="references-1.html#ref-levitt87using" role="doc-biblioref">Levitt</a> (<a href="references-1.html#ref-levitt87using" role="doc-biblioref">1997</a>)</span>. While Levitt appears quite decent about it, it is jarring to see that Levitt was thanked by <span class="citation"><a href="references-1.html#ref-mccrary2002using" role="doc-biblioref">McCrary</a> (<a href="references-1.html#ref-mccrary2002using" role="doc-biblioref">2002</a>)</span> for providing ‘both the data and computer code.’ What if Levitt had not been decent about providing the data and code? Or what if the code was unintelligible? In some ways it is nice to see how far that we have come - the author of a similar paper these days would be forced to make their code and data available as part of the paper, we wouldn’t have to ask them for it. But it reinforces the importance of open data and reproducible science.</li>
 </ol>
 </div>
 </div>
-<div id="conclusion" class="section level2">
+<div id="conclusion" class="section level2" number="16.7">
 <h2><span class="header-section-number">16.7</span> Conclusion</h2>
-<p>Instrumental variables is a useful approach because one can obtain causal estimates even without explicit randomisation. Finding instrumental variables used to be a bit of a white whale, especially in academia. However, I will leave the final (and hopefully motivating) word to <span class="citation">Taddy (<a href="#ref-taddy2019" role="doc-biblioref">2019</a>)</span>, p. 162:</p>
+<p>Instrumental variables is a useful approach because one can obtain causal estimates even without explicit randomisation. Finding instrumental variables used to be a bit of a white whale, especially in academia. However, I will leave the final (and hopefully motivating) word to <span class="citation"><a href="references-1.html#ref-taddy2019" role="doc-biblioref">Taddy</a> (<a href="references-1.html#ref-taddy2019" role="doc-biblioref">2019</a>)</span>, p. 162:</p>
 <blockquote>
 <p>As a final point on the importance of IV models and analysis, note that when you are on the inside of a firm—especially on the inside of a modern technology firm—explicitly randomised instruments are everywhere…. But it is often the case that decision-makers want to understand the effects of policies that are not themselves randomised but are rather downstream of the things being AB tested. For example, suppose an algorithm is used to predict the creditworthiness of potential borrowers and assign loans. Even if the process of loan assignment is never itself randomised, if the parameters in the machine learning algorithms used to score credit are AB tested, then those experiments can be used as instruments for the loan assignment treatment. Such ‘upstream randomisation’ is extremely common and IV analysis is your key tool for doing causal inference in that setting.’</p>
 </blockquote>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-cunninghamnorap">
-<p>Cunningham, Scott. 2020. <em>Causal Inference: The Mixtape</em>. <a href="https://www.scunning.com/mixtape.html">https://www.scunning.com/mixtape.html</a>.</p>
-</div>
-<div id="ref-gelmanandhill">
-<p>Gelman, Andrew, and Jennifer Hill. 2007. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>.</p>
-</div>
-<div id="ref-levitt87using">
-<p>Levitt, Steven D. 1997. “Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on Crime.” <em>The American Economic Review</em> 87 (3).</p>
-</div>
-<div id="ref-levitt2002using">
-<p>Levitt, Steven D. 2002. “Using Electoral Cycles in Police Hiring to Estimate the Effects of Police on Crime: Reply.” <em>American Economic Review</em> 92 (4): 1244–50.</p>
-</div>
-<div id="ref-mccrary2002using">
-<p>McCrary, Justin. 2002. “Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on Crime: Comment.” <em>American Economic Review</em> 92 (4): 1236–43.</p>
-</div>
-<div id="ref-stock2003retrospectives">
-<p>Stock, James H, and Francesco Trebbi. 2003. “Retrospectives: Who Invented Instrumental Variable Regression?” <em>Journal of Economic Perspectives</em> 17 (3): 177–94.</p>
-</div>
-<div id="ref-taddy2019">
-<p>Taddy, Matt. 2019. <em>Business Data Science</em>. McGraw Hill.</p>
-</div>
-<div id="ref-wright1928tariff">
-<p>Wright, Philip G. 1928. <em>The Tariff on Animal and Vegetable Oils</em>. Macmillan Company.</p>
 </div>
 </div>
             </section>

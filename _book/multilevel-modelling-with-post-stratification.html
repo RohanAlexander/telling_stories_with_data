@@ -24,7 +24,7 @@
 <meta name="author" content="Rohan Alexander" />
 
 
-<meta name="date" content="2021-01-25" />
+<meta name="date" content="2021-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="poll-of-polls.html"/>
 <link rel="next" href="text-as-data.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,17 +51,16 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
 <script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
 <script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
 <script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
@@ -77,18 +77,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -108,7 +107,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -158,11 +157,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>I Essentials</b></span></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
 <li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
 <li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
@@ -170,30 +171,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a><ul>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
-<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a><ul>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
 <li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
 <li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a><ul>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a><ul>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
 <li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
-<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a><ul>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
 <li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
 <li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a><ul>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
 <li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
 <li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
@@ -204,16 +211,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
 <li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a><ul>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
 <li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a><ul>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
 <li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a><ul>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a>
+<ul>
 <li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
 <li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
 <li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
@@ -223,9 +233,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a><ul>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
 <li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
 <li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
@@ -234,14 +246,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
-<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
 <li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
 <li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
 <li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a><ul>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
 <li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
@@ -251,27 +265,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
 </ul></li>
 <li class="part"><span><b>II Communicate</b></span></li>
-<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a><ul>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a><ul>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
 <li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
 <li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
-<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a><ul>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
 <li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a><ul>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
 <li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
 <li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
 <li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a><ul>
-<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a><ul>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
 <li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
 <li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
@@ -284,38 +304,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
 </ul></li>
 <li class="part"><span><b>III Hunt gather and farm</b></span></li>
-<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a><ul>
+<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a></li>
 <li class="chapter" data-level="7.2" data-path="gather-data.html"><a href="gather-data.html#case-study---arxiv"><i class="fa fa-check"></i><b>7.2</b> Case study - arXiv</a></li>
 <li class="chapter" data-level="7.3" data-path="gather-data.html"><a href="gather-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.3</b> Case study - rtweet</a></li>
 <li class="chapter" data-level="7.4" data-path="gather-data.html"><a href="gather-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.4</b> Case study - spotifyr</a></li>
-<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a><ul>
+<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="gather-data.html"><a href="gather-data.html#introduction-6"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.5.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.5.2</b> Getting started</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a><ul>
+<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="gather-data.html"><a href="gather-data.html#introduction-7"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.6.2" data-path="gather-data.html"><a href="gather-data.html#gather"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
 <li class="chapter" data-level="7.6.3" data-path="gather-data.html"><a href="gather-data.html#clean"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
 <li class="chapter" data-level="7.6.4" data-path="gather-data.html"><a href="gather-data.html#explore"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a><ul>
+<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a>
+<ul>
 <li class="chapter" data-level="7.7.1" data-path="gather-data.html"><a href="gather-data.html#introduction-8"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.7.2" data-path="gather-data.html"><a href="gather-data.html#gather-1"><i class="fa fa-check"></i><b>7.7.2</b> Gather</a></li>
 <li class="chapter" data-level="7.7.3" data-path="gather-data.html"><a href="gather-data.html#clean-1"><i class="fa fa-check"></i><b>7.7.3</b> Clean</a></li>
 <li class="chapter" data-level="7.7.4" data-path="gather-data.html"><a href="gather-data.html#explore-1"><i class="fa fa-check"></i><b>7.7.4</b> Explore</a></li>
 </ul></li>
-<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a><ul>
+<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a>
+<ul>
 <li class="chapter" data-level="7.8.1" data-path="gather-data.html"><a href="gather-data.html#introduction-9"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.8.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.8.2</b> Getting started</a></li>
 </ul></li>
-<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a><ul>
+<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a>
+<ul>
 <li class="chapter" data-level="7.9.1" data-path="gather-data.html"><a href="gather-data.html#introduction-10"><i class="fa fa-check"></i><b>7.9.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.9.2" data-path="gather-data.html"><a href="gather-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.9.2</b> Begin with an end in mind</a></li>
 <li class="chapter" data-level="7.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.9.3</b> Start simple, then iterate.</a></li>
 <li class="chapter" data-level="7.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>7.9.4</b> Iterating</a></li>
 </ul></li>
-<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a><ul>
+<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a>
+<ul>
 <li class="chapter" data-level="7.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>7.10.1</b> Set-up</a></li>
 <li class="chapter" data-level="7.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>7.10.2</b> Extract</a></li>
 <li class="chapter" data-level="7.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>7.10.3</b> Clean</a></li>
@@ -324,14 +351,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.10.6</b> Make Monica’s dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.11</b> Optical Character Recognition</a></li>
-<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a><ul>
+<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a>
+<ul>
 <li class="chapter" data-level="7.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>7.12.1</b> Introduction</a></li>
 <li class="chapter" data-level="7.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.12.2</b> Getting text data</a></li>
 <li class="chapter" data-level="7.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.12.3</b> Preparing text datasets</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a><ul>
-<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a><ul>
+<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-12"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.1.2" data-path="hunt-data.html"><a href="hunt-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
 <li class="chapter" data-level="8.1.3" data-path="hunt-data.html"><a href="hunt-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
@@ -342,33 +372,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
 <li class="chapter" data-level="8.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
 <li class="chapter" data-level="8.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>8.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
-<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.6</b> A/B testing</a><ul>
-<li class="chapter" data-level="8.6.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.6.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.6.2" data-path="hunt-data.html"><a href="hunt-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.6.2</b> Unique complications of A/B testing</a></li>
+<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>8.6</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.7</b> A/B testing</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#unique-complications-of-ab-testing"><i class="fa fa-check"></i><b>8.7.2</b> Unique complications of A/B testing</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.7</b> Case study - Upworthy</a></li>
-<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.8</b> Sampling and survey essentials</a><ul>
-<li class="chapter" data-level="8.8.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.8.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.8.2</b> Simple random sampling</a></li>
-<li class="chapter" data-level="8.8.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.8.3</b> Stratified and cluster sampling</a></li>
+<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.8</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.9</b> Sampling and survey essentials</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.9.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.9.3</b> Stratified and cluster sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.9</b> Implementing surveys</a><ul>
-<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.9.1</b> Google</a></li>
-<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.9.2</b> Facebook</a></li>
-<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.9.3</b> Survey Monkey</a></li>
-<li class="chapter" data-level="8.9.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.9.4</b> Mechanical Turk</a></li>
-<li class="chapter" data-level="8.9.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.9.5</b> Prolific</a></li>
-<li class="chapter" data-level="8.9.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.9.6</b> Qualtrics</a></li>
-<li class="chapter" data-level="8.9.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.9.7</b> Other</a></li>
+<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.10</b> Implementing surveys</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.10.1</b> Google</a></li>
+<li class="chapter" data-level="8.10.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.10.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.10.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.10.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.10.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.10.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.10.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.10.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.10.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.10.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.10.7</b> Other</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.10</b> Next steps</a></li>
+<li class="chapter" data-level="8.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.11</b> Next steps</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a><ul>
-<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a><ul>
+<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a>
+<ul>
 <li class="chapter" data-level="9.1.1" data-path="farm-data.html"><a href="farm-data.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
 <li class="chapter" data-level="9.1.2" data-path="farm-data.html"><a href="farm-data.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a><ul>
+<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="farm-data.html"><a href="farm-data.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
 <li class="chapter" data-level="9.2.2" data-path="farm-data.html"><a href="farm-data.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
 </ul></li>
@@ -378,12 +415,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
 <li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
 <li class="part"><span><b>V Model</b></span></li>
-<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a><ul>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
 <li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
 <li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
-<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a><ul>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a>
+<ul>
 <li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
 <li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
 <li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
@@ -393,51 +432,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
 </ul></li>
 <li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
-<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a><ul>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a>
+<ul>
 <li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
 <li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
 <li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
-<li class="chapter" data-level="13.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.9</b> Case study - Airbnb listing in Toronto</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.9.1</b> Essentials</a></li>
-<li class="chapter" data-level="13.9.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.9.2</b> Set up</a></li>
-<li class="chapter" data-level="13.9.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.9.3</b> Get data</a></li>
-<li class="chapter" data-level="13.9.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.9.4</b> Clean data</a></li>
-<li class="chapter" data-level="13.9.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.9.5</b> Explore data</a></li>
-<li class="chapter" data-level="13.9.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.9.6</b> Model data</a></li>
-<li class="chapter" data-level="13.9.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#next-steps-2"><i class="fa fa-check"></i><b>13.9.7</b> Next steps</a></li>
-<li class="chapter" data-level="13.9.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#references-1"><i class="fa fa-check"></i><b>13.9.8</b> References</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a><ul>
-<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#introduction-16"><i class="fa fa-check"></i><b>14.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#competing-relationships"><i class="fa fa-check"></i><b>14.1.2</b> Competing relationships</a></li>
-<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementing-this-in-r"><i class="fa fa-check"></i><b>14.1.3</b> Implementing this in R</a></li>
-<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.4</b> Tidy up with broom</a></li>
-<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.5</b> Testing hypothesis</a></li>
-<li class="chapter" data-level="14.1.6" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.6</b> Adding more and varied explanatory variables</a></li>
-<li class="chapter" data-level="14.1.7" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.7</b> Threats to validity and aspects to think about</a></li>
-<li class="chapter" data-level="14.1.8" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.8</b> More credible outputs</a></li>
+<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#linear-regression"><i class="fa fa-check"></i><b>14.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#brief-reminder"><i class="fa fa-check"></i><b>14.1.1</b> Brief reminder</a></li>
+<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementing-it-in-r"><i class="fa fa-check"></i><b>14.1.2</b> Implementing it in R</a></li>
+<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.3</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.4</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#adding-more-and-varied-explanatory-variables"><i class="fa fa-check"></i><b>14.1.5</b> Adding more and varied explanatory variables</a></li>
+<li class="chapter" data-level="14.1.6" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.6</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.1.7" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.7</b> More credible outputs</a></li>
+<li class="chapter" data-level="14.1.8" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidymodels"><i class="fa fa-check"></i><b>14.1.8</b> Tidymodels</a></li>
+<li class="chapter" data-level="14.1.9" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#bayesian-approaches"><i class="fa fa-check"></i><b>14.1.9</b> Bayesian approaches</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
-<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a><ul>
-<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
 <li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a><ul>
-<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-17"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
-<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-16"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-17"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
 <li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
 <li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
 <li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a><ul>
-<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-19"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
 <li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
 <li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
@@ -446,13 +483,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a><ul>
-<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-20"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-19"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 <li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
 <li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
 <li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
 <li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
-<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a><ul>
+<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a>
+<ul>
 <li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
 <li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
 <li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
@@ -460,13 +499,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a><ul>
-<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-21"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a><ul>
+<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-20"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a>
+<ul>
 <li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
 </ul></li>
 <li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a><ul>
+<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a>
+<ul>
 <li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
 <li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
 </ul></li>
@@ -477,11 +519,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
 <li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a><ul>
-<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a><ul>
-<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
 <li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
 <li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
@@ -490,10 +534,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
 <li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a><ul>
-<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-24"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
 <li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
-<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a><ul>
+<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a>
+<ul>
 <li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-1"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
 <li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
 <li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
@@ -503,38 +549,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>VI Scale</b></span></li>
-<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a><ul>
-<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-25"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
 <li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
 <li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
 <li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
 <li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a><ul>
-<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
-<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a><ul>
-<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a><ul>
+<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a>
+<ul>
 <li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
 <li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
 <li class="chapter" data-level="23.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>23.1.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a><ul>
+<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a>
+<ul>
 <li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
 <li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a><ul>
+<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
 <li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a><ul>
+<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a>
+<ul>
 <li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
 <li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
 <li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
@@ -542,32 +595,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
 <li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a><ul>
+<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a>
+<ul>
 <li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
 <li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a><ul>
+<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a>
+<ul>
 <li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
 <li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a><ul>
+<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a>
+<ul>
 <li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
 <li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a><ul>
+<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a>
+<ul>
 <li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
 <li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
 <li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
 <li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
       </nav>
@@ -585,31 +642,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multilevel-modelling-with-post-stratification" class="section level1">
+<div id="multilevel-modelling-with-post-stratification" class="section level1" number="19">
 <h1><span class="header-section-number">Chapter 19</span> Multilevel modelling with post-stratification</h1>
 <p><strong>Required reading</strong></p>
 <ul>
-<li>Alexander, Monica, 2019, ‘Analyzing name changes after marriage using a non-representative survey’, 7 August, <a href="https://www.monicaalexander.com/posts/2019-08-07-mrp/" class="uri">https://www.monicaalexander.com/posts/2019-08-07-mrp/</a>.</li>
+<li>Alexander, Monica, 2019, ‘Analyzing name changes after marriage using a non-representative survey,’ 7 August, <a href="https://www.monicaalexander.com/posts/2019-08-07-mrp/" class="uri">https://www.monicaalexander.com/posts/2019-08-07-mrp/</a>.</li>
 <li>Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, <em>Regression and Other Stories</em>, Cambridge University Press, Ch 17.</li>
-<li>Hanretty, Chris, 2019, ‘An introduction to multilevel regression and post-stratification for estimating constituency opinion’, <em>Political Studies Review</em>, <a href="https://doi.org/10.1177/1478929919864773" class="uri">https://doi.org/10.1177/1478929919864773</a>.</li>
-<li>Kastellec, Jonathan, Jeffrey Lax, and Justin Phillips, 2016, ‘Estimating State Public Opinion With Multi-Level Regression and Poststratification using R’, <a href="https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf" class="uri">https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf</a>.</li>
-<li>Kennedy, Lauren and Jonah Gabry, 2019, ‘MRP with rstanarm’, rstanarm vignettes, 8 October, <a href="https://mc-stan.org/rstanarm/articles/mrp.html" class="uri">https://mc-stan.org/rstanarm/articles/mrp.html</a>.</li>
-<li>Kennedy, Lauren, and Andrew Gelman, 2019, ‘Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample’, <a href="https://arxiv.org/abs/1906.11323" class="uri">https://arxiv.org/abs/1906.11323</a>.</li>
-<li>Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, ‘Forecasting elections with non-representative polls’, <em>International Journal of Forecasting</em>, 31, no. 3, pages 980-991.</li>
+<li>Hanretty, Chris, 2019, ‘An introduction to multilevel regression and post-stratification for estimating constituency opinion,’ <em>Political Studies Review</em>, <a href="https://doi.org/10.1177/1478929919864773" class="uri">https://doi.org/10.1177/1478929919864773</a>.</li>
+<li>Kastellec, Jonathan, Jeffrey Lax, and Justin Phillips, 2016, ‘Estimating State Public Opinion With Multi-Level Regression and Poststratification using R,’ <a href="https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf" class="uri">https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf</a>.</li>
+<li>Kennedy, Lauren and Jonah Gabry, 2019, ‘MRP with rstanarm,’ rstanarm vignettes, 8 October, <a href="https://mc-stan.org/rstanarm/articles/mrp.html" class="uri">https://mc-stan.org/rstanarm/articles/mrp.html</a>.</li>
+<li>Kennedy, Lauren, and Andrew Gelman, 2019, ‘Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample,’ <a href="https://arxiv.org/abs/1906.11323" class="uri">https://arxiv.org/abs/1906.11323</a>.</li>
+<li>Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, ‘Forecasting elections with non-representative polls,’ <em>International Journal of Forecasting</em>, 31, no. 3, pages 980-991.</li>
 <li>Wu, Changbao and Mary E. Thompson, 2020, <em>Sampling Theory and Practice</em>, Springer, Ch 17.</li>
 </ul>
 <p><strong>Required viewing</strong></p>
 <ul>
-<li>Gelman, Andrew, 2020, ‘Statistical Models of Election Outcomes’, <em>CPSR Summer Program in Quantitative Methods of Social Research</em>, <a href="https://youtu.be/7gjDnrbLQ4k" class="uri">https://youtu.be/7gjDnrbLQ4k</a>.</li>
+<li>Gelman, Andrew, 2020, ‘Statistical Models of Election Outcomes,’ <em>CPSR Summer Program in Quantitative Methods of Social Research</em>, <a href="https://youtu.be/7gjDnrbLQ4k" class="uri">https://youtu.be/7gjDnrbLQ4k</a>.</li>
 </ul>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li>Cohn, Nate, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results’, <em>The New York Times</em>, The Upshot, 20 September, <a href="https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html" class="uri">https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html</a>.</li>
-<li>Gelman, Andrew, and Julia Azari, 2017, ‘19 things we learned from the 2016 election’, <em>Statistics and Public Policy</em>, 4 (1), pp. 1-10.</li>
-<li>Ghitza, Yair, and Andrew Gelman, 2013, ‘Deep Interactions with MRP: Election Turnout and Voting Patterns Among Small Electoral Subgroups’, <em>American Journal of Political Science</em>, 57 (3), pp. 762-776.</li>
-<li>Ghitza, Yair, and Andrew Gelman, 2020, ‘Voter Registration Databases and MRP: Toward the Use of Large-Scale Databases in Public Opinion Research’, <em>Political Analysis</em>, pp. 1-25.</li>
-<li>Jackman, Simon, Shaun Ratcliff and Luke Mansillo, 2019, ‘Small area estimates of public opinion: Model-assisted post-stratification of data from voter advice applications’, 4 January, <a href="https://www.cambridge.org/core/membership/services/aop-file-manager/file/5c2f6ebb7cf9ee1118d11c0a/APMM-2019-Simon-Jackman.pdf" class="uri">https://www.cambridge.org/core/membership/services/aop-file-manager/file/5c2f6ebb7cf9ee1118d11c0a/APMM-2019-Simon-Jackman.pdf</a>.</li>
-<li>Lauderdale, Ben, Delia Bailey, Jack Blumenau, and Doug Rivers, 2020, ‘Model-based pre-election polling for national and sub-national outcomes in the US and UK’, <em>International Journal of Forecasting</em>, 36 (2), pp. 399-413.</li>
+<li>Cohn, Nate, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results,’ <em>The New York Times</em>, The Upshot, 20 September, <a href="https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html" class="uri">https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html</a>.</li>
+<li>Gelman, Andrew, and Julia Azari, 2017, ‘19 things we learned from the 2016 election,’ <em>Statistics and Public Policy</em>, 4 (1), pp. 1-10.</li>
+<li>Ghitza, Yair, and Andrew Gelman, 2013, ‘Deep Interactions with MRP: Election Turnout and Voting Patterns Among Small Electoral Subgroups,’ <em>American Journal of Political Science</em>, 57 (3), pp. 762-776.</li>
+<li>Ghitza, Yair, and Andrew Gelman, 2020, ‘Voter Registration Databases and MRP: Toward the Use of Large-Scale Databases in Public Opinion Research,’ <em>Political Analysis</em>, pp. 1-25.</li>
+<li>Jackman, Simon, Shaun Ratcliff and Luke Mansillo, 2019, ‘Small area estimates of public opinion: Model-assisted post-stratification of data from voter advice applications,’ 4 January, <a href="https://www.cambridge.org/core/membership/services/aop-file-manager/file/5c2f6ebb7cf9ee1118d11c0a/APMM-2019-Simon-Jackman.pdf" class="uri">https://www.cambridge.org/core/membership/services/aop-file-manager/file/5c2f6ebb7cf9ee1118d11c0a/APMM-2019-Simon-Jackman.pdf</a>.</li>
+<li>Lauderdale, Ben, Delia Bailey, Jack Blumenau, and Doug Rivers, 2020, ‘Model-based pre-election polling for national and sub-national outcomes in the US and UK,’ <em>International Journal of Forecasting</em>, 36 (2), pp. 399-413.</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
@@ -622,17 +679,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Quiz</strong></p>
 <ol style="list-style-type: decimal">
 <li>Your Mum asked you what you’ve been learning this term. You decide to tell her about multilevel modelling with post-stratification. Please explain what MRP is. Your Mum has a university-education, but has not necessarily taken any statistics, so you will need to explain any technical terms that you use. [Please write a paragraph or two.]</li>
-<li>Please consider Wang, Rothschild, Goel, and Gelman, 2015, ‘Forecasting elections with non-representative polls’. Is this the most interesting paper ever written? Why or why not? What do you like about this paper? What do you wish it did better? Can you reproduce this paper? [Please write one or two paragraphs about each aspect.]</li>
+<li>Please consider Wang, Rothschild, Goel, and Gelman, 2015, ‘Forecasting elections with non-representative polls.’ Is this the most interesting paper ever written? Why or why not? What do you like about this paper? What do you wish it did better? Can you reproduce this paper? [Please write one or two paragraphs about each aspect.]</li>
 <li>I am interested in studying how voting intentions in the recent US presidential election vary by an individual’s income. I set up a logistic regression model to study this relationship. In my study, some possible independent variables would be: [Please check all that apply.] 1) Whether the respondent is registered to vote (yes/no). 2) Whether the respondent is going to vote for Biden (yes/no). 3) The race of the respondent (white/not white). 4) The respondent’s marital status (married/not)</li>
-<li>Please think about Cohn, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results’. Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]</li>
-<li>Please consider Wang, Rothschild, Goel, and Gelman, 2015, ‘Forecasting elections with non-representative polls’.
+<li>Please think about Cohn, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results.’ Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]</li>
+<li>Please consider Wang, Rothschild, Goel, and Gelman, 2015, ‘Forecasting elections with non-representative polls.’
 <ul>
 <li>What is not a feature they mention election forecasts need? 1) Explainable. 2) Accurate. 3) Cost-effective. 4) Relevant. 5) Timely.</li>
 <li>What is a weakness of MRP? 1) Detailed data requirement. 2) Allows use of biased data. 3) Expensive to conduct.</li>
 <li>What is concerning about the Xbox sample? 1) Non-representative. 2) Small sample size. 3) Multiple responses from the same respondent.</li>
 </ul></li>
 </ol>
-<div id="introduction-23" class="section level2">
+<div id="introduction-22" class="section level2" number="19.1">
 <h2><span class="header-section-number">19.1</span> Introduction</h2>
 <p>Multilevel regression with post-stratification (MRP) is a popular way to adjust non-representative samples to better analyse opinion and other survey responses. It uses a regression model to relate individual-level survey responses to various characteristics and then rebuilds the sample to better match the population. In this way MRP can not only allow a better understanding of responses, but also allow us to analyse data that may otherwise be unusable. However, it can be a challenge to get started with MRP as the terminology may be unfamiliar, and the data requirements can be onerous.</p>
 <p>Multilevel regression with post-stratification (MRP) is a handy approach when dealing with survey data. Essentially, it trains a model based on the survey, and then applies that trained model to another dataset. There are two main, related, advantages:</p>
@@ -641,7 +698,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>It can allow us to use broad surveys to speak to subsets.</li>
 </ol>
 <p>From a practical perspective, it tends to be less expensive to collect non-probability samples and so there are benefits of being able to use these types of data. That said, it is not a magic-bullet and the laws of statistics still apply. We will have larger uncertainty around our estimates and they will still be subject to all the usual biases. As <a href="https://twitter.com/jazzystats">Lauren Kennedy</a> points out, ‘MRP has traditionally been used in probability surveys and had potential for non-probability surveys, but we’re not sure of the limitations at the moment.’</p>
-<p>One famous example is Wei Wang, David Rothschild, Sharad Goel, and Andrew Gelman, 2014, ‘Forecasting elections with non-representative polls’, <em>International Journal of Forecasting</em>. They used data from the Xbox gaming platform to forecast the 2012 US Presidential Election.</p>
+<p>One famous example is Wei Wang, David Rothschild, Sharad Goel, and Andrew Gelman, 2014, ‘Forecasting elections with non-representative polls,’ <em>International Journal of Forecasting</em>. They used data from the Xbox gaming platform to forecast the 2012 US Presidential Election.</p>
 <p>Key facts about the set-up:</p>
 <ul>
 <li>Data from an opt-in poll which was available on the Xbox gaming platform during the 45 days preceding the 2012 US presidential election.</li>
@@ -682,7 +739,7 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 </p>
 </div>
 </div>
-<div id="hello-world-1" class="section level2">
+<div id="hello-world-1" class="section level2" number="19.2">
 <h2><span class="header-section-number">19.2</span> Hello world</h2>
 <p>The workflow that we are going to use is:</p>
 <ol style="list-style-type: decimal">
@@ -691,21 +748,21 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 <li>read in the post-stratification data; and</li>
 <li>apply the model to the post-stratification data.</li>
 </ol>
-<p>We are going to use R <span class="citation">(R Core Team <a href="#ref-citeR" role="doc-biblioref">2020</a>)</span>. First load the packages: <code>broom</code> <span class="citation">(Robinson, Hayes, and Couch <a href="#ref-citebroom" role="doc-biblioref">2020</a>)</span>, <code>here</code> <span class="citation">(Müller <a href="#ref-citehere" role="doc-biblioref">2017</a><a href="#ref-citehere" role="doc-biblioref">b</a>)</span>, <code>tidyverse</code> <span class="citation">(Wickham, Averick, et al. <a href="#ref-citetidyverse" role="doc-biblioref">2019</a><a href="#ref-citetidyverse" role="doc-biblioref">b</a>)</span>.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="multilevel-modelling-with-post-stratification.html#cb660-1"></a><span class="co"># Uncomment these (by deleting the #) if you need to install the packages</span></span>
-<span id="cb660-2"><a href="multilevel-modelling-with-post-stratification.html#cb660-2"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
-<span id="cb660-3"><a href="multilevel-modelling-with-post-stratification.html#cb660-3"></a><span class="co"># install.packages(&quot;here&quot;)</span></span>
-<span id="cb660-4"><a href="multilevel-modelling-with-post-stratification.html#cb660-4"></a><span class="co"># install.packages(&quot;skimr&quot;)</span></span>
-<span id="cb660-5"><a href="multilevel-modelling-with-post-stratification.html#cb660-5"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb660-6"><a href="multilevel-modelling-with-post-stratification.html#cb660-6"></a></span>
-<span id="cb660-7"><a href="multilevel-modelling-with-post-stratification.html#cb660-7"></a><span class="kw">library</span>(broom) <span class="co"># Helps make the regression results tidier</span></span>
-<span id="cb660-8"><a href="multilevel-modelling-with-post-stratification.html#cb660-8"></a><span class="kw">library</span>(here) <span class="co"># Helps make file referencing easier.</span></span>
-<span id="cb660-9"><a href="multilevel-modelling-with-post-stratification.html#cb660-9"></a><span class="kw">library</span>(tidyverse) <span class="co"># Helps make programming with R easier</span></span></code></pre></div>
+<p>We are going to use R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2020</a>)</span>. First load the packages: <code>broom</code> <span class="citation">(<a href="references-1.html#ref-citebroom" role="doc-biblioref">D. Robinson, Hayes, and Couch 2020</a>)</span>, <code>here</code> <span class="citation">(<a href="references-1.html#ref-citehere" role="doc-biblioref">Müller 2017b</a>)</span>, <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019b</a>)</span>.</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="multilevel-modelling-with-post-stratification.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment these (by deleting the #) if you need to install the packages</span></span>
+<span id="cb564-2"><a href="multilevel-modelling-with-post-stratification.html#cb564-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
+<span id="cb564-3"><a href="multilevel-modelling-with-post-stratification.html#cb564-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;here&quot;)</span></span>
+<span id="cb564-4"><a href="multilevel-modelling-with-post-stratification.html#cb564-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;skimr&quot;)</span></span>
+<span id="cb564-5"><a href="multilevel-modelling-with-post-stratification.html#cb564-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb564-6"><a href="multilevel-modelling-with-post-stratification.html#cb564-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb564-7"><a href="multilevel-modelling-with-post-stratification.html#cb564-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom) <span class="co"># Helps make the regression results tidier</span></span>
+<span id="cb564-8"><a href="multilevel-modelling-with-post-stratification.html#cb564-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) <span class="co"># Helps make file referencing easier.</span></span>
+<span id="cb564-9"><a href="multilevel-modelling-with-post-stratification.html#cb564-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Helps make programming with R easier</span></span></code></pre></div>
 <p>Then load some sample polling data to analyse. I have generated this fictitious data so that we have some idea of what to expect from the model. The dependent variable is supports_ALP, which is a binary variable - either 0 or 1. We’ll just use two independent variables here: gender, which is either Female or Male (as that is what is available from the ABS); and age_group, which is one of four groups: ages 18 to 29, ages 30 to 44, ages 45 to 59, ages 60 plus.</p>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="multilevel-modelling-with-post-stratification.html#cb661-1"></a>example_poll &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;outputs/data/example_poll.csv&quot;</span>) <span class="co"># Here we read in a </span></span>
-<span id="cb661-2"><a href="multilevel-modelling-with-post-stratification.html#cb661-2"></a><span class="co"># CSV file and assign it to a dataset called &#39;example_poll&#39;</span></span>
-<span id="cb661-3"><a href="multilevel-modelling-with-post-stratification.html#cb661-3"></a></span>
-<span id="cb661-4"><a href="multilevel-modelling-with-post-stratification.html#cb661-4"></a><span class="kw">head</span>(example_poll) <span class="co"># Displays the first 10 rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="multilevel-modelling-with-post-stratification.html#cb565-1" aria-hidden="true" tabindex="-1"></a>example_poll <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;outputs/data/example_poll.csv&quot;</span>) <span class="co"># Here we read in a </span></span>
+<span id="cb565-2"><a href="multilevel-modelling-with-post-stratification.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CSV file and assign it to a dataset called &#39;example_poll&#39;</span></span>
+<span id="cb565-3"><a href="multilevel-modelling-with-post-stratification.html#cb565-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb565-4"><a href="multilevel-modelling-with-post-stratification.html#cb565-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_poll) <span class="co"># Displays the first 10 rows</span></span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:initial_model_simulate_data">
 <caption style="caption-side: top; text-align: center;">(#tab:initial_model_simulate_data) </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gender</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">supports_ALP</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th></tr>
@@ -723,8 +780,8 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Female</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">ages18to29</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">VIC</td></tr>
 </table>
 
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="multilevel-modelling-with-post-stratification.html#cb662-1"></a><span class="co"># Look at some summary statistics to make sure the data seem reasonable</span></span>
-<span id="cb662-2"><a href="multilevel-modelling-with-post-stratification.html#cb662-2"></a><span class="kw">summary</span>(example_poll)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="multilevel-modelling-with-post-stratification.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at some summary statistics to make sure the data seem reasonable</span></span>
+<span id="cb566-2"><a href="multilevel-modelling-with-post-stratification.html#cb566-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(example_poll)</span></code></pre></div>
 <pre><code>##     gender           age_group          supports_ALP       state          
 ##  Length:5000        Length:5000        Min.   :0.0000   Length:5000       
 ##  Class :character   Class :character   1st Qu.:0.0000   Class :character  
@@ -733,12 +790,12 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 ##                                        3rd Qu.:1.0000                     
 ##                                        Max.   :1.0000</code></pre>
 <p>I generated this polling data to make both made males and older people less likely to vote for the Australian Labor Party; and females and younger people more likely to vote for the Labor Party. Females are over-sampled. As such, we should have an ALP skew on the dataset.</p>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="multilevel-modelling-with-post-stratification.html#cb664-1"></a><span class="co"># The &#39;%&gt;%&#39; is called a &#39;pipe&#39; and it takes whatever the output is of the </span></span>
-<span id="cb664-2"><a href="multilevel-modelling-with-post-stratification.html#cb664-2"></a><span class="co"># command before it, and pipes it to the command after it.</span></span>
-<span id="cb664-3"><a href="multilevel-modelling-with-post-stratification.html#cb664-3"></a>example_poll <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># So we are taking our example_poll dataset and using it as an </span></span>
-<span id="cb664-4"><a href="multilevel-modelling-with-post-stratification.html#cb664-4"></a><span class="st">  </span><span class="co"># input to &#39;summarise&#39;.</span></span>
-<span id="cb664-5"><a href="multilevel-modelling-with-post-stratification.html#cb664-5"></a><span class="st">   </span><span class="co"># summarise reduces the dimensions, so here we will get one number from a column.</span></span>
-<span id="cb664-6"><a href="multilevel-modelling-with-post-stratification.html#cb664-6"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">raw_ALP_prop =</span> <span class="kw">sum</span>(supports_ALP) <span class="op">/</span><span class="st"> </span><span class="kw">nrow</span>(example_poll))</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="multilevel-modelling-with-post-stratification.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The &#39;%&gt;%&#39; is called a &#39;pipe&#39; and it takes whatever the output is of the </span></span>
+<span id="cb568-2"><a href="multilevel-modelling-with-post-stratification.html#cb568-2" aria-hidden="true" tabindex="-1"></a><span class="co"># command before it, and pipes it to the command after it.</span></span>
+<span id="cb568-3"><a href="multilevel-modelling-with-post-stratification.html#cb568-3" aria-hidden="true" tabindex="-1"></a>example_poll <span class="sc">%&gt;%</span> <span class="co"># So we are taking our example_poll dataset and using it as an </span></span>
+<span id="cb568-4"><a href="multilevel-modelling-with-post-stratification.html#cb568-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># input to &#39;summarise&#39;.</span></span>
+<span id="cb568-5"><a href="multilevel-modelling-with-post-stratification.html#cb568-5" aria-hidden="true" tabindex="-1"></a>   <span class="co"># summarise reduces the dimensions, so here we will get one number from a column.</span></span>
+<span id="cb568-6"><a href="multilevel-modelling-with-post-stratification.html#cb568-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">raw_ALP_prop =</span> <span class="fu">sum</span>(supports_ALP) <span class="sc">/</span> <span class="fu">nrow</span>(example_poll))</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:summarise_model_simulate_data">
 <caption style="caption-side: top; text-align: center;">(#tab:summarise_model_simulate_data) </caption><col><tr>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">raw_ALP_prop</th></tr>
@@ -751,15 +808,15 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 \mbox{ALP support}_j = \mbox{gender}_j + \mbox{age\_group}_j + \epsilon_j
 \]</span></p>
 <p>This model says that the probability that some person, <span class="math inline">\(j\)</span>, will vote for the Australian Labor Party depends on their gender and their age-group. Based on our simulated data, we would like older age-groups to be less likely to vote for the Australian Labor Party and for males to be less likely to vote for the Australian Labor Party.</p>
-<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="multilevel-modelling-with-post-stratification.html#cb665-1"></a><span class="co"># Here we are running an OLS regression with supports_ALP as the dependent variable </span></span>
-<span id="cb665-2"><a href="multilevel-modelling-with-post-stratification.html#cb665-2"></a><span class="co"># and gender and age_group as the independent variables. The dataset that we are </span></span>
-<span id="cb665-3"><a href="multilevel-modelling-with-post-stratification.html#cb665-3"></a><span class="co"># using is example_poll. We are then saving that OLS regression to a variable called &#39;model&#39;.</span></span>
-<span id="cb665-4"><a href="multilevel-modelling-with-post-stratification.html#cb665-4"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(supports_ALP <span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>age_group, </span>
-<span id="cb665-5"><a href="multilevel-modelling-with-post-stratification.html#cb665-5"></a>            <span class="dt">data =</span> example_poll</span>
-<span id="cb665-6"><a href="multilevel-modelling-with-post-stratification.html#cb665-6"></a>            )</span>
-<span id="cb665-7"><a href="multilevel-modelling-with-post-stratification.html#cb665-7"></a></span>
-<span id="cb665-8"><a href="multilevel-modelling-with-post-stratification.html#cb665-8"></a><span class="co"># broom::tidy just displays the outputs of the regression in a nice table.</span></span>
-<span id="cb665-9"><a href="multilevel-modelling-with-post-stratification.html#cb665-9"></a>broom<span class="op">::</span><span class="kw">tidy</span>(model) </span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="multilevel-modelling-with-post-stratification.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we are running an OLS regression with supports_ALP as the dependent variable </span></span>
+<span id="cb569-2"><a href="multilevel-modelling-with-post-stratification.html#cb569-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and gender and age_group as the independent variables. The dataset that we are </span></span>
+<span id="cb569-3"><a href="multilevel-modelling-with-post-stratification.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="co"># using is example_poll. We are then saving that OLS regression to a variable called &#39;model&#39;.</span></span>
+<span id="cb569-4"><a href="multilevel-modelling-with-post-stratification.html#cb569-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(supports_ALP <span class="sc">~</span> gender <span class="sc">+</span> age_group, </span>
+<span id="cb569-5"><a href="multilevel-modelling-with-post-stratification.html#cb569-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> example_poll</span>
+<span id="cb569-6"><a href="multilevel-modelling-with-post-stratification.html#cb569-6" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb569-7"><a href="multilevel-modelling-with-post-stratification.html#cb569-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb569-8"><a href="multilevel-modelling-with-post-stratification.html#cb569-8" aria-hidden="true" tabindex="-1"></a><span class="co"># broom::tidy just displays the outputs of the regression in a nice table.</span></span>
+<span id="cb569-9"><a href="multilevel-modelling-with-post-stratification.html#cb569-9" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(model) </span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:initial_model_analyse_example_polling">
 <caption style="caption-side: top; text-align: center;">(#tab:initial_model_analyse_example_polling) </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">term</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">std.error</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">statistic</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">p.value</th></tr>
@@ -778,8 +835,8 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 <p>Essentially we’ve got our inputs back. We just used regular OLS even though our dependent variable is a binary. (It’s usually fine to start with an OLS model and then iterate toward an approach that may be more appropriate such as logistic regression or whatever, but where the results are a little more difficult to interpret.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>) If you wanted to do that then the place to start would be <code>glmer()</code> from the R package <code>lme4</code>, and we’ll see that in the next section.</p>
 <p>Now we’d like to see if we can use what we found in the poll to get an estimate for each state based on their demographic features.</p>
 <p>First read in some real demographic data, on a seat basis, from the ABS.</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="multilevel-modelling-with-post-stratification.html#cb666-1"></a>census_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;outputs/data/census_data.csv&quot;</span>)</span>
-<span id="cb666-2"><a href="multilevel-modelling-with-post-stratification.html#cb666-2"></a><span class="kw">head</span>(census_data)</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="multilevel-modelling-with-post-stratification.html#cb570-1" aria-hidden="true" tabindex="-1"></a>census_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;outputs/data/census_data.csv&quot;</span>)</span>
+<span id="cb570-2"><a href="multilevel-modelling-with-post-stratification.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census_data)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:initial_model_post_stratify_add_coefficients">
 <caption style="caption-side: top; text-align: center;">(#tab:initial_model_post_stratify_add_coefficients) </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gender</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">number</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">cell_prop_of_division_total</th></tr>
@@ -798,17 +855,17 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 </table>
 
 <p>We’re just going to do some rough forecasts. For each gender and age-group we want the relevant coefficient in the example_data and we can construct the estimates.</p>
-<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="multilevel-modelling-with-post-stratification.html#cb667-1"></a><span class="co"># Here we are making predictions using our model with some new data from the </span></span>
-<span id="cb667-2"><a href="multilevel-modelling-with-post-stratification.html#cb667-2"></a><span class="co"># census, and we saving the results of those predictions by adding a new column </span></span>
-<span id="cb667-3"><a href="multilevel-modelling-with-post-stratification.html#cb667-3"></a><span class="co"># to the census_data dataset called &#39;estimate&#39;.</span></span>
-<span id="cb667-4"><a href="multilevel-modelling-with-post-stratification.html#cb667-4"></a>census_data<span class="op">$</span>estimate &lt;-<span class="st"> </span></span>
-<span id="cb667-5"><a href="multilevel-modelling-with-post-stratification.html#cb667-5"></a><span class="st">  </span>model <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb667-6"><a href="multilevel-modelling-with-post-stratification.html#cb667-6"></a><span class="st">  </span><span class="kw">predict</span>(<span class="dt">newdata =</span> census_data)</span>
-<span id="cb667-7"><a href="multilevel-modelling-with-post-stratification.html#cb667-7"></a></span>
-<span id="cb667-8"><a href="multilevel-modelling-with-post-stratification.html#cb667-8"></a>census_data <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb667-9"><a href="multilevel-modelling-with-post-stratification.html#cb667-9"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">alp_predict_prop =</span> estimate<span class="op">*</span>cell_prop_of_division_total) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb667-10"><a href="multilevel-modelling-with-post-stratification.html#cb667-10"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb667-11"><a href="multilevel-modelling-with-post-stratification.html#cb667-11"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">alp_predict =</span> <span class="kw">sum</span>(alp_predict_prop))</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="multilevel-modelling-with-post-stratification.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we are making predictions using our model with some new data from the </span></span>
+<span id="cb571-2"><a href="multilevel-modelling-with-post-stratification.html#cb571-2" aria-hidden="true" tabindex="-1"></a><span class="co"># census, and we saving the results of those predictions by adding a new column </span></span>
+<span id="cb571-3"><a href="multilevel-modelling-with-post-stratification.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="co"># to the census_data dataset called &#39;estimate&#39;.</span></span>
+<span id="cb571-4"><a href="multilevel-modelling-with-post-stratification.html#cb571-4" aria-hidden="true" tabindex="-1"></a>census_data<span class="sc">$</span>estimate <span class="ot">&lt;-</span> </span>
+<span id="cb571-5"><a href="multilevel-modelling-with-post-stratification.html#cb571-5" aria-hidden="true" tabindex="-1"></a>  model <span class="sc">%&gt;%</span> </span>
+<span id="cb571-6"><a href="multilevel-modelling-with-post-stratification.html#cb571-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(<span class="at">newdata =</span> census_data)</span>
+<span id="cb571-7"><a href="multilevel-modelling-with-post-stratification.html#cb571-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb571-8"><a href="multilevel-modelling-with-post-stratification.html#cb571-8" aria-hidden="true" tabindex="-1"></a>census_data <span class="sc">%&gt;%</span> </span>
+<span id="cb571-9"><a href="multilevel-modelling-with-post-stratification.html#cb571-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">alp_predict_prop =</span> estimate<span class="sc">*</span>cell_prop_of_division_total) <span class="sc">%&gt;%</span> </span>
+<span id="cb571-10"><a href="multilevel-modelling-with-post-stratification.html#cb571-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb571-11"><a href="multilevel-modelling-with-post-stratification.html#cb571-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">alp_predict =</span> <span class="fu">sum</span>(alp_predict_prop))</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:initial_model_post_stratify_age_sex_specific">
 <caption style="caption-side: top; text-align: center;">(#tab:initial_model_post_stratify_age_sex_specific) </caption><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">alp_predict</th></tr>
@@ -832,7 +889,7 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 
 <p>We now have post-stratified estimates for each division. Our model has a fair few weaknesses. For instance small cell counts are going to be problematic. And our approach ignores uncertainty, but now that we have something working we can complicate it.</p>
 </div>
-<div id="your-turn" class="section level2">
+<div id="your-turn" class="section level2" number="19.3">
 <h2><span class="header-section-number">19.3</span> Your turn!</h2>
 <p><em>We’re going to go through this all again, but this time with you doing it. If you run into issues then I am happy to help point you in the right direction.</em></p>
 <p>As a reminder, our workflow is:</p>
@@ -844,26 +901,26 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 </ol>
 <p>Get started by opening a Rproj file and opening a new R script.</p>
 </div>
-<div id="extended-example" class="section level2">
+<div id="extended-example" class="section level2" number="19.4">
 <h2><span class="header-section-number">19.4</span> Extended example</h2>
 <p>We’d like to address some of the major issues with our approach, specifically being able to deal with small cell counts, and also taking better account of uncertainty. As we are dealing with survey data, prediction intervals or something similar are crticial, and it’s not appropriate to only report central estimates. To do this we’ll use the same broad approach as before, but just improving bits of our workflow.</p>
-<p>First load the packages (you don’t need to reload the earlier ones - I just do it here so that each section is self-contained in case people are lost). We additionally need: <code>brms</code> <span class="citation">(Bürkner <a href="#ref-citebrms" role="doc-biblioref">2018</a>)</span> and <code>tidybayes</code> <span class="citation">(Kay <a href="#ref-citetidybayes" role="doc-biblioref">2020</a>)</span>.</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="multilevel-modelling-with-post-stratification.html#cb668-1"></a><span class="co"># Uncomment these if you need to install the packages</span></span>
-<span id="cb668-2"><a href="multilevel-modelling-with-post-stratification.html#cb668-2"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
-<span id="cb668-3"><a href="multilevel-modelling-with-post-stratification.html#cb668-3"></a><span class="co"># install.packages(&quot;brms&quot;)</span></span>
-<span id="cb668-4"><a href="multilevel-modelling-with-post-stratification.html#cb668-4"></a><span class="co"># install.packages(&quot;here&quot;) </span></span>
-<span id="cb668-5"><a href="multilevel-modelling-with-post-stratification.html#cb668-5"></a><span class="co"># install.packages(&quot;tidybayes&quot;)</span></span>
-<span id="cb668-6"><a href="multilevel-modelling-with-post-stratification.html#cb668-6"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
-<span id="cb668-7"><a href="multilevel-modelling-with-post-stratification.html#cb668-7"></a></span>
-<span id="cb668-8"><a href="multilevel-modelling-with-post-stratification.html#cb668-8"></a><span class="kw">library</span>(broom)</span>
-<span id="cb668-9"><a href="multilevel-modelling-with-post-stratification.html#cb668-9"></a><span class="kw">library</span>(brms) <span class="co"># Used for the modelling</span></span>
-<span id="cb668-10"><a href="multilevel-modelling-with-post-stratification.html#cb668-10"></a><span class="kw">library</span>(here)</span>
-<span id="cb668-11"><a href="multilevel-modelling-with-post-stratification.html#cb668-11"></a><span class="kw">library</span>(tidybayes) <span class="co"># Used to help understand the modelling estimates</span></span>
-<span id="cb668-12"><a href="multilevel-modelling-with-post-stratification.html#cb668-12"></a><span class="kw">library</span>(tidyverse) </span></code></pre></div>
+<p>First load the packages (you don’t need to reload the earlier ones - I just do it here so that each section is self-contained in case people are lost). We additionally need: <code>brms</code> <span class="citation">(<a href="references-1.html#ref-citebrms" role="doc-biblioref">Bürkner 2018</a>)</span> and <code>tidybayes</code> <span class="citation">(<a href="references-1.html#ref-citetidybayes" role="doc-biblioref">Kay 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="multilevel-modelling-with-post-stratification.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment these if you need to install the packages</span></span>
+<span id="cb572-2"><a href="multilevel-modelling-with-post-stratification.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;broom&quot;)</span></span>
+<span id="cb572-3"><a href="multilevel-modelling-with-post-stratification.html#cb572-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;brms&quot;)</span></span>
+<span id="cb572-4"><a href="multilevel-modelling-with-post-stratification.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;here&quot;) </span></span>
+<span id="cb572-5"><a href="multilevel-modelling-with-post-stratification.html#cb572-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidybayes&quot;)</span></span>
+<span id="cb572-6"><a href="multilevel-modelling-with-post-stratification.html#cb572-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb572-7"><a href="multilevel-modelling-with-post-stratification.html#cb572-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-8"><a href="multilevel-modelling-with-post-stratification.html#cb572-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb572-9"><a href="multilevel-modelling-with-post-stratification.html#cb572-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms) <span class="co"># Used for the modelling</span></span>
+<span id="cb572-10"><a href="multilevel-modelling-with-post-stratification.html#cb572-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb572-11"><a href="multilevel-modelling-with-post-stratification.html#cb572-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes) <span class="co"># Used to help understand the modelling estimates</span></span>
+<span id="cb572-12"><a href="multilevel-modelling-with-post-stratification.html#cb572-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code></pre></div>
 <p>As before, read in the polling dataset.</p>
-<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="multilevel-modelling-with-post-stratification.html#cb669-1"></a>example_poll &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;outputs/data/example_poll.csv&quot;</span>)</span>
-<span id="cb669-2"><a href="multilevel-modelling-with-post-stratification.html#cb669-2"></a></span>
-<span id="cb669-3"><a href="multilevel-modelling-with-post-stratification.html#cb669-3"></a><span class="kw">head</span>(example_poll)</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="multilevel-modelling-with-post-stratification.html#cb573-1" aria-hidden="true" tabindex="-1"></a>example_poll <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;outputs/data/example_poll.csv&quot;</span>)</span>
+<span id="cb573-2"><a href="multilevel-modelling-with-post-stratification.html#cb573-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb573-3"><a href="multilevel-modelling-with-post-stratification.html#cb573-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_poll)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:brms_model_simulate_data">
 <caption style="caption-side: top; text-align: center;">(#tab:brms_model_simulate_data) </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gender</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">supports_ALP</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th></tr>
@@ -882,15 +939,15 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 </table>
 
 <p>Now, using the same basic model as before, but we move it to a setting that acknowledges the dependent variable as being binary, and in a Bayesian setting.</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="multilevel-modelling-with-post-stratification.html#cb670-1"></a>model &lt;-<span class="st"> </span><span class="kw">brm</span>(supports_ALP <span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>age_group, </span>
-<span id="cb670-2"><a href="multilevel-modelling-with-post-stratification.html#cb670-2"></a>             <span class="dt">data =</span> example_poll, </span>
-<span id="cb670-3"><a href="multilevel-modelling-with-post-stratification.html#cb670-3"></a>             <span class="dt">family =</span> <span class="kw">bernoulli</span>(),</span>
-<span id="cb670-4"><a href="multilevel-modelling-with-post-stratification.html#cb670-4"></a>             <span class="dt">file =</span> <span class="st">&quot;outputs/model/brms_model&quot;</span></span>
-<span id="cb670-5"><a href="multilevel-modelling-with-post-stratification.html#cb670-5"></a>             )</span>
-<span id="cb670-6"><a href="multilevel-modelling-with-post-stratification.html#cb670-6"></a></span>
-<span id="cb670-7"><a href="multilevel-modelling-with-post-stratification.html#cb670-7"></a>model &lt;-<span class="st"> </span><span class="kw">read_rds</span>(<span class="st">&quot;outputs/model/brms_model.rds&quot;</span>)</span>
-<span id="cb670-8"><a href="multilevel-modelling-with-post-stratification.html#cb670-8"></a></span>
-<span id="cb670-9"><a href="multilevel-modelling-with-post-stratification.html#cb670-9"></a><span class="kw">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="multilevel-modelling-with-post-stratification.html#cb574-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">brm</span>(supports_ALP <span class="sc">~</span> gender <span class="sc">+</span> age_group, </span>
+<span id="cb574-2"><a href="multilevel-modelling-with-post-stratification.html#cb574-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> example_poll, </span>
+<span id="cb574-3"><a href="multilevel-modelling-with-post-stratification.html#cb574-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">bernoulli</span>(),</span>
+<span id="cb574-4"><a href="multilevel-modelling-with-post-stratification.html#cb574-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">file =</span> <span class="st">&quot;outputs/model/brms_model&quot;</span></span>
+<span id="cb574-5"><a href="multilevel-modelling-with-post-stratification.html#cb574-5" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb574-6"><a href="multilevel-modelling-with-post-stratification.html#cb574-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-7"><a href="multilevel-modelling-with-post-stratification.html#cb574-7" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">&quot;outputs/model/brms_model.rds&quot;</span>)</span>
+<span id="cb574-8"><a href="multilevel-modelling-with-post-stratification.html#cb574-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-9"><a href="multilevel-modelling-with-post-stratification.html#cb574-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>##  Family: bernoulli 
 ##   Links: mu = logit 
 ## Formula: supports_ALP ~ gender + age_group 
@@ -911,8 +968,8 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <p>We’ve moved to the Bernoulli distribution, so we have to do a bit more work to understand our results, but we are broadly getting back what we’d expect.</p>
 <p>As before, we’d like an estimate for each state based on their demographic features and start by reading in the data.</p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="multilevel-modelling-with-post-stratification.html#cb672-1"></a>census_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;outputs/data/census_data.csv&quot;</span>)</span>
-<span id="cb672-2"><a href="multilevel-modelling-with-post-stratification.html#cb672-2"></a><span class="kw">head</span>(census_data)</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="multilevel-modelling-with-post-stratification.html#cb576-1" aria-hidden="true" tabindex="-1"></a>census_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;outputs/data/census_data.csv&quot;</span>)</span>
+<span id="cb576-2"><a href="multilevel-modelling-with-post-stratification.html#cb576-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census_data)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:brms_model_post_stratify_add_coefficients">
 <caption style="caption-side: top; text-align: center;">(#tab:brms_model_post_stratify_add_coefficients) </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gender</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">number</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">cell_prop_of_division_total</th></tr>
@@ -931,19 +988,19 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 </table>
 
 <p>We’re just going to do some rough forecasts. For each gender and age_group we want the relevant coefficient in the example_data and we can construct the estimates (this code is from <a href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">Monica Alexander</a>).</p>
-<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="multilevel-modelling-with-post-stratification.html#cb673-1"></a>post_stratified_estimates &lt;-<span class="st"> </span></span>
-<span id="cb673-2"><a href="multilevel-modelling-with-post-stratification.html#cb673-2"></a><span class="st">  </span>model <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-3"><a href="multilevel-modelling-with-post-stratification.html#cb673-3"></a><span class="st">  </span>tidybayes<span class="op">::</span><span class="kw">add_predicted_draws</span>(<span class="dt">newdata =</span> census_data) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-4"><a href="multilevel-modelling-with-post-stratification.html#cb673-4"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">alp_predict =</span> .prediction) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-5"><a href="multilevel-modelling-with-post-stratification.html#cb673-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">alp_predict_prop =</span> alp_predict<span class="op">*</span>cell_prop_of_division_total) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-6"><a href="multilevel-modelling-with-post-stratification.html#cb673-6"></a><span class="st">  </span><span class="kw">group_by</span>(state, .draw) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-7"><a href="multilevel-modelling-with-post-stratification.html#cb673-7"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">alp_predict =</span> <span class="kw">sum</span>(alp_predict_prop)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-8"><a href="multilevel-modelling-with-post-stratification.html#cb673-8"></a><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb673-9"><a href="multilevel-modelling-with-post-stratification.html#cb673-9"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(alp_predict), </span>
-<span id="cb673-10"><a href="multilevel-modelling-with-post-stratification.html#cb673-10"></a>            <span class="dt">lower =</span> <span class="kw">quantile</span>(alp_predict, <span class="fl">0.025</span>), </span>
-<span id="cb673-11"><a href="multilevel-modelling-with-post-stratification.html#cb673-11"></a>            <span class="dt">upper =</span> <span class="kw">quantile</span>(alp_predict, <span class="fl">0.975</span>))</span>
-<span id="cb673-12"><a href="multilevel-modelling-with-post-stratification.html#cb673-12"></a></span>
-<span id="cb673-13"><a href="multilevel-modelling-with-post-stratification.html#cb673-13"></a>post_stratified_estimates</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="multilevel-modelling-with-post-stratification.html#cb577-1" aria-hidden="true" tabindex="-1"></a>post_stratified_estimates <span class="ot">&lt;-</span> </span>
+<span id="cb577-2"><a href="multilevel-modelling-with-post-stratification.html#cb577-2" aria-hidden="true" tabindex="-1"></a>  model <span class="sc">%&gt;%</span> </span>
+<span id="cb577-3"><a href="multilevel-modelling-with-post-stratification.html#cb577-3" aria-hidden="true" tabindex="-1"></a>  tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(<span class="at">newdata =</span> census_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-4"><a href="multilevel-modelling-with-post-stratification.html#cb577-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">alp_predict =</span> .prediction) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-5"><a href="multilevel-modelling-with-post-stratification.html#cb577-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">alp_predict_prop =</span> alp_predict<span class="sc">*</span>cell_prop_of_division_total) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-6"><a href="multilevel-modelling-with-post-stratification.html#cb577-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, .draw) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-7"><a href="multilevel-modelling-with-post-stratification.html#cb577-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">alp_predict =</span> <span class="fu">sum</span>(alp_predict_prop)) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-8"><a href="multilevel-modelling-with-post-stratification.html#cb577-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb577-9"><a href="multilevel-modelling-with-post-stratification.html#cb577-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(alp_predict), </span>
+<span id="cb577-10"><a href="multilevel-modelling-with-post-stratification.html#cb577-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(alp_predict, <span class="fl">0.025</span>), </span>
+<span id="cb577-11"><a href="multilevel-modelling-with-post-stratification.html#cb577-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(alp_predict, <span class="fl">0.975</span>))</span>
+<span id="cb577-12"><a href="multilevel-modelling-with-post-stratification.html#cb577-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb577-13"><a href="multilevel-modelling-with-post-stratification.html#cb577-13" aria-hidden="true" tabindex="-1"></a>post_stratified_estimates</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:brms_model_post_stratify_age_sex_specific">
 <caption style="caption-side: top; text-align: center;">(#tab:brms_model_post_stratify_age_sex_specific) </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">mean</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
@@ -967,7 +1024,7 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 
 <p>We now have post-stratified estimates for each division. Our new Bayesian approach will enable us to think more deeply about uncertainty. We could complicate this in a variety of ways including adding more coefficients (but remember that we’d need to get new cell counts), or adding some layers.</p>
 </div>
-<div id="your-turn-1" class="section level2">
+<div id="your-turn-1" class="section level2" number="19.5">
 <h2><span class="header-section-number">19.5</span> Your turn!</h2>
 <p><em>We’re going to go through this all again, but this time with you doing it. If you run into issues then I am happy to help point you in the right direction.</em></p>
 <p>As a reminder, our workflow is:</p>
@@ -978,16 +1035,16 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 <li>apply your model to the post-stratification data.</li>
 </ol>
 </div>
-<div id="adding-layers" class="section level2">
+<div id="adding-layers" class="section level2" number="19.6">
 <h2><span class="header-section-number">19.6</span> Adding layers</h2>
 <p>We may like to try to add some layers to our model. For instance, we may like a different intercept for each state.</p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="multilevel-modelling-with-post-stratification.html#cb674-1"></a>model_states &lt;-<span class="st"> </span><span class="kw">brm</span>(supports_ALP <span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>age_group <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>state), </span>
-<span id="cb674-2"><a href="multilevel-modelling-with-post-stratification.html#cb674-2"></a>                    <span class="dt">data =</span> example_poll, </span>
-<span id="cb674-3"><a href="multilevel-modelling-with-post-stratification.html#cb674-3"></a>                    <span class="dt">family =</span> <span class="kw">bernoulli</span>(),</span>
-<span id="cb674-4"><a href="multilevel-modelling-with-post-stratification.html#cb674-4"></a>                    <span class="dt">file =</span> <span class="st">&quot;outputs/model/brms_model_states&quot;</span>,</span>
-<span id="cb674-5"><a href="multilevel-modelling-with-post-stratification.html#cb674-5"></a>                    <span class="dt">control =</span> <span class="kw">list</span>(<span class="dt">adapt_delta =</span> <span class="fl">0.90</span>)</span>
-<span id="cb674-6"><a href="multilevel-modelling-with-post-stratification.html#cb674-6"></a>                    )</span>
-<span id="cb674-7"><a href="multilevel-modelling-with-post-stratification.html#cb674-7"></a><span class="kw">summary</span>(model_states)</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="multilevel-modelling-with-post-stratification.html#cb578-1" aria-hidden="true" tabindex="-1"></a>model_states <span class="ot">&lt;-</span> <span class="fu">brm</span>(supports_ALP <span class="sc">~</span> gender <span class="sc">+</span> age_group <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>state), </span>
+<span id="cb578-2"><a href="multilevel-modelling-with-post-stratification.html#cb578-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> example_poll, </span>
+<span id="cb578-3"><a href="multilevel-modelling-with-post-stratification.html#cb578-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">family =</span> <span class="fu">bernoulli</span>(),</span>
+<span id="cb578-4"><a href="multilevel-modelling-with-post-stratification.html#cb578-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">file =</span> <span class="st">&quot;outputs/model/brms_model_states&quot;</span>,</span>
+<span id="cb578-5"><a href="multilevel-modelling-with-post-stratification.html#cb578-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.90</span>)</span>
+<span id="cb578-6"><a href="multilevel-modelling-with-post-stratification.html#cb578-6" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb578-7"><a href="multilevel-modelling-with-post-stratification.html#cb578-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_states)</span></code></pre></div>
 <pre><code>##  Family: bernoulli 
 ##   Links: mu = logit 
 ## Formula: supports_ALP ~ gender + age_group + (1 | state) 
@@ -1011,11 +1068,11 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 ## Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
 ## and Tail_ESS are effective sample size measures, and Rhat is the potential
 ## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="multilevel-modelling-with-post-stratification.html#cb676-1"></a><span class="co"># broom::tidy(model_states, par_type = &quot;varying&quot;)</span></span>
-<span id="cb676-2"><a href="multilevel-modelling-with-post-stratification.html#cb676-2"></a><span class="co"># broom::tidy(model_states, par_type = &quot;non-varying&quot;, robust = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="multilevel-modelling-with-post-stratification.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># broom::tidy(model_states, par_type = &quot;varying&quot;)</span></span>
+<span id="cb580-2"><a href="multilevel-modelling-with-post-stratification.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="co"># broom::tidy(model_states, par_type = &quot;non-varying&quot;, robust = TRUE)</span></span></code></pre></div>
 <p>One interesting aspect is that our multilevel approach will allow us to deal with small cell counts by borrowing information from other cells.</p>
-<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="multilevel-modelling-with-post-stratification.html#cb677-1"></a>example_poll <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb677-2"><a href="multilevel-modelling-with-post-stratification.html#cb677-2"></a><span class="st">  </span><span class="kw">count</span>(state)</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="multilevel-modelling-with-post-stratification.html#cb581-1" aria-hidden="true" tabindex="-1"></a>example_poll <span class="sc">%&gt;%</span> </span>
+<span id="cb581-2"><a href="multilevel-modelling-with-post-stratification.html#cb581-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(state)</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:brms_model_analyse_extended_state_counts">
 <caption style="caption-side: top; text-align: center;">(#tab:brms_model_analyse_extended_state_counts) </caption><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">n</th></tr>
@@ -1039,88 +1096,67 @@ Figure 19.3: Post-stratified estimates of electoral college outcomes based on th
 
 <p>At the moment we have 50 respondents in the Northern Territory, 105 in Tasmania, and 107 in the ACT. Even if we were to remove most of the, say, 18 to 29 year old, male respondents from Tasmania our model would still provide estimates. It does this by pooling, in which the effect of these young, male, Tasmanians is partially determined by other cells that do have respondents.</p>
 </div>
-<div id="communication" class="section level2">
+<div id="communication" class="section level2" number="19.7">
 <h2><span class="header-section-number">19.7</span> Communication</h2>
 <p>There are many interesting aspects that we may like to communicate to others. For instance, we may like to show how the model is affecting the results. We can make a graph that compares the raw estimate with the model estimate.</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="multilevel-modelling-with-post-stratification.html#cb678-1"></a>post_stratified_estimates <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb678-2"><a href="multilevel-modelling-with-post-stratification.html#cb678-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mean, <span class="dt">x =</span> forcats<span class="op">::</span><span class="kw">fct_inorder</span>(state), <span class="dt">color =</span> <span class="st">&quot;MRP estimate&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb678-3"><a href="multilevel-modelling-with-post-stratification.html#cb678-3"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb678-4"><a href="multilevel-modelling-with-post-stratification.html#cb678-4"></a><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> lower, <span class="dt">ymax =</span> upper), <span class="dt">width =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb678-5"><a href="multilevel-modelling-with-post-stratification.html#cb678-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Proportion ALP support&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb678-6"><a href="multilevel-modelling-with-post-stratification.html#cb678-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;State&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb678-7"><a href="multilevel-modelling-with-post-stratification.html#cb678-7"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> example_poll <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb678-8"><a href="multilevel-modelling-with-post-stratification.html#cb678-8"></a><span class="st">               </span><span class="kw">group_by</span>(state, supports_ALP) <span class="op">%&gt;%</span></span>
-<span id="cb678-9"><a href="multilevel-modelling-with-post-stratification.html#cb678-9"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb678-10"><a href="multilevel-modelling-with-post-stratification.html#cb678-10"></a><span class="st">               </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb678-11"><a href="multilevel-modelling-with-post-stratification.html#cb678-11"></a><span class="st">               </span><span class="kw">mutate</span>(<span class="dt">prop =</span> n<span class="op">/</span><span class="kw">sum</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb678-12"><a href="multilevel-modelling-with-post-stratification.html#cb678-12"></a><span class="st">               </span><span class="kw">filter</span>(supports_ALP<span class="op">==</span><span class="dv">1</span>), </span>
-<span id="cb678-13"><a href="multilevel-modelling-with-post-stratification.html#cb678-13"></a>             <span class="kw">aes</span>(state, prop, <span class="dt">color =</span> <span class="st">&quot;Raw data&quot;</span>)) <span class="op">+</span></span>
-<span id="cb678-14"><a href="multilevel-modelling-with-post-stratification.html#cb678-14"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb678-15"><a href="multilevel-modelling-with-post-stratification.html#cb678-15"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></span>
-<span id="cb678-16"><a href="multilevel-modelling-with-post-stratification.html#cb678-16"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span></span>
-<span id="cb678-17"><a href="multilevel-modelling-with-post-stratification.html#cb678-17"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>())</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-397-1.png" width="672" /></p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="multilevel-modelling-with-post-stratification.html#cb582-1" aria-hidden="true" tabindex="-1"></a>post_stratified_estimates <span class="sc">%&gt;%</span> </span>
+<span id="cb582-2"><a href="multilevel-modelling-with-post-stratification.html#cb582-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> mean, <span class="at">x =</span> forcats<span class="sc">::</span><span class="fu">fct_inorder</span>(state), <span class="at">color =</span> <span class="st">&quot;MRP estimate&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb582-3"><a href="multilevel-modelling-with-post-stratification.html#cb582-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb582-4"><a href="multilevel-modelling-with-post-stratification.html#cb582-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb582-5"><a href="multilevel-modelling-with-post-stratification.html#cb582-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion ALP support&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb582-6"><a href="multilevel-modelling-with-post-stratification.html#cb582-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;State&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb582-7"><a href="multilevel-modelling-with-post-stratification.html#cb582-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> example_poll <span class="sc">%&gt;%</span> </span>
+<span id="cb582-8"><a href="multilevel-modelling-with-post-stratification.html#cb582-8" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(state, supports_ALP) <span class="sc">%&gt;%</span></span>
+<span id="cb582-9"><a href="multilevel-modelling-with-post-stratification.html#cb582-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb582-10"><a href="multilevel-modelling-with-post-stratification.html#cb582-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span> </span>
+<span id="cb582-11"><a href="multilevel-modelling-with-post-stratification.html#cb582-11" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb582-12"><a href="multilevel-modelling-with-post-stratification.html#cb582-12" aria-hidden="true" tabindex="-1"></a>               <span class="fu">filter</span>(supports_ALP<span class="sc">==</span><span class="dv">1</span>), </span>
+<span id="cb582-13"><a href="multilevel-modelling-with-post-stratification.html#cb582-13" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(state, prop, <span class="at">color =</span> <span class="st">&quot;Raw data&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb582-14"><a href="multilevel-modelling-with-post-stratification.html#cb582-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb582-15"><a href="multilevel-modelling-with-post-stratification.html#cb582-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb582-16"><a href="multilevel-modelling-with-post-stratification.html#cb582-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
+<span id="cb582-17"><a href="multilevel-modelling-with-post-stratification.html#cb582-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-349-1.png" width="672" /></p>
 <p>Similarly, we may like to plot the distribution of the coefficients.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
-<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="multilevel-modelling-with-post-stratification.html#cb679-1"></a>model <span class="op">%&gt;%</span></span>
-<span id="cb679-2"><a href="multilevel-modelling-with-post-stratification.html#cb679-2"></a><span class="st">  </span><span class="kw">gather_draws</span>(<span class="st">`</span><span class="dt">b_.*</span><span class="st">`</span>, <span class="dt">regex=</span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
-<span id="cb679-3"><a href="multilevel-modelling-with-post-stratification.html#cb679-3"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
-<span id="cb679-4"><a href="multilevel-modelling-with-post-stratification.html#cb679-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">coefficient =</span> stringr<span class="op">::</span><span class="kw">str_replace_all</span>(.variable, <span class="kw">c</span>(<span class="st">&quot;b_&quot;</span> =<span class="st"> &quot;&quot;</span>))) <span class="op">%&gt;%</span></span>
-<span id="cb679-5"><a href="multilevel-modelling-with-post-stratification.html#cb679-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">coefficient =</span> forcats<span class="op">::</span><span class="kw">fct_recode</span>(coefficient,</span>
-<span id="cb679-6"><a href="multilevel-modelling-with-post-stratification.html#cb679-6"></a>                                           <span class="dt">Intercept =</span> <span class="st">&quot;Intercept&quot;</span>,</span>
-<span id="cb679-7"><a href="multilevel-modelling-with-post-stratification.html#cb679-7"></a>                                           <span class="st">`</span><span class="dt">Is male</span><span class="st">`</span> =<span class="st"> &quot;genderMale&quot;</span>,</span>
-<span id="cb679-8"><a href="multilevel-modelling-with-post-stratification.html#cb679-8"></a>                                           <span class="st">`</span><span class="dt">Age 30-44</span><span class="st">`</span> =<span class="st"> &quot;age_groupages30to44&quot;</span>,</span>
-<span id="cb679-9"><a href="multilevel-modelling-with-post-stratification.html#cb679-9"></a>                                           <span class="st">`</span><span class="dt">Age 45-59</span><span class="st">`</span> =<span class="st"> &quot;age_groupages45to59&quot;</span>,</span>
-<span id="cb679-10"><a href="multilevel-modelling-with-post-stratification.html#cb679-10"></a>                                           <span class="st">`</span><span class="dt">Age 60+</span><span class="st">`</span> =<span class="st"> &quot;age_groupages60plus&quot;</span></span>
-<span id="cb679-11"><a href="multilevel-modelling-with-post-stratification.html#cb679-11"></a>                                           )) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb679-12"><a href="multilevel-modelling-with-post-stratification.html#cb679-12"></a></span>
-<span id="cb679-13"><a href="multilevel-modelling-with-post-stratification.html#cb679-13"></a><span class="co"># both %&gt;% </span></span>
-<span id="cb679-14"><a href="multilevel-modelling-with-post-stratification.html#cb679-14"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y=</span><span class="kw">fct_rev</span>(coefficient), <span class="dt">x =</span> .value)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb679-15"><a href="multilevel-modelling-with-post-stratification.html#cb679-15"></a><span class="st">  </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges2</span>(<span class="kw">aes</span>(<span class="dt">height =</span> ..density..),</span>
-<span id="cb679-16"><a href="multilevel-modelling-with-post-stratification.html#cb679-16"></a>                                 <span class="dt">rel_min_height =</span> <span class="fl">0.01</span>, </span>
-<span id="cb679-17"><a href="multilevel-modelling-with-post-stratification.html#cb679-17"></a>                                 <span class="dt">stat =</span> <span class="st">&quot;density&quot;</span>,</span>
-<span id="cb679-18"><a href="multilevel-modelling-with-post-stratification.html#cb679-18"></a>                                 <span class="dt">scale=</span><span class="fl">1.5</span>) <span class="op">+</span></span>
-<span id="cb679-19"><a href="multilevel-modelling-with-post-stratification.html#cb679-19"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Distribution of estimate&quot;</span>) <span class="op">+</span></span>
-<span id="cb679-20"><a href="multilevel-modelling-with-post-stratification.html#cb679-20"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Coefficient&quot;</span>) <span class="op">+</span></span>
-<span id="cb679-21"><a href="multilevel-modelling-with-post-stratification.html#cb679-21"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">name =</span> <span class="st">&quot;Dataset: &quot;</span>, <span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></span>
-<span id="cb679-22"><a href="multilevel-modelling-with-post-stratification.html#cb679-22"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb679-23"><a href="multilevel-modelling-with-post-stratification.html#cb679-23"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),</span>
-<span id="cb679-24"><a href="multilevel-modelling-with-post-stratification.html#cb679-24"></a>        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></span>
-<span id="cb679-25"><a href="multilevel-modelling-with-post-stratification.html#cb679-25"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-398-1.png" width="672" /></p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="multilevel-modelling-with-post-stratification.html#cb583-1" aria-hidden="true" tabindex="-1"></a>model <span class="sc">%&gt;%</span></span>
+<span id="cb583-2"><a href="multilevel-modelling-with-post-stratification.html#cb583-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_draws</span>(<span class="st">`</span><span class="at">b_.*</span><span class="st">`</span>, <span class="at">regex=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb583-3"><a href="multilevel-modelling-with-post-stratification.html#cb583-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb583-4"><a href="multilevel-modelling-with-post-stratification.html#cb583-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">coefficient =</span> stringr<span class="sc">::</span><span class="fu">str_replace_all</span>(.variable, <span class="fu">c</span>(<span class="st">&quot;b_&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb583-5"><a href="multilevel-modelling-with-post-stratification.html#cb583-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">coefficient =</span> forcats<span class="sc">::</span><span class="fu">fct_recode</span>(coefficient,</span>
+<span id="cb583-6"><a href="multilevel-modelling-with-post-stratification.html#cb583-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">Intercept =</span> <span class="st">&quot;Intercept&quot;</span>,</span>
+<span id="cb583-7"><a href="multilevel-modelling-with-post-stratification.html#cb583-7" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">`</span><span class="at">Is male</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;genderMale&quot;</span>,</span>
+<span id="cb583-8"><a href="multilevel-modelling-with-post-stratification.html#cb583-8" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">`</span><span class="at">Age 30-44</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;age_groupages30to44&quot;</span>,</span>
+<span id="cb583-9"><a href="multilevel-modelling-with-post-stratification.html#cb583-9" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">`</span><span class="at">Age 45-59</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;age_groupages45to59&quot;</span>,</span>
+<span id="cb583-10"><a href="multilevel-modelling-with-post-stratification.html#cb583-10" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">`</span><span class="at">Age 60+</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;age_groupages60plus&quot;</span></span>
+<span id="cb583-11"><a href="multilevel-modelling-with-post-stratification.html#cb583-11" aria-hidden="true" tabindex="-1"></a>                                           )) <span class="sc">%&gt;%</span> </span>
+<span id="cb583-12"><a href="multilevel-modelling-with-post-stratification.html#cb583-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb583-13"><a href="multilevel-modelling-with-post-stratification.html#cb583-13" aria-hidden="true" tabindex="-1"></a><span class="co"># both %&gt;% </span></span>
+<span id="cb583-14"><a href="multilevel-modelling-with-post-stratification.html#cb583-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">fct_rev</span>(coefficient), <span class="at">x =</span> .value)) <span class="sc">+</span> </span>
+<span id="cb583-15"><a href="multilevel-modelling-with-post-stratification.html#cb583-15" aria-hidden="true" tabindex="-1"></a>  ggridges<span class="sc">::</span><span class="fu">geom_density_ridges2</span>(<span class="fu">aes</span>(<span class="at">height =</span> ..density..),</span>
+<span id="cb583-16"><a href="multilevel-modelling-with-post-stratification.html#cb583-16" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">rel_min_height =</span> <span class="fl">0.01</span>, </span>
+<span id="cb583-17"><a href="multilevel-modelling-with-post-stratification.html#cb583-17" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">stat =</span> <span class="st">&quot;density&quot;</span>,</span>
+<span id="cb583-18"><a href="multilevel-modelling-with-post-stratification.html#cb583-18" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">scale=</span><span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb583-19"><a href="multilevel-modelling-with-post-stratification.html#cb583-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Distribution of estimate&quot;</span>) <span class="sc">+</span></span>
+<span id="cb583-20"><a href="multilevel-modelling-with-post-stratification.html#cb583-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Coefficient&quot;</span>) <span class="sc">+</span></span>
+<span id="cb583-21"><a href="multilevel-modelling-with-post-stratification.html#cb583-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">name =</span> <span class="st">&quot;Dataset: &quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb583-22"><a href="multilevel-modelling-with-post-stratification.html#cb583-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb583-23"><a href="multilevel-modelling-with-post-stratification.html#cb583-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb583-24"><a href="multilevel-modelling-with-post-stratification.html#cb583-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb583-25"><a href="multilevel-modelling-with-post-stratification.html#cb583-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-350-1.png" width="672" /></p>
 </div>
-<div id="concluding-remarks" class="section level2">
+<div id="concluding-remarks" class="section level2" number="19.8">
 <h2><span class="header-section-number">19.8</span> Concluding remarks</h2>
 <p>In general, MRP is a good way to accomplish specific aims, but it’s not without trade-offs. If you have a good quality survey, then it may be a way to speak to disaggregated aspects of it. Or if you are concerned about uncertainty then it is a good way to think about that. If you have a biased survey then it’s a great place to start, but it’s not a panacea.</p>
 <p>There’s not a lot of work that’s been done using Canadian data, so there’s plenty of scope for exciting work. I look forward to seeing what you do with it!</p>
 
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-citebrms">
-<p>Bürkner, Paul-Christian. 2018. “Advanced Bayesian Multilevel Modeling with the R Package brms.” <em>The R Journal</em> 10 (1): 395–411. <a href="https://doi.org/10.32614/RJ-2018-017">https://doi.org/10.32614/RJ-2018-017</a>.</p>
-</div>
-<div id="ref-citetidybayes">
-<p>Kay, Matthew. 2020. <em>tidybayes: Tidy Data and Geoms for Bayesian Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.</p>
-</div>
-<div id="ref-citehere">
-<p>Müller, Kirill. 2017b. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.</p>
-</div>
-<div id="ref-citeR">
-<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
-</div>
-<div id="ref-citebroom">
-<p>Robinson, David, Alex Hayes, and Simon Couch. 2020. <em>Broom: Convert Statistical Objects into Tidy Tibbles</em>. <a href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.</p>
-</div>
-<div id="ref-citetidyverse">
-<p>Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019b. “Welcome to the tidyverse.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.</p>
-</div>
-</div>
 <div class="footnotes">
 <hr />
 <ol start="10">
 <li id="fn10"><p><a href="https://www.monicaalexander.com/">Monica</a> is horrified by the use of OLS here, and wants it on the record that she regrets not making not doing this part of our marriage vows.<a href="multilevel-modelling-with-post-stratification.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>You can work out which coefficients to be pass to gather_draws by using tidybayes::get_variables(model). (In this example I passed ‘b_.’, but the ones of interest to you may be different.)<a href="multilevel-modelling-with-post-stratification.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>You can work out which coefficients to be pass to gather_draws by using tidybayes::get_variables(model). (In this example I passed ‘b_.’ but the ones of interest to you may be different.)<a href="multilevel-modelling-with-post-stratification.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

@@ -20,8 +20,6 @@ knitr::opts_chunk$set(
 ```
 
 
-
-
 **Required reading**
 
 - Alexander, Monica, 2019, 'Analyzing name changes after marriage using a non-representative survey', 7 August, https://www.monicaalexander.com/posts/2019-08-07-mrp/.

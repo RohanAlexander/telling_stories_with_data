@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 
 # Hunt data
 
+*Last updated: `r format(Sys.time(), "%d %B %Y")`.*
 
 **Required reading**
 
@@ -593,11 +594,46 @@ It was found, that the one-on-one coaching 'increased grades by approximately 5 
 knitr::include_graphics(here::here("figures/toronto_intervention.png"))
 ```
 
-
 The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available [here](https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go).
 
 
 
+
+## Case study - Civic Honesty Around The Globe
+
+Trust isn't something that we think regularly about, but it's actually fairly fundamental to most interactions, both economic and personal. For instance, many of us get paid after we do some work - we're trusting our employer will make good; and vice versa - if you get paid in advance then they are trusting you. In a strictly naive, one-shot, transaction-cost-less world, this doesn't make sense. If you get paid in advance, the incentive is for you to take the money and run in the last pay period before you quit, and through backward induction everything falls apart. Of course, we don't live in such a world. For one thing there are transaction costs, for another generally we have repeated interactions, and finally, in my experience, the world usually ends up being fairly small. 
+
+Understanding the extent of honestly in different countries may help us to explain economic development and other aspects of interest such as tax compliance, but it's fairly hard to measure. We can't really ask people how honest they are - wouldn't the liars lie, resulting in a lemons problem [@akerlof1978market]? To get around, this @cohn2019civic conduct an experiment in 355 cities across 40 countries where they 'turn in' either: a wallet with the local equivalent of US$13.45 in it, or no money. They are interested in whether the 'recipient' attempts to return the wallet. They find that '[in virtually all countries, citizens were more likely to return wallets that contained more money' [@cohn2019civic, p. 1]. 
+
+The set-up of the experiment is fascinating. They 'turn in' 17,303 wallets to various institutions including: '(i) banks; (ii) theaters, museums, or other cultural establishments; (iii) post offices; (iv) hotels; and (v) police stations, courts of law, or other public offices' [@cohn2019civic, p. 1]. These institutions were roughly equally sampled, although banks were slightly over sampled and post offices were slightly under-sampled. The importance of such institutions in the economy is generally well-accepted [@acemoglu2001colonial] and they are common across most countries. Importantly for the experiment, they 'typically have a public reception area where we could perform the drop-offs' [@cohn2019civic, p. 1].
+
+The way the experiment worked is that a research assistant turned the wallet in to an employee at a counter in the public reception area, saying 'Hi, I found this [showing the wallet] on the street just around the corner. [Place wallet on counter.] Somebody must have lost it. I'm in a hurry and have to go. Can you please take care of it?' [@cohn2019civic, p. 2]. The outcome of interest is whether an email is sent to the unique address on a business card in the wallet within 100 days. The research assistant had to note various features of the setting, including features such as the gender, age-group, and busyness of the 'recipient'.
+
+The wallets were transparent, and the business card had a name and email contact details. It also had a key and a grocery list (Figure \@ref(fig:walletsexample)).
+
+```{r walletsexample, echo=FALSE, fig.cap = "Example of the wallet.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/wallet_example.png"))
+``` 
+
+The grocery list was an attempt to convince the 'recipient' that the 'owner' was a local. Language and currency were adapted to local conditions. The key is only useful to the 'owner', not to the 'recipient' of the wallet and was included to test for altruistic concerns.
+
+The primary treatment in the experiment is whether the wallet contained money or not. The key outcome was whether the wallet was attempted to be returned or not. It was found that '[t]he median response time was roughly 26 minutes across all countries, and about 88% of emails arrived within 24 hours' [@cohn2019civicaddendum, p. 10]. If an email was received, then 3 hours later a response was sent, saying that the owner had left town, the contents were unimportant to them and that they could keep it or donate it to charity [@cohn2019civicaddendum, p. 9]. 
+
+Considerable differences were found between countries (Figure \@ref(fig:wallets)).
+
+```{r wallets, echo=FALSE, fig.cap = "Key finding as to wallet return rates.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/wallet_results.png"))
+``` 
+
+Figure \@ref(fig:wallets) shows that in almost all countries wallets with money were more likely to be returned than wallets without. The authors further conducted the experiment with the equivalent of US$94.15 in three countries - Poland, the UK, and the US - and found that reporting rates further increased. In those same three countries further tests were done comparing the situation when the wallet always contained money, but the presence of the key was varied. The wallet was slightly more likely to be reported when there was a key.
+
+The full set of 40 countries were chosen based on having enough cities with populations of at least 100,000, as well as the ability for the research assistants to safely visit and withdraw cash. The cities were chosen starting with the largest ones and there were usually 400 observations in each country [@cohn2019civicaddendum, p. 5]. Real-world concerns affected the specifics of the experiment. For instance, in '...India, we made a last minute change by replacing Chennai with Coimbatore due to severe flooding that took place in February 2015. In Kenya we did not carry out data collection in the last city visited (Malindi) because the research assistant was arrested and interrogated by the military police for suspicious activity' [@cohn2019civicaddendum, p. 5].
+
+In addition to the experiments, @cohn2019civic conducted surveys that allowed them to understand some reasons for their findings. It also allowed them to be specific about the respondents. The survey involved 2,525 respondents (829 in the UK, 809 in Poland, and 887 in the US) [@cohn2019civicaddendum, p. 36]. 'To qualify for participation, individuals had to pass a simple attention check and meet the demographic quotas (based on age, gender, and residence) set by Qualtrics to construct the representative samples. Participants received a flat payment of US $4.00 for their participation' [@cohn2019civicaddendum, p. 36]. The participants were given one of the scenarios and then asked to answer questions. 
+
+Annoyingly the authors don't explicitly specify the estimating equation. However they do say that important covariates about the 'recipient' include: gender, age-group, busyness, whether they were local, spoke english, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920. 
+
+The code or data for the paper are available: @walletsdata.
 
 
 
