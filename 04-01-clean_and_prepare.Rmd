@@ -34,3 +34,17 @@ output:
 
 **Quiz**
 
+
+
+<!-- Please consider Lee, 2018, 'Ten simple rules for documenting scientific software' and match the following. -->
+
+<!-- Beaumont, Jean-François, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’ -->
+<!-- Cohn, Nate, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results’ -->
+<!-- Gelman, Andrew, 2019, 'Model Building and expansion for golf putting' -->
+<!-- Hanretty, Chris, 2019, ‘An introduction to multilevel regression and post-stratification for estimating constituency opinion’ -->
+<!-- Hillygus, D. Sunshine, 2011, ‘The evolution of election polling in the United States’ -->
+<!-- Kennedy, Lauren, and Andrew Gelman, 2019, ‘Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample’ -->
+<!-- Kennedy, Lauren, Katharine Khanna, Dan Simpson, and Andrew Gelman, 2020 'Using sex and gender in survey adjustment'. -->
+<!-- Lee, Benjamin, 2018, 'Ten simple rules for documenting scientific software' -->
+<!-- Nelder, John A., 1999, ‘From Statistics to Statistical Science’ -->
+<!--  (Links to an external site.)Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, 'Forecasting elections with non-representative polls'.  -->

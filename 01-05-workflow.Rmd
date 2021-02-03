@@ -343,6 +343,7 @@ Y = a + b X (\#eq:slope)
 Y = a + b X (\#eq:slope)
 \end{equation}
 
+When you are using cross-references, it's important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible avoid puncuation and just stick to letters.
 
 
 

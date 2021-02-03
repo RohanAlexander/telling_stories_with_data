@@ -1259,7 +1259,7 @@ dhs_2000
 
 There are a bunch of aspects here that have been hardcoded, but the first thing that we want to iterate is the argument to `pdf_text()`, then the number in in `slice()` will also need to change (that is doing the work to get only the page that we are interested in).
 
-Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works. Finally, we add the year only at the end, whereas we'd need to bring that up earlier in the process. 
+Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works in this particular case. Finally, we add the year only at the end, whereas we'd need to bring that up earlier in the process. 
 
 We'll start by writing a function that will go through all the files, grab the data, get the page of interest, and then expand the rows. We'll then use a function from `purrr` to apply that function to all of the PDFs and to output a tibble.
 

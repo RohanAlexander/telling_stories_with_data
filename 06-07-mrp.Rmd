@@ -10,6 +10,8 @@ output:
 
 # Multilevel modelling with post-stratification
 
+*Notes compiled: `r format(Sys.time(), "%d %B %Y")`.*
+
 ```{r setup0607, include=FALSE}
 knitr::opts_chunk$set(
   echo = TRUE,

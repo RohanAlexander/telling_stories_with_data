@@ -1,7 +1,6 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -155,7 +154,7 @@ These notes have greatly benefited from the notes and teaching materials of othe
 - [David Mimno](https://mimno.infosci.cornell.edu/info3350/) - *Text Mining for History and Literature*
 - [Ed Rubin](http://edrub.in/) - *PhD Econometrics (III)* and *Introduction to Econometrics (II)*;
 
-Thank you to the following students who identified specific improvements in these notes: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Mounica Thanam, Wijdan Tariq, and Yang Wu.
+Thank you to the following students who identified specific improvements in these notes: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Wijdan Tariq, and Yang Wu.
 
 Finally, thank you to the Winter 2020 and 2021 INF2178 and Fall 2020 Term STA304 students at the University of Toronto, whose feedback greatly improved all aspects.
 

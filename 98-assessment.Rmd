@@ -8,6 +8,10 @@ bibliography: bibliography.bib
 # Papers
 
 
+*Notes compiled: `r format(Sys.time(), "%d %B %Y")`.*
+
+
+
 ## 'Mandatory Minimums'
 
 ### Task
@@ -188,6 +192,8 @@ Please consider this scenario:
 - Can I get a different mark to the rest of my group? No. Everyone in the group gets the same mark.
 - I wrote my paper by myself, so can I be graded on a different scale? No. All papers are graded in the same way.
 - How much should I write? Most students submit something in the 10-to-15-page range, but it's really up to you. Be precise and thorough.
+- How do students collaborate successfully? Groups that split up the work typically seem to do the best. So one student worries about the survey, one about simulating and analysing data, and another about the write-up. If you're worried about using GitHub to collaborate, then just create different folders in GitHub to place your separate bits of work, and then have one person bring it together at the end.
+
 
 
 
@@ -215,9 +221,10 @@ Please consider this scenario:
     - references. 
 - In the discussion section and any other relevant section, please be sure to discuss ethics and bias with reference to relevant literature.
 - You should reproduce one of the following papers:
+  - Barari, Soubhik, Christopher Lucas, and Kevin Munger, 2021, 'Political Deepfake Videos Misinform the Public, But No More than Other Fake Media', 13 January, https://osf.io/cdfh3/.
+  - Cohn, Alain, Michel André Maréchal, David Tannenbaum, and Christian Lukas Zünd, 2019, 'Civic Honesty Around the Globe'.
   - Liran Einav, Amy Finkelstein, Tamar Oostrom, Abigail Ostriker, Heidi Williams, 2020, 'Screening and Selection: The Case of Mammograms', *American Economic Review*.
   - Pons, Vincent, 2018, 'Will a Five-Minute Discussion Change Your Mind? A Countrywide Experiment on Voter Choice in France' *American Economic Review*.
-  - Barari, Soubhik, Christopher Lucas, and Kevin Munger, 2021, 'Political Deepfake Videos Misinform the Public, But No More than Other Fake Media', 13 January, https://osf.io/cdfh3/.
   - **Others TBD**
   - If you have a favourite paper and want to reproduce it, then please submit it to me for consideration before Reading Week.
 - You should follow the lead of the author/s of the paper you're reproducing, but thoroughly think about, and discuss, what is being done. Regardless of the particular model that you are using, and the (possibly lack of) extent to which this is done in the paper, your model must be well explained, thoroughly justified, explained as appropriate to the task at hand, and the results must be beautifully described.

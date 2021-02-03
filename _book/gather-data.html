@@ -452,13 +452,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1.6" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.1.6</b> Threats to validity and aspects to think about</a></li>
 <li class="chapter" data-level="14.1.7" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.1.7</b> More credible outputs</a></li>
 <li class="chapter" data-level="14.1.8" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidymodels"><i class="fa fa-check"></i><b>14.1.8</b> Tidymodels</a></li>
-<li class="chapter" data-level="14.1.9" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#bayesian-approaches"><i class="fa fa-check"></i><b>14.1.9</b> Bayesian approaches</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#classification"><i class="fa fa-check"></i><b>14.2</b> Classification</a></li>
-<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#count-data"><i class="fa fa-check"></i><b>14.3</b> Count data</a>
+<li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#binary-and-count-data"><i class="fa fa-check"></i><b>14.2</b> Binary and count data</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3.1</b> Logistic regression</a></li>
-<li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.3.2</b> Poisson regression</a></li>
+<li class="chapter" data-level="14.2.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.2.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="14.2.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.2.2</b> Poisson regression</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a>
@@ -644,7 +642,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="gather-data" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Gather data</h1>
-<p><em>Last updated: 01 February 2021.</em></p>
+<p><em>Last updated: 02 February 2021.</em></p>
 <p><strong>Recommended reading</strong></p>
 <ul>
 <li>Benoit, Kenneth, 2019, ‘Text as data: An overview,’ 17 July, <a href="https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf" class="uri">https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf</a>.</li>
@@ -861,7 +859,7 @@ Figure 7.1: Example of Google Maps, as at 25 January 2021.
 ##   &lt;link href=&quot;http://arxiv.org/api/query?search_query%3D%26id_list%3D2101.05225%26start%3D0%26max_results%3D10&quot; rel=&quot;self&quot; type=&quot;application/atom+xml&quot;/&gt;
 ##   &lt;title type=&quot;html&quot;&gt;ArXiv Query: search_query=&amp;amp;id_list=2101.05225&amp;amp;start=0&amp;amp;max_results=10&lt;/title&gt;
 ##   &lt;id&gt;http://arxiv.org/api/p9UZyl2Vt0cHwPSKinDSThE23qI&lt;/id&gt;
-##   &lt;updated&gt;2021-02-01T00:00:00-05:00&lt;/updated&gt;
+##   &lt;updated&gt;2021-02-02T00:00:00-05:00&lt;/updated&gt;
 ##   &lt;opensearch:totalResults xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;1&lt;/opensearch:totalResults&gt;
 ##   &lt;opensearch:startIndex xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;0&lt;/opensearch:startIndex&gt;
 ##   &lt;opensearch:itemsPerPage xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;10&lt;/opensearch:itemsPerPage&gt;
@@ -2363,7 +2361,7 @@ Figure 7.12: Desired output from the PDF
 <span id="cb319-16"><a href="gather-data.html#cb319-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb319-17"><a href="gather-data.html#cb319-17" aria-hidden="true" tabindex="-1"></a>dhs_2000</span></code></pre></div>
 <p>There are a bunch of aspects here that have been hardcoded, but the first thing that we want to iterate is the argument to <code>pdf_text()</code>, then the number in in <code>slice()</code> will also need to change (that is doing the work to get only the page that we are interested in).</p>
-<p>Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works. Finally, we add the year only at the end, whereas we’d need to bring that up earlier in the process.</p>
+<p>Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works in this particular case. Finally, we add the year only at the end, whereas we’d need to bring that up earlier in the process.</p>
 <p>We’ll start by writing a function that will go through all the files, grab the data, get the page of interest, and then expand the rows. We’ll then use a function from <code>purrr</code> to apply that function to all of the PDFs and to output a tibble.</p>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="gather-data.html#cb320-1" aria-hidden="true" tabindex="-1"></a>get_pdf_convert_to_tibble <span class="ot">&lt;-</span> <span class="cf">function</span>(pdf_name, page, year){</span>
 <span id="cb320-2"><a href="gather-data.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  </span>
