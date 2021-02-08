@@ -1,6 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
+date: February 8, 2021
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -146,11 +147,14 @@ Thank you to Kelly Lyons, Hareem Naveed, and Periklis Andritsos for helpful comm
 
 Thank you to Greg Wilson for giving me a structure to think about teaching. 
 
+Thank you to Elle Côtè for enabling these nots to be written.
+
 These notes have greatly benefited from the notes and teaching materials of others that are freely available online, especially:
 
 - [Chris Bail](https://cbail.github.io/textasdata/Text_as_Data.html) - *Text as Data*;
 - [Andrew Heiss](https://www.andrewheiss.com/) - *Program Evaluation for Public Service*;
 - [Grant McDermott](https://grantmcdermott.com/) - *Data Science for Economists*; 
+- [Nathan Matias](https://natematias.com) - *Designing Field Experiments at Scale*;
 - [David Mimno](https://mimno.infosci.cornell.edu/info3350/) - *Text Mining for History and Literature*
 - [Ed Rubin](http://edrub.in/) - *PhD Econometrics (III)* and *Introduction to Econometrics (II)*;
 

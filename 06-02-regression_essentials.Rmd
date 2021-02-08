@@ -1,5 +1,5 @@
 ---
-date: February 2, 2021
+date: February 8, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -10,7 +10,7 @@ output:
 
 # It’s Just A Linear Model
 
-*Notes compiled: `r format(Sys.time(), "%d %B %Y")`.*
+*Last updated: 7 February 2021.*
 
 
 **Required reading**
@@ -122,10 +122,13 @@ output:
     c. Whether the respondent is registered to vote (yes/no)
     d. Whether the respondent is going to vote for Biden (yes/no)
 11. Please explain what a p-value is, using only the term itself (i.e. 'p-value') and words that are amongst the 1,000 most common in the English language according to the XKCD Simple Writer - https://xkcd.com/simplewriter/. (Please write one or two paragraphs.)
+12. The mean of a Poisson distribution is equal to its?
+    a. Median.
+    b. Standard deviation.
+    c. Variance.
 
 
-
-## Linear regression
+## Simple linear regression
 
 ```{r logregression, echo=FALSE, fig.cap="Oh my.", out.width = '70%'}
 knitr::include_graphics(here::here("figures/lolregression.png"))
@@ -133,25 +136,59 @@ knitr::include_graphics(here::here("figures/lolregression.png"))
 Source: [Mijke Rhemtulla](https://twitter.com/mijkenijk/status/1234899588311474176), 3 March 2020.
 
 
+### Overview
 
+When we have two continuous variables we use simple linear regression. This is based on the Normal (also 'Gaussian') distribution. From @pitman[p. 94] 'The normal distribution with mean $\mu$ and standard deviation $\sigma$ is the distribution over the x-axis defined by areas under the normal curve with these parameters. The equation of the normal curve with parameters $\mu$ and $\sigma$, can be written as: 
+$$y = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}z^2},$$
+where $z = (x - \mu)/\sigma$ measures the number of standard deviations from teh mean $\mu$ to the number $x$.'
 
+We can simulate $n$ data points from the Normal distribution with `rnorm()`.
 
-### Brief reminder
+```{r}
+rnorm(n = 20, mean = 0, sd = 1)
+```
+
+It will take a few draws before we get the expected shape.
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+set.seed(853)
+tibble(
+  number_of_draws = c(rep.int(x = "10 draws", times = 10),
+             rep.int(x = "100 draws", times = 100),
+             rep.int(x = "1000 draws", times = 1000),
+             rep.int(x = "10000 draws", times = 10000),
+             rep.int(x = "100000 draws", times = 100000)),
+  draws = c(rnorm(n = 10, mean = 0, sd = 1),
+            rnorm(n = 100, mean = 0, sd = 1),
+            rnorm(n = 1000, mean = 0, sd = 1),
+            rnorm(n = 10000, mean = 0, sd = 1),
+            rnorm(n = 100000, mean = 0, sd = 1))
+  ) %>% 
+  ggplot(aes(x = draws)) +
+  geom_density() +
+  theme_classic() +
+  facet_wrap(vars(number_of_draws)) +
+  labs(x = 'Draw',
+       y = 'Density')
+```
+
+When we use simple linear regression, we assume that our relationship is characterised by the variables and the parameters, with any difference, typically $\epsilon$, between the expectation and the reality being normally distributed.
 
 If we have two variables, $Y$ and $X$, then we could characterise the relationship between these as:
 $$Y \sim \beta_0 + \beta_1 X.$$
 
-There are two coefficients/parameters: the 'intercept' is $\beta_0$, and the 'slope' is $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. 
+There are two coefficients/parameters: the 'intercept' is $\beta_0$, and the 'slope' is $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. The language that we use is that 'X is being regressed on Y'. 
 
 We may then take this relationship to the data that we have about the relationship in order to estimate these coefficients for those particular values that we have:
 $$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x.$$
 
-We are saying this is a linear regression because we assume that if $x$ doubles then $y$ would also double. Linear regressions considers how the average of a dependent variable changes based on the independent variables.
+The hats are used to indicate that these are estimated values. We are saying this is a linear regression because we assume that if $x$ doubles then $y$ would also double. Linear regressions considers how the average of a dependent variable changes based on the independent variables.
+
 
 I want to focus on data, so we'll make this example concrete, by generating some data and then discussing everything in the context of that. The example will be looking at someone's time for running five kilometers, compared with their time for running a marathon. 
 
 ```{r, warning = FALSE, message = FALSE}
-library(tidyverse)
 set.seed(853)
 number_of_observations <- 100
 running_data <- 
@@ -177,10 +214,10 @@ In this set-up we may like to use $x$, which is the five-kilometer time, to prod
 But how should we estimate the coefficients? Even if we impose a linear relationship there are a lot of options (how many straight lines can you fit on a piece of paper?). But clearly some of the fits are not all that great. 
 
 One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. One way is to choose the one that minimises the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
-$$ e_i = y_i - \hat{y}_i.$$
+$$e_i = y_i - \hat{y}_i.$$
 
 The residual sum of squares (RSS) then requires summing across all the points:
-$$ \mbox{RSS} = e^2_1+ e^2_2 +\dots + e^2_n.$$
+$$\mbox{RSS} = e^2_1+ e^2_2 +\dots + e^2_n.$$
 This results in one 'linear best-fit' line, but it is worth thinking about all of the assumptions and decisions that it took to get us to this point.
  
 ```{r}
@@ -200,7 +237,7 @@ running_data %>%
 With the least squares criterion we want the values of $\hat{\beta}_0$ and $\hat{\beta}_1$ that result in the smallest RSS.
 
 
-### Implementing it in R
+### Implementation in base R
 
 Within R, the main function for doing linear regression is `lm`. This is included in base R, so you don't need to call any packages, but in a moment, we will call a bunch of packages that will surround `lm` within an environment that we are more familiar with. You specify the relationship with the dependent variable first, then `~`, then the independent variables. Finally, you should specify the dataset (or you could pipe to it as usual).
 
@@ -236,9 +273,9 @@ The intercept is marathon time that we would expect with a five-kilometer time o
 
 While there is nothing wrong with the base approach, I want to introduce the `broom` package because that will provide us with outputs in a tidy framework [@citebroom]. There are three key functions:
 
-- `broom::tidy`: Gives the coefficient estimates in a tidy output.
-- `broom::glance`: Gives the diagnostics.
-- `broom::augment`: Adds the forecasted values, and hence, residuals, to your dataset.
+- `broom::tidy()`: Gives the coefficient estimates in a tidy output.
+- `broom::glance()`: Gives the diagnostics.
+- `broom::augment()`: Adds the forecast values, and hence, residuals, to your dataset.
 
 
 ```{r}
@@ -274,7 +311,7 @@ ggplot(running_data, aes(five_km_time, .resid)) +
        x = "Five-kilometer time (minutes)")
 ```
 
-When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. (A pro hockey player may sometimes shoot right of the net, and sometimes left of the net, but we'd hope that on average they'd be right in the middle of the net ;)).
+When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. (A pro hockey player may sometimes shoot right of the net, and sometimes left of the net, but we'd hope that on average they'd be right in the middle of the net). In the words of @islr, 'an unbiased estimator does not systematically over- or under-estimate the true parameter.'
 
 But we want to try to speak to the 'true' relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyse. And this is where standard error comes in. It tells us how off our estimate is compared with the actual. 
 
@@ -308,11 +345,11 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 
 
 
-### Adding more and varied explanatory variables
+## Multiple linear regression
 
 To this point we've just considered one explanatory variable. But we'll usually have more than one. One approach would be to run separate regressions for each explanatory variable. But compared with separate linear regressions for each, adding more explanatory variables allows us to have a better understanding of the intercept and accounts for interaction. Often the results will be quite different.
 
-> This slightly counterintuitive result is very common in many real life situations. Consider an absurd example to illustrate the point. Running a regression of shark attacks versus ice cream sales for data collected at a given beach community over a period of time would show a positive relationship, similar to that seen between sales and newspapers. Of course no one (yet) has suggested that ice creams should be banned at beaches to reduce shark attacks. In reality, higher temperatures cause more people to visit the beach, which in turn results in more ice cream sales and mores hark attacks. A multiple regression of attacks versus ice cream sales and temperature reveals that, as intuition implies, the former predictor is no longer significant after adjusting for temperature.
+> This slightly counterintuitive result is very common in many real life situations. Consider an absurd example to illustrate the point. Running a regression of shark attacks versus ice cream sales for data collected at a given beach community over a period of time would show a positive relationship, similar to that seen between sales and newspapers. Of course no one (yet) has suggested that ice creams should be banned at beaches to reduce shark attacks. In reality, higher temperatures cause more people to visit the beach, which in turn results in more ice cream sales and more shark attacks. A multiple regression of attacks versus ice cream sales and temperature reveals that, as intuition implies, the former predictor is no longer significant after adjusting for temperature.
 >
 > [@islr, p. 74].
 
@@ -380,7 +417,7 @@ huxreg(running_data_first_model, running_data_rain_model)
 
 
 
-### Tidymodels
+### Implementation in `tidymodels`
 
 The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There's nothing wrong with that. And that's the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.
 
@@ -433,18 +470,11 @@ first_go <-
 ```
 
 
+### Implementation in `rstanarm`
 
+The `tidymodels` will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the kind of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the `tidymodels` ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.
 
-
-
-
-
-
-<!-- ### Bayesian approaches -->
-
-<!-- The `tidymodels` will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the role of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. -->
-
-<!-- There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to `R`, which is designed for more general statistical computing. We will use Stan in these notes within the context of our familiar R environment. -->
+There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to `R`, which is designed for more general statistical computing. We will use `Stan` in these notes within the context of our familiar R environment. We will interface with `Stan` using the `rstanarm` package [@citerstanarm].
 
 
 
@@ -528,9 +558,11 @@ first_go <-
 
 
 
-## Binary and count data 
 
-### Logistic regression
+
+## Logistic regression
+
+### Overview
 
 To steal a joke from someone, 'it's AI when you're fundraising, machine learning when you're hiring, and logistic regression when you're implementing.'
 
@@ -540,64 +572,99 @@ The reason that we use logistic regression is that we'll be modelling a probabil
 
 This all said, logistic regression, as Daniella Witten teaches us, is just a linear model!
 
-As with linear regression, logistic regression is built into R, with the `glm` function. In this case, we'll try to work out if it was raining based on a person's marathon time and their five kilometer time.
+### Implementation in base
+
+I'd like to consider a slightly more interesting example, which is a dataset of pearl jewellery, from the Australian retailer Paspaley.
 
 ```{r}
-running_data <- 
-  running_data %>% 
-  mutate(was_raining_binary = if_else(was_raining == "No", 0, 1))
+library(tidyverse)
 
-rain_model <- 
-  glm(was_raining_binary ~ five_km_time + marathon_time, 
-    data = running_data, 
+paspaley_dataset <- read_csv("https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv")
+
+head(paspaley_dataset)
+
+paspaley_dataset$metal %>% table()
+```
+
+In this case we'll model whether some jewellery is made of white or yellow gold, based on their price, the collection, and the year.
+
+```{r}
+paspaley_logistic_dataset <- 
+  paspaley_dataset %>% 
+  filter(metal %in% c('White gold', 'Yellow gold')) %>% 
+  select(metal, price, year)
+```
+
+As with linear regression, logistic regression is built into R, with the `glm` function. In this case, we'll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we'll change it to a binary, that will be 1 if white gold and 0 if not.
+
+```{r}
+paspaley_logistic_dataset <- 
+  paspaley_logistic_dataset %>% 
+  mutate(is_white_gold = if_else(metal == "White gold", 1, 0))
+
+white_gold_model <- 
+  glm(is_white_gold ~ price, 
+    data = paspaley_logistic_dataset, 
     family = 'binomial')
 
-summary(rain_model)
+summary(white_gold_model)
 ```
 
-One reason that logistic regression can be a bit of a pain initially is because the coefficients take a bit of work to interpret. In particular, our estimate on marathon time is 0.00969. This is the odds. So the odds that it was raining increase by 0.01 as your marathon time increase. We can have our model make forecasts in terms of a probability, by asking for that.
+One reason that logistic regression can be a bit of a pain initially is because the coefficients take a bit of work to interpret. In particular, our estimate on price is -3.170e-06. This is the odds. So the odds that it was white gold decrease by -3.170e-06 as the price increases. We can have our model make forecasts in terms of a probability, by asking for that.
 
 ```{r}
-running_data <- 
-  broom::augment(rain_model,
-          data = running_data,
+paspaley_logistic_dataset <- 
+  broom::augment(white_gold_model,
+          data = paspaley_logistic_dataset,
           type.predict = "response")
-head(running_data)
+head(paspaley_logistic_dataset)
 
 ```
 
 
-
+### Implementation in `tidymodels`
 
 <!-- https://jtcies.com/2020/03/when-does-garbage-time-start/ -->
 <!-- https://meghan.rbind.io/post/tidymodels-intro/ -->
 <!-- https://alison.rbind.io/post/2020-02-27-better-tidymodels/#tidymodels-101 -->
 
-We can use `tidymodels` to run this if we wanted.
+We can use `tidymodels` to run this if we wanted. In this case, we need it as a factor.
 
 ```{r}
 set.seed(853)
 
-running_data <- 
-  running_data %>% 
-  mutate(was_raining_binary = as_factor(was_raining_binary))
+paspaley_logistic_dataset <- 
+  paspaley_logistic_dataset %>% 
+  mutate(is_white_gold = as_factor(is_white_gold))
 
-running_data_split <- rsample::initial_split(running_data, prop = 0.80)
-running_data_train <- rsample::training(running_data_split)
-running_data_test  <-  rsample::testing(running_data_split)
+paspaley_logistic_dataset_split <- rsample::initial_split(paspaley_logistic_dataset, prop = 0.80)
+paspaley_logistic_dataset_train <- rsample::training(paspaley_logistic_dataset_split)
+paspaley_logistic_dataset_test  <-  rsample::testing(paspaley_logistic_dataset_split)
 
-rain_model_tidymodels <-
+white_gold_model_tidymodels <-
   parsnip::logistic_reg(mode = "classification") %>%
   parsnip::set_engine("glm") %>%
-  fit(was_raining_binary ~ five_km_time + marathon_time, 
-      data = running_data_train)
+  fit(is_white_gold ~ price, 
+      data = paspaley_logistic_dataset_train)
 
-rain_model_tidymodels
+white_gold_model_tidymodels
 ```
 
 
+### Implementation in `rstanarm`
 
-### Poisson regression
+<!-- t_prior <- student_t(df = 7, location = 0, scale = 2.5) -->
+<!-- fit1 <- stan_glm(switch ~ dist100, data = wells,  -->
+<!--                  family = binomial(link = "logit"),  -->
+<!--                  prior = t_prior, prior_intercept = t_prior,   -->
+<!--                  cores = 2, seed = 12345) -->
+
+
+
+
+## Poisson regression
+
+### Overview
 
 When we have count data, we use Poisson distribution. From @pitman[p. 121] 'The Poisson distribution with parameter $\mu$ or Poisson ($\mu$) distribution is the distribution of probabilities  $P_{\mu}(k)$ over ${0, 1, 2, ...}$ defined by: 
 $$P_{\mu}(k) = e^{-\mu}\mu^k/k!\mbox{, for }k=0,1,2,...$$
@@ -639,6 +706,9 @@ count_of_A_plus <-
   )
 ```
 
+
+### Implementation in base
+
 ```{r}
 grades_model <- 
   glm(number_of_A_plus ~ department, 
@@ -648,6 +718,8 @@ grades_model <-
 summary(grades_model)
 ```
 
+
+### Implementation in `tidymodels`
 
 We can use `tidymodels` to run this if we wanted although we first need to install a helper package.
 
@@ -670,6 +742,8 @@ a_plus_model_tidymodels
 ```
 
 
+
+### Implementation in `rstanarm`
 
 
 <!-- ## Classification -->

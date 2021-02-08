@@ -43,6 +43,7 @@ knitr::opts_chunk$set(
 
 **Required viewing**
 
+- Ge, Kathy, 2021, 'Experimentation and product design at Uber', *Toronto Data Workshop*, 4 February, https://youtu.be/UYzXElJTovg. 
 - Register, Yim, 2020, 'Introduction to Sampling and Randomization', *Online Causal Inference Seminar*, 14 November, https://youtu.be/U272FFxG8LE.
 - Xu, Ya, 2020, 'Causal inference challenges in industry, a perspective from experiences at LinkedIn', *Online Causal Inference Seminar*, 16 July, https://youtu.be/OoKsLAvyIYA.
 
@@ -642,10 +643,13 @@ The code or data for the paper are available: @walletsdata.
 
 ### Introduction 
 
-The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While they have several interesting features, which we will discuss, at their heart they are still just surveys that result in data that need to be analysed. In this section of the notes we augment our main textbooks with a less formal book focused on A/B testing that is very popular in industry at the moment. 
+> Large companies, particularly tech companies, have developed incredibly sophisticated infrastructure for running complex experiments. In the tech industry, these experiments are often called A/B tests because they compare the effectiveness of two treatments: A and B. Such experiments are frequently run for things like increasing click-through rates on ads, bu the same experiemntal infrastructure can also be used for research that advacnes scientific understanding.
+> 
+> @Salganik2018 [p. 185].
 
+The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While, at their heart, they are still just surveys that result in data that need to be analysed, they have several interesting features, which we will discuss. 
 
-I can't do much better than to quote their opening example @kohavi [p. 3].
+The opening example of @kohavi [p. 3] is a particularly nice illustration.
 
 > In 2012, an employee working on Bing, Microsoft's search engine, suggested changing how ad headlines display (Kohavi and Thomke 2017). The idea was to lengthen the title line of ads by combining it with the text from the first line below the title, as shown in Figure 1.1.
 > 
@@ -665,22 +669,14 @@ I can't do much better than to quote their opening example @kohavi [p. 3].
 > - The overhead of running an experiment must be small. Bing's engineers had access to ExP, Microsoft's experimentation system, which made it easy to scientifically evaluate the idea.
 > - The overall evaluation criterion (OEC, described more later in this chapter) must be clear. In this case, revenue was a key component of the OEC, but revenue alone is insufficient as an OEC. It could lead to plastering the web site with ads, which is known to hurt the user experience. Bing uses an OEC that weighs revenue against user-experience metrics, including Sessions per user (are users abandoning or increasing engagement) and several other components. The key point is that user-experience metrics did not significantly degrade even though revenue increased dramatically.
 
-In these notes, I'm going to use A/B testing to strictly refer to the situation in which we're dealing with a tech firm, and some type of change in code. If we are dealing with the physical world then we'll stick with RCTs. You may think that it's easy to go to a workplace and say 'hey, let's test stuff before we spend thousands/millions of dollars'. You'd be wrong. The hardest part of A/B testing isn't the science, it's the politics.
+In these notes, I'm going to use A/B testing to strictly refer to the situation in which we're dealing with a tech firm, and some type of change in code. If we are dealing with the physical world then we'll stick with RCTs. 
+
+I'm usually fairly dismissive of the CS folks who adopt different language for concepts that have been around for a long time. However, in the case of A/B testing I think that it's possibly justified. There is something different about doing tens of thousands of small experiments all the time, compared with our normal RCT set-up of one experiment conducted over months. And finally, if you don't work in a tech firm, then don't discount the difficulty of shifting to an experimental set-up. You may think that it's easy to go to a workplace and say 'hey, let's test stuff before we spend thousands/millions of dollars'. You'd be wrong. In my opinion, the hardest part of A/B testing isn't the science, it's the politics.
 
 
+### Delivery
 
-### Unique complications of A/B testing
-
-#### Delivery
-
-**This is from Chapter 12 of @kohavi.**
-
-In the case of a RCT it's fairly obvious how we deliver the treatment - for instance, make them come to a doctor's clinic and inject them with the drug or a placebo. In the case of A/B testing, it's less obvious - do you run it 'server-side' or 'client-side'? E.g. do you just change the website - 'server side', or do you change an app - 'client side'.
-
-This may seem like a silly issue, but it affects two aspects:
-
-1. Release.
-2. Data transmission.
+Drawing on @kohavi [p. 12], we first consider how we will be delivering the A/B test. In the case of a RCT it's fairly obvious how we deliver it - for instance, make a person come to a doctor's clinic and inject them with a drug or a placebo. In the case of A/B testing, it's less obvious - do you run it 'server-side' or 'client-side'? What this means is, do you just change the website - 'server side', or do you change an app - 'client side'. This may seem like a silly issue, but it affects: 1) release; and 2) data transmission.
 
 In the case of the effect on release, it's easy and normal to update a website all the time, so small changes can be easily implemented in the case of server-side. However, in the case of client-side, let's say an app, it's likely a much bigger deal. 
 
@@ -693,26 +689,40 @@ Now, in the case of the effect on data transmission, again server-side is less o
 The effect of all this is that you need to plan, and build this into your expectations - don't promise results the day after a release if you're evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.
 
 
-#### Instrumentation
+### Measurement methods
 
-**This is from Chapter 13 of @kohavi.**
-
-I would change the name of this from instrumentation, but I don't have a good replacement. The point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to 'download' some tiny thing they don't notice so that you know they've gone somewhere - see 'email' etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?
+Drawing on @kohavi[Chapter 13], I'll now discuss measurement methods. @kohavi use the name 'instrumentation', but I'll refer to 'measurement methods' so that we don't confuse this with instrumental variables later in the course. Regardless of what it's called, the point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to 'download' some tiny thing they don't notice so that you know they've gone somewhere - see 'email' etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?
 
 There are likely different servers and databases for different faces of the product. For instance, Twitter in Australia, compared with Twitter in Canada, compared with Twitter on my phone's app, compared with Twitter accessed via the browser. Joining these different datasets can be difficult and requires either a unique id or some probabilistic approach.
 
-@kohavi [p. 165] recommend changing the culture of your workplace to ensure instrumentation is normalised, which I mean, yeah.
+@kohavi [p. 165] recommend changing the culture of your workplace to ensure instrumentation is normalised, which I mean, yeah, good luck.
 
 
-#### Randomisation unit
+### Randomisation unit
 
-**This is from Chapter 13 of @kohavi.**
-
-What are we actually randomising over? Okay, again, this is something that's kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let's consider the malaria netting experiments - either a person/village/state gets a net or it doesn't. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user? 
+Again, drawing on @kohavi[Chapter 13], we need to be very aware of what are we actually randomising over? Again, this is something that's kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let's consider the malaria netting experiments - either a person/village/state gets a net or it doesn't. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user? 
 
 To think about this, let's think about colour. Let's say that we change our logo from red to blue on the 'home' page. If we're randomising at the page level, then when the user goes to the 'about' page the logo could be back to red. If we're randomising at the session level, then it'll be blue while they're using the website that time, but if they close it and come back then it'll be red. Finally, if we're randomising at a user level then it'll always be red for me, but always blue for my friend. That last bit assumes perfect identity tracking, which might be generally okay if you're Google or Facebook, but for anyone else is going to be a challenge - what if you visit cbc.ca on your phone and then on your laptop? You're likely considered a different 'user'.
 
 Does this matter? It's a trade-off between consistency and importance.
+
+### Partnerships
+
+Unless we work at a Facebook/Twitter type firm, it may not be possible to run A/B tests ourselves at scale. While we can randomise our own personal website fairly easily, for most of us there won't be many visitors. Hence it can be important to partner with such firms. @Salganik2018 [p. 187] draws our attention to the fact that there may be tension between 'the researchers and the partners'. 
+
+As an example, @Salganik2018 discusses a situation where one treatment (out of the three that were possible) accounted for 98 per cent of the sample because Facebook wanted to treat everyone. The researchers were only able to convince 'them to hold back 1 per cent for a related treatment and 1 per cent for a control group.' He continues: 
+
+> without the control group, it would have been basically impossible to measure the effect of the Info + Social treatment because it would have been a "perturb and observe" experiment, rather than a randomized controlled experiment. This example provides a valuable practical lesson for working with partners: sometimes you create an experiment by convincing someone to deliver a treatment and sometimes you create an experiment by convincing someone not to deliver a treatment (i.e. to create a control group).
+>
+> @Salganik2018 [p. 188].
+
+In order to identify such opportunities, @Salganik2018 [p. 188] advises us 'to notice a real problem that you can solve while you are doing interesting science'. @Salganik2018 closes with four other pieces of advice:
+
+1) '(Y)ou should think as much as possible before any data have been collected' @Salganik2018 [p. 189].
+2) '(Y)ou should consider designing a series of experiments that reinforce each other' @Salganik2018 [p. 190].
+3) You should '(c)reate zero variable cost data', by: 1) trying to replace human work with computer work; and 2) creating fun experiments that participants want to participate in [@Salganik2018 p. 191].
+4) You should '(b)uild ethics into your design: replace, refine, and reduce', that is '(m)ake your experiment more humane by replacing experiments with non-experimental studies, refining the treatments [to be as harmless as possible], and reducing the number of participants' [@Salganik2018 p. 196]. 
+
 
 
 <!-- ## Speed vs quality vs risk -->
@@ -724,7 +734,7 @@ Does this matter? It's a trade-off between consistency and importance.
 
 ## Case study - Upworthy
 
-To see this in action let's look at the Upworthy dataset @upworthy.
+To see this in action let's look at the Upworthy dataset [@upworthy].
 
 
 

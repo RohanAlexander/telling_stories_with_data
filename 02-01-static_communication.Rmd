@@ -18,6 +18,10 @@ knitr::opts_chunk$set(echo = TRUE)
 # Static communication
 
 
+*Last updated: 8 February 2021.*
+
+
+
 **Required reading**
 
 - (The) Economist, 2013, 'Johnson: Those six little rules', Prospero, 29 July 2013, available at: https://www.economist.com/prospero/2013/07/29/johnson-those-six-little-rules.
@@ -720,6 +724,11 @@ ggmap(toronto_stamen_map,  maprange = FALSE) +
 
 
 ## Writing
+
+> I had not indeed published anything before I commenced "The Professor", but in many a crude effort, destroyed almost as soon as composed, I had got over any such taste as I might once have had for ornamented and redundant composition, and come to prefer what was plain and homely.
+>
+> Currer Bell (aka Charlotte Brontë), *The Professor*.
+
 
 ### Title, abstract, and introduction
 
