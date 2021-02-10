@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 # Hunt data
 
-*Last updated: `r format(Sys.time(), "%d %B %Y")`.*
+*Last updated: 9 February 2021.*
 
 **Required reading**
 
@@ -331,6 +331,10 @@ This is very exciting. We have a representative share on 'unobservables' (in thi
 
 ### ANOVA 
 
+> 'I refuse to teach anova.'
+> 
+> Statistics professor who prefers to remain anonymous.
+
 Analysis of Variation (ANOVA) was introduced by Fisher while he was working on statistical problems in agriculture. To steal [Darren L Dahly's](https://darrendahly.github.io) 'favorite joke of all time' [@citeDahly]: 
 
 > Q: "What's the difference between agricultural and medical research?" 
@@ -632,7 +636,7 @@ The full set of 40 countries were chosen based on having enough cities with popu
 
 In addition to the experiments, @cohn2019civic conducted surveys that allowed them to understand some reasons for their findings. It also allowed them to be specific about the respondents. The survey involved 2,525 respondents (829 in the UK, 809 in Poland, and 887 in the US) [@cohn2019civicaddendum, p. 36]. 'To qualify for participation, individuals had to pass a simple attention check and meet the demographic quotas (based on age, gender, and residence) set by Qualtrics to construct the representative samples. Participants received a flat payment of US $4.00 for their participation' [@cohn2019civicaddendum, p. 36]. The participants were given one of the scenarios and then asked to answer questions. 
 
-Annoyingly the authors don't explicitly specify the estimating equation. However they do say that important covariates about the 'recipient' include: gender, age-group, busyness, whether they were local, spoke english, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920. 
+Annoyingly the authors don't explicitly specify the estimating equation. However they do say that important covariates about the 'recipient' include: gender, age-group, busyness, whether they were local, spoke English, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920. 
 
 The code or data for the paper are available: @walletsdata.
 
@@ -643,7 +647,7 @@ The code or data for the paper are available: @walletsdata.
 
 ### Introduction 
 
-> Large companies, particularly tech companies, have developed incredibly sophisticated infrastructure for running complex experiments. In the tech industry, these experiments are often called A/B tests because they compare the effectiveness of two treatments: A and B. Such experiments are frequently run for things like increasing click-through rates on ads, bu the same experiemntal infrastructure can also be used for research that advacnes scientific understanding.
+> Large companies, particularly tech companies, have developed incredibly sophisticated infrastructure for running complex experiments. In the tech industry, these experiments are often called A/B tests because they compare the effectiveness of two treatments: A and B. Such experiments are frequently run for things like increasing click-through rates on ads, but the same experimental infrastructure can also be used for research that advances scientific understanding.
 > 
 > @Salganik2018 [p. 185].
 
@@ -676,7 +680,7 @@ I'm usually fairly dismissive of the CS folks who adopt different language for c
 
 ### Delivery
 
-Drawing on @kohavi [p. 12], we first consider how we will be delivering the A/B test. In the case of a RCT it's fairly obvious how we deliver it - for instance, make a person come to a doctor's clinic and inject them with a drug or a placebo. In the case of A/B testing, it's less obvious - do you run it 'server-side' or 'client-side'? What this means is, do you just change the website - 'server side', or do you change an app - 'client side'. This may seem like a silly issue, but it affects: 1) release; and 2) data transmission.
+Drawing on @kohavi [p. 153-161], we first consider how we will be delivering the A/B test. In the case of a RCT it's fairly obvious how we deliver it - for instance, make a person come to a doctor's clinic and inject them with a drug or a placebo. In the case of A/B testing, it's less obvious - do you run it 'server-side' or 'client-side'? What this means is, do you just change the website - 'server side', or do you change an app - 'client side'. This may seem like a silly issue, but it affects: 1) release; and 2) data transmission.
 
 In the case of the effect on release, it's easy and normal to update a website all the time, so small changes can be easily implemented in the case of server-side. However, in the case of client-side, let's say an app, it's likely a much bigger deal. 
 
@@ -684,14 +688,16 @@ In the case of the effect on release, it's easy and normal to update a website a
 2. It need to go through a release cycle (a bigger or lesser deal depending on the specifics of the company and how it ships).
 3. Users have the opportunity to not upgrade. Are they likely different to those that do upgrade? (Yes.)
 
-Now, in the case of the effect on data transmission, again server-side is less of a big deal - you kind of get the data as part of the user interacting. But in the case of client-side - it's not necessarily the case that the user will have the internet at the time they're using your application, and if they do they may have limitations on the data uploads. The phone may limit data transmission depending on its effect on battery, CPU, general performance, etc. So then you decide to cache, but then the user may find it weird that some minor app takes up as much size as their photos. 
+Now, in the case of the effect on data transmission, again server-side is less of a big deal - you kind of get the data as part of the user interacting. But in the case of client-side - it's not necessarily the case that the user will have the internet at the time they're using your application, and if they do, they may have limitations on the data uploads. The phone may limit data transmission depending on its effect on battery, CPU, general performance, etc. Then maybe you decide to cache, but then the user may find it weird that some minor app takes up as much size as their photos. 
 
-The effect of all this is that you need to plan, and build this into your expectations - don't promise results the day after a release if you're evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.
+The effect of all this is that you need to plan and build this into your expectations - don't promise results the day after a release if you're evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.
 
 
-### Measurement methods
+### Instrumentation
 
-Drawing on @kohavi[Chapter 13], I'll now discuss measurement methods. @kohavi use the name 'instrumentation', but I'll refer to 'measurement methods' so that we don't confuse this with instrumental variables later in the course. Regardless of what it's called, the point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to 'download' some tiny thing they don't notice so that you know they've gone somewhere - see 'email' etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?
+Drawing on @kohavi [p. 162 - 165], I'll now discuss instrumentation. @kohavi use the name 'instrumentation'. I'd prefer something like 'measurement methods' so that we don't confuse this with the entirely different concept of instrumental variables later in the course, but instrumentation is what is used in industry, so we'll use that here too. 
+
+Regardless of what it's called, the point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to 'download' some tiny thing they don't notice so that you know they've gone somewhere - see 'email' etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?
 
 There are likely different servers and databases for different faces of the product. For instance, Twitter in Australia, compared with Twitter in Canada, compared with Twitter on my phone's app, compared with Twitter accessed via the browser. Joining these different datasets can be difficult and requires either a unique id or some probabilistic approach.
 
@@ -700,11 +706,17 @@ There are likely different servers and databases for different faces of the prod
 
 ### Randomisation unit
 
-Again, drawing on @kohavi[Chapter 13], we need to be very aware of what are we actually randomising over? Again, this is something that's kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let's consider the malaria netting experiments - either a person/village/state gets a net or it doesn't. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user? 
+Again, drawing on @kohavi[p. 162 - 165], we need to be very aware of what are we actually randomising over? Again, this is something that's kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let's consider the malaria netting experiments - either a person/village/state gets a net or it doesn't. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user? 
 
 To think about this, let's think about colour. Let's say that we change our logo from red to blue on the 'home' page. If we're randomising at the page level, then when the user goes to the 'about' page the logo could be back to red. If we're randomising at the session level, then it'll be blue while they're using the website that time, but if they close it and come back then it'll be red. Finally, if we're randomising at a user level then it'll always be red for me, but always blue for my friend. That last bit assumes perfect identity tracking, which might be generally okay if you're Google or Facebook, but for anyone else is going to be a challenge - what if you visit cbc.ca on your phone and then on your laptop? You're likely considered a different 'user'.
 
 Does this matter? It's a trade-off between consistency and importance.
+
+We are always interested in whether the treatment and control groups have been created randomly. One way to test it is an A/A test. @taddy2019 [p. 129] describes how 'AB platforms typically run "AA" tests that show the same website in groups A and B. If you see a significant difference between groups in an AA trial, then something is likely wrong in your randomization.'. 
+
+@kohavi[p.201] says similarly, that '(w)e highly recommend running continuous A/A tests in parallel with other experiments to uncover problems, including distribution mismatches and plat- form anomalies.'
+
+
 
 ### Partnerships
 
@@ -725,17 +737,101 @@ In order to identify such opportunities, @Salganik2018 [p. 188] advises us 'to n
 
 
 
-<!-- ## Speed vs quality vs risk -->
+### Speed vs quality
 
-<!-- **This is from Chapter 14 of @kohavi.** -->
+Don't peek at your results early and then call off the rest of the experiment if you've got significance. You essentially ruin everything that underpins statistics if you do that.
 
-<!-- This concern is also seen in RCTs, but it's especially of interest -->
+### Conflicting priorities
+
+One of the interesting aspects of A/B testing is that we're usually running them not because we desperately care about the specific outcome, but because that feeds into some other measure that we care about. For instance, do we care whether the website is quite-dark-blue or slightly-darker-blue or white? Probably not, but we probably care a lot about the company share price. But then what if picking the best blue comes at a cost to the share price? 
+
+Obviously, this is a bit contrived, so let's pretend that we work at a food delivery app and that we're the junior data scientist in charge of driver satisfaction. We do some A/B tests and we find that drivers are always happier when they are able to deliver food to the customer faster. Faster is better, always. But one way to achieve faster deliveries, is for them to not put the food into a hot box that will maintain the temperature. Something like that might save 30 seconds, which is significant on a 10-15 minute deliver. Unfortunately, although making a decision like that on the basis of A/B tests designed to optimize driver-satisfaction, would ultimately likely make the customer experience worse. If customers receive cold food, (when it's meant to be hot) then they may stop using the service and so this is likely bad for the app in the longer term.
+
+This trade-off may be obvious if you're running the driver-experiment and you're looking at the customer complaints. Maybe on a small team or in a start-up you would be. But if you work for a larger team, you'd likely not and so ensuring that A/B tests aren't resulting in false optimization is something that is especially interesting, and not a typical trade-off in a normal RCT.
+
+
+
 
 
 ## Case study - Upworthy
 
-To see this in action let's look at the Upworthy dataset [@upworthy].
+The trouble with much of A/B testing is that because it's done by firms we typically don't have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to [@upworthy]. You are able to request access to the dataset here: https://upworthy.natematias.com (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by @aboutupworthy. 
 
+Let's have a quick look at the data.
+
+```{r}
+upworthy <- read_csv(here::here("dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"))
+
+upworthy %>% 
+  head()
+
+upworthy %>% 
+  names()
+```
+
+From the documentation: 'The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.' So each row is a package and it should be part of a test 'clickability_test_id'.
+
+We have a variety of variables. We'll focus on 'created_at', 'clickability_test_id' so that we can create comparison groups, 'headline', 'impressions' which is the number of people that saw the package, and 'clicks' which is the number that clicked on that package. So within each batch of tests, we're interested in the effect of varied headlines on impressions and clicks.
+
+```{r}
+upworthy_restricted <- 
+  upworthy %>% 
+  select(created_at, clickability_test_id, headline, impressions, clicks)
+
+head(upworthy_restricted)
+```
+
+We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I'm interested in whether headlines that asked a question got more clicks than those that didn't.
+
+To identify whether a headline asks a question, I'm going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.
+
+```{r}
+upworthy_restricted <- 
+  upworthy_restricted %>% 
+  mutate(asks_question = stringr::str_detect(string = headline, pattern = "\\?"))
+
+upworthy_restricted %>% count(asks_question)
+```
+
+Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.
+
+```{r}
+to_question_or_not_to_question <- 
+  upworthy_restricted %>% 
+  group_by(clickability_test_id, asks_question) %>% 
+  summarise(ave_clicks = mean(clicks)) %>% 
+  ungroup()
+
+look_at_differences <- 
+  to_question_or_not_to_question %>% 
+  pivot_wider(id_cols = clickability_test_id,
+              names_from = asks_question,
+              values_from = ave_clicks) %>% 
+  rename(ave_clicks_not_question = `FALSE`,
+         ave_clicks_is_question = `TRUE`) %>% 
+  filter(!is.na(ave_clicks_not_question)) %>%
+  filter(!is.na(ave_clicks_is_question)) %>% 
+  mutate(difference_in_clicks = ave_clicks_is_question - ave_clicks_not_question)
+
+look_at_differences$difference_in_clicks %>% mean()
+```
+
+So we find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure \@ref(fig:upworthy)).
+
+```{r upworthy, echo=FALSE, fig.cap = "Comparison of the average number of clicks when a headline contains a question mark or not."}
+
+to_question_or_not_to_question %>% 
+  mutate(row_number = c(1:nrow(to_question_or_not_to_question))) %>% 
+  ggplot(aes(x = row_number, 
+             y = ave_clicks, 
+             color = asks_question)
+         ) +
+  geom_point(alpha = 0.15) +
+  labs(x = "Row number",
+       y = "Average number of clicks",
+       color = "Has a question mark?") +
+  theme_classic() 
+```
 
 
 

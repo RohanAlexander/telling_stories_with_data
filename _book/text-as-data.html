@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 20 Text as data | Telling Stories With Data</title>
+  <title>Chapter 18 Text as data | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 20 Text as data | Telling Stories With Data" />
+  <meta property="og:title" content="Chapter 18 Text as data | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 20 Text as data | Telling Stories With Data" />
+  <meta name="twitter:title" content="Chapter 18 Text as data | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
   
@@ -377,9 +377,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>8.7.2</b> Delivery</a></li>
-<li class="chapter" data-level="8.7.3" data-path="hunt-data.html"><a href="hunt-data.html#measurement-methods"><i class="fa fa-check"></i><b>8.7.3</b> Measurement methods</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>8.7.3</b> Instrumentation</a></li>
 <li class="chapter" data-level="8.7.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>8.7.4</b> Randomisation unit</a></li>
 <li class="chapter" data-level="8.7.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>8.7.5</b> Partnerships</a></li>
+<li class="chapter" data-level="8.7.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>8.7.6</b> Speed vs quality</a></li>
+<li class="chapter" data-level="8.7.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>8.7.7</b> Conflicting priorities</a></li>
 </ul></li>
 <li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.8</b> Case study - Upworthy</a></li>
 <li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.9</b> Sampling and survey essentials</a>
@@ -451,6 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-r"><i class="fa fa-check"></i><b>14.1.2</b> Implementation in base R</a></li>
 <li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.3</b> Tidy up with broom</a></li>
 <li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.4</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#on-p-values"><i class="fa fa-check"></i><b>14.1.5</b> On p-values</a></li>
 </ul></li>
 <li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#multiple-linear-regression"><i class="fa fa-check"></i><b>14.2</b> Multiple linear regression</a>
 <ul>
@@ -471,172 +474,160 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.4.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-2"><i class="fa fa-check"></i><b>14.4.1</b> Overview</a></li>
 <li class="chapter" data-level="14.4.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-1"><i class="fa fa-check"></i><b>14.4.2</b> Implementation in base</a></li>
 <li class="chapter" data-level="14.4.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels-2"><i class="fa fa-check"></i><b>14.4.3</b> Implementation in <code>tidymodels</code></a></li>
-<li class="chapter" data-level="14.4.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm-2"><i class="fa fa-check"></i><b>14.4.4</b> Implementation in <code>rstanarm</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="difference-in-differences.html"><a href="difference-in-differences.html"><i class="fa fa-check"></i><b>15</b> Difference in differences</a>
+<li class="chapter" data-level="15" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html"><i class="fa fa-check"></i><b>15</b> Causality from observational data</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-16"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
-<li class="chapter" data-level="15.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.2</b> Matching and difference-in-differences</a>
+<li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#difference-in-differences"><i class="fa fa-check"></i><b>15.1</b> Difference in differences</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-17"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
-<li class="chapter" data-level="15.2.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#motivation"><i class="fa fa-check"></i><b>15.2.2</b> Motivation</a></li>
-<li class="chapter" data-level="15.2.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#simulated-example"><i class="fa fa-check"></i><b>15.2.3</b> Simulated example</a></li>
-<li class="chapter" data-level="15.2.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#assumptions"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions</a></li>
-<li class="chapter" data-level="15.2.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#matching"><i class="fa fa-check"></i><b>15.2.5</b> Matching</a></li>
+<li class="chapter" data-level="15.1.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-16"><i class="fa fa-check"></i><b>15.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.1.2</b> Matching and difference-in-differences</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.3</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
+<li class="chapter" data-level="15.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.2</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
 <ul>
-<li class="chapter" data-level="15.3.1" data-path="difference-in-differences.html"><a href="difference-in-differences.html#introduction-18"><i class="fa fa-check"></i><b>15.3.1</b> Introduction</a></li>
-<li class="chapter" data-level="15.3.2" data-path="difference-in-differences.html"><a href="difference-in-differences.html#background"><i class="fa fa-check"></i><b>15.3.2</b> Background</a></li>
-<li class="chapter" data-level="15.3.3" data-path="difference-in-differences.html"><a href="difference-in-differences.html#data"><i class="fa fa-check"></i><b>15.3.3</b> Data</a></li>
-<li class="chapter" data-level="15.3.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#model"><i class="fa fa-check"></i><b>15.3.4</b> Model</a></li>
-<li class="chapter" data-level="15.3.5" data-path="difference-in-differences.html"><a href="difference-in-differences.html#results"><i class="fa fa-check"></i><b>15.3.5</b> Results</a></li>
-<li class="chapter" data-level="15.3.6" data-path="difference-in-differences.html"><a href="difference-in-differences.html#other-points"><i class="fa fa-check"></i><b>15.3.6</b> Other points</a></li>
+<li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#background"><i class="fa fa-check"></i><b>15.2.2</b> Background</a></li>
+<li class="chapter" data-level="15.2.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data"><i class="fa fa-check"></i><b>15.2.3</b> Data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model"><i class="fa fa-check"></i><b>15.2.4</b> Model</a></li>
+<li class="chapter" data-level="15.2.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#results"><i class="fa fa-check"></i><b>15.2.5</b> Results</a></li>
+<li class="chapter" data-level="15.2.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#other-points"><i class="fa fa-check"></i><b>15.2.6</b> Other points</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="difference-in-differences.html"><a href="difference-in-differences.html#tutorial---propensity-score-matching---lalonde"><i class="fa fa-check"></i><b>15.4</b> Tutorial - Propensity score matching - Lalonde</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="instrumental-variables.html"><a href="instrumental-variables.html"><i class="fa fa-check"></i><b>16</b> Instrumental variables</a>
+<li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lalonde"><i class="fa fa-check"></i><b>15.3</b> Case study - Lalonde</a></li>
+<li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.4</b> Regression discontinuity design</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#introduction-19"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
-<li class="chapter" data-level="16.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#history"><i class="fa fa-check"></i><b>16.2</b> History</a></li>
-<li class="chapter" data-level="16.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#simulated-example-1"><i class="fa fa-check"></i><b>16.3</b> Simulated example</a></li>
-<li class="chapter" data-level="16.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#implementation"><i class="fa fa-check"></i><b>16.4</b> Implementation</a></li>
-<li class="chapter" data-level="16.5" data-path="instrumental-variables.html"><a href="instrumental-variables.html#assumptions-1"><i class="fa fa-check"></i><b>16.5</b> Assumptions</a></li>
-<li class="chapter" data-level="16.6" data-path="instrumental-variables.html"><a href="instrumental-variables.html#example---effect-of-police-on-crime"><i class="fa fa-check"></i><b>16.6</b> Example - Effect of Police on Crime</a>
-<ul>
-<li class="chapter" data-level="16.6.1" data-path="instrumental-variables.html"><a href="instrumental-variables.html#overview-3"><i class="fa fa-check"></i><b>16.6.1</b> Overview</a></li>
-<li class="chapter" data-level="16.6.2" data-path="instrumental-variables.html"><a href="instrumental-variables.html#data-1"><i class="fa fa-check"></i><b>16.6.2</b> Data</a></li>
-<li class="chapter" data-level="16.6.3" data-path="instrumental-variables.html"><a href="instrumental-variables.html#model-1"><i class="fa fa-check"></i><b>16.6.3</b> Model</a></li>
-<li class="chapter" data-level="16.6.4" data-path="instrumental-variables.html"><a href="instrumental-variables.html#discussion"><i class="fa fa-check"></i><b>16.6.4</b> Discussion</a></li>
+<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.4.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-1"><i class="fa fa-check"></i><b>15.4.2</b> Simulated example</a></li>
+<li class="chapter" data-level="15.4.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overlap"><i class="fa fa-check"></i><b>15.4.3</b> Overlap</a></li>
+<li class="chapter" data-level="15.4.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#examples"><i class="fa fa-check"></i><b>15.4.4</b> Examples</a></li>
+<li class="chapter" data-level="15.4.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation"><i class="fa fa-check"></i><b>15.4.5</b> Implementation</a></li>
+<li class="chapter" data-level="15.4.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#fuzzy-rdd"><i class="fa fa-check"></i><b>15.4.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="15.4.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#threats-to-validity"><i class="fa fa-check"></i><b>15.4.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="15.4.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#weaknesses"><i class="fa fa-check"></i><b>15.4.8</b> Weaknesses</a></li>
 </ul></li>
-<li class="chapter" data-level="16.7" data-path="instrumental-variables.html"><a href="instrumental-variables.html#conclusion"><i class="fa fa-check"></i><b>16.7</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html"><i class="fa fa-check"></i><b>17</b> Regression discontinuity design</a>
+<li class="chapter" data-level="15.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>15.5</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="15.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>15.6</b> Case study - Caughey, and Sekhon., 2011</a></li>
+<li class="chapter" data-level="15.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#instrumental-variables"><i class="fa fa-check"></i><b>15.7</b> Instrumental variables</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#introduction-20"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#simulated-example-2"><i class="fa fa-check"></i><b>17.2</b> Simulated example</a>
-<ul>
-<li class="chapter" data-level="17.2.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#different-slopes"><i class="fa fa-check"></i><b>17.2.1</b> Different slopes</a></li>
+<li class="chapter" data-level="15.7.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.7.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#history"><i class="fa fa-check"></i><b>15.7.2</b> History</a></li>
+<li class="chapter" data-level="15.7.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-2"><i class="fa fa-check"></i><b>15.7.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.7.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation-1"><i class="fa fa-check"></i><b>15.7.4</b> Implementation</a></li>
+<li class="chapter" data-level="15.7.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#assumptions-1"><i class="fa fa-check"></i><b>15.7.5</b> Assumptions</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#overlap"><i class="fa fa-check"></i><b>17.3</b> Overlap</a></li>
-<li class="chapter" data-level="17.4" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#examples"><i class="fa fa-check"></i><b>17.4</b> Examples</a>
+<li class="chapter" data-level="15.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---effect-of-police-on-crime"><i class="fa fa-check"></i><b>15.8</b> Case study - Effect of Police on Crime</a>
 <ul>
-<li class="chapter" data-level="17.4.1" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#elections"><i class="fa fa-check"></i><b>17.4.1</b> Elections</a></li>
-<li class="chapter" data-level="17.4.2" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#economic-development"><i class="fa fa-check"></i><b>17.4.2</b> Economic development</a></li>
+<li class="chapter" data-level="15.8.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overview-3"><i class="fa fa-check"></i><b>15.8.1</b> Overview</a></li>
+<li class="chapter" data-level="15.8.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data-1"><i class="fa fa-check"></i><b>15.8.2</b> Data</a></li>
+<li class="chapter" data-level="15.8.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model-1"><i class="fa fa-check"></i><b>15.8.3</b> Model</a></li>
+<li class="chapter" data-level="15.8.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#discussion"><i class="fa fa-check"></i><b>15.8.4</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="17.5" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#implementation-1"><i class="fa fa-check"></i><b>17.5</b> Implementation</a></li>
-<li class="chapter" data-level="17.6" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#fuzzy-rdd"><i class="fa fa-check"></i><b>17.6</b> Fuzzy RDD</a></li>
-<li class="chapter" data-level="17.7" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#threats-to-validity"><i class="fa fa-check"></i><b>17.7</b> Threats to validity</a></li>
-<li class="chapter" data-level="17.8" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#weaknesses"><i class="fa fa-check"></i><b>17.8</b> Weaknesses</a></li>
-<li class="chapter" data-level="17.9" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>17.9</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
-<li class="chapter" data-level="17.10" data-path="regression-discontinuity-design.html"><a href="regression-discontinuity-design.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>17.10</b> Case study - Caughey, and Sekhon., 2011</a></li>
+<li class="chapter" data-level="15.9" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#conclusion"><i class="fa fa-check"></i><b>15.9</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>18</b> Poll of polls</a>
+<li class="chapter" data-level="16" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>16</b> Poll of polls</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>19</b> Multilevel modelling with post-stratification</a>
+<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
-<li class="chapter" data-level="19.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>19.2</b> Hello world</a></li>
-<li class="chapter" data-level="19.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>19.3</b> Your turn!</a></li>
-<li class="chapter" data-level="19.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>19.4</b> Extended example</a></li>
-<li class="chapter" data-level="19.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>19.5</b> Your turn!</a></li>
-<li class="chapter" data-level="19.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>19.6</b> Adding layers</a></li>
-<li class="chapter" data-level="19.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>19.7</b> Communication</a></li>
-<li class="chapter" data-level="19.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>19.8</b> Concluding remarks</a></li>
+<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>20</b> Text as data</a>
+<li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
-<li class="chapter" data-level="20.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>20.2</b> Lasso regression</a></li>
-<li class="chapter" data-level="20.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>20.3</b> Topic models</a>
+<li class="chapter" data-level="18.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>18.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="18.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>18.3</b> Topic models</a>
 <ul>
-<li class="chapter" data-level="20.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-4"><i class="fa fa-check"></i><b>20.3.1</b> Overview</a></li>
-<li class="chapter" data-level="20.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>20.3.2</b> Document generation process</a></li>
-<li class="chapter" data-level="20.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>20.3.3</b> Analysis process</a></li>
-<li class="chapter" data-level="20.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>20.3.4</b> Warnings and extensions</a></li>
+<li class="chapter" data-level="18.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-4"><i class="fa fa-check"></i><b>18.3.1</b> Overview</a></li>
+<li class="chapter" data-level="18.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>18.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="18.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>18.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="18.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>18.3.4</b> Warnings and extensions</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>20.4</b> Word embedding</a></li>
-<li class="chapter" data-level="20.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>20.5</b> Conclusion</a></li>
+<li class="chapter" data-level="18.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>18.4</b> Word embedding</a></li>
+<li class="chapter" data-level="18.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>18.5</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>VI Scale</b></span></li>
-<li class="chapter" data-level="21" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>21</b> Cloud</a>
+<li class="chapter" data-level="19" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>19</b> Cloud</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
-<li class="chapter" data-level="21.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>21.2</b> Google Colab</a></li>
-<li class="chapter" data-level="21.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>21.3</b> AWS</a></li>
-<li class="chapter" data-level="21.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>21.4</b> Google Compute Engine</a></li>
-<li class="chapter" data-level="21.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>21.5</b> Azure</a></li>
+<li class="chapter" data-level="19.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>19.2</b> Google Colab</a></li>
+<li class="chapter" data-level="19.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
+<li class="chapter" data-level="19.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="19.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>19.5</b> Azure</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>22</b> Deploy</a>
+<li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>22.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
-<li class="chapter" data-level="23" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>23</b> Papers</a>
+<li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>23.1</b> ‘Mandatory Minimums’</a>
+<li class="chapter" data-level="21.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>21.1</b> ‘Mandatory Minimums’</a>
 <ul>
-<li class="chapter" data-level="23.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>23.1.1</b> Task</a></li>
-<li class="chapter" data-level="23.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>23.1.2</b> Guidance</a></li>
-<li class="chapter" data-level="23.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>23.1.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>23.1.4</b> FAQ</a></li>
-<li class="chapter" data-level="23.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>23.1.5</b> Rubric</a></li>
-<li class="chapter" data-level="23.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>23.1.6</b> Previous examples</a></li>
+<li class="chapter" data-level="21.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>21.1.1</b> Task</a></li>
+<li class="chapter" data-level="21.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>21.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>21.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>21.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>21.1.5</b> Rubric</a></li>
+<li class="chapter" data-level="21.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>21.1.6</b> Previous examples</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>23.2</b> ‘These numbers mean dial it up’</a>
+<li class="chapter" data-level="21.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>21.2</b> ‘These numbers mean dial it up’</a>
 <ul>
-<li class="chapter" data-level="23.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>23.2.1</b> Task</a></li>
-<li class="chapter" data-level="23.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>23.2.2</b> Guidance</a></li>
-<li class="chapter" data-level="23.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>23.2.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>23.2.4</b> FAQ</a></li>
-<li class="chapter" data-level="23.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>23.2.5</b> Rubric</a></li>
+<li class="chapter" data-level="21.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>21.2.1</b> Task</a></li>
+<li class="chapter" data-level="21.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>21.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>21.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>21.2.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>21.2.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="23.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>23.3</b> ‘The Short List’</a>
+<li class="chapter" data-level="21.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>21.3</b> ‘The Short List’</a>
 <ul>
-<li class="chapter" data-level="23.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>23.3.1</b> Task</a></li>
-<li class="chapter" data-level="23.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>23.3.2</b> Guidance</a></li>
-<li class="chapter" data-level="23.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>23.3.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>23.3.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>21.3.1</b> Task</a></li>
+<li class="chapter" data-level="21.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>21.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>21.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>21.3.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>23.4</b> ‘Two Cathedrals’</a>
+<li class="chapter" data-level="21.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>21.4</b> ‘Two Cathedrals’</a>
 <ul>
-<li class="chapter" data-level="23.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>23.4.1</b> Task</a></li>
-<li class="chapter" data-level="23.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>23.4.2</b> Guidance</a></li>
-<li class="chapter" data-level="23.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>23.4.3</b> Peer review submission</a></li>
-<li class="chapter" data-level="23.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>23.4.4</b> Conduct peer-review</a></li>
-<li class="chapter" data-level="23.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>23.4.5</b> Check offs points</a></li>
-<li class="chapter" data-level="23.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>23.4.6</b> FAQ</a></li>
+<li class="chapter" data-level="21.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>21.4.1</b> Task</a></li>
+<li class="chapter" data-level="21.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>21.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>21.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="21.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>21.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="21.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>21.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="21.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>21.4.6</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>23.5</b> ‘A Proportional Response’</a>
+<li class="chapter" data-level="21.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>21.5</b> ‘A Proportional Response’</a>
 <ul>
-<li class="chapter" data-level="23.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>23.5.1</b> Task</a></li>
-<li class="chapter" data-level="23.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>23.5.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="23.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>23.5.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>23.5.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>21.5.1</b> Task</a></li>
+<li class="chapter" data-level="21.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>21.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>21.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>21.5.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>23.6</b> ‘Mr Willis of Ohio’</a>
+<li class="chapter" data-level="21.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>21.6</b> ‘Mr Willis of Ohio’</a>
 <ul>
-<li class="chapter" data-level="23.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>23.6.1</b> Task</a></li>
-<li class="chapter" data-level="23.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>23.6.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="23.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>23.6.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>23.6.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>21.6.1</b> Task</a></li>
+<li class="chapter" data-level="21.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>21.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>21.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>21.6.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>23.7</b> ‘Five Votes Down’</a>
+<li class="chapter" data-level="21.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>21.7</b> ‘Five Votes Down’</a>
 <ul>
-<li class="chapter" data-level="23.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>23.7.1</b> Task</a></li>
-<li class="chapter" data-level="23.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>23.7.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="23.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>23.7.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>23.7.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>21.7.1</b> Task</a></li>
+<li class="chapter" data-level="21.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>21.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>21.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>21.7.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="23.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>23.8</b> ‘What’s next?’</a>
+<li class="chapter" data-level="21.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>21.8</b> ‘What’s next?’</a>
 <ul>
-<li class="chapter" data-level="23.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>23.8.1</b> Task</a></li>
-<li class="chapter" data-level="23.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>23.8.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="23.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>23.8.3</b> Check offs points</a></li>
-<li class="chapter" data-level="23.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>23.8.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>21.8.1</b> Task</a></li>
+<li class="chapter" data-level="21.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>21.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>21.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>21.8.4</b> FAQ</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
@@ -657,8 +648,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="text-as-data" class="section level1" number="20">
-<h1><span class="header-section-number">Chapter 20</span> Text as data</h1>
+<div id="text-as-data" class="section level1" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Text as data</h1>
 <p><strong>Required reading</strong></p>
 <ul>
 <li></li>
@@ -687,30 +678,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li></li>
 </ul>
-<div id="introduction-23" class="section level2" number="20.1">
-<h2><span class="header-section-number">20.1</span> Introduction</h2>
+<div id="introduction-23" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> Introduction</h2>
 <p>TBD</p>
 </div>
-<div id="lasso-regression" class="section level2" number="20.2">
-<h2><span class="header-section-number">20.2</span> Lasso regression</h2>
+<div id="lasso-regression" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> Lasso regression</h2>
 <p><strong>This subsection, and much of the code that is used, directly draws on Julia Silge’s notes, in particular: <a href="https://juliasilge.com/blog/tidy-text-classification/" class="uri">https://juliasilge.com/blog/tidy-text-classification/</a> <span class="citation">(<a href="references-1.html#ref-silge2018" role="doc-biblioref">Silge 2018</a>)</span>.</strong></p>
 <p>One of the nice aspects of text is that we can adapt our existing methods to use it as an input. Here we are going to use a variation of logistics regression, along with text inputs, to forecast. If you want to learn more about Lasso regression, then you should consider taking Arik’s course over the summer, where he will dive into machine learning using Python.</p>
 <p>In this section we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, you could imagine many real-world applications. For instance, if you work at Twitter then you may want to know if a tweet was likely written by a bot, or by a human. Or similarly, imagine that you work for a political party - you may like to know if an email was likely from an email campaign organised by a group, or from an individual.</p>
 <p>First we need to get some data. Julia Silge’s example, nicely, uses book text as input. Seeing as I am jointly appointed at a Faculty of Information, that seems especially nice. The wonderful thing about this is that there is an R package - <code>gutenbergr</code> - that makes it easy to get text from Project Gutenberg into R. The key function is <code>gutenberg_download()</code>, which needs a key for the book that you want. We’ll consider Jane Eyre and Alice’s Adventures in Wonderland, which have the keys of 1260 and 11, respectively.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="text-as-data.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb604-2"><a href="text-as-data.html#cb604-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb604-3"><a href="text-as-data.html#cb604-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
-<span id="cb604-4"><a href="text-as-data.html#cb604-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
-<span id="cb604-5"><a href="text-as-data.html#cb604-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb604-6"><a href="text-as-data.html#cb604-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb604-7"><a href="text-as-data.html#cb604-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="text-as-data.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb605-2"><a href="text-as-data.html#cb605-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb605-3"><a href="text-as-data.html#cb605-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb605-4"><a href="text-as-data.html#cb605-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb605-5"><a href="text-as-data.html#cb605-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-363">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-363">Table 20.1: </span> </caption><col><col><col><tr>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="text-as-data.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb618-2"><a href="text-as-data.html#cb618-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb618-3"><a href="text-as-data.html#cb618-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
+<span id="cb618-4"><a href="text-as-data.html#cb618-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
+<span id="cb618-5"><a href="text-as-data.html#cb618-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
+<span id="cb618-6"><a href="text-as-data.html#cb618-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb618-7"><a href="text-as-data.html#cb618-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="text-as-data.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb619-2"><a href="text-as-data.html#cb619-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb619-3"><a href="text-as-data.html#cb619-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
+<span id="cb619-4"><a href="text-as-data.html#cb619-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb619-5"><a href="text-as-data.html#cb619-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-370">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-370">Table 18.1: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gutenberg_id</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">text</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">title</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">ALICE'S ADVENTURES IN WONDERLAND</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
@@ -727,120 +718,120 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 <p>One of the great things about this is that the dataset is a tibble. So we can just work with all our familiar skills. The package has a lot more functionality, so I’d encourage you to look at the package’s website: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a>. Each line of the book is read in as a different row in the dataset. Notice that we have downloaded two books here at once, and so we added the title. The two books are one after each other. You can see that we have both by looking at some summary statistics.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="text-as-data.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="text-as-data.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             3339                            20659</code></pre>
 <p>So it looks like Jane Eyre is much longer than Alice in Wonderland, which isn’t a surprise to those who have read them. I don’t want to step into Digital Humanities too much, as I don’t know anything about it, but looking at things like the broader context of when these books were written, or other books that were written at similar times, is likely a fascinating area.</p>
 <p>We’ll just get rid of blank lines</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="text-as-data.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb608-2"><a href="text-as-data.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> There&#39;s a way to do this within janitor, but I forget, need to look it up.</span></span>
-<span id="cb608-3"><a href="text-as-data.html#cb608-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb608-4"><a href="text-as-data.html#cb608-4" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb608-5"><a href="text-as-data.html#cb608-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">blank_line =</span> <span class="fu">if_else</span>(text <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb608-6"><a href="text-as-data.html#cb608-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(blank_line <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb608-7"><a href="text-as-data.html#cb608-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>blank_line)</span>
-<span id="cb608-8"><a href="text-as-data.html#cb608-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb608-9"><a href="text-as-data.html#cb608-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="text-as-data.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb622-2"><a href="text-as-data.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> There&#39;s a way to do this within janitor, but I forget, need to look it up.</span></span>
+<span id="cb622-3"><a href="text-as-data.html#cb622-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb622-4"><a href="text-as-data.html#cb622-4" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb622-5"><a href="text-as-data.html#cb622-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">blank_line =</span> <span class="fu">if_else</span>(text <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb622-6"><a href="text-as-data.html#cb622-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(blank_line <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb622-7"><a href="text-as-data.html#cb622-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>blank_line)</span>
+<span id="cb622-8"><a href="text-as-data.html#cb622-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb622-9"><a href="text-as-data.html#cb622-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             2481                            16395</code></pre>
 <p>There’s still an overwhelming amount of Jane Eyre in there. So we’ll just sample from Jane Eyre to make it more equal.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="text-as-data.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb610-2"><a href="text-as-data.html#cb610-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb610-3"><a href="text-as-data.html#cb610-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane<span class="sc">$</span>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(alice_and_jane))</span>
-<span id="cb610-4"><a href="text-as-data.html#cb610-4" aria-hidden="true" tabindex="-1"></a>sample_from_me <span class="ot">&lt;-</span> alice_and_jane <span class="sc">%&gt;%</span> <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Jane Eyre: An Autobiography&quot;</span>)</span>
-<span id="cb610-5"><a href="text-as-data.html#cb610-5" aria-hidden="true" tabindex="-1"></a>keep_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> sample_from_me<span class="sc">$</span>rows, <span class="at">size =</span> <span class="dv">2481</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb610-6"><a href="text-as-data.html#cb610-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb610-7"><a href="text-as-data.html#cb610-7" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb610-8"><a href="text-as-data.html#cb610-8" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb610-9"><a href="text-as-data.html#cb610-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Alice&#39;s Adventures in Wonderland&quot;</span> <span class="sc">|</span> rows <span class="sc">%in%</span> keep_me) <span class="sc">%&gt;%</span> </span>
-<span id="cb610-10"><a href="text-as-data.html#cb610-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rows)</span>
-<span id="cb610-11"><a href="text-as-data.html#cb610-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb610-12"><a href="text-as-data.html#cb610-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="text-as-data.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb624-2"><a href="text-as-data.html#cb624-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-3"><a href="text-as-data.html#cb624-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane<span class="sc">$</span>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(alice_and_jane))</span>
+<span id="cb624-4"><a href="text-as-data.html#cb624-4" aria-hidden="true" tabindex="-1"></a>sample_from_me <span class="ot">&lt;-</span> alice_and_jane <span class="sc">%&gt;%</span> <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Jane Eyre: An Autobiography&quot;</span>)</span>
+<span id="cb624-5"><a href="text-as-data.html#cb624-5" aria-hidden="true" tabindex="-1"></a>keep_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> sample_from_me<span class="sc">$</span>rows, <span class="at">size =</span> <span class="dv">2481</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb624-6"><a href="text-as-data.html#cb624-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-7"><a href="text-as-data.html#cb624-7" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb624-8"><a href="text-as-data.html#cb624-8" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb624-9"><a href="text-as-data.html#cb624-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Alice&#39;s Adventures in Wonderland&quot;</span> <span class="sc">|</span> rows <span class="sc">%in%</span> keep_me) <span class="sc">%&gt;%</span> </span>
+<span id="cb624-10"><a href="text-as-data.html#cb624-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rows)</span>
+<span id="cb624-11"><a href="text-as-data.html#cb624-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-12"><a href="text-as-data.html#cb624-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             2481                             2481</code></pre>
 <p>There’s a bunch of issues here, for instance, we have the whole of Alice, but we only have random bits of Jane, but nonetheless let’s continue and we’ll try to do something about that in a moment.</p>
 <p>Now we want to get a sample of text from each book. We will use the lines to distinguish these samples. So we use a counter that will add a line number.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="text-as-data.html#cb612-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb612-2"><a href="text-as-data.html#cb612-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb612-3"><a href="text-as-data.html#cb612-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
-<span id="cb612-4"><a href="text-as-data.html#cb612-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb612-5"><a href="text-as-data.html#cb612-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="text-as-data.html#cb626-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb626-2"><a href="text-as-data.html#cb626-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb626-3"><a href="text-as-data.html#cb626-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
+<span id="cb626-4"><a href="text-as-data.html#cb626-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb626-5"><a href="text-as-data.html#cb626-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>We now want to sepearate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="text-as-data.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb613-2"><a href="text-as-data.html#cb613-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb613-3"><a href="text-as-data.html#cb613-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb613-4"><a href="text-as-data.html#cb613-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb613-5"><a href="text-as-data.html#cb613-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
-<span id="cb613-6"><a href="text-as-data.html#cb613-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb613-7"><a href="text-as-data.html#cb613-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="text-as-data.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb627-2"><a href="text-as-data.html#cb627-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
+<span id="cb627-3"><a href="text-as-data.html#cb627-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb627-4"><a href="text-as-data.html#cb627-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb627-5"><a href="text-as-data.html#cb627-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb627-6"><a href="text-as-data.html#cb627-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb627-7"><a href="text-as-data.html#cb627-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Notice here that we removed any word that wasn’t used more than 10 times. Nonetheless we still have a lot of unique words. (If we didn’t require that the word be used by the author at least 10 times then we end up with more than 6,000 words.)</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="text-as-data.html#cb614-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word<span class="sc">$</span>word <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="text-as-data.html#cb628-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word<span class="sc">$</span>word <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
 <pre><code>## [1] 585</code></pre>
 <p>The reason this is relevant is because these are our independent variables. So where you may be used to having something less than 10 explanatory variables, in this case we are going to have 585 As such, we need a model that can handle this.</p>
 <p>However, as mentioned before, we are going to have some rows that essentially just had one word. While we could allow that, it might also be nice to give the model at least a few words to work with.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="text-as-data.html#cb616-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb616-2"><a href="text-as-data.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb616-3"><a href="text-as-data.html#cb616-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb616-4"><a href="text-as-data.html#cb616-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_words_in_line =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb616-5"><a href="text-as-data.html#cb616-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb616-6"><a href="text-as-data.html#cb616-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_words_in_line <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb616-7"><a href="text-as-data.html#cb616-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>number_of_words_in_line)</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="text-as-data.html#cb630-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
+<span id="cb630-2"><a href="text-as-data.html#cb630-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
+<span id="cb630-3"><a href="text-as-data.html#cb630-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
+<span id="cb630-4"><a href="text-as-data.html#cb630-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_words_in_line =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb630-5"><a href="text-as-data.html#cb630-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb630-6"><a href="text-as-data.html#cb630-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_words_in_line <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb630-7"><a href="text-as-data.html#cb630-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>number_of_words_in_line)</span></code></pre></div>
 <p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="text-as-data.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb617-2"><a href="text-as-data.html#cb617-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-3"><a href="text-as-data.html#cb617-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb617-4"><a href="text-as-data.html#cb617-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-5"><a href="text-as-data.html#cb617-5" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word_split <span class="ot">&lt;-</span> </span>
-<span id="cb617-6"><a href="text-as-data.html#cb617-6" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span></span>
-<span id="cb617-7"><a href="text-as-data.html#cb617-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb617-8"><a href="text-as-data.html#cb617-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb617-9"><a href="text-as-data.html#cb617-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> title)</span>
-<span id="cb617-10"><a href="text-as-data.html#cb617-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb617-11"><a href="text-as-data.html#cb617-11" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span></span>
-<span id="cb617-12"><a href="text-as-data.html#cb617-12" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span></span>
-<span id="cb617-13"><a href="text-as-data.html#cb617-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb617-14"><a href="text-as-data.html#cb617-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(alice_and_jane_by_word_split)</span></span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="text-as-data.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb631-2"><a href="text-as-data.html#cb631-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-3"><a href="text-as-data.html#cb631-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb631-4"><a href="text-as-data.html#cb631-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-5"><a href="text-as-data.html#cb631-5" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word_split <span class="ot">&lt;-</span> </span>
+<span id="cb631-6"><a href="text-as-data.html#cb631-6" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span></span>
+<span id="cb631-7"><a href="text-as-data.html#cb631-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
+<span id="cb631-8"><a href="text-as-data.html#cb631-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb631-9"><a href="text-as-data.html#cb631-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> title)</span>
+<span id="cb631-10"><a href="text-as-data.html#cb631-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-11"><a href="text-as-data.html#cb631-11" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span></span>
+<span id="cb631-12"><a href="text-as-data.html#cb631-12" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span></span>
+<span id="cb631-13"><a href="text-as-data.html#cb631-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb631-14"><a href="text-as-data.html#cb631-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(alice_and_jane_by_word_split)</span></span></code></pre></div>
 <p>Now we need to create a document-term matrix.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="text-as-data.html#cb618-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_dtm_training <span class="ot">&lt;-</span> </span>
-<span id="cb618-2"><a href="text-as-data.html#cb618-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb618-3"><a href="text-as-data.html#cb618-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(line_number, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb618-4"><a href="text-as-data.html#cb618-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">training</span>(alice_and_jane_by_word_split) <span class="sc">%&gt;%</span> <span class="fu">select</span>(line_number)) <span class="sc">%&gt;%</span> </span>
-<span id="cb618-5"><a href="text-as-data.html#cb618-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">term =</span> word, <span class="at">document =</span> line_number, <span class="at">value =</span> n)</span>
-<span id="cb618-6"><a href="text-as-data.html#cb618-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb618-7"><a href="text-as-data.html#cb618-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(alice_and_jane_dtm_training)</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="text-as-data.html#cb632-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_dtm_training <span class="ot">&lt;-</span> </span>
+<span id="cb632-2"><a href="text-as-data.html#cb632-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
+<span id="cb632-3"><a href="text-as-data.html#cb632-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(line_number, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb632-4"><a href="text-as-data.html#cb632-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">training</span>(alice_and_jane_by_word_split) <span class="sc">%&gt;%</span> <span class="fu">select</span>(line_number)) <span class="sc">%&gt;%</span> </span>
+<span id="cb632-5"><a href="text-as-data.html#cb632-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">term =</span> word, <span class="at">document =</span> line_number, <span class="at">value =</span> n)</span>
+<span id="cb632-6"><a href="text-as-data.html#cb632-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb632-7"><a href="text-as-data.html#cb632-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(alice_and_jane_dtm_training)</span></code></pre></div>
 <pre><code>## [1] 3415  585</code></pre>
 <p>So we have our independent variables sorted, now we need our binary dependent variable, which is whether the book is Alice in Wonderland or Jane Eyre.</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="text-as-data.html#cb620-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> </span>
-<span id="cb620-2"><a href="text-as-data.html#cb620-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">dimnames</span>(alice_and_jane_dtm_training)[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span> </span>
-<span id="cb620-3"><a href="text-as-data.html#cb620-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;book&quot;</span>, <span class="st">&quot;line&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb620-4"><a href="text-as-data.html#cb620-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_alice =</span> <span class="fu">if_else</span>(book <span class="sc">==</span> <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
-<span id="cb620-5"><a href="text-as-data.html#cb620-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb620-6"><a href="text-as-data.html#cb620-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb620-7"><a href="text-as-data.html#cb620-7" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">&lt;-</span> alice_and_jane_dtm_training[] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="text-as-data.html#cb634-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> </span>
+<span id="cb634-2"><a href="text-as-data.html#cb634-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">dimnames</span>(alice_and_jane_dtm_training)[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span> </span>
+<span id="cb634-3"><a href="text-as-data.html#cb634-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;book&quot;</span>, <span class="st">&quot;line&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb634-4"><a href="text-as-data.html#cb634-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_alice =</span> <span class="fu">if_else</span>(book <span class="sc">==</span> <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
+<span id="cb634-5"><a href="text-as-data.html#cb634-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb634-6"><a href="text-as-data.html#cb634-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-7"><a href="text-as-data.html#cb634-7" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">&lt;-</span> alice_and_jane_dtm_training[] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>Now we can run our model.</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="text-as-data.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb621-2"><a href="text-as-data.html#cb621-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb621-3"><a href="text-as-data.html#cb621-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> predictor,</span>
-<span id="cb621-4"><a href="text-as-data.html#cb621-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> response<span class="sc">$</span>is_alice,</span>
-<span id="cb621-5"><a href="text-as-data.html#cb621-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb621-6"><a href="text-as-data.html#cb621-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep =</span> <span class="cn">TRUE</span></span>
-<span id="cb621-7"><a href="text-as-data.html#cb621-7" aria-hidden="true" tabindex="-1"></a>                   )</span>
-<span id="cb621-8"><a href="text-as-data.html#cb621-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb621-9"><a href="text-as-data.html#cb621-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(model, <span class="at">file =</span> <span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="text-as-data.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span>
-<span id="cb622-2"><a href="text-as-data.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb622-3"><a href="text-as-data.html#cb622-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb622-4"><a href="text-as-data.html#cb622-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-5"><a href="text-as-data.html#cb622-5" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> model<span class="sc">$</span>glmnet.fit <span class="sc">%&gt;%</span></span>
-<span id="cb622-6"><a href="text-as-data.html#cb622-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb622-7"><a href="text-as-data.html#cb622-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lambda <span class="sc">==</span> model<span class="sc">$</span>lambda<span class="fl">.1</span>se)</span>
-<span id="cb622-8"><a href="text-as-data.html#cb622-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb622-9"><a href="text-as-data.html#cb622-9" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-375">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-375">Table 20.2: </span> </caption><col><col><col><col><col><tr>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="text-as-data.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb635-2"><a href="text-as-data.html#cb635-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb635-3"><a href="text-as-data.html#cb635-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> predictor,</span>
+<span id="cb635-4"><a href="text-as-data.html#cb635-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> response<span class="sc">$</span>is_alice,</span>
+<span id="cb635-5"><a href="text-as-data.html#cb635-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
+<span id="cb635-6"><a href="text-as-data.html#cb635-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep =</span> <span class="cn">TRUE</span></span>
+<span id="cb635-7"><a href="text-as-data.html#cb635-7" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb635-8"><a href="text-as-data.html#cb635-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb635-9"><a href="text-as-data.html#cb635-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(model, <span class="at">file =</span> <span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="text-as-data.html#cb636-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span>
+<span id="cb636-2"><a href="text-as-data.html#cb636-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb636-3"><a href="text-as-data.html#cb636-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb636-4"><a href="text-as-data.html#cb636-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb636-5"><a href="text-as-data.html#cb636-5" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> model<span class="sc">$</span>glmnet.fit <span class="sc">%&gt;%</span></span>
+<span id="cb636-6"><a href="text-as-data.html#cb636-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb636-7"><a href="text-as-data.html#cb636-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lambda <span class="sc">==</span> model<span class="sc">$</span>lambda<span class="fl">.1</span>se)</span>
+<span id="cb636-8"><a href="text-as-data.html#cb636-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb636-9"><a href="text-as-data.html#cb636-9" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-382">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-382">Table 18.2: </span> </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">term</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">step</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lambda</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">dev.ratio</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">(Intercept)</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-0.335&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.562</td></tr>
@@ -856,42 +847,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">about</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.279&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.562</td></tr>
 </table>
 
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="text-as-data.html#cb623-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span></span>
-<span id="cb623-2"><a href="text-as-data.html#cb623-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb623-3"><a href="text-as-data.html#cb623-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(estimate)) <span class="sc">%&gt;%</span></span>
-<span id="cb623-4"><a href="text-as-data.html#cb623-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb623-5"><a href="text-as-data.html#cb623-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(term, estimate), estimate, <span class="at">fill =</span> estimate <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb623-6"><a href="text-as-data.html#cb623-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb623-7"><a href="text-as-data.html#cb623-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb623-8"><a href="text-as-data.html#cb623-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb623-9"><a href="text-as-data.html#cb623-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
-<span id="cb623-10"><a href="text-as-data.html#cb623-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Word&quot;</span>) <span class="sc">+</span></span>
-<span id="cb623-11"><a href="text-as-data.html#cb623-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-376-1.png" width="672" /></p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="text-as-data.html#cb637-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span></span>
+<span id="cb637-2"><a href="text-as-data.html#cb637-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb637-3"><a href="text-as-data.html#cb637-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(estimate)) <span class="sc">%&gt;%</span></span>
+<span id="cb637-4"><a href="text-as-data.html#cb637-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb637-5"><a href="text-as-data.html#cb637-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(term, estimate), estimate, <span class="at">fill =</span> estimate <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb637-6"><a href="text-as-data.html#cb637-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb637-7"><a href="text-as-data.html#cb637-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb637-8"><a href="text-as-data.html#cb637-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb637-9"><a href="text-as-data.html#cb637-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
+<span id="cb637-10"><a href="text-as-data.html#cb637-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Word&quot;</span>) <span class="sc">+</span></span>
+<span id="cb637-11"><a href="text-as-data.html#cb637-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-383-1.png" width="672" /></p>
 <p>Perhaps unsurprisingly, if you mention Alice then it’s likely to be a Alice in Wonderland and if you mention Jane then it’s likely to be Jane Eyre.</p>
 </div>
-<div id="topic-models" class="section level2" number="20.3">
-<h2><span class="header-section-number">20.3</span> Topic models</h2>
+<div id="topic-models" class="section level2" number="18.3">
+<h2><span class="header-section-number">18.3</span> Topic models</h2>
 <p><strong>A version of these notes was previously circulated as part of <span class="citation"><a href="references-1.html#ref-Alexander2020" role="doc-biblioref">R. Alexander and Alexander</a> (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2020</a>)</span>.</strong></p>
-<div id="overview-4" class="section level3" number="20.3.1">
-<h3><span class="header-section-number">20.3.1</span> Overview</h3>
+<div id="overview-4" class="section level3" number="18.3.1">
+<h3><span class="header-section-number">18.3.1</span> Overview</h3>
 <p>Sometimes we have a statement and we want to know what it is about. Sometimes this will be easy, but we don’t always have titles for statements, and even when we do, sometimes we do not have titles that define topics in a well-defined and consistent way. One way to get consistent estimates of the topics of each statement is to use topic models. While there are many variants, one way is to use the latent Dirichlet allocation (LDA) method of <span class="citation"><a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">Blei, Ng, and Jordan</a> (<a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">2003</a>)</span>, as implemented by the R package ‘topicmodels’ by <span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>.</p>
 <p>The key assumption behind the LDA method is that each statement, ‘a document,’ is made by a person who decides the topics they would like to talk about in that document, and then chooses words, ‘terms,’ that are appropriate to those topics. A topic could be thought of as a collection of terms, and a document as a collection of topics. The topics are not specified <em>ex ante</em>; they are an outcome of the method. Terms are not necessarily unique to a particular topic, and a document could be about more than one topic. This provides more flexibility than other approaches such as a strict word count method. The goal is to have the words found in documents group themselves to define topics.</p>
 </div>
-<div id="document-generation-process" class="section level3" number="20.3.2">
-<h3><span class="header-section-number">20.3.2</span> Document generation process</h3>
-<p>The LDA method considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure <a href="text-as-data.html#fig:topicsoverdocuments">20.1</a>).</p>
+<div id="document-generation-process" class="section level3" number="18.3.2">
+<h3><span class="header-section-number">18.3.2</span> Document generation process</h3>
+<p>The LDA method considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure <a href="text-as-data.html#fig:topicsoverdocuments">18.1</a>).</p>
 <div class="figure"><span id="fig:topicsoverdocuments"></span>
 <img src="telling_stories_with_data_files/figure-html/topicsoverdocuments-1.png" alt="Probability distributions over topics" width="672" /><img src="telling_stories_with_data_files/figure-html/topicsoverdocuments-2.png" alt="Probability distributions over topics" width="672" />
 <p class="caption">
-Figure 20.1: Probability distributions over topics
+Figure 18.1: Probability distributions over topics
 </p>
 </div>
-<p>Similarly, each topic could be considered a probability distribution over terms. To choose the terms used in each document the speaker picks terms from each topic in the appropriate proportion. For instance, if there were ten terms, then one topic could be defined by giving more weight to terms related to immigration; and some other topic may give more weight to terms related to the economy (Figure <a href="text-as-data.html#fig:topicsoverterms">20.2</a>).</p>
+<p>Similarly, each topic could be considered a probability distribution over terms. To choose the terms used in each document the speaker picks terms from each topic in the appropriate proportion. For instance, if there were ten terms, then one topic could be defined by giving more weight to terms related to immigration; and some other topic may give more weight to terms related to the economy (Figure <a href="text-as-data.html#fig:topicsoverterms">18.2</a>).</p>
 <div class="figure"><span id="fig:topicsoverterms"></span>
 <img src="telling_stories_with_data_files/figure-html/topicsoverterms-1.png" alt="Probability distributions over terms" width="672" /><img src="telling_stories_with_data_files/figure-html/topicsoverterms-2.png" alt="Probability distributions over terms" width="672" />
 <p class="caption">
-Figure 20.2: Probability distributions over terms
+Figure 18.2: Probability distributions over terms
 </p>
 </div>
 <p>Following <span class="citation"><a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">Blei and Lafferty</a> (<a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">2009</a>)</span>, <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span> and <span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span>, the process by which a document is generated is more formally considered to be:</p>
@@ -908,9 +899,9 @@ Figure 20.2: Probability distributions over terms
 <span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}) = \prod^{K}_{i=1}p(\beta_i) \prod^{D}_{d=1}p(\theta_d) \left(\prod^N_{n=1}p(z_{d,n}|\theta_d)p\left(w_{d,n}|\beta_{1:K},z_{d,n}\right) \right).\]</span></p>
 <p>Based on this document generation process the analysis problem, discussed in the next section, is to compute a posterior over <span class="math inline">\(\beta_{1:K}\)</span> and <span class="math inline">\(\theta_{1:D}\)</span>, given <span class="math inline">\(w_{1:D, 1:N}\)</span>. This is intractable directly, but can be approximated (<span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span> and <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>).</p>
 </div>
-<div id="analysis-process" class="section level3" number="20.3.3">
-<h3><span class="header-section-number">20.3.3</span> Analysis process</h3>
-<p>After the documents are created, they are all that we have to analyse. The term usage in each document, <span class="math inline">\(w_{1:D, 1:N}\)</span>, is observed, but the topics are hidden, or ‘latent.’ We do not know the topics of each document, nor how terms defined the topics. That is, we do not know the probability distributions of Figures <a href="text-as-data.html#fig:topicsoverdocuments">20.1</a> or <a href="text-as-data.html#fig:topicsoverterms">20.2</a>. In a sense we are trying to reverse the document generation process – we have the terms and we would like to discover the topics.</p>
+<div id="analysis-process" class="section level3" number="18.3.3">
+<h3><span class="header-section-number">18.3.3</span> Analysis process</h3>
+<p>After the documents are created, they are all that we have to analyse. The term usage in each document, <span class="math inline">\(w_{1:D, 1:N}\)</span>, is observed, but the topics are hidden, or ‘latent.’ We do not know the topics of each document, nor how terms defined the topics. That is, we do not know the probability distributions of Figures <a href="text-as-data.html#fig:topicsoverdocuments">18.1</a> or <a href="text-as-data.html#fig:topicsoverterms">18.2</a>. In a sense we are trying to reverse the document generation process – we have the terms and we would like to discover the topics.</p>
 <p>If the earlier process around how the documents were generated is assumed and we observe the terms in each document, then we can obtain estimates of the topics (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The outcomes of the LDA process are probability distributions and these define the topics. Each term will be given a probability of being a member of a particular topic, and each document will be given a probability of being about a particular topic. That is, we are trying to calculate the posterior distribution of the topics given the terms observed in each document (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.7):
 <span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N} | w_{1:D, 1:N}) = \frac{p\left(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}\right)}{p(w_{1:D, 1:N})}.\]</span></p>
 <p>The initial practical step when implementing LDA given a corpus of documents is to remove ‘stop words.’ These are words that are common, but that don’t typically help to define topics. There is a general list of stop words such as: “a”; “a’s”; “able”; “about”; “above”… We also remove punctuation and capitalisation. The documents need to then be transformed into a document-term-matrix. This is essentially a table with a column of the number of times each term appears in each document.</p>
@@ -919,14 +910,14 @@ Figure 20.2: Probability distributions over terms
 where <span class="math inline">\(z&#39;_{d, n}\)</span> refers to all other topic assignments; <span class="math inline">\(\lambda&#39;_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda&#39;_{.\rightarrow k}\)</span> is a count of how many other times that any term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda&#39;^{(d)}_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span> in that particular document; and <span class="math inline">\(\lambda&#39;^{(d)}_{-i}\)</span> is a count of how many other times that term has been assigned in that document. Once <span class="math inline">\(z_{d,n}\)</span> has been estimated, then estimates for the distribution of words into topics and topics into documents can be backed out.</p>
 <p>This conditional distribution assigns topics depending on how often a term has been assigned to that topic previously, and how common the topic is in that document (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The initial random allocation of topics means that the results of early passes through the corpus of document are poor, but given enough time the algorithm converges to an appropriate estimate.</p>
 </div>
-<div id="warnings-and-extensions" class="section level3" number="20.3.4">
-<h3><span class="header-section-number">20.3.4</span> Warnings and extensions</h3>
+<div id="warnings-and-extensions" class="section level3" number="18.3.4">
+<h3><span class="header-section-number">18.3.4</span> Warnings and extensions</h3>
 <p>The choice of the number of topics, <em>k</em>, affects the results, and must be specified <em>a priori</em>. If there is a strong reason for a particular number, then this can be used. Otherwise, one way to choose an appropriate number is to use a test and training set process. Essentially, this means running the process on a variety of possible values for <em>k</em> and then picking an appropriate value that performs well.</p>
 <p>One weakness of the LDA method is that it considers a ‘bag of words’ where the order of those words does not matter (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>). It is possible to extend the model to reduce the impact of the bag-of-words assumption and add conditionality to word order. Additionally, alternatives to the Dirichlet distribution can be used to extend the model to allow for correlation. For instance, in Hansard topics related the army may be expected to be more commonly found with topics related to the navy, but less commonly with topics related to banking.</p>
 </div>
 </div>
-<div id="word-embedding" class="section level2" number="20.4">
-<h2><span class="header-section-number">20.4</span> Word embedding</h2>
+<div id="word-embedding" class="section level2" number="18.4">
+<h2><span class="header-section-number">18.4</span> Word embedding</h2>
 <!-- ## Simulated example - categorising spending by merchant -->
 <!-- *Thank you to Josh Harris for discussions that led to this example. The code draws on Alexander and Leslie, 2019.* -->
 <!-- To begin with, let's pretend that we work for KOHO - a Toronto-based fintech. One important feature of the KOHO app is that it categorises your spending. For instance, buying a double-double from Tim Hortons could be categorised into "Eating out". This works because each merchant has a unique name, however that uniqueness means that the Tim Hortons at Sid Smith has a slightly different name to the Tim Hortons at Queen and John. Despite this slightly different name, we would like for them both to be classified as "Eating out".  -->
@@ -981,8 +972,8 @@ where <span class="math inline">\(z&#39;_{d, n}\)</span> refers to all other top
 <!-- #                          alpha = 0.9) -->
 <!-- ``` -->
 </div>
-<div id="conclusion-1" class="section level2" number="20.5">
-<h2><span class="header-section-number">20.5</span> Conclusion</h2>
+<div id="conclusion-1" class="section level2" number="18.5">
+<h2><span class="header-section-number">18.5</span> Conclusion</h2>
 <p>Using text as data is exciting because of the quantity and variety of text that is available to us. In general, dealing with text datasets is messy. There is a lot of cleaning and preparation that is typically required. Often text datasets are large. As such, having a workflow in place, in which you work in a reproducible way, simulating data first, and then clearly communicating your findings becomes critical, if only to keep everything organised in your own mind. Nonetheless, it is an exciting area, and I encourage you to regularly use text analysis where possible.</p>
 <p>In terms of next steps there are two, related, concerns: data and analysis.</p>
 <p>In terms of data there are many places to get large amounts of text data relatively easily, including:</p>

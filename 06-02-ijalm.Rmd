@@ -1,5 +1,5 @@
 ---
-date: February 8, 2021
+date: February 9, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -10,13 +10,13 @@ output:
 
 # It’s Just A Linear Model
 
-*Last updated: 7 February 2021.*
+*Last updated: 9 February 2021.*
 
 
 **Required reading**
 
 - Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, 'Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations', *European journal of epidemiology*, 31, no. 4, pp. 337-350.
-- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, Chapters 3 and 4, https://www.statlearning.com.
+- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, 1st Edition, Chapters 3 and 4.1-4.3., https://www.statlearning.com.
 - Obermeyer, Z., Powers, B., Vogeli, C., & Sendhill, M., 2019, 'Dissecting racial bias in an algorithm used to manage the health of populations', *Science*, (366): 447-453.
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/.
 
@@ -25,19 +25,18 @@ output:
 **Recommended reading**
 
 - Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 3.4.3.
-- Cunningham, Scott, *Causal Inference: The Mixtape*, Chapters 'Probability theory and statistics review' and 'Properties of Regression', http://www.scunning.com/causalinference_norap.pdf.
+- Cunningham, Scott, *Causal Inference: The Mixtape*, Chapter 2, Yale University Press, https://mixtape.scunning.com.
 - ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/.
-- Ioannidis, John PA, 2005, 'Why most published research findings are false', PLos med 2, no. 8, e124.
+- Ioannidis, John PA, 2005, 'Why most published research findings are false', *PLoS medicine*, 2, no. 8, e124.
 - Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', https://www.kaylinpavlik.com/dog-names-tfidf/.
 - Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', https://www.kaylinpavlik.com/classifying-songs-genres/.
-- Ronald L. Wasserstein and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108.
 - Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', https://juliasilge.com/blog/salary-gender/.
 - Silge, Julia, 2019, 'Opioid prescribing habits in Texas', https://juliasilge.com/blog/texas-opioids/.
 - Silge, Julia, 2019, 'Tidymodels', https://juliasilge.com/blog/intro-tidymodels/.
 - Silge, Julia, 2020, '#TidyTuesday hotel bookings and recipes', https://juliasilge.com/blog/hotels-recipes/.
 - Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', https://juliasilge.com/blog/food-hyperparameter-tune/.
-- Taddy, Matt, 2019, *Business Data Science*, Chapter 2.
-- Taddy, Matt, 2019, *Business Data Science*, Chapter 4.
+- Taddy, Matt, 2019, *Business Data Science*, Chapters 2 and 4.
+- Wasserstein, Ronald L. and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108.
 
 
 **Fun reading**
@@ -54,16 +53,17 @@ output:
 
 **Key concepts/skills/etc**
 
-- Linear regression.
-- Uncertainty.
-- Threats to validity.
-- Logistic regression.
+- Simple and multiple linear regression.
+- Logistic and Poisson regression.
+- The key role of uncertainty.
+- Threats to validity of inferences
 - Overfitting.
 
 **Key libraries**
 
 - `broom`
 - `huxtable`
+- `rstanarm`
 - `tidymodels`
 - `tidyverse`
 
@@ -140,9 +140,9 @@ Source: [Mijke Rhemtulla](https://twitter.com/mijkenijk/status/12348995883114741
 
 When we have two continuous variables we use simple linear regression. This is based on the Normal (also 'Gaussian') distribution. From @pitman[p. 94] 'The normal distribution with mean $\mu$ and standard deviation $\sigma$ is the distribution over the x-axis defined by areas under the normal curve with these parameters. The equation of the normal curve with parameters $\mu$ and $\sigma$, can be written as: 
 $$y = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}z^2},$$
-where $z = (x - \mu)/\sigma$ measures the number of standard deviations from teh mean $\mu$ to the number $x$.'
+where $z = (x - \mu)/\sigma$ measures the number of standard deviations from the mean $\mu$ to the number $x$.'
 
-We can simulate $n$ data points from the Normal distribution with `rnorm()`.
+In `R` we can simulate $n$ data points from the Normal distribution with `rnorm()`.
 
 ```{r}
 rnorm(n = 20, mean = 0, sd = 1)
@@ -154,26 +154,38 @@ It will take a few draws before we get the expected shape.
 library(tidyverse)
 set.seed(853)
 tibble(
-  number_of_draws = c(rep.int(x = "10 draws", times = 10),
-             rep.int(x = "100 draws", times = 100),
-             rep.int(x = "1000 draws", times = 1000),
-             rep.int(x = "10000 draws", times = 10000),
-             rep.int(x = "100000 draws", times = 100000)),
-  draws = c(rnorm(n = 10, mean = 0, sd = 1),
-            rnorm(n = 100, mean = 0, sd = 1),
-            rnorm(n = 1000, mean = 0, sd = 1),
-            rnorm(n = 10000, mean = 0, sd = 1),
-            rnorm(n = 100000, mean = 0, sd = 1))
+  number_of_draws = c(
+    rep.int(x = "2 draws", times = 2),
+    rep.int(x = "5 draws", times = 5),
+    rep.int(x = "10 draws", times = 10),
+    rep.int(x = "50 draws", times = 50),
+    rep.int(x = "100 draws", times = 100),
+    rep.int(x = "500 draws", times = 500),
+    rep.int(x = "1,000 draws", times = 1000),
+    rep.int(x = "10,000 draws", times = 10000),
+    rep.int(x = "100,000 draws", times = 100000)),
+  draws = c(
+    rnorm(n = 2, mean = 0, sd = 1),
+    rnorm(n = 5, mean = 0, sd = 1),
+    rnorm(n = 10, mean = 0, sd = 1),
+    rnorm(n = 50, mean = 0, sd = 1),
+    rnorm(n = 100, mean = 0, sd = 1),
+    rnorm(n = 500, mean = 0, sd = 1),
+    rnorm(n = 1000, mean = 0, sd = 1),
+    rnorm(n = 10000, mean = 0, sd = 1),
+    rnorm(n = 100000, mean = 0, sd = 1))
   ) %>% 
+  mutate(number_of_draws = as_factor(number_of_draws)) %>% 
   ggplot(aes(x = draws)) +
   geom_density() +
   theme_classic() +
-  facet_wrap(vars(number_of_draws)) +
+  facet_wrap(vars(number_of_draws),
+             scales = "free_y") +
   labs(x = 'Draw',
        y = 'Density')
 ```
 
-When we use simple linear regression, we assume that our relationship is characterised by the variables and the parameters, with any difference, typically $\epsilon$, between the expectation and the reality being normally distributed.
+When we use simple linear regression, we assume that our relationship is characterised by the variables and the parameters, with any difference, often denoted by $\epsilon$, between the expectation and the reality being normally distributed.
 
 If we have two variables, $Y$ and $X$, then we could characterise the relationship between these as:
 $$Y \sim \beta_0 + \beta_1 X.$$
@@ -213,7 +225,7 @@ In this set-up we may like to use $x$, which is the five-kilometer time, to prod
 
 But how should we estimate the coefficients? Even if we impose a linear relationship there are a lot of options (how many straight lines can you fit on a piece of paper?). But clearly some of the fits are not all that great. 
 
-One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. One way is to choose the one that minimises the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
+One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. There are a lot of candidates for how we define 'as close as possible', but one is to minimise the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
 $$e_i = y_i - \hat{y}_i.$$
 
 The residual sum of squares (RSS) then requires summing across all the points:
@@ -246,9 +258,11 @@ lm(y ~ x, data = dataset)
 ```
 
 In general, you should assign this to an object:
+
 ```{r}
-running_data_first_model <- lm(marathon_time ~ five_km_time, 
-                               data = running_data)
+running_data_first_model <- 
+  lm(marathon_time ~ five_km_time, 
+     data = running_data)
 ```
 
 To see the result of your regression you can then call `summary()`.
@@ -259,12 +273,12 @@ summary(running_data_first_model)
 
 The first part of the result tells us the regression that we called, then information about the residuals, and the estimated coefficients. And then finally some useful diagnostics. 
 
-We are considering that there is some relationship between $X$ and $Y$ - $Y = f(X) + \epsilon$ -  and we are going to say that function is linear and so our relationship is:
+We are considering that there is some relationship between $X$ and $Y$, that is: $Y = f(X) + \epsilon$. We are going to say that function, $f()$, is linear and so our relationship is:
 $$\hat{Y} = \beta_0 + \beta_1 X + \epsilon.$$
 
 There is some 'true' relationship between $X$ and $Y$, but we don't know what it is. All we can do is use our sample of data to try to estimate it. But because our understanding depends on that sample, for every possible sample, we would get a slightly different relationship (as measured by the coefficients). 
 
-That $\epsilon$ is a measure of our error - what does the model not know? There's going to be plenty that the model doesn't know, but we hope is that the error does not depend on $X$. 
+That $\epsilon$ is a measure of our error - what does the model not know? There's going to be plenty that the model doesn't know, but we hope is that the error does not depend on $X$, and that the error is normally distributed.
 
 The intercept is marathon time that we would expect with a five-kilometer time of 0 minutes. Hopefully this example illustrates the need to carefully interpret the intercept coefficient! The coefficient on five-kilometer run time shows how we expect the marathon time to change if five-kilometer run time changed by one unit. In this case it's about 8.4, which makes sense seeing as a marathon is roughly that many times longer than a five-kilometer run.
 
@@ -343,6 +357,28 @@ We compare this standard error with $\hat{\beta}_1$ to get the t-statistic:
 $$t = \frac{\hat{\beta}_1 - 0}{\mbox{SE}(\hat{\beta}_1)}.$$ 
 And we then compare our t-statistic to the t-distribution to compute the probability of getting this absolute t-statistic or a larger one, if $\beta_1 = 0$. This is the p-value. A small p-value means it is unlikely that we would observe our association due to chance if there wasn't a relationship.
 
+### On p-values
+
+The p-value is a specific and subtle concept. It is easy to abuse. The main issue is that it embodies, and assumes correct, every assumption of the model. From @greenland2016statistical [p. 339]: 'The p-value is then the probability that the chosen test statistic would have been at least as large as its observed value if every model assumption were correct, including the test hypothesis.'. To provide background on the language used here in case you're unfamiliar, a test hypothesis is typically a 'null hypothesis', and a 'test statistic' is 'the distance between the data and the model prediction' [@greenland2016statistical].
+
+The following quote (minor edits for consistency with above) summarises the situation:
+
+> It is true that the smaller the p-value, the more unusual the data would be if every single assumption were correct; but a very small p-value does not tell us which assumption is incorrect. For example, the p-value may be very small because the targeted hypothesis is false; but it may instead (or in addition) be very small because the study protocols were violated, or because it was selected for presentation based on its small size. Conversely, a large p-value indicates only that the data are not unusual under the model, but does not imply that the model or any aspect of it (such as the targeted hypothesis) is correct; it may instead (or in addition) be large because (again) the study protocols were violated, or because it was selected for presentation based on its large size.
+> 
+> The general definition of a p-value may help one to understand why statistical tests tell us much less than what many think they do: Not only does a p-value not tell us whether the hypothesis targeted for testing is true or not; it says nothing specifically related to that hypothesis unless we can be completely assured that every other assumption used for its computation is correct—an assurance that is lacking in far too many studies.
+>
+> @greenland2016statistical [p. 339].
+
+There is nothing inherently wrong about using p-values, but it is important to use them in sophisticated and thoughtful ways.
+
+Typically one application where it's easy to see abuse of p-values is in power analysis. As @gelmanandhill [p. 438] say, '[s]ample size is never large enough.... this is not a problem... [w]e are just emphasizing that, just as you never have enough money, because perceived needs increase with resources, your inferential needs with increase with your sample size.' Power refers to the probability of incorrectly failing to reject the null hypothesis. As @Imai2017 [p. 303] says:
+
+> We use power analysis in order to formalize the degree of informativeness of data in hypothesis tests. The power of a statistical hypothesis test is defined as one minus the probability of type II error:
+>
+> power = 1-P(type II error)
+
+
+In a vacuum, we'd like to have high power and we can achieve that either by having really big effect sizes, or by having a larger number of observations.
 
 
 ## Multiple linear regression
@@ -421,11 +457,11 @@ huxreg(running_data_first_model, running_data_rain_model)
 
 The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There's nothing wrong with that. And that's the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.
 
-`Tidymodels` [@citeTidymodels] is what all the cool kids are using these days. It's an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they've crashed and burned, but hopefully this time is different.) The issue is that let's say you want to run a simple linear regression and then run a random forest. The language that you'd use to code these models is fairly different. `Tidymodels` is the latest attempt to bring a coherent grammar to this. It's also a package of packages.
+The `tidymodels` package [@citeTidymodels] is what all the cool kids are using these days. It's an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they've crashed and burned, but hopefully this time is different.) The issue is that let's say you want to run a simple linear regression and then run a random forest. The language that you'd use to code these models is fairly different. The `tidymodels` package is the latest attempt to bring a coherent grammar to this. It's also a package of packages.
 
 We'll create test and training datasets.
 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 set.seed(853)
 library(tidymodels)
 
@@ -472,9 +508,26 @@ first_go <-
 
 ### Implementation in `rstanarm`
 
-The `tidymodels` will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the kind of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the `tidymodels` ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.
+The `tidymodels` package will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the kind of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the `tidymodels` ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.
 
 There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to `R`, which is designed for more general statistical computing. We will use `Stan` in these notes within the context of our familiar R environment. We will interface with `Stan` using the `rstanarm` package [@citerstanarm].
+
+
+```{r, warning = FALSE, message = FALSE, results = "hide"}
+library(rstanarm)
+
+first_go_in_rstanarm <-
+  stan_lm(
+    marathon_time ~ five_km_time + was_raining, 
+    data = running_data,
+    prior = NULL,
+    seed = 853
+  )
+```
+
+```{r}
+first_go_in_rstanarm
+```
 
 
 
@@ -577,22 +630,39 @@ This all said, logistic regression, as Daniella Witten teaches us, is just a lin
 I'd like to consider a slightly more interesting example, which is a dataset of pearl jewellery, from the Australian retailer Paspaley.
 
 ```{r}
-library(tidyverse)
-
 paspaley_dataset <- read_csv("https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv")
-
-head(paspaley_dataset)
 
 paspaley_dataset$metal %>% table()
 ```
 
-In this case we'll model whether some jewellery is made of white or yellow gold, based on their price, the collection, and the year.
+In this case we'll model whether some jewellery is made of white or yellow gold, based on their price and the year (Figure \@ref(fig:logisticgraph)).
+
 
 ```{r}
 paspaley_logistic_dataset <- 
   paspaley_dataset %>% 
   filter(metal %in% c('White gold', 'Yellow gold')) %>% 
   select(metal, price, year)
+```
+
+```{r logisticgraph, echo=FALSE, fig.cap = "Examining the type of gold some jewellery is made from."}
+
+paspaley_logistic_dataset %>% 
+  ggplot(aes(x = price, y = year, color = metal)) +
+  geom_jitter() +
+  theme_classic() +
+  labs(y = "Year",
+       x = "Price",
+       color = "Type of gold") +
+  scale_color_brewer(palette = "Set1")
+```
+
+The graph suggests that we should filter any price higher than $100,000.
+
+```{r}
+paspaley_logistic_dataset <- 
+  paspaley_logistic_dataset %>% 
+  filter(price < 100000)
 ```
 
 As with linear regression, logistic regression is built into R, with the `glm` function. In this case, we'll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we'll change it to a binary, that will be 1 if white gold and 0 if not.
@@ -603,7 +673,7 @@ paspaley_logistic_dataset <-
   mutate(is_white_gold = if_else(metal == "White gold", 1, 0))
 
 white_gold_model <- 
-  glm(is_white_gold ~ price, 
+  glm(is_white_gold ~ price + year, 
     data = paspaley_logistic_dataset, 
     family = 'binomial')
 
@@ -644,7 +714,7 @@ paspaley_logistic_dataset_test  <-  rsample::testing(paspaley_logistic_dataset_s
 white_gold_model_tidymodels <-
   parsnip::logistic_reg(mode = "classification") %>%
   parsnip::set_engine("glm") %>%
-  fit(is_white_gold ~ price, 
+  fit(is_white_gold ~ price + year, 
       data = paspaley_logistic_dataset_train)
 
 white_gold_model_tidymodels
@@ -653,12 +723,16 @@ white_gold_model_tidymodels
 
 ### Implementation in `rstanarm`
 
-<!-- t_prior <- student_t(df = 7, location = 0, scale = 2.5) -->
-<!-- fit1 <- stan_glm(switch ~ dist100, data = wells,  -->
-<!--                  family = binomial(link = "logit"),  -->
-<!--                  prior = t_prior, prior_intercept = t_prior,   -->
-<!--                  cores = 2, seed = 12345) -->
-
+```{r logisticwithrstanarm, warning = FALSE, message = FALSE, results = "hide"}
+paspaley_in_rstanarm <-
+  rstanarm::stan_glm(
+    is_white_gold ~ price + year,
+    data = paspaley_logistic_dataset,
+    family = binomial(link = "logit"),
+    prior = NULL,
+    seed = 853
+  )
+```
 
 
 
@@ -666,9 +740,9 @@ white_gold_model_tidymodels
 
 ### Overview
 
-When we have count data, we use Poisson distribution. From @pitman[p. 121] 'The Poisson distribution with parameter $\mu$ or Poisson ($\mu$) distribution is the distribution of probabilities  $P_{\mu}(k)$ over ${0, 1, 2, ...}$ defined by: 
+When we have count data, we use Poisson distribution. From @pitman [p. 121] 'The Poisson distribution with parameter $\mu$ or Poisson ($\mu$) distribution is the distribution of probabilities  $P_{\mu}(k)$ over ${0, 1, 2, ...}$ defined by: 
 $$P_{\mu}(k) = e^{-\mu}\mu^k/k!\mbox{, for }k=0,1,2,...$$
-We can simulate $n$ data points from the Poisson distribution with `rpois` where $lambda$ is the mean and the variance.
+We can simulate $n$ data points from the Poisson distribution with `rpois()` where $\lambda$ is the mean and the variance.
 
 ```{r}
 rpois(n = 20, lambda = 3)
@@ -721,7 +795,7 @@ summary(grades_model)
 
 ### Implementation in `tidymodels`
 
-We can use `tidymodels` to run this if we wanted although we first need to install a helper package.
+We can use `tidymodels` to run this if we wanted although we first need to install a helper package `poissonreg`.
 
 ```{r}
 # install.packages("poissonreg")
@@ -743,11 +817,6 @@ a_plus_model_tidymodels
 
 
 
-### Implementation in `rstanarm`
+<!-- ### Implementation in `rstanarm` -->
 
-
-<!-- ## Classification -->
-
-
-<!-- **Add real classification content** -->
 

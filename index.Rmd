@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: February 8, 2021
+date: February 9, 2021
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -16,6 +16,8 @@ always_allow_html: true
 
 
 # Introduction
+
+*Last updated: 9 February 2021.*
 
 **These notes are being actively developed.**
 
@@ -33,29 +35,26 @@ The parts of these notes are:
 
 - Essentials
     - Introduction
-    - Hello world
-    - R essentials
+    - Drinking from a fire hose
+    - R Essentials
     - Workflow
 - Communicate
     - Static communication
     - Interactive communication
 - Hunt and gather
-    - Gathering data
-    - Hunting data
-    - Other
+    - Gather data
+    - Hunt data
+    - Farm data
 - Clean
     - Cleaning and preparing
     - Storage and retrieval
     - Dissemination and protection
 - Model
     - Exploratory data analysis
-    - Regression essentials
-    - Matching and difference-in-differences
-    - Instrumental variables
-    - Regression discontinuity design
-    - Poll of polls
+    - It's just a linear model
+    - Causality from observational data
     - Multilevel regression with post-stratification
-    - Text
+    - Text as data
 - Other
     - Cloud
     - Deploy
@@ -145,9 +144,9 @@ Thank you to [Monica Alexander](https://www.monicaalexander.com/), [Michael Chon
 
 Thank you to Kelly Lyons, Hareem Naveed, and Periklis Andritsos for helpful comments. 
 
-Thank you to Greg Wilson for giving me a structure to think about teaching. 
+Thank you to Greg Wilson for providing a structure to think about teaching. 
 
-Thank you to Elle Côtè for enabling these nots to be written.
+Thank you to Elle Côtè for enabling these notes to be written.
 
 These notes have greatly benefited from the notes and teaching materials of others that are freely available online, especially:
 
@@ -158,7 +157,7 @@ These notes have greatly benefited from the notes and teaching materials of othe
 - [David Mimno](https://mimno.infosci.cornell.edu/info3350/) - *Text Mining for History and Literature*
 - [Ed Rubin](http://edrub.in/) - *PhD Econometrics (III)* and *Introduction to Econometrics (II)*;
 
-Thank you to the following students who identified specific improvements in these notes: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Wijdan Tariq, and Yang Wu.
+Thank you to the following students who identified specific improvements in these notes: A Mahfouz, Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, and Yang Wu.
 
 Finally, thank you to the Winter 2020 and 2021 INF2178 and Fall 2020 Term STA304 students at the University of Toronto, whose feedback greatly improved all aspects.
 

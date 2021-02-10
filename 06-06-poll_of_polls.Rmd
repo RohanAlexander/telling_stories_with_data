@@ -31,28 +31,6 @@ output:
 - Nickerson, David W., and Todd Rogers, 2014, 'Political campaigns and big data', Journal of Economic Perspectives, 28 (2), pp. 51-74.
 - Shirani-Mehr, Houshmand, David Rothschild, Sharad Goel, and Andrew Gelman, 2018, 'Disentangling bias and variance in election polls', Journal of the American Statistical Association, 113 (522), pp. 607-614.
 
-**Key concepts/skills/etc**
-
-- 
-
-**Key libraries**
-
-- 
-
-
-**Key functions/etc**
-
-- 
-
-**Quiz**
-
-- 
-
-**Lab**
-
-- Following the guidance of the TA, please examine various poll-of-polls models, make changes to them, and then see how their output changes.
-
-
 
 ## Introduction
 
