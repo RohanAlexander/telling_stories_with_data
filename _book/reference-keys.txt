@@ -57,6 +57,8 @@ fig:frenchnewspaperssummarystats
 fig:frenchlocalnewspaperssummarystats
 tab:unnamed-chunk-354
 tab:unnamed-chunk-355
+fig:oostromsummary
+fig:oostromtable
 fig:johnholbein
 tab:unnamed-chunk-356
 tab:unnamed-chunk-358
@@ -360,7 +362,7 @@ data
 model
 results
 other-points
-case-study---lalonde
+case-study---funding-of-clinical-trials-and-reported-drug-efficacy
 regression-discontinuity-design
 introduction-19
 simulated-example-1

@@ -1,5 +1,5 @@
 ---
-date: November 5, 2020
+date: February 23, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -42,6 +42,7 @@ library(tidyverse)
 - Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, Regression and Other Stories, Cambridge University Press, Chs 18 - 21.
 - Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapter 5 - 8.
 - McElreath, Richard, 2020, Statistical Rethinking, 2nd Edition, CRC Press, Ch 14.
+- Riederer, Emily, 2021, 'Causal design patterns for data analysts', 30 January, https://emilyriederer.netlify.app/post/causal-design-patterns/
 - Sekhon, Jasjeet and Rocio Titiunik, 2016, 'Understanding Regression Discontinuity Designs As Observational Studies', Observational Studies 2 (2016) 174-182, http://sekhon.berkeley.edu/papers/SekhonTitiunik2016-OS.pdf.
 - Wong, Jeffrey, and Colin McFarland, 2020, ‘Computational Causal Inference at Netflix’, Netflix Technology Blog, 11 Aug, https://netflixtechblog.com/computational-causal-inference-at-netflix-293591691c62.
 
@@ -53,6 +54,7 @@ library(tidyverse)
 - Kuriwaki, Shiro, 2020, 'Difference-in-Differences Estimation in R (parts 1 and 2)', 18 April, https://vimeo.com/409267138 and https://vimeo.com/409267190.
 - Kuriwaki, Shiro, 2020, 'Instrumental variables in R', 11 April, https://vimeo.com/406629459.
 - Kuriwaki, Shiro, 2020, 'Regression Discontinuity in R (parts 1 and 2)', 25 March, https://vimeo.com/400826628 and https://vimeo.com/400826660.
+- Riederer, Emily, 2021, 'Observational Causal Inference', Toronto Data Workshop, 15 February, https://youtu.be/VP3BBZ7poc0.
 
 
 **Recommended reading**
@@ -694,16 +696,48 @@ huxreg("Subscription price" = subscription_price,
 
 
 
-## Case study - Lalonde
+<!-- ## Case study - Lalonde -->
 
-<!-- Need to add the student who identified this. -->
+<!-- <!-- Need to add the student who identified this. --> -->
 
-http://sekhon.berkeley.edu/matching/lalonde.html
-
-
+<!-- http://sekhon.berkeley.edu/matching/lalonde.html -->
 
 
+## Case study - Funding of Clinical Trials and Reported Drug Efficacy
 
+@oostrom2021 looks at clinical trials of drugs. These days, of course, we all know a lot more than we may have ever wished to, about clinical trials. But the one thing that we (think) we know is that they are, well, clinical. By that I mean, that it doesn't matter who does the actual trial, the outcome would be the same. @oostrom2021 says this isn't true.
+
+By way of background, clinical trials are needed before a drug can be approved. @oostrom2021 finds that when pharmaceutical firms sponsor a clinical trial, 'a drug appears 0.15 standard deviations more effective when the trial is sponsored by that drug's manufacturer, compared with the same drug in the same trial without the drug manufacturer's involvement.' She does this by exploiting the fact that often 'the exact same sets of drugs are often compared in different randomized control trials conducted by parties with different financial interests.'.
+
+The main finding is [@oostrom2021, p. 2]: 
+
+> Utilizing dozens of drug combinations across hundreds of clinical trials, I estimate that a drug appears 36 percent more effective (0.15 standard deviations off of a base of 0.42) when the trial is sponsored by that drug's manufacturing or marketing firm, compared with the same drug, evaluated against the same comparators, but without the drug manufacturer's involvement. As in the medical literature, I measure efficacy, in the case of antidepressants, as the share of patients that respond to medication or, in the case of schizophrenia, as the average decline in symptoms.
+
+Why might this happen? @oostrom2021 looks at a variety of different options, grouped into those that happen before the trial and those that happen after the trial 'publication bias'. She finds that 'publication bias can explain as much as half of  this sponsorship effect. Incorporating data on unpublished clinical trials, I find sponsored trials are less likely to publish non-positive results for their drugs.'
+
+@oostrom2021 focuses on antidepressant and antipsychotic drugs and this allows her to obtain a dataset of trials. An 'arm' of a trial refers to 'the unit at which randomization occurs. Arms are often unique drugs but occasionally refer to unique drug and dosage combinations.' [@oostrom2021 p. 9].
+
+Summary statistics are provided in a summary table (Figure \@ref(fig:oostromsummary)) (this approach is common in economics, but not a great idea because it hides the distribution of the data - better to plot the raw data.)
+
+
+```{r oostromsummary, echo=FALSE, fig.cap="Summary statistics from Ooostrom", out.width = '100%'}
+knitr::include_graphics(here::here("figures/oostrom_1.png"))
+```
+
+The model is:
+
+$$y_{ij} = \alpha + \beta \mbox{ Sponsor}_{ij} + X_{ij}\gamma + G_{d(i),s(j)} +\epsilon_{ij}$$
+
+where $y_{ij}$ is the efficacy for arm $i$ in trial $j$. The main coefficient of interest is $\beta$ which is based on whether $\mbox{Sponsor}_{ij}$. The outcome is relative to the placebo arm in that trial, or the least effective arm.
+
+'Table 3.3' from the paper is actually the reason that I included this as a case student. If this sounds odd to you then you've not had to read millions of papers that are unclear about their results. 'Table 3.3' (republished here as Figure \@ref(fig:oostromtable)) is beautiful and I'll allow it to speak for itself.
+
+```{r oostromtable, echo=FALSE, fig.cap="Results", out.width = '100%'}
+knitr::include_graphics(here::here("figures/oostrom_2.png"))
+```
+
+
+The paper is available here: https://www.tamaroostrom.com/research and I'd recommend a brief read.
 
 
 

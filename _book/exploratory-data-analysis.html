@@ -33,7 +33,7 @@
   
 <link rel="prev" href="disseminating-and-protecting-data.html"/>
 <link rel="next" href="its-just-a-linear-model.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -492,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.2.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#results"><i class="fa fa-check"></i><b>15.2.5</b> Results</a></li>
 <li class="chapter" data-level="15.2.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#other-points"><i class="fa fa-check"></i><b>15.2.6</b> Other points</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lalonde"><i class="fa fa-check"></i><b>15.3</b> Case study - Lalonde</a></li>
+<li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---funding-of-clinical-trials-and-reported-drug-efficacy"><i class="fa fa-check"></i><b>15.3</b> Case study - Funding of Clinical Trials and Reported Drug Efficacy</a></li>
 <li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.4</b> Regression discontinuity design</a>
 <ul>
 <li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
@@ -707,20 +707,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Use the <code>list_packages</code> function to look at what’s available</p>
 <div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="exploratory-data-analysis.html#cb427-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
 <span id="cb427-2"><a href="exploratory-data-analysis.html#cb427-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
-<pre><code>## # A tibble: 405 x 11
+<pre><code>## # A tibble: 406 x 11
 ##    title id    topics civic_issues publisher excerpt dataset_category
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;           
-##  1 Cata… 473d… City … &lt;NA&gt;         Informat… &quot;Histo… Table           
-##  2 Lice… 059d… Commu… &lt;NA&gt;         Children… &quot;Licen… Map             
-##  3 Earl… 2619… Commu… Poverty red… Children… &quot;Early… Map             
-##  4 Shor… fc41… Permi… Affordable … Municipa… &quot;This … Table           
-##  5 Poll… 7bce… City … &lt;NA&gt;         City Cle… &quot;Polls… Table           
-##  6 Dail… 8a6e… City … Affordable … Shelter,… &quot;Daily… Table           
-##  7 Rain… f293… Locat… Climate cha… Toronto … &quot;This … Document        
-##  8 Stre… 99b1… City … &lt;NA&gt;         Transpor… &quot;Infor… Map             
-##  9 Auto… a154… Trans… Mobility     Transpor… &quot;This … Map             
-## 10 Body… c405… City … &lt;NA&gt;         Toronto … &quot;This … Table           
-## # … with 395 more rows, and 4 more variables: num_resources &lt;int&gt;,
+##  1 Park… 8c23… Finan… Fiscal resp… Revenue … &quot;This … Document        
+##  2 Shor… fc41… Permi… Affordable … Municipa… &quot;This … Table           
+##  3 Buil… 8219… Devel… &lt;NA&gt;         Toronto … &quot;Provi… Document        
+##  4 Buil… 6e7f… Devel… &lt;NA&gt;         Toronto … &quot;Provi… Document        
+##  5 Lice… 059d… Commu… &lt;NA&gt;         Children… &quot;Licen… Map             
+##  6 Earl… 2619… Commu… Poverty red… Children… &quot;Early… Map             
+##  7 Buil… 108c… Devel… Affordable … Toronto … &quot;Provi… Document        
+##  8 Dail… 8a6e… City … Affordable … Shelter,… &quot;Daily… Table           
+##  9 Rain… f293… Locat… Climate cha… Toronto … &quot;This … Document        
+## 10 Stre… 99b1… City … &lt;NA&gt;         Transpor… &quot;Infor… Map             
+## # … with 396 more rows, and 4 more variables: num_resources &lt;int&gt;,
 ## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
 <p>Let’s download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and make them into one big dataframe.</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="exploratory-data-analysis.html#cb429-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">list_package_resources</span>(<span class="st">&quot;996cfe8d-fb35-40ce-b569-698d51fc683b&quot;</span>)</span>
