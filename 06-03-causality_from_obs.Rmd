@@ -21,6 +21,8 @@ library(tidyverse)
 
 # Causality from observational data
 
+*Last updated: 3 March 2021.*
+
 
 **TODO: Replace the arm matching with https://kosukeimai.github.io/MatchIt/index.html**
 
@@ -37,7 +39,7 @@ library(tidyverse)
 
 - Angelucci, Charles, and Julia Cagé, 2019, 'Newspapers in times of low advertising revenues', *American Economic Journal: Microeconomics*, vol. 11, no. 3, pp. 319-364, DOI: 10.1257/mic.20170306, available at: https://www.aeaweb.org/articles?id=10.1257/mic.20170306.
 - Better Evaluation, 'Regression Discontinuity', https://www.betterevaluation.org/en/evaluation-options/regressiondiscontinuity
-- Dagan, Noa, et al. "BNT162b2 mRNA Covid-19 vaccine in a nationwide mass vaccination setting." New England Journal of Medicine (2021).
+- Dagan, Noa, Noam Barda, Eldad Kepten, Oren Miron, Shay Perchik, Mark A. Katz, Miguel A. Hernán, Marc Lipsitch, Ben Reis, and Ran D. Balicer, 2021, 'BNT162b2 mRNA Covid-19 vaccine in a nationwide mass vaccination setting', *New England Journal of Medicine*, 24 February, https://www.nejm.org/doi/full/10.1056/NEJMoa2101765.
 - Eggers, Andrew C., Anthony Fowler, Jens Hainmueller, Andrew B. Hall, and James M. Snyder Jr, 2015, ‘On the validity of the regression discontinuity design for estimating electoral effects: New evidence from over 40,000 close races’, American Journal of Political Science, 59 (1), pp. 259-274
 - Gelman, Andrew, 2019, 'Another Regression Discontinuity Disaster and what can we learn from it', 25 June, https://statmodeling.stat.columbia.edu/2019/06/25/another-regression-discontinuity-disaster-and-what-can-we-learn-from-it/. 
 - Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, Regression and Other Stories, Cambridge University Press, Chs 18 - 21.
@@ -165,34 +167,81 @@ library(tidyverse)
 17. What conditions must instrumental variables satisfy?
 18. Who were some of the early instrumental variable authors?
 19. Can you please think of and explain an application of instrumental variables in your own life?
+20. What is the key assumption in difference-in-differences
+    a. Parallel trends.
+    b. Heteroscedasticity.
+21. If you're using regression discontinuity, whare are some aspects to be aware of and think really hard about (select all that apply)?
+    a. Is the cut-off free of manipulation?
+    b. Is the forcing function continuous?
+    c. To what extent is the functional form driving the estimate?
+    d. Would different fitted lines affect the results?
+22. What is the main reason that @oostrom2021 finds that the outcome of an RCT can depend on who is funding it (pick one)?
+    a. Publication bias
+    b. Explicit manipulation
+    c. Specialisation
+    d. Larger number of arms
+23. What is the key coefficient of interest in Angelucci and Cagé, 2019 (pick one)?
+    a. $\beta_0$
+    b. $\beta_1$
+    c. $\lambda$
+    d. $\gamma$
+24. The instrumental variable is (please pick all that apply):
+    a. Correlated with the treatment variable.
+    b. Not correlated with the outcome.
+    c. Heteroskedastic.
+25. Who are the two candidates to have invented instrumental variables?
+    a. Sewall Wright
+    b. Philip G. Wright
+    c. Sewall Cunningham
+    d. Philip G. Cunningham
+26. What are the two main assumptions of instrumental variables?
+    a. Exclusion Restriction.
+    b. Relevance.
+    c. Ignorability.
+    d. Randomization.
+27. According to Meng, 2021, 'Data science can persuade via...' (pick all that apply):
+    a. the careful establishment of evidence from fair-minded and high-quality data collection
+    b. processing and analysis
+    c. the honest interpretation and communication of findings
+    d. large sample sizes
+28. According to Reiderer, 2021, if I have 'disjoint treated and untreated groups partitioned by a sharp cut-off' then which method should I use to measure the local treatment effect at the juncture between groups (pick one)?
+    a. regression discontinuity
+    b. matching
+    c. difference-in-differences
+    d. event study methods
+29. According to Reiderer, 2021, 'Causal inference requires investment in' (pick all that apply):
+    a. data management
+    b. domain knowledge
+    c. probabilistic reasoning
+    d. data science
+30. I am an Australian 30-39 year old male living in Toronto with one child and a PhD. Which of the following do you think I would match most closely with and why (please explain in a paragraph or two)?
+    a. An Australian 30-39 year old male living in Toronto with one child and a bachelors degree
+    b. A Canadian 30-39 year old male living in Toronto with one child and a PhD
+    c. An Australian 30-39 year old male living in Ottowa with one child and a PhD
+    d. A Canadian 18-29 year old male living in Toronto with one child and a PhD
 
 
 
 
+## Introduction
 
+Following the publication of @dagan2021bnt162b2, one of the authors tweeted (slight edits for formatting):
 
-
-
-
-> We've just confirmed the effectiveness of the Pfizer-BioNTech vaccine outside of randomized trials. Yes, great news, but let's talk about methodological issues that arise when using #observational data to estimate vaccine effectiveness. 
+> We've just confirmed the effectiveness of the Pfizer-BioNTech vaccine outside of randomized trials. Yes, great news, but let's talk about methodological issues that arise when using observational data to estimate vaccine effectiveness. 
 >
 > A critical concern in observational studies of vaccine effectiveness is confounding: Suppose that people who get vaccinated have, on average, a lower risk of infection/disease than those who don't get vaccinated. Then, even if the vaccine were useless, it'd look beneficial. 
 >
-> To adjust for confounding: We start by identifying potential confounders. For example: Age (vaccination campaigns prioritize older people and older people are more likely to develop severe disease). Then we choose a valid adjustment method. In our paper, we matched on age.
->
-> After age adjustment, how do we know if there is residual confounding? Here is one way to go about that: We know from the previous randomized trial that the vaccine has no effect in the first few days. So we check whether matching on age suffices to replicate that finding. No, it doesn't. After matching on age (and sex), the curves of infection start to diverge from day 0, which indicates that the vaccinated had a lower risk of infection than the unvaccinated. Conclusion: adjustment for age and sex is insufficient.
+> To adjust for confounding: We start by identifying potential confounders. For example: Age (vaccination campaigns prioritize older people and older people are more likely to develop severe disease). Then we choose a valid adjustment method. In our paper, we matched on age. After age adjustment, how do we know if there is residual confounding? Here is one way to go about that: We know from the previous randomized trial that the vaccine has no effect in the first few days. So we check whether matching on age suffices to replicate that finding. No, it doesn't. After matching on age (and sex), the curves of infection start to diverge from day 0, which indicates that the vaccinated had a lower risk of infection than the unvaccinated. Conclusion: adjustment for age and sex is insufficient.
 > 
-> We learned that we had to match on other #COVID19 risk factors, e.g., location, comorbidities, healthcare use... And we could do so with high-quality data from ClalitResearch, part of a health services organization that covers >50% of the Israeli population. As an example, a vaccinated 76 year-old Arab male from a specific neighborhood who received 4 influenza vaccines in the last 5 years and had 2 comorbidities was matched with an unvaccinated Arab male from the same neighborhood, aged 76-77, with 3-4 influenza vaccines and 2 comorbidities. After matching on all those risk factors, the curves of infection start to diverge after day ~12, as expected if the vaccinated and the unvaccinated had a comparable risk of infection. Using this "negative control", we provide evidence against large residual confounding.
+> We learned that we had to match on other COVID-19 risk factors, e.g., location, comorbidities, healthcare use... And we could do so with high-quality data from the Clalit Research Institute, part of a health services organization that covers >50% of the Israeli population. As an example, a vaccinated 76 year-old Arab male from a specific neighborhood who received 4 influenza vaccines in the last 5 years and had 2 comorbidities was matched with an unvaccinated Arab male from the same neighborhood, aged 76-77, with 3-4 influenza vaccines and 2 comorbidities. After matching on all those risk factors, the curves of infection start to diverge after day ~12, as expected if the vaccinated and the unvaccinated had a comparable risk of infection. Using this "negative control", we provide evidence against large residual confounding.
 >
-> This is a good illustration of how #randomized trials and #observational studies complement each other for better and more efficient #causalinference. First, a randomized trial is conducted to estimate the effectiveness of the vaccine to prevent symptomatic infection, but... the trial's estimates for severe disease and specific age groups are imprecise. Second, an observational analysis emulates a #targettrial (an order of magnitude greater) and confirms the vaccine's effectiveness on severe disease and in different age groups. However... the observational study needs the trial's findings as a #benchmark to guide the data analysis and strengthen the quality of the #causalinference.
+> This is a good illustration of how randomized trials and observational studies complement each other for better and more efficient #causalinference. First, a randomized trial is conducted to estimate the effectiveness of the vaccine to prevent symptomatic infection, but... the trial's estimates for severe disease and specific age groups are imprecise. Second, an observational analysis emulates a #targettrial (an order of magnitude greater) and confirms the vaccine's effectiveness on severe disease and in different age groups. However... the observational study needs the trial's findings as a benchmark to guide the data analysis and strengthen the quality of the causal inference.
 >
-> Randomized trials & Observational studies working together. The best of both worlds.
->
-> Let's keep doing it after the pandemic. What a luxury having been able to think about these issues with my colleagues Noa Dagan, noambard, mlipsitch, Ben Reis, and RanBalicer. We hope that our experience is helpful for researchers around the world who use observational data to estimate #vaccine effectiveness.
+> Randomized trials & Observational studies working together. The best of both worlds. Let's keep doing it after the pandemic. What a luxury having been able to think about these issues with my colleagues Noa Dagan, Noam Barda, Marc Lipsitch, Ben Reis, and Ran D. Balicer. We hope that our experience is helpful for researchers around the world who use observational data to estimate vaccine effectiveness.
 > 
 > Miguel Hernán, [24 Februrary 2021](https://twitter.com/_miguelhernan/status/1364700315044438023?s=21).
 
-
+This is what this chapter is about. How we can nonetheless be comfortable making causal statments, even when we can't run A/B tests or RCTs. Indeed, in what circumstances may we actually prefer to not run those or to run observational-based approaches in addition to them. We cover three of the major methods that are in popular use these days: difference-in-differences; regression discontinuity; and instrumental variables. 
 
 
 
@@ -1201,6 +1250,18 @@ When thinking about potential instrumental variables @cunninghamnorap, p. 211, p
 Relevance can be tested using regression and other tests for correlation. The exclusion restriction cannot be tested. You need to present evidence and convincing arguments. As @cunninghamnorap p. 225 says 'Instruments have a certain ridiculousness to them[.] That is, you know you have a good instrument if the instrument itself doesn't seem relevant for explaining the outcome of interest because that's what the exclusion restriction implies.'
 
 
+### Conclusion
+
+
+Instrumental variables is a useful approach because one can obtain causal estimates even without explicit randomisation. Finding instrumental variables used to be a bit of a white whale, especially in academia. However, I will leave the final (and hopefully motivating) word to @taddy2019, p. 162:
+
+> As a final point on the importance of IV models and analysis, note that when you are on the inside of a firm---especially on the inside of a modern technology firm---explicitly randomised instruments are everywhere.... But it is often the case that decision-makers want to understand the effects of policies that are not themselves randomised but are rather downstream of the things being AB tested. For example, suppose an algorithm is used to predict the creditworthiness of potential borrowers and assign loans. Even if the process of loan assignment is never itself randomised, if the parameters in the machine learning algorithms used to score credit are AB tested, then those experiments can be used as instruments for the loan assignment treatment. Such 'upstream randomisation' is extremely common and IV analysis is your key tool for doing causal inference in that setting.'
+
+
+
+
+
+
 
 
 
@@ -1286,17 +1347,5 @@ There are a variety of points that I want to raise in regard to this paper. They
 1. It's fairly remarkable how reliant on various model specifications the results are. The results bounce around a fair bit and that's just the ones that are reported. Chances are there are a bunch of other results that were not reported, but it would be of interest to see their impact.
 2. On that note, there is fairly limited model validation. This is probably something that I am more aware of these days, but it seems likely that there is a fair degree of over-fitting here. 
 3. @levitt2002using is actually a response, after another researcher, @mccrary2002using, found some issues with the original paper: @levitt87using. While Levitt appears quite decent about it, it is jarring to see that Levitt was thanked by @mccrary2002using for providing 'both the data and computer code.' What if Levitt had not been decent about providing the data and code? Or what if the code was unintelligible? In some ways it is nice to see how far that we have come - the author of a similar paper these days would be forced to make their code and data available as part of the paper, we wouldn't have to ask them for it. But it reinforces the importance of open data and reproducible science.
-
-
-## Conclusion
-
-
-Instrumental variables is a useful approach because one can obtain causal estimates even without explicit randomisation. Finding instrumental variables used to be a bit of a white whale, especially in academia. However, I will leave the final (and hopefully motivating) word to @taddy2019, p. 162:
-
-> As a final point on the importance of IV models and analysis, note that when you are on the inside of a firm---especially on the inside of a modern technology firm---explicitly randomised instruments are everywhere.... But it is often the case that decision-makers want to understand the effects of policies that are not themselves randomised but are rather downstream of the things being AB tested. For example, suppose an algorithm is used to predict the creditworthiness of potential borrowers and assign loans. Even if the process of loan assignment is never itself randomised, if the parameters in the machine learning algorithms used to score credit are AB tested, then those experiments can be used as instruments for the loan assignment treatment. Such 'upstream randomisation' is extremely common and IV analysis is your key tool for doing causal inference in that setting.'
-
-
-
-
 
 
