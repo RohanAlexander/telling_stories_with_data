@@ -33,7 +33,7 @@
   
 <link rel="prev" href="gather-data.html"/>
 <link rel="next" href="farm-data.html"/>
-<script src="libs/header-attrs-2.7.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -272,7 +272,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
 <li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
-<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#never-use-box-plots"><i class="fa fa-check"></i><b>5.2.3</b> Never use box plots</a></li>
+<li class="chapter" data-level="5.2.4" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.4</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
 <li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a>
@@ -423,27 +424,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
 <ul>
 <li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
-<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
-<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
-<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
-<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---ttc-subway-delays"><i class="fa fa-check"></i><b>13.2</b> Case study - TTC subway delays</a>
 <ul>
-<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
-<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
-<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
-<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
-<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
-<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
-<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+<li class="chapter" data-level="13.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#gather-the-data"><i class="fa fa-check"></i><b>13.2.2</b> Gather the data</a></li>
+<li class="chapter" data-level="13.2.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.2.3</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.2.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.2.4</b> Missing values</a></li>
+<li class="chapter" data-level="13.2.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicate-rows"><i class="fa fa-check"></i><b>13.2.5</b> Duplicate rows</a></li>
+<li class="chapter" data-level="13.2.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.2.6</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.2.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#groups-and-small-counts"><i class="fa fa-check"></i><b>13.2.7</b> Groups and small counts</a></li>
+<li class="chapter" data-level="13.2.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.2.8</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.2.9" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.2.9</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.2.10" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#principal-components-analysis"><i class="fa fa-check"></i><b>13.2.10</b> Principal components analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
-<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.3</b> Case study - Opinions about a casino in Toronto</a>
 <ul>
-<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
-<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
-<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+<li class="chapter" data-level="13.3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.3.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.3.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.3.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.3.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#getting-the-data-into-a-more-model-suitable-format"><i class="fa fa-check"></i><b>13.3.3</b> Getting the data into a more model-suitable format</a></li>
+<li class="chapter" data-level="13.3.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.3.4</b> Logistic Regression</a></li>
 </ul></li>
-<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---airbnb-listing-in-toronto"><i class="fa fa-check"></i><b>13.4</b> Case study - Airbnb listing in Toronto</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#essentials"><i class="fa fa-check"></i><b>13.4.1</b> Essentials</a></li>
+<li class="chapter" data-level="13.4.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#set-up-1"><i class="fa fa-check"></i><b>13.4.2</b> Set up</a></li>
+<li class="chapter" data-level="13.4.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#get-data"><i class="fa fa-check"></i><b>13.4.3</b> Get data</a></li>
+<li class="chapter" data-level="13.4.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#clean-data-1"><i class="fa fa-check"></i><b>13.4.4</b> Clean data</a></li>
+<li class="chapter" data-level="13.4.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>13.4.5</b> Explore data</a></li>
+<li class="chapter" data-level="13.4.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>13.4.6</b> Model data</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a>
 <ul>
@@ -462,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.2.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels"><i class="fa fa-check"></i><b>14.2.3</b> Implementation in <code>tidymodels</code></a></li>
 <li class="chapter" data-level="14.2.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm"><i class="fa fa-check"></i><b>14.2.4</b> Implementation in <code>rstanarm</code></a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3</b> Logistic regression</a>
+<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-2"><i class="fa fa-check"></i><b>14.3</b> Logistic regression</a>
 <ul>
 <li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-1"><i class="fa fa-check"></i><b>14.3.1</b> Overview</a></li>
 <li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base"><i class="fa fa-check"></i><b>14.3.2</b> Implementation in base</a></li>
@@ -480,12 +489,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#difference-in-differences"><i class="fa fa-check"></i><b>15.1</b> Difference in differences</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-16"><i class="fa fa-check"></i><b>15.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-17"><i class="fa fa-check"></i><b>15.1.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.1.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.1.2</b> Matching and difference-in-differences</a></li>
 </ul></li>
 <li class="chapter" data-level="15.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.2</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#background"><i class="fa fa-check"></i><b>15.2.2</b> Background</a></li>
 <li class="chapter" data-level="15.2.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data"><i class="fa fa-check"></i><b>15.2.3</b> Data</a></li>
 <li class="chapter" data-level="15.2.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model"><i class="fa fa-check"></i><b>15.2.4</b> Model</a></li>
@@ -495,7 +504,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---funding-of-clinical-trials-and-reported-drug-efficacy"><i class="fa fa-check"></i><b>15.3</b> Case study - Funding of Clinical Trials and Reported Drug Efficacy</a></li>
 <li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.4</b> Regression discontinuity design</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.4.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-1"><i class="fa fa-check"></i><b>15.4.2</b> Simulated example</a></li>
 <li class="chapter" data-level="15.4.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overlap"><i class="fa fa-check"></i><b>15.4.3</b> Overlap</a></li>
 <li class="chapter" data-level="15.4.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#examples"><i class="fa fa-check"></i><b>15.4.4</b> Examples</a></li>
@@ -508,7 +517,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>15.6</b> Case study - Caughey, and Sekhon., 2011</a></li>
 <li class="chapter" data-level="15.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#instrumental-variables"><i class="fa fa-check"></i><b>15.7</b> Instrumental variables</a>
 <ul>
-<li class="chapter" data-level="15.7.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.7.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-21"><i class="fa fa-check"></i><b>15.7.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.7.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#history"><i class="fa fa-check"></i><b>15.7.2</b> History</a></li>
 <li class="chapter" data-level="15.7.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-2"><i class="fa fa-check"></i><b>15.7.3</b> Simulated example</a></li>
 <li class="chapter" data-level="15.7.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation-1"><i class="fa fa-check"></i><b>15.7.4</b> Implementation</a></li>
@@ -525,11 +534,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>16</b> Poll of polls</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
 <li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
 <li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
@@ -540,7 +549,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-24"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
 <li class="chapter" data-level="18.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>18.2</b> Lasso regression</a></li>
 <li class="chapter" data-level="18.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>18.3</b> Topic models</a>
 <ul>
@@ -555,7 +564,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>VI Scale</b></span></li>
 <li class="chapter" data-level="19" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>19</b> Cloud</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.1" data-path="cloud.html"><a href="cloud.html#introduction-25"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>19.2</b> Google Colab</a></li>
 <li class="chapter" data-level="19.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
 <li class="chapter" data-level="19.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
@@ -563,7 +572,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
 <li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
@@ -650,7 +659,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="hunt-data" class="section level1" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Hunt data</h1>
-<p><em>Last updated: 9 February 2021.</em></p>
+<p><em>Last updated: 2 March 2021.</em></p>
 <p><strong>Required reading</strong></p>
 <ul>
 <li>Banerjee, Abhijit Vinayak, 2020, ‘Field Experiments and the Practice of Economics,’ <em>American Economic Review</em>, Vol. 110, No. 7, pp. 1937-1951.</li>
@@ -663,6 +672,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Kohavi, Ron, Diane Tang, and Ya Xu, 2020, <em>Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing</em>, Cambridge University Press. (This sounds like a lot, but it’s a light book - it’s more about providing examples of issues to think about.) (Freely available through the U of T library.)</li>
 <li>Taback, Nathan, 2020, <em>Design of Experiments and Observational Studies</em>, Chapter 8 - Completely Randomized Designs: Comparing More Than Two Treatments, <a href="https://scidesign.github.io/designbook/completely-randomized-designs-comparing-more-than-two-treatments.html" class="uri">https://scidesign.github.io/designbook/completely-randomized-designs-comparing-more-than-two-treatments.html</a>.</li>
 <li>Taylor, Sean, Dean Eckles, 2017, ‘Randomized experiments to detect and estimate social influence in networks,’ <em>arXiv</em>, <a href="https://arxiv.org/abs/1709.09636v1" class="uri">https://arxiv.org/abs/1709.09636v1</a>.</li>
+<li>Ware, James H., 1989, ‘Investigating Therapies of Potentially Great Benefit: ECMO,’ <em>Statistical Science</em>, Vol 4, No 4, pp. 298-306.</li>
 <li>Wu, Changbao and Mary E. Thompson, 2020, <em>Sampling Theory and Practice</em>, Springer, Chapters 1-3, and 5 (freely available through the U of T library).</li>
 </ul>
 <p><strong>Required viewing</strong></p>
@@ -755,14 +765,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 <li>If we have a dataset named ‘netflix_data,’ with the columns ‘person’ and ‘tv_show’ and ‘hours,’ (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
 </ol>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="hunt-data.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb397-2"><a href="hunt-data.html#cb397-2" aria-hidden="true" tabindex="-1"></a>netflix_data <span class="ot">&lt;-</span> </span>
-<span id="cb397-3"><a href="hunt-data.html#cb397-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, </span>
-<span id="cb397-4"><a href="hunt-data.html#cb397-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Helen&quot;</span>),</span>
-<span id="cb397-5"><a href="hunt-data.html#cb397-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">tv_show =</span> <span class="fu">c</span>(<span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, </span>
-<span id="cb397-6"><a href="hunt-data.html#cb397-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>),</span>
-<span id="cb397-7"><a href="hunt-data.html#cb397-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">hours =</span> <span class="fu">c</span>(<span class="fl">6.8</span>, <span class="fl">8.0</span>, <span class="fl">0.8</span>, <span class="fl">9.2</span>, <span class="fl">3.2</span>, <span class="fl">4.0</span>, <span class="fl">0.2</span>, <span class="fl">10.2</span>)</span>
-<span id="cb397-8"><a href="hunt-data.html#cb397-8" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="hunt-data.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb402-2"><a href="hunt-data.html#cb402-2" aria-hidden="true" tabindex="-1"></a>netflix_data <span class="ot">&lt;-</span> </span>
+<span id="cb402-3"><a href="hunt-data.html#cb402-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Monica&quot;</span>, </span>
+<span id="cb402-4"><a href="hunt-data.html#cb402-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Patricia&quot;</span>, <span class="st">&quot;Helen&quot;</span>),</span>
+<span id="cb402-5"><a href="hunt-data.html#cb402-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">tv_show =</span> <span class="fu">c</span>(<span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>, </span>
+<span id="cb402-6"><a href="hunt-data.html#cb402-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Broadchurch&quot;</span>, <span class="st">&quot;Shetland&quot;</span>, <span class="st">&quot;Duty-Shame&quot;</span>),</span>
+<span id="cb402-7"><a href="hunt-data.html#cb402-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">hours =</span> <span class="fu">c</span>(<span class="fl">6.8</span>, <span class="fl">8.0</span>, <span class="fl">0.8</span>, <span class="fl">9.2</span>, <span class="fl">3.2</span>, <span class="fl">4.0</span>, <span class="fl">0.2</span>, <span class="fl">10.2</span>)</span>
+<span id="cb402-8"><a href="hunt-data.html#cb402-8" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>In the context of randomisation, what does stratification mean to you (write a paragraph or two)?</li>
 <li>How could you check that your randomisation had been done appropriately (write two or three paragraphs)?</li>
@@ -860,36 +870,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>take your analysis to the real dataset.</li>
 </ol>
 <p>The reason this is a good approach is that you know roughly what the outcomes should be in step 2, whereas if you go directly to the real dataset then you don’t know if unexpected outcomes are likely due to your own analysis errors, or actual results. The first time you generate a simulated dataset it will take a while, but after a bit of practice you’ll get good at it. There are also packages that can help, including <code>DeclareDesign</code> <span class="citation">(<a href="references-1.html#ref-citedeclaredesign" role="doc-biblioref">Blair et al. 2019</a>)</span> and <code>survey</code> <span class="citation">(<a href="references-1.html#ref-citesurvey" role="doc-biblioref">Lumley 2020</a>)</span>. Another good reason it’s useful to take this approach of simulation is that when you’re working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="hunt-data.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb398-2"><a href="hunt-data.html#cb398-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb398-3"><a href="hunt-data.html#cb398-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb398-4"><a href="hunt-data.html#cb398-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a population so that 25 per cent of people like blue and 75 per cent </span></span>
-<span id="cb398-5"><a href="hunt-data.html#cb398-5" aria-hidden="true" tabindex="-1"></a><span class="co"># like white.</span></span>
-<span id="cb398-6"><a href="hunt-data.html#cb398-6" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> </span>
-<span id="cb398-7"><a href="hunt-data.html#cb398-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>),</span>
-<span id="cb398-8"><a href="hunt-data.html#cb398-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">favourite_color =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;White&quot;</span>), </span>
-<span id="cb398-9"><a href="hunt-data.html#cb398-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size  =</span> <span class="dv">10000</span>, </span>
-<span id="cb398-10"><a href="hunt-data.html#cb398-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb398-11"><a href="hunt-data.html#cb398-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>)),</span>
-<span id="cb398-12"><a href="hunt-data.html#cb398-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">supports_the_leafs =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
-<span id="cb398-13"><a href="hunt-data.html#cb398-13" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size  =</span> <span class="dv">10000</span>, </span>
-<span id="cb398-14"><a href="hunt-data.html#cb398-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb398-15"><a href="hunt-data.html#cb398-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.20</span>)),</span>
-<span id="cb398-16"><a href="hunt-data.html#cb398-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb398-17"><a href="hunt-data.html#cb398-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_frame =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>),</span>
-<span id="cb398-18"><a href="hunt-data.html#cb398-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">size  =</span> <span class="dv">10000</span>, </span>
-<span id="cb398-19"><a href="hunt-data.html#cb398-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb398-20"><a href="hunt-data.html#cb398-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
-<span id="cb398-21"><a href="hunt-data.html#cb398-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">size  =</span> <span class="dv">10000</span>, </span>
-<span id="cb398-22"><a href="hunt-data.html#cb398-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb398-23"><a href="hunt-data.html#cb398-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">ifelse</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>, group, <span class="cn">NA</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="hunt-data.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb403-2"><a href="hunt-data.html#cb403-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb403-3"><a href="hunt-data.html#cb403-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb403-4"><a href="hunt-data.html#cb403-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a population so that 25 per cent of people like blue and 75 per cent </span></span>
+<span id="cb403-5"><a href="hunt-data.html#cb403-5" aria-hidden="true" tabindex="-1"></a><span class="co"># like white.</span></span>
+<span id="cb403-6"><a href="hunt-data.html#cb403-6" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> </span>
+<span id="cb403-7"><a href="hunt-data.html#cb403-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>),</span>
+<span id="cb403-8"><a href="hunt-data.html#cb403-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">favourite_color =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;White&quot;</span>), </span>
+<span id="cb403-9"><a href="hunt-data.html#cb403-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb403-10"><a href="hunt-data.html#cb403-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb403-11"><a href="hunt-data.html#cb403-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>)),</span>
+<span id="cb403-12"><a href="hunt-data.html#cb403-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">supports_the_leafs =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>), </span>
+<span id="cb403-13"><a href="hunt-data.html#cb403-13" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb403-14"><a href="hunt-data.html#cb403-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb403-15"><a href="hunt-data.html#cb403-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.20</span>)),</span>
+<span id="cb403-16"><a href="hunt-data.html#cb403-16" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-17"><a href="hunt-data.html#cb403-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">in_frame =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>),</span>
+<span id="cb403-18"><a href="hunt-data.html#cb403-18" aria-hidden="true" tabindex="-1"></a>                        <span class="at">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb403-19"><a href="hunt-data.html#cb403-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-20"><a href="hunt-data.html#cb403-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb403-21"><a href="hunt-data.html#cb403-21" aria-hidden="true" tabindex="-1"></a>                        <span class="at">size  =</span> <span class="dv">10000</span>, </span>
+<span id="cb403-22"><a href="hunt-data.html#cb403-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb403-23"><a href="hunt-data.html#cb403-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">ifelse</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>, group, <span class="cn">NA</span>))</span></code></pre></div>
 <p>We’ll get more into this terminology later, but the sampling frame is subset of the population that can actually be sampled, for instance they are listed somewhere. For instance, <a href="https://jazzystats.com/">Lauren Kennedy</a> likes to use the analogy of a city’s population, and the phonebook - almost everyone is in there (or at least they used to be), so the population and the sampling frame are almost the same, but they are not.</p>
 <p>Now look at the mean for two groups drawn out of the sampling frame.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="hunt-data.html#cb399-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">%&gt;%</span> </span>
-<span id="cb399-2"><a href="hunt-data.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb399-3"><a href="hunt-data.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb399-4"><a href="hunt-data.html#cb399-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, favourite_color) <span class="sc">%&gt;%</span> </span>
-<span id="cb399-5"><a href="hunt-data.html#cb399-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="hunt-data.html#cb404-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">%&gt;%</span> </span>
+<span id="cb404-2"><a href="hunt-data.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-3"><a href="hunt-data.html#cb404-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-4"><a href="hunt-data.html#cb404-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, favourite_color) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-5"><a href="hunt-data.html#cb404-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ## # Groups:   group, favourite_color [4]
 ##   group favourite_color     n
@@ -899,30 +909,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3     2 Blue              105
 ## 4     2 White             369</code></pre>
 <p>We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we can use a t-test.</p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="hunt-data.html#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb401-2"><a href="hunt-data.html#cb401-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-3"><a href="hunt-data.html#cb401-3" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> </span>
-<span id="cb401-4"><a href="hunt-data.html#cb401-4" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
-<span id="cb401-5"><a href="hunt-data.html#cb401-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">color_as_integer =</span> <span class="fu">case_when</span>(</span>
-<span id="cb401-6"><a href="hunt-data.html#cb401-6" aria-hidden="true" tabindex="-1"></a>    favourite_color <span class="sc">==</span> <span class="st">&quot;White&quot;</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
-<span id="cb401-7"><a href="hunt-data.html#cb401-7" aria-hidden="true" tabindex="-1"></a>    favourite_color <span class="sc">==</span> <span class="st">&quot;Blue&quot;</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb401-8"><a href="hunt-data.html#cb401-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">999</span></span>
-<span id="cb401-9"><a href="hunt-data.html#cb401-9" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb401-10"><a href="hunt-data.html#cb401-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-11"><a href="hunt-data.html#cb401-11" aria-hidden="true" tabindex="-1"></a>group_1 <span class="ot">&lt;-</span> </span>
-<span id="cb401-12"><a href="hunt-data.html#cb401-12" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
-<span id="cb401-13"><a href="hunt-data.html#cb401-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb401-14"><a href="hunt-data.html#cb401-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(color_as_integer) <span class="sc">%&gt;%</span> </span>
-<span id="cb401-15"><a href="hunt-data.html#cb401-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb401-16"><a href="hunt-data.html#cb401-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>()</span>
-<span id="cb401-17"><a href="hunt-data.html#cb401-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-18"><a href="hunt-data.html#cb401-18" aria-hidden="true" tabindex="-1"></a>group_2 <span class="ot">&lt;-</span> </span>
-<span id="cb401-19"><a href="hunt-data.html#cb401-19" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
-<span id="cb401-20"><a href="hunt-data.html#cb401-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb401-21"><a href="hunt-data.html#cb401-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(color_as_integer) <span class="sc">%&gt;%</span> </span>
-<span id="cb401-22"><a href="hunt-data.html#cb401-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>()</span>
-<span id="cb401-23"><a href="hunt-data.html#cb401-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb401-24"><a href="hunt-data.html#cb401-24" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(group_1, group_2)</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="hunt-data.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb406-2"><a href="hunt-data.html#cb406-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-3"><a href="hunt-data.html#cb406-3" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> </span>
+<span id="cb406-4"><a href="hunt-data.html#cb406-4" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
+<span id="cb406-5"><a href="hunt-data.html#cb406-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">color_as_integer =</span> <span class="fu">case_when</span>(</span>
+<span id="cb406-6"><a href="hunt-data.html#cb406-6" aria-hidden="true" tabindex="-1"></a>    favourite_color <span class="sc">==</span> <span class="st">&quot;White&quot;</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb406-7"><a href="hunt-data.html#cb406-7" aria-hidden="true" tabindex="-1"></a>    favourite_color <span class="sc">==</span> <span class="st">&quot;Blue&quot;</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb406-8"><a href="hunt-data.html#cb406-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">999</span></span>
+<span id="cb406-9"><a href="hunt-data.html#cb406-9" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb406-10"><a href="hunt-data.html#cb406-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-11"><a href="hunt-data.html#cb406-11" aria-hidden="true" tabindex="-1"></a>group_1 <span class="ot">&lt;-</span> </span>
+<span id="cb406-12"><a href="hunt-data.html#cb406-12" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
+<span id="cb406-13"><a href="hunt-data.html#cb406-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-14"><a href="hunt-data.html#cb406-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(color_as_integer) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-15"><a href="hunt-data.html#cb406-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.vector</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb406-16"><a href="hunt-data.html#cb406-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>()</span>
+<span id="cb406-17"><a href="hunt-data.html#cb406-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-18"><a href="hunt-data.html#cb406-18" aria-hidden="true" tabindex="-1"></a>group_2 <span class="ot">&lt;-</span> </span>
+<span id="cb406-19"><a href="hunt-data.html#cb406-19" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">%&gt;%</span> </span>
+<span id="cb406-20"><a href="hunt-data.html#cb406-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-21"><a href="hunt-data.html#cb406-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(color_as_integer) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-22"><a href="hunt-data.html#cb406-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>()</span>
+<span id="cb406-23"><a href="hunt-data.html#cb406-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb406-24"><a href="hunt-data.html#cb406-24" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(group_1, group_2)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -934,19 +944,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## mean of x mean of y 
 ## 0.2134831 0.2215190</code></pre>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="hunt-data.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We could also use the tidy function in the broom package.</span></span>
-<span id="cb403-2"><a href="hunt-data.html#cb403-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(<span class="fu">t.test</span>(group_1, group_2))</span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="hunt-data.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We could also use the tidy function in the broom package.</span></span>
+<span id="cb408-2"><a href="hunt-data.html#cb408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(<span class="fu">t.test</span>(group_1, group_2))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 10
 ##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
 ##      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431
 ## # … with 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
 <p>If properly done then not only will we get a ‘representative’ share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven’t randomised on these variables? Let’s start by looking at our dataset.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="hunt-data.html#cb405-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">%&gt;%</span> </span>
-<span id="cb405-2"><a href="hunt-data.html#cb405-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb405-3"><a href="hunt-data.html#cb405-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb405-4"><a href="hunt-data.html#cb405-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, supports_the_leafs) <span class="sc">%&gt;%</span> </span>
-<span id="cb405-5"><a href="hunt-data.html#cb405-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="hunt-data.html#cb410-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">%&gt;%</span> </span>
+<span id="cb410-2"><a href="hunt-data.html#cb410-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb410-3"><a href="hunt-data.html#cb410-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb410-4"><a href="hunt-data.html#cb410-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, supports_the_leafs) <span class="sc">%&gt;%</span> </span>
+<span id="cb410-5"><a href="hunt-data.html#cb410-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ## # Groups:   group, supports_the_leafs [4]
 ##   group supports_the_leafs     n
@@ -970,22 +980,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>We need to cover ANOVA because of its importance historically, but in general you probably shouldn’t actually use ANOVA day-to-day. There’s nothing wrong with it, in the right circumstances, it’s more just that it is a hundred years old and the number of modern use-case where it’s still your best-bet is pretty small. In any case, typically, the null is that all of the groups are from the same distribution.</p>
 <p>We can run ANOVA with the function built into R - <code>aov()</code>.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="hunt-data.html#cb407-1" aria-hidden="true" tabindex="-1"></a>just_two_groups <span class="ot">&lt;-</span> population <span class="sc">%&gt;%</span></span>
-<span id="cb407-2"><a href="hunt-data.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb407-3"><a href="hunt-data.html#cb407-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb407-4"><a href="hunt-data.html#cb407-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb407-5"><a href="hunt-data.html#cb407-5" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(group <span class="sc">~</span> favourite_color, </span>
-<span id="cb407-6"><a href="hunt-data.html#cb407-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> just_two_groups) <span class="sc">%&gt;%</span> </span>
-<span id="cb407-7"><a href="hunt-data.html#cb407-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="hunt-data.html#cb412-1" aria-hidden="true" tabindex="-1"></a>just_two_groups <span class="ot">&lt;-</span> population <span class="sc">%&gt;%</span></span>
+<span id="cb412-2"><a href="hunt-data.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(in_frame <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb412-3"><a href="hunt-data.html#cb412-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb412-4"><a href="hunt-data.html#cb412-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-5"><a href="hunt-data.html#cb412-5" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(group <span class="sc">~</span> favourite_color, </span>
+<span id="cb412-6"><a href="hunt-data.html#cb412-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> just_two_groups) <span class="sc">%&gt;%</span> </span>
+<span id="cb412-7"><a href="hunt-data.html#cb412-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 6
 ##   term               df    sumsq meansq statistic p.value
 ##   &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 favourite_color     1   0.0238 0.0238    0.0952   0.758
 ## 2 Residuals        1006 251.     0.250    NA       NA</code></pre>
 <p>In this case, we fail to reject the null that the samples are the same. This all said, it’s just linear regression. So I’m not sure why it got a fancy name.</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="hunt-data.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(group <span class="sc">~</span> favourite_color, </span>
-<span id="cb409-2"><a href="hunt-data.html#cb409-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> just_two_groups) <span class="sc">%&gt;%</span> </span>
-<span id="cb409-3"><a href="hunt-data.html#cb409-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="hunt-data.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(group <span class="sc">~</span> favourite_color, </span>
+<span id="cb414-2"><a href="hunt-data.html#cb414-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> just_two_groups) <span class="sc">%&gt;%</span> </span>
+<span id="cb414-3"><a href="hunt-data.html#cb414-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   term                 estimate std.error statistic   p.value
 ##   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
@@ -1018,36 +1028,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math display">\[\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].\]</span></p>
 <p>That is, the difference between the treated group, <span class="math inline">\(d = 1\)</span>, and the control group, <span class="math inline">\(d = 0\)</span>, when measured by the expected value of some outcome variable, <span class="math inline">\(y\)</span>. So the mean causal effect is simply the difference between the two expectations!</p>
 <p>Let’s again get stuck into some code. First we need to generate some data.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="hunt-data.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb411-2"><a href="hunt-data.html#cb411-2" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),</span>
-<span id="cb411-3"><a href="hunt-data.html#cb411-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatment =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size  =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb411-4"><a href="hunt-data.html#cb411-4" aria-hidden="true" tabindex="-1"></a>                       )</span>
-<span id="cb411-5"><a href="hunt-data.html#cb411-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to make the outcome slightly more likely if they were treated than if not.</span></span>
-<span id="cb411-6"><a href="hunt-data.html#cb411-6" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> </span>
-<span id="cb411-7"><a href="hunt-data.html#cb411-7" aria-hidden="true" tabindex="-1"></a>  example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb411-8"><a href="hunt-data.html#cb411-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb411-9"><a href="hunt-data.html#cb411-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">outcome =</span> <span class="fu">if_else</span>(treatment <span class="sc">==</span> <span class="dv">0</span>, </span>
-<span id="cb411-10"><a href="hunt-data.html#cb411-10" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb411-11"><a href="hunt-data.html#cb411-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb411-12"><a href="hunt-data.html#cb411-12" aria-hidden="true" tabindex="-1"></a>                           )</span>
-<span id="cb411-13"><a href="hunt-data.html#cb411-13" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb411-14"><a href="hunt-data.html#cb411-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-15"><a href="hunt-data.html#cb411-15" aria-hidden="true" tabindex="-1"></a>example_data<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(example_data<span class="sc">$</span>treatment)</span>
-<span id="cb411-16"><a href="hunt-data.html#cb411-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb411-17"><a href="hunt-data.html#cb411-17" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb411-18"><a href="hunt-data.html#cb411-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, </span>
-<span id="cb411-19"><a href="hunt-data.html#cb411-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb411-20"><a href="hunt-data.html#cb411-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>,</span>
-<span id="cb411-21"><a href="hunt-data.html#cb411-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb411-22"><a href="hunt-data.html#cb411-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb411-23"><a href="hunt-data.html#cb411-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Outcome&quot;</span>,</span>
-<span id="cb411-24"><a href="hunt-data.html#cb411-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of people&quot;</span>,</span>
-<span id="cb411-25"><a href="hunt-data.html#cb411-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Person was treated&quot;</span>) <span class="sc">+</span></span>
-<span id="cb411-26"><a href="hunt-data.html#cb411-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-239-1.png" width="672" /></p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="hunt-data.html#cb412-1" aria-hidden="true" tabindex="-1"></a>example_regression <span class="ot">&lt;-</span> <span class="fu">lm</span>(outcome <span class="sc">~</span> treatment, <span class="at">data =</span> example_data)</span>
-<span id="cb412-2"><a href="hunt-data.html#cb412-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb412-3"><a href="hunt-data.html#cb412-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(example_regression)</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="hunt-data.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb416-2"><a href="hunt-data.html#cb416-2" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),</span>
+<span id="cb416-3"><a href="hunt-data.html#cb416-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">treatment =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size  =</span> <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb416-4"><a href="hunt-data.html#cb416-4" aria-hidden="true" tabindex="-1"></a>                       )</span>
+<span id="cb416-5"><a href="hunt-data.html#cb416-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to make the outcome slightly more likely if they were treated than if not.</span></span>
+<span id="cb416-6"><a href="hunt-data.html#cb416-6" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> </span>
+<span id="cb416-7"><a href="hunt-data.html#cb416-7" aria-hidden="true" tabindex="-1"></a>  example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb416-8"><a href="hunt-data.html#cb416-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb416-9"><a href="hunt-data.html#cb416-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">outcome =</span> <span class="fu">if_else</span>(treatment <span class="sc">==</span> <span class="dv">0</span>, </span>
+<span id="cb416-10"><a href="hunt-data.html#cb416-10" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb416-11"><a href="hunt-data.html#cb416-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb416-12"><a href="hunt-data.html#cb416-12" aria-hidden="true" tabindex="-1"></a>                           )</span>
+<span id="cb416-13"><a href="hunt-data.html#cb416-13" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb416-14"><a href="hunt-data.html#cb416-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb416-15"><a href="hunt-data.html#cb416-15" aria-hidden="true" tabindex="-1"></a>example_data<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(example_data<span class="sc">$</span>treatment)</span>
+<span id="cb416-16"><a href="hunt-data.html#cb416-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb416-17"><a href="hunt-data.html#cb416-17" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb416-18"><a href="hunt-data.html#cb416-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, </span>
+<span id="cb416-19"><a href="hunt-data.html#cb416-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb416-20"><a href="hunt-data.html#cb416-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>,</span>
+<span id="cb416-21"><a href="hunt-data.html#cb416-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb416-22"><a href="hunt-data.html#cb416-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb416-23"><a href="hunt-data.html#cb416-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Outcome&quot;</span>,</span>
+<span id="cb416-24"><a href="hunt-data.html#cb416-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of people&quot;</span>,</span>
+<span id="cb416-25"><a href="hunt-data.html#cb416-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Person was treated&quot;</span>) <span class="sc">+</span></span>
+<span id="cb416-26"><a href="hunt-data.html#cb416-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-241-1.png" width="672" /></p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="hunt-data.html#cb417-1" aria-hidden="true" tabindex="-1"></a>example_regression <span class="ot">&lt;-</span> <span class="fu">lm</span>(outcome <span class="sc">~</span> treatment, <span class="at">data =</span> example_data)</span>
+<span id="cb417-2"><a href="hunt-data.html#cb417-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-3"><a href="hunt-data.html#cb417-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(example_regression)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -1096,7 +1106,7 @@ Figure 8.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1
 <li>The person knows it’s an experiment.</li>
 </ul>
 <p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="hunt-data.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="hunt-data.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 3 7 6 4 1 8 2 5</code></pre>
 <p>Then have your friend guess which four you put milk in first and which four you put milk in last!</p>
 <p>To decide if the person’s choices were likely to have occurred at random or not, we need to think about the probability of this happening by chance. First count the number of successes out of the four that were chosen. <span class="citation"><a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">Fisher</a> (<a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">1935, 14</a>)</span> claims there are: <span class="math inline">\({8 \choose 4} = \frac{8!}{4!(8-4)!}=70\)</span> possible outcomes.</p>
@@ -1113,7 +1123,7 @@ Figure 8.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1
 <p>At the start of these notes, I said that Fisher held views that we would consider reprehensible today. My guess is, were he around today, he would think our use of p-values as discrediting. Do not just go searching for meaning in constellations of stars. Thoroughly interrogate your data and think precisely about the statistical methods you are applying. For conclusions that you want to hold up in the long-run, aim to use as simple, and as understandable, statistical methods as you can. Ensure that you can explain and justify your statistical decisions without recourse to astrology.</p>
 <p><img src="https://imgs.xkcd.com/comics/significant.png" width="60%" />
 Source: <a href="https://xkcd.com/882/" class="uri">https://xkcd.com/882/</a></p>
-<div class="figure"><span id="fig:unnamed-chunk-242"></span>
+<div class="figure"><span id="fig:unnamed-chunk-244"></span>
 <img src="figures/wisdom_over_fortune.jpg" alt="'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune." width="90%" />
 <p class="caption">
 Figure 8.2: ‘The triumph of wisdom over fortune’ by Otto van Veen (Flemish, 1556 - 1629), as downloaded from <a href="https://artvee.com/dl/the-triumph-of-wisdom-over-fortune" class="uri">https://artvee.com/dl/the-triumph-of-wisdom-over-fortune</a>.
@@ -1295,25 +1305,25 @@ Figure 8.4: Key finding as to wallet return rates.
 <h2><span class="header-section-number">8.8</span> Case study - Upworthy</h2>
 <p>The trouble with much of A/B testing is that because it’s done by firms we typically don’t have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to <span class="citation">(<a href="references-1.html#ref-upworthy" role="doc-biblioref">Matias et al. 2019</a>)</span>. You are able to request access to the dataset here: <a href="https://upworthy.natematias.com" class="uri">https://upworthy.natematias.com</a> (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by <span class="citation"><a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">Fitts</a> (<a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">2014</a>)</span>.</p>
 <p>Let’s have a quick look at the data.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="hunt-data.html#cb416-1" aria-hidden="true" tabindex="-1"></a>upworthy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv&quot;</span>))</span>
-<span id="cb416-2"><a href="hunt-data.html#cb416-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb416-3"><a href="hunt-data.html#cb416-3" aria-hidden="true" tabindex="-1"></a>upworthy <span class="sc">%&gt;%</span> </span>
-<span id="cb416-4"><a href="hunt-data.html#cb416-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="hunt-data.html#cb421-1" aria-hidden="true" tabindex="-1"></a>upworthy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv&quot;</span>))</span>
+<span id="cb421-2"><a href="hunt-data.html#cb421-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb421-3"><a href="hunt-data.html#cb421-3" aria-hidden="true" tabindex="-1"></a>upworthy <span class="sc">%&gt;%</span> </span>
+<span id="cb421-4"><a href="hunt-data.html#cb421-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 17
-##      X1 created_at          updated_at          clickability_te… excerpt
-##   &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;            &lt;chr&gt;  
-## 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b… Things…
-## 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b… Things…
-## 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b… Things…
-## 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6… Things…
-## 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6… Things…
-## 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6… Things…
+##      X1 created_at          updated_at          clickability_test… excerpt      
+##   &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;              &lt;chr&gt;        
+## 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2c… Things that …
+## 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …
+## 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …
+## 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c4… Things that …
+## 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c4… Things that …
+## 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c4… Things that …
 ## # … with 12 more variables: headline &lt;chr&gt;, lede &lt;chr&gt;, slug &lt;chr&gt;,
 ## #   eyecatcher_id &lt;chr&gt;, impressions &lt;dbl&gt;, clicks &lt;dbl&gt;, significance &lt;dbl&gt;,
 ## #   first_place &lt;lgl&gt;, winner &lt;lgl&gt;, share_text &lt;chr&gt;, square &lt;chr&gt;,
 ## #   test_week &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="hunt-data.html#cb418-1" aria-hidden="true" tabindex="-1"></a>upworthy <span class="sc">%&gt;%</span> </span>
-<span id="cb418-2"><a href="hunt-data.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="hunt-data.html#cb423-1" aria-hidden="true" tabindex="-1"></a>upworthy <span class="sc">%&gt;%</span> </span>
+<span id="cb423-2"><a href="hunt-data.html#cb423-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;X1&quot;                   &quot;created_at&quot;           &quot;updated_at&quot;          
 ##  [4] &quot;clickability_test_id&quot; &quot;excerpt&quot;              &quot;headline&quot;            
 ##  [7] &quot;lede&quot;                 &quot;slug&quot;                 &quot;eyecatcher_id&quot;       
@@ -1322,11 +1332,11 @@ Figure 8.4: Key finding as to wallet return rates.
 ## [16] &quot;square&quot;               &quot;test_week&quot;</code></pre>
 <p>From the documentation: ‘The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.’ So each row is a package and it should be part of a test ‘clickability_test_id.’</p>
 <p>We have a variety of variables. We’ll focus on ‘created_at,’ ‘clickability_test_id’ so that we can create comparison groups, ‘headline,’ ‘impressions’ which is the number of people that saw the package, and ‘clicks’ which is the number that clicked on that package. So within each batch of tests, we’re interested in the effect of varied headlines on impressions and clicks.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="hunt-data.html#cb420-1" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="ot">&lt;-</span> </span>
-<span id="cb420-2"><a href="hunt-data.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  upworthy <span class="sc">%&gt;%</span> </span>
-<span id="cb420-3"><a href="hunt-data.html#cb420-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(created_at, clickability_test_id, headline, impressions, clicks)</span>
-<span id="cb420-4"><a href="hunt-data.html#cb420-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb420-5"><a href="hunt-data.html#cb420-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(upworthy_restricted)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="hunt-data.html#cb425-1" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="ot">&lt;-</span> </span>
+<span id="cb425-2"><a href="hunt-data.html#cb425-2" aria-hidden="true" tabindex="-1"></a>  upworthy <span class="sc">%&gt;%</span> </span>
+<span id="cb425-3"><a href="hunt-data.html#cb425-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(created_at, clickability_test_id, headline, impressions, clicks)</span>
+<span id="cb425-4"><a href="hunt-data.html#cb425-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb425-5"><a href="hunt-data.html#cb425-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(upworthy_restricted)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   created_at          clickability_test… headline             impressions clicks
 ##   &lt;dttm&gt;              &lt;chr&gt;              &lt;chr&gt;                      &lt;dbl&gt;  &lt;dbl&gt;
@@ -1338,35 +1348,35 @@ Figure 8.4: Key finding as to wallet return rates.
 ## 6 2014-11-20 06:55:07 546d902c26714c6c4… This Is What Sexism…        3380     98</code></pre>
 <p>We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I’m interested in whether headlines that asked a question got more clicks than those that didn’t.</p>
 <p>To identify whether a headline asks a question, I’m going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="hunt-data.html#cb422-1" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="ot">&lt;-</span> </span>
-<span id="cb422-2"><a href="hunt-data.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  upworthy_restricted <span class="sc">%&gt;%</span> </span>
-<span id="cb422-3"><a href="hunt-data.html#cb422-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">asks_question =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> headline, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">?&quot;</span>))</span>
-<span id="cb422-4"><a href="hunt-data.html#cb422-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb422-5"><a href="hunt-data.html#cb422-5" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="sc">%&gt;%</span> <span class="fu">count</span>(asks_question)</span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="hunt-data.html#cb427-1" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="ot">&lt;-</span> </span>
+<span id="cb427-2"><a href="hunt-data.html#cb427-2" aria-hidden="true" tabindex="-1"></a>  upworthy_restricted <span class="sc">%&gt;%</span> </span>
+<span id="cb427-3"><a href="hunt-data.html#cb427-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">asks_question =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="at">string =</span> headline, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">?&quot;</span>))</span>
+<span id="cb427-4"><a href="hunt-data.html#cb427-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb427-5"><a href="hunt-data.html#cb427-5" aria-hidden="true" tabindex="-1"></a>upworthy_restricted <span class="sc">%&gt;%</span> <span class="fu">count</span>(asks_question)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 2
 ##   asks_question     n
 ## * &lt;lgl&gt;         &lt;int&gt;
 ## 1 FALSE         19130
 ## 2 TRUE           3536</code></pre>
 <p>Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="hunt-data.html#cb424-1" aria-hidden="true" tabindex="-1"></a>to_question_or_not_to_question <span class="ot">&lt;-</span> </span>
-<span id="cb424-2"><a href="hunt-data.html#cb424-2" aria-hidden="true" tabindex="-1"></a>  upworthy_restricted <span class="sc">%&gt;%</span> </span>
-<span id="cb424-3"><a href="hunt-data.html#cb424-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(clickability_test_id, asks_question) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-4"><a href="hunt-data.html#cb424-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ave_clicks =</span> <span class="fu">mean</span>(clicks)) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-5"><a href="hunt-data.html#cb424-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb424-6"><a href="hunt-data.html#cb424-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb424-7"><a href="hunt-data.html#cb424-7" aria-hidden="true" tabindex="-1"></a>look_at_differences <span class="ot">&lt;-</span> </span>
-<span id="cb424-8"><a href="hunt-data.html#cb424-8" aria-hidden="true" tabindex="-1"></a>  to_question_or_not_to_question <span class="sc">%&gt;%</span> </span>
-<span id="cb424-9"><a href="hunt-data.html#cb424-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> clickability_test_id,</span>
-<span id="cb424-10"><a href="hunt-data.html#cb424-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> asks_question,</span>
-<span id="cb424-11"><a href="hunt-data.html#cb424-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> ave_clicks) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-12"><a href="hunt-data.html#cb424-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ave_clicks_not_question =</span> <span class="st">`</span><span class="at">FALSE</span><span class="st">`</span>,</span>
-<span id="cb424-13"><a href="hunt-data.html#cb424-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">ave_clicks_is_question =</span> <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-14"><a href="hunt-data.html#cb424-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ave_clicks_not_question)) <span class="sc">%&gt;%</span></span>
-<span id="cb424-15"><a href="hunt-data.html#cb424-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ave_clicks_is_question)) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-16"><a href="hunt-data.html#cb424-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">difference_in_clicks =</span> ave_clicks_is_question <span class="sc">-</span> ave_clicks_not_question)</span>
-<span id="cb424-17"><a href="hunt-data.html#cb424-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb424-18"><a href="hunt-data.html#cb424-18" aria-hidden="true" tabindex="-1"></a>look_at_differences<span class="sc">$</span>difference_in_clicks <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="hunt-data.html#cb429-1" aria-hidden="true" tabindex="-1"></a>to_question_or_not_to_question <span class="ot">&lt;-</span> </span>
+<span id="cb429-2"><a href="hunt-data.html#cb429-2" aria-hidden="true" tabindex="-1"></a>  upworthy_restricted <span class="sc">%&gt;%</span> </span>
+<span id="cb429-3"><a href="hunt-data.html#cb429-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(clickability_test_id, asks_question) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-4"><a href="hunt-data.html#cb429-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ave_clicks =</span> <span class="fu">mean</span>(clicks)) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-5"><a href="hunt-data.html#cb429-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb429-6"><a href="hunt-data.html#cb429-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-7"><a href="hunt-data.html#cb429-7" aria-hidden="true" tabindex="-1"></a>look_at_differences <span class="ot">&lt;-</span> </span>
+<span id="cb429-8"><a href="hunt-data.html#cb429-8" aria-hidden="true" tabindex="-1"></a>  to_question_or_not_to_question <span class="sc">%&gt;%</span> </span>
+<span id="cb429-9"><a href="hunt-data.html#cb429-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> clickability_test_id,</span>
+<span id="cb429-10"><a href="hunt-data.html#cb429-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> asks_question,</span>
+<span id="cb429-11"><a href="hunt-data.html#cb429-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> ave_clicks) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-12"><a href="hunt-data.html#cb429-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">ave_clicks_not_question =</span> <span class="st">`</span><span class="at">FALSE</span><span class="st">`</span>,</span>
+<span id="cb429-13"><a href="hunt-data.html#cb429-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">ave_clicks_is_question =</span> <span class="st">`</span><span class="at">TRUE</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-14"><a href="hunt-data.html#cb429-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ave_clicks_not_question)) <span class="sc">%&gt;%</span></span>
+<span id="cb429-15"><a href="hunt-data.html#cb429-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ave_clicks_is_question)) <span class="sc">%&gt;%</span> </span>
+<span id="cb429-16"><a href="hunt-data.html#cb429-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">difference_in_clicks =</span> ave_clicks_is_question <span class="sc">-</span> ave_clicks_not_question)</span>
+<span id="cb429-17"><a href="hunt-data.html#cb429-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-18"><a href="hunt-data.html#cb429-18" aria-hidden="true" tabindex="-1"></a>look_at_differences<span class="sc">$</span>difference_in_clicks <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code></pre></div>
 <pre><code>## [1] -4.890435</code></pre>
 <p>So we find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure <a href="hunt-data.html#fig:upworthy">8.5</a>).</p>
 <div class="figure"><span id="fig:upworthy"></span>

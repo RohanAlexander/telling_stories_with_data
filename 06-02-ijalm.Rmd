@@ -19,7 +19,7 @@ output:
 - James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, 1st Edition, Chapters 3 and 4.1-4.3., https://www.statlearning.com.
 - Obermeyer, Z., Powers, B., Vogeli, C., & Sendhill, M., 2019, 'Dissecting racial bias in an algorithm used to manage the health of populations', *Science*, (366): 447-453.
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/.
-
+- Zook M, Barocas S, boyd d, Crawford K, Keller E, Gangadharan SP, et al. (2017) 'Ten simple rules for responsible big data research', *PLoS Comput Biol* 13(3): e1005399. https://doi.org/10.1371/journal.pcbi.1005399
 
 
 **Recommended reading**

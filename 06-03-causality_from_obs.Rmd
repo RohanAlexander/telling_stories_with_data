@@ -1,5 +1,5 @@
 ---
-date: February 23, 2021
+date: March 2, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -37,11 +37,13 @@ library(tidyverse)
 
 - Angelucci, Charles, and Julia Cagé, 2019, 'Newspapers in times of low advertising revenues', *American Economic Journal: Microeconomics*, vol. 11, no. 3, pp. 319-364, DOI: 10.1257/mic.20170306, available at: https://www.aeaweb.org/articles?id=10.1257/mic.20170306.
 - Better Evaluation, 'Regression Discontinuity', https://www.betterevaluation.org/en/evaluation-options/regressiondiscontinuity
+- Dagan, Noa, et al. "BNT162b2 mRNA Covid-19 vaccine in a nationwide mass vaccination setting." New England Journal of Medicine (2021).
 - Eggers, Andrew C., Anthony Fowler, Jens Hainmueller, Andrew B. Hall, and James M. Snyder Jr, 2015, ‘On the validity of the regression discontinuity design for estimating electoral effects: New evidence from over 40,000 close races’, American Journal of Political Science, 59 (1), pp. 259-274
 - Gelman, Andrew, 2019, 'Another Regression Discontinuity Disaster and what can we learn from it', 25 June, https://statmodeling.stat.columbia.edu/2019/06/25/another-regression-discontinuity-disaster-and-what-can-we-learn-from-it/. 
 - Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, Regression and Other Stories, Cambridge University Press, Chs 18 - 21.
 - Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapter 5 - 8.
 - McElreath, Richard, 2020, Statistical Rethinking, 2nd Edition, CRC Press, Ch 14.
+- Meng, Xiao-Li, 2021, 'What Are the Values of Data, Data Science, or Data Scientists?', *Harvard Data Science Review*, https://doi.org/10.1162/99608f92.ee717cf7, https://hdsr.mitpress.mit.edu/pub/bj2dfcwg/release/2.
 - Riederer, Emily, 2021, 'Causal design patterns for data analysts', 30 January, https://emilyriederer.netlify.app/post/causal-design-patterns/
 - Sekhon, Jasjeet and Rocio Titiunik, 2016, 'Understanding Regression Discontinuity Designs As Observational Studies', Observational Studies 2 (2016) 174-182, http://sekhon.berkeley.edu/papers/SekhonTitiunik2016-OS.pdf.
 - Wong, Jeffrey, and Colin McFarland, 2020, ‘Computational Causal Inference at Netflix’, Netflix Technology Blog, 11 Aug, https://netflixtechblog.com/computational-causal-inference-at-netflix-293591691c62.
@@ -50,10 +52,11 @@ library(tidyverse)
 **Required viewing**
 
 - Gelman, Andrew, 2020 '100 Stories of Causal Inference', 4 August, https://www.youtube.com/watch?v=jnI5KI843Lk.
-- King, Gary, 2020, ‘Research Designs’, Lectures on Quantitative Social Science Methods 1, freely available: https://youtu.be/27grU_VM5Ps. 
+- King, Gary, 2020, ‘Research Designs’, Lectures on Quantitative Social Science Methods 1, https://youtu.be/SBwPLwVOb7s. 
 - Kuriwaki, Shiro, 2020, 'Difference-in-Differences Estimation in R (parts 1 and 2)', 18 April, https://vimeo.com/409267138 and https://vimeo.com/409267190.
 - Kuriwaki, Shiro, 2020, 'Instrumental variables in R', 11 April, https://vimeo.com/406629459.
 - Kuriwaki, Shiro, 2020, 'Regression Discontinuity in R (parts 1 and 2)', 25 March, https://vimeo.com/400826628 and https://vimeo.com/400826660.
+- Oostrom, Tamar, 2021, 'Funding of Clinical Trials and Reported Drug Efficacy', 2 March, https://youtu.be/DdnpWS9Km5U.
 - Riederer, Emily, 2021, 'Observational Causal Inference', Toronto Data Workshop, 15 February, https://youtu.be/VP3BBZ7poc0.
 
 
@@ -141,7 +144,7 @@ library(tidyverse)
 
 
 
-**Pre-quiz**
+**Quiz**
 
 1. Sharla Gelfand has been '(s)haring two #rstats functions most days - one I know and love, and one that's new to me!'. Please go to Sharla's GitHub page: https://github.com/sharlagelfand/twofunctionsmostdays. Please find a package that she mentions that you have never used. Please find the relevant website for the package. Please describe what the package does and a context in which it could be useful to you.
 2. Sharla Gelfand has been '(s)haring two #rstats functions most days - one I know and love, and one that's new to me!'. Please go to Sharla's GitHub page: https://github.com/sharlagelfand/twofunctionsmostdays. Please find a function that she mentions that you have never used. Please look at the help file for that function. Please detail the arguments of the function, and a context in which it could be useful to you.
@@ -171,6 +174,23 @@ library(tidyverse)
 
 
 
+> We've just confirmed the effectiveness of the Pfizer-BioNTech vaccine outside of randomized trials. Yes, great news, but let's talk about methodological issues that arise when using #observational data to estimate vaccine effectiveness. 
+>
+> A critical concern in observational studies of vaccine effectiveness is confounding: Suppose that people who get vaccinated have, on average, a lower risk of infection/disease than those who don't get vaccinated. Then, even if the vaccine were useless, it'd look beneficial. 
+>
+> To adjust for confounding: We start by identifying potential confounders. For example: Age (vaccination campaigns prioritize older people and older people are more likely to develop severe disease). Then we choose a valid adjustment method. In our paper, we matched on age.
+>
+> After age adjustment, how do we know if there is residual confounding? Here is one way to go about that: We know from the previous randomized trial that the vaccine has no effect in the first few days. So we check whether matching on age suffices to replicate that finding. No, it doesn't. After matching on age (and sex), the curves of infection start to diverge from day 0, which indicates that the vaccinated had a lower risk of infection than the unvaccinated. Conclusion: adjustment for age and sex is insufficient.
+> 
+> We learned that we had to match on other #COVID19 risk factors, e.g., location, comorbidities, healthcare use... And we could do so with high-quality data from ClalitResearch, part of a health services organization that covers >50% of the Israeli population. As an example, a vaccinated 76 year-old Arab male from a specific neighborhood who received 4 influenza vaccines in the last 5 years and had 2 comorbidities was matched with an unvaccinated Arab male from the same neighborhood, aged 76-77, with 3-4 influenza vaccines and 2 comorbidities. After matching on all those risk factors, the curves of infection start to diverge after day ~12, as expected if the vaccinated and the unvaccinated had a comparable risk of infection. Using this "negative control", we provide evidence against large residual confounding.
+>
+> This is a good illustration of how #randomized trials and #observational studies complement each other for better and more efficient #causalinference. First, a randomized trial is conducted to estimate the effectiveness of the vaccine to prevent symptomatic infection, but... the trial's estimates for severe disease and specific age groups are imprecise. Second, an observational analysis emulates a #targettrial (an order of magnitude greater) and confirms the vaccine's effectiveness on severe disease and in different age groups. However... the observational study needs the trial's findings as a #benchmark to guide the data analysis and strengthen the quality of the #causalinference.
+>
+> Randomized trials & Observational studies working together. The best of both worlds.
+>
+> Let's keep doing it after the pandemic. What a luxury having been able to think about these issues with my colleagues Noa Dagan, noambard, mlipsitch, Ben Reis, and RanBalicer. We hope that our experience is helpful for researchers around the world who use observational data to estimate #vaccine effectiveness.
+> 
+> Miguel Hernán, [24 Februrary 2021](https://twitter.com/_miguelhernan/status/1364700315044438023?s=21).
 
 
 

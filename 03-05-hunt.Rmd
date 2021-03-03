@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 # Hunt data
 
-*Last updated: 9 February 2021.*
+*Last updated: 2 March 2021.*
 
 **Required reading**
 
@@ -36,6 +36,7 @@ knitr::opts_chunk$set(
 - Kohavi, Ron, Diane Tang, and Ya Xu, 2020, *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing*, Cambridge University Press. (This sounds like a lot, but it's a light book - it's more about providing examples of issues to think about.) (Freely available through the U of T library.)
 - Taback, Nathan, 2020, *Design of Experiments and Observational Studies*, Chapter 8 - Completely Randomized Designs: Comparing More Than Two Treatments, https://scidesign.github.io/designbook/completely-randomized-designs-comparing-more-than-two-treatments.html.
 - Taylor, Sean, Dean Eckles, 2017, 'Randomized experiments to detect and estimate social influence in networks', *arXiv*, https://arxiv.org/abs/1709.09636v1.
+- Ware, James H., 1989, 'Investigating Therapies of Potentially Great Benefit: ECMO', *Statistical Science*, Vol 4, No 4, pp. 298-306.
 - Wu, Changbao and Mary E. Thompson, 2020, *Sampling Theory and Practice*, Springer, Chapters 1-3, and 5 (freely available through the U of T library).
 
 

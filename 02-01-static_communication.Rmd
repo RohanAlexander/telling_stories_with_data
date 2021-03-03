@@ -352,6 +352,36 @@ scatter_data %>%
 ```
 
 
+### Never use box plots
+
+Box plots are almost never appropriate because they hide the distribution of data. To see this, consider some data from a beta distribution.
+
+```{r}
+left <- rbeta(10000,5,2)
+right <- rbeta(10000,2,5)
+middle <- rbeta(10000,5,5)
+
+tricky_data <- 
+  tibble(left_and_right = 
+           c(
+             rbeta(10000,5,2),
+             rbeta(10000,2,5)
+           ),
+         middle = 
+           rbeta(20000,1,1))
+```
+
+
+Then compare the box plots.
+
+```{r}
+boxplot(tricky_data$left_and_right)
+boxplot(tricky_data$middle)
+
+hist(tricky_data$left_and_right)
+hist(tricky_data$middle)
+```
+
 
 ### Other
 

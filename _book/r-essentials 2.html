@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 R Essentials | Telling Stories With Data</title>
+  <meta name="description" content="This book is about learning how to tell stories with data." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 R Essentials | Telling Stories With Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is about learning how to tell stories with data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 R Essentials | Telling Stories With Data" />
+  
+  <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
+  
+
+<meta name="author" content="Rohan Alexander" />
+
+
+<meta name="date" content="2021-01-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="drinking-from-a-fire-hose.html"/>
+<link rel="next" href="workflow.html"/>
+<script src="libs/header-attrs-2.7.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Telling Stories With Data</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Essentials</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
+<li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
+<li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-essentials.html"><a href="r-essentials.html#arranging"><i class="fa fa-check"></i><b>3.4.4</b> Arranging</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-essentials.html"><a href="r-essentials.html#grouping"><i class="fa fa-check"></i><b>3.4.5</b> Grouping</a></li>
+<li class="chapter" data-level="3.4.6" data-path="r-essentials.html"><a href="r-essentials.html#mutating"><i class="fa fa-check"></i><b>3.4.6</b> Mutating</a></li>
+<li class="chapter" data-level="3.4.7" data-path="r-essentials.html"><a href="r-essentials.html#summarise"><i class="fa fa-check"></i><b>3.4.7</b> Summarise</a></li>
+<li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
+<li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-essentials.html"><a href="r-essentials.html#strings"><i class="fa fa-check"></i><b>3.7.4</b> Strings</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-essentials.html"><a href="r-essentials.html#pivot"><i class="fa fa-check"></i><b>3.7.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
+<li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
+<li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
+<li class="chapter" data-level="4.2.4" data-path="workflow.html"><a href="workflow.html#abstracts-and-pdf-outputs"><i class="fa fa-check"></i><b>4.2.4</b> Abstracts and PDF outputs</a></li>
+<li class="chapter" data-level="4.2.5" data-path="workflow.html"><a href="workflow.html#references"><i class="fa fa-check"></i><b>4.2.5</b> References</a></li>
+<li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
+<li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
+<li class="chapter" data-level="4.5.4" data-path="workflow.html"><a href="workflow.html#code-comments"><i class="fa fa-check"></i><b>4.5.4</b> Code comments</a></li>
+<li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+</ul></li>
+<li class="part"><span><b>II Communicate</b></span></li>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
+<li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+</ul></li>
+<li class="part"><span><b>III Hunt gather and farm</b></span></li>
+<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a></li>
+<li class="chapter" data-level="7.2" data-path="gather-data.html"><a href="gather-data.html#case-study---arxiv"><i class="fa fa-check"></i><b>7.2</b> Case study - arXiv</a></li>
+<li class="chapter" data-level="7.3" data-path="gather-data.html"><a href="gather-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.3</b> Case study - rtweet</a></li>
+<li class="chapter" data-level="7.4" data-path="gather-data.html"><a href="gather-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.4</b> Case study - spotifyr</a></li>
+<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="gather-data.html"><a href="gather-data.html#introduction-6"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.5.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.5.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="gather-data.html"><a href="gather-data.html#introduction-7"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.6.2" data-path="gather-data.html"><a href="gather-data.html#gather"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
+<li class="chapter" data-level="7.6.3" data-path="gather-data.html"><a href="gather-data.html#clean"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
+<li class="chapter" data-level="7.6.4" data-path="gather-data.html"><a href="gather-data.html#explore"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="gather-data.html"><a href="gather-data.html#introduction-8"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.7.2" data-path="gather-data.html"><a href="gather-data.html#gather-1"><i class="fa fa-check"></i><b>7.7.2</b> Gather</a></li>
+<li class="chapter" data-level="7.7.3" data-path="gather-data.html"><a href="gather-data.html#clean-1"><i class="fa fa-check"></i><b>7.7.3</b> Clean</a></li>
+<li class="chapter" data-level="7.7.4" data-path="gather-data.html"><a href="gather-data.html#explore-1"><i class="fa fa-check"></i><b>7.7.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="gather-data.html"><a href="gather-data.html#introduction-9"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.8.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.8.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="gather-data.html"><a href="gather-data.html#introduction-10"><i class="fa fa-check"></i><b>7.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.9.2" data-path="gather-data.html"><a href="gather-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.9.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="7.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.9.3</b> Start simple, then iterate.</a></li>
+<li class="chapter" data-level="7.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>7.9.4</b> Iterating</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>7.10.1</b> Set-up</a></li>
+<li class="chapter" data-level="7.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>7.10.2</b> Extract</a></li>
+<li class="chapter" data-level="7.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>7.10.3</b> Clean</a></li>
+<li class="chapter" data-level="7.10.4" data-path="gather-data.html"><a href="gather-data.html#check"><i class="fa fa-check"></i><b>7.10.4</b> Check</a></li>
+<li class="chapter" data-level="7.10.5" data-path="gather-data.html"><a href="gather-data.html#tidy-up"><i class="fa fa-check"></i><b>7.10.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="7.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.10.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.11</b> Optical Character Recognition</a></li>
+<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a>
+<ul>
+<li class="chapter" data-level="7.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>7.12.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.12.2</b> Getting text data</a></li>
+<li class="chapter" data-level="7.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.12.3</b> Preparing text datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-12"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.2" data-path="hunt-data.html"><a href="hunt-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="hunt-data.html"><a href="hunt-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
+<li class="chapter" data-level="8.1.4" data-path="hunt-data.html"><a href="hunt-data.html#anova"><i class="fa fa-check"></i><b>8.1.4</b> ANOVA</a></li>
+<li class="chapter" data-level="8.1.5" data-path="hunt-data.html"><a href="hunt-data.html#treatment-and-control"><i class="fa fa-check"></i><b>8.1.5</b> Treatment and control</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="hunt-data.html"><a href="hunt-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>8.2</b> Case study - Fisher’s tea party</a></li>
+<li class="chapter" data-level="8.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
+<li class="chapter" data-level="8.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="8.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>8.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
+<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>8.6</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.7</b> A/B testing</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>8.7.2</b> Delivery</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>8.7.3</b> Instrumentation</a></li>
+<li class="chapter" data-level="8.7.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>8.7.4</b> Randomisation unit</a></li>
+<li class="chapter" data-level="8.7.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>8.7.5</b> Partnerships</a></li>
+<li class="chapter" data-level="8.7.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>8.7.6</b> Speed vs quality</a></li>
+<li class="chapter" data-level="8.7.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>8.7.7</b> Conflicting priorities</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.8</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.9</b> Sampling and survey essentials</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.9.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.9.3</b> Stratified and cluster sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.10</b> Implementing surveys</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.10.1</b> Google</a></li>
+<li class="chapter" data-level="8.10.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.10.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.10.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.10.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.10.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.10.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.10.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.10.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.10.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.10.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.10.7</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.11</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="farm-data.html"><a href="farm-data.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
+<li class="chapter" data-level="9.1.2" data-path="farm-data.html"><a href="farm-data.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="farm-data.html"><a href="farm-data.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
+<li class="chapter" data-level="9.2.2" data-path="farm-data.html"><a href="farm-data.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Clean</b></span></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
+<li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
+<li class="part"><span><b>V Model</b></span></li>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
+<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#simple-linear-regression"><i class="fa fa-check"></i><b>14.1</b> Simple linear regression</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview"><i class="fa fa-check"></i><b>14.1.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-r"><i class="fa fa-check"></i><b>14.1.2</b> Implementation in base R</a></li>
+<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.3</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.4</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#on-p-values"><i class="fa fa-check"></i><b>14.1.5</b> On p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#multiple-linear-regression"><i class="fa fa-check"></i><b>14.2</b> Multiple linear regression</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.2.1</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.2.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.2.2</b> More credible outputs</a></li>
+<li class="chapter" data-level="14.2.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels"><i class="fa fa-check"></i><b>14.2.3</b> Implementation in <code>tidymodels</code></a></li>
+<li class="chapter" data-level="14.2.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm"><i class="fa fa-check"></i><b>14.2.4</b> Implementation in <code>rstanarm</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3</b> Logistic regression</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-1"><i class="fa fa-check"></i><b>14.3.1</b> Overview</a></li>
+<li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base"><i class="fa fa-check"></i><b>14.3.2</b> Implementation in base</a></li>
+<li class="chapter" data-level="14.3.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels-1"><i class="fa fa-check"></i><b>14.3.3</b> Implementation in <code>tidymodels</code></a></li>
+<li class="chapter" data-level="14.3.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm-1"><i class="fa fa-check"></i><b>14.3.4</b> Implementation in <code>rstanarm</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.4</b> Poisson regression</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-2"><i class="fa fa-check"></i><b>14.4.1</b> Overview</a></li>
+<li class="chapter" data-level="14.4.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-1"><i class="fa fa-check"></i><b>14.4.2</b> Implementation in base</a></li>
+<li class="chapter" data-level="14.4.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels-2"><i class="fa fa-check"></i><b>14.4.3</b> Implementation in <code>tidymodels</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html"><i class="fa fa-check"></i><b>15</b> Causality from observational data</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#difference-in-differences"><i class="fa fa-check"></i><b>15.1</b> Difference in differences</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-16"><i class="fa fa-check"></i><b>15.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.1.2</b> Matching and difference-in-differences</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.2</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#background"><i class="fa fa-check"></i><b>15.2.2</b> Background</a></li>
+<li class="chapter" data-level="15.2.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data"><i class="fa fa-check"></i><b>15.2.3</b> Data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model"><i class="fa fa-check"></i><b>15.2.4</b> Model</a></li>
+<li class="chapter" data-level="15.2.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#results"><i class="fa fa-check"></i><b>15.2.5</b> Results</a></li>
+<li class="chapter" data-level="15.2.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#other-points"><i class="fa fa-check"></i><b>15.2.6</b> Other points</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---funding-of-clinical-trials-and-reported-drug-efficacy"><i class="fa fa-check"></i><b>15.3</b> Case study - Funding of Clinical Trials and Reported Drug Efficacy</a></li>
+<li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.4</b> Regression discontinuity design</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.4.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-1"><i class="fa fa-check"></i><b>15.4.2</b> Simulated example</a></li>
+<li class="chapter" data-level="15.4.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overlap"><i class="fa fa-check"></i><b>15.4.3</b> Overlap</a></li>
+<li class="chapter" data-level="15.4.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#examples"><i class="fa fa-check"></i><b>15.4.4</b> Examples</a></li>
+<li class="chapter" data-level="15.4.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation"><i class="fa fa-check"></i><b>15.4.5</b> Implementation</a></li>
+<li class="chapter" data-level="15.4.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#fuzzy-rdd"><i class="fa fa-check"></i><b>15.4.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="15.4.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#threats-to-validity"><i class="fa fa-check"></i><b>15.4.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="15.4.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#weaknesses"><i class="fa fa-check"></i><b>15.4.8</b> Weaknesses</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>15.5</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="15.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>15.6</b> Case study - Caughey, and Sekhon., 2011</a></li>
+<li class="chapter" data-level="15.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#instrumental-variables"><i class="fa fa-check"></i><b>15.7</b> Instrumental variables</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.7.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#history"><i class="fa fa-check"></i><b>15.7.2</b> History</a></li>
+<li class="chapter" data-level="15.7.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-2"><i class="fa fa-check"></i><b>15.7.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.7.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation-1"><i class="fa fa-check"></i><b>15.7.4</b> Implementation</a></li>
+<li class="chapter" data-level="15.7.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#assumptions-1"><i class="fa fa-check"></i><b>15.7.5</b> Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---effect-of-police-on-crime"><i class="fa fa-check"></i><b>15.8</b> Case study - Effect of Police on Crime</a>
+<ul>
+<li class="chapter" data-level="15.8.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overview-3"><i class="fa fa-check"></i><b>15.8.1</b> Overview</a></li>
+<li class="chapter" data-level="15.8.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data-1"><i class="fa fa-check"></i><b>15.8.2</b> Data</a></li>
+<li class="chapter" data-level="15.8.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model-1"><i class="fa fa-check"></i><b>15.8.3</b> Model</a></li>
+<li class="chapter" data-level="15.8.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#discussion"><i class="fa fa-check"></i><b>15.8.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="15.9" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#conclusion"><i class="fa fa-check"></i><b>15.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>16</b> Poll of polls</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>18.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="18.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>18.3</b> Topic models</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-4"><i class="fa fa-check"></i><b>18.3.1</b> Overview</a></li>
+<li class="chapter" data-level="18.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>18.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="18.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>18.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="18.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>18.3.4</b> Warnings and extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>18.4</b> Word embedding</a></li>
+<li class="chapter" data-level="18.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>18.5</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>VI Scale</b></span></li>
+<li class="chapter" data-level="19" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>19</b> Cloud</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>19.2</b> Google Colab</a></li>
+<li class="chapter" data-level="19.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
+<li class="chapter" data-level="19.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="19.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>19.5</b> Azure</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+</ul></li>
+<li class="part"><span><b>VII Assessment</b></span></li>
+<li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>21.1</b> ‘Mandatory Minimums’</a>
+<ul>
+<li class="chapter" data-level="21.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>21.1.1</b> Task</a></li>
+<li class="chapter" data-level="21.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>21.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>21.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>21.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>21.1.5</b> Rubric</a></li>
+<li class="chapter" data-level="21.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>21.1.6</b> Previous examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>21.2</b> ‘These numbers mean dial it up’</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>21.2.1</b> Task</a></li>
+<li class="chapter" data-level="21.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>21.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>21.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>21.2.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>21.2.5</b> Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>21.3</b> ‘The Short List’</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>21.3.1</b> Task</a></li>
+<li class="chapter" data-level="21.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>21.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>21.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>21.3.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>21.4</b> ‘Two Cathedrals’</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>21.4.1</b> Task</a></li>
+<li class="chapter" data-level="21.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>21.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>21.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="21.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>21.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="21.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>21.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="21.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>21.4.6</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>21.5</b> ‘A Proportional Response’</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>21.5.1</b> Task</a></li>
+<li class="chapter" data-level="21.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>21.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>21.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>21.5.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>21.6</b> ‘Mr Willis of Ohio’</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>21.6.1</b> Task</a></li>
+<li class="chapter" data-level="21.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>21.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>21.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>21.6.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>21.7</b> ‘Five Votes Down’</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>21.7.1</b> Task</a></li>
+<li class="chapter" data-level="21.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>21.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>21.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>21.7.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>21.8</b> ‘What’s next?’</a>
+<ul>
+<li class="chapter" data-level="21.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>21.8.1</b> Task</a></li>
+<li class="chapter" data-level="21.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>21.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>21.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>21.8.4</b> FAQ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Telling Stories With Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-essentials" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> R Essentials</h1>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Bryan, Jennifer and Jim Hester, 2020, <em>What they Forgot to Teach You About R</em>, Chapters 1 to 5, <a href="https://rstats.wtf/debugging-r-code.html" class="uri">https://rstats.wtf/debugging-r-code.html</a>.</li>
+<li>Wickham, Hadley, and Garrett Grolemund, 2017, <em>R for Data Science</em>, Chapters 3 - 6, 8, 10, 11, 13, 14, 15, and 18, <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</li>
+</ul>
+<p><strong>Required viewing</strong></p>
+<ul>
+<li>Kuriwaki, Shiro, 2020, ‘Defining Custom Functions in R,’ <em>Vimeo</em>, 2 February, <a href="https://vimeo.com/388825332" class="uri">https://vimeo.com/388825332</a>.</li>
+</ul>
+<p><strong>Alternative reading</strong></p>
+<p>There are a lot of great alternative ‘getting started with R’ type materials. Depending on your background and interests you may find some of the following useful:</p>
+<ul>
+<li>Arnold, Taylor, and Lauren Tilton, 2015, <em>Humanities Data in R</em>, Springer, Chapters 1 to 5.</li>
+<li>Hall, Megan, 2019, ‘An Introduction to R With Hockey Data,’ <a href="https://hockey-graphs.com/2019/12/11/an-introduction-to-r-with-hockey-data/" class="uri">https://hockey-graphs.com/2019/12/11/an-introduction-to-r-with-hockey-data/</a>.</li>
+<li>Hanretty, Chris, 2020, ‘ConveRt,’ slides <a href="http://chrishanretty.co.uk/conveRt/#1" class="uri">http://chrishanretty.co.uk/conveRt/#1</a>.</li>
+<li>Phillips, Nathaniel D., 2018, <em>YaRrr! The Pirate’s Guide to R</em>, Chapter 2, <a href="https://bookdown.org/ndphillips/YaRrr/started.html" class="uri">https://bookdown.org/ndphillips/YaRrr/started.html</a>.</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>Alexander, Monica, 2019, ‘The concentration and uniqueness of baby names in Australia and the US,’ <a href="https://www.monicaalexander.com/posts/2019-20-01-babynames/" class="uri">https://www.monicaalexander.com/posts/2019-20-01-babynames/</a>.</li>
+<li>Hvitfeldt, Emil, 2020, ‘Emoji in ggplot2,’ <a href="https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/" class="uri">https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/</a>.</li>
+<li>Pavlik, Kaylin, 2018, ‘Dairy Queen Deserts in Minnesota,’ <a href="https://www.kaylinpavlik.com/dairy-queen-deserts/" class="uri">https://www.kaylinpavlik.com/dairy-queen-deserts/</a>.</li>
+<li>‘R Studio Cloud Guide,’ <a href="https://rstudio.cloud/learn/guide" class="uri">https://rstudio.cloud/learn/guide</a>.</li>
+<li>Scherer, Cédric, 2019, ‘Best TidyTuesday 2019,’ <a href="https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/" class="uri">https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/</a>.</li>
+<li>Silge, Julia, 2019, ‘Reordering and facetting for ggplot2,’ <a href="https://juliasilge.com/blog/reorder-within/" class="uri">https://juliasilge.com/blog/reorder-within/</a>.</li>
+<li>Smale, David, 2019, ‘Happy Days,’ <a href="https://davidsmale.netlify.com/portfolio/happy-days/" class="uri">https://davidsmale.netlify.com/portfolio/happy-days/</a>.</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li><code>ggplot2</code></li>
+<li><code>tidyverse</code></li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>Tibbles</li>
+<li>Importing data</li>
+<li>Joining data</li>
+<li>Strings</li>
+<li>Factors</li>
+<li>Dates</li>
+<li>Pivot</li>
+</ul>
+<p><strong>Key functions</strong></p>
+<ul>
+<li><code>class()</code></li>
+<li><code>dplyr::case_when()</code></li>
+<li><code>ggplot::facet_wrap()</code></li>
+<li><code>ggplot::geom_density()</code></li>
+<li><code>ggplot::geom_histogram()</code></li>
+<li><code>ggplot::geom_point()</code></li>
+<li><code>janitor::clean_names()</code></li>
+<li><code>skimr::skim()</code></li>
+<li><code>tidyr::pivot_longer()</code></li>
+<li><code>tidyr::pivot_wider()</code></li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>If I had a dataset with the following columns: <code>name</code>, <code>age</code> and wanted to focus on <code>name</code>, then which verb should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>tidyverse::select()</code>.</li>
+<li><code>tidyverse::mutate()</code>.</li>
+<li><code>tidyverse::filter()</code>.</li>
+<li><code>tidyverse::rename()</code>.</li>
+</ol></li>
+<li>If I want to cite R then how do I find a recommended citation (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>cite('R')</code>.</li>
+<li><code>cite()</code>.</li>
+<li><code>citation('R')</code>.</li>
+<li><code>citation()</code>.</li>
+</ol></li>
+<li>What are three advantages of R? What are three disadvantages?</li>
+<li>What is R Studio?
+<ol style="list-style-type: lower-alpha">
+<li>An integrated development environment (IDE)</li>
+<li>A closed source paid program</li>
+<li>A programming language created by Guido van Rossum</li>
+<li>A statistical programming language</li>
+</ol></li>
+<li>What is R?
+<ol style="list-style-type: lower-alpha">
+<li>A open source statistical programming language</li>
+<li>A programming language created by Guido van Rossum</li>
+<li>A closed source statistical programming language</li>
+<li>An integrated development environment (IDE)</li>
+</ol></li>
+<li>Which of the following are not tidyverse verbs (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>select().</li>
+<li>filter().</li>
+<li>arrange().</li>
+<li>mutate().</li>
+<li>visualize().</li>
+</ol></li>
+<li>If I wanted to make a new column which verb should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>select().</li>
+<li>filter().</li>
+<li>arrange().</li>
+<li>mutate().</li>
+<li>visualize().</li>
+</ol></li>
+<li>If I wanted to focus on particular rows which verb should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>select().</li>
+<li>filter().</li>
+<li>arrange().</li>
+<li>mutate().</li>
+<li>summarise()</li>
+</ol></li>
+<li>If I wanted a summary of the data that gave me the mean by sex, which two verbs should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>summarise().</li>
+<li>filter().</li>
+<li>arrange().</li>
+<li>mutate().</li>
+<li>group_by().</li>
+</ol></li>
+<li>What are the three key aspects of the grammar of graphics (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>data.</li>
+<li>aesthetics.</li>
+<li>type.</li>
+<li>geom_histogram().</li>
+</ol></li>
+<li>What is not one of the four challenges for mitigating bias mentioned in Hao 2019 (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>Unknown unknowns.</li>
+<li>Imperfect processes.</li>
+<li>The definitions of fairness.</li>
+<li>Lack of social context.</li>
+<li>Disinterest given profit considerations.</li>
+</ol></li>
+<li>What would be the output of <code>class('edward')</code> (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>“numeric.”</li>
+<li>“character.”</li>
+<li>“data.frame.”</li>
+<li>“vector.”</li>
+</ol></li>
+<li>How can I simulate 10,000 draws from a normal distribution with a mean of 27 and a standard deviation of 3 (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>rnorm(10000, mean = 27, sd = 3)</code>.</li>
+<li><code>rnorm(27, mean = 10000, sd = 3)</code>.</li>
+<li><code>rnorm(3, mean = 10000, sd = 27)</code>.</li>
+<li><code>rnorm(27, mean = 3, sd = 1000)</code>.</li>
+</ol></li>
+</ol>
+<div id="r-essentials-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> R essentials</h2>
+<p>This section is the basics of using R. Some of it may not make sense at first, but these are commands that we will come back to throughout these notes. You should initially just go through this chapter quickly, noting aspects that you don’t understand. Then start to play around with some of the initial case studies. Then maybe come back to this chapter. That way you will see how the various bits fit into context, and hopefully be more motivated to pick up various aspects. We will come back to everything in this chapter in more detail at some point in these notes.</p>
+<p>R is an open source language that is useful for statistical programming</p>
+<p>You can download R for free here: <a href="http://cran.utstat.utoronto.ca/" class="uri">http://cran.utstat.utoronto.ca/</a>, and you can download R Studio Desktop for free here: <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.</p>
+<p>When you are using R you will run into trouble at some point. To work through that trouble:</p>
+<ol style="list-style-type: decimal">
+<li>Look at the help file for the function by putting ? before the function e.g. <code>?pivot_wider</code>.</li>
+<li>Check the class of your data, by <code>class(data_set$data_column)</code>.</li>
+<li>Check for typos.</li>
+<li>Google the error.</li>
+<li>Google what you are trying to do.</li>
+<li>Restart R (<code>Session</code> -&gt; <code>Restart R and Clear Output</code>).</li>
+<li>Try to make a small example and see if you have the same issues.</li>
+<li>Restart your computer.</li>
+</ol>
+<p>The past ten years or so of R have been characterised by the rise of the tidyverse. This is ‘… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.’ <span class="citation"><a href="references-1.html#ref-tidyversewebsite" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-tidyversewebsite" role="doc-biblioref">2020b</a>)</span>. There are three distinctions here: the original R language, typically referred to as ‘base’; the ‘tidyverse’ which is a collection of packages that build on top of the R language; and other packages.</p>
+<p>Pretty much everything that you can do in the tidyverse, you can also do in base. However, as the tidyverse was built especially for modern data science it is usually easier to use the tidyverse, especially when you are setting out. Additionally, pretty much everything that you can do in the tidyverse, you can also do with other packages. However, as the tidyverse is a coherent collection of packages, it is often easier to use the tidyverse, especially when you are setting out. Eventually you will start to see cases where it makes sense to trade-off the convenience and coherence of the tidyverse for some features of base or other packages. Indeed you’ll see that at various points in these notes. For instance, the tidyverse can be slow, and so if you need to import thousands of CSVs then it can make sense to switch away from <code>read_csv()</code>. That is great and the appropriate use of base and non-tidyverse packages, rather than dogmatic insistence on a solution, is a sign of your development as an applied statistician.</p>
+<p>Get started by loading the <code>tidyverse</code> package.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-essentials.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>The general workflow that we will use involves:</p>
+<ol style="list-style-type: decimal">
+<li>Import</li>
+<li>Tidy</li>
+<li>Transforming, descriptive</li>
+<li>Plot</li>
+<li>Model</li>
+<li>Repeat 3/4</li>
+</ol>
+<p>People like Keyes have tried to tell us this for a long time, but COVID-19 make it very clear to everyone - most of the data that we use will have humans at the heart of it. It’s vitally important that you keep that in mind and grapple with it in everything that you do with R. It can be really easy to forget that almost every point in our dataset is likely a person.</p>
+</div>
+<div id="social-impact" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Social impact</h2>
+<blockquote>
+<p>“We shouldn’t have to think about the societal impact of our work because it’s hard and other people can do it for us” is a really bad argument. I stopped doing CV research because I saw the impact my work was having. I loved the work but the military applications and privacy concerns eventually became impossible to ignore. But basically all facial recognition work would not get published if we took Broader Impacts sections seriously. There is almost no upside and enormous downside risk. To be fair though i should have a lot of humility here. For most of grad school I bought in to the myth that science is apolitical and research is objectively moral and good no matter what the subject is.</p>
+<p>Joe Redmon, <a href="https://twitter.com/pjreddie/status/1230524770350817280">20 February 2020</a>.</p>
+</blockquote>
+<p>Although the term ‘data science’ is ubiquitous in academia, industry, and even more generally, it is difficult to define. One deliberately antagonistic definition of data science is ‘[t]he inhumane reduction of humanity down to what can be counted’ <span class="citation">(<a href="references-1.html#ref-keyes2009" role="doc-biblioref">Keyes 2019</a>)</span>. While purposefully controversial, this definition highlights one reason for the increased demand for data science and quantitative methods over the past decade—individuals and their behaviour are now at the heart of it. Many of the techniques have been around for many decades, but what makes them popular now is this human focus.</p>
+<p>Unfortunately, even though much of the work may be focused on individuals, issues of privacy and consent, and ethical concerns more broadly, rarely seem front of mind. While there are some exceptions, in general, even at the same time as claiming that AI, machine learning, and data science are going to revolutionise society, consideration of these types of issues appears to have been largely treated as something that would be nice to have, rather than something that we may like to think of before we embrace the revolution.</p>
+<p>For the most part, these are not new issues. In the sciences, there has been considerable recent ethical consideration around CRISPR technology and gene editing, but in an earlier time similar conversations were had, for instance, about Wernher von Braun being allowed to building rockets for the US. In medicine, of course, these concerns have been front-of-mind for some time. Data science seems determined to have its own Tuskegee syphilis experiment moment rather than think about and deal appropriately with these issues, based on the experiences of other fields, before they occur.</p>
+<p>That said, there is some evidence that data scientists are beginning to be more concerned about the ethics surrounding the practice. For instance, NeurIPS, the most prestigious machine learning conference, now requires a statement on ethics to accompany all submissions.</p>
+<blockquote>
+<p>In order to provide a balanced perspective, authors are required to include a statement of the potential broader impact of their work, including its ethical aspects and future societal consequences. Authors should take care to discuss both positive and negative outcomes.</p>
+<p><a href="https://neurips.cc/Conferences/2020/CallForPapers">NeurIPS call for papers</a>, as accessed 26 February 2020.</p>
+</blockquote>
+<p>Ethical considerations will be mentioned throughout these notes rather than clumped in one easily ignorable part that can be thrown away after ‘ethics week.’ The purpose is not to prescriptively rule things in or out, but to provide an opportunity to raise some issues that should be front of mind. The variety of data science applications, the relative youth of the field, and the speed of change, mean that ethical considerations can sometimes be set aside when it comes to data science. This is in contrast to fields such as science, medicine, engineering, and accounting where there is a long history. Nonetheless it can helpful to think through some ethical considerations that you may encounter in the content of a usual data science project.</p>
+<div class="figure"><span id="fig:unnamed-chunk-18"></span>
+<img src="figures/probability.png" alt="Probability, from https://xkcd.com/881/." width="90%" />
+<p class="caption">
+Figure 3.1: Probability, from <a href="https://xkcd.com/881/" class="uri">https://xkcd.com/881/</a>.
+</p>
+</div>
+</div>
+<div id="r-r-studio-and-r-studio-cloud" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> R, R Studio, and R Studio Cloud</h2>
+<p>My colleague <a href="https://twitter.com/liza_bolton">Liza Bolton</a> has a lovely analogy here on the relationship between R and R Studio which I really like. R is like a car engine and R Studio is like the car. Although some of us can use a car engine directly, most of us use a car to interact with the engine.</p>
+<div id="r" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> R</h3>
+<p>R - <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a> - is an open source and free programming language that is focused on general statistics. (Free in this context doesn’t refer to a price of zero, but instead to ‘freedom,’ but it also does have a price of zero). This is in contrast with a open source programming language that is designed for general purpose, such as Python, or an open source programming language that is focused on probability, such as Stan. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland in New Zealand. It is maintained by the R Core Team and changes to this ‘base’ of code occur methodically and with concern given to a variety of different priorities.</p>
+<p>If you are in Canada then you can download R here: <a href="http://cran.utstat.utoronto.ca/" class="uri">http://cran.utstat.utoronto.ca/</a>, if you are in Australia then you can download R here: <a href="https://cran.csiro.au/" class="uri">https://cran.csiro.au/</a>, otherwise you should go here - <a href="https://cran.r-project.org/mirrors.html" class="uri">https://cran.r-project.org/mirrors.html</a> - and find a location that suits you. (It doesn’t really matter where you get it from, it’s just that it may be slightly faster to use a closer option.)</p>
+<p>Many people build on this stable base, to extend the capabilities of R to better and more quickly suit their needs. They do this by creating packages. Typically, although not always, a package is a collection R code, and this allows you to more easily do things that you want to do. These packages are managed by the Comprehensive R Archive Network (CRAN) - <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>, and other repositories. CRAN is built into the download of R that you just got, so you can use it straight away.</p>
+<p>If you want to use a package then you need to firstly install it in your computer, and then you need to load it when you want to use it. <a href="http://dicook.org/">Di Cook</a>, who is a Professor of Business Analytics at Monash University in Australia, <a href="https://twitter.com/visnut/status/1248087845589274624">describes</a> this as analogous to a lightbulb: if you want light in your house, first you need to screw in the lightbulb, and you need to turn the switch on. You only need to screw in the lightbulb once per house, but you need to turn the switch on every time you want to use the light.</p>
+<p>To install a package on your computer (again, you’ll need to do this only once per computer) you use the code:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-essentials.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>Then when you want to use a package, you need to call it with this code:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-essentials.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>You can open R and use it on your computer. It is primarily designed to be interacted with through the command line. This is how I had to start with R, and it’s fine, but it can be useful to have a richer environment than the command line provides. In particular, it can be useful to install an Integrated Development Environment (IDE), which is an application that brings together various bits and pieces that you’ll use all the time. The one that we will use is R Studio.</p>
+</div>
+<div id="r-studio" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> R Studio</h3>
+<p>R Studio is distinct to R and they are different entities. R Studio builds on top of R to make it easier for you to use R. This is in the same way that you can use the internet from the command line, but most of us use a browser such as Chrome, Firefox, or Safari.</p>
+<p>R Studio is free in the sense that you don’t pay anything for it. It is also free in the sense of being able to take the code, modify it, and distribute that code provided others are similarly allowed to take your code and modify it and distribute, etc. However, it is important to recognise that R Studio is an entity and so it is possible that in the future the current situation could change.</p>
+<p>You can download R Studio here: <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.</p>
+<p>When you open R Studio it will look like Figure <a href="r-essentials.html#fig:first">3.2</a>.</p>
+<div class="figure"><span id="fig:first"></span>
+<img src="figures/01-03_r_essentials/01.png" alt="Opening R Studio for the first time" width="100%" />
+<p class="caption">
+Figure 3.2: Opening R Studio for the first time
+</p>
+</div>
+<p>The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt ‘&gt;’ and typing that out then pressing enter. The code that you type should be:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-essentials.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>And hopefully you get the same answer printed in the console.</p>
+<p>The pane on the top right has information about your environment. For instance, when we create variables a list of their names and some properties will appear there. Try to type the following code, replacing my name with your name, next to the prompt, and again press enter:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-essentials.html#cb40-1" aria-hidden="true" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="st">&quot;Rohan&quot;</span></span></code></pre></div>
+<p>You should notice a new value in the environment pane with the variable name and its value.</p>
+<p>The pane in the bottom right is a file manager. At the moment it should just have two files - an R History file and a R Project file. We’ll get to what these are later, but for now we will create and save a file.</p>
+<p>Type out the following code (don’t worry too much about the details for now):</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-essentials.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="at">object =</span> my_name, <span class="at">file =</span> <span class="st">&quot;my_first_file.rds&quot;</span>)</span></code></pre></div>
+<p>And you should see a new ‘.rds’ file in your list of files.</p>
+</div>
+<div id="r-studio-cloud" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> R Studio Cloud</h3>
+<p>While you can download R Studio to your own computer, initially we will us R Studio Cloud, which is an online version that is provided by R Studio. We will use this so that you can focus on getting comfortable with R and R Studio in an environment that is consistent. This way you don’t have to worry about what computer you have or installation permissions while you are still getting used to the basics.</p>
+<p>The R Studio Cloud - <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> - is as easy as it gets in terms of moving to the cloud. The trade-off is that it is not very powerful and it is sometimes slow, but for the purposes of the initial sections of these notes that will be fine.</p>
+<p>To get started, go to <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> and create an account. If you are going to be a student for a while then it might be worthwhile using a university email account, because although they don’t yet charge for it, they will probably start charging soon, but with some luck they will offer education discounts.</p>
+<p>Once you have an account and log in, then it should look something like Figure <a href="r-essentials.html#fig:second">3.3</a>.</p>
+<div class="figure"><span id="fig:second"></span>
+<img src="figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
+<p class="caption">
+Figure 3.3: Opening R Studio Cloud for the first time
+</p>
+</div>
+<p>(You’ll be in ‘Your Workspace,’ and you won’t have a ‘Example Workspace.’) From here you should start a ‘New Project.’ You can give the project a name by clicking on ‘Untitled Project’ and replacing it. We can now use R Studio in the cloud.</p>
+<p>While working line-by-line in the console is fine, it is easier to write out a whole script that can then be executed. We will do this by making an R Script. To do this go to: File -&gt; New File -&gt; R Script, or use the shortcut Command + Shift + N. The console pane will fall to the bottom left and an R Script will open in the top left. Let’s write some code that will grab all of the Australian politicians and then construct a small table about the genders of the prime ministers.</p>
+<p>(Some of this code won’t make sense at this stage, but just type it all out to get in the habit and then run it, by selecting all of the code and clicking ‘Run’ (or using the keyboard shortcut: Command + Return)</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-essentials.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the packages that we&#39;ll need</span></span>
+<span id="cb42-2"><a href="r-essentials.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb42-3"><a href="r-essentials.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-essentials.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the packages that we need to use this time</span></span>
+<span id="cb43-2"><a href="r-essentials.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb43-3"><a href="r-essentials.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb43-4"><a href="r-essentials.html#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="r-essentials.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Grab the data on Australian politicians</span></span>
+<span id="cb43-6"><a href="r-essentials.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;RohanAlexander/AustralianPoliticians&quot;</span>)</span>
+<span id="cb43-7"><a href="r-essentials.html#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="r-essentials.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a table of the counts of genders of the prime ministers</span></span>
+<span id="cb43-9"><a href="r-essentials.html#cb43-9" aria-hidden="true" tabindex="-1"></a>AustralianPoliticians<span class="sc">::</span>all <span class="sc">%&gt;%</span> </span>
+<span id="cb43-10"><a href="r-essentials.html#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb43-11"><a href="r-essentials.html#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(gender, wasPrimeMinister)</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##   gender wasPrimeMinister     n
+##   &lt;chr&gt;             &lt;int&gt; &lt;int&gt;
+## 1 female                1     1
+## 2 female               NA   235
+## 3 male                  1    29
+## 4 male                 NA  1511</code></pre>
+<p>You can save your R Script as ‘my_first_r_script.R’ using File -&gt; Save As (or the keyboard shortcut: Command + S). When you’re done your workspace should look something like Figure <a href="r-essentials.html#fig:third">3.4</a>.</p>
+<div class="figure"><span id="fig:third"></span>
+<img src="figures/01-03_r_essentials/03.png" alt="After running an R Script" width="100%" />
+<p class="caption">
+Figure 3.4: After running an R Script
+</p>
+</div>
+<p>One thing to be aware of is that each R Studio Cloud workspace is essentially a new computer. Because of this, you’ll need to install any package that you want to use for each workspace. For instance, before you can use the tidyverse, you need to install.packages(“tidyverse”). This is in contrast to when you use your own computer.</p>
+<p>A few final notes on R Studio Cloud for you to keep in the back of your mind:</p>
+<ol style="list-style-type: decimal">
+<li>In the Australian politicians example we got our data from the website GitHub, but you can get data into your workspace from your local computer in a variety of ways. One way is to use the ‘upload’ button in the Files panel.</li>
+<li>R Studio Cloud allows some degree of collaboration. For instance, you can give someone else access to a workspace that you create. This could be useful for collaborating on an assignment, although it is not quite full featured yet and you cannot both be in the workspace at the same time (in contrast to, say, Google Docs).</li>
+<li>There are a variety of weaknesses of R Studio Cloud, in particular at the moment there is a 1GB limit on RAM. Additionally, it is still under-developed and things break from time to time. The R Studio Community page that is focused on R Studio Cloud can be helpful sometimes: <a href="https://community.rstudio.com/c/rstudio-cloud" class="uri">https://community.rstudio.com/c/rstudio-cloud</a>.</li>
+</ol>
+</div>
+</div>
+<div id="tidyverse-i" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Tidyverse I</h2>
+<p><strong>Aspects of ‘Tidyverse I’ were written with <a href="https://www.monicaalexander.com/">Monica Alexander</a>.</strong></p>
+<p>One of the key packages that we use in these notes is the <code>tidyverse</code> <span class="citation"><a href="references-1.html#ref-tidyverse" role="doc-biblioref">Wickham et al.</a> (<a href="references-1.html#ref-tidyverse" role="doc-biblioref">2019a</a>)</span>. The <code>tidyverse</code> is actually a package of packages (i.e. when you install <code>tidyverse</code>, you are actually installing a whole bunch of different packages). The key package in the <code>tidyverse</code> in terms of manipulating data is <code>dplyr</code> <span class="citation"><a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al.</a> (<a href="references-1.html#ref-citedplyr" role="doc-biblioref">2020</a>)</span>, and the key package in the <code>tidyverse</code> in terms of creating graphs is <code>ggplot2</code> <span class="citation"><a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-citeggplot" role="doc-biblioref">2016</a>)</span>.</p>
+<p>In this section we are going to cycle through some essentials from the Tidyverse. You’ll come back to the functions in this section regularly.</p>
+<p>I want to keep this section self-contained, so let’s start by installing the <code>tidyverse</code> (again, to use Di Cook’s analogy, this is the equivalent of screwing in the light-bulb). If you just did it, then you don’t need to do it again.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="r-essentials.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>Now we can load the <code>tidyverse</code> (again, to use Di Cook’s analogy, the equivalent of turning on the light-switch).</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-essentials.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Here we are going to download the data about Australian politicians using the function <code>read_csv()</code>.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="r-essentials.html#cb47-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="ot">&lt;-</span> </span>
+<span id="cb47-2"><a href="r-essentials.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(</span>
+<span id="cb47-3"><a href="r-essentials.html#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> </span>
+<span id="cb47-4"><a href="r-essentials.html#cb47-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;https://raw.githubusercontent.com/RohanAlexander/telling_stories_with_data/master/inputs/data/australian_politicians.csv&quot;</span></span>
+<span id="cb47-5"><a href="r-essentials.html#cb47-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_character(),
+##   birthDate = col_date(format = &quot;&quot;),
+##   birthYear = col_double(),
+##   deathDate = col_date(format = &quot;&quot;),
+##   member = col_double(),
+##   senator = col_double(),
+##   wasPrimeMinister = col_double()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<p>We will now cover the pipe and six functions that are useful to know and that we will use all the time:</p>
+<ul>
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+<li><code>arrange()</code></li>
+<li><code>mutate()</code></li>
+<li><code>summarise()/summarize()</code></li>
+<li><code>group_by()</code></li>
+</ul>
+<div id="the-pipe" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> The pipe</h3>
+<p>One key tidyverse helper is the ‘pipe’: <code>%&gt;%</code>. Read it as “and then” (keyboard shortcut: Command + Shift + M). This takes the output of a line of code and uses it as an input to the next line of code. You don’t have to use it, but it tends to make your code more readable.</p>
+<p>The idea of the pipe is that you take your dataset, <strong>and then</strong>, do something to it. In this case, we will look at the first few lines of our dataset by piping <code>australian_politicians</code> through to the <code>head()</code> function.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="r-essentials.html#cb49-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="r-essentials.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Abbott1… Abbott  Richard Hart… Richard   &lt;NA&gt;       Abbott, Ri…
+## 2 Abbott1… Abbott  Percy Phipps  Percy     &lt;NA&gt;       Abbott, Pe…
+## 3 Abbott1… Abbott  Macartney     Macartney Mac        Abbott, Mac
+## 4 Abbott1… Abbott  Charles Lydi… Charles   Aubrey     Abbott, Au…
+## 5 Abbott1… Abbott  Joseph Palmer Joseph    &lt;NA&gt;       Abbott, Jo…
+## 6 Abbott1… Abbott  Anthony John  Anthony   Tony       Abbott, To…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+</div>
+<div id="selecting" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Selecting</h3>
+<p>The <code>select()</code> function is used to get a particular column of a dataset. For instance, we might like to select the first names column.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="r-essentials.html#cb51-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="r-essentials.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(firstName) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-3"><a href="r-essentials.html#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 1
+##   firstName
+##   &lt;chr&gt;    
+## 1 Richard  
+## 2 Percy    
+## 3 Macartney
+## 4 Charles  
+## 5 Joseph   
+## 6 Anthony</code></pre>
+<p>In R, there are many ways to do things. Another way to get a particular column of a dataset is to use the dollar sign. This is from base R (as opposed to <code>select()</code> which is from the <code>tidyverse</code> package).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="r-essentials.html#cb53-1" aria-hidden="true" tabindex="-1"></a>australian_politicians<span class="sc">$</span>firstName <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="r-essentials.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Richard&quot;   &quot;Percy&quot;     &quot;Macartney&quot; &quot;Charles&quot;   &quot;Joseph&quot;    &quot;Anthony&quot;</code></pre>
+<p>The two are almost equivalent and differ only in the class of what they return (we’ll talk more about class later in the notes).</p>
+<p>For the sake of completeness, if you combine <code>select()</code> with <code>pull()</code> then you will get the same class of output as if you use the dollar sign.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="r-essentials.html#cb55-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="r-essentials.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(firstName) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="r-essentials.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb55-4"><a href="r-essentials.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Richard&quot;   &quot;Percy&quot;     &quot;Macartney&quot; &quot;Charles&quot;   &quot;Joseph&quot;    &quot;Anthony&quot;</code></pre>
+<p>You can also use <code>select</code> to get rid of columns, by selecting in a negative sense.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="r-essentials.html#cb57-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="r-essentials.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>firstName)</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 19
+##    uniqueID surname allOtherNames commonName displayName earlierOrLaterN… title
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;
+##  1 Abbott1… Abbott  Richard Hart… &lt;NA&gt;       Abbott, Ri… &lt;NA&gt;             &lt;NA&gt; 
+##  2 Abbott1… Abbott  Percy Phipps  &lt;NA&gt;       Abbott, Pe… &lt;NA&gt;             &lt;NA&gt; 
+##  3 Abbott1… Abbott  Macartney     Mac        Abbott, Mac &lt;NA&gt;             &lt;NA&gt; 
+##  4 Abbott1… Abbott  Charles Lydi… Aubrey     Abbott, Au… &lt;NA&gt;             &lt;NA&gt; 
+##  5 Abbott1… Abbott  Joseph Palmer &lt;NA&gt;       Abbott, Jo… &lt;NA&gt;             &lt;NA&gt; 
+##  6 Abbott1… Abbott  Anthony John  Tony       Abbott, To… &lt;NA&gt;             &lt;NA&gt; 
+##  7 Abel1939 Abel    John Arthur   &lt;NA&gt;       Abel, John  &lt;NA&gt;             &lt;NA&gt; 
+##  8 Abetz19… Abetz   Eric          &lt;NA&gt;       Abetz, Eric &lt;NA&gt;             &lt;NA&gt; 
+##  9 Adams19… Adams   Judith Anne   &lt;NA&gt;       Adams, Jud… nee Bird         &lt;NA&gt; 
+## 10 Adams19… Adams   Dick Godfrey… &lt;NA&gt;       Adams, Dick &lt;NA&gt;             &lt;NA&gt; 
+## # … with 1,766 more rows, and 12 more variables: gender &lt;chr&gt;,
+## #   birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;, deathDate &lt;date&gt;,
+## #   member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;,
+## #   wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<p>Finally, you can select, based on conditions. For instance, selecting all all of the columns that start with something, for instance, ‘birth.’</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="r-essentials.html#cb59-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="r-essentials.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;birth&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 3
+##    birthDate  birthYear birthPlace  
+##    &lt;date&gt;         &lt;dbl&gt; &lt;chr&gt;       
+##  1 NA              1859 Bendigo     
+##  2 1869-05-14      1869 Hobart      
+##  3 1877-07-03      1877 Murrurundi  
+##  4 1886-01-04      1886 St Leonards 
+##  5 1891-10-18      1891 North Sydney
+##  6 1957-11-04      1957 London      
+##  7 1939-06-25      1939 Sydney      
+##  8 1958-01-25      1958 Stuttgart   
+##  9 1943-04-11      1943 Picton      
+## 10 1951-04-29      1951 Launceston  
+## # … with 1,766 more rows</code></pre>
+</div>
+<div id="filtering" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Filtering</h3>
+<p>The <code>filter()</code> function is used to get particular rows from a dataset. For instance, we might like to filter to only politicians that became prime minister.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="r-essentials.html#cb61-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb61-2"><a href="r-essentials.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wasPrimeMinister <span class="sc">==</span> <span class="dv">1</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 30 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Abbott1… Abbott  Anthony John  Anthony   Tony       Abbott, To…
+##  2 Barton1… Barton  Edmund        Edmund    &lt;NA&gt;       Barton, Ed…
+##  3 Bruce18… Bruce   Stanley Melb… Stanley   &lt;NA&gt;       Bruce, Sta…
+##  4 Chifley… Chifley Joseph Bened… Joseph    Ben        Chifley, B…
+##  5 Cook1860 Cook    Joseph        Joseph    &lt;NA&gt;       Cook, Jose…
+##  6 Curtin1… Curtin  John Joseph … John      &lt;NA&gt;       Curtin, Jo…
+##  7 Deakin1… Deakin  Alfred        Alfred    &lt;NA&gt;       Deakin, Al…
+##  8 Fadden1… Fadden  Arthur Willi… Arthur    Arthur     Fadden, Ar…
+##  9 Fisher1… Fisher  Andrew        Andrew    &lt;NA&gt;       Fisher, An…
+## 10 Forde18… Forde   Francis Mich… Francis   Frank      Forde, Fra…
+## # … with 20 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+<p>The <code>filter()</code> function also accepts two conditions. For instance, we can look at politicians who were prime minister and were named Joseph.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="r-essentials.html#cb63-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb63-2"><a href="r-essentials.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wasPrimeMinister <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> firstName <span class="sc">==</span> <span class="st">&quot;Joseph&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Chifley… Chifley Joseph Bened… Joseph    Ben        Chifley, B…
+## 2 Cook1860 Cook    Joseph        Joseph    &lt;NA&gt;       Cook, Jose…
+## 3 Lyons18… Lyons   Joseph Aloys… Joseph    &lt;NA&gt;       Lyons, Jos…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<p>We would get the same result if we use a comma instead of an ampersand.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="r-essentials.html#cb65-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb65-2"><a href="r-essentials.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(wasPrimeMinister <span class="sc">==</span> <span class="dv">1</span>, firstName <span class="sc">==</span> <span class="st">&quot;Joseph&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Chifley… Chifley Joseph Bened… Joseph    Ben        Chifley, B…
+## 2 Cook1860 Cook    Joseph        Joseph    &lt;NA&gt;       Cook, Jose…
+## 3 Lyons18… Lyons   Joseph Aloys… Joseph    &lt;NA&gt;       Lyons, Jos…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<p>Similarly, we can look at politicians who were named Myles or Ruth.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="r-essentials.html#cb67-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="r-essentials.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(firstName <span class="sc">==</span> <span class="st">&quot;Ruth&quot;</span> <span class="sc">|</span> firstName <span class="sc">==</span> <span class="st">&quot;Myles&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Coleman… Coleman Ruth Nancy    Ruth      &lt;NA&gt;       Coleman, R…
+## 2 Ferrick… Ferric… Myles Aloysi… Myles     &lt;NA&gt;       Ferricks, …
+## 3 Webber1… Webber  Ruth Stephan… Ruth      &lt;NA&gt;       Webber, Ru…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<p>We can also pipe the results, for instance, pipe from the <code>filter()</code> to <code>select()</code></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="r-essentials.html#cb69-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="r-essentials.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(firstName <span class="sc">==</span> <span class="st">&quot;Ruth&quot;</span> <span class="sc">|</span> firstName <span class="sc">==</span> <span class="st">&quot;Myles&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="r-essentials.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(firstName, surname)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   firstName surname 
+##   &lt;chr&gt;     &lt;chr&gt;   
+## 1 Ruth      Coleman 
+## 2 Myles     Ferricks
+## 3 Ruth      Webber</code></pre>
+<p>Finally, we can <code>filter()</code> to a particular row number, for instance, in this case row 853.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="r-essentials.html#cb71-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb71-2"><a href="r-essentials.html#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">853</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Jarman1… Jarman  Alan William  Alan      &lt;NA&gt;       Jarman, Al…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<p>But there is also a dedicated function to do this, which is <code>slice()</code></p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="r-essentials.html#cb73-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb73-2"><a href="r-essentials.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">853</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 20
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Jarman1… Jarman  Alan William  Alan      &lt;NA&gt;       Jarman, Al…
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+</div>
+<div id="arranging" class="section level3" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Arranging</h3>
+<p>We can change the order of the dataset based on the values in a particular column using the <code>arrange()</code> function. For instance, we may like to arrange the data by year of birth.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="r-essentials.html#cb75-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb75-2"><a href="r-essentials.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(surname)</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Abbott1… Abbott  Richard Hart… Richard   &lt;NA&gt;       Abbott, Ri…
+##  2 Abbott1… Abbott  Percy Phipps  Percy     &lt;NA&gt;       Abbott, Pe…
+##  3 Abbott1… Abbott  Macartney     Macartney Mac        Abbott, Mac
+##  4 Abbott1… Abbott  Charles Lydi… Charles   Aubrey     Abbott, Au…
+##  5 Abbott1… Abbott  Joseph Palmer Joseph    &lt;NA&gt;       Abbott, Jo…
+##  6 Abbott1… Abbott  Anthony John  Anthony   Tony       Abbott, To…
+##  7 Abel1939 Abel    John Arthur   John      &lt;NA&gt;       Abel, John 
+##  8 Abetz19… Abetz   Eric          Eric      &lt;NA&gt;       Abetz, Eric
+##  9 Adams19… Adams   Judith Anne   Judith    &lt;NA&gt;       Adams, Jud…
+## 10 Adams19… Adams   Dick Godfrey… Dick      &lt;NA&gt;       Adams, Dick
+## # … with 1,766 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+<p>We can also use the <code>desc()</code> function to arrange in descending order.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="r-essentials.html#cb77-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb77-2"><a href="r-essentials.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(surname))</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Zimmerm… Zimmer… Trent Moir    Trent     &lt;NA&gt;       Zimmerman,…
+##  2 Zeal1830 Zeal    William Aust… William   &lt;NA&gt;       Zeal, Will…
+##  3 Zappia1… Zappia  Antonio       Antonio   Tony       Zappia, To…
+##  4 Zammit1… Zammit  Paul John     Paul      &lt;NA&gt;       Zammit, Pa…
+##  5 Zakharo… Zakhar… Alice Olive   Alice     Olive      Zakharov, …
+##  6 Zahra19… Zahra   Christian Jo… Christian &lt;NA&gt;       Zahra, Chr…
+##  7 Young19… Young   Harold Willi… Harold    &lt;NA&gt;       Young, Har…
+##  8 Young19… Young   Michael Jero… Michael   Mick       Young, Mick
+##  9 Young19… Young   Terry James   Terry     &lt;NA&gt;       Young, Ter…
+## 10 Yates18… Yates   George Edwin  George    Gunner     Yates, Gun…
+## # … with 1,766 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+<p>We can also arrange based on more than one column.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="r-essentials.html#cb79-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb79-2"><a href="r-essentials.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(firstName, surname)</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Blain18… Blain   Adair Macali… Adair     &lt;NA&gt;       Blain, Ada…
+##  2 Armstro… Armstr… Adam Alexand… Adam      Bill       Armstrong,…
+##  3 Bandt19… Bandt   Adam Paul     Adam      &lt;NA&gt;       Bandt, Adam
+##  4 Dein1889 Dein    Adam Kemball  Adam      Dick       Dein, Dick 
+##  5 Ridgewa… Ridgew… Aden Derek    Aden      &lt;NA&gt;       Ridgeway, …
+##  6 Bennett… Bennett Adrian Frank  Adrian    &lt;NA&gt;       Bennett, A…
+##  7 Gibson1… Gibson  Adrian        Adrian    &lt;NA&gt;       Gibson, Ad…
+##  8 Wynne18… Wynne   Agar          Agar      &lt;NA&gt;       Wynne, Agar
+##  9 Roberts… Robert… Agnes Robert… Agnes     &lt;NA&gt;       Robertson,…
+## 10 Bird1906 Bird    Alan Charles  Alan      &lt;NA&gt;       Bird, Alan 
+## # … with 1,766 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+<p>We can pipe <code>arrange()</code> to another <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="r-essentials.html#cb81-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb81-2"><a href="r-essentials.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(firstName) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-3"><a href="r-essentials.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(surname)</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Abbott1… Abbott  Anthony John  Anthony   Tony       Abbott, To…
+##  2 Abbott1… Abbott  Charles Lydi… Charles   Aubrey     Abbott, Au…
+##  3 Abbott1… Abbott  Joseph Palmer Joseph    &lt;NA&gt;       Abbott, Jo…
+##  4 Abbott1… Abbott  Macartney     Macartney Mac        Abbott, Mac
+##  5 Abbott1… Abbott  Percy Phipps  Percy     &lt;NA&gt;       Abbott, Pe…
+##  6 Abbott1… Abbott  Richard Hart… Richard   &lt;NA&gt;       Abbott, Ri…
+##  7 Abel1939 Abel    John Arthur   John      &lt;NA&gt;       Abel, John 
+##  8 Abetz19… Abetz   Eric          Eric      &lt;NA&gt;       Abetz, Eric
+##  9 Adams19… Adams   Dick Godfrey… Dick      &lt;NA&gt;       Adams, Dick
+## 10 Adams19… Adams   Judith Anne   Judith    &lt;NA&gt;       Adams, Jud…
+## # … with 1,766 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+<p>It is just important to be clear about the precedence of each.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="r-essentials.html#cb83-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb83-2"><a href="r-essentials.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(surname, firstName)</span></code></pre></div>
+<pre><code>## # A tibble: 1,776 x 20
+##    uniqueID surname allOtherNames firstName commonName displayName
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+##  1 Abbott1… Abbott  Anthony John  Anthony   Tony       Abbott, To…
+##  2 Abbott1… Abbott  Charles Lydi… Charles   Aubrey     Abbott, Au…
+##  3 Abbott1… Abbott  Joseph Palmer Joseph    &lt;NA&gt;       Abbott, Jo…
+##  4 Abbott1… Abbott  Macartney     Macartney Mac        Abbott, Mac
+##  5 Abbott1… Abbott  Percy Phipps  Percy     &lt;NA&gt;       Abbott, Pe…
+##  6 Abbott1… Abbott  Richard Hart… Richard   &lt;NA&gt;       Abbott, Ri…
+##  7 Abel1939 Abel    John Arthur   John      &lt;NA&gt;       Abel, John 
+##  8 Abetz19… Abetz   Eric          Eric      &lt;NA&gt;       Abetz, Eric
+##  9 Adams19… Adams   Dick Godfrey… Dick      &lt;NA&gt;       Adams, Dick
+## 10 Adams19… Adams   Judith Anne   Judith    &lt;NA&gt;       Adams, Jud…
+## # … with 1,766 more rows, and 14 more variables: earlierOrLaterNames &lt;chr&gt;,
+## #   title &lt;chr&gt;, gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;,
+## #   birthPlace &lt;chr&gt;, deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,
+## #   wasPrimeMinister &lt;dbl&gt;, wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,
+## #   comments &lt;chr&gt;</code></pre>
+</div>
+<div id="grouping" class="section level3" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Grouping</h3>
+<p>We can group variables using the function <code>group_by()</code> and then apply some other function within those groups. For instance, we could arrange by first name within gender, and then get the first three results.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="r-essentials.html#cb85-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb85-2"><a href="r-essentials.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb85-3"><a href="r-essentials.html#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(firstName) <span class="sc">%&gt;%</span> </span>
+<span id="cb85-4"><a href="r-essentials.html#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 20
+## # Groups:   gender [2]
+##   uniqueID surname allOtherNames firstName commonName displayName
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;      
+## 1 Roberts… Robert… Agnes Robert… Agnes     &lt;NA&gt;       Robertson,…
+## 2 MacTier… MacTie… Alannah Joan… Alannah   &lt;NA&gt;       MacTiernan…
+## 3 Zakharo… Zakhar… Alice Olive   Alice     Olive      Zakharov, …
+## 4 Blain18… Blain   Adair Macali… Adair     &lt;NA&gt;       Blain, Ada…
+## 5 Armstro… Armstr… Adam Alexand… Adam      Bill       Armstrong,…
+## 6 Bandt19… Bandt   Adam Paul     Adam      &lt;NA&gt;       Bandt, Adam
+## # … with 14 more variables: earlierOrLaterNames &lt;chr&gt;, title &lt;chr&gt;,
+## #   gender &lt;chr&gt;, birthDate &lt;date&gt;, birthYear &lt;dbl&gt;, birthPlace &lt;chr&gt;,
+## #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,
+## #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+</div>
+<div id="mutating" class="section level3" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Mutating</h3>
+<p>The <code>mutate()</code> function is used to make a new column. For instance, perhaps we want to make a new column that is 1 if a person was a member and a senator and 0 otherwise.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="r-essentials.html#cb87-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="ot">&lt;-</span> </span>
+<span id="cb87-2"><a href="r-essentials.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb87-3"><a href="r-essentials.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">was_both =</span> <span class="fu">if_else</span>(member <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> senator <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb87-4"><a href="r-essentials.html#cb87-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-5"><a href="r-essentials.html#cb87-5" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb87-6"><a href="r-essentials.html#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member, senator, was_both) <span class="sc">%&gt;%</span> </span>
+<span id="cb87-7"><a href="r-essentials.html#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   member senator was_both
+##    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1      0       1        0
+## 2      1       1        1
+## 3      0       1        0
+## 4      1       0        0
+## 5      1       0        0
+## 6      1       0        0</code></pre>
+</div>
+<div id="summarise" class="section level3" number="3.4.7">
+<h3><span class="header-section-number">3.4.7</span> Summarise</h3>
+<p>The function <code>summarise()</code> is used to create new summary variables. For instance, looking at the maximum of birth year to find who the most recently born politicians are.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="r-essentials.html#cb89-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb89-2"><a href="r-essentials.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">youngest_politicians_birth_year =</span> <span class="fu">max</span>(birthYear, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   youngest_politicians_birth_year
+##                             &lt;dbl&gt;
+## 1                            1994</code></pre>
+<p>And we can check that using <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="r-essentials.html#cb91-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="r-essentials.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>birthYear) <span class="sc">%&gt;%</span> </span>
+<span id="cb91-3"><a href="r-essentials.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(uniqueID, surname, allOtherNames, birthYear) <span class="sc">%&gt;%</span> </span>
+<span id="cb91-4"><a href="r-essentials.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   uniqueID       surname     allOtherNames    birthYear
+##   &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;                &lt;dbl&gt;
+## 1 SteeleJohn1994 Steele-John Jordon Alexander      1994
+## 2 Chandler1990   Chandler    Claire                1990
+## 3 Roy1990        Roy         Wyatt Beau            1990</code></pre>
+<p>The <code>summarise()</code> function is particularly powerful in conjunction with <code>group_by()</code>. For instance, let’s look at the year of birth of the youngest by gender.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="r-essentials.html#cb93-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span></span>
+<span id="cb93-2"><a href="r-essentials.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb93-3"><a href="r-essentials.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">youngest_politician_birth_year =</span> <span class="fu">max</span>(birthYear, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   gender youngest_politician_birth_year
+## * &lt;chr&gt;                           &lt;dbl&gt;
+## 1 female                           1990
+## 2 male                             1994</code></pre>
+<p>Let’s look at mean of age at death by gender.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="r-essentials.html#cb95-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="r-essentials.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> deathDate <span class="sc">-</span> birthDate) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-3"><a href="r-essentials.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-4"><a href="r-essentials.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-5"><a href="r-essentials.html#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_days_lived =</span> <span class="fu">round</span>(<span class="fu">mean</span>(days_lived), <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-6"><a href="r-essentials.html#cb95-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>mean_days_lived)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   gender mean_days_lived
+##   &lt;chr&gt;  &lt;drtn&gt;         
+## 1 female 28857.30 days  
+## 2 male   27372.89 days</code></pre>
+<p>We can use <code>group_by()</code> for more than one group for instance, looking again at average number of days lived by gender and by which house.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="r-essentials.html#cb97-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span></span>
+<span id="cb97-2"><a href="r-essentials.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> deathDate <span class="sc">-</span> birthDate) <span class="sc">%&gt;%</span> </span>
+<span id="cb97-3"><a href="r-essentials.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb97-4"><a href="r-essentials.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, wasPrimeMinister) <span class="sc">%&gt;%</span> </span>
+<span id="cb97-5"><a href="r-essentials.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_days_lived =</span> <span class="fu">round</span>(<span class="fu">mean</span>(days_lived), <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb97-6"><a href="r-essentials.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>mean_days_lived)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;gender&#39;. You can override using the `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 3 x 3
+## # Groups:   gender [2]
+##   gender wasPrimeMinister mean_days_lived
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;drtn&gt;         
+## 1 female               NA 28857.30 days  
+## 2 male                  1 28446.61 days  
+## 3 male                 NA 27345.20 days</code></pre>
+</div>
+<div id="counting" class="section level3" number="3.4.8">
+<h3><span class="header-section-number">3.4.8</span> Counting</h3>
+<p>We can use the function <code>count()</code> to create counts by groups. For instance, the number of politicians by gender.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="r-essentials.html#cb100-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="r-essentials.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb100-3"><a href="r-essentials.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+## # Groups:   gender [2]
+##   gender     n
+##   &lt;chr&gt;  &lt;int&gt;
+## 1 female   236
+## 2 male    1540</code></pre>
+</div>
+<div id="proportions" class="section level3" number="3.4.9">
+<h3><span class="header-section-number">3.4.9</span> Proportions</h3>
+<p>Finally, often calculating proportions is a combination of <code>summarise()</code> and <code>mutate()</code> (and <code>group_by()</code>).</p>
+<p>Let’s calculate the proportion of genders.</p>
+<p>Note here, that we needed to <code>ungroup()</code> the data before mutating.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="r-essentials.html#cb102-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb102-2"><a href="r-essentials.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb102-3"><a href="r-essentials.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb102-4"><a href="r-essentials.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb102-5"><a href="r-essentials.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span>(<span class="fu">sum</span>(n)))</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   gender     n  prop
+##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;
+## 1 female   236 0.133
+## 2 male    1540 0.867</code></pre>
+</div>
+</div>
+<div id="base" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Base</h2>
+<div id="class" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Class</h3>
+<p>A class is the broader type of object that something is. For instance, your class is probably ‘human,’ which is itself a ‘animal.’ Similarly, if we create a number in R we can use <code>class()</code> to work out its class, which in this case will be numeric.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="r-essentials.html#cb104-1" aria-hidden="true" tabindex="-1"></a>my_number <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb104-2"><a href="r-essentials.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_number)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>Or we could make it a character.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="r-essentials.html#cb106-1" aria-hidden="true" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="st">&quot;rohan&quot;</span></span>
+<span id="cb106-2"><a href="r-essentials.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_name)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Finally, we can often coerce classes to be something else.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="r-essentials.html#cb108-1" aria-hidden="true" tabindex="-1"></a>my_number_as_character <span class="ot">&lt;-</span> <span class="fu">as.character</span>(my_number)</span>
+<span id="cb108-2"><a href="r-essentials.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_number_as_character)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>There are many ways for your code to not run, but having an issue with the classes is the almost always the first thing to check.</p>
+</div>
+<div id="simulating-data" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Simulating data</h3>
+<p>Simulating data is a key skill for statistics. We will use the following functions all the time: <code>rnorm()</code>, <code>sample()</code>, and <code>runif()</code>. Arguably the most important function is <code>set.seed()</code>, which we need because while we want our data to be random, we want it to be repeatable.</p>
+<p>Let’s get 10 observations from the standard normal.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="r-essentials.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb110-2"><a href="r-essentials.html#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="r-essentials.html#cb110-3" aria-hidden="true" tabindex="-1"></a>number_of_observations <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb110-4"><a href="r-essentials.html#cb110-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="r-essentials.html#cb110-5" aria-hidden="true" tabindex="-1"></a>simulated_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>number_of_observations),</span>
+<span id="cb110-6"><a href="r-essentials.html#cb110-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">observation =</span> <span class="fu">rnorm</span>(number_of_observations, </span>
+<span id="cb110-7"><a href="r-essentials.html#cb110-7" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">mean =</span> <span class="dv">0</span>, </span>
+<span id="cb110-8"><a href="r-essentials.html#cb110-8" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb110-9"><a href="r-essentials.html#cb110-9" aria-hidden="true" tabindex="-1"></a>                         )</span></code></pre></div>
+<p>Then let’s add 10 draws from the uniform distribution between 0 and 10.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="r-essentials.html#cb111-1" aria-hidden="true" tabindex="-1"></a>simulated_data<span class="sc">$</span>another_observation <span class="ot">&lt;-</span> <span class="fu">runif</span>(number_of_observations, </span>
+<span id="cb111-2"><a href="r-essentials.html#cb111-2" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">min =</span> <span class="dv">0</span>, </span>
+<span id="cb111-3"><a href="r-essentials.html#cb111-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">max =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p>Finally, let’s use sample, which allows use to pick from a list of items, to add a favourite colour to each observation.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="r-essentials.html#cb112-1" aria-hidden="true" tabindex="-1"></a>simulated_data<span class="sc">$</span>fav_colour <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot; white &quot;</span>), </span>
+<span id="cb112-2"><a href="r-essentials.html#cb112-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">size =</span> number_of_observations,</span>
+<span id="cb112-3"><a href="r-essentials.html#cb112-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>We set the option <code>replace</code> to <code>TRUE</code> because we are only choosing between two items, but we want ten outcomes. Depending on the simulation you should think about whether you need it <code>TRUE</code> or <code>FALSE</code>. Also, there is another useful option to adjust the probability with which each item is drawn. In particular, the default is that both options are equally likely, but perhaps we might like to have 10 per cent <code>blue</code> with 90 per cent <code>white</code>. The way to do this is to set the option <code>prob</code>. As always with functions, you can find more in the help with <code>?sample</code>.</p>
+</div>
+<div id="functions" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Functions</h3>
+<p>There are a lot of functions in R, and almost any common task that you might need to do is likely already done. But you will need to write your own functions. The way to do this is to define a function and give it a name. Your function will probably have some inputs (note that these inputs can have default values). Your function will then do something with these inputs and then return something.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="r-essentials.html#cb113-1" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(some_names) {</span>
+<span id="cb113-2"><a href="r-essentials.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(some_names)</span>
+<span id="cb113-3"><a href="r-essentials.html#cb113-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb113-4"><a href="r-essentials.html#cb113-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-5"><a href="r-essentials.html#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="fu">my_function</span>(<span class="fu">c</span>(<span class="st">&quot;rohan&quot;</span>, <span class="st">&quot;monica&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;rohan&quot;  &quot;monica&quot;</code></pre>
+</div>
+</div>
+<div id="ggplot-i" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> ggplot I</h2>
+<p>The <code>ggplot</code> package is the plotting package that is part of the <code>tidyverse</code> collection of packages.</p>
+<p>In a similar way to piping, it works in layers. But instead of using the pipe (<code>%&gt;%</code>) ggplot uses <code>+</code>.</p>
+<div id="main-features" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Main features</h3>
+<p>There are three key aspects:</p>
+<ol style="list-style-type: decimal">
+<li>data;</li>
+<li>aesthetics / mapping; and</li>
+<li>type.</li>
+</ol>
+<p>For instances, let’s build up a histogram of age of death with increasing complexity.</p>
+<p>Starts with a grey box:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="r-essentials.html#cb115-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb115-2"><a href="r-essentials.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> <span class="fu">as.integer</span>(deathDate <span class="sc">-</span> birthDate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb115-3"><a href="r-essentials.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb115-4"><a href="r-essentials.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> days_lived))</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p>We need to tell it what we want to plot. This is where <code>geom</code> comes in</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="r-essentials.html#cb116-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb116-2"><a href="r-essentials.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> <span class="fu">as.integer</span>(deathDate <span class="sc">-</span> birthDate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb116-3"><a href="r-essentials.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb116-4"><a href="r-essentials.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> days_lived)) <span class="sc">+</span></span>
+<span id="cb116-5"><a href="r-essentials.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">365</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p>Now let’s color the bars by gender, which means adding an aesthetic.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="r-essentials.html#cb117-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb117-2"><a href="r-essentials.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> <span class="fu">as.integer</span>(deathDate <span class="sc">-</span> birthDate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb117-3"><a href="r-essentials.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb117-4"><a href="r-essentials.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> days_lived, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb117-5"><a href="r-essentials.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">365</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p>We can add some labels, change the color, and background.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="r-essentials.html#cb118-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb118-2"><a href="r-essentials.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> <span class="fu">as.integer</span>(deathDate <span class="sc">-</span> birthDate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb118-3"><a href="r-essentials.html#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb118-4"><a href="r-essentials.html#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> days_lived, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb118-5"><a href="r-essentials.html#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">365</span>) <span class="sc">+</span></span>
+<span id="cb118-6"><a href="r-essentials.html#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Length of life of Australian politicians&quot;</span>, </span>
+<span id="cb118-7"><a href="r-essentials.html#cb118-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Age of deaths (days)&quot;</span>, </span>
+<span id="cb118-8"><a href="r-essentials.html#cb118-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>) <span class="sc">+</span></span>
+<span id="cb118-9"><a href="r-essentials.html#cb118-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb118-10"><a href="r-essentials.html#cb118-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p>I forget who said this but, ‘<code>ggplot</code> makes it so easy to have nicely labelled axes, there’s no real excuse not to.’</p>
+</div>
+<div id="facets" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Facets</h3>
+<p>Facets are subplots and are invaluable because they allow you to add another variable to your plot without having to make a 3D plot.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="r-essentials.html#cb119-1" aria-hidden="true" tabindex="-1"></a>australian_politicians <span class="sc">%&gt;%</span> </span>
+<span id="cb119-2"><a href="r-essentials.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">days_lived =</span> <span class="fu">as.integer</span>(deathDate <span class="sc">-</span> birthDate)) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-3"><a href="r-essentials.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(days_lived)) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-4"><a href="r-essentials.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> days_lived)) <span class="sc">+</span></span>
+<span id="cb119-5"><a href="r-essentials.html#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">365</span>) <span class="sc">+</span></span>
+<span id="cb119-6"><a href="r-essentials.html#cb119-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Length of life of Australian politicians&quot;</span>, </span>
+<span id="cb119-7"><a href="r-essentials.html#cb119-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Age of deaths (days)&quot;</span>, </span>
+<span id="cb119-8"><a href="r-essentials.html#cb119-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>) <span class="sc">+</span></span>
+<span id="cb119-9"><a href="r-essentials.html#cb119-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb119-10"><a href="r-essentials.html#cb119-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb119-11"><a href="r-essentials.html#cb119-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+</div>
+</div>
+<div id="tidyverse-ii" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Tidyverse II</h2>
+<div id="tibbles" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> Tibbles</h3>
+<p>A tibble is a data frame, but it is a data frame with some particular changes that make it easier to work with. You should read Chapter 10 of <span class="citation"><a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund</a> (<a href="references-1.html#ref-r4ds" role="doc-biblioref">2017</a>)</span> for more detail. The main difference is that compared with a dataframe, a tibble doesn’t convert strings to factors, and it prints nicely, including letting you know the class of a column.</p>
+<p>You can make a tibble manually if you need, for instance this can be handy for simulating data, but usually we will just import data as a tibble.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="r-essentials.html#cb120-1" aria-hidden="true" tabindex="-1"></a>people <span class="ot">&lt;-</span> </span>
+<span id="cb120-2"><a href="r-essentials.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;rohan&quot;</span>, <span class="st">&quot;monica&quot;</span>),</span>
+<span id="cb120-3"><a href="r-essentials.html#cb120-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">website =</span> <span class="fu">c</span>(<span class="st">&quot;rohanalexander.com&quot;</span>, <span class="st">&quot;monicaalexander.com&quot;</span>),</span>
+<span id="cb120-4"><a href="r-essentials.html#cb120-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">fav_colour =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot; white &quot;</span>),</span>
+<span id="cb120-5"><a href="r-essentials.html#cb120-5" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb120-6"><a href="r-essentials.html#cb120-6" aria-hidden="true" tabindex="-1"></a>people</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   names  website             fav_colour
+##   &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt;     
+## 1 rohan  rohanalexander.com  &quot;blue&quot;    
+## 2 monica monicaalexander.com &quot; white &quot;</code></pre>
+</div>
+<div id="importing-data" class="section level3" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> Importing data</h3>
+<p>There are a variety of ways to import data. If you are dealing with CSV files then try <code>read_csv()</code> in the first instance. There were examples of that in earlier sections.</p>
+</div>
+<div id="joining-data" class="section level3" number="3.7.3">
+<h3><span class="header-section-number">3.7.3</span> Joining data</h3>
+<p>We can join two datasets together in a variety of ways. The most common join that I use is <code>left_join()</code>, where I have one main dataset and I want to join another to it based on some common column names. Here we’ll join two datasets based on favourite colour.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="r-essentials.html#cb122-1" aria-hidden="true" tabindex="-1"></a>both <span class="ot">&lt;-</span> </span>
+<span id="cb122-2"><a href="r-essentials.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  simulated_data <span class="sc">%&gt;%</span> </span>
+<span id="cb122-3"><a href="r-essentials.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(people, <span class="at">by =</span> <span class="st">&quot;fav_colour&quot;</span>)</span>
+<span id="cb122-4"><a href="r-essentials.html#cb122-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-5"><a href="r-essentials.html#cb122-5" aria-hidden="true" tabindex="-1"></a>both</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 6
+##    person observation another_observation fav_colour names  website            
+##     &lt;int&gt;       &lt;dbl&gt;               &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;              
+##  1      1     -0.360                9.52  &quot;blue&quot;     rohan  rohanalexander.com 
+##  2      2     -0.0406               0.586 &quot; white &quot;  monica monicaalexander.com
+##  3      3     -1.78                 2.48  &quot;blue&quot;     rohan  rohanalexander.com 
+##  4      4     -1.12                 5.80  &quot; white &quot;  monica monicaalexander.com
+##  5      5     -1.00                 5.26  &quot;blue&quot;     rohan  rohanalexander.com 
+##  6      6      1.78                 4.09  &quot;blue&quot;     rohan  rohanalexander.com 
+##  7      7     -1.39                 3.97  &quot;blue&quot;     rohan  rohanalexander.com 
+##  8      8     -0.497                2.52  &quot; white &quot;  monica monicaalexander.com
+##  9      9     -0.558                6.29  &quot;blue&quot;     rohan  rohanalexander.com 
+## 10     10     -0.824                8.57  &quot;blue&quot;     rohan  rohanalexander.com</code></pre>
+</div>
+<div id="strings" class="section level3" number="3.7.4">
+<h3><span class="header-section-number">3.7.4</span> Strings</h3>
+<p>We’ve seen a string earlier, but it is an object that is created with single or double quotes. String manipulation is an entire book in itself, but you should start with the stringr package <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019c</a>)</span>.</p>
+<p>I’ll just cover a few essentials: <code>stringr::str_detect()</code>, <code>stringr::str_replace()</code>, <code>stringr::str_squish()</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="r-essentials.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(people)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   names  website             fav_colour
+##   &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt;     
+## 1 rohan  rohanalexander.com  &quot;blue&quot;    
+## 2 monica monicaalexander.com &quot; white &quot;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="r-essentials.html#cb126-1" aria-hidden="true" tabindex="-1"></a>people <span class="ot">&lt;-</span> </span>
+<span id="cb126-2"><a href="r-essentials.html#cb126-2" aria-hidden="true" tabindex="-1"></a>  people <span class="sc">%&gt;%</span> </span>
+<span id="cb126-3"><a href="r-essentials.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_rohan =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(names, <span class="st">&quot;rohan&quot;</span>),</span>
+<span id="cb126-4"><a href="r-essentials.html#cb126-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">make_howlett =</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(website, <span class="st">&quot;alexander&quot;</span>, <span class="st">&quot;howlett&quot;</span>),</span>
+<span id="cb126-5"><a href="r-essentials.html#cb126-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">fav_colour_trim =</span> stringr<span class="sc">::</span><span class="fu">str_squish</span>(fav_colour)</span>
+<span id="cb126-6"><a href="r-essentials.html#cb126-6" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb126-7"><a href="r-essentials.html#cb126-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-8"><a href="r-essentials.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(people)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 6
+##   names  website            fav_colour is_rohan make_howlett     fav_colour_trim
+##   &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt;      &lt;lgl&gt;    &lt;chr&gt;            &lt;chr&gt;          
+## 1 rohan  rohanalexander.com &quot;blue&quot;     TRUE     rohanhowlett.com blue           
+## 2 monica monicaalexander.c… &quot; white &quot;  FALSE    monicahowlett.c… white</code></pre>
+</div>
+<div id="pivot" class="section level3" number="3.7.5">
+<h3><span class="header-section-number">3.7.5</span> Pivot</h3>
+<p>Datasets tend to be either long or wide. Generally, in the tidyverse, and certainly for ggplot, we need long data. To go from one to the other you can use the <code>pivot_longer()</code> and <code>pivot_wider()</code> functions.</p>
+<p>Let’s see an example with some data on whether red team or blue team won a competition in some year.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="r-essentials.html#cb128-1" aria-hidden="true" tabindex="-1"></a>pivot_example_data <span class="ot">&lt;-</span> </span>
+<span id="cb128-2"><a href="r-essentials.html#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>),</span>
+<span id="cb128-3"><a href="r-essentials.html#cb128-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">blue_team =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb128-4"><a href="r-essentials.html#cb128-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">red_team =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb128-5"><a href="r-essentials.html#cb128-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-6"><a href="r-essentials.html#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pivot_example_data)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##    year blue_team red_team
+##   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1  2019         1        2
+## 2  2020         2        1
+## 3  2021         1        2</code></pre>
+<p>This dataset is in wide format at the moment. To get it into long format, what we’d like is to have a column that specifies the team, and then another that specifies the result. We’ll use <code>tidyr::pivot_longer</code>.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="r-essentials.html#cb130-1" aria-hidden="true" tabindex="-1"></a>data_pivoted_longer <span class="ot">&lt;-</span> </span>
+<span id="cb130-2"><a href="r-essentials.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  pivot_example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb130-3"><a href="r-essentials.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;blue_team&quot;</span>, <span class="st">&quot;red_team&quot;</span>),</span>
+<span id="cb130-4"><a href="r-essentials.html#cb130-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_to =</span> <span class="st">&quot;team&quot;</span>,</span>
+<span id="cb130-5"><a href="r-essentials.html#cb130-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;position&quot;</span>)</span>
+<span id="cb130-6"><a href="r-essentials.html#cb130-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-7"><a href="r-essentials.html#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_pivoted_longer)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##    year team      position
+##   &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+## 1  2019 blue_team        1
+## 2  2019 red_team         2
+## 3  2020 blue_team        2
+## 4  2020 red_team         1
+## 5  2021 blue_team        1
+## 6  2021 red_team         2</code></pre>
+<p>Occasionally, you’ll need to go from long data to wide data. We accomplish this with <code>tidyr::pivot_wider</code>.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="r-essentials.html#cb132-1" aria-hidden="true" tabindex="-1"></a>data_pivoted_wider <span class="ot">&lt;-</span> </span>
+<span id="cb132-2"><a href="r-essentials.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  data_pivoted_longer <span class="sc">%&gt;%</span> </span>
+<span id="cb132-3"><a href="r-essentials.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;team&quot;</span>),</span>
+<span id="cb132-4"><a href="r-essentials.html#cb132-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">names_from =</span> <span class="st">&quot;team&quot;</span>,</span>
+<span id="cb132-5"><a href="r-essentials.html#cb132-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values_from =</span> <span class="st">&quot;position&quot;</span>)</span>
+<span id="cb132-6"><a href="r-essentials.html#cb132-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="r-essentials.html#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_pivoted_wider)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##    year blue_team red_team
+##   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1  2019         1        2
+## 2  2020         2        1
+## 3  2021         1        2</code></pre>
+</div>
+<div id="factors" class="section level3" number="3.7.6">
+<h3><span class="header-section-number">3.7.6</span> Factors</h3>
+<p>A factor is a string that has an inherent ordering. For instance, the days of the week have an order - Monday, Tuesday, Wednesday,… - which is not alphabetical. Factors feature prominently in base, but they often add more complication than they are worth and so the tidyverse gives them a less prominent role. Nonetheless taking advantage of factors is useful in certain circumstances, for instance when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as characters. The package that we use to deal with factors is <code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>.</p>
+<p>Sometimes you will have a character vector and you will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but you may not want that, for instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!</p>
+<p>The way to change the ordering is to change the variable from a character to a factor. I would then use the <code>forcats</code> package to specify an ordering by hand. The help page is here: <a href="https://forcats.tidyverse.org/reference/fct_relevel.html" class="uri">https://forcats.tidyverse.org/reference/fct_relevel.html</a>.</p>
+<p>Let’s look at a concrete example.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="r-essentials.html#cb134-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">all_names =</span> <span class="fu">c</span>(<span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Monica&quot;</span>, <span class="st">&quot;Edward&quot;</span>))</span></code></pre></div>
+<p>If we plotted this then Edward would be first, because it would be alphabetical. But if instead I want to be first as I am the oldest then we could use <code>forcats</code> in the following way.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="r-essentials.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats) <span class="co"># (BTW you&#39;ll probably have to install that one)</span></span>
+<span id="cb135-2"><a href="r-essentials.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb135-3"><a href="r-essentials.html#cb135-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-4"><a href="r-essentials.html#cb135-4" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span></span>
+<span id="cb135-5"><a href="r-essentials.html#cb135-5" aria-hidden="true" tabindex="-1"></a>  my_data <span class="sc">%&gt;%</span></span>
+<span id="cb135-6"><a href="r-essentials.html#cb135-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">all_names =</span> <span class="fu">factor</span>(all_names), <span class="co"># Change to factor</span></span>
+<span id="cb135-7"><a href="r-essentials.html#cb135-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">all_names_releveled =</span> <span class="fu">fct_relevel</span>(all_names, <span class="st">&quot;Rohan&quot;</span>, <span class="st">&quot;Monica&quot;</span>)) <span class="co"># Change the levels</span></span>
+<span id="cb135-8"><a href="r-essentials.html#cb135-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-9"><a href="r-essentials.html#cb135-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Then compare the two</span></span>
+<span id="cb135-10"><a href="r-essentials.html#cb135-10" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>all_names</span></code></pre></div>
+<pre><code>## [1] Rohan  Monica Edward
+## Levels: Edward Monica Rohan</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="r-essentials.html#cb137-1" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>all_names_releveled</span></code></pre></div>
+<pre><code>## [1] Rohan  Monica Edward
+## Levels: Rohan Monica Edward</code></pre>
+</div>
+<div id="cases" class="section level3" number="3.7.7">
+<h3><span class="header-section-number">3.7.7</span> Cases</h3>
+<p>If you need to write a few conditional statements then <code>case_when</code> is the way to go.</p>
+<p>Let’s start with a tibble of dates and pretend that we want to group them into ‘pre-1950,’ ‘1950-2000,’ ‘2000-onwards’</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="r-essentials.html#cb139-1" aria-hidden="true" tabindex="-1"></a>case_when_example <span class="ot">&lt;-</span> </span>
+<span id="cb139-2"><a href="r-essentials.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">some_dates =</span> <span class="fu">c</span>(<span class="st">&quot;1909-12-31&quot;</span>, <span class="st">&quot;1919-12-31&quot;</span>, <span class="st">&quot;1929-12-31&quot;</span>, <span class="st">&quot;1939-12-31&quot;</span>, </span>
+<span id="cb139-3"><a href="r-essentials.html#cb139-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;1949-12-31&quot;</span>, <span class="st">&quot;1959-12-31&quot;</span>, <span class="st">&quot;1969-12-31&quot;</span>, <span class="st">&quot;1979-12-31&quot;</span>, </span>
+<span id="cb139-4"><a href="r-essentials.html#cb139-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;1989-12-31&quot;</span>, <span class="st">&quot;1999-12-31&quot;</span>, <span class="st">&quot;2009-12-31&quot;</span>)</span>
+<span id="cb139-5"><a href="r-essentials.html#cb139-5" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb139-6"><a href="r-essentials.html#cb139-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-7"><a href="r-essentials.html#cb139-7" aria-hidden="true" tabindex="-1"></a>case_when_example <span class="ot">&lt;-</span> </span>
+<span id="cb139-8"><a href="r-essentials.html#cb139-8" aria-hidden="true" tabindex="-1"></a>  case_when_example <span class="sc">%&gt;%</span> </span>
+<span id="cb139-9"><a href="r-essentials.html#cb139-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">some_dates =</span> lubridate<span class="sc">::</span><span class="fu">ymd</span>(some_dates)</span>
+<span id="cb139-10"><a href="r-essentials.html#cb139-10" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb139-11"><a href="r-essentials.html#cb139-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-12"><a href="r-essentials.html#cb139-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(case_when_example)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 1
+##   some_dates
+##   &lt;date&gt;    
+## 1 1909-12-31
+## 2 1919-12-31
+## 3 1929-12-31
+## 4 1939-12-31
+## 5 1949-12-31
+## 6 1959-12-31</code></pre>
+<p>Now we’ll use <code>dplyr::case_when()</code> to group these.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="r-essentials.html#cb141-1" aria-hidden="true" tabindex="-1"></a>case_when_example <span class="ot">&lt;-</span> </span>
+<span id="cb141-2"><a href="r-essentials.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  case_when_example <span class="sc">%&gt;%</span> </span>
+<span id="cb141-3"><a href="r-essentials.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_group =</span> </span>
+<span id="cb141-4"><a href="r-essentials.html#cb141-4" aria-hidden="true" tabindex="-1"></a>           <span class="fu">case_when</span>(</span>
+<span id="cb141-5"><a href="r-essentials.html#cb141-5" aria-hidden="true" tabindex="-1"></a>             some_dates <span class="sc">&lt;</span> lubridate<span class="sc">::</span><span class="fu">ymd</span>(<span class="st">&quot;1950-01-01&quot;</span>) <span class="sc">~</span> <span class="st">&quot;pre-1950&quot;</span>,</span>
+<span id="cb141-6"><a href="r-essentials.html#cb141-6" aria-hidden="true" tabindex="-1"></a>             some_dates <span class="sc">&lt;</span> lubridate<span class="sc">::</span><span class="fu">ymd</span>(<span class="st">&quot;2000-01-01&quot;</span>) <span class="sc">~</span> <span class="st">&quot;1950-2000&quot;</span>,</span>
+<span id="cb141-7"><a href="r-essentials.html#cb141-7" aria-hidden="true" tabindex="-1"></a>             some_dates <span class="sc">&gt;=</span> lubridate<span class="sc">::</span><span class="fu">ymd</span>(<span class="st">&quot;2000-01-01&quot;</span>) <span class="sc">~</span> <span class="st">&quot;2000-onwards&quot;</span>,</span>
+<span id="cb141-8"><a href="r-essentials.html#cb141-8" aria-hidden="true" tabindex="-1"></a>             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;CHECK ME&quot;</span></span>
+<span id="cb141-9"><a href="r-essentials.html#cb141-9" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb141-10"><a href="r-essentials.html#cb141-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb141-11"><a href="r-essentials.html#cb141-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-12"><a href="r-essentials.html#cb141-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(case_when_example)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   some_dates year_group
+##   &lt;date&gt;     &lt;chr&gt;     
+## 1 1909-12-31 pre-1950  
+## 2 1919-12-31 pre-1950  
+## 3 1929-12-31 pre-1950  
+## 4 1939-12-31 pre-1950  
+## 5 1949-12-31 pre-1950  
+## 6 1959-12-31 1950-2000</code></pre>
+<p>We could accomplish this with a series of <code>if_else</code> statements, but <code>case_when</code> is just a bit cleaner. The only thing to be aware of is that statements are evaluated in order. So as soon as something matches it doesn’t continue down the list of conditions. That’s why we have that catch-all at the end - if the date doesn’t fit any of the earlier conditions then we’ve got a problem and want to know about it.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="drinking-from-a-fire-hose.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Exploratory data analysis | Telling Stories With Data</title>
+  <meta name="description" content="This book is about learning how to tell stories with data." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is about learning how to tell stories with data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data" />
+  
+  <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
+  
+
+<meta name="author" content="Rohan Alexander" />
+
+
+<meta name="date" content="2021-01-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="disseminating-and-protecting-data.html"/>
+<link rel="next" href="its-just-a-linear-model.html"/>
+<script src="libs/header-attrs-2.7.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Telling Stories With Data</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Essentials</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> Welcome</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.2</b> Structure</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#on-telling-stories"><i class="fa fa-check"></i><b>1.3</b> On telling stories</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#telling-stories-with-data"><i class="fa fa-check"></i><b>1.4</b> Telling stories with data</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#software"><i class="fa fa-check"></i><b>1.4.1</b> Software</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#assumed-background"><i class="fa fa-check"></i><b>1.4.2</b> Assumed background</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#structure-1"><i class="fa fa-check"></i><b>1.4.3</b> Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.5</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#hello-world"><i class="fa fa-check"></i><b>2.1</b> Hello world</a></li>
+<li class="chapter" data-level="2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---canadian-elections"><i class="fa fa-check"></i><b>2.2</b> Case study - Canadian elections</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started"><i class="fa fa-check"></i><b>2.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.2.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#clean-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Clean the data</a></li>
+<li class="chapter" data-level="2.2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph"><i class="fa fa-check"></i><b>2.2.4</b> Make a graph</a></li>
+<li class="chapter" data-level="2.2.5" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-table"><i class="fa fa-check"></i><b>2.2.5</b> Make a table</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#case-study---toronto-homelessness"><i class="fa fa-check"></i><b>2.3</b> Case study - Toronto homelessness</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-essentials.html"><a href="r-essentials.html#r-essentials-1"><i class="fa fa-check"></i><b>3.1</b> R essentials</a></li>
+<li class="chapter" data-level="3.2" data-path="r-essentials.html"><a href="r-essentials.html#social-impact"><i class="fa fa-check"></i><b>3.2</b> Social impact</a></li>
+<li class="chapter" data-level="3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-r-studio-and-r-studio-cloud"><i class="fa fa-check"></i><b>3.3</b> R, R Studio, and R Studio Cloud</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="r-essentials.html"><a href="r-essentials.html#r"><i class="fa fa-check"></i><b>3.3.1</b> R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="r-essentials.html"><a href="r-essentials.html#r-studio"><i class="fa fa-check"></i><b>3.3.2</b> R Studio</a></li>
+<li class="chapter" data-level="3.3.3" data-path="r-essentials.html"><a href="r-essentials.html#r-studio-cloud"><i class="fa fa-check"></i><b>3.3.3</b> R Studio Cloud</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-i"><i class="fa fa-check"></i><b>3.4</b> Tidyverse I</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="r-essentials.html"><a href="r-essentials.html#the-pipe"><i class="fa fa-check"></i><b>3.4.1</b> The pipe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="r-essentials.html"><a href="r-essentials.html#selecting"><i class="fa fa-check"></i><b>3.4.2</b> Selecting</a></li>
+<li class="chapter" data-level="3.4.3" data-path="r-essentials.html"><a href="r-essentials.html#filtering"><i class="fa fa-check"></i><b>3.4.3</b> Filtering</a></li>
+<li class="chapter" data-level="3.4.4" data-path="r-essentials.html"><a href="r-essentials.html#arranging"><i class="fa fa-check"></i><b>3.4.4</b> Arranging</a></li>
+<li class="chapter" data-level="3.4.5" data-path="r-essentials.html"><a href="r-essentials.html#grouping"><i class="fa fa-check"></i><b>3.4.5</b> Grouping</a></li>
+<li class="chapter" data-level="3.4.6" data-path="r-essentials.html"><a href="r-essentials.html#mutating"><i class="fa fa-check"></i><b>3.4.6</b> Mutating</a></li>
+<li class="chapter" data-level="3.4.7" data-path="r-essentials.html"><a href="r-essentials.html#summarise"><i class="fa fa-check"></i><b>3.4.7</b> Summarise</a></li>
+<li class="chapter" data-level="3.4.8" data-path="r-essentials.html"><a href="r-essentials.html#counting"><i class="fa fa-check"></i><b>3.4.8</b> Counting</a></li>
+<li class="chapter" data-level="3.4.9" data-path="r-essentials.html"><a href="r-essentials.html#proportions"><i class="fa fa-check"></i><b>3.4.9</b> Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="r-essentials.html"><a href="r-essentials.html#base"><i class="fa fa-check"></i><b>3.5</b> Base</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="r-essentials.html"><a href="r-essentials.html#class"><i class="fa fa-check"></i><b>3.5.1</b> Class</a></li>
+<li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
+<li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
+<li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="r-essentials.html"><a href="r-essentials.html#tidyverse-ii"><i class="fa fa-check"></i><b>3.7</b> Tidyverse II</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="r-essentials.html"><a href="r-essentials.html#tibbles"><i class="fa fa-check"></i><b>3.7.1</b> Tibbles</a></li>
+<li class="chapter" data-level="3.7.2" data-path="r-essentials.html"><a href="r-essentials.html#importing-data"><i class="fa fa-check"></i><b>3.7.2</b> Importing data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="r-essentials.html"><a href="r-essentials.html#joining-data"><i class="fa fa-check"></i><b>3.7.3</b> Joining data</a></li>
+<li class="chapter" data-level="3.7.4" data-path="r-essentials.html"><a href="r-essentials.html#strings"><i class="fa fa-check"></i><b>3.7.4</b> Strings</a></li>
+<li class="chapter" data-level="3.7.5" data-path="r-essentials.html"><a href="r-essentials.html#pivot"><i class="fa fa-check"></i><b>3.7.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
+<li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="workflow.html"><a href="workflow.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="workflow.html"><a href="workflow.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="workflow.html"><a href="workflow.html#getting-started-2"><i class="fa fa-check"></i><b>4.2.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.2.2" data-path="workflow.html"><a href="workflow.html#basic-commands"><i class="fa fa-check"></i><b>4.2.2</b> Basic commands</a></li>
+<li class="chapter" data-level="4.2.3" data-path="workflow.html"><a href="workflow.html#r-chunks"><i class="fa fa-check"></i><b>4.2.3</b> R chunks</a></li>
+<li class="chapter" data-level="4.2.4" data-path="workflow.html"><a href="workflow.html#abstracts-and-pdf-outputs"><i class="fa fa-check"></i><b>4.2.4</b> Abstracts and PDF outputs</a></li>
+<li class="chapter" data-level="4.2.5" data-path="workflow.html"><a href="workflow.html#references"><i class="fa fa-check"></i><b>4.2.5</b> References</a></li>
+<li class="chapter" data-level="4.2.6" data-path="workflow.html"><a href="workflow.html#cross-references"><i class="fa fa-check"></i><b>4.2.6</b> Cross-references</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="workflow.html"><a href="workflow.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R projects</a></li>
+<li class="chapter" data-level="4.4" data-path="workflow.html"><a href="workflow.html#git-and-github"><i class="fa fa-check"></i><b>4.4</b> Git and GitHub</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="workflow.html"><a href="workflow.html#introduction-2"><i class="fa fa-check"></i><b>4.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="workflow.html"><a href="workflow.html#git"><i class="fa fa-check"></i><b>4.4.2</b> Git</a></li>
+<li class="chapter" data-level="4.4.3" data-path="workflow.html"><a href="workflow.html#github"><i class="fa fa-check"></i><b>4.4.3</b> GitHub</a></li>
+<li class="chapter" data-level="4.4.4" data-path="workflow.html"><a href="workflow.html#using-git-within-rstudio"><i class="fa fa-check"></i><b>4.4.4</b> Using Git within RStudio</a></li>
+<li class="chapter" data-level="4.4.5" data-path="workflow.html"><a href="workflow.html#next-steps"><i class="fa fa-check"></i><b>4.4.5</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="workflow.html"><a href="workflow.html#using-r-in-practice"><i class="fa fa-check"></i><b>4.5</b> Using R in practice</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="workflow.html"><a href="workflow.html#introduction-3"><i class="fa fa-check"></i><b>4.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.5.2" data-path="workflow.html"><a href="workflow.html#getting-help"><i class="fa fa-check"></i><b>4.5.2</b> Getting help</a></li>
+<li class="chapter" data-level="4.5.3" data-path="workflow.html"><a href="workflow.html#mentality"><i class="fa fa-check"></i><b>4.5.3</b> Mentality</a></li>
+<li class="chapter" data-level="4.5.4" data-path="workflow.html"><a href="workflow.html#code-comments"><i class="fa fa-check"></i><b>4.5.4</b> Code comments</a></li>
+<li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+</ul></li>
+<li class="part"><span><b>II Communicate</b></span></li>
+<li class="chapter" data-level="5" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>5</b> Static communication</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="static-communication.html"><a href="static-communication.html#introduction-4"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="static-communication.html"><a href="static-communication.html#graphs"><i class="fa fa-check"></i><b>5.2</b> Graphs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>5.2.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>5.2.2</b> Scatter plot</a></li>
+<li class="chapter" data-level="5.2.3" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>5.2.3</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>5.3</b> Tables</a></li>
+<li class="chapter" data-level="5.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>5.4</b> Maps</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
+<li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.5.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.5.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>5.5.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>5.5.4</b> Other</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>6</b> Interactive communication</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
+<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+</ul></li>
+<li class="part"><span><b>III Hunt gather and farm</b></span></li>
+<li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>7.1</b> APIs</a></li>
+<li class="chapter" data-level="7.2" data-path="gather-data.html"><a href="gather-data.html#case-study---arxiv"><i class="fa fa-check"></i><b>7.2</b> Case study - arXiv</a></li>
+<li class="chapter" data-level="7.3" data-path="gather-data.html"><a href="gather-data.html#case-study---rtweet"><i class="fa fa-check"></i><b>7.3</b> Case study - rtweet</a></li>
+<li class="chapter" data-level="7.4" data-path="gather-data.html"><a href="gather-data.html#case-study---spotifyr"><i class="fa fa-check"></i><b>7.4</b> Case study - spotifyr</a></li>
+<li class="chapter" data-level="7.5" data-path="gather-data.html"><a href="gather-data.html#scraping"><i class="fa fa-check"></i><b>7.5</b> Scraping</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="gather-data.html"><a href="gather-data.html#introduction-6"><i class="fa fa-check"></i><b>7.5.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.5.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-3"><i class="fa fa-check"></i><b>7.5.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="gather-data.html"><a href="gather-data.html#case-study---rohans-books"><i class="fa fa-check"></i><b>7.6</b> Case study - Rohan’s books</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="gather-data.html"><a href="gather-data.html#introduction-7"><i class="fa fa-check"></i><b>7.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.6.2" data-path="gather-data.html"><a href="gather-data.html#gather"><i class="fa fa-check"></i><b>7.6.2</b> Gather</a></li>
+<li class="chapter" data-level="7.6.3" data-path="gather-data.html"><a href="gather-data.html#clean"><i class="fa fa-check"></i><b>7.6.3</b> Clean</a></li>
+<li class="chapter" data-level="7.6.4" data-path="gather-data.html"><a href="gather-data.html#explore"><i class="fa fa-check"></i><b>7.6.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="gather-data.html"><a href="gather-data.html#case-study---canadian-prime-ministers"><i class="fa fa-check"></i><b>7.7</b> Case study - Canadian Prime Ministers</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="gather-data.html"><a href="gather-data.html#introduction-8"><i class="fa fa-check"></i><b>7.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.7.2" data-path="gather-data.html"><a href="gather-data.html#gather-1"><i class="fa fa-check"></i><b>7.7.2</b> Gather</a></li>
+<li class="chapter" data-level="7.7.3" data-path="gather-data.html"><a href="gather-data.html#clean-1"><i class="fa fa-check"></i><b>7.7.3</b> Clean</a></li>
+<li class="chapter" data-level="7.7.4" data-path="gather-data.html"><a href="gather-data.html#explore-1"><i class="fa fa-check"></i><b>7.7.4</b> Explore</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="gather-data.html"><a href="gather-data.html#pdfs"><i class="fa fa-check"></i><b>7.8</b> PDFs</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="gather-data.html"><a href="gather-data.html#introduction-9"><i class="fa fa-check"></i><b>7.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.8.2" data-path="gather-data.html"><a href="gather-data.html#getting-started-4"><i class="fa fa-check"></i><b>7.8.2</b> Getting started</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="gather-data.html"><a href="gather-data.html#case-study-us-total-fertility-rate-by-state-and-year-2000-2018"><i class="fa fa-check"></i><b>7.9</b> Case-study: US Total Fertility Rate, by state and year (2000-2018)</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="gather-data.html"><a href="gather-data.html#introduction-10"><i class="fa fa-check"></i><b>7.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.9.2" data-path="gather-data.html"><a href="gather-data.html#begin-with-an-end-in-mind"><i class="fa fa-check"></i><b>7.9.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="7.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>7.9.3</b> Start simple, then iterate.</a></li>
+<li class="chapter" data-level="7.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>7.9.4</b> Iterating</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>7.10</b> Case-study: Kenyan census data</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>7.10.1</b> Set-up</a></li>
+<li class="chapter" data-level="7.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>7.10.2</b> Extract</a></li>
+<li class="chapter" data-level="7.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>7.10.3</b> Clean</a></li>
+<li class="chapter" data-level="7.10.4" data-path="gather-data.html"><a href="gather-data.html#check"><i class="fa fa-check"></i><b>7.10.4</b> Check</a></li>
+<li class="chapter" data-level="7.10.5" data-path="gather-data.html"><a href="gather-data.html#tidy-up"><i class="fa fa-check"></i><b>7.10.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="7.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>7.10.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>7.11</b> Optical Character Recognition</a></li>
+<li class="chapter" data-level="7.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>7.12</b> Text</a>
+<ul>
+<li class="chapter" data-level="7.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>7.12.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>7.12.2</b> Getting text data</a></li>
+<li class="chapter" data-level="7.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>7.12.3</b> Preparing text datasets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>8</b> Hunt data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="hunt-data.html"><a href="hunt-data.html#experiments-and-randomised-controlled-trials"><i class="fa fa-check"></i><b>8.1</b> Experiments and randomised controlled trials</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-12"><i class="fa fa-check"></i><b>8.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.1.2" data-path="hunt-data.html"><a href="hunt-data.html#motivation-and-notation"><i class="fa fa-check"></i><b>8.1.2</b> Motivation and notation</a></li>
+<li class="chapter" data-level="8.1.3" data-path="hunt-data.html"><a href="hunt-data.html#randomised-sampling"><i class="fa fa-check"></i><b>8.1.3</b> Randomised sampling</a></li>
+<li class="chapter" data-level="8.1.4" data-path="hunt-data.html"><a href="hunt-data.html#anova"><i class="fa fa-check"></i><b>8.1.4</b> ANOVA</a></li>
+<li class="chapter" data-level="8.1.5" data-path="hunt-data.html"><a href="hunt-data.html#treatment-and-control"><i class="fa fa-check"></i><b>8.1.5</b> Treatment and control</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="hunt-data.html"><a href="hunt-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>8.2</b> Case study - Fisher’s tea party</a></li>
+<li class="chapter" data-level="8.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>8.3</b> Case study - Tuskegee Syphilis Study</a></li>
+<li class="chapter" data-level="8.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>8.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="8.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>8.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
+<li class="chapter" data-level="8.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>8.6</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="8.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>8.7</b> A/B testing</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>8.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.7.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>8.7.2</b> Delivery</a></li>
+<li class="chapter" data-level="8.7.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>8.7.3</b> Instrumentation</a></li>
+<li class="chapter" data-level="8.7.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>8.7.4</b> Randomisation unit</a></li>
+<li class="chapter" data-level="8.7.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>8.7.5</b> Partnerships</a></li>
+<li class="chapter" data-level="8.7.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>8.7.6</b> Speed vs quality</a></li>
+<li class="chapter" data-level="8.7.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>8.7.7</b> Conflicting priorities</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>8.8</b> Case study - Upworthy</a></li>
+<li class="chapter" data-level="8.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>8.9</b> Sampling and survey essentials</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>8.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>8.9.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="8.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>8.9.3</b> Stratified and cluster sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>8.10</b> Implementing surveys</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>8.10.1</b> Google</a></li>
+<li class="chapter" data-level="8.10.2" data-path="hunt-data.html"><a href="hunt-data.html#facebook"><i class="fa fa-check"></i><b>8.10.2</b> Facebook</a></li>
+<li class="chapter" data-level="8.10.3" data-path="hunt-data.html"><a href="hunt-data.html#survey-monkey"><i class="fa fa-check"></i><b>8.10.3</b> Survey Monkey</a></li>
+<li class="chapter" data-level="8.10.4" data-path="hunt-data.html"><a href="hunt-data.html#mechanical-turk"><i class="fa fa-check"></i><b>8.10.4</b> Mechanical Turk</a></li>
+<li class="chapter" data-level="8.10.5" data-path="hunt-data.html"><a href="hunt-data.html#prolific"><i class="fa fa-check"></i><b>8.10.5</b> Prolific</a></li>
+<li class="chapter" data-level="8.10.6" data-path="hunt-data.html"><a href="hunt-data.html#qualtrics"><i class="fa fa-check"></i><b>8.10.6</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>8.10.7</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>8.11</b> Next steps</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>9</b> Farm data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="farm-data.html"><a href="farm-data.html#open-government-data"><i class="fa fa-check"></i><b>9.1</b> Open Government Data</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="farm-data.html"><a href="farm-data.html#canadian-census"><i class="fa fa-check"></i><b>9.1.1</b> Canadian Census</a></li>
+<li class="chapter" data-level="9.1.2" data-path="farm-data.html"><a href="farm-data.html#city-of-toronto-open-data-portal"><i class="fa fa-check"></i><b>9.1.2</b> City of Toronto Open Data Portal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="farm-data.html"><a href="farm-data.html#electoral-studies"><i class="fa fa-check"></i><b>9.2</b> Electoral Studies</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="farm-data.html"><a href="farm-data.html#canadian-electoral-study"><i class="fa fa-check"></i><b>9.2.1</b> Canadian Electoral Study</a></li>
+<li class="chapter" data-level="9.2.2" data-path="farm-data.html"><a href="farm-data.html#australian-electoral-study"><i class="fa fa-check"></i><b>9.2.2</b> Australian Electoral Study</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Clean</b></span></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
+<li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
+<li class="part"><span><b>V Model</b></span></li>
+<li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#a-note-on-packages"><i class="fa fa-check"></i><b>13.2</b> A note on packages</a></li>
+<li class="chapter" data-level="13.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#ttc-subway-delays"><i class="fa fa-check"></i><b>13.3</b> TTC subway delays</a></li>
+<li class="chapter" data-level="13.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-and-data-viz"><i class="fa fa-check"></i><b>13.4</b> EDA and data viz</a></li>
+<li class="chapter" data-level="13.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-checks"><i class="fa fa-check"></i><b>13.5</b> Data checks</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.5.1</b> Sanity Checks</a></li>
+<li class="chapter" data-level="13.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.5.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.5.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#duplicates"><i class="fa fa-check"></i><b>13.5.3</b> Duplicates?</a></li>
+<li class="chapter" data-level="13.5.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-distributions"><i class="fa fa-check"></i><b>13.5.4</b> Visualizing distributions</a></li>
+<li class="chapter" data-level="13.5.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-time-series"><i class="fa fa-check"></i><b>13.5.5</b> Visualizing time series</a></li>
+<li class="chapter" data-level="13.5.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#visualizing-relationships"><i class="fa fa-check"></i><b>13.5.6</b> Visualizing relationships</a></li>
+<li class="chapter" data-level="13.5.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#pca"><i class="fa fa-check"></i><b>13.5.7</b> PCA</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises"><i class="fa fa-check"></i><b>13.6</b> Exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---opinions-about-a-casino-in-toronto"><i class="fa fa-check"></i><b>13.7</b> Case study - Opinions about a casino in Toronto</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#data-preparation"><i class="fa fa-check"></i><b>13.7.1</b> Data preparation</a></li>
+<li class="chapter" data-level="13.7.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#some-visual-exploration-and-more-cleanup-of-course"><i class="fa fa-check"></i><b>13.7.2</b> Some visual exploration (and more cleanup, of course)</a></li>
+<li class="chapter" data-level="13.7.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>13.7.3</b> Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---historical-canadian-elections"><i class="fa fa-check"></i><b>13.8</b> Case study - Historical Canadian elections</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html"><i class="fa fa-check"></i><b>14</b> It’s Just A Linear Model</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#simple-linear-regression"><i class="fa fa-check"></i><b>14.1</b> Simple linear regression</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview"><i class="fa fa-check"></i><b>14.1.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-r"><i class="fa fa-check"></i><b>14.1.2</b> Implementation in base R</a></li>
+<li class="chapter" data-level="14.1.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#tidy-up-with-broom"><i class="fa fa-check"></i><b>14.1.3</b> Tidy up with broom</a></li>
+<li class="chapter" data-level="14.1.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#testing-hypothesis"><i class="fa fa-check"></i><b>14.1.4</b> Testing hypothesis</a></li>
+<li class="chapter" data-level="14.1.5" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#on-p-values"><i class="fa fa-check"></i><b>14.1.5</b> On p-values</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#multiple-linear-regression"><i class="fa fa-check"></i><b>14.2</b> Multiple linear regression</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#threats-to-validity-and-aspects-to-think-about"><i class="fa fa-check"></i><b>14.2.1</b> Threats to validity and aspects to think about</a></li>
+<li class="chapter" data-level="14.2.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#more-credible-outputs"><i class="fa fa-check"></i><b>14.2.2</b> More credible outputs</a></li>
+<li class="chapter" data-level="14.2.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels"><i class="fa fa-check"></i><b>14.2.3</b> Implementation in <code>tidymodels</code></a></li>
+<li class="chapter" data-level="14.2.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm"><i class="fa fa-check"></i><b>14.2.4</b> Implementation in <code>rstanarm</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#logistic-regression-1"><i class="fa fa-check"></i><b>14.3</b> Logistic regression</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-1"><i class="fa fa-check"></i><b>14.3.1</b> Overview</a></li>
+<li class="chapter" data-level="14.3.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base"><i class="fa fa-check"></i><b>14.3.2</b> Implementation in base</a></li>
+<li class="chapter" data-level="14.3.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels-1"><i class="fa fa-check"></i><b>14.3.3</b> Implementation in <code>tidymodels</code></a></li>
+<li class="chapter" data-level="14.3.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-rstanarm-1"><i class="fa fa-check"></i><b>14.3.4</b> Implementation in <code>rstanarm</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#poisson-regression"><i class="fa fa-check"></i><b>14.4</b> Poisson regression</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#overview-2"><i class="fa fa-check"></i><b>14.4.1</b> Overview</a></li>
+<li class="chapter" data-level="14.4.2" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-base-1"><i class="fa fa-check"></i><b>14.4.2</b> Implementation in base</a></li>
+<li class="chapter" data-level="14.4.3" data-path="its-just-a-linear-model.html"><a href="its-just-a-linear-model.html#implementation-in-tidymodels-2"><i class="fa fa-check"></i><b>14.4.3</b> Implementation in <code>tidymodels</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html"><i class="fa fa-check"></i><b>15</b> Causality from observational data</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#difference-in-differences"><i class="fa fa-check"></i><b>15.1</b> Difference in differences</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-16"><i class="fa fa-check"></i><b>15.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#matching-and-difference-in-differences"><i class="fa fa-check"></i><b>15.1.2</b> Matching and difference-in-differences</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.2</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-18"><i class="fa fa-check"></i><b>15.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#background"><i class="fa fa-check"></i><b>15.2.2</b> Background</a></li>
+<li class="chapter" data-level="15.2.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data"><i class="fa fa-check"></i><b>15.2.3</b> Data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model"><i class="fa fa-check"></i><b>15.2.4</b> Model</a></li>
+<li class="chapter" data-level="15.2.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#results"><i class="fa fa-check"></i><b>15.2.5</b> Results</a></li>
+<li class="chapter" data-level="15.2.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#other-points"><i class="fa fa-check"></i><b>15.2.6</b> Other points</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---funding-of-clinical-trials-and-reported-drug-efficacy"><i class="fa fa-check"></i><b>15.3</b> Case study - Funding of Clinical Trials and Reported Drug Efficacy</a></li>
+<li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.4</b> Regression discontinuity design</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.4.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-1"><i class="fa fa-check"></i><b>15.4.2</b> Simulated example</a></li>
+<li class="chapter" data-level="15.4.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overlap"><i class="fa fa-check"></i><b>15.4.3</b> Overlap</a></li>
+<li class="chapter" data-level="15.4.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#examples"><i class="fa fa-check"></i><b>15.4.4</b> Examples</a></li>
+<li class="chapter" data-level="15.4.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation"><i class="fa fa-check"></i><b>15.4.5</b> Implementation</a></li>
+<li class="chapter" data-level="15.4.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#fuzzy-rdd"><i class="fa fa-check"></i><b>15.4.6</b> Fuzzy RDD</a></li>
+<li class="chapter" data-level="15.4.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#threats-to-validity"><i class="fa fa-check"></i><b>15.4.7</b> Threats to validity</a></li>
+<li class="chapter" data-level="15.4.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#weaknesses"><i class="fa fa-check"></i><b>15.4.8</b> Weaknesses</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---stiers-hooghe-and-dassonneville-2020"><i class="fa fa-check"></i><b>15.5</b> Case study - Stiers, Hooghe, and Dassonneville, 2020</a></li>
+<li class="chapter" data-level="15.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>15.6</b> Case study - Caughey, and Sekhon., 2011</a></li>
+<li class="chapter" data-level="15.7" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#instrumental-variables"><i class="fa fa-check"></i><b>15.7</b> Instrumental variables</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.7.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.7.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#history"><i class="fa fa-check"></i><b>15.7.2</b> History</a></li>
+<li class="chapter" data-level="15.7.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-2"><i class="fa fa-check"></i><b>15.7.3</b> Simulated example</a></li>
+<li class="chapter" data-level="15.7.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation-1"><i class="fa fa-check"></i><b>15.7.4</b> Implementation</a></li>
+<li class="chapter" data-level="15.7.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#assumptions-1"><i class="fa fa-check"></i><b>15.7.5</b> Assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---effect-of-police-on-crime"><i class="fa fa-check"></i><b>15.8</b> Case study - Effect of Police on Crime</a>
+<ul>
+<li class="chapter" data-level="15.8.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overview-3"><i class="fa fa-check"></i><b>15.8.1</b> Overview</a></li>
+<li class="chapter" data-level="15.8.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data-1"><i class="fa fa-check"></i><b>15.8.2</b> Data</a></li>
+<li class="chapter" data-level="15.8.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model-1"><i class="fa fa-check"></i><b>15.8.3</b> Model</a></li>
+<li class="chapter" data-level="15.8.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#discussion"><i class="fa fa-check"></i><b>15.8.4</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="15.9" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#conclusion"><i class="fa fa-check"></i><b>15.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="poll-of-polls.html"><a href="poll-of-polls.html"><i class="fa fa-check"></i><b>16</b> Poll of polls</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-21"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>18.2</b> Lasso regression</a></li>
+<li class="chapter" data-level="18.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>18.3</b> Topic models</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="text-as-data.html"><a href="text-as-data.html#overview-4"><i class="fa fa-check"></i><b>18.3.1</b> Overview</a></li>
+<li class="chapter" data-level="18.3.2" data-path="text-as-data.html"><a href="text-as-data.html#document-generation-process"><i class="fa fa-check"></i><b>18.3.2</b> Document generation process</a></li>
+<li class="chapter" data-level="18.3.3" data-path="text-as-data.html"><a href="text-as-data.html#analysis-process"><i class="fa fa-check"></i><b>18.3.3</b> Analysis process</a></li>
+<li class="chapter" data-level="18.3.4" data-path="text-as-data.html"><a href="text-as-data.html#warnings-and-extensions"><i class="fa fa-check"></i><b>18.3.4</b> Warnings and extensions</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>18.4</b> Word embedding</a></li>
+<li class="chapter" data-level="18.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>18.5</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>VI Scale</b></span></li>
+<li class="chapter" data-level="19" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>19</b> Cloud</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>19.2</b> Google Colab</a></li>
+<li class="chapter" data-level="19.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
+<li class="chapter" data-level="19.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
+<li class="chapter" data-level="19.5" data-path="cloud.html"><a href="cloud.html#azure"><i class="fa fa-check"></i><b>19.5</b> Azure</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+</ul></li>
+<li class="part"><span><b>VII Assessment</b></span></li>
+<li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>21.1</b> ‘Mandatory Minimums’</a>
+<ul>
+<li class="chapter" data-level="21.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>21.1.1</b> Task</a></li>
+<li class="chapter" data-level="21.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>21.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>21.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>21.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>21.1.5</b> Rubric</a></li>
+<li class="chapter" data-level="21.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>21.1.6</b> Previous examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>21.2</b> ‘These numbers mean dial it up’</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>21.2.1</b> Task</a></li>
+<li class="chapter" data-level="21.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>21.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>21.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>21.2.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>21.2.5</b> Rubric</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>21.3</b> ‘The Short List’</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>21.3.1</b> Task</a></li>
+<li class="chapter" data-level="21.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>21.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>21.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>21.3.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>21.4</b> ‘Two Cathedrals’</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>21.4.1</b> Task</a></li>
+<li class="chapter" data-level="21.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>21.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="21.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>21.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="21.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>21.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="21.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>21.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="21.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>21.4.6</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>21.5</b> ‘A Proportional Response’</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>21.5.1</b> Task</a></li>
+<li class="chapter" data-level="21.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>21.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>21.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>21.5.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>21.6</b> ‘Mr Willis of Ohio’</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>21.6.1</b> Task</a></li>
+<li class="chapter" data-level="21.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>21.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>21.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>21.6.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>21.7</b> ‘Five Votes Down’</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>21.7.1</b> Task</a></li>
+<li class="chapter" data-level="21.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>21.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>21.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>21.7.4</b> FAQ</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>21.8</b> ‘What’s next?’</a>
+<ul>
+<li class="chapter" data-level="21.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>21.8.1</b> Task</a></li>
+<li class="chapter" data-level="21.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>21.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="21.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>21.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="21.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>21.8.4</b> FAQ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Telling Stories With Data</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratory-data-analysis" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Exploratory data analysis</h1>
+<p><strong>This chapter was written with <a href="https://www.monicaalexander.com/">Monica Alexander</a>.</strong></p>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Wickham, Hadley, and Garrett Grolemund, 2017, <em>R for Data Science</em>, Chapters 3 and 7, freely available here: <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>Hall, Megan, 2019, ‘Exploratory Data Analysis Using Tidyverse,’ freely available at: <a href="https://hockey-graphs.com/2019/10/08/exploratory-data-analysis-using-tidyverse/" class="uri">https://hockey-graphs.com/2019/10/08/exploratory-data-analysis-using-tidyverse/</a>.</li>
+<li>Jordan, Michael I, 2019, ‘AI - The revolution hasn’t started yet,’ freely available at: <a href="https://hdsr.mitpress.mit.edu/pub/wot7mkc1" class="uri">https://hdsr.mitpress.mit.edu/pub/wot7mkc1</a>.</li>
+<li>Silge, Julia, 2018, ‘Understanding PCA using Stack Overflow data,’ freely available at: <a href="https://juliasilge.com/blog/stack-overflow-pca/" class="uri">https://juliasilge.com/blog/stack-overflow-pca/</a>.</li>
+<li>Soetewey, Antoine, 2020, ‘Descriptive statistics in R,’ freely available at: <a href="https://www.statsandr.com/blog/descriptive-statistics-in-r/" class="uri">https://www.statsandr.com/blog/descriptive-statistics-in-r/</a>.</li>
+<li>Stodulka, Jiri, 2019, ‘Toronto Crime and Folium,’ freely available at: <a href="https://www.jiristodulka.com/post/toronto-crime/" class="uri">https://www.jiristodulka.com/post/toronto-crime/</a>.</li>
+<li>Wong, Julia Carrie, 2020, ‘One year inside Trump’s monumental Facebook campaign,’ The Guardian, 29 January, freely available at: <a href="https://www.theguardian.com/us-news/2020/jan/28/donald-trump-facebook-ad-campaign-2020-election" class="uri">https://www.theguardian.com/us-news/2020/jan/28/donald-trump-facebook-ad-campaign-2020-election</a>.</li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>Quickly coming to terms with a new dataset</li>
+</ul>
+<p><strong>Key libraries/functions/etc</strong></p>
+<ul>
+<li><code>tidyverse</code></li>
+<li><code>ggplot2</code></li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ul>
+<li>In your own words what is exploratory data analysis?</li>
+<li>If you have a dataset called ‘my_data,’ which has two columns: ‘first_col’ and ‘second_col,’ then could you please write some rough R code that would generate a graph (the type of graph doesn’t matter).</li>
+<li>Consider a dataset that has 500 rows and 3 columns, so there are 1,500 cells. If 100 of the cells are missing data for at least one of the columns, then would you remove the whole row your dataset or try to run your analysis on the data as is, or some other procedure? What if your dataset had 10,000 rows instead, but the same number of missing cells?</li>
+<li>Please note three ways of identifying unusual values.</li>
+<li>What is the difference between a categorical and continuous variable?</li>
+</ul>
+<div id="introduction-15" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Introduction</h2>
+<blockquote>
+<p>Exploratory data analysis is never finished, you just die.</p>
+</blockquote>
+<p>This chapter is about exploratory data analysis (EDA) and data visualization steps in R. The aim is to get you used to working with real data (that has issues) to understand the main characteristics and potential issues.</p>
+<p>We will be using the <a href="https://sharlagelfand.github.io/opendatatoronto/"><code>opendatatoronto</code></a> R package, which interfaces with the City of Toronto Open Data Portal.</p>
+</div>
+<div id="a-note-on-packages" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> A note on packages</h2>
+<p>If you are running this Rmd on your local machine, you may need to install various packages used (using the <code>install.packages</code> function).</p>
+<p>Load in all the packages we need:</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="exploratory-data-analysis.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opendatatoronto)</span>
+<span id="cb426-2"><a href="exploratory-data-analysis.html#cb426-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb426-3"><a href="exploratory-data-analysis.html#cb426-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb426-4"><a href="exploratory-data-analysis.html#cb426-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb426-5"><a href="exploratory-data-analysis.html#cb426-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb426-6"><a href="exploratory-data-analysis.html#cb426-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb426-7"><a href="exploratory-data-analysis.html#cb426-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code></pre></div>
+</div>
+<div id="ttc-subway-delays" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> TTC subway delays</h2>
+<p>This package provides an interface to all data available on the <a href="https://open.toronto.ca/">Open Data Portal</a> provided by the City of Toronto.</p>
+<p>Use the <code>list_packages</code> function to look at what’s available</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="exploratory-data-analysis.html#cb427-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
+<span id="cb427-2"><a href="exploratory-data-analysis.html#cb427-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
+<pre><code>## # A tibble: 406 x 11
+##    title id    topics civic_issues publisher excerpt dataset_category
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;           
+##  1 Park… 8c23… Finan… Fiscal resp… Revenue … &quot;This … Document        
+##  2 Shor… fc41… Permi… Affordable … Municipa… &quot;This … Table           
+##  3 Buil… 8219… Devel… &lt;NA&gt;         Toronto … &quot;Provi… Document        
+##  4 Buil… 6e7f… Devel… &lt;NA&gt;         Toronto … &quot;Provi… Document        
+##  5 Lice… 059d… Commu… &lt;NA&gt;         Children… &quot;Licen… Map             
+##  6 Earl… 2619… Commu… Poverty red… Children… &quot;Early… Map             
+##  7 Buil… 108c… Devel… Affordable … Toronto … &quot;Provi… Document        
+##  8 Dail… 8a6e… City … Affordable … Shelter,… &quot;Daily… Table           
+##  9 Rain… f293… Locat… Climate cha… Toronto … &quot;This … Document        
+## 10 Stre… 99b1… City … &lt;NA&gt;         Transpor… &quot;Infor… Map             
+## # … with 396 more rows, and 4 more variables: num_resources &lt;int&gt;,
+## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
+<p>Let’s download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and make them into one big dataframe.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="exploratory-data-analysis.html#cb429-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">list_package_resources</span>(<span class="st">&quot;996cfe8d-fb35-40ce-b569-698d51fc683b&quot;</span>)</span>
+<span id="cb429-2"><a href="exploratory-data-analysis.html#cb429-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_extract</span>(name, <span class="st">&quot;201.?&quot;</span>))</span>
+<span id="cb429-3"><a href="exploratory-data-analysis.html#cb429-3" aria-hidden="true" tabindex="-1"></a>delay_2019_ids <span class="ot">&lt;-</span> res <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2019</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(id) <span class="sc">%&gt;%</span> <span class="fu">pull</span>()</span>
+<span id="cb429-4"><a href="exploratory-data-analysis.html#cb429-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-5"><a href="exploratory-data-analysis.html#cb429-5" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb429-6"><a href="exploratory-data-analysis.html#cb429-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(delay_2019_ids)) {</span>
+<span id="cb429-7"><a href="exploratory-data-analysis.html#cb429-7" aria-hidden="true" tabindex="-1"></a>  delay_2019 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(delay_2019, <span class="fu">get_resource</span>(delay_2019_ids[i]))</span>
+<span id="cb429-8"><a href="exploratory-data-analysis.html#cb429-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb429-9"><a href="exploratory-data-analysis.html#cb429-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb429-10"><a href="exploratory-data-analysis.html#cb429-10" aria-hidden="true" tabindex="-1"></a><span class="co"># make the column names nicer to work with</span></span>
+<span id="cb429-11"><a href="exploratory-data-analysis.html#cb429-11" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(delay_2019)</span></code></pre></div>
+<p>Let’s also download the delay code and readme, as reference.</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="exploratory-data-analysis.html#cb430-1" aria-hidden="true" tabindex="-1"></a>delay_codes <span class="ot">&lt;-</span> <span class="fu">get_resource</span>(<span class="st">&quot;fece136b-224a-412a-b191-8d31eb00491e&quot;</span>)</span>
+<span id="cb430-2"><a href="exploratory-data-analysis.html#cb430-2" aria-hidden="true" tabindex="-1"></a>delay_data_codebook <span class="ot">&lt;-</span> <span class="fu">get_resource</span>(<span class="st">&quot;54247e39-5a7d-40db-a137-82b2a9ab0708&quot;</span>)</span></code></pre></div>
+<p>This dataset has a bunch of interesting variables. You can refer to the readme for descriptions. Our outcome of interest is <code>min_delay</code>, which give the delay in mins.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="exploratory-data-analysis.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(delay_2019)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 10
+##   date                time  day   station code  min_delay min_gap bound line 
+##   &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 2019-01-01 00:00:00 01:08 Tues… YORK M… PUSI          0       0 S     YU   
+## 2 2019-01-01 00:00:00 02:14 Tues… ST AND… PUMST         0       0 &lt;NA&gt;  YU   
+## 3 2019-01-01 00:00:00 02:16 Tues… JANE S… TUSC          0       0 W     BD   
+## 4 2019-01-01 00:00:00 02:27 Tues… BLOOR … SUO           0       0 N     YU   
+## 5 2019-01-01 00:00:00 03:03 Tues… DUPONT… MUATC        11      16 N     YU   
+## 6 2019-01-01 00:00:00 03:08 Tues… EGLINT… EUATC        11      16 S     YU   
+## # … with 1 more variable: vehicle &lt;dbl&gt;</code></pre>
+</div>
+<div id="eda-and-data-viz" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> EDA and data viz</h2>
+<p>The following section highlights some tools that might be useful for you when you are getting used to a new dataset. There’s no one way of exploration, but it’s important to always keep in mind:</p>
+<ul>
+<li>what should your variables look like (type, values, distribution, etc)</li>
+<li>what would be surprising (outliers etc)</li>
+<li>what is your end goal (here, it might be understanding factors associated with delays, e.g. stations, time of year, time of day, etc)</li>
+</ul>
+<p>In any data analysis project, if it turns out you have data issues, surprising values, missing data etc, it’s important you <strong>document</strong> anything you found and the subsequent steps or <strong>assumptions</strong> you made before moving onto your data analysis / modeling.</p>
+<p>As always:</p>
+<ol style="list-style-type: decimal">
+<li>Start with an end in mind.</li>
+<li>Be as lazy as possible.</li>
+</ol>
+</div>
+<div id="data-checks" class="section level2" number="13.5">
+<h2><span class="header-section-number">13.5</span> Data checks</h2>
+<div id="sanity-checks" class="section level3" number="13.5.1">
+<h3><span class="header-section-number">13.5.1</span> Sanity Checks</h3>
+<p>We need to check variables should be what they say they are. If they aren’t, the natural next question is to what to do with issues (recode? remove?)</p>
+<p>E.g. check days of week</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="exploratory-data-analysis.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(delay_2019<span class="sc">$</span>day)</span></code></pre></div>
+<pre><code>## [1] &quot;Tuesday&quot;   &quot;Wednesday&quot; &quot;Thursday&quot;  &quot;Friday&quot;    &quot;Saturday&quot;  &quot;Sunday&quot;   
+## [7] &quot;Monday&quot;</code></pre>
+<p>Check lines: oh no. some issues here. Some have obvious recodes, others, not so much.</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="exploratory-data-analysis.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(delay_2019<span class="sc">$</span>line)</span></code></pre></div>
+<pre><code>##  [1] &quot;YU&quot;                     &quot;BD&quot;                     &quot;YU/BD&quot;                 
+##  [4] &quot;SHP&quot;                    &quot;SRT&quot;                    NA                      
+##  [7] &quot;YUS&quot;                    &quot;B/D&quot;                    &quot;BD LINE&quot;               
+## [10] &quot;999&quot;                    &quot;YU/ BD&quot;                 &quot;YU &amp; BD&quot;               
+## [13] &quot;BD/YU&quot;                  &quot;YU\\BD&quot;                 &quot;46 MARTIN GROVE&quot;       
+## [16] &quot;RT&quot;                     &quot;BLOOR-DANFORTH&quot;         &quot;YU / BD&quot;               
+## [19] &quot;134 PROGRESS&quot;           &quot;YU - BD&quot;                &quot;985 SHEPPARD EAST EXPR&quot;
+## [22] &quot;22 COXWELL&quot;             &quot;100 FLEMINGDON PARK&quot;    &quot;YU LINE&quot;</code></pre>
+<p>What are the different values of <code>bound</code> for each <code>line</code>?</p>
+<p>For simplicity, just keep the correct line labels.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="exploratory-data-analysis.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delay_2019 %&gt;%</span></span>
+<span id="cb437-2"><a href="exploratory-data-analysis.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(line %in% c(&quot;BD&quot;, &quot;YU&quot;, &quot;SHP&quot;, &quot;SRT&quot;)) %&gt;%</span></span>
+<span id="cb437-3"><a href="exploratory-data-analysis.html#cb437-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(bound = as.factor(bound)) %&gt;%</span></span>
+<span id="cb437-4"><a href="exploratory-data-analysis.html#cb437-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   group_by(line) %&gt;%</span></span>
+<span id="cb437-5"><a href="exploratory-data-analysis.html#cb437-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   skim(bound)</span></span></code></pre></div>
+</div>
+<div id="missing-values" class="section level3" number="13.5.2">
+<h3><span class="header-section-number">13.5.2</span> Missing values</h3>
+<p>Look to see how many NAs by variable</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="exploratory-data-analysis.html#cb438-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb438-2"><a href="exploratory-data-analysis.html#cb438-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_all</span>(<span class="at">.funs =</span> <span class="fu">funs</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(.))<span class="sc">/</span><span class="fu">nrow</span>(delay_2019)<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 10
+##    date  time   day station  code min_delay min_gap bound  line vehicle
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1     0     0     0       0     0         0       0  22.8 0.260       0</code></pre>
+<p>The <code>visdat</code> package is also useful here, particularly to see how missing values are distributed.</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="exploratory-data-analysis.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(delay_2019)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="exploratory-data-analysis.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_miss</span>(delay_2019)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-257-2.png" width="672" /></p>
+</div>
+<div id="duplicates" class="section level3" number="13.5.3">
+<h3><span class="header-section-number">13.5.3</span> Duplicates?</h3>
+<p>The <code>get_dupes</code> function from the <code>janitor</code> package is useful for this.</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="exploratory-data-analysis.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_dupes</span>(delay_2019)</span></code></pre></div>
+<pre><code>## # A tibble: 158 x 11
+##    date                time  day   station code  min_delay min_gap bound line 
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 2019-01-01 00:00:00 08:18 Tues… DONLAN… MUESA         5      10 W     BD   
+##  2 2019-01-01 00:00:00 08:18 Tues… DONLAN… MUESA         5      10 W     BD   
+##  3 2019-02-01 00:00:00 05:51 Frid… SCARB … MRTO         10      15 S     SRT  
+##  4 2019-02-01 00:00:00 05:51 Frid… SCARB … MRTO         10      15 S     SRT  
+##  5 2019-02-01 00:00:00 06:45 Frid… MIDLAN… MRWEA         3       8 S     SRT  
+##  6 2019-02-01 00:00:00 06:45 Frid… MIDLAN… MRWEA         3       8 S     SRT  
+##  7 2019-02-01 00:00:00 06:55 Frid… LAWREN… ERDO          0       0 S     SRT  
+##  8 2019-02-01 00:00:00 06:55 Frid… LAWREN… ERDO          0       0 S     SRT  
+##  9 2019-02-01 00:00:00 07:16 Frid… MCCOWA… MRWEA         5      10 N     SRT  
+## 10 2019-02-01 00:00:00 07:16 Frid… MCCOWA… MRWEA         5      10 N     SRT  
+## # … with 148 more rows, and 2 more variables: vehicle &lt;dbl&gt;, dupe_count &lt;int&gt;</code></pre>
+<p>There are quite a few duplicates. Remove for now:</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="exploratory-data-analysis.html#cb444-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code></pre></div>
+</div>
+<div id="visualizing-distributions" class="section level3" number="13.5.4">
+<h3><span class="header-section-number">13.5.4</span> Visualizing distributions</h3>
+<p>Histograms, barplots, and density plots are your friends here.</p>
+<p>Let’s look at the outcome of interest: <code>min_delay</code>. First of all just a histogram of all the data:</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="exploratory-data-analysis.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Removing the observations that have non-standardized lines</span></span>
+<span id="cb445-2"><a href="exploratory-data-analysis.html#cb445-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-3"><a href="exploratory-data-analysis.html#cb445-3" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(line <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BD&quot;</span>, <span class="st">&quot;YU&quot;</span>, <span class="st">&quot;SHP&quot;</span>, <span class="st">&quot;SRT&quot;</span>))</span>
+<span id="cb445-4"><a href="exploratory-data-analysis.html#cb445-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-5"><a href="exploratory-data-analysis.html#cb445-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay_2019) <span class="sc">+</span> </span>
+<span id="cb445-6"><a href="exploratory-data-analysis.html#cb445-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> min_delay))</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
+<p>To improve readability, could plot on logged scale:</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="exploratory-data-analysis.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay_2019) <span class="sc">+</span> </span>
+<span id="cb446-2"><a href="exploratory-data-analysis.html#cb446-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> min_delay)) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
+<p>Our initial EDA hinted at an outlying delay time, let’s take a look at the largest delays below. Join the <code>delay_codes</code> dataset to see what the delay is. (Have to do some mangling as SRT has different codes).</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="exploratory-data-analysis.html#cb447-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb447-2"><a href="exploratory-data-analysis.html#cb447-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(delay_codes <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">code =</span> <span class="st">`</span><span class="at">SUB RMENU CODE</span><span class="st">`</span>, <span class="at">code_desc =</span> <span class="st">`</span><span class="at">CODE DESCRIPTION...3</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(code, code_desc)) </span>
+<span id="cb447-3"><a href="exploratory-data-analysis.html#cb447-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb447-4"><a href="exploratory-data-analysis.html#cb447-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb447-5"><a href="exploratory-data-analysis.html#cb447-5" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb447-6"><a href="exploratory-data-analysis.html#cb447-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">code_srt =</span> <span class="fu">ifelse</span>(line<span class="sc">==</span><span class="st">&quot;SRT&quot;</span>, code, <span class="st">&quot;NA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb447-7"><a href="exploratory-data-analysis.html#cb447-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(delay_codes <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">code_srt =</span> <span class="st">`</span><span class="at">SRT RMENU CODE</span><span class="st">`</span>, <span class="at">code_desc_srt =</span> <span class="st">`</span><span class="at">CODE DESCRIPTION...7</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(code_srt, code_desc_srt))  <span class="sc">%&gt;%</span> </span>
+<span id="cb447-8"><a href="exploratory-data-analysis.html#cb447-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">code =</span> <span class="fu">ifelse</span>(code_srt<span class="sc">==</span><span class="st">&quot;NA&quot;</span>, code, code_srt),</span>
+<span id="cb447-9"><a href="exploratory-data-analysis.html#cb447-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">code_desc =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(code_desc_srt), code_desc, code_desc_srt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb447-10"><a href="exploratory-data-analysis.html#cb447-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>code_srt, <span class="sc">-</span>code_desc_srt)</span></code></pre></div>
+<p>The 455 min delay due to ‘Rail Related Problem’ is an outlier.</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="exploratory-data-analysis.html#cb448-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb448-2"><a href="exploratory-data-analysis.html#cb448-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(delay_codes <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">code =</span> <span class="st">`</span><span class="at">SUB RMENU CODE</span><span class="st">`</span>, <span class="at">code_desc =</span> <span class="st">`</span><span class="at">CODE DESCRIPTION...3</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(code, code_desc)) <span class="sc">%&gt;%</span> </span>
+<span id="cb448-3"><a href="exploratory-data-analysis.html#cb448-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>min_delay) <span class="sc">%&gt;%</span> </span>
+<span id="cb448-4"><a href="exploratory-data-analysis.html#cb448-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, time, station, line, min_delay, code, code_desc)</span></code></pre></div>
+<pre><code>## # A tibble: 18,697 x 7
+##    date                time  station     line  min_delay code  code_desc        
+##    &lt;dttm&gt;              &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            
+##  1 2019-06-25 00:00:00 18:48 WILSON TO … YU          455 PUTR  Rail Related Pro…
+##  2 2019-02-12 00:00:00 20:28 LAWRENCE E… SRT         284 MRWEA Weather Reports …
+##  3 2019-06-05 00:00:00 12:42 UNION TO S… YU          250 MUPLA Fire/Smoke Plan A
+##  4 2019-10-22 00:00:00 14:22 LAWRENCE S… YU          228 PUTS  Structure Relate…
+##  5 2019-09-26 00:00:00 11:38 YORK MILLS… YU          193 MUPR1 Priority One - T…
+##  6 2019-06-08 00:00:00 08:51 SPADINA BD… BD          180 MUPLB Fire/Smoke Plan …
+##  7 2019-12-02 00:00:00 06:59 DUNDAS WES… BD          176 MUPLB Fire/Smoke Plan …
+##  8 2019-01-29 00:00:00 05:46 VICTORIA P… BD          174 MUWEA Weather Reports …
+##  9 2019-02-22 00:00:00 17:32 ELLESMERE … SRT         168 PRW   Rail Defect/Fast…
+## 10 2019-02-10 00:00:00 07:53 BAYVIEW ST… SHP         165 PUSI  Signals or Relat…
+## # … with 18,687 more rows</code></pre>
+<div id="grouping-and-small-multiples" class="section level4" number="13.5.4.1">
+<h4><span class="header-section-number">13.5.4.1</span> Grouping and small multiples</h4>
+<p>A quick and powerful visualization technique is to group the data by a variable of interest, e.g. <code>line</code></p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="exploratory-data-analysis.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay_2019) <span class="sc">+</span> </span>
+<span id="cb450-2"><a href="exploratory-data-analysis.html#cb450-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> min_delay, <span class="at">y =</span> ..density.., <span class="at">fill =</span> line), <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
+<p>I switched to density above to look at the the distributions more comparably, but we should also be aware of differences in frequency, in particular, SHP and SRT have much smaller counts:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="exploratory-data-analysis.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay_2019) <span class="sc">+</span> </span>
+<span id="cb451-2"><a href="exploratory-data-analysis.html#cb451-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> min_delay, <span class="at">fill =</span> line), <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<p>If you want to group by more than one variable, facets are good:</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="exploratory-data-analysis.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> delay_2019) <span class="sc">+</span> </span>
+<span id="cb452-2"><a href="exploratory-data-analysis.html#cb452-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> min_delay, <span class="at">color =</span> day), <span class="at">bw =</span> .<span class="dv">08</span>) <span class="sc">+</span> </span>
+<span id="cb452-3"><a href="exploratory-data-analysis.html#cb452-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">facet_grid</span>(<span class="sc">~</span>line)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<p>Side note: the station names are a mess. Try and clean up the station names a bit by taking just the first word (or, the first two if it starts with “ST”):</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="exploratory-data-analysis.html#cb453-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb453-2"><a href="exploratory-data-analysis.html#cb453-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">station_clean =</span> <span class="fu">ifelse</span>(<span class="fu">str_starts</span>(station, <span class="st">&quot;ST&quot;</span>), <span class="fu">word</span>(station, <span class="dv">1</span>,<span class="dv">2</span>), <span class="fu">word</span>(station, <span class="dv">1</span>)))</span></code></pre></div>
+<p>Plot top five stations by mean delay:</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="exploratory-data-analysis.html#cb454-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb454-2"><a href="exploratory-data-analysis.html#cb454-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(line, station_clean) <span class="sc">%&gt;%</span> </span>
+<span id="cb454-3"><a href="exploratory-data-analysis.html#cb454-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(min_delay), <span class="at">n_obs =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb454-4"><a href="exploratory-data-analysis.html#cb454-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_obs<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb454-5"><a href="exploratory-data-analysis.html#cb454-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(line, <span class="sc">-</span>mean_delay) <span class="sc">%&gt;%</span> </span>
+<span id="cb454-6"><a href="exploratory-data-analysis.html#cb454-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb454-7"><a href="exploratory-data-analysis.html#cb454-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(station_clean, mean_delay)) <span class="sc">+</span> <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>line, <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+</div>
+</div>
+<div id="visualizing-time-series" class="section level3" number="13.5.5">
+<h3><span class="header-section-number">13.5.5</span> Visualizing time series</h3>
+<p>Daily plot is messy (you can check for yourself). Let’s look by week to see if there’s any seasonality. The <code>lubridate</code> package has lots of helpful functions that deal with date variables. First, mean delay (of those that were delayed more than 0 mins):</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="exploratory-data-analysis.html#cb455-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb455-2"><a href="exploratory-data-analysis.html#cb455-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(min_delay<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb455-3"><a href="exploratory-data-analysis.html#cb455-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">week</span>(date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb455-4"><a href="exploratory-data-analysis.html#cb455-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(week, line) <span class="sc">%&gt;%</span> </span>
+<span id="cb455-5"><a href="exploratory-data-analysis.html#cb455-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(min_delay)) <span class="sc">%&gt;%</span> </span>
+<span id="cb455-6"><a href="exploratory-data-analysis.html#cb455-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(week, mean_delay, <span class="at">color =</span> line)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">facet_grid</span>(<span class="sc">~</span>line)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p>What about proportion of delays that were greater than 10 mins?</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="exploratory-data-analysis.html#cb456-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb456-2"><a href="exploratory-data-analysis.html#cb456-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">week</span>(date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb456-3"><a href="exploratory-data-analysis.html#cb456-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(week, line) <span class="sc">%&gt;%</span> </span>
+<span id="cb456-4"><a href="exploratory-data-analysis.html#cb456-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop_delay =</span> <span class="fu">sum</span>(min_delay<span class="sc">&gt;</span><span class="dv">10</span>)<span class="sc">/</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb456-5"><a href="exploratory-data-analysis.html#cb456-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(week, prop_delay, <span class="at">color =</span> line)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">facet_grid</span>(<span class="sc">~</span>line)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+</div>
+<div id="visualizing-relationships" class="section level3" number="13.5.6">
+<h3><span class="header-section-number">13.5.6</span> Visualizing relationships</h3>
+<p>Note that <strong>scatter plots</strong> are a good precursor to modeling, to visualize relationships between continuous variables. Nothing obvious to plot here, but easy to do with <code>geom_point</code>.</p>
+<p>Look at top five reasons for delay by station. Do they differ? Think about how this could be modeled.</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="exploratory-data-analysis.html#cb457-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb457-2"><a href="exploratory-data-analysis.html#cb457-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(line, code_desc) <span class="sc">%&gt;%</span></span>
+<span id="cb457-3"><a href="exploratory-data-analysis.html#cb457-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(min_delay)) <span class="sc">%&gt;%</span></span>
+<span id="cb457-4"><a href="exploratory-data-analysis.html#cb457-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>mean_delay) <span class="sc">%&gt;%</span></span>
+<span id="cb457-5"><a href="exploratory-data-analysis.html#cb457-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb457-6"><a href="exploratory-data-analysis.html#cb457-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> code_desc,</span>
+<span id="cb457-7"><a href="exploratory-data-analysis.html#cb457-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> mean_delay)) <span class="sc">+</span></span>
+<span id="cb457-8"><a href="exploratory-data-analysis.html#cb457-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb457-9"><a href="exploratory-data-analysis.html#cb457-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(line), </span>
+<span id="cb457-10"><a href="exploratory-data-analysis.html#cb457-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
+<span id="cb457-11"><a href="exploratory-data-analysis.html#cb457-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb457-12"><a href="exploratory-data-analysis.html#cb457-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+</div>
+<div id="pca" class="section level3" number="13.5.7">
+<h3><span class="header-section-number">13.5.7</span> PCA</h3>
+<p>Principal components analysis is a really powerful exploratory tool. It allows you to pick up potential clusters and/or outliers that can help to inform model building.</p>
+<p>Let’s do a quick (and imperfect) example looking at types of delays by station.</p>
+<p>The delay categories are a bit of a mess, and there’s hundreds of them. As a simple start, let’s just take the first word:</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="exploratory-data-analysis.html#cb458-1" aria-hidden="true" tabindex="-1"></a>delay_2019 <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb458-2"><a href="exploratory-data-analysis.html#cb458-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">code_red =</span> <span class="fu">case_when</span>(</span>
+<span id="cb458-3"><a href="exploratory-data-analysis.html#cb458-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_starts</span>(code_desc, <span class="st">&quot;No&quot;</span>) <span class="sc">~</span> <span class="fu">word</span>(code_desc, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb458-4"><a href="exploratory-data-analysis.html#cb458-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_starts</span>(code_desc, <span class="st">&quot;Operator&quot;</span>) <span class="sc">~</span> <span class="fu">word</span>(code_desc, <span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb458-5"><a href="exploratory-data-analysis.html#cb458-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">word</span>(code_desc,<span class="dv">1</span>))</span>
+<span id="cb458-6"><a href="exploratory-data-analysis.html#cb458-6" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<p>Let’s also just restrict the analysis to causes that happen at least 50 times over 2019. To do the PCA, the dataframe also needs to be switched to wide format:</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="exploratory-data-analysis.html#cb459-1" aria-hidden="true" tabindex="-1"></a>dwide <span class="ot">&lt;-</span> delay_2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb459-2"><a href="exploratory-data-analysis.html#cb459-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(line, station_clean) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-3"><a href="exploratory-data-analysis.html#cb459-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_obs =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-4"><a href="exploratory-data-analysis.html#cb459-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_obs<span class="sc">&gt;</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-5"><a href="exploratory-data-analysis.html#cb459-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code_red) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-6"><a href="exploratory-data-analysis.html#cb459-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tot_delay =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-7"><a href="exploratory-data-analysis.html#cb459-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(tot_delay) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-8"><a href="exploratory-data-analysis.html#cb459-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tot_delay<span class="sc">&gt;</span><span class="dv">50</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-9"><a href="exploratory-data-analysis.html#cb459-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(line, station_clean, code_red) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-10"><a href="exploratory-data-analysis.html#cb459-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_delay =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-11"><a href="exploratory-data-analysis.html#cb459-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> code_red, <span class="at">values_from =</span> n_delay) <span class="sc">%&gt;%</span> </span>
+<span id="cb459-12"><a href="exploratory-data-analysis.html#cb459-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="at">.funs =</span> <span class="fu">funs</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(.), <span class="dv">0</span>, .)))</span></code></pre></div>
+<p>Do the PCA:</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="exploratory-data-analysis.html#cb460-1" aria-hidden="true" tabindex="-1"></a>delay_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(dwide[,<span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(dwide)])</span>
+<span id="cb460-2"><a href="exploratory-data-analysis.html#cb460-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb460-3"><a href="exploratory-data-analysis.html#cb460-3" aria-hidden="true" tabindex="-1"></a>df_out <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(delay_pca<span class="sc">$</span>x)</span>
+<span id="cb460-4"><a href="exploratory-data-analysis.html#cb460-4" aria-hidden="true" tabindex="-1"></a>df_out <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(dwide <span class="sc">%&gt;%</span> <span class="fu">select</span>(line, station_clean), df_out)</span>
+<span id="cb460-5"><a href="exploratory-data-analysis.html#cb460-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_out)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 40
+## # Groups:   line, station_clean [6]
+##   line  station_clean    PC1     PC2    PC3    PC4    PC5      PC6   PC7   PC8
+##   &lt;chr&gt; &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 BD    BATHURST        6.50   26.9   -2.71 -10.8  -8.40  -11.7    -3.33 -4.11
+## 2 BD    BAY            24.8     7.63  -2.19  -7.05  0.714   3.90   -2.29 -4.14
+## 3 BD    BLOOR         -62.4  -112.    57.3  -23.4  -5.09  -14.1    13.7   5.06
+## 4 BD    BROADVIEW      -6.60   28.1   -1.06 -14.0  -6.49   -8.29   -6.29 -1.40
+## 5 BD    CASTLE         23.8    11.8   -1.31  -7.93 -3.62   -3.37   -2.08 -3.48
+## 6 BD    CHESTER        24.6    -1.87 -18.6    2.75  1.85    0.0736  3.79 -1.27
+## # … with 30 more variables: PC9 &lt;dbl&gt;, PC10 &lt;dbl&gt;, PC11 &lt;dbl&gt;, PC12 &lt;dbl&gt;,
+## #   PC13 &lt;dbl&gt;, PC14 &lt;dbl&gt;, PC15 &lt;dbl&gt;, PC16 &lt;dbl&gt;, PC17 &lt;dbl&gt;, PC18 &lt;dbl&gt;,
+## #   PC19 &lt;dbl&gt;, PC20 &lt;dbl&gt;, PC21 &lt;dbl&gt;, PC22 &lt;dbl&gt;, PC23 &lt;dbl&gt;, PC24 &lt;dbl&gt;,
+## #   PC25 &lt;dbl&gt;, PC26 &lt;dbl&gt;, PC27 &lt;dbl&gt;, PC28 &lt;dbl&gt;, PC29 &lt;dbl&gt;, PC30 &lt;dbl&gt;,
+## #   PC31 &lt;dbl&gt;, PC32 &lt;dbl&gt;, PC33 &lt;dbl&gt;, PC34 &lt;dbl&gt;, PC35 &lt;dbl&gt;, PC36 &lt;dbl&gt;,
+## #   PC37 &lt;dbl&gt;, PC38 &lt;dbl&gt;</code></pre>
+<p>Plot the first two PCs, and label some outlying stations:</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="exploratory-data-analysis.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_out,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">color=</span>line )) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_text_repel</span>(<span class="at">data =</span> df_out <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PC2<span class="sc">&gt;</span><span class="dv">100</span><span class="sc">|</span>PC1<span class="sc">&lt;</span><span class="dv">100</span><span class="sc">*-</span><span class="dv">1</span>), <span class="fu">aes</span>(<span class="at">label =</span> station_clean))</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<p>Plot the factor loadings. Some evidence of public v operator?</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="exploratory-data-analysis.html#cb463-1" aria-hidden="true" tabindex="-1"></a>df_out_r <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(delay_pca<span class="sc">$</span>rotation)</span>
+<span id="cb463-2"><a href="exploratory-data-analysis.html#cb463-2" aria-hidden="true" tabindex="-1"></a>df_out_r<span class="sc">$</span>feature <span class="ot">&lt;-</span> <span class="fu">colnames</span>(dwide[,<span class="dv">3</span><span class="sc">:</span><span class="fu">ncol</span>(dwide)])</span>
+<span id="cb463-3"><a href="exploratory-data-analysis.html#cb463-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb463-4"><a href="exploratory-data-analysis.html#cb463-4" aria-hidden="true" tabindex="-1"></a>df_out_r</span></code></pre></div>
+<pre><code>## # A tibble: 38 x 39
+##         PC1      PC2      PC3      PC4      PC5      PC6      PC7     PC8
+##       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1 -0.0412   0.0638   1.33e-2 -4.67e-2  0.0246   0.0184  -0.00363  0.0198
+##  2 -0.0332  -0.00469 -4.14e-2 -7.51e-3  0.0201  -0.0122  -0.0914  -0.0903
+##  3 -0.135    0.207    2.37e-2 -1.44e-1  0.135   -0.0381  -0.00931 -0.320 
+##  4 -0.0652   0.0475  -4.43e-2 -2.51e-2 -0.00139 -0.0748  -0.144   -0.428 
+##  5 -0.00443  0.00878 -4.99e-5 -8.30e-4  0.00967  0.00954 -0.0160  -0.0144
+##  6 -0.0268  -0.00722 -4.39e-3  5.34e-4 -0.0151  -0.0125  -0.00381 -0.0423
+##  7 -0.0813   0.0960  -4.62e-2  4.79e-2 -0.0978  -0.0365  -0.0766   0.278 
+##  8 -0.0117   0.0135   5.48e-3 -2.94e-2  0.0125   0.0377  -0.0790  -0.0321
+##  9 -0.516    0.655   -1.77e-2 -1.62e-1 -0.221   -0.287   -0.184    0.0465
+## 10 -0.151    0.0826   5.48e-2  3.52e-1 -0.397    0.281    0.110    0.477 
+## # … with 28 more rows, and 31 more variables: PC9 &lt;dbl&gt;, PC10 &lt;dbl&gt;,
+## #   PC11 &lt;dbl&gt;, PC12 &lt;dbl&gt;, PC13 &lt;dbl&gt;, PC14 &lt;dbl&gt;, PC15 &lt;dbl&gt;, PC16 &lt;dbl&gt;,
+## #   PC17 &lt;dbl&gt;, PC18 &lt;dbl&gt;, PC19 &lt;dbl&gt;, PC20 &lt;dbl&gt;, PC21 &lt;dbl&gt;, PC22 &lt;dbl&gt;,
+## #   PC23 &lt;dbl&gt;, PC24 &lt;dbl&gt;, PC25 &lt;dbl&gt;, PC26 &lt;dbl&gt;, PC27 &lt;dbl&gt;, PC28 &lt;dbl&gt;,
+## #   PC29 &lt;dbl&gt;, PC30 &lt;dbl&gt;, PC31 &lt;dbl&gt;, PC32 &lt;dbl&gt;, PC33 &lt;dbl&gt;, PC34 &lt;dbl&gt;,
+## #   PC35 &lt;dbl&gt;, PC36 &lt;dbl&gt;, PC37 &lt;dbl&gt;, PC38 &lt;dbl&gt;, feature &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="exploratory-data-analysis.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_out_r,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">label=</span>feature )) <span class="sc">+</span> <span class="fu">geom_text_repel</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+</div>
+</div>
+<div id="exercises" class="section level2" number="13.6">
+<h2><span class="header-section-number">13.6</span> Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Using the <code>opendatatoronto</code> package, download the data on mayoral campaign contributions for 2014. (note: the 2014 file you will get from <code>get_resource</code>, so just keep the sheet that relates to the Mayor election).</li>
+<li>Clean up the data format (fixing the parsing issue and standardizing the column names using <code>janitor</code>)</li>
+<li>Summarize the variables in the dataset. Are there missing values, and if so, should we be worried about them? Is every variable in the format it should be? If not, create new variable(s) that are in the right format.</li>
+<li>Visually explore the distribution of values of the contributions. What contributions are notable outliers? Do they share a similar characteristic(s)? It may be useful to plot the distribution of contributions without these outliers to get a better sense of the majority of the data.</li>
+<li>List the top five candidates in each of these categories:
+<ul>
+<li>total contributions</li>
+<li>mean contribution</li>
+<li>number of contributions</li>
+</ul></li>
+<li>Repeat 5 but without contributions from the candidates themselves.</li>
+<li>How many contributors gave money to more than one candidate?</li>
+</ol>
+</div>
+<div id="case-study---opinions-about-a-casino-in-toronto" class="section level2" number="13.7">
+<h2><span class="header-section-number">13.7</span> Case study - Opinions about a casino in Toronto</h2>
+<p><strong>This was written by Michael Chong.</strong></p>
+<div id="data-preparation" class="section level3" number="13.7.1">
+<h3><span class="header-section-number">13.7.1</span> Data preparation</h3>
+<div id="getting-data-from-opendatatoronto" class="section level4" number="13.7.1.1">
+<h4><span class="header-section-number">13.7.1.1</span> Getting data from <code>opendatatoronto</code></h4>
+<p>Here we use the <code>opendatatoronto</code> package again. See the previous example RMarkdown file for a deeper explanation of how the code below works.</p>
+<p>The dataset I’m extracting below are the results from a survey in 2012 regarding the establishment of a casino in Toronto. More info available by following <a href="https://open.toronto.ca/dataset/casino-survey-results/">this link</a>. In this analysis, we’ll be hoping to address the question, <strong>which demographic (age/gender) groups are more likely to be supportive of a new casino in Toronto?</strong></p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="exploratory-data-analysis.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the data</span></span>
+<span id="cb466-2"><a href="exploratory-data-analysis.html#cb466-2" aria-hidden="true" tabindex="-1"></a>casino_resource <span class="ot">&lt;-</span> <span class="fu">search_packages</span>(<span class="st">&quot;casino survey&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb466-3"><a href="exploratory-data-analysis.html#cb466-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_package_resources</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb466-4"><a href="exploratory-data-analysis.html#cb466-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">&quot;toronto-casino-survey-results&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb466-5"><a href="exploratory-data-analysis.html#cb466-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_resource</span>()</span></code></pre></div>
+</div>
+<div id="getting-the-right-kind-of-object" class="section level4" number="13.7.1.2">
+<h4><span class="header-section-number">13.7.1.2</span> Getting the right kind of object</h4>
+<p>The object <code>casino_resource</code> isn’t quite useable yet, because it’s (inconveniently) stored as a <code>list</code> of 2 data frames:</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="exploratory-data-analysis.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check what kind of object the casino_resource object is</span></span>
+<span id="cb467-2"><a href="exploratory-data-analysis.html#cb467-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(casino_resource)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>If we just return the object, we can see that the 2nd list item is empty, and we just want to keep the first one:</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="exploratory-data-analysis.html#cb469-1" aria-hidden="true" tabindex="-1"></a>casino_resource</span></code></pre></div>
+<pre><code>## $tblSurvey
+## # A tibble: 17,766 x 94
+##    SurveyID Q1_A  Q1_B1 Q1_B2 Q1_B3 Q2_A  Q2_B  Q3_A  Q3_B  Q3_C  Q3_D  Q3_E 
+##       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+##  1        1 Stro… Do n… Do n… Do n… Does… &quot;As … Not … Very… Not … Not … Not …
+##  2        2 Stro… Econ… Jobs  Arts… Fits… &quot;Cos… Very… Very… Very… Very… Very…
+##  3        3 Stro… Ther… If t… &lt;NA&gt;  Fits… &quot;Big… Very… Very… Very… Very… Very…
+##  4        4 Some… beli… mone… evid… Does… &quot;My … Very… Very… Some… Some… Very…
+##  5        5 Neut… Like… Conc… &lt;NA&gt;  Neut… &quot;Aga… Very… Very… Very… Not … Very…
+##  6        6 Stro… have… &lt;NA&gt;  &lt;NA&gt;  Does… &quot;Tor… Not … Not … Not … Not … Not …
+##  7        7 Stro… The … Peop… We s… Does… &quot;#3 … Not … Not … Not … Not … Not …
+##  8        8 Stro… It w… Mora… &lt;NA&gt;  Does… &quot;Cas… Very… Very… Very… Very… Very…
+##  9        9 Stro… It&#39;s… traf… heal… Does… &quot;No … Not … Very… Not … Not … Some…
+## 10       10 Stro… Toro… Avoi… Prov… Fits… &quot;Tor… Very… Very… Very… Not … Very…
+## # … with 17,756 more rows, and 82 more variables: Q3_F &lt;chr&gt;, Q3_G &lt;chr&gt;,
+## #   Q3_H &lt;chr&gt;, Q3_I &lt;chr&gt;, Q3_J &lt;chr&gt;, Q3_K &lt;chr&gt;, Q3_L &lt;chr&gt;, Q3_M &lt;chr&gt;,
+## #   Q3_N &lt;chr&gt;, Q3_O &lt;chr&gt;, Q3_P &lt;chr&gt;, Q3_Q &lt;chr&gt;, Q3_Q_Other &lt;chr&gt;,
+## #   Q3_Comments &lt;chr&gt;, Q4_A &lt;chr&gt;, Q5 &lt;chr&gt;, Q6 &lt;chr&gt;, Q6_Comments &lt;chr&gt;,
+## #   Q7_A_StandAlone &lt;chr&gt;, Q7_A_Integrated &lt;chr&gt;, Q7_A1 &lt;chr&gt;, Q7_A2 &lt;chr&gt;,
+## #   Q7_A3 &lt;chr&gt;, Q7_A_A &lt;chr&gt;, Q7_A_B &lt;chr&gt;, Q7_A_C &lt;chr&gt;, Q7_A_D &lt;chr&gt;,
+## #   Q7_A_E &lt;chr&gt;, Q7_A_F &lt;chr&gt;, Q7_A_G &lt;chr&gt;, Q7_A_H &lt;chr&gt;, Q7_A_I &lt;chr&gt;,
+## #   Q7_A_J &lt;chr&gt;, Q7_A_J_Other &lt;chr&gt;, Q7_B_StandAlone &lt;chr&gt;,
+## #   Q7_B_Integrated &lt;chr&gt;, Q7_B1 &lt;chr&gt;, Q7_B2 &lt;chr&gt;, Q7_B3 &lt;chr&gt;, Q7_B_A &lt;chr&gt;,
+## #   Q7_B_B &lt;chr&gt;, Q7_B_C &lt;chr&gt;, Q7_B_D &lt;chr&gt;, Q7_B_E &lt;chr&gt;, Q7_B_F &lt;chr&gt;,
+## #   Q7_B_G &lt;chr&gt;, Q7_B_H &lt;chr&gt;, Q7_B_I &lt;chr&gt;, Q7_B_J &lt;chr&gt;, Q7_B_J_Other &lt;chr&gt;,
+## #   Q7_C_StandAlone &lt;chr&gt;, Q7_C_Integrated &lt;chr&gt;, Q7_C1 &lt;chr&gt;, Q7_C2 &lt;chr&gt;,
+## #   Q7_C3 &lt;chr&gt;, Q7_C_A &lt;chr&gt;, Q7_C_B &lt;chr&gt;, Q7_C_C &lt;chr&gt;, Q7_C_D &lt;chr&gt;,
+## #   Q7_C_E &lt;chr&gt;, Q7_C_F &lt;chr&gt;, Q7_C_G &lt;chr&gt;, Q7_C_H &lt;chr&gt;, Q7_C_I &lt;chr&gt;,
+## #   Q7_C_J &lt;chr&gt;, Q7_C_J_Other &lt;chr&gt;, Q8_A1 &lt;chr&gt;, Q8_A2 &lt;chr&gt;, Q8_B1 &lt;chr&gt;,
+## #   Q8_B2 &lt;chr&gt;, Q8_B3 &lt;chr&gt;, Q9 &lt;chr&gt;, Q9_Considerations &lt;chr&gt;, Q10 &lt;chr&gt;,
+## #   Q11 &lt;chr&gt;, Age &lt;chr&gt;, Gender &lt;chr&gt;, PostalCode &lt;chr&gt;, GroupName &lt;chr&gt;,
+## #   DateCreated &lt;dttm&gt;, ...93 &lt;lgl&gt;, ...94 &lt;lgl&gt;
+## 
+## $Sheet1
+## # A tibble: 0 x 0</code></pre>
+<p>So, let’s only keep the first item by indexing the list with double square brackets:</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="exploratory-data-analysis.html#cb471-1" aria-hidden="true" tabindex="-1"></a>casino_data <span class="ot">&lt;-</span> casino_resource[[<span class="dv">1</span>]]</span></code></pre></div>
+</div>
+<div id="cleaning-up-the-dataframe" class="section level4" number="13.7.1.3">
+<h4><span class="header-section-number">13.7.1.3</span> Cleaning up the dataframe</h4>
+<p>Let’s check out what the first couple rows of the dataframe looks like. By default, <code>head()</code> returns the first 6 rows:</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="exploratory-data-analysis.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(casino_data) </span></code></pre></div>
+<pre><code>## # A tibble: 6 x 94
+##   SurveyID Q1_A  Q1_B1 Q1_B2 Q1_B3 Q2_A  Q2_B  Q3_A  Q3_B  Q3_C  Q3_D  Q3_E 
+##      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1        1 Stro… Do n… Do n… Do n… Does… &quot;As … Not … Very… Not … Not … Not …
+## 2        2 Stro… Econ… Jobs  Arts… Fits… &quot;Cos… Very… Very… Very… Very… Very…
+## 3        3 Stro… Ther… If t… &lt;NA&gt;  Fits… &quot;Big… Very… Very… Very… Very… Very…
+## 4        4 Some… beli… mone… evid… Does… &quot;My … Very… Very… Some… Some… Very…
+## 5        5 Neut… Like… Conc… &lt;NA&gt;  Neut… &quot;Aga… Very… Very… Very… Not … Very…
+## 6        6 Stro… have… &lt;NA&gt;  &lt;NA&gt;  Does… &quot;Tor… Not … Not … Not … Not … Not …
+## # … with 82 more variables: Q3_F &lt;chr&gt;, Q3_G &lt;chr&gt;, Q3_H &lt;chr&gt;, Q3_I &lt;chr&gt;,
+## #   Q3_J &lt;chr&gt;, Q3_K &lt;chr&gt;, Q3_L &lt;chr&gt;, Q3_M &lt;chr&gt;, Q3_N &lt;chr&gt;, Q3_O &lt;chr&gt;,
+## #   Q3_P &lt;chr&gt;, Q3_Q &lt;chr&gt;, Q3_Q_Other &lt;chr&gt;, Q3_Comments &lt;chr&gt;, Q4_A &lt;chr&gt;,
+## #   Q5 &lt;chr&gt;, Q6 &lt;chr&gt;, Q6_Comments &lt;chr&gt;, Q7_A_StandAlone &lt;chr&gt;,
+## #   Q7_A_Integrated &lt;chr&gt;, Q7_A1 &lt;chr&gt;, Q7_A2 &lt;chr&gt;, Q7_A3 &lt;chr&gt;, Q7_A_A &lt;chr&gt;,
+## #   Q7_A_B &lt;chr&gt;, Q7_A_C &lt;chr&gt;, Q7_A_D &lt;chr&gt;, Q7_A_E &lt;chr&gt;, Q7_A_F &lt;chr&gt;,
+## #   Q7_A_G &lt;chr&gt;, Q7_A_H &lt;chr&gt;, Q7_A_I &lt;chr&gt;, Q7_A_J &lt;chr&gt;, Q7_A_J_Other &lt;chr&gt;,
+## #   Q7_B_StandAlone &lt;chr&gt;, Q7_B_Integrated &lt;chr&gt;, Q7_B1 &lt;chr&gt;, Q7_B2 &lt;chr&gt;,
+## #   Q7_B3 &lt;chr&gt;, Q7_B_A &lt;chr&gt;, Q7_B_B &lt;chr&gt;, Q7_B_C &lt;chr&gt;, Q7_B_D &lt;chr&gt;,
+## #   Q7_B_E &lt;chr&gt;, Q7_B_F &lt;chr&gt;, Q7_B_G &lt;chr&gt;, Q7_B_H &lt;chr&gt;, Q7_B_I &lt;chr&gt;,
+## #   Q7_B_J &lt;chr&gt;, Q7_B_J_Other &lt;chr&gt;, Q7_C_StandAlone &lt;chr&gt;,
+## #   Q7_C_Integrated &lt;chr&gt;, Q7_C1 &lt;chr&gt;, Q7_C2 &lt;chr&gt;, Q7_C3 &lt;chr&gt;, Q7_C_A &lt;chr&gt;,
+## #   Q7_C_B &lt;chr&gt;, Q7_C_C &lt;chr&gt;, Q7_C_D &lt;chr&gt;, Q7_C_E &lt;chr&gt;, Q7_C_F &lt;chr&gt;,
+## #   Q7_C_G &lt;chr&gt;, Q7_C_H &lt;chr&gt;, Q7_C_I &lt;chr&gt;, Q7_C_J &lt;chr&gt;, Q7_C_J_Other &lt;chr&gt;,
+## #   Q8_A1 &lt;chr&gt;, Q8_A2 &lt;chr&gt;, Q8_B1 &lt;chr&gt;, Q8_B2 &lt;chr&gt;, Q8_B3 &lt;chr&gt;, Q9 &lt;chr&gt;,
+## #   Q9_Considerations &lt;chr&gt;, Q10 &lt;chr&gt;, Q11 &lt;chr&gt;, Age &lt;chr&gt;, Gender &lt;chr&gt;,
+## #   PostalCode &lt;chr&gt;, GroupName &lt;chr&gt;, DateCreated &lt;dttm&gt;, ...93 &lt;lgl&gt;,
+## #   ...94 &lt;lgl&gt;</code></pre>
+<p>Unfortunately the column names aren’t very informative. For simplicity, we’ll use the <code>.pdf</code> questionnaire that accompanies this dataset from the Toronto Open Data website. Alternatively, we could get and parse the <code>readme</code> through the R package.</p>
+<p><a href="https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/427ca4cd-168a-4a37-883d-4a574277caf5/resource/ae135d6a-6921-4905-bc79-516fcd428b7b/download/toronto-casino-survey-feedback-form.pdf">Here’s a link to the questionnaire</a>.</p>
+<p>Question 1 indicates the level of support for a casino in Toronto. We’ll use this as the response variable.</p>
+<p>Concerning potential predictor variables, most of the questions ask respondents about their opinions on different aspects of a potential casino development, which aren’t particularly useful towards our cause. The only demographic variables are <code>Age</code> and <code>Gender</code>, so let’s choose these.</p>
+<p>Here I’m also going to rename the columns so that my resulting data frame has columns <code>opinion</code>, <code>age</code>, and <code>gender</code>.</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="exploratory-data-analysis.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Narrow down the dataframe to our variables of interest</span></span>
+<span id="cb474-2"><a href="exploratory-data-analysis.html#cb474-2" aria-hidden="true" tabindex="-1"></a>casino_data <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb474-3"><a href="exploratory-data-analysis.html#cb474-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Q1_A, Age, Gender) <span class="sc">%&gt;%</span></span>
+<span id="cb474-4"><a href="exploratory-data-analysis.html#cb474-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">opinion =</span> Q1_A, <span class="at">age =</span> Age, <span class="at">gender =</span> Gender)</span>
+<span id="cb474-5"><a href="exploratory-data-analysis.html#cb474-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb474-6"><a href="exploratory-data-analysis.html#cb474-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at first couple rows:</span></span>
+<span id="cb474-7"><a href="exploratory-data-analysis.html#cb474-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(casino_data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   opinion                   age   gender
+##   &lt;chr&gt;                     &lt;chr&gt; &lt;chr&gt; 
+## 1 Strongly Opposed          25-34 Male  
+## 2 Strongly in Favour        35-44 Female
+## 3 Strongly in Favour        55-64 Male  
+## 4 Somewhat Opposed          25-34 Male  
+## 5 Neutral or Mixed Feelings 25-34 Female
+## 6 Strongly Opposed          45-54 Female</code></pre>
+</div>
+</div>
+<div id="some-visual-exploration-and-more-cleanup-of-course" class="section level3" number="13.7.2">
+<h3><span class="header-section-number">13.7.2</span> Some visual exploration (and more cleanup, of course)</h3>
+<p>Let’s first do some quick exploration to get a feel for what’s going on in the data. We’ll first calculate proportions of casino support for each age-gender combination:</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="exploratory-data-analysis.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate proportions</span></span>
+<span id="cb476-2"><a href="exploratory-data-analysis.html#cb476-2" aria-hidden="true" tabindex="-1"></a>casino_summary <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb476-3"><a href="exploratory-data-analysis.html#cb476-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age, gender, opinion) <span class="sc">%&gt;%</span></span>
+<span id="cb476-4"><a href="exploratory-data-analysis.html#cb476-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># Count the number in each group and response</span></span>
+<span id="cb476-5"><a href="exploratory-data-analysis.html#cb476-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb476-6"><a href="exploratory-data-analysis.html#cb476-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="co"># Calculate proportions within each group</span></span></code></pre></div>
+<p>Some notes:
+* we use <code>geom_col()</code> to make a bar chart,
+* <code>facet_grid()</code> modifies the plot so that the plot has panels that correspond only to certain values of discrete variables (in this case, we will “facet” by <code>age</code> and <code>gender</code>). This is helpful in this case because we are interested in how the distribution of <code>opinion</code>s changes by <code>age</code> and <code>gender</code>.</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="exploratory-data-analysis.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(casino_summary) <span class="sc">+</span></span>
+<span id="cb477-2"><a href="exploratory-data-analysis.html#cb477-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> opinion, <span class="at">y =</span> prop)) <span class="sc">+</span> <span class="co"># Specify a histogram of opinion responses</span></span>
+<span id="cb477-3"><a href="exploratory-data-analysis.html#cb477-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(age<span class="sc">~</span>gender) <span class="sc">+</span> <span class="co">#Facet by age and gender</span></span>
+<span id="cb477-4"><a href="exploratory-data-analysis.html#cb477-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>)) <span class="co"># Rotate the x-axis labels to be readable</span></span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
+<p>Some things to note:</p>
+<ul>
+<li>the x-axis labels are out of order in the sense that they are not in a monotone order of increasing/decreasing support</li>
+<li>there are <code>NA</code> values in <code>opinion</code>, <code>age</code>, and <code>gender</code>, as well as “Prefer not to disclose” responses</li>
+</ul>
+<div id="getting-the-data-into-a-more-model-suitable-format" class="section level4" number="13.7.2.1">
+<h4><span class="header-section-number">13.7.2.1</span> Getting the data into a more model-suitable format</h4>
+<div id="get-rid-of-responses-that-arent-suitable" class="section level5" number="13.7.2.1.1">
+<h5><span class="header-section-number">13.7.2.1.1</span> Get rid of responses that aren’t suitable</h5>
+<p>For simplicity we’ll assume that <code>NA</code> values and “Prefer not to disclose” responses occur randomly, and remove them from our dataset (note in reality this assumption might not hold up and we might want to be more careful). Let’s check how many rows are in the original dataset:</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="exploratory-data-analysis.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nrow() returns the number of rows in a dataframe:</span></span>
+<span id="cb478-2"><a href="exploratory-data-analysis.html#cb478-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(casino_data)</span></code></pre></div>
+<pre><code>## [1] 17766</code></pre>
+<p>Now let’s <code>filter()</code> accordingly to omit the responses we don’t want. In case you’re unfamiliar, I’m going to make use of:</p>
+<ul>
+<li><code>is.na()</code>, which returns <code>TRUE</code> if the argument is <code>NA</code>,</li>
+<li>the <code>!</code> operator, which flips <code>TRUE</code> and <code>FALSE</code>. So for instance, <code>!is.na(x)</code> will return <code>TRUE</code> if <code>x</code> is NOT <code>NA</code>, which is what we want to keep.</li>
+</ul>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="exploratory-data-analysis.html#cb480-1" aria-hidden="true" tabindex="-1"></a>casino_data <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb480-2"><a href="exploratory-data-analysis.html#cb480-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only keep rows with non-NA:</span></span>
+<span id="cb480-3"><a href="exploratory-data-analysis.html#cb480-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(opinion), <span class="sc">!</span><span class="fu">is.na</span>(age), <span class="sc">!</span><span class="fu">is.na</span>(gender)) <span class="sc">%&gt;%</span></span>
+<span id="cb480-4"><a href="exploratory-data-analysis.html#cb480-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only keep rows where age and gender are disclosed:</span></span>
+<span id="cb480-5"><a href="exploratory-data-analysis.html#cb480-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">!=</span> <span class="st">&quot;Prefer not to disclose&quot;</span>, gender <span class="sc">!=</span> <span class="st">&quot;Prefer not to disclose&quot;</span>)</span></code></pre></div>
+<p>Let’s check how many rows of data we’re left with:</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="exploratory-data-analysis.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(casino_data)</span></code></pre></div>
+<pre><code>## [1] 13658</code></pre>
+</div>
+<div id="convert-response-variable-into-binary" class="section level5" number="13.7.2.1.2">
+<h5><span class="header-section-number">13.7.2.1.2</span> Convert response variable into binary</h5>
+<p>To clean up the first problem (response variables out of order), we might as well take this opportunity to convert these into a format suitable for our model. In a logistic regression, we would like our response variable to be binary, but in this case we have 5 possible categories ranging from “Strongly Opposed” to “Strongly in Favour.” We’ll recategorize them into a new <code>supportive_or_not</code> variable as follows.</p>
+<ul>
+<li><code>supportive = 1</code> if “Strongly in Favour” or “Somewhat in Favour”</li>
+<li><code>supportive = 0</code> if “Neutral or Mixed Feelings,” “Somewhat Opposed,” or “Strongly Opposed”</li>
+</ul>
+<p>We do this with the <code>mutate()</code> function, which creates new columns (possibly as functions of existing columns), and <code>case_when()</code>, which provides a way to assign values conditional on if-statements. The syntax here is a little strange. On the LHS of the <code>~</code> is the “if” condition, and the RHS of the tilde is the value to return. For example, <code>x == 0 ~ 3</code> would return 3 when <code>x</code> is 0.</p>
+<p>Another commonly used operator here is the <code>%in%</code> operator, which checks whether something is an element of a vector. E.g.:</p>
+<ul>
+<li><code>1 %in% c(1, 3, 4)</code> returns <code>TRUE</code></li>
+<li><code>2 %in% c(1, 3, 4)</code> returns <code>FALSE</code></li>
+</ul>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="exploratory-data-analysis.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store possible opinions in vectors</span></span>
+<span id="cb483-2"><a href="exploratory-data-analysis.html#cb483-2" aria-hidden="true" tabindex="-1"></a>yes_opinions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Strongly in Favour&quot;</span>, <span class="st">&quot;Somewhat in Favour&quot;</span>)</span>
+<span id="cb483-3"><a href="exploratory-data-analysis.html#cb483-3" aria-hidden="true" tabindex="-1"></a>no_opinions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Neutral or Mixed Feelings&quot;</span>, <span class="st">&quot;Somewhat Opposed&quot;</span>, <span class="st">&quot;Strongly Opposed&quot;</span>)</span>
+<span id="cb483-4"><a href="exploratory-data-analysis.html#cb483-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb483-5"><a href="exploratory-data-analysis.html#cb483-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create `supportive` column:</span></span>
+<span id="cb483-6"><a href="exploratory-data-analysis.html#cb483-6" aria-hidden="true" tabindex="-1"></a>casino_data <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb483-7"><a href="exploratory-data-analysis.html#cb483-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">supportive =</span> <span class="fu">case_when</span>(</span>
+<span id="cb483-8"><a href="exploratory-data-analysis.html#cb483-8" aria-hidden="true" tabindex="-1"></a>    opinion <span class="sc">%in%</span> yes_opinions <span class="sc">~</span> <span class="cn">TRUE</span>, <span class="co"># Assign TRUE</span></span>
+<span id="cb483-9"><a href="exploratory-data-analysis.html#cb483-9" aria-hidden="true" tabindex="-1"></a>    opinion <span class="sc">%in%</span> no_opinions <span class="sc">~</span> <span class="cn">FALSE</span>  <span class="co"># Assign FALSE</span></span>
+<span id="cb483-10"><a href="exploratory-data-analysis.html#cb483-10" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
+</div>
+<div id="convert-age-to-a-numeric-variable" class="section level5" number="13.7.2.1.3">
+<h5><span class="header-section-number">13.7.2.1.3</span> Convert age to a numeric variable</h5>
+<p>Age in this survey is given in age groups. Let’s instead treat it map it to a numeric variable so that we can more easily talk about trends with age. We’ll map the youngest age to <code>1</code>, and so on:</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="exploratory-data-analysis.html#cb484-1" aria-hidden="true" tabindex="-1"></a>casino_data <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb484-2"><a href="exploratory-data-analysis.html#cb484-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb484-3"><a href="exploratory-data-analysis.html#cb484-3" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;Under 15&quot;</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb484-4"><a href="exploratory-data-analysis.html#cb484-4" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;15-24&quot;</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb484-5"><a href="exploratory-data-analysis.html#cb484-5" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;25-34&quot;</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb484-6"><a href="exploratory-data-analysis.html#cb484-6" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;35-44&quot;</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb484-7"><a href="exploratory-data-analysis.html#cb484-7" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;45-54&quot;</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb484-8"><a href="exploratory-data-analysis.html#cb484-8" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;55-64&quot;</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb484-9"><a href="exploratory-data-analysis.html#cb484-9" aria-hidden="true" tabindex="-1"></a>    age <span class="sc">==</span> <span class="st">&quot;65 or older&quot;</span> <span class="sc">~</span> <span class="dv">6</span></span>
+<span id="cb484-10"><a href="exploratory-data-analysis.html#cb484-10" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
+<p>Now let’s make the same plot again, with our new processed data:</p>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="exploratory-data-analysis.html#cb485-1" aria-hidden="true" tabindex="-1"></a>casino_summary2 <span class="ot">&lt;-</span> casino_data <span class="sc">%&gt;%</span></span>
+<span id="cb485-2"><a href="exploratory-data-analysis.html#cb485-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group, gender, supportive) <span class="sc">%&gt;%</span></span>
+<span id="cb485-3"><a href="exploratory-data-analysis.html#cb485-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># Count the number in each group and response</span></span>
+<span id="cb485-4"><a href="exploratory-data-analysis.html#cb485-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group, gender) <span class="sc">%&gt;%</span></span>
+<span id="cb485-5"><a href="exploratory-data-analysis.html#cb485-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="co"># Calculate proportions within each group</span></span>
+<span id="cb485-6"><a href="exploratory-data-analysis.html#cb485-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb485-7"><a href="exploratory-data-analysis.html#cb485-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(casino_summary2) <span class="sc">+</span></span>
+<span id="cb485-8"><a href="exploratory-data-analysis.html#cb485-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(age_group <span class="sc">~</span> gender) <span class="sc">+</span></span>
+<span id="cb485-9"><a href="exploratory-data-analysis.html#cb485-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> supportive, <span class="at">y =</span> prop)) </span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<p>We can sort of see some difference in the distribution between different panels. To formalize this, we can run a logistic regression.</p>
+</div>
+</div>
+</div>
+<div id="logistic-regression" class="section level3" number="13.7.3">
+<h3><span class="header-section-number">13.7.3</span> Logistic Regression</h3>
+<p>Now, we’re set up to feed it to the regression. We can do this with <code>glm()</code>, which allows us to fit generalized linear models.</p>
+<p>We use <code>family = "binomial"</code> to specify a logistic regression, and our formula is <code>supportive ~ age_group + gender</code>, which indicates that <code>supportive</code> is the (binary) response variable since it’s on the LHS, and <code>age_group</code> and <code>gender</code> are our predictor variables.</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="exploratory-data-analysis.html#cb486-1" aria-hidden="true" tabindex="-1"></a>casino_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(supportive <span class="sc">~</span> age_group <span class="sc">+</span> gender, <span class="at">data =</span> casino_data, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<p>We can take a look at the results of running the GLM using <code>summary()</code>:</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="exploratory-data-analysis.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(casino_glm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = supportive ~ age_group + gender, family = &quot;binomial&quot;, 
+##     data = casino_data)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.0107  -0.8888  -0.6804   1.4249   1.8822  
+## 
+## Coefficients:
+##                     Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)         -1.10594    0.05863 -18.862  &lt; 2e-16 ***
+## age_group           -0.07983    0.01376  -5.801 6.59e-09 ***
+## genderMale           0.70036    0.04027  17.390  &lt; 2e-16 ***
+## genderTransgendered  0.69023    0.39276   1.757   0.0789 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 16010  on 13657  degrees of freedom
+## Residual deviance: 15653  on 13654  degrees of freedom
+## AIC: 15661
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
+<div id="interpretation" class="section level4" number="13.7.3.1">
+<h4><span class="header-section-number">13.7.3.1</span> Interpretation</h4>
+<p>Interpretation can be a little tricky. Here are some important things to note about our results:</p>
+<div id="numeric-age-group-variable" class="section level5" number="13.7.3.1.1">
+<h5><span class="header-section-number">13.7.3.1.1</span> Numeric age group variable</h5>
+<p>Remember that we coded <code>age_group</code> as numbers 1 to 5. Because we’ve used age groups instead of age, we have to be careful with how we phrase our conclusion. The coefficient estimate corresponds to the effect of moving up a unit on the age group scale (e.g. from the 25-34 age group to the 35-44 age group), rather than 1 year in age (e.g. from age 28 to 29).</p>
+</div>
+<div id="log-odds-ratios" class="section level5" number="13.7.3.1.2">
+<h5><span class="header-section-number">13.7.3.1.2</span> log-odds ratios</h5>
+<p>The effect estimates are on the log-odds scale. This means the effect of -0.07983 for <code>age_group</code> is interpreted as: <em>for each unit increase in <code>age_group</code>, we estimate a 0.07983 decrease in the log-odds of being supportive of a casino</em>.</p>
+<p>We could exponentiate the coefficient estimate to make this at least a little easier to interpret. The number we get is interpreted as a factor for the odds.</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="exploratory-data-analysis.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.07983</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9232733</code></pre>
+<p>So our (cleaner) interpretation is:
+<em>the odds of an individuals of the same gender being pro-casino are predicted to change by a factor of 0.9232733 for each unit increase in <code>age_group</code></em></p>
+</div>
+</div>
+<div id="baseline-category" class="section level4" number="13.7.3.2">
+<h4><span class="header-section-number">13.7.3.2</span> Baseline category</h4>
+<p>First, note that because we have categorical variables, the <code>gender</code> coefficients are <em>relative</em> to a “baseline” category. The value of <code>gender</code> that doesn’t appear in the table, <code>Female</code>, is implicitly used as our baseline gender category.</p>
+<p>Technical note: if the variable is stored as a <code>character</code> class, then <code>glm()</code> will choose the alphabetically first value to use as the baseline.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="exploratory-data-analysis.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fl">0.70036</span>)</span></code></pre></div>
+<pre><code>## [1] 2.014478</code></pre>
+<p>So, the interpretation of the <code>genderMale</code> coefficient is: <em>the odds of a male individual supporting a casino is 2.0144778 times higher than a female individual of the same <code>age_group</code>.</em></p>
+</div>
+<div id="making-estimates" class="section level4" number="13.7.3.3">
+<h4><span class="header-section-number">13.7.3.3</span> Making estimates</h4>
+<div id="a-manual-way" class="section level5" number="13.7.3.3.1">
+<h5><span class="header-section-number">13.7.3.3.1</span> A manual way</h5>
+<p>Using the formula found in ISLR 4.3.3, we can make estimates for an individual of certain characteristics. Suppose we wanted to predict the the probability of supporting a Toronto casino for an individual who was 36 and identified as transgender. Then:</p>
+<ul>
+<li><code>age_group</code> takes a value of 3, since they are in the age group of 35-44 coded as 3,</li>
+<li><code>genderTransgendered</code> takes a value of 1</li>
+</ul>
+<p>First, let’s extract the coefficient estimates as a vector using <code>coefficients()</code>:</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="exploratory-data-analysis.html#cb493-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(casino_glm)</span>
+<span id="cb493-2"><a href="exploratory-data-analysis.html#cb493-2" aria-hidden="true" tabindex="-1"></a>coefs</span></code></pre></div>
+<pre><code>##         (Intercept)           age_group          genderMale genderTransgendered 
+##         -1.10593925         -0.07983372          0.70036199          0.69022910</code></pre>
+<p>Since this vector is labelelled, we can index it using square brackets and names. For instance:</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="exploratory-data-analysis.html#cb495-1" aria-hidden="true" tabindex="-1"></a>coefs[<span class="st">&quot;age_group&quot;</span>]</span></code></pre></div>
+<pre><code>##   age_group 
+## -0.07983372</code></pre>
+<p>So first let’s evaluate the exponent term <span class="math inline">\(e^{\beta_0 + \cdots + \beta_p X_p}\)</span>:</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="exploratory-data-analysis.html#cb497-1" aria-hidden="true" tabindex="-1"></a>exp_term <span class="ot">&lt;-</span> <span class="fu">exp</span>(coefs[<span class="st">&quot;(Intercept)&quot;</span>] <span class="sc">+</span> coefs[<span class="st">&quot;age_group&quot;</span>]<span class="sc">*</span><span class="dv">3</span> <span class="sc">+</span> coefs[<span class="st">&quot;genderTransgendered&quot;</span>]<span class="sc">*</span><span class="dv">1</span>)</span></code></pre></div>
+<p>Now evaluate the expression that gives the probability of casino support:</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="exploratory-data-analysis.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The unname() command just takes off the label that it &quot;inherited&quot; from the coefs vector.</span></span>
+<span id="cb498-2"><a href="exploratory-data-analysis.html#cb498-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (don&#39;t worry about it, doesn&#39;t affect any functionality)</span></span>
+<span id="cb498-3"><a href="exploratory-data-analysis.html#cb498-3" aria-hidden="true" tabindex="-1"></a><span class="fu">unname</span>(exp_term <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> exp_term))</span></code></pre></div>
+<pre><code>## [1] 0.3418161</code></pre>
+</div>
+<div id="a-more-streamlined-way" class="section level5" number="13.7.3.3.2">
+<h5><span class="header-section-number">13.7.3.3.2</span> A more streamlined way</h5>
+<p>Thankfully R comes with a convenient function to make prediction estimates from a <code>glm()</code>. We do this using the <code>predict()</code> function. First, we need to make a dataframe that has the relevant variables and values that we’re interested in predicting. We’ll use the same values as before:</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="exploratory-data-analysis.html#cb500-1" aria-hidden="true" tabindex="-1"></a>prediction_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age_group =</span> <span class="dv">3</span>, <span class="at">gender =</span> <span class="st">&quot;Transgendered&quot;</span>)</span></code></pre></div>
+<p>The dataframe looks like this:</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="exploratory-data-analysis.html#cb501-1" aria-hidden="true" tabindex="-1"></a>prediction_df</span></code></pre></div>
+<pre><code>##   age_group        gender
+## 1         3 Transgendered</code></pre>
+<p>Then we feed it into the <code>predict()</code> function, along with our <code>glm</code> object. To get the probability, we need to specify <code>type = "response"</code>.</p>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="exploratory-data-analysis.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(casino_glm, <span class="at">newdata =</span> prediction_df, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span></code></pre></div>
+<pre><code>##         1 
+## 0.3418161</code></pre>
+<p>This matches the probability we got from doing this manually, yay!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="case-study---historical-canadian-elections" class="section level2" number="13.8">
+<h2><span class="header-section-number">13.8</span> Case study - Historical Canadian elections</h2>
+<!-- https://twitter.com/semrasevi/status/1122889166008745985?s=21  -->
+<!-- ```{r, include = TRUE, eval = FALSE} -->
+<!-- library(tidyverse) -->
+<!-- elections_data <- read_csv("inputs/federal_candidates-1.csv") -->
+<!-- elections_data$Province %>% table()  -->
+<!-- # There are inconsistencies in the province names -->
+<!-- elections_data$Province[elections_data$Province == "Québec"] <- "Quebec" -->
+<!-- elections_data <- elections_data %>%  -->
+<!--   filter(!is.na(Province)) -->
+<!-- # Check gender -->
+<!-- elections_data$Gender %>% table() -->
+<!-- # Check occupation -->
+<!-- elections_data$occupation %>% table() -->
+<!-- # Get a count of how many uniques there are -->
+<!-- elections_data$occupation %>% unique() %>% length() -->
+<!-- # Check party -->
+<!-- elections_data$party_short %>% table() -->
+<!-- elections_data$party_short %>% unique() %>% length() -->
+<!-- # Check incumbency -->
+<!-- elections_data$incumbent_candidate %>% table() -->
+<!-- elections_data$party_short %>% unique() %>% length() -->
+<!-- # Add year -->
+<!-- elections_data <-  -->
+<!--   elections_data %>%  -->
+<!--   mutate(year = year(edate)) -->
+<!-- # Add a counter for year -->
+<!-- elections_data <-  -->
+<!--   elections_data %>%  -->
+<!--   mutate(counter = year - 1867) -->
+<!-- #### Save #### -->
+<!-- write_csv(elections_data, "outputs/elections.csv") -->
+<!-- ``` -->
+<!-- ```{r, include = TRUE, eval = FALSE} -->
+<!-- library(lubridate) -->
+<!-- library(tidyverse) -->
+<!-- elections_data <- read_csv("outputs/elections.csv") -->
+<!-- elections_data %>%  -->
+<!--   ggplot(aes(x = edate)) + -->
+<!--   geom_histogram() -->
+<!-- elections_data %>%  -->
+<!--   ggplot(aes(x = edate, y = Result, color = Gender)) + -->
+<!--   geom_point() + -->
+<!--   facet_wrap(vars(Province))  -->
+<!-- elections_data %>%  -->
+<!--   ggplot(aes(x = Province, fill = Gender)) + -->
+<!--   geom_bar(position = "dodge") -->
+<!-- # We discovered WW1! -->
+<!-- ``` -->
+<!-- ```{r, include = TRUE, eval = FALSE} -->
+<!-- #### Set up workspace ### -->
+<!-- library(broom) -->
+<!-- library(tidyverse) -->
+<!-- #### Read in data #### -->
+<!-- elections_data <- read_csv("outputs/elections.csv") -->
+<!-- #### Model #### -->
+<!-- # Just gender -->
+<!-- model1 <- lm(Result ~ Gender, data = elections_data) -->
+<!-- tidy(model1) -->
+<!-- # Gender and incumbent -->
+<!-- model2 <- lm(Result ~ Gender + incumbent_candidate, data = elections_data) -->
+<!-- tidy(model2) -->
+<!-- # Gender and incumbent and province -->
+<!-- model3 <- lm(Result ~ Gender + incumbent_candidate + Province, data = elections_data) -->
+<!-- tidy(model3) -->
+<!-- # Gender and incumbent and province and year -->
+<!-- model4 <- lm(Result ~ Gender + incumbent_candidate + Province + year, data = elections_data) -->
+<!-- model5 <- lm(Result ~ Gender + incumbent_candidate + Province + year*Gender, data = elections_data) -->
+<!-- tidy(model4) -->
+<!-- tidy(model5) -->
+<!-- # CHange the year into a counter that increments one for each year -->
+<!-- model6 <- lm(Result ~ Gender + incumbent_candidate + Province + counter + counter*Gender, data = elections_data) -->
+<!-- tidy(model6) -->
+<!-- ``` -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="disseminating-and-protecting-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="its-just-a-linear-model.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

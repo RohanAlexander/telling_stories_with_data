@@ -44,6 +44,7 @@ knitr::opts_chunk$set(
 
 
 - Cohn, Nate, 2016, 'We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results', *The New York Times*, The Upshot, 20 September, https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html.
+- Edelman, M., Vittert, L., & Meng, X.-L., 2021, 'An Interview with Murray Edelman on the History of the Exit Poll', *Harvard Data Science Review*, https://doi.org/10.1162/99608f92.3a25cd24 https://hdsr.mitpress.mit.edu/pub/fekmqbv4/release/2.
 - Gelman, Andrew, and Julia Azari, 2017, '19 things we learned from the 2016 election', *Statistics and Public Policy*, 4 (1), pp. 1-10.
 - Ghitza, Yair, and Andrew Gelman, 2013, 'Deep Interactions with MRP: Election Turnout and Voting Patterns Among Small Electoral Subgroups', *American Journal of Political Science*, 57 (3), pp. 762-776.
 - Ghitza, Yair, and Andrew Gelman, 2020, 'Voter Registration Databases and MRP: Toward the Use of Large-Scale Databases in Public Opinion Research', *Political Analysis*, pp. 1-25.
