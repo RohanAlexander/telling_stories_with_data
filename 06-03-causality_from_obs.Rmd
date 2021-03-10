@@ -1,5 +1,5 @@
 ---
-date: March 2, 2021
+date: March 9, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -21,7 +21,7 @@ library(tidyverse)
 
 # Causality from observational data
 
-*Last updated: 3 March 2021.*
+*Last updated: 9 March 2021.*
 
 
 **TODO: Replace the arm matching with https://kosukeimai.github.io/MatchIt/index.html**
@@ -887,7 +887,7 @@ lm(income ~ grade + grade_80_and_over, data = rdd_example_data) %>%
 
 There are various caveats to this estimate that we'll get into later, but the essentials are here.
 
-The other great thing about regression discontinuity is that is can almost be as good as an RCT. For instance, (and I thank John Holbein for the pointer) @bloombellreiman2020 compare randomized trials with RCTs and find that the RCTs compare favourably.
+The other great thing about regression discontinuity is that is can almost be as good as an RCT. For instance, (and I thank John Holbein for the pointer) @bloombellreiman2020 compare randomized trials with RDDs and find that the RCTs compare favourably.
 
 #### Different slopes
 
@@ -1028,6 +1028,36 @@ We want as 'sharp' an effect as possible, but if the thresholds are known, then 
 ```{r marathontimes, echo=FALSE, fig.cap = "Bunching around marathon times.", out.width = '90%'}
 knitr::include_graphics("figures/marathontimes.png")
 ```
+
+
+You need to really think about the possible effect of the decision around the choice of model. To see this consider the difference between a linear and polynomial.
+
+```{r}
+some_data <- 
+  tibble(outcome = rnorm(n = 100, mean = 1, sd = 1),
+         running_variable = c(1:100),
+         location = "before")
+
+some_more_data <- 
+  tibble(outcome = rnorm(n = 100, mean = 2, sd = 1),
+         running_variable = c(101:200),
+         location = "after")
+
+both <- 
+  rbind(some_data, some_more_data)
+
+both %>% 
+  ggplot(aes(x = running_variable, y = outcome, color = location)) +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(formula = y~x, method = 'lm')
+  
+both %>% 
+  ggplot(aes(x = running_variable, y = outcome, color = location)) +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(formula = y ~ poly(x, 3), method = 'lm')
+```
+
+
 
 
 

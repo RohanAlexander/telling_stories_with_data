@@ -22,11 +22,12 @@ knitr::opts_chunk$set(
 
 # Hunt data
 
-*Last updated: 2 March 2021.*
+*Last updated: 9 March 2021.*
 
 **Required reading**
 
 - Banerjee, Abhijit Vinayak, 2020, 'Field Experiments and the Practice of Economics', *American Economic Review*, Vol. 110, No. 7, pp. 1937-1951.
+- Berry, Donald, 1989, 'Comment: Ethics and ECMO', *Statistical Science*, Vol 4, No 4, pp. 306-310.
 - Duflo, Esther, 2020, 'Field Experiments and the Practice of Policy', *American Economic Review*, Vol. 110, No. 7, pp. 1952-1973 (or watch the speech detailed below).
 - Fisher, Ronald, 1935, *The Design of Experiments*, pp. 20-29, https://archive.org/details/in.ernet.dli.2015.502684/page/n33/mode/2up.
 - Fry, Hanna, 2020, 'Experiments on Trial', *The New Yorker*, 2 March, pp. 61-65, https://www.newyorker.com/magazine/2020/03/02/big-tech-is-testing-you.
@@ -186,7 +187,11 @@ netflix_data <-
     d. Underlying systematic concerns.
     e. Estimation of sub-populations.
 17. Please consider Beaumont, 2020, 'Are probability surveys bound to disappear for the production of official statistics?'. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?
-
+18. @ware1989 [p. 298] mentions 'a randomized play the winner design'. What is it?
+19. @ware1989 [p. 299] mentions 'adaptive randomization'. What is it, in your own words?
+20. @ware1989 [p. 299] mentions 'randomized-consent'. He continues that it was 'attractive in this setting because a standard approach to informed consent would require that parents of infants near death be approached to give informed consent for an invasive surgical procedure that would then, in some instances, not be administered. Those familiar with the agonizing experience of having a child in a neonatal intensive care unit can appreciate that the process of obtaining informed consent would be both frightening and stressful to parents'. To what extent do you agree with this position, especially given, as Ware (1989), p. 305, mentions 'the need to withhold information about the study from parents of infants receiving CMT'?
+21. @ware1989 [p. 300] mentions 'equipoise'. In your own words, please define and discuss it, using an example from your own experience.
+22. What is power (in a statistical context)?
 
 
 

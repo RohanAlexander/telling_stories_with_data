@@ -13,12 +13,13 @@ output:
 # Exploratory data analysis
 
 
-*Last updated: 2 March 2021.*
+*Last updated: 9 March 2021.*
 
 
 **Required reading**
 
 - Barocas, Solon, and Danah Boyd, 2017, 'Engaging the ethics of data science in practice', *Communications of the ACM*, 60.11 (2017): 23-25.
+- DiCiccio, Thomas J., and Mary E. Thompson, 2004, 'A Conversation with Donald A. S. Fraser', *Statistical Science*, 19 (2) pp. 370-386, https://utstat.toronto.edu/craiu/DonFraser_SSInterview.pdf.
 - Jordan, Michael I, 2019, 'AI - The revolution hasn't started yet', *Harvard Data Science Review*, 1 July, https://hdsr.mitpress.mit.edu/pub/wot7mkc1.
 - Tukey, John W., 1961, 'The Future of Data Analysis', *The annals of mathematical statistics*, Part 1 'General Considerations', https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-33/issue-1/The-Future-of-Data-Analysis/10.1214/aoms/1177704711.full.
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapters 3 and 7, https://r4ds.had.co.nz/.
@@ -37,20 +38,69 @@ output:
 
 **Key concepts/skills/etc**
 
-- Quickly coming to terms with a new dataset.
+- Quickly coming to terms with a new dataset by constructing graphs and tables.
+- Understanding the issues and features of the dataset and how this may affect your modelling decisions.
+- Thinking about missing values and outliers.
 
 
 
 **Key libraries**
 
+- `broom`
+- `ggrepel`
+- `here`
+- `janitor`
+- `lubridate`
+- `opendatatoronto`
+- `tidymodels`
 - `tidyverse`
-- `ggplot2`
-
+- `visdat`
 
 
 **Key functions/etc**
 
-- 
+- `augment()`
+- `clean_names()`
+- `coord_flip()`
+- `count()`
+- `distinct()`
+- `facet_grid()`
+- `facet_wrap()`
+- `geom_bar()`
+- `geom_col()`
+- `geom_density()`
+- `geom_histogram()`
+- `geom_line()`
+- `geom_point()`
+- `geom_smooth()`
+- `geom_text_repel()`
+- `get_dupes()`
+- `glance()`
+- `if_else()`
+- `ifelse()`
+- `initial_split()`
+- `left_join()`
+- `mutate()`
+- `mutate_all()`
+- `names()`
+- `ncol()`
+- `nrow()`
+- `pivot_wider()`
+- `scale_color_brewer()`
+- `scale_fill_brewer()`
+- `scale_x_log10()`
+- `scale_y_log10()`
+- `str_detect()`
+- `str_extract()`
+- `str_remove()`
+- `str_split()`
+- `str_starts()`
+- `summarise()`
+- `summarise_all()`
+- `theme_classic()`
+- `theme_minimal()`
+- `vis_dat()`
+- `vis_miss()`
 
 
 **Quiz**
@@ -58,8 +108,8 @@ output:
 1. In your own words what is exploratory data analysis (this will be difficult, but please write only one nuanced paragraph)?
 2. In Tukey's words, what is exploratory data analysis (please write one paragraph)?
 3. Who was Tukey (please write a paragraph or two)? 
-4. What is Tukey's link to DoSS (hint: he was someone's PhD advisor)?
-5. Can you identify a female equivalent to Tukey who we (historians of statistics) may have overlooked?
+4. What is Tukey's link to DoSS (hint: he was an advisor on someone's PhD - who was that person)?
+5. Can you identify a female equivalent to Tukey who we (as historians of statistics) may have overlooked?
 6. If you have a dataset called 'my_data', which has two columns: 'first_col' and 'second_col', then could you please write some rough R code that would generate a graph (the type of graph doesn't matter).
 7. Consider a dataset that has 500 rows and 3 columns, so there are 1,500 cells. If 100 of the cells are missing data for at least one of the columns, then would you remove the whole row your dataset or try to run your analysis on the data as is, or some other procedure? What if your dataset had 10,000 rows instead, but the same number of missing cells?
 8. Please note three ways of identifying unusual values.
@@ -73,7 +123,9 @@ output:
     4. List the top five candidates in each of these categories: 1) total contributions; 2) mean contribution; and 3) number of contributions.
     5. Repeat that process, but without contributions from the candidates themselves.
     6. How many contributors gave money to more than one candidate?
-
+13. Name three geoms that produce graphs that have bars on them `ggplot()`.
+14. Consider a dataset 10,000 observations and 27 variables. For each observation, there is at least one missing variable. Please discuss, in a paragraph or two, the steps that you would take to understand what is going on.
+15. Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at McClelland, Alexander, 2019, ‘“Lock This Whore Up”: Legal Violence and Flows of Information Precipitating Personal Violence against People Criminalised for HIV-Related Crimes in Canada’, European Journal of Risk Regulation, 10 (1), pp. 132-147. Then look at Policing the Pandemic - https://www.policingthepandemic.ca/. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about? 
 
 
 ## Introduction
@@ -82,7 +134,7 @@ output:
 > 
 > @tukey1962future [p. 64].
 
-Exploratory data analysis is never finished, you just die. It is the active process of exploring and becoming familiar with your data. Like a farmer with their hands in the earth, you need to know every contour and aspect of your data. You need to know how it changes and what are its limits. Exploratory data analysis is the process by which you do this. 
+Exploratory data analysis is never finished, you just die. It is the active process of exploring and becoming familiar with your data. Like a farmer with their hands in the earth, you need to know every contour and aspect of your data. You need to know how it changes, what it shows, hides, and what are its limits. Exploratory data analysis is the unstructured process of doing this.
 
 That said, exploratory data analysis (EDA) is not something that ends up in your final paper. It is a means to an end and while it will inform your entire paper, especially the data section, it's not typically something that belongs in a final draft. The best way to proceed is to make a separate .Rmd and add code and brief notes as you go. Don't delete previous code, just add to it. When you run out of time, you'll have a useful notebook that captures your exploration. This is a document for you and your collaborators and will guide all the subsequent modelling that you do. 
 

@@ -1,5 +1,5 @@
 ---
-date: May 17, 2020
+date: March 9, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -20,17 +20,20 @@ knitr::opts_chunk$set(
 
 # Interactive communication
 
-**THIS ENTIRE CHAPTER NEEDS TO BE UPDATED AND RE-DONE.**
-
-## Making a website
-
-### Getting started with Blogdown
 
 **Required reading**
 
 - Hill, Alison, 2017, 'Up & Running with blogdown', 12 June, freely available at: https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/.
 - Salmon, Maëlle, 2020, 'What to know before you adopt Hugo/blogdown', 29 February, freely available at: https://masalmon.eu/2020/02/29/hugo-maintenance/.
 - Xie, Yihui, Amber Thomas, and Alison Presmanes Hill, 2020, *blogdown: Creating Websites with R Markdown*', as at 6 February, freely available at: https://bookdown.org/yihui/blogdown/.
+- Cooley, David, 2020, 'mapdeck', freely available at: https://symbolixau.github.io/mapdeck/index.html.
+- Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, freely available at: https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
+- Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, freely available at: https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
+- 'Leaflet for R', freely available at: https://rstudio.github.io/leaflet/.
+
+**Required viewing**
+
+- Kuriwaki, Shiro, 2020, 'Making maps in R with sf', 1 March, freely available at: https://vimeo.com/394800836.
 
 **Recommended reading**
 
@@ -39,22 +42,47 @@ knitr::opts_chunk$set(
 - Navarro, Danielle, 2018, 'Day 1: Getting started with blogdown', 27 April, freely available at: https://djnavarro.net/post/starting-blogdown/.
 
 
-
 **Key concepts/skills/etc**
 
 - Building a website using blogdown and hugo.
+- Thinking of maps as a (often fiddly, but strangely enjoyable) variant of a usual ggplot.
+- Broadening the data that we make available via interactive maps, while still telling a clear story.
+- Becoming comfortable with (and excited about) creating both static and interactive maps.
 
 **Key libraries**
 
 - `blogdown`
 - `tidyverse`
+- `ggmap`
+- `leaflet`
+- `maps`
+- `mapdeck`
+
+**Key functions/etc**
+
+- `add_arc()`
+- `addCircleMarkers()`
+- `addMarkers()`
+- `addTiles()`
+- `canada.cities`
+- `geom_polygon()`
+- `get_stamenmap()`
+- `ggmap()`
+- `leaflet()`
+- `map()`
+- `map_data()`
+- `mapdeck()`
+- `mapdeck_style()`
 
 
+
+
+
+## Making a website
 
 
 ### Introduction
 
-*These notes were originally developed for a workshop at the ANU delivered in 2017, and published to my website. Thank you to Minhee Chae and Peter Gibbard for helpful comments.*
 
 A website is a critical part of communication. If you are searching for a job then it acts as one place to bring everything that you can do together. If you are using R, then you might like a website that makes it easy to share your work. This is where `blogdown` helps.
 
@@ -67,9 +95,7 @@ This post is a simplified version of the `blogdown` user-guide and the blog post
 
 ### Foundations
 
-To use `blogdown` you need R and R Studio, but if you have made it this far in the course then you probably know that. We'll install the `blogdown` package then use GitHub to create a new folder where we'll create our website.
-
-First install blogdown:
+We'll install the `blogdown` package then use GitHub to create a new folder where we'll create our website. First install blogdown:
 
 ```{r, eval=FALSE, echo=TRUE}
 install.packages("blogdown")
@@ -216,55 +242,6 @@ git push
 There are many ways to make your website public, but one way is to use Netlify. What we are going to do is to link GitHub and Netlify, so that when you make a change in GitHub then Netlify automatically updates. Once you have an account then click "New site from Git" and at that point you can link your GitHub account. Once it has been authorised, then you should select the repo that you want to make public. The publish director is 'public'.
 
 Once this is all specified then you can "Deploy site". Netlify gives you a default address, but you can change this. However it will still have .netlify.com. To get rid of this you need to purchase a domain, and then go through the custom domains setting in Netlify.
-
-
-
-## Interactive maps
-
-
-
-**Required reading**
-
-- Cooley, David, 2020, 'mapdeck', freely available at: https://symbolixau.github.io/mapdeck/index.html.
-- Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, freely available at: https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
-- Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, freely available at: https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
-- 'Leaflet for R', freely available at: https://rstudio.github.io/leaflet/.
-
-**Required viewing**
-
-- Kuriwaki, Shiro, 2020, 'Making maps in R with sf', 1 March, freely available at: https://vimeo.com/394800836.
-
-
-
-
-**Key concepts/skills/etc**
-
-- Thinking of maps as a (often fiddly, but strangely enjoyable) variant of a usual ggplot.
-- Broadening the data that we make available via interactive maps, while still telling a clear story.
-- Becoming comfortable with (and excited about) creating both static and interactive maps.
-
-**Key libraries**
-
-- `ggmap`
-- `leaflet`
-- `maps`
-- `mapdeck`
-
-**Key functions/etc**
-
-- `add_arc()`
-- `addCircleMarkers()`
-- `addMarkers()`
-- `addTiles()`
-- `canada.cities`
-- `geom_polygon()`
-- `get_stamenmap()`
-- `ggmap()`
-- `leaflet()`
-- `map()`
-- `map_data()`
-- `mapdeck()`
-- `mapdeck_style()`
 
 
 
@@ -421,6 +398,11 @@ And this is pretty nice!
 
 ## Shiny
 
-**TBD**
+Shiny is a way of making interactive web applications (not just maps) using R. It's fun, but fiddly. Here we're going to step through one way to take advantage of Shiny, and that's to quickly build a survey.
+
+
+
+
+
 
 

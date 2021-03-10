@@ -68,15 +68,15 @@ fig:slidingdoors
 fig:descendantsinindia
 fig:ufco
 fig:marathontimes
-tab:unnamed-chunk-414
+tab:unnamed-chunk-415
 fig:levittcrime
 fig:levittcrimefirst
 fig:levittcrimesecond
 fig:states
 fig:demographics
 fig:electoralcollege
-tab:unnamed-chunk-422
-tab:unnamed-chunk-434
+tab:unnamed-chunk-423
+tab:unnamed-chunk-435
 fig:topicsoverdocuments
 fig:topicsoverterms
 introduction
@@ -177,7 +177,6 @@ on-brevity
 other-1
 interactive-communication
 making-a-website
-getting-started-with-blogdown
 introduction-5
 foundations
 build-the-frame
@@ -194,7 +193,6 @@ making-your-website-public
 commit
 netlify
 interactive-maps
-interactive-maps-1
 leaflet
 covid-19
 mapdeck

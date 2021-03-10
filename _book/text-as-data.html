@@ -293,16 +293,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#getting-started-with-blogdown"><i class="fa fa-check"></i><b>6.1.1</b> Getting started with Blogdown</a></li>
-<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.2</b> Introduction</a></li>
-<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.3</b> Foundations</a></li>
-<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.4</b> Build the frame</a></li>
-<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.5</b> Add content</a></li>
-<li class="chapter" data-level="6.1.6" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.6</b> Making your website public</a></li>
+<li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.2</b> Foundations</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.3</b> Build the frame</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.4</b> Add content</a></li>
+<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.5</b> Making your website public</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
-<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps-1"><i class="fa fa-check"></i><b>6.3</b> Interactive maps</a></li>
-<li class="chapter" data-level="6.4" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.4</b> Shiny</a></li>
+<li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.3</b> Shiny</a></li>
 </ul></li>
 <li class="part"><span><b>III Hunt gather and farm</b></span></li>
 <li class="chapter" data-level="7" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>7</b> Gather data</a>
@@ -698,20 +696,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>One of the nice aspects of text is that we can adapt our existing methods to use it as an input. Here we are going to use a variation of logistics regression, along with text inputs, to forecast. If you want to learn more about Lasso regression, then you should consider taking Arik’s course over the summer, where he will dive into machine learning using Python.</p>
 <p>In this section we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, you could imagine many real-world applications. For instance, if you work at Twitter then you may want to know if a tweet was likely written by a bot, or by a human. Or similarly, imagine that you work for a political party - you may like to know if an email was likely from an email campaign organised by a group, or from an individual.</p>
 <p>First we need to get some data. Julia Silge’s example, nicely, uses book text as input. Seeing as I am jointly appointed at a Faculty of Information, that seems especially nice. The wonderful thing about this is that there is an R package - <code>gutenbergr</code> - that makes it easy to get text from Project Gutenberg into R. The key function is <code>gutenberg_download()</code>, which needs a key for the book that you want. We’ll consider Jane Eyre and Alice’s Adventures in Wonderland, which have the keys of 1260 and 11, respectively.</p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="text-as-data.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb716-2"><a href="text-as-data.html#cb716-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb716-3"><a href="text-as-data.html#cb716-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
-<span id="cb716-4"><a href="text-as-data.html#cb716-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
-<span id="cb716-5"><a href="text-as-data.html#cb716-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb716-6"><a href="text-as-data.html#cb716-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb716-7"><a href="text-as-data.html#cb716-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="text-as-data.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb717-2"><a href="text-as-data.html#cb717-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb717-3"><a href="text-as-data.html#cb717-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb717-4"><a href="text-as-data.html#cb717-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb717-5"><a href="text-as-data.html#cb717-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-422">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-422">Table 18.1: </span> </caption><col><col><col><tr>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="text-as-data.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb718-2"><a href="text-as-data.html#cb718-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-3"><a href="text-as-data.html#cb718-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
+<span id="cb718-4"><a href="text-as-data.html#cb718-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
+<span id="cb718-5"><a href="text-as-data.html#cb718-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
+<span id="cb718-6"><a href="text-as-data.html#cb718-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-7"><a href="text-as-data.html#cb718-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="text-as-data.html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb719-2"><a href="text-as-data.html#cb719-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb719-3"><a href="text-as-data.html#cb719-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
+<span id="cb719-4"><a href="text-as-data.html#cb719-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb719-5"><a href="text-as-data.html#cb719-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-423">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-423">Table 18.1: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gutenberg_id</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">text</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">title</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">ALICE'S ADVENTURES IN WONDERLAND</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
@@ -728,120 +726,120 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 
 <p>One of the great things about this is that the dataset is a tibble. So we can just work with all our familiar skills. The package has a lot more functionality, so I’d encourage you to look at the package’s website: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a>. Each line of the book is read in as a different row in the dataset. Notice that we have downloaded two books here at once, and so we added the title. The two books are one after each other. You can see that we have both by looking at some summary statistics.</p>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="text-as-data.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="text-as-data.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             3339                            20659</code></pre>
 <p>So it looks like Jane Eyre is much longer than Alice in Wonderland, which isn’t a surprise to those who have read them. I don’t want to step into Digital Humanities too much, as I don’t know anything about it, but looking at things like the broader context of when these books were written, or other books that were written at similar times, is likely a fascinating area.</p>
 <p>We’ll just get rid of blank lines</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="text-as-data.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb720-2"><a href="text-as-data.html#cb720-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> There&#39;s a way to do this within janitor, but I forget, need to look it up.</span></span>
-<span id="cb720-3"><a href="text-as-data.html#cb720-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb720-4"><a href="text-as-data.html#cb720-4" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb720-5"><a href="text-as-data.html#cb720-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">blank_line =</span> <span class="fu">if_else</span>(text <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb720-6"><a href="text-as-data.html#cb720-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(blank_line <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb720-7"><a href="text-as-data.html#cb720-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>blank_line)</span>
-<span id="cb720-8"><a href="text-as-data.html#cb720-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-9"><a href="text-as-data.html#cb720-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="text-as-data.html#cb722-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb722-2"><a href="text-as-data.html#cb722-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> There&#39;s a way to do this within janitor, but I forget, need to look it up.</span></span>
+<span id="cb722-3"><a href="text-as-data.html#cb722-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb722-4"><a href="text-as-data.html#cb722-4" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb722-5"><a href="text-as-data.html#cb722-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">blank_line =</span> <span class="fu">if_else</span>(text <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb722-6"><a href="text-as-data.html#cb722-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(blank_line <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb722-7"><a href="text-as-data.html#cb722-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>blank_line)</span>
+<span id="cb722-8"><a href="text-as-data.html#cb722-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb722-9"><a href="text-as-data.html#cb722-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             2481                            16395</code></pre>
 <p>There’s still an overwhelming amount of Jane Eyre in there. So we’ll just sample from Jane Eyre to make it more equal.</p>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="text-as-data.html#cb722-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb722-2"><a href="text-as-data.html#cb722-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-3"><a href="text-as-data.html#cb722-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane<span class="sc">$</span>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(alice_and_jane))</span>
-<span id="cb722-4"><a href="text-as-data.html#cb722-4" aria-hidden="true" tabindex="-1"></a>sample_from_me <span class="ot">&lt;-</span> alice_and_jane <span class="sc">%&gt;%</span> <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Jane Eyre: An Autobiography&quot;</span>)</span>
-<span id="cb722-5"><a href="text-as-data.html#cb722-5" aria-hidden="true" tabindex="-1"></a>keep_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> sample_from_me<span class="sc">$</span>rows, <span class="at">size =</span> <span class="dv">2481</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb722-6"><a href="text-as-data.html#cb722-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-7"><a href="text-as-data.html#cb722-7" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb722-8"><a href="text-as-data.html#cb722-8" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb722-9"><a href="text-as-data.html#cb722-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Alice&#39;s Adventures in Wonderland&quot;</span> <span class="sc">|</span> rows <span class="sc">%in%</span> keep_me) <span class="sc">%&gt;%</span> </span>
-<span id="cb722-10"><a href="text-as-data.html#cb722-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rows)</span>
-<span id="cb722-11"><a href="text-as-data.html#cb722-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb722-12"><a href="text-as-data.html#cb722-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="text-as-data.html#cb724-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb724-2"><a href="text-as-data.html#cb724-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb724-3"><a href="text-as-data.html#cb724-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane<span class="sc">$</span>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(alice_and_jane))</span>
+<span id="cb724-4"><a href="text-as-data.html#cb724-4" aria-hidden="true" tabindex="-1"></a>sample_from_me <span class="ot">&lt;-</span> alice_and_jane <span class="sc">%&gt;%</span> <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Jane Eyre: An Autobiography&quot;</span>)</span>
+<span id="cb724-5"><a href="text-as-data.html#cb724-5" aria-hidden="true" tabindex="-1"></a>keep_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> sample_from_me<span class="sc">$</span>rows, <span class="at">size =</span> <span class="dv">2481</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb724-6"><a href="text-as-data.html#cb724-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb724-7"><a href="text-as-data.html#cb724-7" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb724-8"><a href="text-as-data.html#cb724-8" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb724-9"><a href="text-as-data.html#cb724-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Alice&#39;s Adventures in Wonderland&quot;</span> <span class="sc">|</span> rows <span class="sc">%in%</span> keep_me) <span class="sc">%&gt;%</span> </span>
+<span id="cb724-10"><a href="text-as-data.html#cb724-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rows)</span>
+<span id="cb724-11"><a href="text-as-data.html#cb724-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb724-12"><a href="text-as-data.html#cb724-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
 <pre><code>## 
 ## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
 ##                             2481                             2481</code></pre>
 <p>There’s a bunch of issues here, for instance, we have the whole of Alice, but we only have random bits of Jane, but nonetheless let’s continue and we’ll try to do something about that in a moment.</p>
 <p>Now we want to get a sample of text from each book. We will use the lines to distinguish these samples. So we use a counter that will add a line number.</p>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="text-as-data.html#cb724-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb724-2"><a href="text-as-data.html#cb724-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb724-3"><a href="text-as-data.html#cb724-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
-<span id="cb724-4"><a href="text-as-data.html#cb724-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb724-5"><a href="text-as-data.html#cb724-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="text-as-data.html#cb726-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
+<span id="cb726-2"><a href="text-as-data.html#cb726-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb726-3"><a href="text-as-data.html#cb726-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
+<span id="cb726-4"><a href="text-as-data.html#cb726-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb726-5"><a href="text-as-data.html#cb726-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>We now want to sepearate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="text-as-data.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb725-2"><a href="text-as-data.html#cb725-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb725-3"><a href="text-as-data.html#cb725-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb725-4"><a href="text-as-data.html#cb725-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb725-5"><a href="text-as-data.html#cb725-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
-<span id="cb725-6"><a href="text-as-data.html#cb725-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb725-7"><a href="text-as-data.html#cb725-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="text-as-data.html#cb727-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb727-2"><a href="text-as-data.html#cb727-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
+<span id="cb727-3"><a href="text-as-data.html#cb727-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
+<span id="cb727-4"><a href="text-as-data.html#cb727-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb727-5"><a href="text-as-data.html#cb727-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb727-6"><a href="text-as-data.html#cb727-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb727-7"><a href="text-as-data.html#cb727-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Notice here that we removed any word that wasn’t used more than 10 times. Nonetheless we still have a lot of unique words. (If we didn’t require that the word be used by the author at least 10 times then we end up with more than 6,000 words.)</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="text-as-data.html#cb726-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word<span class="sc">$</span>word <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="text-as-data.html#cb728-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word<span class="sc">$</span>word <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
 <pre><code>## [1] 585</code></pre>
 <p>The reason this is relevant is because these are our independent variables. So where you may be used to having something less than 10 explanatory variables, in this case we are going to have 585 As such, we need a model that can handle this.</p>
 <p>However, as mentioned before, we are going to have some rows that essentially just had one word. While we could allow that, it might also be nice to give the model at least a few words to work with.</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="text-as-data.html#cb728-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb728-2"><a href="text-as-data.html#cb728-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb728-3"><a href="text-as-data.html#cb728-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb728-4"><a href="text-as-data.html#cb728-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_words_in_line =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb728-5"><a href="text-as-data.html#cb728-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb728-6"><a href="text-as-data.html#cb728-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_words_in_line <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb728-7"><a href="text-as-data.html#cb728-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>number_of_words_in_line)</span></code></pre></div>
-<p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="text-as-data.html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb729-2"><a href="text-as-data.html#cb729-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb729-3"><a href="text-as-data.html#cb729-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb729-4"><a href="text-as-data.html#cb729-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb729-5"><a href="text-as-data.html#cb729-5" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word_split <span class="ot">&lt;-</span> </span>
-<span id="cb729-6"><a href="text-as-data.html#cb729-6" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span></span>
-<span id="cb729-7"><a href="text-as-data.html#cb729-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb729-8"><a href="text-as-data.html#cb729-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb729-9"><a href="text-as-data.html#cb729-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> title)</span>
-<span id="cb729-10"><a href="text-as-data.html#cb729-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb729-11"><a href="text-as-data.html#cb729-11" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span></span>
-<span id="cb729-12"><a href="text-as-data.html#cb729-12" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span></span>
-<span id="cb729-13"><a href="text-as-data.html#cb729-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb729-14"><a href="text-as-data.html#cb729-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(alice_and_jane_by_word_split)</span></span></code></pre></div>
-<p>Now we need to create a document-term matrix.</p>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="text-as-data.html#cb730-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_dtm_training <span class="ot">&lt;-</span> </span>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="text-as-data.html#cb730-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
 <span id="cb730-2"><a href="text-as-data.html#cb730-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb730-3"><a href="text-as-data.html#cb730-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(line_number, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb730-4"><a href="text-as-data.html#cb730-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">training</span>(alice_and_jane_by_word_split) <span class="sc">%&gt;%</span> <span class="fu">select</span>(line_number)) <span class="sc">%&gt;%</span> </span>
-<span id="cb730-5"><a href="text-as-data.html#cb730-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">term =</span> word, <span class="at">document =</span> line_number, <span class="at">value =</span> n)</span>
-<span id="cb730-6"><a href="text-as-data.html#cb730-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb730-7"><a href="text-as-data.html#cb730-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(alice_and_jane_dtm_training)</span></code></pre></div>
+<span id="cb730-3"><a href="text-as-data.html#cb730-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
+<span id="cb730-4"><a href="text-as-data.html#cb730-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_words_in_line =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb730-5"><a href="text-as-data.html#cb730-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb730-6"><a href="text-as-data.html#cb730-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_words_in_line <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb730-7"><a href="text-as-data.html#cb730-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>number_of_words_in_line)</span></code></pre></div>
+<p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="text-as-data.html#cb731-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb731-2"><a href="text-as-data.html#cb731-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb731-3"><a href="text-as-data.html#cb731-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb731-4"><a href="text-as-data.html#cb731-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb731-5"><a href="text-as-data.html#cb731-5" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word_split <span class="ot">&lt;-</span> </span>
+<span id="cb731-6"><a href="text-as-data.html#cb731-6" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span></span>
+<span id="cb731-7"><a href="text-as-data.html#cb731-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
+<span id="cb731-8"><a href="text-as-data.html#cb731-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb731-9"><a href="text-as-data.html#cb731-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> title)</span>
+<span id="cb731-10"><a href="text-as-data.html#cb731-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb731-11"><a href="text-as-data.html#cb731-11" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span></span>
+<span id="cb731-12"><a href="text-as-data.html#cb731-12" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span></span>
+<span id="cb731-13"><a href="text-as-data.html#cb731-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb731-14"><a href="text-as-data.html#cb731-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(alice_and_jane_by_word_split)</span></span></code></pre></div>
+<p>Now we need to create a document-term matrix.</p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="text-as-data.html#cb732-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_dtm_training <span class="ot">&lt;-</span> </span>
+<span id="cb732-2"><a href="text-as-data.html#cb732-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
+<span id="cb732-3"><a href="text-as-data.html#cb732-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(line_number, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb732-4"><a href="text-as-data.html#cb732-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">training</span>(alice_and_jane_by_word_split) <span class="sc">%&gt;%</span> <span class="fu">select</span>(line_number)) <span class="sc">%&gt;%</span> </span>
+<span id="cb732-5"><a href="text-as-data.html#cb732-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">term =</span> word, <span class="at">document =</span> line_number, <span class="at">value =</span> n)</span>
+<span id="cb732-6"><a href="text-as-data.html#cb732-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb732-7"><a href="text-as-data.html#cb732-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(alice_and_jane_dtm_training)</span></code></pre></div>
 <pre><code>## [1] 3415  585</code></pre>
 <p>So we have our independent variables sorted, now we need our binary dependent variable, which is whether the book is Alice in Wonderland or Jane Eyre.</p>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="text-as-data.html#cb732-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> </span>
-<span id="cb732-2"><a href="text-as-data.html#cb732-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">dimnames</span>(alice_and_jane_dtm_training)[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span> </span>
-<span id="cb732-3"><a href="text-as-data.html#cb732-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;book&quot;</span>, <span class="st">&quot;line&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb732-4"><a href="text-as-data.html#cb732-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_alice =</span> <span class="fu">if_else</span>(book <span class="sc">==</span> <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
-<span id="cb732-5"><a href="text-as-data.html#cb732-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb732-6"><a href="text-as-data.html#cb732-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb732-7"><a href="text-as-data.html#cb732-7" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">&lt;-</span> alice_and_jane_dtm_training[] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="text-as-data.html#cb734-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> </span>
+<span id="cb734-2"><a href="text-as-data.html#cb734-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">dimnames</span>(alice_and_jane_dtm_training)[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span> </span>
+<span id="cb734-3"><a href="text-as-data.html#cb734-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;book&quot;</span>, <span class="st">&quot;line&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb734-4"><a href="text-as-data.html#cb734-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_alice =</span> <span class="fu">if_else</span>(book <span class="sc">==</span> <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
+<span id="cb734-5"><a href="text-as-data.html#cb734-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb734-6"><a href="text-as-data.html#cb734-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb734-7"><a href="text-as-data.html#cb734-7" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">&lt;-</span> alice_and_jane_dtm_training[] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span></code></pre></div>
 <p>Now we can run our model.</p>
-<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="text-as-data.html#cb733-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb733-2"><a href="text-as-data.html#cb733-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb733-3"><a href="text-as-data.html#cb733-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> predictor,</span>
-<span id="cb733-4"><a href="text-as-data.html#cb733-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> response<span class="sc">$</span>is_alice,</span>
-<span id="cb733-5"><a href="text-as-data.html#cb733-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb733-6"><a href="text-as-data.html#cb733-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep =</span> <span class="cn">TRUE</span></span>
-<span id="cb733-7"><a href="text-as-data.html#cb733-7" aria-hidden="true" tabindex="-1"></a>                   )</span>
-<span id="cb733-8"><a href="text-as-data.html#cb733-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb733-9"><a href="text-as-data.html#cb733-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(model, <span class="at">file =</span> <span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="text-as-data.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span>
-<span id="cb734-2"><a href="text-as-data.html#cb734-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb734-3"><a href="text-as-data.html#cb734-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb734-4"><a href="text-as-data.html#cb734-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb734-5"><a href="text-as-data.html#cb734-5" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> model<span class="sc">$</span>glmnet.fit <span class="sc">%&gt;%</span></span>
-<span id="cb734-6"><a href="text-as-data.html#cb734-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb734-7"><a href="text-as-data.html#cb734-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lambda <span class="sc">==</span> model<span class="sc">$</span>lambda<span class="fl">.1</span>se)</span>
-<span id="cb734-8"><a href="text-as-data.html#cb734-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb734-9"><a href="text-as-data.html#cb734-9" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-434">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-434">Table 18.2: </span> </caption><col><col><col><col><col><tr>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="text-as-data.html#cb735-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb735-2"><a href="text-as-data.html#cb735-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb735-3"><a href="text-as-data.html#cb735-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> predictor,</span>
+<span id="cb735-4"><a href="text-as-data.html#cb735-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> response<span class="sc">$</span>is_alice,</span>
+<span id="cb735-5"><a href="text-as-data.html#cb735-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
+<span id="cb735-6"><a href="text-as-data.html#cb735-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep =</span> <span class="cn">TRUE</span></span>
+<span id="cb735-7"><a href="text-as-data.html#cb735-7" aria-hidden="true" tabindex="-1"></a>                   )</span>
+<span id="cb735-8"><a href="text-as-data.html#cb735-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb735-9"><a href="text-as-data.html#cb735-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(model, <span class="at">file =</span> <span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="text-as-data.html#cb736-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span>
+<span id="cb736-2"><a href="text-as-data.html#cb736-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb736-3"><a href="text-as-data.html#cb736-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb736-4"><a href="text-as-data.html#cb736-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb736-5"><a href="text-as-data.html#cb736-5" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> model<span class="sc">$</span>glmnet.fit <span class="sc">%&gt;%</span></span>
+<span id="cb736-6"><a href="text-as-data.html#cb736-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb736-7"><a href="text-as-data.html#cb736-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lambda <span class="sc">==</span> model<span class="sc">$</span>lambda<span class="fl">.1</span>se)</span>
+<span id="cb736-8"><a href="text-as-data.html#cb736-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb736-9"><a href="text-as-data.html#cb736-9" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-435">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-435">Table 18.2: </span> </caption><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">term</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">step</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lambda</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">dev.ratio</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">(Intercept)</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-0.335&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.562</td></tr>
@@ -857,18 +855,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">about</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.279&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.562</td></tr>
 </table>
 
-<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="text-as-data.html#cb735-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span></span>
-<span id="cb735-2"><a href="text-as-data.html#cb735-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb735-3"><a href="text-as-data.html#cb735-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(estimate)) <span class="sc">%&gt;%</span></span>
-<span id="cb735-4"><a href="text-as-data.html#cb735-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb735-5"><a href="text-as-data.html#cb735-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(term, estimate), estimate, <span class="at">fill =</span> estimate <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb735-6"><a href="text-as-data.html#cb735-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb735-7"><a href="text-as-data.html#cb735-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb735-8"><a href="text-as-data.html#cb735-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb735-9"><a href="text-as-data.html#cb735-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
-<span id="cb735-10"><a href="text-as-data.html#cb735-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Word&quot;</span>) <span class="sc">+</span></span>
-<span id="cb735-11"><a href="text-as-data.html#cb735-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-435-1.png" width="672" /></p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="text-as-data.html#cb737-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span></span>
+<span id="cb737-2"><a href="text-as-data.html#cb737-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb737-3"><a href="text-as-data.html#cb737-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(estimate)) <span class="sc">%&gt;%</span></span>
+<span id="cb737-4"><a href="text-as-data.html#cb737-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb737-5"><a href="text-as-data.html#cb737-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(term, estimate), estimate, <span class="at">fill =</span> estimate <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb737-6"><a href="text-as-data.html#cb737-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb737-7"><a href="text-as-data.html#cb737-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb737-8"><a href="text-as-data.html#cb737-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb737-9"><a href="text-as-data.html#cb737-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
+<span id="cb737-10"><a href="text-as-data.html#cb737-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Word&quot;</span>) <span class="sc">+</span></span>
+<span id="cb737-11"><a href="text-as-data.html#cb737-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-436-1.png" width="672" /></p>
 <p>Perhaps unsurprisingly, if you mention Alice then it’s likely to be a Alice in Wonderland and if you mention Jane then it’s likely to be Jane Eyre.</p>
 </div>
 <div id="topic-models" class="section level2" number="18.3">
