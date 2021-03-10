@@ -10,7 +10,7 @@ output:
 
 # It’s Just A Linear Model
 
-*Last updated: 9 February 2021.*
+*Last updated: 10 February 2021.*
 
 
 **Required reading**
@@ -126,6 +126,12 @@ output:
     a. Median.
     b. Standard deviation.
     c. Variance.
+
+
+
+## Overview
+
+Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn [@nelder1972generalized]. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You’re still modelling things as a linear function, but you’re not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you’re not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. So we're still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani [@hastie1990generalized] (fun fact, Tibshirani did a stats masters at Toronto!).
 
 
 ## Simple linear regression
