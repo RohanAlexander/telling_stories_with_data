@@ -1,5 +1,5 @@
 ---
-date: May 17, 2020
+date: March 2, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Workflow
+
+*Last updated: 2 March 2021.*
 
 
 **Required reading**

@@ -6,6 +6,8 @@ bibliography: bibliography.bib
 
 # Deploy
 
+*Last updated: 30 January 2021.*
+
 **Required reading**
 
 - 

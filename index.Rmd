@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: March 9, 2021
+date: March 15, 2021
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -17,7 +17,7 @@ always_allow_html: true
 
 # Introduction
 
-*Last updated: 9 March 2021.*
+*Last updated: 15 March 2021.*
 
 **These notes are being actively developed.**
 

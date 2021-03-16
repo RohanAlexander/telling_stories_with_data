@@ -27,7 +27,7 @@ library(gt)
 
 # Gather data
 
-*Last updated: `r format(Sys.time(), "%d %B %Y")`.*
+*Last updated: 2 February 2021.*
 
 **Recommended reading**
 

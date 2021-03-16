@@ -15,6 +15,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Drinking from a fire hose
 
+*Last updated: 30 January 2021.*
+
 **Required reading**
 
 - Barrett, Malcolm, 2021, 'Data science as an atomic habit', 16 January, https://malco.io/2021/01/04/data-science-as-an-atomic-habit/.

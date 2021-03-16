@@ -1,5 +1,5 @@
 ---
-date: March 9, 2021
+date: March 15, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -16,12 +16,13 @@ options("huxtable.knitr_output_format" = "html")
 
 library(here)
 library(tidyverse)
+library(ggdag)
 ```
 
 
 # Causality from observational data
 
-*Last updated: 9 March 2021.*
+*Last updated: 15 March 2021.*
 
 
 **TODO: Replace the arm matching with https://kosukeimai.github.io/MatchIt/index.html**
@@ -217,13 +218,15 @@ library(tidyverse)
 30. I am an Australian 30-39 year old male living in Toronto with one child and a PhD. Which of the following do you think I would match most closely with and why (please explain in a paragraph or two)?
     a. An Australian 30-39 year old male living in Toronto with one child and a bachelors degree
     b. A Canadian 30-39 year old male living in Toronto with one child and a PhD
-    c. An Australian 30-39 year old male living in Ottowa with one child and a PhD
+    c. An Australian 30-39 year old male living in Ottawa with one child and a PhD
     d. A Canadian 18-29 year old male living in Toronto with one child and a PhD
-
+31. In your own words, what is a confounding variable?
 
 
 
 ## Introduction
+
+Life it grand when you can conduct experiments to be able to speak to causality. But what if you can only run the survey - you can't run an experiment? Here we begin our discussion of the circumstances and methods that would allow you to nonetheless speak to causality. We use (relatively) simple methods, in sophisticated, well-developed, ways (cf, much of what is done these days) and our applied statistics draw from a variety of social sciences including economics, and political science.
 
 Following the publication of @dagan2021bnt162b2, one of the authors tweeted (slight edits for formatting):
 
@@ -241,16 +244,151 @@ Following the publication of @dagan2021bnt162b2, one of the authors tweeted (sli
 > 
 > Miguel Hernán, [24 Februrary 2021](https://twitter.com/_miguelhernan/status/1364700315044438023?s=21).
 
-This is what this chapter is about. How we can nonetheless be comfortable making causal statments, even when we can't run A/B tests or RCTs. Indeed, in what circumstances may we actually prefer to not run those or to run observational-based approaches in addition to them. We cover three of the major methods that are in popular use these days: difference-in-differences; regression discontinuity; and instrumental variables. 
+This is what this chapter is about. How we can nonetheless be comfortable making causal statements, even when we can't run A/B tests or RCTs. Indeed, in what circumstances may we actually prefer to not run those or to run observational-based approaches in addition to them. We cover three of the major methods that are in popular use these days: difference-in-differences; regression discontinuity; and instrumental variables.
 
+
+## DAGs and trying not to be tricked by the data
+
+### DAGs and confounding
+
+When we are discussing causality it can help to be very specific about what we mean. It's easy to get caught up in the data that it tricks you. It's important to think really hard. One framework to help with this that has become popular recently is the use of directed acyclic graph (DAG), which is essentially just a fancy name for a flow diagram. A DAG involves drawing arrows between your variables indicating the relationship between them. We will use the `ggdag` package to draw them [@citeggdag].
+
+```{r, out.width="75%"}
+library(ggdag)
+dagify(y ~ x) %>% 
+  ggdag() +
+  theme_dag()
+```
+
+In this example, we claim that $x$ causes $y$. We could build another where the situation is less clear. I find all the $x$ and $y$ very confusing, so will change to fruits,
+
+```{r, out.width="75%"}
+dagify(banana ~ apple,
+       apple ~ carrot,
+       banana ~ carrot) %>% 
+  ggdag() +
+  theme_dag()
+```
+
+In this case we again think $apple$ causes $banana$. But it's also clear that $carrot$ causes $banana$, and $carrot$ also causes $apple$. That relationship is a 'backdoor path', and would create spurious correlation in our analysis. We may think that changes in $apple$ are causing changes in $banana$, but it's actually that $carrot$ is changing them both and hence that variable is called a 'confounder'.
+
+There is an excellent discussion by @hernanrobins2020 [p. 83]:
+
+> Suppose an investigator conducted an observational study to answer the causal question "does one's looking up to the sky make other pedestrians look up too?" She found an association between a first pedestrian's looking up and a second one's looking up. However, she also found that pedestrians tend to look up when they hear a thunderous noise above. Thus it was unclear what was making the second pedestrian look up, the first pedestrian's looking up or the thunderous noise? She concluded the effect of one's looking up was confounded by the presence of a thunderous noise.
+>
+> In randomized experiments treatment is assigned by the flip of a coin, but in observational studies treatment (e.g., a person's looking up) may be determined by many factors (e.g., a thunderous noise). If those factors affect the risk of developing the outcome (e.g., another person's looking up), then the effects of those factors become entangled with the effect of treatment. We then say that there is confounding, which is just a form of lack of exchangeability between the treated and the untreated. Confounding is often viewed as the main shortcoming of observational studies. In the presence of confounding, the old adage "association is not causation" holds even if the study population is arbitrarily large.
+
+If we were interested in causal effects we would need to adjust for $carrot$, or $thunder$ and one way is to include it in the regression. However, the validity of this requires a number of assumptions. In particular, @gelmanandhill[p. 169] warns us our estimate will only correspond to the average causal effect in the sample if: 1) we include 'all confounding covariates'; and 2) 'the model is correct'. Putting to one side the second requirement, and focusing only on the first, if we don't observe a confounder, then we can't adjust for it. This is where the role of domain experts, experience, and theory, really add a lot to an analysis. 
+
+We might have a similar situation, again we think that $apple$ causes $banana$, but this time $apple$ also causes $carrot$, which itself causes $banana$.
+
+```{r, out.width="75%"}
+dagify(banana ~ apple,
+       carrot ~ apple,
+       banana ~ carrot) %>% 
+  ggdag() +
+  theme_dag()
+```
+
+In this case, $carrot$ is called a 'mediator' and we'd not like to adjust for it, because that would affect our estimate of the effect of $apple$ on $banana$. 
+
+Finally, we might have yet another similar situation, where we again think that $apple$ causes $banana$, but this time both $apple$ and $banana$ cause $carrot$.
+
+```{r, out.width="75%"}
+dagify(banana ~ apple,
+       carrot ~ apple,
+       carrot ~ banana) %>% 
+  ggdag() +
+  theme_dag()
+```
+
+
+In this case, $carrot$ is called a 'collider' and if we were to condition on it we would create a misleading relationship.
+
+I've been circling around this point for a while, but it's time to address it. You will create your DAG - there is nothing that will create it for you. That means that you need to think really carefully about the situation. Because it's one thing to see something in the DAG and then do something about it. But it's another to not know that it's there. @citemcelreath[p. 180] describes these as haunted DAGs.
+
+DAGs have become fashionable. They are of course helpful, but they are just a tool to help you think really deeply about your situation. As @citemcelreath[p. 162] says 'Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for asking bad questions.'. The same is true of DAGs, and all the methods that we cover in these notes.
+
+
+
+### Selection and measurement bias
+
+Selection bias occurs when the outcomes are dependent on 'the process by which individuals are selected into the analysis' [@hernanrobins2020, p. 99]. We are not going to be able to see this from a DAG (I mean one could draw a DAG that shows it, but you need to know about it in order to draw that DAG is what I mean), or many default diagnostics. One way to go about things is A/A testing in an experimental settings, or comparing the sample with some more general characteristics, for instance age-group, gender, and education. But the fundamental point, as Dr Jill Sheppard says, is that 'people who respond to surveys are weird', and this generalises to whatever method you're using to gather your data. Using Facebook ads? People who click on Facebook ads are weird. Going door knocking? People who answer their door are weird. Call people on the phone? Literally who answers their phone anymore.
+
+There is a pernicious aspect of selection bias, which is that it pervades every aspect of your analysis. Even a sample that starts off as perfectly representative, may become selected over time. For instance, the survey panels used for political polling need to be updated from time to time because the folks who don't get anything out of it stop responding - but those people may still vote and so need to be polled.
+
+Another bias to be very aware of is measurement bias, which when 'the association between treatment and outcome is weakened or strengthened as a result of the process by which the study data are measured' [@hernanrobins2020, p. 113]. It is implicit in the definition by @hernanrobins2020, but it is important here that this be systematic. For instance, if I ask people in person what their income is then that is likely to get different answers than if I ask over the phone or via an online form. 
+
+
+### Two common paradoxes 
+
+There are two situations where data can trick you that are so common that I'd like to explicitly go through them. These are Simpson's paradox, and Berkson's paradox. Keep these situations in the back of your mind at all times when dealing with data.
+
+Simpson's paradox occurs when we estimate some relationship for subsets of our data, but a different relationship when we consider the entire dataset [@simpson1951interpretation]. For instance, it may be that there is a positive relationship between undergraduate grades and performance in graduate school in both statistics and economics when considering each department individually. But if undergraduate grades tended to be higher in statistics than economics while graduate school performance tended to be opposite, we may actually find a negative relationship between undergraduate grades and performance in graduate school.
+
+To see this let's simulate some data.
+
+```{r}
+number_in_each <- 1000
+statistics <- tibble(undergrad = runif(n = number_in_each, min = 0.7, max = 0.9),
+                     noise = rnorm(n = number_in_each, 0, sd = 0.1),
+                     grad = undergrad + noise,
+                     type = "Statistics")
+economics <- tibble(undergrad = runif(n = number_in_each, min = 0.6, max = 0.8),
+                    noise = rnorm(n = number_in_each, 0, sd = 0.1),
+                    grad = undergrad + noise + 0.3,
+                    type = "Economics")
+both = rbind(statistics, economics)
+
+both %>% 
+  ggplot(aes(x = undergrad, y = grad)) +
+  geom_point(aes(color = type), alpha = 0.1) +
+  geom_smooth(aes(color = type), method = 'lm', formula = 'y ~ x') +
+  geom_smooth(method = 'lm', formula = 'y ~ x', color = 'black') +
+  labs(x = "Undergraduate results",
+       y = "Graduate results",
+       color = "Type") +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1")
+```
+
+
+Berkson's paradox occurs when we estimate some relationship based on the dataset that we have, but because the dataset is selected the relationship is different in a more general dataset [@citeberkson]. For instance, if we have a dataset of professional cyclists then we would find there is no relationship between their VO2 max and their chance of winning a bike race. But if we had a dataset of the general population then we would find an enormous relationship between their VO2 max and their chance of winning a bike race. The professional dataset has just been so selected that the relationship disappears - you can't become a professional unless you have a high VO2 max. 
+
+To see this let's simulate some data.
+
+```{r}
+number_of_pros <- 100
+number_of_public <- 1000
+professionals <- 
+  tibble(VO2 = runif(n = number_of_pros, min = 0.7, max = 0.9),
+         chance_of_winning = runif(n = number_of_pros, min = 0.7, max = 0.9),
+         type = "Professionals")
+general_public <- 
+  tibble(VO2 = runif(n = number_of_public, min = 0.6, max = 0.8),
+         noise = rnorm(n = number_of_public, 0, sd = 0.03),
+         chance_of_winning = VO2 + noise + 0.1,
+         type = "Public") %>% 
+  select(-noise)
+both = rbind(professionals, general_public)
+
+both %>% 
+  ggplot(aes(x = VO2, y = chance_of_winning)) +
+  geom_point(aes(color = type), alpha = 0.1) +
+  geom_smooth(aes(color = type), method = 'lm', formula = 'y ~ x') +
+  geom_smooth(method = 'lm', formula = 'y ~ x', color = 'black') +
+  labs(x = "VO2 max",
+       y = "Chance of winning a bike race",
+       color = "Type") +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1")
+  
+```
 
 
 
 ## Difference in differences
 
-### Introduction
-
-Life it grand when you can conduct experiments to be able to speak to causality. But what if you can only run the survey - you can’t run an experiment? Here we begin our discussion of the circumstances and methods that would allow you to nonetheless speak to causality. We use (relatively) simple methods, in sophisticated, well-developed, ways (cf, much of what is done these days) and our applied statistics draw from a variety of social sciences including economics, and political science.
 
 
 
@@ -259,7 +397,7 @@ Life it grand when you can conduct experiments to be able to speak to causality.
 
 #### Introduction
 
-The ideal situation, as described in the previous chapter, is rarely possible in a data science setting. Can we really reasonably expect that Netflix would allow us to change prices. And even if they did once, would they let us do it again, and again, and again? Further, rarely can we explicitly create treatment and control groups. Finally, experiments are really expensive and potentially unethical. Instead, we need to make do with what we have. Rather than our counterfactual coming to us through randomisation, and hence us knowing that the two are the same but for the treatment, we try to identify groups that were similar before the treatment, and hence any differences can be attributed to the treatment. In practice, we tend to even have differences between our two groups before we treat. Provided those pre-treatment differences satisfy some assumptions (basically that they were consistent, and we expect that consistency to continue in the absence of the treatment) -- the 'parallel trends' assumption -- then we can look to any difference in the differences as the effect of the treatment. One of the lovely aspects of difference in differences analysis is that we can do it using fairly straight-forward quantitative methods - linear regression with a dummy variable is all that is needed to do a convincing job.
+The ideal situation of being able to conduct an experiment is rarely possible in a data science setting. Can we really reasonably expect that Netflix would allow us to change prices. And even if they did once, would they let us do it again, and again, and again? Further, rarely can we explicitly create treatment and control groups. Finally, experiments are really expensive and potentially unethical. Instead, we need to make do with what we have. Rather than our counterfactual coming to us through randomisation, and hence us knowing that the two are the same but for the treatment, we try to identify groups that were similar before the treatment, and hence any differences can be attributed to the treatment. In practice, we tend to even have differences between our two groups before we treat. Provided those pre-treatment differences satisfy some assumptions (basically that they were consistent, and we expect that consistency to continue in the absence of the treatment) -- the 'parallel trends' assumption -- then we can look to any difference in the differences as the effect of the treatment. One of the lovely aspects of difference in differences analysis is that we can do it using fairly straight-forward quantitative methods - linear regression with a dummy variable is all that is needed to do a convincing job.
 
 
 

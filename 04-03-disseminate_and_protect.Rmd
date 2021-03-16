@@ -10,6 +10,8 @@ output:
 
 # Disseminating and protecting data
 
+*Last updated: 30 January 2021.*
+
 - Hawes, M. B. (2020). Implementing Differential Privacy: Seven Lessons From the 2020 United States Census. Harvard Data Science Review. https://doi.org/10.1162/99608f92.353c6f99
 
 - https://hdsr.mitpress.mit.edu/pub/g9o4z8au/release/2

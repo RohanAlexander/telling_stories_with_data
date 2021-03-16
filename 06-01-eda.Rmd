@@ -12,7 +12,6 @@ output:
 
 # Exploratory data analysis
 
-
 *Last updated: 9 March 2021.*
 
 

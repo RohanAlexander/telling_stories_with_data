@@ -10,6 +10,8 @@ output:
 
 # Storing and retrieving data
 
+*Last updated: 30 January 2021.*
+
 **Required reading**
 
 
