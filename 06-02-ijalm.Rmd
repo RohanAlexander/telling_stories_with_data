@@ -1,5 +1,5 @@
 ---
-date: February 9, 2021
+date: March 16, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -8,9 +8,9 @@ output:
     citation_package: biblatex
 ---
 
-# It’s Just A Linear Model
+# It's Just A Linear Model
 
-*Last updated: 10 March 2021.*
+*Last updated: 16 March 2021.*
 
 
 **Required reading**
@@ -131,7 +131,21 @@ output:
 
 ## Overview
 
-Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn [@nelder1972generalized]. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You’re still modelling things as a linear function, but you’re not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you’re not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. So we're still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani [@hastie1990generalized] (fun fact, Tibshirani did a stats masters at Toronto, and was a professor here from 1985 through to 1998!).
+> Words! Mere words! How terrible they were! How clear, and vivid, and cruel! One could not escape from them. And yet what a subtle magic there was in them! They seemed to be able to give a plastic form to formless things, and to have a music of their own as sweet as that of viol or of lute. Mere words! Was there anything so real as words?
+>
+> Oscar Wilde, *The Picture of Dorian Gray*.
+
+> Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for asking bad questions.
+> 
+> @citemcelreath[p. 162].
+
+Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenicists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn [@nelder1972generalized]. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You're still modelling things as a linear function, but you're not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you're not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. We're still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani [@hastie1990generalized] (fun fact, Tibshirani did a stats masters at Toronto, and was a professor here from 1985 through to 1998!).
+
+It's important to recognise that when we build models we are not discovering 'the truth'. We are using the model to help us explore and understand the data that we have. There is no one best model, there are just useful models that help us learn something about the data that we have and hence, hopefully, something about the world from which the data were generated. Ben Rhodes, who was an Obama staffer, titled his White House memoirs 'The World as It Is: A Memoir of the Obama White House'. When we use models, we are similarly trying to understand the world, but as the second part of the title makes clear, there are enormous constraints on the perspective. In the same way that we'd not expect Rhodes to advocate an Australian, Canadian, or even US Republican, perspective about the world, it's silly to expect one model to be universal. 
+
+We use models to understand the world. We poke, push, and test them. We build them and rejoice in their beauty, and then seek to understand their limits and ultimately destroy them. It is this process that is important, it is this process that allows us to better understand the world. @citemcelreath[p. 19] talks about small and large worlds, saying '(a)ll statistical modeling has these two frames: the small world of the model itself and the large world we hope to deploy the model in'. To what extent does a model trained on the experiences of straight, cis, men, speak to the world as it is? It's not worthless, but it's also not unimpeachable. To what extent does the model teach us about the data that we have? To what extent do the data that we have reflect the world for which we would like to draw conclusions? Keep these questions front of mind.
+
+
 
 
 ## Simple linear regression
@@ -349,6 +363,13 @@ running_data %>%
   labs(x = "Five-kilometer time (minutes)",
        y = "Marathon time (minutes)") +
   theme_classic()
+```
+
+There are a bunch of different tests that you can use to understand how your model is performing given this data. One quick way to look at a whole bunch of different aspects is to use the `performance` package [@citePerformance].
+
+```{r}
+library(performance)
+performance::check_model(running_data_first_model)
 ```
 
 

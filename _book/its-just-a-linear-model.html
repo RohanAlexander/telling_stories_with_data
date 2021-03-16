@@ -74,6 +74,9 @@
 <link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
 <script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
 <script src="libs/arc-1.0.0/arc.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
@@ -664,7 +667,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="its-just-a-linear-model" class="section level1" number="14">
 <h1><span class="header-section-number">Chapter 14</span> It’s Just A Linear Model</h1>
-<p><em>Last updated: 10 March 2021.</em></p>
+<p><em>Last updated: 16 March 2021.</em></p>
 <p><strong>Required reading</strong></p>
 <ul>
 <li>Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations,’ <em>European journal of epidemiology</em>, 31, no. 4, pp. 337-350.</li>
@@ -787,7 +790,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div id="overview" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Overview</h2>
-<p>Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn <span class="citation">(<a href="references-1.html#ref-nelder1972generalized" role="doc-biblioref">Nelder and Wedderburn 1972</a>)</span>. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You’re still modelling things as a linear function, but you’re not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you’re not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. So we’re still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani <span class="citation">(<a href="references-1.html#ref-hastie1990generalized" role="doc-biblioref">Hastie and Tibshirani 1990</a>)</span> (fun fact, Tibshirani did a stats masters at Toronto, and was a professor here from 1985 through to 1998!).</p>
+<blockquote>
+<p>Words! Mere words! How terrible they were! How clear, and vivid, and cruel! One could not escape from them. And yet what a subtle magic there was in them! They seemed to be able to give a plastic form to formless things, and to have a music of their own as sweet as that of viol or of lute. Mere words! Was there anything so real as words?</p>
+<p>Oscar Wilde, <em>The Picture of Dorian Gray</em>.</p>
+</blockquote>
+<blockquote>
+<p>Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for asking bad questions.</p>
+<p><span class="citation"><a href="references-1.html#ref-citemcelreath" role="doc-biblioref">McElreath</a> (<a href="references-1.html#ref-citemcelreath" role="doc-biblioref">2020, 162</a>)</span>.</p>
+</blockquote>
+<p>Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenicists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn <span class="citation">(<a href="references-1.html#ref-nelder1972generalized" role="doc-biblioref">Nelder and Wedderburn 1972</a>)</span>. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You’re still modelling things as a linear function, but you’re not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you’re not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. We’re still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani <span class="citation">(<a href="references-1.html#ref-hastie1990generalized" role="doc-biblioref">Hastie and Tibshirani 1990</a>)</span> (fun fact, Tibshirani did a stats masters at Toronto, and was a professor here from 1985 through to 1998!).</p>
+<p>It’s important to recognise that when we build models we are not discovering ‘the truth.’ We are using the model to help us explore and understand the data that we have. There is no one best model, there are just useful models that help us learn something about the data that we have and hence, hopefully, something about the world from which the data were generated. Ben Rhodes, who was an Obama staffer, titled his White House memoirs ‘The World as It Is: A Memoir of the Obama White House.’ When we use models, we are similarly trying to understand the world, but as the second part of the title makes clear, there are enormous constraints on the perspective. In the same way that we’d not expect Rhodes to advocate an Australian, Canadian, or even US Republican, perspective about the world, it’s silly to expect one model to be universal.</p>
+<p>We use models to understand the world. We poke, push, and test them. We build them and rejoice in their beauty, and then seek to understand their limits and ultimately destroy them. It is this process that is important, it is this process that allows us to better understand the world. <span class="citation"><a href="references-1.html#ref-citemcelreath" role="doc-biblioref">McElreath</a> (<a href="references-1.html#ref-citemcelreath" role="doc-biblioref">2020, 19</a>)</span> talks about small and large worlds, saying ‘(a)ll statistical modeling has these two frames: the small world of the model itself and the large world we hope to deploy the model in.’ To what extent does a model trained on the experiences of straight, cis, men, speak to the world as it is? It’s not worthless, but it’s also not unimpeachable. To what extent does the model teach us about the data that we have? To what extent do the data that we have reflect the world for which we would like to draw conclusions? Keep these questions front of mind.</p>
 </div>
 <div id="simple-linear-regression" class="section level2" number="14.2">
 <h2><span class="header-section-number">14.2</span> Simple linear regression</h2>
@@ -992,6 +1005,10 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <span id="cb620-10"><a href="its-just-a-linear-model.html#cb620-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Marathon time (minutes)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb620-11"><a href="its-just-a-linear-model.html#cb620-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-364-1.png" width="672" /></p>
+<p>There are a bunch of different tests that you can use to understand how your model is performing given this data. One quick way to look at a whole bunch of different aspects is to use the <code>performance</code> package <span class="citation">(<a href="references-1.html#ref-citePerformance" role="doc-biblioref">Lüdecke et al. 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="its-just-a-linear-model.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb621-2"><a href="its-just-a-linear-model.html#cb621-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(running_data_first_model)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-365-1.png" width="672" /></p>
 </div>
 <div id="testing-hypothesis" class="section level3" number="14.2.4">
 <h3><span class="header-section-number">14.2.4</span> Testing hypothesis</h3>
@@ -1028,10 +1045,10 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 </blockquote>
 <p>We may also like to consider variables that do not have an inherent ordering. For instance, pregnant or not. When there are only two options then we can use a binary variable which is 0 or 1. If there are more than two levels then use a combination of binary variables, where the ‘missing’ outcome (baseline) gets pushed onto the intercept.</p>
 <p>In other languages you may need to explicitly construct dummy variables, but as R was designed as a language to do statistical programming, it does a lot of the work here for you and is fairly forgiving. For instance, if you have a column of character values that only had two values: <code>c("Monica", "Rohan", "Rohan", "Monica", "Monica", "Rohan")</code>, and you used this as a independent variable in your usual regression set up then R would treat it as a dummy variable.</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="its-just-a-linear-model.html#cb621-1" aria-hidden="true" tabindex="-1"></a>running_data_rain_model <span class="ot">&lt;-</span> </span>
-<span id="cb621-2"><a href="its-just-a-linear-model.html#cb621-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
-<span id="cb621-3"><a href="its-just-a-linear-model.html#cb621-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> running_data)</span>
-<span id="cb621-4"><a href="its-just-a-linear-model.html#cb621-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(running_data_rain_model)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="its-just-a-linear-model.html#cb622-1" aria-hidden="true" tabindex="-1"></a>running_data_rain_model <span class="ot">&lt;-</span> </span>
+<span id="cb622-2"><a href="its-just-a-linear-model.html#cb622-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
+<span id="cb622-3"><a href="its-just-a-linear-model.html#cb622-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">data =</span> running_data)</span>
+<span id="cb622-4"><a href="its-just-a-linear-model.html#cb622-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(running_data_rain_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = marathon_time ~ five_km_time + was_raining, data = running_data)
@@ -1052,16 +1069,16 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 ## Multiple R-squared:  0.8842, Adjusted R-squared:  0.8818 
 ## F-statistic: 370.4 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The result probably isn’t too surprising if we look at a plot of the data.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="its-just-a-linear-model.html#cb623-1" aria-hidden="true" tabindex="-1"></a>running_data <span class="sc">%&gt;%</span></span>
-<span id="cb623-2"><a href="its-just-a-linear-model.html#cb623-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> five_km_time, <span class="at">y =</span> marathon_time, <span class="at">color =</span> was_raining)) <span class="sc">+</span></span>
-<span id="cb623-3"><a href="its-just-a-linear-model.html#cb623-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb623-4"><a href="its-just-a-linear-model.html#cb623-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb623-5"><a href="its-just-a-linear-model.html#cb623-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Five-kilometer time (minutes)&quot;</span>,</span>
-<span id="cb623-6"><a href="its-just-a-linear-model.html#cb623-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Marathon time (minutes)&quot;</span>,</span>
-<span id="cb623-7"><a href="its-just-a-linear-model.html#cb623-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Was raining&quot;</span>) <span class="sc">+</span></span>
-<span id="cb623-8"><a href="its-just-a-linear-model.html#cb623-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb623-9"><a href="its-just-a-linear-model.html#cb623-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="its-just-a-linear-model.html#cb624-1" aria-hidden="true" tabindex="-1"></a>running_data <span class="sc">%&gt;%</span></span>
+<span id="cb624-2"><a href="its-just-a-linear-model.html#cb624-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> five_km_time, <span class="at">y =</span> marathon_time, <span class="at">color =</span> was_raining)) <span class="sc">+</span></span>
+<span id="cb624-3"><a href="its-just-a-linear-model.html#cb624-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb624-4"><a href="its-just-a-linear-model.html#cb624-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb624-5"><a href="its-just-a-linear-model.html#cb624-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Five-kilometer time (minutes)&quot;</span>,</span>
+<span id="cb624-6"><a href="its-just-a-linear-model.html#cb624-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Marathon time (minutes)&quot;</span>,</span>
+<span id="cb624-7"><a href="its-just-a-linear-model.html#cb624-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Was raining&quot;</span>) <span class="sc">+</span></span>
+<span id="cb624-8"><a href="its-just-a-linear-model.html#cb624-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb624-9"><a href="its-just-a-linear-model.html#cb624-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-367-1.png" width="672" /></p>
 <p>In addition to wanting to include additional explanatory variables we may think that they are related with one another. For instance, if we were wanting to explain the amount of snowfall in Toronto, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using <code>*</code> instead of <code>+</code> when we specify the model in R. If you do interact variables, then you should almost always also include the individual variables as well (Figure <a href="its-just-a-linear-model.html#fig:trump">14.2</a>).</p>
 <div class="figure"><span id="fig:trump"></span>
 <img src="figures/trump.jpg" alt="Don't leave out the main effects in an interactive model" width="90%" />
@@ -1092,10 +1109,10 @@ Figure 14.2: Don’t leave out the main effects in an interactive model
 <div id="more-credible-outputs" class="section level3" number="14.3.2">
 <h3><span class="header-section-number">14.3.2</span> More credible outputs</h3>
 <p>Finally, after creating beautiful graphs and tables you may want your regression output to look just as nice. There are a variety of packages in R that will automatically format your regression outputs. One that is particularly nice is <code>huxtable</code> <span class="citation">(<a href="references-1.html#ref-citehuxtable" role="doc-biblioref">Hugh-Jones 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="its-just-a-linear-model.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span>
-<span id="cb624-2"><a href="its-just-a-linear-model.html#cb624-2" aria-hidden="true" tabindex="-1"></a><span class="fu">huxreg</span>(running_data_first_model, running_data_rain_model)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-367">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-367">Table 14.1: </span> </caption><col><col><col><tr>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="its-just-a-linear-model.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span>
+<span id="cb625-2"><a href="its-just-a-linear-model.html#cb625-2" aria-hidden="true" tabindex="-1"></a><span class="fu">huxreg</span>(running_data_first_model, running_data_rain_model)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-368">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-368">Table 14.1: </span> </caption><col><col><col><tr>
 <th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1)</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(2)</th></tr>
 <tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.411&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.143&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
@@ -1127,50 +1144,50 @@ Figure 14.2: Don’t leave out the main effects in an interactive model
 <p>The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There’s nothing wrong with that. And that’s the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.</p>
 <p>The <code>tidymodels</code> package <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> is what all the cool kids are using these days. It’s an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they’ve crashed and burned, but hopefully this time is different.) The issue is that let’s say you want to run a simple linear regression and then run a random forest. The language that you’d use to code these models is fairly different. The <code>tidymodels</code> package is the latest attempt to bring a coherent grammar to this. It’s also a package of packages.</p>
 <p>We’ll create test and training datasets.</p>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="its-just-a-linear-model.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb625-2"><a href="its-just-a-linear-model.html#cb625-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb625-3"><a href="its-just-a-linear-model.html#cb625-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb625-4"><a href="its-just-a-linear-model.html#cb625-4" aria-hidden="true" tabindex="-1"></a>running_data_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(running_data, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb625-5"><a href="its-just-a-linear-model.html#cb625-5" aria-hidden="true" tabindex="-1"></a>running_data_split</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="its-just-a-linear-model.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb626-2"><a href="its-just-a-linear-model.html#cb626-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb626-3"><a href="its-just-a-linear-model.html#cb626-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb626-4"><a href="its-just-a-linear-model.html#cb626-4" aria-hidden="true" tabindex="-1"></a>running_data_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(running_data, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb626-5"><a href="its-just-a-linear-model.html#cb626-5" aria-hidden="true" tabindex="-1"></a>running_data_split</span></code></pre></div>
 <pre><code>## &lt;Analysis/Assess/Total&gt;
 ## &lt;81/19/100&gt;</code></pre>
 <p>So we have 81 points in our training set, 19 in our test set and 100 in total.</p>
 <p>We can then make datasets for the test and training samples.</p>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="its-just-a-linear-model.html#cb627-1" aria-hidden="true" tabindex="-1"></a>running_data_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(running_data_split)</span>
-<span id="cb627-2"><a href="its-just-a-linear-model.html#cb627-2" aria-hidden="true" tabindex="-1"></a>running_data_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(running_data_split)</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="its-just-a-linear-model.html#cb628-1" aria-hidden="true" tabindex="-1"></a>running_data_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(running_data_split)</span>
+<span id="cb628-2"><a href="its-just-a-linear-model.html#cb628-2" aria-hidden="true" tabindex="-1"></a>running_data_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(running_data_split)</span></code></pre></div>
 <p>If we have a look at the dataset that we made we can see that it’s got fewer rows. We could have reached the same outcome with something like:</p>
-<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="its-just-a-linear-model.html#cb628-1" aria-hidden="true" tabindex="-1"></a>running_data <span class="ot">&lt;-</span> </span>
-<span id="cb628-2"><a href="its-just-a-linear-model.html#cb628-2" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
-<span id="cb628-3"><a href="its-just-a-linear-model.html#cb628-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">magic_number =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(running_data)), <span class="at">size =</span> <span class="fu">nrow</span>(running_data), <span class="at">replace =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb628-4"><a href="its-just-a-linear-model.html#cb628-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb628-5"><a href="its-just-a-linear-model.html#cb628-5" aria-hidden="true" tabindex="-1"></a>running_data_test <span class="ot">&lt;-</span> </span>
-<span id="cb628-6"><a href="its-just-a-linear-model.html#cb628-6" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
-<span id="cb628-7"><a href="its-just-a-linear-model.html#cb628-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(magic_number <span class="sc">&lt;=</span> <span class="dv">20</span>)</span>
-<span id="cb628-8"><a href="its-just-a-linear-model.html#cb628-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb628-9"><a href="its-just-a-linear-model.html#cb628-9" aria-hidden="true" tabindex="-1"></a>running_data_train <span class="ot">&lt;-</span> </span>
-<span id="cb628-10"><a href="its-just-a-linear-model.html#cb628-10" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
-<span id="cb628-11"><a href="its-just-a-linear-model.html#cb628-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(magic_number <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="its-just-a-linear-model.html#cb629-1" aria-hidden="true" tabindex="-1"></a>first_go <span class="ot">&lt;-</span> </span>
-<span id="cb629-2"><a href="its-just-a-linear-model.html#cb629-2" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb629-3"><a href="its-just-a-linear-model.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb629-4"><a href="its-just-a-linear-model.html#cb629-4" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
-<span id="cb629-5"><a href="its-just-a-linear-model.html#cb629-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> running_data_train</span>
-<span id="cb629-6"><a href="its-just-a-linear-model.html#cb629-6" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="its-just-a-linear-model.html#cb629-1" aria-hidden="true" tabindex="-1"></a>running_data <span class="ot">&lt;-</span> </span>
+<span id="cb629-2"><a href="its-just-a-linear-model.html#cb629-2" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
+<span id="cb629-3"><a href="its-just-a-linear-model.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">magic_number =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(running_data)), <span class="at">size =</span> <span class="fu">nrow</span>(running_data), <span class="at">replace =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb629-4"><a href="its-just-a-linear-model.html#cb629-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb629-5"><a href="its-just-a-linear-model.html#cb629-5" aria-hidden="true" tabindex="-1"></a>running_data_test <span class="ot">&lt;-</span> </span>
+<span id="cb629-6"><a href="its-just-a-linear-model.html#cb629-6" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
+<span id="cb629-7"><a href="its-just-a-linear-model.html#cb629-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(magic_number <span class="sc">&lt;=</span> <span class="dv">20</span>)</span>
+<span id="cb629-8"><a href="its-just-a-linear-model.html#cb629-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb629-9"><a href="its-just-a-linear-model.html#cb629-9" aria-hidden="true" tabindex="-1"></a>running_data_train <span class="ot">&lt;-</span> </span>
+<span id="cb629-10"><a href="its-just-a-linear-model.html#cb629-10" aria-hidden="true" tabindex="-1"></a>  running_data <span class="sc">%&gt;%</span> </span>
+<span id="cb629-11"><a href="its-just-a-linear-model.html#cb629-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(magic_number <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="its-just-a-linear-model.html#cb630-1" aria-hidden="true" tabindex="-1"></a>first_go <span class="ot">&lt;-</span> </span>
+<span id="cb630-2"><a href="its-just-a-linear-model.html#cb630-2" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb630-3"><a href="its-just-a-linear-model.html#cb630-3" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb630-4"><a href="its-just-a-linear-model.html#cb630-4" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
+<span id="cb630-5"><a href="its-just-a-linear-model.html#cb630-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> running_data_train</span>
+<span id="cb630-6"><a href="its-just-a-linear-model.html#cb630-6" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div>
 </div>
 <div id="implementation-in-rstanarm" class="section level3" number="14.3.4">
 <h3><span class="header-section-number">14.3.4</span> Implementation in <code>rstanarm</code></h3>
 <p>The <code>tidymodels</code> package will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That’s the kind of thing that <code>tidymodels</code> is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the <code>tidymodels</code> ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.</p>
 <p>There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to <code>R</code>, which is designed for more general statistical computing. We will use <code>Stan</code> in these notes within the context of our familiar R environment. We will interface with <code>Stan</code> using the <code>rstanarm</code> package <span class="citation">(<a href="references-1.html#ref-citerstanarm" role="doc-biblioref">Goodrich et al. 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="its-just-a-linear-model.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
-<span id="cb630-2"><a href="its-just-a-linear-model.html#cb630-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb630-3"><a href="its-just-a-linear-model.html#cb630-3" aria-hidden="true" tabindex="-1"></a>first_go_in_rstanarm <span class="ot">&lt;-</span></span>
-<span id="cb630-4"><a href="its-just-a-linear-model.html#cb630-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_lm</span>(</span>
-<span id="cb630-5"><a href="its-just-a-linear-model.html#cb630-5" aria-hidden="true" tabindex="-1"></a>    marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
-<span id="cb630-6"><a href="its-just-a-linear-model.html#cb630-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> running_data,</span>
-<span id="cb630-7"><a href="its-just-a-linear-model.html#cb630-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="cn">NULL</span>,</span>
-<span id="cb630-8"><a href="its-just-a-linear-model.html#cb630-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">seed =</span> <span class="dv">853</span></span>
-<span id="cb630-9"><a href="its-just-a-linear-model.html#cb630-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="its-just-a-linear-model.html#cb631-1" aria-hidden="true" tabindex="-1"></a>first_go_in_rstanarm</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="its-just-a-linear-model.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
+<span id="cb631-2"><a href="its-just-a-linear-model.html#cb631-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb631-3"><a href="its-just-a-linear-model.html#cb631-3" aria-hidden="true" tabindex="-1"></a>first_go_in_rstanarm <span class="ot">&lt;-</span></span>
+<span id="cb631-4"><a href="its-just-a-linear-model.html#cb631-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stan_lm</span>(</span>
+<span id="cb631-5"><a href="its-just-a-linear-model.html#cb631-5" aria-hidden="true" tabindex="-1"></a>    marathon_time <span class="sc">~</span> five_km_time <span class="sc">+</span> was_raining, </span>
+<span id="cb631-6"><a href="its-just-a-linear-model.html#cb631-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> running_data,</span>
+<span id="cb631-7"><a href="its-just-a-linear-model.html#cb631-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="cn">NULL</span>,</span>
+<span id="cb631-8"><a href="its-just-a-linear-model.html#cb631-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">seed =</span> <span class="dv">853</span></span>
+<span id="cb631-9"><a href="its-just-a-linear-model.html#cb631-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="its-just-a-linear-model.html#cb632-1" aria-hidden="true" tabindex="-1"></a>first_go_in_rstanarm</span></code></pre></div>
 <pre><code>## stan_lm
 ##  family:       gaussian [identity]
 ##  formula:      marathon_time ~ five_km_time + was_raining
@@ -1252,17 +1269,17 @@ Figure 14.2: Don’t leave out the main effects in an interactive model
 <div id="implementation-in-base" class="section level3" number="14.4.2">
 <h3><span class="header-section-number">14.4.2</span> Implementation in base</h3>
 <p>I’d like to consider a slightly more interesting example, which is a dataset of pearl jewellery, from the Australian retailer Paspaley.</p>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="its-just-a-linear-model.html#cb633-1" aria-hidden="true" tabindex="-1"></a>paspaley_dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv&quot;</span>)</span>
-<span id="cb633-2"><a href="its-just-a-linear-model.html#cb633-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb633-3"><a href="its-just-a-linear-model.html#cb633-3" aria-hidden="true" tabindex="-1"></a>paspaley_dataset<span class="sc">$</span>metal <span class="sc">%&gt;%</span> <span class="fu">table</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="its-just-a-linear-model.html#cb634-1" aria-hidden="true" tabindex="-1"></a>paspaley_dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv&quot;</span>)</span>
+<span id="cb634-2"><a href="its-just-a-linear-model.html#cb634-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb634-3"><a href="its-just-a-linear-model.html#cb634-3" aria-hidden="true" tabindex="-1"></a>paspaley_dataset<span class="sc">$</span>metal <span class="sc">%&gt;%</span> <span class="fu">table</span>()</span></code></pre></div>
 <pre><code>## .
 ##       Other    Platinum   Rose gold  White gold Yellow gold 
 ##          98          20          63         366         411</code></pre>
 <p>In this case we’ll model whether some jewellery is made of white or yellow gold, based on their price and the year (Figure <a href="its-just-a-linear-model.html#fig:logisticgraph">14.3</a>).</p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="its-just-a-linear-model.html#cb635-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb635-2"><a href="its-just-a-linear-model.html#cb635-2" aria-hidden="true" tabindex="-1"></a>  paspaley_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb635-3"><a href="its-just-a-linear-model.html#cb635-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(metal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;White gold&#39;</span>, <span class="st">&#39;Yellow gold&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb635-4"><a href="its-just-a-linear-model.html#cb635-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(metal, price, year)</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="its-just-a-linear-model.html#cb636-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb636-2"><a href="its-just-a-linear-model.html#cb636-2" aria-hidden="true" tabindex="-1"></a>  paspaley_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb636-3"><a href="its-just-a-linear-model.html#cb636-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(metal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;White gold&#39;</span>, <span class="st">&#39;Yellow gold&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb636-4"><a href="its-just-a-linear-model.html#cb636-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(metal, price, year)</span></code></pre></div>
 <div class="figure"><span id="fig:logisticgraph"></span>
 <img src="telling_stories_with_data_files/figure-html/logisticgraph-1.png" alt="Examining the type of gold some jewellery is made from." width="672" />
 <p class="caption">
@@ -1270,20 +1287,20 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 </p>
 </div>
 <p>The graph suggests that we should filter any price higher than $100,000.</p>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="its-just-a-linear-model.html#cb636-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb636-2"><a href="its-just-a-linear-model.html#cb636-2" aria-hidden="true" tabindex="-1"></a>  paspaley_logistic_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb636-3"><a href="its-just-a-linear-model.html#cb636-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(price <span class="sc">&lt;</span> <span class="dv">100000</span>)</span></code></pre></div>
-<p>As with linear regression, logistic regression is built into R, with the <code>glm</code> function. In this case, we’ll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we’ll change it to a binary, that will be 1 if white gold and 0 if not.</p>
 <div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="its-just-a-linear-model.html#cb637-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
 <span id="cb637-2"><a href="its-just-a-linear-model.html#cb637-2" aria-hidden="true" tabindex="-1"></a>  paspaley_logistic_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb637-3"><a href="its-just-a-linear-model.html#cb637-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_white_gold =</span> <span class="fu">if_else</span>(metal <span class="sc">==</span> <span class="st">&quot;White gold&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb637-4"><a href="its-just-a-linear-model.html#cb637-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb637-5"><a href="its-just-a-linear-model.html#cb637-5" aria-hidden="true" tabindex="-1"></a>white_gold_model <span class="ot">&lt;-</span> </span>
-<span id="cb637-6"><a href="its-just-a-linear-model.html#cb637-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year, </span>
-<span id="cb637-7"><a href="its-just-a-linear-model.html#cb637-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> paspaley_logistic_dataset, </span>
-<span id="cb637-8"><a href="its-just-a-linear-model.html#cb637-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
-<span id="cb637-9"><a href="its-just-a-linear-model.html#cb637-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb637-10"><a href="its-just-a-linear-model.html#cb637-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(white_gold_model)</span></code></pre></div>
+<span id="cb637-3"><a href="its-just-a-linear-model.html#cb637-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(price <span class="sc">&lt;</span> <span class="dv">100000</span>)</span></code></pre></div>
+<p>As with linear regression, logistic regression is built into R, with the <code>glm</code> function. In this case, we’ll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we’ll change it to a binary, that will be 1 if white gold and 0 if not.</p>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="its-just-a-linear-model.html#cb638-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb638-2"><a href="its-just-a-linear-model.html#cb638-2" aria-hidden="true" tabindex="-1"></a>  paspaley_logistic_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb638-3"><a href="its-just-a-linear-model.html#cb638-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_white_gold =</span> <span class="fu">if_else</span>(metal <span class="sc">==</span> <span class="st">&quot;White gold&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb638-4"><a href="its-just-a-linear-model.html#cb638-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-5"><a href="its-just-a-linear-model.html#cb638-5" aria-hidden="true" tabindex="-1"></a>white_gold_model <span class="ot">&lt;-</span> </span>
+<span id="cb638-6"><a href="its-just-a-linear-model.html#cb638-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year, </span>
+<span id="cb638-7"><a href="its-just-a-linear-model.html#cb638-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> paspaley_logistic_dataset, </span>
+<span id="cb638-8"><a href="its-just-a-linear-model.html#cb638-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
+<span id="cb638-9"><a href="its-just-a-linear-model.html#cb638-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb638-10"><a href="its-just-a-linear-model.html#cb638-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(white_gold_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = is_white_gold ~ price + year, family = &quot;binomial&quot;, 
@@ -1307,13 +1324,13 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 ## 
 ## Number of Fisher Scoring iterations: 3</code></pre>
 <p>One reason that logistic regression can be a bit of a pain initially is because the coefficients take a bit of work to interpret. In particular, our estimate on price is -3.170e-06. This is the odds. So the odds that it was white gold decrease by -3.170e-06 as the price increases. We can have our model make forecasts in terms of a probability, by asking for that.</p>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="its-just-a-linear-model.html#cb639-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb639-2"><a href="its-just-a-linear-model.html#cb639-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>(white_gold_model,</span>
-<span id="cb639-3"><a href="its-just-a-linear-model.html#cb639-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> paspaley_logistic_dataset,</span>
-<span id="cb639-4"><a href="its-just-a-linear-model.html#cb639-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb639-5"><a href="its-just-a-linear-model.html#cb639-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(paspaley_logistic_dataset)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-378">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-378">Table 14.2: </span> </caption><col><col><col><col><col><col><col><col><col><col><tr>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="its-just-a-linear-model.html#cb640-1" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb640-2"><a href="its-just-a-linear-model.html#cb640-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>(white_gold_model,</span>
+<span id="cb640-3"><a href="its-just-a-linear-model.html#cb640-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> paspaley_logistic_dataset,</span>
+<span id="cb640-4"><a href="its-just-a-linear-model.html#cb640-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">type.predict =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb640-5"><a href="its-just-a-linear-model.html#cb640-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(paspaley_logistic_dataset)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-379">
+<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-379">Table 14.2: </span> </caption><col><col><col><col><col><col><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">metal</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">price</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">year</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">is_white_gold</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.fitted</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.resid</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.std.resid</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.hat</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.sigma</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.cooksd</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Yellow gold</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.58e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.504</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.18</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00392</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.18</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00134</td></tr>
@@ -1336,26 +1353,26 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 <!-- https://meghan.rbind.io/post/tidymodels-intro/ -->
 <!-- https://alison.rbind.io/post/2020-02-27-better-tidymodels/#tidymodels-101 -->
 <p>We can use <code>tidymodels</code> to run this if we wanted. In this case, we need it as a factor.</p>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="its-just-a-linear-model.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb640-2"><a href="its-just-a-linear-model.html#cb640-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-3"><a href="its-just-a-linear-model.html#cb640-3" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
-<span id="cb640-4"><a href="its-just-a-linear-model.html#cb640-4" aria-hidden="true" tabindex="-1"></a>  paspaley_logistic_dataset <span class="sc">%&gt;%</span> </span>
-<span id="cb640-5"><a href="its-just-a-linear-model.html#cb640-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_white_gold =</span> <span class="fu">as_factor</span>(is_white_gold))</span>
-<span id="cb640-6"><a href="its-just-a-linear-model.html#cb640-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-7"><a href="its-just-a-linear-model.html#cb640-7" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(paspaley_logistic_dataset, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb640-8"><a href="its-just-a-linear-model.html#cb640-8" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(paspaley_logistic_dataset_split)</span>
-<span id="cb640-9"><a href="its-just-a-linear-model.html#cb640-9" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(paspaley_logistic_dataset_split)</span>
-<span id="cb640-10"><a href="its-just-a-linear-model.html#cb640-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-11"><a href="its-just-a-linear-model.html#cb640-11" aria-hidden="true" tabindex="-1"></a>white_gold_model_tidymodels <span class="ot">&lt;-</span></span>
-<span id="cb640-12"><a href="its-just-a-linear-model.html#cb640-12" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">logistic_reg</span>(<span class="at">mode =</span> <span class="st">&quot;classification&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb640-13"><a href="its-just-a-linear-model.html#cb640-13" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb640-14"><a href="its-just-a-linear-model.html#cb640-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year, </span>
-<span id="cb640-15"><a href="its-just-a-linear-model.html#cb640-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> paspaley_logistic_dataset_train)</span>
-<span id="cb640-16"><a href="its-just-a-linear-model.html#cb640-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb640-17"><a href="its-just-a-linear-model.html#cb640-17" aria-hidden="true" tabindex="-1"></a>white_gold_model_tidymodels</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="its-just-a-linear-model.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb641-2"><a href="its-just-a-linear-model.html#cb641-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb641-3"><a href="its-just-a-linear-model.html#cb641-3" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset <span class="ot">&lt;-</span> </span>
+<span id="cb641-4"><a href="its-just-a-linear-model.html#cb641-4" aria-hidden="true" tabindex="-1"></a>  paspaley_logistic_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb641-5"><a href="its-just-a-linear-model.html#cb641-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_white_gold =</span> <span class="fu">as_factor</span>(is_white_gold))</span>
+<span id="cb641-6"><a href="its-just-a-linear-model.html#cb641-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb641-7"><a href="its-just-a-linear-model.html#cb641-7" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(paspaley_logistic_dataset, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb641-8"><a href="its-just-a-linear-model.html#cb641-8" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(paspaley_logistic_dataset_split)</span>
+<span id="cb641-9"><a href="its-just-a-linear-model.html#cb641-9" aria-hidden="true" tabindex="-1"></a>paspaley_logistic_dataset_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(paspaley_logistic_dataset_split)</span>
+<span id="cb641-10"><a href="its-just-a-linear-model.html#cb641-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb641-11"><a href="its-just-a-linear-model.html#cb641-11" aria-hidden="true" tabindex="-1"></a>white_gold_model_tidymodels <span class="ot">&lt;-</span></span>
+<span id="cb641-12"><a href="its-just-a-linear-model.html#cb641-12" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">logistic_reg</span>(<span class="at">mode =</span> <span class="st">&quot;classification&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb641-13"><a href="its-just-a-linear-model.html#cb641-13" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb641-14"><a href="its-just-a-linear-model.html#cb641-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year, </span>
+<span id="cb641-15"><a href="its-just-a-linear-model.html#cb641-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> paspaley_logistic_dataset_train)</span>
+<span id="cb641-16"><a href="its-just-a-linear-model.html#cb641-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb641-17"><a href="its-just-a-linear-model.html#cb641-17" aria-hidden="true" tabindex="-1"></a>white_gold_model_tidymodels</span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  3ms 
+## Fit time:  2ms 
 ## 
 ## Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
 ##     data = data)
@@ -1370,14 +1387,14 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 </div>
 <div id="implementation-in-rstanarm-1" class="section level3" number="14.4.4">
 <h3><span class="header-section-number">14.4.4</span> Implementation in <code>rstanarm</code></h3>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="its-just-a-linear-model.html#cb642-1" aria-hidden="true" tabindex="-1"></a>paspaley_in_rstanarm <span class="ot">&lt;-</span></span>
-<span id="cb642-2"><a href="its-just-a-linear-model.html#cb642-2" aria-hidden="true" tabindex="-1"></a>  rstanarm<span class="sc">::</span><span class="fu">stan_glm</span>(</span>
-<span id="cb642-3"><a href="its-just-a-linear-model.html#cb642-3" aria-hidden="true" tabindex="-1"></a>    is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year,</span>
-<span id="cb642-4"><a href="its-just-a-linear-model.html#cb642-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> paspaley_logistic_dataset,</span>
-<span id="cb642-5"><a href="its-just-a-linear-model.html#cb642-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;logit&quot;</span>),</span>
-<span id="cb642-6"><a href="its-just-a-linear-model.html#cb642-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="cn">NULL</span>,</span>
-<span id="cb642-7"><a href="its-just-a-linear-model.html#cb642-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">seed =</span> <span class="dv">853</span></span>
-<span id="cb642-8"><a href="its-just-a-linear-model.html#cb642-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="its-just-a-linear-model.html#cb643-1" aria-hidden="true" tabindex="-1"></a>paspaley_in_rstanarm <span class="ot">&lt;-</span></span>
+<span id="cb643-2"><a href="its-just-a-linear-model.html#cb643-2" aria-hidden="true" tabindex="-1"></a>  rstanarm<span class="sc">::</span><span class="fu">stan_glm</span>(</span>
+<span id="cb643-3"><a href="its-just-a-linear-model.html#cb643-3" aria-hidden="true" tabindex="-1"></a>    is_white_gold <span class="sc">~</span> price <span class="sc">+</span> year,</span>
+<span id="cb643-4"><a href="its-just-a-linear-model.html#cb643-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> paspaley_logistic_dataset,</span>
+<span id="cb643-5"><a href="its-just-a-linear-model.html#cb643-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;logit&quot;</span>),</span>
+<span id="cb643-6"><a href="its-just-a-linear-model.html#cb643-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">prior =</span> <span class="cn">NULL</span>,</span>
+<span id="cb643-7"><a href="its-just-a-linear-model.html#cb643-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">seed =</span> <span class="dv">853</span></span>
+<span id="cb643-8"><a href="its-just-a-linear-model.html#cb643-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 </div>
 <div id="poisson-regression" class="section level2" number="14.5">
@@ -1387,42 +1404,42 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 <p>When we have count data, we use Poisson distribution. From <span class="citation"><a href="references-1.html#ref-pitman" role="doc-biblioref">Pitman</a> (<a href="references-1.html#ref-pitman" role="doc-biblioref">1993, 121</a>)</span> ’The Poisson distribution with parameter <span class="math inline">\(\mu\)</span> or Poisson (<span class="math inline">\(\mu\)</span>) distribution is the distribution of probabilities <span class="math inline">\(P_{\mu}(k)\)</span> over <span class="math inline">\({0, 1, 2, ...}\)</span> defined by:
 <span class="math display">\[P_{\mu}(k) = e^{-\mu}\mu^k/k!\mbox{, for }k=0,1,2,...\]</span>
 We can simulate <span class="math inline">\(n\)</span> data points from the Poisson distribution with <code>rpois()</code> where <span class="math inline">\(\lambda\)</span> is the mean and the variance.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="its-just-a-linear-model.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">lambda =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="its-just-a-linear-model.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">lambda =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1] 2 1 3 2 3 1 1 0 2 4 6 1 1 4 4 2 4 4 4 6</code></pre>
 <p>That <span class="math inline">\(\lambda\)</span> parameter governs the shape of the distribution.</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="its-just-a-linear-model.html#cb645-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb645-2"><a href="its-just-a-linear-model.html#cb645-2" aria-hidden="true" tabindex="-1"></a>number_of_each <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb645-3"><a href="its-just-a-linear-model.html#cb645-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">lambda =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">1</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">2</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">5</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">10</span>, number_of_each)),</span>
-<span id="cb645-4"><a href="its-just-a-linear-model.html#cb645-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">draw =</span> <span class="fu">c</span>(<span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">0</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">1</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">2</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">5</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">10</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb645-5"><a href="its-just-a-linear-model.html#cb645-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> draw)) <span class="sc">+</span></span>
-<span id="cb645-6"><a href="its-just-a-linear-model.html#cb645-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb645-7"><a href="its-just-a-linear-model.html#cb645-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(lambda)) <span class="sc">+</span></span>
-<span id="cb645-8"><a href="its-just-a-linear-model.html#cb645-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-381-1.png" width="672" /></p>
-<p>For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.</p>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="its-just-a-linear-model.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb646-2"><a href="its-just-a-linear-model.html#cb646-2" aria-hidden="true" tabindex="-1"></a>count_of_A_plus <span class="ot">&lt;-</span> </span>
-<span id="cb646-3"><a href="its-just-a-linear-model.html#cb646-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>( </span>
-<span id="cb646-4"><a href="its-just-a-linear-model.html#cb646-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># https://stackoverflow.com/questions/1439513/creating-a-sequential-list-of-letters-with-r</span></span>
-<span id="cb646-5"><a href="its-just-a-linear-model.html#cb646-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">c</span>(<span class="fu">rep.int</span>(<span class="st">&quot;1&quot;</span>, <span class="dv">26</span>), <span class="fu">rep.int</span>(<span class="st">&quot;2&quot;</span>, <span class="dv">26</span>)),</span>
-<span id="cb646-6"><a href="its-just-a-linear-model.html#cb646-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">course =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&quot;DEP_1_&quot;</span>, letters), <span class="fu">paste0</span>(<span class="st">&quot;DEP_2_&quot;</span>, letters)),</span>
-<span id="cb646-7"><a href="its-just-a-linear-model.html#cb646-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">number_of_A_plus =</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), </span>
-<span id="cb646-8"><a href="its-just-a-linear-model.html#cb646-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">26</span>,</span>
-<span id="cb646-9"><a href="its-just-a-linear-model.html#cb646-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb646-10"><a href="its-just-a-linear-model.html#cb646-10" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>), </span>
-<span id="cb646-11"><a href="its-just-a-linear-model.html#cb646-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">26</span>,</span>
-<span id="cb646-12"><a href="its-just-a-linear-model.html#cb646-12" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb646-13"><a href="its-just-a-linear-model.html#cb646-13" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb646-14"><a href="its-just-a-linear-model.html#cb646-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb646-2"><a href="its-just-a-linear-model.html#cb646-2" aria-hidden="true" tabindex="-1"></a>number_of_each <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb646-3"><a href="its-just-a-linear-model.html#cb646-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">lambda =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">1</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">2</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">5</span>, number_of_each), <span class="fu">rep</span>(<span class="dv">10</span>, number_of_each)),</span>
+<span id="cb646-4"><a href="its-just-a-linear-model.html#cb646-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">draw =</span> <span class="fu">c</span>(<span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">0</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">1</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">2</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">5</span>), <span class="fu">rpois</span>(<span class="at">n =</span> number_of_each, <span class="at">lambda =</span> <span class="dv">10</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb646-5"><a href="its-just-a-linear-model.html#cb646-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> draw)) <span class="sc">+</span></span>
+<span id="cb646-6"><a href="its-just-a-linear-model.html#cb646-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb646-7"><a href="its-just-a-linear-model.html#cb646-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(lambda)) <span class="sc">+</span></span>
+<span id="cb646-8"><a href="its-just-a-linear-model.html#cb646-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-382-1.png" width="672" /></p>
+<p>For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="its-just-a-linear-model.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb647-2"><a href="its-just-a-linear-model.html#cb647-2" aria-hidden="true" tabindex="-1"></a>count_of_A_plus <span class="ot">&lt;-</span> </span>
+<span id="cb647-3"><a href="its-just-a-linear-model.html#cb647-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>( </span>
+<span id="cb647-4"><a href="its-just-a-linear-model.html#cb647-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># https://stackoverflow.com/questions/1439513/creating-a-sequential-list-of-letters-with-r</span></span>
+<span id="cb647-5"><a href="its-just-a-linear-model.html#cb647-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">c</span>(<span class="fu">rep.int</span>(<span class="st">&quot;1&quot;</span>, <span class="dv">26</span>), <span class="fu">rep.int</span>(<span class="st">&quot;2&quot;</span>, <span class="dv">26</span>)),</span>
+<span id="cb647-6"><a href="its-just-a-linear-model.html#cb647-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">course =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&quot;DEP_1_&quot;</span>, letters), <span class="fu">paste0</span>(<span class="st">&quot;DEP_2_&quot;</span>, letters)),</span>
+<span id="cb647-7"><a href="its-just-a-linear-model.html#cb647-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">number_of_A_plus =</span> <span class="fu">c</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), </span>
+<span id="cb647-8"><a href="its-just-a-linear-model.html#cb647-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">26</span>,</span>
+<span id="cb647-9"><a href="its-just-a-linear-model.html#cb647-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb647-10"><a href="its-just-a-linear-model.html#cb647-10" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>), </span>
+<span id="cb647-11"><a href="its-just-a-linear-model.html#cb647-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">26</span>,</span>
+<span id="cb647-12"><a href="its-just-a-linear-model.html#cb647-12" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb647-13"><a href="its-just-a-linear-model.html#cb647-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb647-14"><a href="its-just-a-linear-model.html#cb647-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 <div id="implementation-in-base-1" class="section level3" number="14.5.2">
 <h3><span class="header-section-number">14.5.2</span> Implementation in base</h3>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="its-just-a-linear-model.html#cb647-1" aria-hidden="true" tabindex="-1"></a>grades_model <span class="ot">&lt;-</span> </span>
-<span id="cb647-2"><a href="its-just-a-linear-model.html#cb647-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(number_of_A_plus <span class="sc">~</span> department, </span>
-<span id="cb647-3"><a href="its-just-a-linear-model.html#cb647-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> count_of_A_plus, </span>
-<span id="cb647-4"><a href="its-just-a-linear-model.html#cb647-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">&#39;poisson&#39;</span>)</span>
-<span id="cb647-5"><a href="its-just-a-linear-model.html#cb647-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb647-6"><a href="its-just-a-linear-model.html#cb647-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(grades_model)</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="its-just-a-linear-model.html#cb648-1" aria-hidden="true" tabindex="-1"></a>grades_model <span class="ot">&lt;-</span> </span>
+<span id="cb648-2"><a href="its-just-a-linear-model.html#cb648-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(number_of_A_plus <span class="sc">~</span> department, </span>
+<span id="cb648-3"><a href="its-just-a-linear-model.html#cb648-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> count_of_A_plus, </span>
+<span id="cb648-4"><a href="its-just-a-linear-model.html#cb648-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">&#39;poisson&#39;</span>)</span>
+<span id="cb648-5"><a href="its-just-a-linear-model.html#cb648-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb648-6"><a href="its-just-a-linear-model.html#cb648-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(grades_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = number_of_A_plus ~ department, family = &quot;poisson&quot;, 
@@ -1450,21 +1467,21 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <div id="implementation-in-tidymodels-2" class="section level3" number="14.5.3">
 <h3><span class="header-section-number">14.5.3</span> Implementation in <code>tidymodels</code></h3>
 <p>We can use <code>tidymodels</code> to run this if we wanted although we first need to install a helper package <code>poissonreg</code>.</p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="its-just-a-linear-model.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;poissonreg&quot;)</span></span>
-<span id="cb649-2"><a href="its-just-a-linear-model.html#cb649-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-3"><a href="its-just-a-linear-model.html#cb649-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb649-4"><a href="its-just-a-linear-model.html#cb649-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-5"><a href="its-just-a-linear-model.html#cb649-5" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(count_of_A_plus, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb649-6"><a href="its-just-a-linear-model.html#cb649-6" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(count_of_A_plus_split)</span>
-<span id="cb649-7"><a href="its-just-a-linear-model.html#cb649-7" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(count_of_A_plus_split)</span>
-<span id="cb649-8"><a href="its-just-a-linear-model.html#cb649-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-9"><a href="its-just-a-linear-model.html#cb649-9" aria-hidden="true" tabindex="-1"></a>a_plus_model_tidymodels <span class="ot">&lt;-</span></span>
-<span id="cb649-10"><a href="its-just-a-linear-model.html#cb649-10" aria-hidden="true" tabindex="-1"></a>  poissonreg<span class="sc">::</span><span class="fu">poisson_reg</span>(<span class="at">mode =</span> <span class="st">&quot;regression&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb649-11"><a href="its-just-a-linear-model.html#cb649-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb649-12"><a href="its-just-a-linear-model.html#cb649-12" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(number_of_A_plus <span class="sc">~</span> department, </span>
-<span id="cb649-13"><a href="its-just-a-linear-model.html#cb649-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> count_of_A_plus_train)</span>
-<span id="cb649-14"><a href="its-just-a-linear-model.html#cb649-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb649-15"><a href="its-just-a-linear-model.html#cb649-15" aria-hidden="true" tabindex="-1"></a>a_plus_model_tidymodels</span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="its-just-a-linear-model.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;poissonreg&quot;)</span></span>
+<span id="cb650-2"><a href="its-just-a-linear-model.html#cb650-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-3"><a href="its-just-a-linear-model.html#cb650-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb650-4"><a href="its-just-a-linear-model.html#cb650-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-5"><a href="its-just-a-linear-model.html#cb650-5" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(count_of_A_plus, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb650-6"><a href="its-just-a-linear-model.html#cb650-6" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(count_of_A_plus_split)</span>
+<span id="cb650-7"><a href="its-just-a-linear-model.html#cb650-7" aria-hidden="true" tabindex="-1"></a>count_of_A_plus_test  <span class="ot">&lt;-</span>  rsample<span class="sc">::</span><span class="fu">testing</span>(count_of_A_plus_split)</span>
+<span id="cb650-8"><a href="its-just-a-linear-model.html#cb650-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-9"><a href="its-just-a-linear-model.html#cb650-9" aria-hidden="true" tabindex="-1"></a>a_plus_model_tidymodels <span class="ot">&lt;-</span></span>
+<span id="cb650-10"><a href="its-just-a-linear-model.html#cb650-10" aria-hidden="true" tabindex="-1"></a>  poissonreg<span class="sc">::</span><span class="fu">poisson_reg</span>(<span class="at">mode =</span> <span class="st">&quot;regression&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb650-11"><a href="its-just-a-linear-model.html#cb650-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb650-12"><a href="its-just-a-linear-model.html#cb650-12" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(number_of_A_plus <span class="sc">~</span> department, </span>
+<span id="cb650-13"><a href="its-just-a-linear-model.html#cb650-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> count_of_A_plus_train)</span>
+<span id="cb650-14"><a href="its-just-a-linear-model.html#cb650-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb650-15"><a href="its-just-a-linear-model.html#cb650-15" aria-hidden="true" tabindex="-1"></a>a_plus_model_tidymodels</span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
 ## Fit time:  3ms 
