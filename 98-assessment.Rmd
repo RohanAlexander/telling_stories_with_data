@@ -414,15 +414,21 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
   - These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.
   - 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).
 - Model - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
-  - The model is well-explained, justified, and appropriate.
+  - The model is nicely written out, well-explained, justified, and appropriate.
   - When you discuss your model you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model.
+  - The model is appropriately complex - that is, not too simple, but not unnecessarily complicated.
+  - The model has well-defined variables and these correspond to what is discussed in the data section.
   - The model needs to be written out in appropriate mathematical notation but also in plain English. 
   - Every aspect of that notation must be defined otherwise the most this section can receive is poor.
+  - The model makes sense based ont eh substantive area, and also the form of the model.
   - If the model is Bayesian, then priors need to be defined and sensible.
   - Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? 
   - In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation.
-  - Alternative models, or variants, must be discussed and strengths and weaknesses made clear.
+  - The assumptions underpinning the model are clearly discussed.
+  - Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen?
   - You should mention the software that you used to run the model.
+  - There is some evidence of thought about the circumstances in which the model may not be appropriate.
+  - There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks.
   - You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. 
   - Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix.
   - Again, explain what your model is and what is going on with it.
@@ -478,8 +484,9 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
 ### Guidance
 
 You have various options for topics (pick one):
+
   - Develop a research question that is of interest to you and obtain or create a relevant dataset. This option involves developing your own research question based on your own interests, background, and expertise. I encourage you to take this option, but please discuss your plans with me. How does one come up with ideas? One way is to be question-driven, where you keep an informal log of small ideas, questions, and puzzles, that you have as you're reading and working. Often, after dwelling on it for a while you can manage to find some questions of interest. Another way is to be data-driven - try to find some interesting dataset and then work backward. Finally, yet another way, is to be methods-driven - let's say that you happen to understand Gaussian processes, then just apply that expertise.
-  - Others **TBA**
+  - A replication exercise, being sure to use the paper as a foundation rather than as a ends-in-itself.
 
 - You should know the expectations by now. If you need a refresher then review the past problem sets. But essentially: 
   - Everything is entirely reproducible. 

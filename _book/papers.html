@@ -1175,15 +1175,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>Model - [10 ‘Exceptional,’ 8 ‘Great,’ 6 ‘Good,’ 4 ‘Some issues,’ 2 ‘Many issues,’ 0 ‘Poor or not done’]
 <ul>
-<li>The model is well-explained, justified, and appropriate.</li>
+<li>The model is nicely written out, well-explained, justified, and appropriate.</li>
 <li>When you discuss your model you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don’t understand the model.</li>
+<li>The model is appropriately complex - that is, not too simple, but not unnecessarily complicated.</li>
+<li>The model has well-defined variables and these correspond to what is discussed in the data section.</li>
 <li>The model needs to be written out in appropriate mathematical notation but also in plain English.</li>
 <li>Every aspect of that notation must be defined otherwise the most this section can receive is poor.</li>
+<li>The model makes sense based ont eh substantive area, and also the form of the model.</li>
 <li>If the model is Bayesian, then priors need to be defined and sensible.</li>
 <li>Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc?</li>
 <li>In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation.</li>
-<li>Alternative models, or variants, must be discussed and strengths and weaknesses made clear.</li>
+<li>The assumptions underpinning the model are clearly discussed.</li>
+<li>Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen?</li>
 <li>You should mention the software that you used to run the model.</li>
+<li>There is some evidence of thought about the circumstances in which the model may not be appropriate.</li>
+<li>There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks.</li>
 <li>You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix.</li>
 <li>Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix.</li>
 <li>Again, explain what your model is and what is going on with it.</li>
@@ -1256,11 +1262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="guidance-3" class="section level3" number="21.4.2">
 <h3><span class="header-section-number">21.4.2</span> Guidance</h3>
-<p>You have various options for topics (pick one):
-- Develop a research question that is of interest to you and obtain or create a relevant dataset. This option involves developing your own research question based on your own interests, background, and expertise. I encourage you to take this option, but please discuss your plans with me. How does one come up with ideas? One way is to be question-driven, where you keep an informal log of small ideas, questions, and puzzles, that you have as you’re reading and working. Often, after dwelling on it for a while you can manage to find some questions of interest. Another way is to be data-driven - try to find some interesting dataset and then work backward. Finally, yet another way, is to be methods-driven - let’s say that you happen to understand Gaussian processes, then just apply that expertise.
-- Others <strong>TBA</strong></p>
+<p>You have various options for topics (pick one):</p>
 <ul>
-<li>You should know the expectations by now. If you need a refresher then review the past problem sets. But essentially:
+<li><p>Develop a research question that is of interest to you and obtain or create a relevant dataset. This option involves developing your own research question based on your own interests, background, and expertise. I encourage you to take this option, but please discuss your plans with me. How does one come up with ideas? One way is to be question-driven, where you keep an informal log of small ideas, questions, and puzzles, that you have as you’re reading and working. Often, after dwelling on it for a while you can manage to find some questions of interest. Another way is to be data-driven - try to find some interesting dataset and then work backward. Finally, yet another way, is to be methods-driven - let’s say that you happen to understand Gaussian processes, then just apply that expertise.</p></li>
+<li><p>A replication exercise, being sure to use the paper as a foundation rather than as a ends-in-itself.</p></li>
+<li><p>You should know the expectations by now. If you need a refresher then review the past problem sets. But essentially:</p>
 <ul>
 <li>Everything is entirely reproducible.</li>
 <li>Your paper must be written in R Markdown.</li>

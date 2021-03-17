@@ -805,18 +805,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="exploratory-data-analysis.html#cb432-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> opendatatoronto<span class="sc">::</span><span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
 <span id="cb432-2"><a href="exploratory-data-analysis.html#cb432-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
 <pre><code>## # A tibble: 408 x 11
-##    title    id      topics    civic_issues  publisher excerpt   dataset_category
-##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;           
-##  1 Municip… 57b228… Business… &lt;NA&gt;          Municipa… Some bus… Document        
-##  2 Chemica… ae8eeb… Environm… Climate chan… Toronto … This dat… Table           
-##  3 Apartme… 4ef827… Location… Affordable h… Municipa… This dat… Table           
-##  4 Lobbyis… 6a87b8… City gov… &lt;NA&gt;          Lobbyist… The Lobb… Document        
-##  5 Propert… 1acaa8… Location… Mobility      Informat… This dat… Document        
-##  6 Address… abedd8… Location… Mobility      Informat… This dat… Document        
-##  7 Toronto… 1d0797… City gov… Mobility      Informat… Linear r… Map             
-##  8 Buildin… 8219e9… Developm… &lt;NA&gt;          Toronto … Provides… Document        
-##  9 Buildin… 108c2b… Developm… Affordable h… Toronto … Provides… Document        
-## 10 Municip… 5da2e2… City gov… Affordable h… Municipa… This dat… Document        
+##    title    id      topics    civic_issues publisher  excerpt   dataset_category
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;           
+##  1 Short T… fc4189… Permits … Affordable … Municipal… This dat… Table           
+##  2 COVID-1… 64b545… Health    &lt;NA&gt;         Toronto P… Line-lis… Table           
+##  3 Polls c… 7bce9b… City gov… &lt;NA&gt;         City Cler… Polls ar… Table           
+##  4 Rain Ga… f29335… Location… Climate cha… Toronto W… This dat… Document        
+##  5 Daily S… 8a6ece… City gov… Affordable … Shelter, … Daily oc… Table           
+##  6 Street … 99b1f3… City gov… &lt;NA&gt;         Transport… Informat… Map             
+##  7 Automat… a15479… Transpor… Mobility     Transport… This dat… Map             
+##  8 BodySafe c4052f… City gov… &lt;NA&gt;         Toronto P… This dat… Table           
+##  9 Street … 1db347… City gov… Mobility     Transport… Transit … Map             
+## 10 Street … 74f636… City gov… &lt;NA&gt;         Transport… Publicat… Map             
 ## # … with 398 more rows, and 4 more variables: num_resources &lt;int&gt;,
 ## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
 <p>We’ll download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and then make them into one big dataframe.</p>
