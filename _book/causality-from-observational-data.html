@@ -24,7 +24,7 @@
 <meta name="author" content="Rohan Alexander" />
 
 
-<meta name="date" content="2021-01-05" />
+<meta name="date" content="2021-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -608,6 +608,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>21.3.2</b> Guidance</a></li>
 <li class="chapter" data-level="21.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>21.3.3</b> Check offs points</a></li>
 <li class="chapter" data-level="21.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>21.3.4</b> FAQ</a></li>
+<li class="chapter" data-level="21.3.5" data-path="papers.html"><a href="papers.html#rubric-2"><i class="fa fa-check"></i><b>21.3.5</b> Rubric</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>21.4</b> ‘Two Cathedrals’</a>
 <ul>
@@ -667,7 +668,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="causality-from-observational-data" class="section level1" number="15">
 <h1><span class="header-section-number">Chapter 15</span> Causality from observational data</h1>
-<p><em>Last updated: 16 March 2021.</em></p>
+<p><em>Last updated: 17 March 2021.</em></p>
 <p><strong>TODO: Replace the arm matching with <a href="https://kosukeimai.github.io/MatchIt/index.html" class="uri">https://kosukeimai.github.io/MatchIt/index.html</a></strong></p>
 <!-- https://declaredesign.org/blog/2019-02-05-instrumental-variables.html -->
 <!-- https://raw.githack.com/edrubin/EC421W19/master/LectureNotes/11InstrumentalVariables/11_instrumental_variables.html#41 -->
@@ -869,7 +870,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>An Australian 30-39 year old male living in Ottawa with one child and a PhD</li>
 <li>A Canadian 18-29 year old male living in Toronto with one child and a PhD</li>
 </ol></li>
-<li>In your own words, what is a confounding variable?</li>
+<li>In your most disdainful tone (jokes, I love DAGs), what is a DAG (in your own words please)?</li>
+<li>What is a confounder (please select one answer)?
+<ol style="list-style-type: lower-alpha">
+<li>A variable, z, that causes both x and y, where x also causes y.</li>
+<li>A variable, z, that is caused by both x and y, where x also causes y.</li>
+<li>A variable, z, that causes y and is caused by x, where x also causes y.</li>
+</ol></li>
+<li>What is a mediator (please select one answer)?
+<ol style="list-style-type: lower-alpha">
+<li>A variable, z, that causes y and is caused by x, where x also causes y.</li>
+<li>A variable, z, that causes both x and y, where x also causes y.</li>
+<li>A variable, z, that is caused by both x and y, where x also causes y.</li>
+</ol></li>
+<li>What is a collider (please select one answer)?
+<ol style="list-style-type: lower-alpha">
+<li>A variable, z, that causes both x and y, where x also causes y.</li>
+<li>A variable, z, that causes y and is caused by x, where x also causes y.</li>
+<li>A variable, z, that is caused by both x and y, where x also causes y.</li>
+</ol></li>
+<li>Please talk through a brief example of when you may want to be very careful about checking for Simpson’s paradox.</li>
+<li>Please talk through a brief example of when you may want to be very careful about checking for Berkson’s paradox.</li>
+<li>According to McElreath (2020, 162) ‘Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for…’ (please select one answer)?
+<ol style="list-style-type: lower-alpha">
+<li>overcomplicating models.</li>
+<li>asking bad questions.</li>
+<li>using bad data.</li>
+</ol></li>
+<li>Is a model that fits the small or large world more important to you, and why?</li>
+<li>According to Gebru et al, 2020, p.2, a datasheet should document a dataset’s (please select all that apply):
+<ol style="list-style-type: lower-alpha">
+<li>composition.</li>
+<li>recommended uses.</li>
+<li>motivation.</li>
+<li>collection process.</li>
+</ol></li>
 </ol>
 <div id="introduction-17" class="section level2" number="15.1">
 <h2><span class="header-section-number">15.1</span> Introduction</h2>
@@ -999,54 +1034,56 @@ Figure 15.4: Carrot as a collider
 <p>There are two situations where data can trick you that are so common that I’d like to explicitly go through them. These are Simpson’s paradox, and Berkson’s paradox. Keep these situations in the back of your mind at all times when dealing with data.</p>
 <p>Simpson’s paradox occurs when we estimate some relationship for subsets of our data, but a different relationship when we consider the entire dataset <span class="citation">(<a href="references-1.html#ref-simpson1951interpretation" role="doc-biblioref">E. H. Simpson 1951</a>)</span>. For instance, it may be that there is a positive relationship between undergraduate grades and performance in graduate school in both statistics and economics when considering each department individually. But if undergraduate grades tended to be higher in statistics than economics while graduate school performance tended to be opposite, we may actually find a negative relationship between undergraduate grades and performance in graduate school.</p>
 <p>To see this let’s simulate some data.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="causality-from-observational-data.html#cb656-1" aria-hidden="true" tabindex="-1"></a>number_in_each <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb656-2"><a href="causality-from-observational-data.html#cb656-2" aria-hidden="true" tabindex="-1"></a>statistics <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">undergrad =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_in_each, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
-<span id="cb656-3"><a href="causality-from-observational-data.html#cb656-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_in_each, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.1</span>),</span>
-<span id="cb656-4"><a href="causality-from-observational-data.html#cb656-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">grad =</span> undergrad <span class="sc">+</span> noise,</span>
-<span id="cb656-5"><a href="causality-from-observational-data.html#cb656-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;Statistics&quot;</span>)</span>
-<span id="cb656-6"><a href="causality-from-observational-data.html#cb656-6" aria-hidden="true" tabindex="-1"></a>economics <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">undergrad =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_in_each, <span class="at">min =</span> <span class="fl">0.6</span>, <span class="at">max =</span> <span class="fl">0.8</span>),</span>
-<span id="cb656-7"><a href="causality-from-observational-data.html#cb656-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_in_each, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.1</span>),</span>
-<span id="cb656-8"><a href="causality-from-observational-data.html#cb656-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">grad =</span> undergrad <span class="sc">+</span> noise <span class="sc">+</span> <span class="fl">0.3</span>,</span>
-<span id="cb656-9"><a href="causality-from-observational-data.html#cb656-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type =</span> <span class="st">&quot;Economics&quot;</span>)</span>
-<span id="cb656-10"><a href="causality-from-observational-data.html#cb656-10" aria-hidden="true" tabindex="-1"></a>both <span class="ot">=</span> <span class="fu">rbind</span>(statistics, economics)</span>
-<span id="cb656-11"><a href="causality-from-observational-data.html#cb656-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb656-12"><a href="causality-from-observational-data.html#cb656-12" aria-hidden="true" tabindex="-1"></a>both <span class="sc">%&gt;%</span> </span>
-<span id="cb656-13"><a href="causality-from-observational-data.html#cb656-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> undergrad, <span class="at">y =</span> grad)) <span class="sc">+</span></span>
-<span id="cb656-14"><a href="causality-from-observational-data.html#cb656-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb656-15"><a href="causality-from-observational-data.html#cb656-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>) <span class="sc">+</span></span>
-<span id="cb656-16"><a href="causality-from-observational-data.html#cb656-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
-<span id="cb656-17"><a href="causality-from-observational-data.html#cb656-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Undergraduate results&quot;</span>,</span>
-<span id="cb656-18"><a href="causality-from-observational-data.html#cb656-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Graduate results&quot;</span>,</span>
-<span id="cb656-19"><a href="causality-from-observational-data.html#cb656-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>) <span class="sc">+</span></span>
-<span id="cb656-20"><a href="causality-from-observational-data.html#cb656-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb656-21"><a href="causality-from-observational-data.html#cb656-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="causality-from-observational-data.html#cb656-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb656-2"><a href="causality-from-observational-data.html#cb656-2" aria-hidden="true" tabindex="-1"></a>number_in_each <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb656-3"><a href="causality-from-observational-data.html#cb656-3" aria-hidden="true" tabindex="-1"></a>statistics <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">undergrad =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_in_each, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
+<span id="cb656-4"><a href="causality-from-observational-data.html#cb656-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_in_each, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.1</span>),</span>
+<span id="cb656-5"><a href="causality-from-observational-data.html#cb656-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">grad =</span> undergrad <span class="sc">+</span> noise,</span>
+<span id="cb656-6"><a href="causality-from-observational-data.html#cb656-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;Statistics&quot;</span>)</span>
+<span id="cb656-7"><a href="causality-from-observational-data.html#cb656-7" aria-hidden="true" tabindex="-1"></a>economics <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">undergrad =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_in_each, <span class="at">min =</span> <span class="fl">0.6</span>, <span class="at">max =</span> <span class="fl">0.8</span>),</span>
+<span id="cb656-8"><a href="causality-from-observational-data.html#cb656-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_in_each, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.1</span>),</span>
+<span id="cb656-9"><a href="causality-from-observational-data.html#cb656-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">grad =</span> undergrad <span class="sc">+</span> noise <span class="sc">+</span> <span class="fl">0.3</span>,</span>
+<span id="cb656-10"><a href="causality-from-observational-data.html#cb656-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type =</span> <span class="st">&quot;Economics&quot;</span>)</span>
+<span id="cb656-11"><a href="causality-from-observational-data.html#cb656-11" aria-hidden="true" tabindex="-1"></a>both <span class="ot">=</span> <span class="fu">rbind</span>(statistics, economics)</span>
+<span id="cb656-12"><a href="causality-from-observational-data.html#cb656-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb656-13"><a href="causality-from-observational-data.html#cb656-13" aria-hidden="true" tabindex="-1"></a>both <span class="sc">%&gt;%</span> </span>
+<span id="cb656-14"><a href="causality-from-observational-data.html#cb656-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> undergrad, <span class="at">y =</span> grad)) <span class="sc">+</span></span>
+<span id="cb656-15"><a href="causality-from-observational-data.html#cb656-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb656-16"><a href="causality-from-observational-data.html#cb656-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>) <span class="sc">+</span></span>
+<span id="cb656-17"><a href="causality-from-observational-data.html#cb656-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
+<span id="cb656-18"><a href="causality-from-observational-data.html#cb656-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Undergraduate results&quot;</span>,</span>
+<span id="cb656-19"><a href="causality-from-observational-data.html#cb656-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Graduate results&quot;</span>,</span>
+<span id="cb656-20"><a href="causality-from-observational-data.html#cb656-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>) <span class="sc">+</span></span>
+<span id="cb656-21"><a href="causality-from-observational-data.html#cb656-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb656-22"><a href="causality-from-observational-data.html#cb656-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-386-1.png" width="672" /></p>
 <p>Berkson’s paradox occurs when we estimate some relationship based on the dataset that we have, but because the dataset is selected the relationship is different in a more general dataset <span class="citation">(<a href="references-1.html#ref-citeberkson" role="doc-biblioref">Berkson 1946</a>)</span>. For instance, if we have a dataset of professional cyclists then we would find there is no relationship between their VO2 max and their chance of winning a bike race. But if we had a dataset of the general population then we would find an enormous relationship between their VO2 max and their chance of winning a bike race. The professional dataset has just been so selected that the relationship disappears - you can’t become a professional unless you have a high VO2 max.</p>
 <p>To see this let’s simulate some data.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="causality-from-observational-data.html#cb657-1" aria-hidden="true" tabindex="-1"></a>number_of_pros <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb657-2"><a href="causality-from-observational-data.html#cb657-2" aria-hidden="true" tabindex="-1"></a>number_of_public <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb657-3"><a href="causality-from-observational-data.html#cb657-3" aria-hidden="true" tabindex="-1"></a>professionals <span class="ot">&lt;-</span> </span>
-<span id="cb657-4"><a href="causality-from-observational-data.html#cb657-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">VO2 =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_pros, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
-<span id="cb657-5"><a href="causality-from-observational-data.html#cb657-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">chance_of_winning =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_pros, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
-<span id="cb657-6"><a href="causality-from-observational-data.html#cb657-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Professionals&quot;</span>)</span>
-<span id="cb657-7"><a href="causality-from-observational-data.html#cb657-7" aria-hidden="true" tabindex="-1"></a>general_public <span class="ot">&lt;-</span> </span>
-<span id="cb657-8"><a href="causality-from-observational-data.html#cb657-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">VO2 =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_public, <span class="at">min =</span> <span class="fl">0.6</span>, <span class="at">max =</span> <span class="fl">0.8</span>),</span>
-<span id="cb657-9"><a href="causality-from-observational-data.html#cb657-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_of_public, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.03</span>),</span>
-<span id="cb657-10"><a href="causality-from-observational-data.html#cb657-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">chance_of_winning =</span> VO2 <span class="sc">+</span> noise <span class="sc">+</span> <span class="fl">0.1</span>,</span>
-<span id="cb657-11"><a href="causality-from-observational-data.html#cb657-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Public&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb657-12"><a href="causality-from-observational-data.html#cb657-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>noise)</span>
-<span id="cb657-13"><a href="causality-from-observational-data.html#cb657-13" aria-hidden="true" tabindex="-1"></a>both <span class="ot">=</span> <span class="fu">rbind</span>(professionals, general_public)</span>
-<span id="cb657-14"><a href="causality-from-observational-data.html#cb657-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb657-15"><a href="causality-from-observational-data.html#cb657-15" aria-hidden="true" tabindex="-1"></a>both <span class="sc">%&gt;%</span> </span>
-<span id="cb657-16"><a href="causality-from-observational-data.html#cb657-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> VO2, <span class="at">y =</span> chance_of_winning)) <span class="sc">+</span></span>
-<span id="cb657-17"><a href="causality-from-observational-data.html#cb657-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb657-18"><a href="causality-from-observational-data.html#cb657-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>) <span class="sc">+</span></span>
-<span id="cb657-19"><a href="causality-from-observational-data.html#cb657-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
-<span id="cb657-20"><a href="causality-from-observational-data.html#cb657-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;VO2 max&quot;</span>,</span>
-<span id="cb657-21"><a href="causality-from-observational-data.html#cb657-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Chance of winning a bike race&quot;</span>,</span>
-<span id="cb657-22"><a href="causality-from-observational-data.html#cb657-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>) <span class="sc">+</span></span>
-<span id="cb657-23"><a href="causality-from-observational-data.html#cb657-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb657-24"><a href="causality-from-observational-data.html#cb657-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="causality-from-observational-data.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb657-2"><a href="causality-from-observational-data.html#cb657-2" aria-hidden="true" tabindex="-1"></a>number_of_pros <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb657-3"><a href="causality-from-observational-data.html#cb657-3" aria-hidden="true" tabindex="-1"></a>number_of_public <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb657-4"><a href="causality-from-observational-data.html#cb657-4" aria-hidden="true" tabindex="-1"></a>professionals <span class="ot">&lt;-</span> </span>
+<span id="cb657-5"><a href="causality-from-observational-data.html#cb657-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">VO2 =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_pros, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
+<span id="cb657-6"><a href="causality-from-observational-data.html#cb657-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">chance_of_winning =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_pros, <span class="at">min =</span> <span class="fl">0.7</span>, <span class="at">max =</span> <span class="fl">0.9</span>),</span>
+<span id="cb657-7"><a href="causality-from-observational-data.html#cb657-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Professionals&quot;</span>)</span>
+<span id="cb657-8"><a href="causality-from-observational-data.html#cb657-8" aria-hidden="true" tabindex="-1"></a>general_public <span class="ot">&lt;-</span> </span>
+<span id="cb657-9"><a href="causality-from-observational-data.html#cb657-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">VO2 =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_public, <span class="at">min =</span> <span class="fl">0.6</span>, <span class="at">max =</span> <span class="fl">0.8</span>),</span>
+<span id="cb657-10"><a href="causality-from-observational-data.html#cb657-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> number_of_public, <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.03</span>),</span>
+<span id="cb657-11"><a href="causality-from-observational-data.html#cb657-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">chance_of_winning =</span> VO2 <span class="sc">+</span> noise <span class="sc">+</span> <span class="fl">0.1</span>,</span>
+<span id="cb657-12"><a href="causality-from-observational-data.html#cb657-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">&quot;Public&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb657-13"><a href="causality-from-observational-data.html#cb657-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>noise)</span>
+<span id="cb657-14"><a href="causality-from-observational-data.html#cb657-14" aria-hidden="true" tabindex="-1"></a>both <span class="ot">=</span> <span class="fu">rbind</span>(professionals, general_public)</span>
+<span id="cb657-15"><a href="causality-from-observational-data.html#cb657-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb657-16"><a href="causality-from-observational-data.html#cb657-16" aria-hidden="true" tabindex="-1"></a>both <span class="sc">%&gt;%</span> </span>
+<span id="cb657-17"><a href="causality-from-observational-data.html#cb657-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> VO2, <span class="at">y =</span> chance_of_winning)) <span class="sc">+</span></span>
+<span id="cb657-18"><a href="causality-from-observational-data.html#cb657-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb657-19"><a href="causality-from-observational-data.html#cb657-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">color =</span> type), <span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>) <span class="sc">+</span></span>
+<span id="cb657-20"><a href="causality-from-observational-data.html#cb657-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> <span class="st">&#39;y ~ x&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
+<span id="cb657-21"><a href="causality-from-observational-data.html#cb657-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;VO2 max&quot;</span>,</span>
+<span id="cb657-22"><a href="causality-from-observational-data.html#cb657-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Chance of winning a bike race&quot;</span>,</span>
+<span id="cb657-23"><a href="causality-from-observational-data.html#cb657-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>) <span class="sc">+</span></span>
+<span id="cb657-24"><a href="causality-from-observational-data.html#cb657-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb657-25"><a href="causality-from-observational-data.html#cb657-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
 </div>
 </div>

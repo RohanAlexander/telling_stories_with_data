@@ -1,5 +1,5 @@
 ---
-date: March 16, 2021
+date: March 17, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -22,7 +22,7 @@ library(ggdag)
 
 # Causality from observational data
 
-*Last updated: 16 March 2021.*
+*Last updated: 17 March 2021.*
 
 
 **TODO: Replace the arm matching with https://kosukeimai.github.io/MatchIt/index.html**
@@ -220,7 +220,32 @@ library(ggdag)
     b. A Canadian 30-39 year old male living in Toronto with one child and a PhD
     c. An Australian 30-39 year old male living in Ottawa with one child and a PhD
     d. A Canadian 18-29 year old male living in Toronto with one child and a PhD
-31. In your own words, what is a confounding variable?
+31. In your most disdainful tone (jokes, I love DAGs), what is a DAG (in your own words please)?
+32. What is a confounder (please select one answer)?
+    a. A variable, z, that causes both x and y, where x also causes y.
+    b. A variable, z, that is caused by both x and y, where x also causes y.
+    c. A variable, z, that causes y and is caused by x, where x also causes y.
+33. What is a mediator (please select one answer)?
+    a. A variable, z, that causes y and is caused by x, where x also causes y.
+    b. A variable, z, that causes both x and y, where x also causes y.
+    c. A variable, z, that is caused by both x and y, where x also causes y.
+34. What is a collider (please select one answer)?
+    a. A variable, z, that causes both x and y, where x also causes y.
+    b. A variable, z, that causes y and is caused by x, where x also causes y.
+    c. A variable, z, that is caused by both x and y, where x also causes y.
+35. Please talk through a brief example of when you may want to be very careful about checking for Simpson's paradox.
+36. Please talk through a brief example of when you may want to be very careful about checking for Berkson's paradox.
+37. According to McElreath (2020, 162) 'Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for...' (please select one answer)? 
+    a. overcomplicating models.
+    b. asking bad questions.
+    c. using bad data.
+37. Is a model that fits the small or large world more important to you, and why?
+38. According to Gebru et al, 2020, p.2, a datasheet should document a dataset's (please select all that apply):
+    a. composition.
+    b. recommended uses.
+    c. motivation.
+    d. collection process.
+
 
 
 
@@ -365,6 +390,7 @@ Simpson's paradox occurs when we estimate some relationship for subsets of our d
 To see this let's simulate some data.
 
 ```{r}
+set.seed(853)
 number_in_each <- 1000
 statistics <- tibble(undergrad = runif(n = number_in_each, min = 0.7, max = 0.9),
                      noise = rnorm(n = number_in_each, 0, sd = 0.1),
@@ -394,6 +420,7 @@ Berkson's paradox occurs when we estimate some relationship based on the dataset
 To see this let's simulate some data.
 
 ```{r}
+set.seed(853)
 number_of_pros <- 100
 number_of_public <- 1000
 professionals <- 

@@ -446,6 +446,7 @@ task-2
 guidance-2
 check-offs-points-2
 faq-2
+rubric-2
 two-cathedrals
 task-3
 guidance-3

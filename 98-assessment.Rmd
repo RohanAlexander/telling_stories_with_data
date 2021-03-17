@@ -1,5 +1,5 @@
 ---
-date: January 5, 2021
+date: March 17, 2021
 bibliography: bibliography.bib
 ---
 
@@ -8,7 +8,7 @@ bibliography: bibliography.bib
 # Papers
 
 
-*Last updated: 7 February 2021.*
+*Last updated: 17 March 2021.*
 
 
 
@@ -339,8 +339,11 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
   - Cohn, Alain, Michel André Maréchal, David Tannenbaum, and Christian Lukas Zünd, 2019, 'Civic Honesty Around the Globe'.
   - Liran Einav, Amy Finkelstein, Tamar Oostrom, Abigail Ostriker, Heidi Williams, 2020, 'Screening and Selection: The Case of Mammograms', *American Economic Review*.
   - Pons, Vincent, 2018, 'Will a Five-Minute Discussion Change Your Mind? A Countrywide Experiment on Voter Choice in France' *American Economic Review*.
-  - **Others TBD**
-  - If you have a favourite paper and want to reproduce it, then please submit it to me for consideration before Reading Week.
+  - Abramitzky, Ran, Leah Boustan, Katherine Eriksson, and Stephanie Hao. "Discrimination and the Returns to Cultural Assimilation in the Age of Mass Migration." AEA Papers and Proceedings 110 (May 2020): 340–46. https://doi.org/10.1257/pandp.20201090.
+  - Chen, Yan, Ming Jiang, and Erin L. Krupka. "Hunger and the Gender Gap." Experimental Economics 22, no. 4 (December 2019): 885–917. https://doi.org/10.1007/s10683-018-9589-9.
+  - Lise, Jeremy, and Fabien Postel-Vinay. "Multidimensional Skills, Sorting, and Human Capital Accumulation." American Economic Review 110, no. 8 (August 2020): 2328–76. https://doi.org/10.1257/aer.20162002.
+  - Kolev, Julian, Yuly Fuentes-Medel, and Fiona Murray. "Gender Differences in Scientific Communication and Their Impact on Grant Funding Decisions." AEA Papers and Proceedings 110 (May 2020): 245–49. https://doi.org/10.1257/pandp.20201043.
+  - Cowgill, Bo, Fabrizio Dell’Acqua, and Sandra Matz. "The Managerial Effects of Algorithmic Fairness Activism." AEA Papers and Proceedings 110 (May 2020): 85–90. https://doi.org/10.1257/pandp.20201035.
 - You should follow the lead of the author/s of the paper you're reproducing, but thoroughly think about, and discuss, what is being done. Regardless of the particular model that you are using, and the (possibly lack of) extent to which this is done in the paper, your model must be well explained, thoroughly justified, explained as appropriate to the task at hand, and the results must be beautifully described.
 - You must include a DAG (probably in the model section).
 - You must have a discussion of power and experimental design (probably in the data section)
@@ -369,12 +372,97 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
 
 ### Check offs points
 
+- We have not just copy-pasted the code from the original paper, but instead have used that as a foundation to work from?
+
 ### FAQ
 
 - Do I have to stay in the same group as the second paper? No. You're welcome to change. However, it's important that you don't change the second paper group on Quercus - be sure to only change the third paper group.
 - Can we switch groups for the third paper? Yes.
 - How much should I write? Most students submit something in the 10-to-15-page range, but it's really up to you. Be precise and thorough.
 - My paper doesn't have a DAG, what do I do? You need to make the DAG.
+
+
+### Rubric
+
+- Go/no-go #1: R is cited - [1 'Yes', 0 'No']
+	- Both referred to in the main content and included in the reference list.
+	- If not, no need to continue marking, just give paper 0 overall.
+- Title - [2 'Exceptional', 1 'Yes', 0 'Poor or not done']
+	- An informative title is included.
+	- Tell the reader what your story is - don't waste their time. 
+	- Ideally tell them what happens at the end of the story.
+	- 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.
+- Author, date, and repo - [2 'Yes', 0 'Poor or not done']
+	- The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').
+- Abstract - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- An abstract is included and appropriately pitched to a general audience.
+	- The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level).
+	- If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason.
+	- Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?
+- Introduction - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context.
+	- Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. 
+	- A reader should be able to read only your introduction and have a good idea about the research that you carried out. 
+	- It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). 
+	- It must outline the structure of the paper.
+	- For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.
+- Data - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
+  - What do the data look like?
+  - Plot the actual data that you're using (or as close as you can get to it).
+  - Discuss these plots and the other features of these data.
+  - These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.
+  - 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).
+- Model - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - The model is well-explained, justified, and appropriate.
+  - When you discuss your model you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model.
+  - The model needs to be written out in appropriate mathematical notation but also in plain English. 
+  - Every aspect of that notation must be defined otherwise the most this section can receive is poor.
+  - If the model is Bayesian, then priors need to be defined and sensible.
+  - Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? 
+  - In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation.
+  - Alternative models, or variants, must be discussed and strengths and weaknesses made clear.
+  - You should mention the software that you used to run the model.
+  - You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. 
+  - Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix.
+  - Again, explain what your model is and what is going on with it.
+- Results - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. 
+  - To be clear, you should also have text associated with all these aspects.
+  - Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
+- Discussion - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues', 0 'Poor or not done']
+  - Some questions that a good discussion would cover include: 
+    - What is done in this this paper? 
+    - What are the main points that we learn about the world?
+    - What are some weaknesses of what was done?
+    - What is left to learn?
+- Numbering - [2 'Yes', 0 'Poor or not done']
+	- All figures, tables, equations, etc are numbered and referred to in the text.
+- Proofreading - [2 'Yes', 0 'Poor or not done']
+	- All aspects of submission are free of noticeable typos.
+- Graphs/tables/etc - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- You must include graphs and tables in your paper and they must be to a high standard. 
+	- They must be well formatted and camera-ready They should be clear and digestible.
+	- They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).
+- References - [4 'Perfect', 3 'One minor issue', 0 'Poor or not done']
+	- All data/software/literature/etc are appropriately noted and cited.
+	- You must cite the software and software packages that you use.
+	- You must cite the datasets that you use.
+	- You must cite literature that you refer to (and you should refer to literature).
+	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
+	- If you take a large chunk of code then cite it fully.
+	- 3 means one minor issue. More than one minor issues receives 0.
+- Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The paper and analysis must be fully reproducible.
+	- A detailed README is included.
+	- All code should be thoroughly documented.
+	- An R project is used. Do not use `setwd()`.
+	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- Code must have a preamble etc.
+	- You must appropriately document your scripts such that someone coming in could follow them.
+	- Your repo must be thoroughly organized and not contain extraneous files.
+- General excellence - [3 'Exceptional', 2 'Wow', 1 'Huh, that's interesting',  0 'None']
+  - There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.
 
 
 
@@ -453,7 +541,7 @@ Working in teams of one to four people, please consider this scenario:
 
 ### Recommended steps
 
-- Please pick a political party that you are ‘working for', and pick a geographic focus: 1) the overall election, 2) a particular province, or 3) a specific riding. 
+- Please pick a political party that you are 'working for', and pick a geographic focus: 1) the overall election, 2) a particular province, or 3) a specific riding. 
 - Then decide on a survey methodology (hint: p. 13 of Wu & Thompson provides a handy checklist). Some questions you should address include: 
 - What is the population, frame, and sample? 
 - What sampling methods will you use and why (e.g. you could choose SRSWOR, stratified, etc). What are some of the statistical properties that the method brings to the table (e.g. for SRSWOR you could discuss Wu & Thompson, Theorem 2.2, etc, as appropriate)? 
@@ -461,12 +549,12 @@ Working in teams of one to four people, please consider this scenario:
 - How much do you estimate this will cost?
 - What steps will you take to deal with non-response and how will non-response affect your survey? 
 - How are you going to protect respondent privacy? 
-- Remember to consider all of this in the context of your ‘client' - for instance, who would be more interested in Alberta ridings: Bloc Québécois or the Conservatives? Who likely has more money to spend - the Liberals or the Greens?
+- Remember to consider all of this in the context of your 'client' - for instance, who would be more interested in Alberta ridings: Bloc Québécois or the Conservatives? Who likely has more money to spend - the Liberals or the Greens?
 - Develop a survey on a platform that was introduced in class. Be sure to test it yourselves. You will want to test this as much as possible, maybe even swap informally with another group?
-- Now release the surveys into the (simulated) ‘field'. Please do this by simulating an appropriate number of responses to your survey in R. Don't forget to simulate in relation to the survey methodology that you proposed. Show the results and discuss your ‘findings'. Everything must be entirely reproducible. You may like to consider linking your survey ‘responses' with other data such as the census or GSS.
-- Use R Markdown to write a PDF report about all of this. Discuss your results and findings, your survey design and motivations, etc - all of it. You are writing a report that will eventually go to the ‘client', so you must set the scene, and use language that demonstrates your command of statistical concepts but brings the reader along with you. Be sure to include graphs and tables and reference them in your discussion. Be sure to be clear about weaknesses and biases, and opportunities for future work. 
+- Now release the surveys into the (simulated) 'field'. Please do this by simulating an appropriate number of responses to your survey in R. Don't forget to simulate in relation to the survey methodology that you proposed. Show the results and discuss your 'findings'. Everything must be entirely reproducible. You may like to consider linking your survey 'responses' with other data such as the census or GSS.
+- Use R Markdown to write a PDF report about all of this. Discuss your results and findings, your survey design and motivations, etc - all of it. You are writing a report that will eventually go to the 'client', so you must set the scene, and use language that demonstrates your command of statistical concepts but brings the reader along with you. Be sure to include graphs and tables and reference them in your discussion. Be sure to be clear about weaknesses and biases, and opportunities for future work. 
 - Your report must be well written. You are allowed to, and should, use mathematical notation, but you must explain all of it in plain english. Similarly, you can, and should, use surveys/sampling/observational data terminology, but again, you need to explain it. 
-- Your report must include at least the following aspects: title, date, authorship, non-technical executive summary, introduction, survey methodology, results, discussion, appendices that detail the survey, and references. Your ‘client' has stats graduates working for it who need to be impressed by the main content of the report, but also has people who barely know what an average is and these people need to be impressed also. This is why your report should include a non-technical executive summary. In terms of length, this would typically be roughly 10 per cent of the report. It would be more detailed than an introduction, but still at a high level. 
+- Your report must include at least the following aspects: title, date, authorship, non-technical executive summary, introduction, survey methodology, results, discussion, appendices that detail the survey, and references. Your 'client' has stats graduates working for it who need to be impressed by the main content of the report, but also has people who barely know what an average is and these people need to be impressed also. This is why your report should include a non-technical executive summary. In terms of length, this would typically be roughly 10 per cent of the report. It would be more detailed than an introduction, but still at a high level. 
 - Your graphs must be of an extremely high standard.
 - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion and would be sure to also reference those. The style of references does not matter, provided it is consistent.
 - Via Quercus, submit a link to your PDF report which is hosted on GitHub. At some point in the introduction to your report, you must provide a link to the GitHub repo where the code that you used for this assignment lives (Hint: Comment. Your. Code.). Your entire workflow must be entirely reproducible.
@@ -493,7 +581,7 @@ Working in teams of one to four people, please consider this scenario:
 ### Recommended steps
 
 - Depending on your focus and background, you may like to use a Bayesian hierarchical model, but regardless of the particular model that you use it must be well explained, thoroughly justified, appropriate to the task at hand, and the results must be beautifully described.
-- You may focus on any year, aspect, or geography that is reasonable given the focus and constraints of the GSS. As a reminder, the GSS ‘program was designed as a series of independent, annual, cross-sectional surveys, each covering one topic in-depth.' So please consider the topic and the year.
+- You may focus on any year, aspect, or geography that is reasonable given the focus and constraints of the GSS. As a reminder, the GSS 'program was designed as a series of independent, annual, cross-sectional surveys, each covering one topic in-depth.' So please consider the topic and the year.
 - The GSS is available to University of Toronto students via the library. In order to use it you need to clean and prepare it. Code to do this for one year is being distributed alongside this problem set and was discussed in lectures. 
 - You are welcome to simply use this code and this year, but the topic of that year will constrain your focus. Naturally, you are welcome to adapt the code to other years. If you use the code exactly as is then you must cite it. If you adapt the code then you don't have to cite it, as it has a MIT license, but it would be appropriate to at least mention and acknowledge it, depending on how close your adaption is.
 - Using R Markdown, please write a paper about your analysis and compile it into a PDF.
@@ -535,9 +623,9 @@ Working in teams of one to four people, please consider this scenario:
 
 - We expect you to work as part of a group of 4 people, but groups of size 1-4 are fine. We have suggested a split of the work based on a 4-person group, but these are just suggestions.
 - Individual-level survey data:
-    - Request access to the Democracy Fund + UCLA Nationscape ‘Full Data Set': https://www.voterstudygroup.org/publication/nationscape-data-set. This could take a day or two. Please start early. 
+    - Request access to the Democracy Fund + UCLA Nationscape 'Full Data Set': https://www.voterstudygroup.org/publication/nationscape-data-set. This could take a day or two. Please start early. 
     - Given the expense of collecting this data, and the privilege of having access to it, if you don't properly cite this dataset then you will get zero for this problem set.
-    - Once you have access then pick a survey of interest. We will use “ns20200102.dta” in the example (your number may be different).
+    - Once you have access then pick a survey of interest. We will use "ns20200102.dta" in the example (your number may be different).
     - This will be a large file and is not yours to share. Do not push it to GitHub (use the .gitignore file - see here: https://carpentries-incubator.github.io/git-Rstudio-course/02-ignore/index.html).
     - Use the example R code to get started preparing this dataset, and then go on cleaning and preparing it based on what you need.
     - Make graphs and tables about the survey data and write beautiful sentences and paragraphs explaining everything.
@@ -551,7 +639,7 @@ Working in teams of one to four people, please consider this scenario:
     - Clean and prepare the post-stratification dataset.
     - Remember that you need cell counts for the sub-populations in your model. See examples in the readings.
 - (It may be efficient to start with simulated data while waiting for the real data) Modelling.
-    - You will want to explain vote intention based on a variety of explanatory variables. Construct the vote intention variable so that it is binary (either ‘supports Trump' or ‘supports Biden'). 
+    - You will want to explain vote intention based on a variety of explanatory variables. Construct the vote intention variable so that it is binary (either 'supports Trump' or 'supports Biden'). 
     - You are welcome to use lm() but you would need to explain the nuances of this decision in the model section (Hint: start here: https://statmodeling.stat.columbia.edu/2020/01/10/linear-or-logistic-regression-with-binary-outcomes/). 
     - That said, you should probably use logistic regression if it is at all possible for you. If you don't know where to start then look at (in increasing levels of complexity) glm(), lme4::glmer(), or brms::brm(). There are examples of each in the readings. 
     - Think very deeply about model fit, diagnostics, and other similar things that you need in order to convince someone that your model is appropriate.
@@ -612,19 +700,19 @@ Please work individually. In this paper, you will conduct original research that
 
 You have various options for topics (pick one):
 Develop a research question that is of interest to you and obtain or create a relevant dataset. This option involves developing your own research question based on your own interests, background, and expertise. I encourage you to take this option, but please discuss your plans with me. How does one come up with ideas? One way is to be question-driven, where you keep an informal log of small ideas, questions, and puzzles, that you have as you’re reading and working. Often, after dwelling on it for a while you can manage to find some questions of interest. Another way is to be data-driven - try to find some interesting dataset and then work backward. Finally, yet another way, is to be methods-driven - let’s say that you happen to understand Gaussian processes, then just apply that expertise.
-(Thanks to Jack Bailey for this idea.) Build a MRP model based on the CES and a post-stratification dataset that you obtain, to identify how the 2019 Canadian Federal Election would have been different if ‘everyone’ had voted. What do we learn about the importance of turnout based on your model and results? (This option involves logistic regression in either frequentist or Bayesian settings.)
+(Thanks to Jack Bailey for this idea.) Build a MRP model based on the CES and a post-stratification dataset that you obtain, to identify how the 2019 Canadian Federal Election would have been different if 'everyone’ had voted. What do we learn about the importance of turnout based on your model and results? (This option involves logistic regression in either frequentist or Bayesian settings.)
 Reproduce a paper. This means that you download the data and then write your own code (using their code and paper as a guide if it’s available) to try to get their results and then write up what you did and found. Options include: 
-Angelucci, Charles, and Julia Cagé, 2019, ‘Newspapers in times of low advertising revenues’, American Economic Journal: Microeconomics, please see: https://www.openicpsr.org/openicpsr/project/116438/version/V1/view. (This option can be accomplished with just OLS. It is a ‘safe’ pick. I even already provided you with some code in class to get started - see the notes! ). 
-Bailey, Michael A., Daniel J. Hopkins & Todd Rogers, 2016, ‘Unresponsive and Unpersuaded: The Unintended Consequences of a Voter Persuasion Effort’, Political Behavior.
-Clark, Sam, 2019, ‘A General Age-Specific Mortality Model With an Example Indexed by Child Mortality or Both Child and Adult Mortality’, Demography, please see: https://github.com/sinafala/svd-comp. (This is an ambiguous pick!)
-Skinner, Ben, 2019, ‘Making the connection: Broadband access and online course enrollment at public open admissions institutions’, Research in Higher Education, please see: https://github.com/btskinner/oa_online_broadband_rep. 
-Pons, Vincent, 2018, ‘Will a Five-Minute Discussion Change Your Mind? A Countrywide Experiment on Voter Choice in France’ American Economic Review.
-Valencia Caicedo, Felipe, 2019, ‘The Mission: Human Capital Transmission, Economic Persistence, and Culture in South America’, The Quarterly Journal of Economics, please see: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ML1155. 
+Angelucci, Charles, and Julia Cagé, 2019, 'Newspapers in times of low advertising revenues’, American Economic Journal: Microeconomics, please see: https://www.openicpsr.org/openicpsr/project/116438/version/V1/view. (This option can be accomplished with just OLS. It is a 'safe’ pick. I even already provided you with some code in class to get started - see the notes! ). 
+Bailey, Michael A., Daniel J. Hopkins & Todd Rogers, 2016, 'Unresponsive and Unpersuaded: The Unintended Consequences of a Voter Persuasion Effort’, Political Behavior.
+Clark, Sam, 2019, 'A General Age-Specific Mortality Model With an Example Indexed by Child Mortality or Both Child and Adult Mortality’, Demography, please see: https://github.com/sinafala/svd-comp. (This is an ambiguous pick!)
+Skinner, Ben, 2019, 'Making the connection: Broadband access and online course enrollment at public open admissions institutions’, Research in Higher Education, please see: https://github.com/btskinner/oa_online_broadband_rep. 
+Pons, Vincent, 2018, 'Will a Five-Minute Discussion Change Your Mind? A Countrywide Experiment on Voter Choice in France’ American Economic Review.
+Valencia Caicedo, Felipe, 2019, 'The Mission: Human Capital Transmission, Economic Persistence, and Culture in South America’, The Quarterly Journal of Economics, please see: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ML1155. 
 If you have a favourite paper and want to reproduce it, then please let me know by the end of Week 12 so that I can check that it’s appropriate.
 Pretend that you work for Upworthy. Request the Upworthy dataset and then use it to evaluate the result of an A/B test. This request could take a week. Please plan ahead if you choose this option.
-Critique the following paper: AlShebli, Bedoor, Kinga Makovi & Talal Rahwan, 2020, ‘The association between early career informal mentorship in academic collaborations and junior author performance’, Nature Communications. You should be able to download the data here: https://github.com/bedoor/Mentorship and the paper here: https://www.nature.com/articles/s41467-020-19723-8. For background and starting points for your critique, please see: https://statmodeling.stat.columbia.edu/2020/11/19/are-female-scientists-worse-mentors-this-study-pretends-to-know/ and https://danieleweeks.github.io/Mentorship/#summary. (This option involves extensive data exploration and thinking really hard about what they are trying to do and how they are doing it.) 
+Critique the following paper: AlShebli, Bedoor, Kinga Makovi & Talal Rahwan, 2020, 'The association between early career informal mentorship in academic collaborations and junior author performance’, Nature Communications. You should be able to download the data here: https://github.com/bedoor/Mentorship and the paper here: https://www.nature.com/articles/s41467-020-19723-8. For background and starting points for your critique, please see: https://statmodeling.stat.columbia.edu/2020/11/19/are-female-scientists-worse-mentors-this-study-pretends-to-know/ and https://danieleweeks.github.io/Mentorship/#summary. (This option involves extensive data exploration and thinking really hard about what they are trying to do and how they are doing it.) 
 Use this post by Andrew Whitby - https://andrewwhitby.com/2020/11/24/contact-tracing-biased/ - as a starting point to explore biased sampling and its effects on what we know about COVID and how this affects public policy. (This option involves extensive simulation.)
-In ‘Bias Behind Bars’, data journalist Tom Cardoso finds that ‘(a)fter controlling for a number of variables, … Black and Indigenous inmates are more likely to get worse scores than white inmates, based solely on their race.’ 
+In 'Bias Behind Bars’, data journalist Tom Cardoso finds that '(a)fter controlling for a number of variables, … Black and Indigenous inmates are more likely to get worse scores than white inmates, based solely on their race.’ 
 The main story is here: https://www.theglobeandmail.com/canada/article-investigation-racial-bias-in-canadian-prison-risk-assessments/ 
 The methodology discussion is here: https://www.theglobeandmail.com/canada/article-investigation-racial-bias-in-canadian-prisons-methodology/ 
 The observational data is available here: https://www.theglobeandmail.com/files/editorial/News/nw-na-risk-1023/The_Globe_and_Mail_CSC_OMS_2012-2018_20201022235635.zip 
@@ -637,7 +725,7 @@ Title, date, author, keywords, abstract, introduction, data, model, results, dis
 Your paper must be well-written, draw on relevant literature, and show your statistical skills by explaining all statistical concepts that you draw on. 
 The discussion needs to be substantial. For instance, if the paper were 10 pages long then a discussion should be at least 2.5 pages. In the discussion, the paper must include subsections on weaknesses and next steps - but these must be in proportion.
 The report must provide a link to a GitHub repo that contains everything (apart from any raw data that you git ignored if it is not yours to share). The code must be entirely reproducible, documented, and readable. The repo must be well-organised and appropriately use folders and README files. 
-My expectations for this paper are very high. I’m very excited to read what you submit. To help you achieve this standard, there are two initial ‘submissions’ where you can get comments and feedback and then the final, actual, submission. 
+My expectations for this paper are very high. I’m very excited to read what you submit. To help you achieve this standard, there are two initial 'submissions’ where you can get comments and feedback and then the final, actual, submission. 
 Due dates:
 (Optional) December 9 11:59pm ET
 Submit initial materials for peer-review.
@@ -645,7 +733,7 @@ As an individual, via Quercus, submit a PDF of your rough draft on Quercus by 11
 At a minimum this must include:
 All top-matter (title, author (you can use a pseudonym if you want), date, keywords, abstract) completely filled out.
 A fully written Introduction section.
-All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a ‘Data’ heading, but you don’t need to have content in that section).
+All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Data’ heading, but you don’t need to have content in that section).
 To be clear - it is fine to later change any aspect of what you submit at this check-point.
 You will be awarded 1 percentage point just for submitting a draft that meets this minimum (that is 1 out of the 30 that are available for the final paper). If you don’t submit, then the percentage point will be pushed to part d).
 The point of this is to get feedback on your work (and to make sure you have at least started thinking about this project) so you are more than welcome to include other sections that you wish to get feedback on.
@@ -664,7 +752,7 @@ Submit a PDF to Quercus. The TA will provide high-level comments on December 17.
 At a minimum this must include:
 All top-matter.
 Fully written Introduction, Data, Model, and Results sections.
-All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a ‘Discussion’ heading, but you don’t need to have content in that section).
+All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Discussion’ heading, but you don’t need to have content in that section).
 To be clear - it is fine to later change any aspect of what you submit at this check-point.
 You receive 1 percentage point for submitting something that meets that minimum. If you don’t submit anything then this is pushed to the final paper.
 There are no extensions possible on this aspect.
