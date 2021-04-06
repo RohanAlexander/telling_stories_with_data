@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: March 17, 2021
+date: March 23, 2021
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -151,7 +151,9 @@ Thank you to Elle Côtè for enabling these notes to be written.
 These notes have greatly benefited from the notes and teaching materials of others that are freely available online, especially:
 
 - [Chris Bail](https://cbail.github.io/textasdata/Text_as_Data.html) - *Text as Data*;
+- [Scott Cunningham](https://mixtape.scunning.com) - *Causal Inference: The Mixtape*;
 - [Andrew Heiss](https://www.andrewheiss.com/) - *Program Evaluation for Public Service*;
+- [Lisa Lendway](https://advanced-ds-in-r.netlify.app) - *Advanced Data Science in R*;
 - [Grant McDermott](https://grantmcdermott.com/) - *Data Science for Economists*; 
 - [Nathan Matias](https://natematias.com) - *Designing Field Experiments at Scale*;
 - [David Mimno](https://mimno.infosci.cornell.edu/info3350/) - *Text Mining for History and Literature*

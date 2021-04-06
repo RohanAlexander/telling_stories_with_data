@@ -581,6 +581,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
 <ul>
 <li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="deploy.html"><a href="deploy.html#packages"><i class="fa fa-check"></i><b>20.2</b> Packages</a></li>
+<li class="chapter" data-level="20.3" data-path="deploy.html"><a href="deploy.html#shiny-1"><i class="fa fa-check"></i><b>20.3</b> Shiny</a></li>
+<li class="chapter" data-level="20.4" data-path="deploy.html"><a href="deploy.html#plumber-and-model-apis"><i class="fa fa-check"></i><b>20.4</b> Plumber and model APIs</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="deploy.html"><a href="deploy.html#hello-toronto"><i class="fa fa-check"></i><b>20.4.1</b> Hello Toronto</a></li>
+<li class="chapter" data-level="20.4.2" data-path="deploy.html"><a href="deploy.html#local-model"><i class="fa fa-check"></i><b>20.4.2</b> Local model</a></li>
+<li class="chapter" data-level="20.4.3" data-path="deploy.html"><a href="deploy.html#cloud-model"><i class="fa fa-check"></i><b>20.4.3</b> Cloud model</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
 <li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
@@ -668,10 +676,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="text-as-data" class="section level1" number="18">
 <h1><span class="header-section-number">Chapter 18</span> Text as data</h1>
-<p><em>Last updated: 30 January 2021.</em></p>
+<p><em>Last updated: 29 March 2021.</em></p>
 <p><strong>Required reading</strong></p>
 <ul>
-<li></li>
+<li>Hvitfeldt, Emil, and Julia Silge, 2021, <em>Supervised Machine Learning for Text Analysis in R</em>, Chapters 2, 5, 6, 7, <a href="https://smltar.com" class="uri">https://smltar.com</a>.</li>
+<li>Silge, Julia, and David Robinson, 2017, <em>Text Mining with R</em>, <a href="https://www.tidytextmining.com" class="uri">https://www.tidytextmining.com</a>.</li>
 </ul>
 <p><strong>Required viewing</strong></p>
 <ul>
@@ -679,7 +688,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Recommended reading</strong></p>
 <ul>
-<li></li>
+<li>Amaka, Ofunne, and Amber Thomas, 2020, ‘The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty,’ The Pudding, March, <a href="https://pudding.cool/2021/03/foundation-names/" class="uri">https://pudding.cool/2021/03/foundation-names/</a>.</li>
 </ul>
 <p><strong>Key concepts/skills/etc</strong></p>
 <ul>
@@ -693,13 +702,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li></li>
 </ul>
-<p><strong>Pre-quiz</strong></p>
+<p><strong>Quiz</strong></p>
 <ul>
 <li></li>
 </ul>
 <div id="introduction-24" class="section level2" number="18.1">
 <h2><span class="header-section-number">18.1</span> Introduction</h2>
-<p>TBD</p>
+<p>Text can be thought of as an unwieldy, but in generally</p>
 </div>
 <div id="lasso-regression" class="section level2" number="18.2">
 <h2><span class="header-section-number">18.2</span> Lasso regression</h2>
@@ -708,8 +717,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this section we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, you could imagine many real-world applications. For instance, if you work at Twitter then you may want to know if a tweet was likely written by a bot, or by a human. Or similarly, imagine that you work for a political party - you may like to know if an email was likely from an email campaign organised by a group, or from an individual.</p>
 <p>First we need to get some data. Julia Silge’s example, nicely, uses book text as input. Seeing as I am jointly appointed at a Faculty of Information, that seems especially nice. The wonderful thing about this is that there is an R package - <code>gutenbergr</code> - that makes it easy to get text from Project Gutenberg into R. The key function is <code>gutenberg_download()</code>, which needs a key for the book that you want. We’ll consider Jane Eyre and Alice’s Adventures in Wonderland, which have the keys of 1260 and 11, respectively.</p>
 <div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="text-as-data.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb725-2"><a href="text-as-data.html#cb725-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb725-3"><a href="text-as-data.html#cb725-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
+<span id="cb725-2"><a href="text-as-data.html#cb725-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> gutenbergr<span class="sc">::</span><span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
+<span id="cb725-3"><a href="text-as-data.html#cb725-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb725-4"><a href="text-as-data.html#cb725-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
 <span id="cb725-5"><a href="text-as-data.html#cb725-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
 <span id="cb725-6"><a href="text-as-data.html#cb725-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -778,7 +787,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb733-3"><a href="text-as-data.html#cb733-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
 <span id="cb733-4"><a href="text-as-data.html#cb733-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb733-5"><a href="text-as-data.html#cb733-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
-<p>We now want to sepearate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
+<p>We now want to separate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
 <div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="text-as-data.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
 <span id="cb734-2"><a href="text-as-data.html#cb734-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
 <span id="cb734-3"><a href="text-as-data.html#cb734-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>

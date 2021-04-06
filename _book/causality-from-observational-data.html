@@ -581,6 +581,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>20</b> Deploy</a>
 <ul>
 <li class="chapter" data-level="20.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>20.1</b> Introduction</a></li>
+<li class="chapter" data-level="20.2" data-path="deploy.html"><a href="deploy.html#packages"><i class="fa fa-check"></i><b>20.2</b> Packages</a></li>
+<li class="chapter" data-level="20.3" data-path="deploy.html"><a href="deploy.html#shiny-1"><i class="fa fa-check"></i><b>20.3</b> Shiny</a></li>
+<li class="chapter" data-level="20.4" data-path="deploy.html"><a href="deploy.html#plumber-and-model-apis"><i class="fa fa-check"></i><b>20.4</b> Plumber and model APIs</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="deploy.html"><a href="deploy.html#hello-toronto"><i class="fa fa-check"></i><b>20.4.1</b> Hello Toronto</a></li>
+<li class="chapter" data-level="20.4.2" data-path="deploy.html"><a href="deploy.html#local-model"><i class="fa fa-check"></i><b>20.4.2</b> Local model</a></li>
+<li class="chapter" data-level="20.4.3" data-path="deploy.html"><a href="deploy.html#cloud-model"><i class="fa fa-check"></i><b>20.4.3</b> Cloud model</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
 <li class="chapter" data-level="21" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>21</b> Papers</a>
@@ -1874,7 +1882,7 @@ Figure 15.14: George, 2020, UFCo effect on the probability of being poor (p. 17
 <li>Discuss and assuage concerns about the possibility of omitted variables.</li>
 </ul>
 <p>The threshold is also important. For instance, is there an actual shift or is there a non-linear relationship?</p>
-<p>We want as ‘sharp’ an effect as possible, but if the thresholds are known, then they will be gamed. For instance, there is a lot of evidence that people run for certain marathon times, and we know that people aim for certain grades. Similarly, from the other side, it is a lot easier for an instructor to just give out As than it is to have to justify Bs. One way to look at this is to consider how ‘balanced’ the sample is on either side of the threshold. Do this by using histograms with appropriate bins, for instance Figure <a href="causality-from-observational-data.html#fig:marathontimes">15.15</a>, which is from <span class="citation"><a href="references-1.html#ref-allen2017reference" role="doc-biblioref">Allen et al.</a> (<a href="references-1.html#ref-allen2017reference" role="doc-biblioref">2017</a>)</span>.</p>
+<p>We want as ‘sharp’ an effect as possible, but if the thresholds are known, then they will be gamed. For instance, there is a lot of evidence that people run for certain marathon times, and we know that people aim for certain grades. Similarly, from the other side, it is a lot easier for an instructor to just give out As than it is to have to justify Bs. One way to look at this is to consider how ‘balanced’ the sample is on either side of the threshold. Do this by using histograms with appropriate bins, for instance Figure <a href="causality-from-observational-data.html#fig:marathontimes">15.15</a>, which is from <span class="citation"><a href="references-1.html#ref-allen2017reference" role="doc-biblioref">E. J. Allen et al.</a> (<a href="references-1.html#ref-allen2017reference" role="doc-biblioref">2017</a>)</span>.</p>
 <div class="figure"><span id="fig:marathontimes"></span>
 <img src="figures/marathontimes.png" alt="Bunching around marathon times." width="90%" />
 <p class="caption">

@@ -1981,7 +1981,8 @@ library(dplyr)
 library(jsonlite)
 library(tidytext)
 
-crying <- fromJSON("https://raw.githubusercontent.com/everestpipkin/datagardens/master/students/khanniie/5_newDataSet/crying_dataset.json",
+crying <- 
+  jsonlite::fromJSON("https://raw.githubusercontent.com/everestpipkin/datagardens/master/students/khanniie/5_newDataSet/crying_dataset.json",
   simplifyDataFrame = TRUE
 )
 
@@ -2013,7 +2014,7 @@ In this example we are going to split everything into separate words. When we do
 ```{r}
 crying_by_words <- 
   crying %>%
-  unnest_tokens(word, review_body, token = "words")
+  tidytext::unnest_tokens(word, review_body, token = "words")
 
 head(crying_by_words)
 ```
@@ -2030,6 +2031,7 @@ head(crying_by_words)
 crying_by_words %>% 
   filter(stars == 1) %>% 
   head()
+
 ```
 
 So you can see that the most popular word for five star reviews is 'i', and that the most popular word for one star reviews is 'the'.

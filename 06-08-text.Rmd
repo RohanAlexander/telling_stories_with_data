@@ -1,5 +1,5 @@
 ---
-date: November 26, 2020
+date: March 23, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -10,7 +10,7 @@ output:
 
 # Text as data
 
-*Last updated: 30 January 2021.*
+*Last updated: 29 March 2021.*
 
 ```{r setup0608, include=FALSE}
 knitr::opts_chunk$set(
@@ -25,7 +25,9 @@ library(tidyverse)
 
 **Required reading**
 
-- 
+- Hvitfeldt, Emil, and Julia Silge, 2021, *Supervised Machine Learning for Text Analysis in R*, Chapters 2, 5, 6, 7, https://smltar.com.
+- Silge, Julia, and David Robinson, 2017, *Text Mining with R*, https://www.tidytextmining.com.
+
 
 **Required viewing**
 
@@ -33,7 +35,8 @@ library(tidyverse)
 
 **Recommended reading**
 
-- 
+- Amaka, Ofunne, and Amber Thomas, 2020, 'The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty', The Pudding, March, https://pudding.cool/2021/03/foundation-names/.
+
 
 **Key concepts/skills/etc**
 
@@ -48,14 +51,14 @@ library(tidyverse)
 - 
 
 
-**Pre-quiz**
+**Quiz**
 
 - 
 
 
 ## Introduction
 
-TBD
+Text can be thought of as an unwieldy, but in generally
 
 
 ## Lasso regression
@@ -70,8 +73,8 @@ First we need to get some data. Julia Silge's example, nicely, uses book text as
 
 ```{r, eval = FALSE}
 library(gutenbergr)
+alice_and_jane <- gutenbergr::gutenberg_download(c(1260, 11), meta_fields = "title")
 
-alice_and_jane <- gutenberg_download(c(1260, 11), meta_fields = "title")
 # Save the dataset so that we don't need to overwhelm the servers each time
 write_csv(alice_and_jane, "inputs/books/alice_and_jane.csv")
 
@@ -138,7 +141,7 @@ alice_and_jane <-
 ```
 
 
-We now want to sepearate out the words. We'll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the `quanteda` package, specifically, the `tokens()` function.
+We now want to separate out the words. We'll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the `quanteda` package, specifically, the `tokens()` function.
 
 ```{r}
 library(tidytext)

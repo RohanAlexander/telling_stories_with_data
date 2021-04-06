@@ -427,6 +427,12 @@ google-compute-engine
 azure
 deploy
 introduction-26
+packages
+shiny-1
+plumber-and-model-apis
+hello-toronto
+local-model
+cloud-model
 papers
 mandatory-minimums
 task
