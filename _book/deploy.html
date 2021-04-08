@@ -544,16 +544,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
+<li class="chapter" data-level="17" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel regression with post-stratification</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
-<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
-<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
-<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
-<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
-<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
-<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
+<li class="chapter" data-level="17.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#simulation"><i class="fa fa-check"></i><b>17.2</b> Simulation</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#xbox-paper"><i class="fa fa-check"></i><b>17.3</b> Xbox paper</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.4</b> Hello world</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.5</b> Extended example</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
@@ -735,13 +735,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">20.4.1</span> Hello Toronto</h3>
 <p>The general idea behind the <code>plumber</code> package <span class="citation">(<a href="references-1.html#ref-citeplumber" role="doc-biblioref">Schloerke and Allen 2021</a>)</span> is that we can train a model and make it available via an API that we can call when we want a forecast. It’s pretty great.</p>
 <p>Just to get something working, let’s make a function that returns ‘Hello Toronto’ regardless of the output. Open a new R file, add the following, and then save it as ‘plumber.R’ (you may need to install the <code>plumber</code> package if you’ve not done that yet).</p>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="deploy.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb745-2"><a href="deploy.html#cb745-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb745-3"><a href="deploy.html#cb745-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /print_toronto</span></span>
-<span id="cb745-4"><a href="deploy.html#cb745-4" aria-hidden="true" tabindex="-1"></a>print_toronto <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb745-5"><a href="deploy.html#cb745-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;Hello Toronto&quot;</span></span>
-<span id="cb745-6"><a href="deploy.html#cb745-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb745-7"><a href="deploy.html#cb745-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="deploy.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb750-2"><a href="deploy.html#cb750-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb750-3"><a href="deploy.html#cb750-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /print_toronto</span></span>
+<span id="cb750-4"><a href="deploy.html#cb750-4" aria-hidden="true" tabindex="-1"></a>print_toronto <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb750-5"><a href="deploy.html#cb750-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;Hello Toronto&quot;</span></span>
+<span id="cb750-6"><a href="deploy.html#cb750-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb750-7"><a href="deploy.html#cb750-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>After that is saved, in the top right of the editor you should get a button to ‘Run API.’ Click that, and your API should load. It’ll be a ‘Swagger’ application, which provides a GUI around our API. Expand the GET method, and then clik ‘Try it out’ and ‘Execute.’ In the response body, you should get ‘Toronto.’</p>
 <p>To more closely reflect the fact that this is an API designed for computers, you can copy/paste the ‘request HTML’ into a browser and it should return ‘Hello Toronto.’</p>
 </div>
@@ -749,76 +749,76 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">20.4.2</span> Local model</h3>
 <p>Now, we’re going to update the API so that it serves a model output, given some input. We’re going to follow <span class="citation"><a href="references-1.html#ref-buhrplumber" role="doc-biblioref">Buhr</a> (<a href="references-1.html#ref-buhrplumber" role="doc-biblioref">2017</a>)</span> fairly closely.</p>
 <p>At this point, I’d recommend starting a new R Project. To get started, let’s simulate some data and then train a model on it. In this case we’re interested in forecasting how long a baby may sleep overnight, given we know how long they slept during their afternoon nap.</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="deploy.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb746-2"><a href="deploy.html#cb746-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb746-3"><a href="deploy.html#cb746-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb746-4"><a href="deploy.html#cb746-4" aria-hidden="true" tabindex="-1"></a>number_of_observations <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb746-5"><a href="deploy.html#cb746-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb746-6"><a href="deploy.html#cb746-6" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="ot">&lt;-</span> </span>
-<span id="cb746-7"><a href="deploy.html#cb746-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">afternoon_nap_length =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">120</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">abs</span>(),</span>
-<span id="cb746-8"><a href="deploy.html#cb746-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">0</span>, <span class="dv">120</span>),</span>
-<span id="cb746-9"><a href="deploy.html#cb746-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">night_sleep_length =</span> afternoon_nap_length <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> noise,</span>
-<span id="cb746-10"><a href="deploy.html#cb746-10" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb746-11"><a href="deploy.html#cb746-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb746-12"><a href="deploy.html#cb746-12" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="sc">%&gt;%</span> </span>
-<span id="cb746-13"><a href="deploy.html#cb746-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> afternoon_nap_length, <span class="at">y =</span> night_sleep_length)) <span class="sc">+</span></span>
-<span id="cb746-14"><a href="deploy.html#cb746-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb746-15"><a href="deploy.html#cb746-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Baby&#39;s afternoon nap length (minutes)&quot;</span>,</span>
-<span id="cb746-16"><a href="deploy.html#cb746-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Baby&#39;s overnight sleep length (minutes)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb746-17"><a href="deploy.html#cb746-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="deploy.html#cb751-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb751-2"><a href="deploy.html#cb751-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb751-3"><a href="deploy.html#cb751-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb751-4"><a href="deploy.html#cb751-4" aria-hidden="true" tabindex="-1"></a>number_of_observations <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb751-5"><a href="deploy.html#cb751-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb751-6"><a href="deploy.html#cb751-6" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="ot">&lt;-</span> </span>
+<span id="cb751-7"><a href="deploy.html#cb751-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">afternoon_nap_length =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">120</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">abs</span>(),</span>
+<span id="cb751-8"><a href="deploy.html#cb751-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">0</span>, <span class="dv">120</span>),</span>
+<span id="cb751-9"><a href="deploy.html#cb751-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">night_sleep_length =</span> afternoon_nap_length <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> noise,</span>
+<span id="cb751-10"><a href="deploy.html#cb751-10" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb751-11"><a href="deploy.html#cb751-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb751-12"><a href="deploy.html#cb751-12" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="sc">%&gt;%</span> </span>
+<span id="cb751-13"><a href="deploy.html#cb751-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> afternoon_nap_length, <span class="at">y =</span> night_sleep_length)) <span class="sc">+</span></span>
+<span id="cb751-14"><a href="deploy.html#cb751-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb751-15"><a href="deploy.html#cb751-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Baby&#39;s afternoon nap length (minutes)&quot;</span>,</span>
+<span id="cb751-16"><a href="deploy.html#cb751-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Baby&#39;s overnight sleep length (minutes)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb751-17"><a href="deploy.html#cb751-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p>Let’s now use <code>tidymodels</code> to quickly make a dodgy model.</p>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="deploy.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb747-2"><a href="deploy.html#cb747-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb747-3"><a href="deploy.html#cb747-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb747-4"><a href="deploy.html#cb747-4" aria-hidden="true" tabindex="-1"></a>baby_sleep_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(baby_sleep, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb747-5"><a href="deploy.html#cb747-5" aria-hidden="true" tabindex="-1"></a>baby_sleep_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(baby_sleep_split)</span>
-<span id="cb747-6"><a href="deploy.html#cb747-6" aria-hidden="true" tabindex="-1"></a>baby_sleep_test <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(baby_sleep_split)</span>
-<span id="cb747-7"><a href="deploy.html#cb747-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb747-8"><a href="deploy.html#cb747-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
-<span id="cb747-9"><a href="deploy.html#cb747-9" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb747-10"><a href="deploy.html#cb747-10" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb747-11"><a href="deploy.html#cb747-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(night_sleep_length <span class="sc">~</span> afternoon_nap_length, </span>
-<span id="cb747-12"><a href="deploy.html#cb747-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> baby_sleep_train</span>
-<span id="cb747-13"><a href="deploy.html#cb747-13" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb747-14"><a href="deploy.html#cb747-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb747-15"><a href="deploy.html#cb747-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(<span class="at">x =</span> model, <span class="at">file =</span> <span class="st">&quot;baby_sleep.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="deploy.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb752-2"><a href="deploy.html#cb752-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb752-3"><a href="deploy.html#cb752-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb752-4"><a href="deploy.html#cb752-4" aria-hidden="true" tabindex="-1"></a>baby_sleep_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(baby_sleep, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb752-5"><a href="deploy.html#cb752-5" aria-hidden="true" tabindex="-1"></a>baby_sleep_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(baby_sleep_split)</span>
+<span id="cb752-6"><a href="deploy.html#cb752-6" aria-hidden="true" tabindex="-1"></a>baby_sleep_test <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(baby_sleep_split)</span>
+<span id="cb752-7"><a href="deploy.html#cb752-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb752-8"><a href="deploy.html#cb752-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
+<span id="cb752-9"><a href="deploy.html#cb752-9" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb752-10"><a href="deploy.html#cb752-10" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb752-11"><a href="deploy.html#cb752-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(night_sleep_length <span class="sc">~</span> afternoon_nap_length, </span>
+<span id="cb752-12"><a href="deploy.html#cb752-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> baby_sleep_train</span>
+<span id="cb752-13"><a href="deploy.html#cb752-13" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb752-14"><a href="deploy.html#cb752-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb752-15"><a href="deploy.html#cb752-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(<span class="at">x =</span> model, <span class="at">file =</span> <span class="st">&quot;baby_sleep.rds&quot;</span>)</span></code></pre></div>
 <p>At this point, we have a model. One difference from what you might be used to is that we’ve saved the model as an ‘.rds’ file. We are going to read that in.</p>
 <p>Now that we have our model we want to put that into a file that we will use the API to access, again called ‘plumber.R.’ And we also want a file that sets up the API, called ‘server.R.’ So make an R script called ‘server.R’ and add the following content:</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="deploy.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb748-2"><a href="deploy.html#cb748-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb748-3"><a href="deploy.html#cb748-3" aria-hidden="true" tabindex="-1"></a>serve_model <span class="ot">&lt;-</span> <span class="fu">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
-<span id="cb748-4"><a href="deploy.html#cb748-4" aria-hidden="true" tabindex="-1"></a>serve_model<span class="sc">$</span><span class="fu">run</span>(<span class="at">port =</span> <span class="dv">8000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="deploy.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb753-2"><a href="deploy.html#cb753-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb753-3"><a href="deploy.html#cb753-3" aria-hidden="true" tabindex="-1"></a>serve_model <span class="ot">&lt;-</span> <span class="fu">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
+<span id="cb753-4"><a href="deploy.html#cb753-4" aria-hidden="true" tabindex="-1"></a>serve_model<span class="sc">$</span><span class="fu">run</span>(<span class="at">port =</span> <span class="dv">8000</span>)</span></code></pre></div>
 <p>Then in ‘plumber.R’ add the following content:</p>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="deploy.html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb749-2"><a href="deploy.html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb749-3"><a href="deploy.html#cb749-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-4"><a href="deploy.html#cb749-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;baby_sleep.rds&quot;</span>)</span>
-<span id="cb749-5"><a href="deploy.html#cb749-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-6"><a href="deploy.html#cb749-6" aria-hidden="true" tabindex="-1"></a>version_number <span class="ot">&lt;-</span> <span class="st">&quot;0.0.1&quot;</span></span>
-<span id="cb749-7"><a href="deploy.html#cb749-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-8"><a href="deploy.html#cb749-8" aria-hidden="true" tabindex="-1"></a>variables <span class="ot">&lt;-</span> </span>
-<span id="cb749-9"><a href="deploy.html#cb749-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb749-10"><a href="deploy.html#cb749-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">afternoon_nap_length =</span> <span class="st">&quot;A value in minutes, likely between 0 and 240.&quot;</span>,</span>
-<span id="cb749-11"><a href="deploy.html#cb749-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">night_sleep_length =</span> <span class="st">&quot;A forecast, in minutes, likely between 0 and 1000.&quot;</span></span>
-<span id="cb749-12"><a href="deploy.html#cb749-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb749-13"><a href="deploy.html#cb749-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-14"><a href="deploy.html#cb749-14" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param afternoon_nap_length</span></span>
-<span id="cb749-15"><a href="deploy.html#cb749-15" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /survival</span></span>
-<span id="cb749-16"><a href="deploy.html#cb749-16" aria-hidden="true" tabindex="-1"></a>predict_sleep <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">afternoon_nap_length=</span><span class="dv">0</span>) {</span>
-<span id="cb749-17"><a href="deploy.html#cb749-17" aria-hidden="true" tabindex="-1"></a>  afternoon_nap_length <span class="ot">=</span> <span class="fu">as.integer</span>(afternoon_nap_length)</span>
-<span id="cb749-18"><a href="deploy.html#cb749-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb749-19"><a href="deploy.html#cb749-19" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">afternoon_nap_length=</span>afternoon_nap_length)</span>
-<span id="cb749-20"><a href="deploy.html#cb749-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb749-21"><a href="deploy.html#cb749-21" aria-hidden="true" tabindex="-1"></a>  prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, payload)</span>
-<span id="cb749-22"><a href="deploy.html#cb749-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-23"><a href="deploy.html#cb749-23" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb749-24"><a href="deploy.html#cb749-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">input =</span> <span class="fu">list</span>(payload),</span>
-<span id="cb749-25"><a href="deploy.html#cb749-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> <span class="fu">list</span>(<span class="st">&quot;estimated_night_sleep&quot;</span> <span class="ot">=</span> prediction),</span>
-<span id="cb749-26"><a href="deploy.html#cb749-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="dv">200</span>,</span>
-<span id="cb749-27"><a href="deploy.html#cb749-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_version =</span> version_number)</span>
-<span id="cb749-28"><a href="deploy.html#cb749-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb749-29"><a href="deploy.html#cb749-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb749-30"><a href="deploy.html#cb749-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="deploy.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb754-2"><a href="deploy.html#cb754-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb754-3"><a href="deploy.html#cb754-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-4"><a href="deploy.html#cb754-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;baby_sleep.rds&quot;</span>)</span>
+<span id="cb754-5"><a href="deploy.html#cb754-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-6"><a href="deploy.html#cb754-6" aria-hidden="true" tabindex="-1"></a>version_number <span class="ot">&lt;-</span> <span class="st">&quot;0.0.1&quot;</span></span>
+<span id="cb754-7"><a href="deploy.html#cb754-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-8"><a href="deploy.html#cb754-8" aria-hidden="true" tabindex="-1"></a>variables <span class="ot">&lt;-</span> </span>
+<span id="cb754-9"><a href="deploy.html#cb754-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb754-10"><a href="deploy.html#cb754-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">afternoon_nap_length =</span> <span class="st">&quot;A value in minutes, likely between 0 and 240.&quot;</span>,</span>
+<span id="cb754-11"><a href="deploy.html#cb754-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">night_sleep_length =</span> <span class="st">&quot;A forecast, in minutes, likely between 0 and 1000.&quot;</span></span>
+<span id="cb754-12"><a href="deploy.html#cb754-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb754-13"><a href="deploy.html#cb754-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-14"><a href="deploy.html#cb754-14" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param afternoon_nap_length</span></span>
+<span id="cb754-15"><a href="deploy.html#cb754-15" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /survival</span></span>
+<span id="cb754-16"><a href="deploy.html#cb754-16" aria-hidden="true" tabindex="-1"></a>predict_sleep <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">afternoon_nap_length=</span><span class="dv">0</span>) {</span>
+<span id="cb754-17"><a href="deploy.html#cb754-17" aria-hidden="true" tabindex="-1"></a>  afternoon_nap_length <span class="ot">=</span> <span class="fu">as.integer</span>(afternoon_nap_length)</span>
+<span id="cb754-18"><a href="deploy.html#cb754-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb754-19"><a href="deploy.html#cb754-19" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">afternoon_nap_length=</span>afternoon_nap_length)</span>
+<span id="cb754-20"><a href="deploy.html#cb754-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb754-21"><a href="deploy.html#cb754-21" aria-hidden="true" tabindex="-1"></a>  prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, payload)</span>
+<span id="cb754-22"><a href="deploy.html#cb754-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-23"><a href="deploy.html#cb754-23" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb754-24"><a href="deploy.html#cb754-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">input =</span> <span class="fu">list</span>(payload),</span>
+<span id="cb754-25"><a href="deploy.html#cb754-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> <span class="fu">list</span>(<span class="st">&quot;estimated_night_sleep&quot;</span> <span class="ot">=</span> prediction),</span>
+<span id="cb754-26"><a href="deploy.html#cb754-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="dv">200</span>,</span>
+<span id="cb754-27"><a href="deploy.html#cb754-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_version =</span> version_number)</span>
+<span id="cb754-28"><a href="deploy.html#cb754-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb754-29"><a href="deploy.html#cb754-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb754-30"><a href="deploy.html#cb754-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Again, after you save the ‘plumber.R’ file you should have an option to ‘Run API.’ Click that and you can try out the API locally in the same way as before.</p>
 </div>
 <div id="cloud-model" class="section level3" number="20.4.3">
@@ -829,45 +829,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>plumberDeploy</code> <span class="citation">(<a href="references-1.html#ref-citeplumberdeploy" role="doc-biblioref">J. Allen 2021</a>)</span>.</li>
 <li><code>analogsea</code> <span class="citation">(<a href="references-1.html#ref-citeanalogsea" role="doc-biblioref">Chamberlain, Wickham, and Chang 2021</a>)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="deploy.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;plumberDeploy&quot;</span>)</span>
-<span id="cb750-2"><a href="deploy.html#cb750-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;sckott/analogsea&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="deploy.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;plumberDeploy&quot;</span>)</span>
+<span id="cb755-2"><a href="deploy.html#cb755-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;sckott/analogsea&quot;</span>)</span></code></pre></div>
 <p>Now we need to connect your local computer with your DigitalOcean account. Get started with:</p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="deploy.html#cb751-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">account</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="deploy.html#cb756-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">account</span>()</span></code></pre></div>
 <p>Now you need to authenticate the connection and this is done using a SSH public key. You can do this using:</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="deploy.html#cb752-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">key_create</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="deploy.html#cb757-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">key_create</span>()</span></code></pre></div>
 <p>But if this is your first time doing this then it may be more useful to have a visual process, in which case follow the instructions here: <a href="https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-account/" class="uri">https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-account/</a>. What you want is to have a ‘.pub’ file on your computer. Then copy the public key aspect in that file, and add it to the SSH keys section in the account security settings. When you have the key on your local computer then you can check this using:</p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="deploy.html#cb753-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="sc">::</span><span class="fu">ssh_key_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="deploy.html#cb758-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="sc">::</span><span class="fu">ssh_key_info</span>()</span></code></pre></div>
 <p>Again, this will all take a while to validate. DigitalOcean calls every computer that you start a ‘droplet.’ So if you start three computers, then you’ll have started three droplets. You can check the droplets that you have running using:</p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="deploy.html#cb754-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">droplets</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="deploy.html#cb759-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">droplets</span>()</span></code></pre></div>
 <p>If everything is set-up properly, then this will print the information about all droplets that you have associated with your account (which at this point, is probably none).</p>
 <p>To create a droplet, you run:</p>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="deploy.html#cb755-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> plumberDeploy<span class="sc">::</span><span class="fu">do_provision</span>(<span class="at">example =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="deploy.html#cb760-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> plumberDeploy<span class="sc">::</span><span class="fu">do_provision</span>(<span class="at">example =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Then you’ll get asked for your SSH passphrase and then it’ll just set-up a bunch of things. After this we’re going to need to install a whole bunch of things onto our droplet:</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="deploy.html#cb756-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(<span class="at">droplet =</span> id, <span class="fu">c</span>(<span class="st">&quot;plumber&quot;</span>, </span>
-<span id="cb756-2"><a href="deploy.html#cb756-2" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;remotes&quot;</span>, </span>
-<span id="cb756-3"><a href="deploy.html#cb756-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;here&quot;</span>))</span>
-<span id="cb756-4"><a href="deploy.html#cb756-4" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, <span class="st">&quot;libssl-dev&quot;</span>, </span>
-<span id="cb756-5"><a href="deploy.html#cb756-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libsodium-dev&quot;</span>, </span>
-<span id="cb756-6"><a href="deploy.html#cb756-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libcurl4-openssl-dev&quot;</span>)</span>
-<span id="cb756-7"><a href="deploy.html#cb756-7" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, </span>
-<span id="cb756-8"><a href="deploy.html#cb756-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libxml2-dev&quot;</span>)</span>
-<span id="cb756-9"><a href="deploy.html#cb756-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb756-10"><a href="deploy.html#cb756-10" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;config&quot;</span>,</span>
-<span id="cb756-11"><a href="deploy.html#cb756-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;httr&quot;</span>,</span>
-<span id="cb756-12"><a href="deploy.html#cb756-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;urltools&quot;</span>,</span>
-<span id="cb756-13"><a href="deploy.html#cb756-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;plumber&quot;</span>))</span>
-<span id="cb756-14"><a href="deploy.html#cb756-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb756-15"><a href="deploy.html#cb756-15" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;xml2&quot;</span>))</span>
-<span id="cb756-16"><a href="deploy.html#cb756-16" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>))</span>
-<span id="cb756-17"><a href="deploy.html#cb756-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb756-18"><a href="deploy.html#cb756-18" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidymodels&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="deploy.html#cb761-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(<span class="at">droplet =</span> id, <span class="fu">c</span>(<span class="st">&quot;plumber&quot;</span>, </span>
+<span id="cb761-2"><a href="deploy.html#cb761-2" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;remotes&quot;</span>, </span>
+<span id="cb761-3"><a href="deploy.html#cb761-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;here&quot;</span>))</span>
+<span id="cb761-4"><a href="deploy.html#cb761-4" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, <span class="st">&quot;libssl-dev&quot;</span>, </span>
+<span id="cb761-5"><a href="deploy.html#cb761-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libsodium-dev&quot;</span>, </span>
+<span id="cb761-6"><a href="deploy.html#cb761-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libcurl4-openssl-dev&quot;</span>)</span>
+<span id="cb761-7"><a href="deploy.html#cb761-7" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, </span>
+<span id="cb761-8"><a href="deploy.html#cb761-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libxml2-dev&quot;</span>)</span>
+<span id="cb761-9"><a href="deploy.html#cb761-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb761-10"><a href="deploy.html#cb761-10" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;config&quot;</span>,</span>
+<span id="cb761-11"><a href="deploy.html#cb761-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;httr&quot;</span>,</span>
+<span id="cb761-12"><a href="deploy.html#cb761-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;urltools&quot;</span>,</span>
+<span id="cb761-13"><a href="deploy.html#cb761-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;plumber&quot;</span>))</span>
+<span id="cb761-14"><a href="deploy.html#cb761-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb761-15"><a href="deploy.html#cb761-15" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;xml2&quot;</span>))</span>
+<span id="cb761-16"><a href="deploy.html#cb761-16" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>))</span>
+<span id="cb761-17"><a href="deploy.html#cb761-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb761-18"><a href="deploy.html#cb761-18" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidymodels&quot;</span>))</span></code></pre></div>
 <p>And then when that is finally set-up (it’ll seriously take 30 min or so) we can deploy our API!</p>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="deploy.html#cb757-1" aria-hidden="true" tabindex="-1"></a>plumberDeploy<span class="sc">::</span><span class="fu">do_deploy_api</span>(<span class="at">droplet =</span> id, </span>
-<span id="cb757-2"><a href="deploy.html#cb757-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">path =</span> <span class="st">&quot;example&quot;</span>, </span>
-<span id="cb757-3"><a href="deploy.html#cb757-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">localPath =</span> <span class="fu">getwd</span>(), </span>
-<span id="cb757-4"><a href="deploy.html#cb757-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">port =</span> <span class="dv">8000</span>, </span>
-<span id="cb757-5"><a href="deploy.html#cb757-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">docs =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb757-6"><a href="deploy.html#cb757-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="deploy.html#cb762-1" aria-hidden="true" tabindex="-1"></a>plumberDeploy<span class="sc">::</span><span class="fu">do_deploy_api</span>(<span class="at">droplet =</span> id, </span>
+<span id="cb762-2"><a href="deploy.html#cb762-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">path =</span> <span class="st">&quot;example&quot;</span>, </span>
+<span id="cb762-3"><a href="deploy.html#cb762-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">localPath =</span> <span class="fu">getwd</span>(), </span>
+<span id="cb762-4"><a href="deploy.html#cb762-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">port =</span> <span class="dv">8000</span>, </span>
+<span id="cb762-5"><a href="deploy.html#cb762-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">docs =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb762-6"><a href="deploy.html#cb762-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-date: November 8, 2020
+date: April 8, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -8,9 +8,9 @@ output:
     citation_package: biblatex
 ---
 
-# Multilevel modelling with post-stratification
+# Multilevel regression with post-stratification
 
-*Last updated: 2 March 2021.*
+*Last updated: 8 April 2021.*
 
 ```{r setup0607, include=FALSE}
 knitr::opts_chunk$set(
@@ -25,13 +25,13 @@ knitr::opts_chunk$set(
 **Required reading**
 
 - Alexander, Monica, 2019, 'Analyzing name changes after marriage using a non-representative survey', 7 August, https://www.monicaalexander.com/posts/2019-08-07-mrp/.
-- Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, *Regression and Other Stories*, Cambridge University Press, Ch 17.
+- Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, *Regression and Other Stories*, Cambridge University Press, Chapter 17.
 - Hanretty, Chris, 2019, 'An introduction to multilevel regression and post-stratification for estimating constituency opinion', *Political Studies Review*, https://doi.org/10.1177/1478929919864773.
 - Kastellec, Jonathan, Jeffrey Lax, and Justin Phillips, 2016, 'Estimating State Public Opinion With Multi-Level Regression and Poststratification using R', https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf. 
 - Kennedy, Lauren and Jonah Gabry, 2019, 'MRP with rstanarm', rstanarm vignettes, 8 October, https://mc-stan.org/rstanarm/articles/mrp.html.
 - Kennedy, Lauren, and Andrew Gelman, 2019, 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample', https://arxiv.org/abs/1906.11323.
 - Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, 'Forecasting elections with non-representative polls', *International Journal of Forecasting*, 31, no. 3, pages 980-991.
-- Wu, Changbao and Mary E. Thompson, 2020, *Sampling Theory and Practice*, Springer, Ch 17.
+- Wu, Changbao and Mary E. Thompson, 2020, *Sampling Theory and Practice*, Springer, Chapter 17.
 
 
 **Required viewing**
@@ -41,7 +41,6 @@ knitr::opts_chunk$set(
 
 
 **Recommended reading**
-
 
 - Cohn, Nate, 2016, 'We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results', *The New York Times*, The Upshot, 20 September, https://www.nytimes.com/interactive/2016/09/20/upshot/the-error-the-polling-world-rarely-talks-about.html.
 - Edelman, M., Vittert, L., & Meng, X.-L., 2021, 'An Interview with Murray Edelman on the History of the Exit Poll', *Harvard Data Science Review*, https://doi.org/10.1162/99608f92.3a25cd24 https://hdsr.mitpress.mit.edu/pub/fekmqbv4/release/2.
@@ -64,14 +63,31 @@ knitr::opts_chunk$set(
 
 **Quiz**
 
-1. Your Mum asked you what you've been learning this term. You decide to tell her about multilevel modelling with post-stratification. Please explain what MRP is. Your Mum has a university-education, but has not necessarily taken any statistics, so you will need to explain any technical terms that you use. [Please write a paragraph or two.]
-2. Please consider Wang, Rothschild, Goel, and Gelman, 2015, 'Forecasting elections with non-representative polls'. Is this the most interesting paper ever written? Why or why not? What do you like about this paper? What do you wish it did better? Can you reproduce this paper? [Please write one or two paragraphs about each aspect.]
-3. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, some possible independent variables would be: [Please check all that apply.] 1) Whether the respondent is registered to vote (yes/no). 2) Whether the respondent is going to vote for Biden (yes/no). 3) The race of the respondent (white/not white). 4) The respondent's marital status (married/not)
-4. Please think about Cohn, 2016, 'We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results'. Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]
-5. Please consider Wang, Rothschild, Goel, and Gelman, 2015, 'Forecasting elections with non-representative polls'. 
-    - What is not a feature they mention election forecasts need? 1) Explainable. 2) Accurate. 3) Cost-effective. 4) Relevant. 5)  Timely. 
-    - What is a weakness of MRP? 1) Detailed data requirement. 2) Allows use of biased data. 3) Expensive to conduct.
-    - What is concerning about the Xbox sample? 1) Non-representative. 2) Small sample size. 3) Multiple responses from the same respondent.
+1. Your Mum asked you what you've been learning this term. You decide to tell her about multilevel regression with post-stratification. Please explain what MRP is. Your Mum has a university-education, but has not necessarily taken any statistics, so you will need to explain any technical terms that you use. [Please write a paragraph or two.]
+2. With respect to @wang2015forecasting: Why is this paper interesting? What do you like about this paper? What do you wish it did better? Can you reproduce this paper? [Please write one or two paragraphs about each aspect.]
+3. With respect to @wang2015forecasting, what is not a feature they mention election forecasts need? 
+    a. Explainable.
+    b. Accurate.
+    c. Cost-effective.
+    d. Relevant.
+    e. Timely.
+4. With respect to @wang2015forecasting, what is not a feature they mention election forecasts need? 
+    a. What is a weakness of MRP?
+    b. Detailed data requirement. 
+    c. Allows use of biased data. 
+    d. Expensive to conduct.
+5. With respect to @wang2015forecasting, what is not a feature they mention election forecasts need? 
+6. With respect to @wang2015forecasting, what is concerning about the Xbox sample? 
+    a. Non-representative. 
+    b. Small sample size. 
+    c. Multiple responses from the same respondent.
+6. I am interested in studying how voting intentions in the 2020 US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, some possible independent variables would be: [Please check all that apply.] 
+    a. Whether the respondent is registered to vote (yes/no). 
+    b. Whether the respondent is going to vote for Biden (yes/no). 
+    c. The race of the respondent (white/not white). 
+    d. The respondent's marital status (married/not).
+7. Please think about @cohn2016 Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]
+8. When we think about multilevel regression with post-stratification, what are the key assumptions that we are making? [Please write one or two paragraphs about each aspect.]
 
 
 
@@ -81,14 +97,130 @@ knitr::opts_chunk$set(
 
 Multilevel regression with post-stratification (MRP) is a popular way to adjust non-representative samples to better analyse opinion and other survey responses. It uses a regression model to relate individual-level survey responses to various characteristics and then rebuilds the sample to better match the population. In this way MRP can not only allow a better understanding of responses, but also allow us to analyse data that may otherwise be unusable. However, it can be a challenge to get started with MRP as the terminology may be unfamiliar, and the data requirements can be onerous.
 
-Multilevel regression with post-stratification (MRP) is a handy approach when dealing with survey data. Essentially, it trains a model based on the survey, and then applies that trained model to another dataset. There are two main, related, advantages:
+MRP is a handy approach when dealing with survey data. Essentially, it trains a model based on the survey, and then applies that trained model to another dataset. There are two main, related, advantages:
 
 1) It can allow us to 're-weight' in a way that includes uncertainty front-of-mind and isn't hamstrung by small samples.
 2) It can allow us to use broad surveys to speak to subsets.
 
 From a practical perspective, it tends to be less expensive to collect non-probability samples and so there are benefits of being able to use these types of data. That said, it is not a magic-bullet and the laws of statistics still apply. We will have larger uncertainty around our estimates and they will still be subject to all the usual biases. As [Lauren Kennedy](https://twitter.com/jazzystats) points out, 'MRP has traditionally been used in probability surveys and had potential for non-probability surveys, but we're not sure of the limitations at the moment.' 
 
-One famous example is Wei Wang, David Rothschild, Sharad Goel, and Andrew Gelman, 2014, 'Forecasting elections with non-representative polls', *International Journal of Forecasting*. They used data from the Xbox gaming platform to forecast the 2012 US Presidential Election.
+The workflow that you want to start off with is: 
+
+1) read in the poll;
+2) model the poll; 
+3) read in the post-stratification data;
+4) apply your model to the post-stratification data.
+
+
+
+
+
+## Simulation
+
+To get started we will simulate some data from a population that has various properties, take a biased sample, and then conduct MRP to demonstrate how we can get those properties back. We are going to have two 'explanatory variables' - age-group and toilet-trained - and one dependent variable - bed-time. Bed-time will increase as age-group increases, and will be later for children that are toilet-trained, compared with those that are not.
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+
+set.seed(853)
+
+size_of_population <- 1000000
+
+population_for_mrp_example <- 
+  tibble(age_group = sample(x = c(0:5),
+                            size = size_of_population,
+                            replace = TRUE
+                            ),
+         toilet_trained = sample(x = c(0, 1),
+                                 size = size_of_population,
+                                 replace = TRUE
+                                 ),
+         noise = rnorm(size_of_population, 0, 1),
+         bed_time = 5 + 0.5 * age_group + 1 * toilet_trained + noise,
+         ) %>% 
+  select(-noise)
+```
+
+Now we plot the data (as there are a million points, I'll just grab the first 1,000 so that it plots nicely).
+
+```{r, warning = FALSE, message = FALSE}
+population_for_mrp_example %>% 
+  slice(1:1000) %>% 
+  mutate(toilet_trained = as_factor(toilet_trained)) %>% 
+  ggplot(aes(x = age_group, y = bed_time)) +
+  geom_jitter(aes(color = toilet_trained), alpha = 0.4, width = 0.1, height = 0) +
+  labs(x = "Age-group",
+       y = "Bed time",
+       color = "Toilet trained") +
+  theme_classic() +
+  scale_color_brewer(palette = "Set1")
+```
+
+We want to pretend that we have some survey that has a biased sample. We'll allow that it over-samples children that are younger and those that are not toilet-trained.
+
+```{r}
+set.seed(853)
+
+first_bit <- 
+  population_for_mrp_example %>% 
+  filter(toilet_trained == 1 & age_group %in% c(0, 1, 2)) %>% 
+  slice(1:700)
+
+second_bit <- 
+  population_for_mrp_example %>% 
+  filter(age_group == 0) %>% 
+  slice(1:100)
+
+third_bit <- 
+  population_for_mrp_example %>% 
+  filter(age_group %in% c(1, 2)) %>% 
+  slice(1:100)
+
+fourth_bit <- 
+  population_for_mrp_example %>% 
+  filter(age_group %in% c(3, 4, 5)) %>% 
+  slice(1:100)
+
+sample_for_mrp_example <- 
+  rbind(first_bit, second_bit, third_bit, fourth_bit)
+
+rm(first_bit, second_bit, third_bit, fourth_bit)
+```
+
+And we can plot those also.
+
+```{r, warning = FALSE, message = FALSE}
+sample_for_mrp_example %>% 
+  mutate(toilet_trained = as_factor(toilet_trained)) %>% 
+  ggplot(aes(x = age_group, y = bed_time)) +
+  geom_jitter(aes(color = toilet_trained), alpha = 0.4, width = 0.1, height = 0) +
+  labs(x = "Age-group",
+       y = "Bed time",
+       color = "Toilet trained") +
+  theme_classic() +
+  scale_color_brewer(palette = "Set1")
+```
+
+It's pretty clear that our sample has a earlier bed-time than the overall population.
+
+We will train a model based on the (biased) survey.
+
+```{r}
+mrp_example_model <- 
+  sample_for_mrp_example %>% 
+  lm(bed_time ~ age_group + toilet_trained, data = .)
+```
+
+Now we will use a post-stratification dataset to 
+
+
+
+
+
+## Xbox paper
+
+
+One famous example is @wang2015forecasting. They used data from the Xbox gaming platform to forecast the 2012 US Presidential Election.
 
 Key facts about the set-up:
 
@@ -230,19 +362,6 @@ We now have post-stratified estimates for each division. Our model has a fair fe
 
 
 
-## Your turn!
-
-*We're going to go through this all again, but this time with you doing it. If you run into issues then I am happy to help point you in the right direction.*
-
-As a reminder, our workflow is: 
-
-1) read in the poll;
-2) model the poll; 
-3) read in the post-stratification data;
-4) apply your model to the post-stratification data.
-
-Get started by opening a Rproj file and opening a new R script.
-
 
 
 
@@ -317,19 +436,6 @@ post_stratified_estimates
 ```
 
 We now have post-stratified estimates for each division. Our new Bayesian approach will enable us to think more deeply about uncertainty. We could complicate this in a variety of ways including adding more coefficients (but remember that we'd need to get new cell counts), or adding some layers.
-
-
-
-## Your turn!
-
-*We're going to go through this all again, but this time with you doing it. If you run into issues then I am happy to help point you in the right direction.*
-
-As a reminder, our workflow is: 
-
-1) read in the poll;
-2) model the poll; 
-3) read in the post-stratification data;
-4) apply your model to the post-stratification data.
 
 
 

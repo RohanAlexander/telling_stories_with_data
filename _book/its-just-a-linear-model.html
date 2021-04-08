@@ -544,16 +544,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
+<li class="chapter" data-level="17" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel regression with post-stratification</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
-<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
-<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
-<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
-<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
-<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
-<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
+<li class="chapter" data-level="17.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#simulation"><i class="fa fa-check"></i><b>17.2</b> Simulation</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#xbox-paper"><i class="fa fa-check"></i><b>17.3</b> Xbox paper</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.4</b> Hello world</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.5</b> Extended example</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
@@ -1382,7 +1382,7 @@ Figure 14.3: Examining the type of gold some jewellery is made from.
 <span id="cb641-17"><a href="its-just-a-linear-model.html#cb641-17" aria-hidden="true" tabindex="-1"></a>white_gold_model_tidymodels</span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  2ms 
+## Fit time:  3ms 
 ## 
 ## Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
 ##     data = data)
@@ -1494,7 +1494,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <span id="cb650-15"><a href="its-just-a-linear-model.html#cb650-15" aria-hidden="true" tabindex="-1"></a>a_plus_model_tidymodels</span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  3ms 
+## Fit time:  1ms 
 ## 
 ## Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 ##     data = data)

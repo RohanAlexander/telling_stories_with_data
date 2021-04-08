@@ -79,8 +79,8 @@ fig:levittcrimesecond
 fig:states
 fig:demographics
 fig:electoralcollege
-tab:unnamed-chunk-426
-tab:unnamed-chunk-438
+tab:unnamed-chunk-431
+tab:unnamed-chunk-443
 fig:topicsoverdocuments
 fig:topicsoverterms
 introduction
@@ -400,12 +400,12 @@ model-1
 discussion
 poll-of-polls
 introduction-22
-multilevel-modelling-with-post-stratification
+multilevel-regression-with-post-stratification
 introduction-23
+simulation
+xbox-paper
 hello-world-1
-your-turn
 extended-example
-your-turn-1
 adding-layers
 communication
 concluding-remarks

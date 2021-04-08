@@ -544,16 +544,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="16.1" data-path="poll-of-polls.html"><a href="poll-of-polls.html#introduction-22"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel modelling with post-stratification</a>
+<li class="chapter" data-level="17" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html"><i class="fa fa-check"></i><b>17</b> Multilevel regression with post-stratification</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
-<li class="chapter" data-level="17.2" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.2</b> Hello world</a></li>
-<li class="chapter" data-level="17.3" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn"><i class="fa fa-check"></i><b>17.3</b> Your turn!</a></li>
-<li class="chapter" data-level="17.4" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.4</b> Extended example</a></li>
-<li class="chapter" data-level="17.5" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#your-turn-1"><i class="fa fa-check"></i><b>17.5</b> Your turn!</a></li>
-<li class="chapter" data-level="17.6" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
-<li class="chapter" data-level="17.7" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
-<li class="chapter" data-level="17.8" data-path="multilevel-modelling-with-post-stratification.html"><a href="multilevel-modelling-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
+<li class="chapter" data-level="17.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#simulation"><i class="fa fa-check"></i><b>17.2</b> Simulation</a></li>
+<li class="chapter" data-level="17.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#xbox-paper"><i class="fa fa-check"></i><b>17.3</b> Xbox paper</a></li>
+<li class="chapter" data-level="17.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#hello-world-1"><i class="fa fa-check"></i><b>17.4</b> Hello world</a></li>
+<li class="chapter" data-level="17.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#extended-example"><i class="fa fa-check"></i><b>17.5</b> Extended example</a></li>
+<li class="chapter" data-level="17.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#adding-layers"><i class="fa fa-check"></i><b>17.6</b> Adding layers</a></li>
+<li class="chapter" data-level="17.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#communication"><i class="fa fa-check"></i><b>17.7</b> Communication</a></li>
+<li class="chapter" data-level="17.8" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks"><i class="fa fa-check"></i><b>17.8</b> Concluding remarks</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
@@ -814,18 +814,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="exploratory-data-analysis.html#cb432-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> opendatatoronto<span class="sc">::</span><span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
 <span id="cb432-2"><a href="exploratory-data-analysis.html#cb432-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
 <pre><code>## # A tibble: 412 x 11
-##    title    id      topics   civic_issues  publisher excerpt    dataset_category
-##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;           
-##  1 Address… abedd8… Locatio… Mobility      Informat… This data… Document        
-##  2 Propert… 1acaa8… Locatio… Mobility      Informat… This data… Document        
-##  3 Toronto… 1d0797… City go… Mobility      Informat… Linear re… Map             
-##  4 Lobbyis… 6a87b8… City go… &lt;NA&gt;          Lobbyist… The Lobby… Document        
-##  5 Municip… 5da2e2… City go… Affordable h… Municipa… This data… Document        
-##  6 Outbrea… 80ce0b… Health,… &lt;NA&gt;          Toronto … This data… Document        
-##  7 Buildin… 8219e9… Develop… &lt;NA&gt;          Toronto … Provides … Document        
-##  8 Buildin… 108c2b… Develop… Affordable h… Toronto … Provides … Document        
-##  9 Archive… be5c68… City go… &lt;NA&gt;          City Cle… A list of… Document        
-## 10 Clerk&#39;s… 24e3d9… City go… &lt;NA&gt;          City Cle… The City … Document        
+##    title    id      topics    civic_issues publisher  excerpt   dataset_category
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;           
+##  1 EarlyON… 261962… Communit… Poverty red… Children&#39;… &quot;EarlyON… Map             
+##  2 License… 059d37… Communit… &lt;NA&gt;         Children&#39;… &quot;License… Map             
+##  3 Short T… fc4189… Permits … Affordable … Municipal… &quot;This da… Table           
+##  4 Polls c… 7bce9b… City gov… &lt;NA&gt;         City Cler… &quot;Polls a… Table           
+##  5 Rain Ga… f29335… Location… Climate cha… Toronto W… &quot;This da… Document        
+##  6 COVID-1… cd616c… Health    &lt;NA&gt;         Toronto P… &quot;This da… Map             
+##  7 COVID-1… d3f21f… Health    &lt;NA&gt;         Toronto P… &quot;This da… Map             
+##  8 Daily S… 8a6ece… City gov… Affordable … Shelter, … &quot;Daily o… Table           
+##  9 Street … 99b1f3… City gov… &lt;NA&gt;         Transport… &quot;Informa… Map             
+## 10 Automat… a15479… Transpor… Mobility     Transport… &quot;This da… Map             
 ## # … with 402 more rows, and 4 more variables: num_resources &lt;int&gt;,
 ## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
 <p>We’ll download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and then make them into one big dataframe.</p>
