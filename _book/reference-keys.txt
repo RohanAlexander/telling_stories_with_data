@@ -460,6 +460,7 @@ peer-review-submission
 conduct-peer-review
 check-offs-points-3
 faq-3
+rubric-3
 a-proportional-response
 task-4
 recommended-steps

@@ -1,5 +1,5 @@
 ---
-date: March 17, 2021
+date: April 07, 2021
 bibliography: bibliography.bib
 ---
 
@@ -8,7 +8,7 @@ bibliography: bibliography.bib
 # Papers
 
 
-*Last updated: 17 March 2021.*
+*Last updated: 07 April 2021.*
 
 
 
@@ -420,7 +420,7 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
   - The model has well-defined variables and these correspond to what is discussed in the data section.
   - The model needs to be written out in appropriate mathematical notation but also in plain English. 
   - Every aspect of that notation must be defined otherwise the most this section can receive is poor.
-  - The model makes sense based ont eh substantive area, and also the form of the model.
+  - The model makes sense based on the substantive area, and also the form of the model.
   - If the model is Bayesian, then priors need to be defined and sensible.
   - Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? 
   - In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation.
@@ -437,11 +437,12 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
   - To be clear, you should also have text associated with all these aspects.
   - Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
 - Discussion - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues', 0 'Poor or not done']
-  - Some questions that a good discussion would cover include: 
+  - Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): 
     - What is done in this this paper? 
-    - What are the main points that we learn about the world?
+    - What is something that we learn about the world?
+    - What is another thing that we learn about the world?
     - What are some weaknesses of what was done?
-    - What is left to learn?
+    - What is left to learn or how should we proceed in the future?
 - Numbering - [2 'Yes', 0 'Poor or not done']
 	- All figures, tables, equations, etc are numbered and referred to in the text.
 - Proofreading - [2 'Yes', 0 'Poor or not done']
@@ -508,8 +509,8 @@ You have various options for topics (pick one):
   - A fully written Introduction section.
 - All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Data' heading, but you don't need to have content in that section).
 - To be clear - it is fine to later change any aspect of what you submit at this check-point.
-- You will be awarded two percentage points just for submitting a draft that meets this minimum.
-- The point of this is to get feedback on your work (and to make sure you have at least started thinking about this project) so you are more than welcome to include other sections that you wish to get feedback on.
+- You will be awarded one percentage point just for submitting a draft that meets this minimum.
+- The point of this is to get feedback on your work (and to make sure you have at least started thinking about this project) so you are more than welcome to (and so, if it is at all possible) include other sections that you wish to get feedback on.
 - There will be no extensions granted for this submission since the following submission is dependent on this date.
 
 
@@ -519,17 +520,121 @@ You have various options for topics (pick one):
 - If you provide feedback to one peer you will receive one percentage point, if you provide feedback to two peers you will receive two percentage points, if you provide feedback to three (or more) peers you will receive the full three percentage points.
 - Your feedback must include at least five comments (meaningful/useful bullet points). These must be well-written and thoughtful.
 - There will be no extensions granted for this submission since the following submission is dependent on this date.
-- Please remember that you are providing feedback here to help your colleagues. All comments should be professional and kind. It is challenging to receive criticism. Please remember that your goal here is to help your peers advance their writing/analysis. Any feedback that is inappropriate or not up to standard will receive a 0 and cannot be redeemed later. 
+- Please remember that you are providing feedback here to help your colleagues. All comments should be professional and kind. It is challenging to receive criticism. Please remember that your goal here is to help your peers advance their writing/analysis. Any feedback that is inappropriate or not up to standard will receive a 0.
 
 
 ### Check offs points
 
+- Do you have a causal story, or at least a sub-section in the discussion that talks about causality and why you can't speak to it, or what you would do if you could?
 
 
 ### FAQ
 
 - Can I work as part of a team? No. It's important that you have some work that is entirely your own. You really need your own work to show off for job applications etc.
 - How much should I write? Most students submit something in the 10-to-15-page range, but it's really up to you. Be precise and thorough.
+
+
+
+
+### Rubric
+
+- Go/no-go #1: R is cited - [1 'Yes', 0 'No']
+	- Both referred to in the main content and included in the reference list.
+	- If not, no need to continue marking, just give paper 0 overall.
+- Title - [2 'Exceptional', 1 'Yes', 0 'Poor or not done']
+	- An informative title is included.
+	- Tell the reader what your story is - don't waste their time. 
+	- Ideally tell them what happens at the end of the story.
+	- 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.
+- Author, date, and repo - [2 'Yes', 0 'Poor or not done']
+	- The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').
+- Abstract - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- An abstract is included and appropriately pitched to a general audience.
+	- The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level).
+	- If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason.
+	- Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?
+- Introduction - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context.
+	- Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. 
+	- A reader should be able to read only your introduction and have a good idea about the research that you carried out. 
+	- It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). 
+	- It must outline the structure of the paper.
+	- For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.
+- Data - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
+  - What do the data look like?
+  - Plot the actual data that you're using (or as close as you can get to it).
+  - Discuss these plots and the other features of these data.
+  - These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.
+  - 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).
+- Model - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - The model is nicely written out, well-explained, justified, and appropriate.
+  - When you discuss your model you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model.
+  - The model is appropriately complex - that is, not too simple, but not unnecessarily complicated.
+  - The model has well-defined variables and these correspond to what is discussed in the data section.
+  - The model needs to be written out in appropriate mathematical notation but also in plain English. 
+  - Every aspect of that notation must be defined otherwise the most this section can receive is poor.
+  - The model makes sense based on the substantive area, and also the form of the model.
+  - If the model is Bayesian, then priors need to be defined and sensible.
+  - Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? 
+  - In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation.
+  - The assumptions underpinning the model are clearly discussed.
+  - Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen?
+  - You should mention the software that you used to run the model.
+  - There is some evidence of thought about the circumstances in which the model may not be appropriate.
+  - There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks.
+  - You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. 
+  - Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix.
+  - Again, explain what your model is and what is going on with it.
+- Results - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
+  - Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. 
+  - To be clear, you should also have text associated with all these aspects.
+  - Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.
+- Discussion - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues', 0 'Poor or not done']
+  - Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): 
+    - What is done in this this paper? 
+    - What is something that we learn about the world?
+    - What is another thing that we learn about the world?
+    - What are some weaknesses of what was done?
+    - What is left to learn or how should we proceed in the future?
+- Numbering - [2 'Yes', 0 'Poor or not done']
+	- All figures, tables, equations, etc are numbered and referred to in the text.
+- Proofreading - [2 'Yes', 0 'Poor or not done']
+	- All aspects of submission are free of noticeable typos.
+- Graphs/tables/etc - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- You must include graphs and tables in your paper and they must be to a high standard. 
+	- They must be well formatted and camera-ready They should be clear and digestible.
+	- They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).
+- References - [4 'Perfect', 3 'One minor issue', 0 'Poor or not done']
+	- All data/software/literature/etc are appropriately noted and cited.
+	- You must cite the software and software packages that you use.
+	- You must cite the datasets that you use.
+	- You must cite literature that you refer to (and you should refer to literature).
+	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
+	- If you take a large chunk of code then cite it fully.
+	- 3 means one minor issue. More than one minor issues receives 0.
+- Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+	- The paper and analysis must be fully reproducible.
+	- A detailed README is included.
+	- All code should be thoroughly documented.
+	- An R project is used. Do not use `setwd()`.
+	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- Code must have a preamble etc.
+	- You must appropriately document your scripts such that someone coming in could follow them.
+	- Your repo must be thoroughly organized and not contain extraneous files.
+- Enhancements - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
+  - You should pick at least one of the following and include it to enhance your submission:
+    - Datasheets for for your datasets (see: https://arxiv.org/abs/1803.09010) and model cards for your models (see: https://arxiv.org/pdf/1810.03993.pdf).
+    - Shiny application.
+    - R package.
+    - API for your model.
+  - There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.
+- General excellence - [3 'Exceptional', 2 'Wow', 1 'Huh, that's interesting',  0 'None']
+  - There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.
+
+
+
+
 
 
 
