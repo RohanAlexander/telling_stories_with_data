@@ -1,5 +1,5 @@
 ---
-date: January 4, 2021
+date: April 19, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Static communication
 
 
-*Last updated: 8 February 2021.*
+*Last updated: 19 April 2021.*
 
 
 
@@ -155,6 +155,13 @@ Source: YouTube screenshot.
 ## Graphs
 
 Graphs are critical to tell a compelling story. And the most important thing with your graphs is to plot your raw data. Again: Plot. Your. Raw. Data.
+
+Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal).
+
+```{r thomowillrose, echo=FALSE, fig.cap="How do we get started with our data?", out.width = '90%'}
+knitr::include_graphics(here::here("figures/thomowillrose.png"))
+```
+
 
 <!-- To illustrate why it's important, let's first look at a famous example - Anscombe's quartet. -->
 
