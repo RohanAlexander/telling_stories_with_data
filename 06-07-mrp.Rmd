@@ -1,5 +1,5 @@
 ---
-date: April 20, 2021
+date: April 23, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -10,7 +10,7 @@ output:
 
 # Multilevel regression with post-stratification
 
-*Last updated: 20 April 2021.*
+*Last updated: 23 April 2021.*
 
 ```{r setup0607, include=FALSE}
 knitr::opts_chunk$set(
@@ -152,7 +152,7 @@ Finally, I'd like to acknowledge and thank Lauren Kennedy and Monica Alexander, 
 
 
 
-## Simulation
+## Simulation - Toddler bedtimes
 
 
 ### Construct a population
@@ -439,7 +439,7 @@ knitr::include_graphics(here::here("figures/electoral_college.png"))
 
 
 
-## Improving the model
+## Simulation - Australian voting
 
 ### Overview
 
@@ -450,7 +450,7 @@ As a reminder, the workflow that we use is:
 3) read in the post-stratification data; and
 4) apply the model to the post-stratification data.
 
-In the earlier example, we didn't really do too much in the modelling step, and despite the name 'multilevel modelling with post-stratification', we didn't actually use a multilevel model. There's nothing that says you have to use a multilevel model, but a lot of situations will have circumstances such that it's not likely to do any worse. For instance, in the case of trying to model elections, usually districts/divisions/electorates/ridings/etc exist within provinces/states so it would likely make sense to, at least, include a coefficient that adjusts the intercept for each province.
+In the earlier example, we didn't really do too much in the modelling step, and despite the name 'multilevel modelling with post-stratification', we didn't actually use a multilevel model. There's nothing that says you have to use a multilevel model, but a lot of situations will have circumstances such that it's not likely to do any worse. To be clear, this means that although we have individual-level data, there is some grouping of the individuals that we'll take advantage of. For instance, in the case of trying to model elections, usually districts/divisions/electorates/ridings/etc exist within provinces/states so it would likely make sense to, at least, include a coefficient that adjusts the intercept for each province.
 
 In this section we're simulate another dataset and then fit a few different models to it. We're going to draw on the Australian elections set-up. In Australia we have a parliamentary system, with 151 seats in the parliament, one for each electorate. These electorates are grouped within six states and two territories. There are two major parties - the Australian Labor Party (ALP) and the Liberal Party (LP). Somewhat confusingly, the Liberal party are actually the conservative, right-wing party, while the Labor party are the progressive, left-wing, party.
 
@@ -460,50 +460,102 @@ To move us slightly closer to reality, we are going to simulate a survey (rather
 
 - 'gender', which is either 'female' or 'male' (as that is what is available from the Australian Bureau of Statistics); 
 - 'age_group', which is one of four groups: 'ages 18 to 29', 'ages 30 to 44', 'ages 45 to 59', 'ages 60 plus';
-- 'electorate', which is one of 151 integers: 1 - 151 (inclusive).
+- 'state', which is one of eight integers: 1 - 8 (inclusive).
 
 At this point, it's worth briefly discussing the role of sex and gender in survey research, following @kennedy2020using. Sex is based on biological attributes, while gender is socially constructed. We are likely interested in the effect of gender on our dependent variable. Moving away from a non-binary concept of gender, in terms of official statistics, is only something that has happened recently. As a researcher one of the problems of insisting on a binary is that, as @kennedy2020using [p. 2] say '...when measuring gender with simply two categories, there is a failure to capture the unique experiences of those who do not identify as either male or female, or for those whose gender does not align with their sex classification.'. A researcher has a variety of ways of proceeding, and @kennedy2020using discuss these based on: ethics, accuracy, practicality, and flexibility. However, 'there is no single good solution that can be applied to all situations. Instead it is important to recognize that there is a compromise between ethical concerns, statistical concerns, and the most appropriate decision will be reflective of this' [p. 16]. The most important consideration is to ensure appropriate 'respect and consideration for the survey respondent'.
 
+```{r}
+set.seed(853)
 
+size_of_sample_for_australian_polling <- 2000
 
+sample_for_australian_polling <- 
+  tibble(age_group = 
+           sample(x = c(0:3), 
+                  size = size_of_sample_for_australian_polling,
+                  replace = TRUE
+                  ),
+         gender = 
+           sample(x = c(0:1),
+                  size = size_of_sample_for_australian_polling,
+                  replace = TRUE
+                  ),
+         state = 
+           sample(x = c(1:8),
+                  size = size_of_sample_for_australian_polling,
+                  replace = TRUE
+                  ),
+         noise = rnorm(size_of_sample_for_australian_polling, mean = 0, sd = 1), 
+         support_alp = 1 + 0.5 * age_group + 0.5 * gender + 0.01 * state + noise
+         ) 
 
-`broom` [@citebroom], `here` [@citehere], `tidyverse` [@citetidyverse].
+# Normalize the outcome variable
+sample_for_australian_polling <- 
+  sample_for_australian_polling %>% 
+  mutate(support_alp = 
+           if_else(support_alp > median(support_alp, na.rm = TRUE), 
+                   'Supports ALP', 
+                   'Does not')
+         )
 
-```{r initial_model_workplace_setup, message=FALSE, warning=FALSE}
-# Uncomment these (by deleting the #) if you need to install the packages
-# install.packages("broom")
-# install.packages("here")
-# install.packages("skimr")
-# install.packages("tidyverse")
+# Clean up the simulated data
+sample_for_australian_polling <- 
+  sample_for_australian_polling %>% 
+  mutate(
+    age_group = case_when(
+      age_group == 0 ~ 'Ages 18 to 29',
+      age_group == 1 ~ 'Ages 30 to 44',
+      age_group == 2 ~ 'Ages 45 to 59',
+      age_group == 3 ~ 'Ages 60 plus',
+      TRUE ~ 'Problem'
+      ),
+    gender = case_when(
+      gender == 0 ~ 'Male',
+      gender == 1 ~ 'Female',
+      TRUE ~ 'Problem'
+      ),
+    state = case_when(
+      state == 1 ~ 'Queensland',
+      state == 2 ~ 'New South Wales',
+      state == 3 ~ 'Australian Capital Territory',
+      state == 4 ~ 'Victoria',
+      state == 5 ~ 'Tasmania',
+      state == 6 ~ 'Northern Territory',
+      state == 7 ~ 'South Australia',
+      state == 8 ~ 'Western Australia',
+      TRUE ~ 'Problem'
+      ),
+    
+    ) %>% 
+  select(-noise)
 
-library(broom) # Helps make the regression results tidier
-library(here) # Helps make file referencing easier.
-library(tidyverse) # Helps make programming with R easier
+# Tidy the class
+sample_for_australian_polling <- 
+  sample_for_australian_polling %>% 
+  mutate(across(c(age_group, gender, state, support_alp), as_factor))
+
+sample_for_australian_polling %>%   
+  head()
 ```
 
+Finally, we want our survey to over-sample females, so we'll just get rid of 300 males.
 
-
-Then load some sample polling data to analyse. I have generated this fictitious data so that we have some idea of what to expect from the model. The dependent variable is supports_ALP, which is a binary variable - either 0 or 1. We'll just use two independent variables here: gender, which is either Female or Male (as that is what is available from the ABS); and age_group, which is one of four groups: ages 18 to 29, ages 30 to 44, ages 45 to 59, ages 60 plus.
-
-```{r initial_model_simulate_data, message=FALSE,}
-example_poll <- read_csv("outputs/data/example_poll.csv") # Here we read in a 
-# CSV file and assign it to a dataset called 'example_poll'
-
-head(example_poll) # Displays the first 10 rows
-
-# Look at some summary statistics to make sure the data seem reasonable
-summary(example_poll)
+```{r}
+sample_for_australian_polling <- 
+  sample_for_australian_polling %>% 
+  arrange(gender) %>% 
+  slice(1:1700)
 ```
 
-I generated this polling data to make both made males and older people less likely to vote for the Australian Labor Party; and females and younger people more likely to vote for the Labor Party. Females are over-sampled. As such, we should have an ALP skew on the dataset.
+### Model the survey
 
-```{r summarise_model_simulate_data, message=FALSE,}
-# The '%>%' is called a 'pipe' and it takes whatever the output is of the 
-# command before it, and pipes it to the command after it.
-example_poll %>% # So we are taking our example_poll dataset and using it as an 
-  # input to 'summarise'.
-   # summarise reduces the dimensions, so here we will get one number from a column.
-  summarise(raw_ALP_prop = sum(supports_ALP) / nrow(example_poll))
+This polling data was generated to make both males and older people less likely to vote for the ALP; and females and younger people more likely to vote for the Labor Party. Females are over-sampled. As such, we should have an ALP skew on the dataset. We're going to use the `gtsummary` package to quickly make a summary table [@citegtsummary].
+
+```{r}
+library(gtsummary)
+
+sample_for_australian_polling %>% 
+  gtsummary::tbl_summary()
 ```
 
 Now we'd like to see if we can get our results back (we should find females less likely than males to vote for Australian Labor Party and that people are less likely to vote Australian Labor Party as they get older). Our model is:
@@ -518,106 +570,109 @@ This model says that the probability that some person, $j$, will vote for the Au
 # Here we are running an OLS regression with supports_ALP as the dependent variable 
 # and gender and age_group as the independent variables. The dataset that we are 
 # using is example_poll. We are then saving that OLS regression to a variable called 'model'.
-model <- lm(supports_ALP ~ gender + age_group, 
-            data = example_poll
-            )
+alp_support <- 
+  glm(support_alp ~ gender + age_group + state, 
+      data = sample_for_australian_polling,
+      family = "binomial"
+      )
 
-# broom::tidy just displays the outputs of the regression in a nice table.
-broom::tidy(model) 
+alp_support %>% 
+  modelsummary::modelsummary(fmt = 2, exponentiate = TRUE)
 ```
 
-Essentially we've got our inputs back. We just used regular OLS even though our dependent variable is a binary. (It's usually fine to start with an OLS model and then iterate toward an approach that may be more appropriate such as logistic regression or whatever, but where the results are a little more difficult to interpret.^[[Monica](https://www.monicaalexander.com/) is horrified by the use of OLS here, and wants it on the record that she regrets not making not doing this part of our marriage vows.]) If you wanted to do that then the place to start would be `glmer()` from the R package `lme4`, and we'll see that in the next section.
+Essentially we've got our inputs back. Our dependent variable is a binary, and so we used logistic regression so the results are a little more difficult to interpret.
+
+### Post-stratify
 
 Now we'd like to see if we can use what we found in the poll to get an estimate for each state based on their demographic features.
 
-First read in some real demographic data, on a seat basis, from the ABS.
+First read in some real demographic data, on a state basis, from the ABS.
 
 ```{r initial_model_post_stratify_add_coefficients, message=FALSE, warning=FALSE}
-census_data <- read_csv("outputs/data/census_data.csv")
-head(census_data)
+post_strat_census_data <- 
+  read_csv("outputs/data/census_data.csv")
+
+head(post_strat_census_data)
 ```
+
+At this point, we've got a decision to make because we need the variables to be the same in the survey and the post-stratification dataset, but here the state abbreviations have been used, while in the survey, the full names were used. We'll change the post-stratification dataset because the survey data has already modelled.
+
+```{r}
+post_strat_census_data <- 
+  post_strat_census_data %>% 
+  mutate(
+    state = 
+      case_when(
+        state == 'ACT' ~ 'Australian Capital Territory',
+        state == 'NSW' ~ 'New South Wales',
+        state == 'NT' ~ 'Northern Territory',
+        state == 'QLD' ~ 'Queensland',
+        state == 'SA' ~ 'South Australia',
+        state == 'TAS' ~ 'Tasmania',
+        state == 'VIC' ~ 'Victoria',
+        state == 'WA' ~ 'Western Australia',
+        TRUE ~ "Problem"
+      ),
+    age_group = 
+      case_when(
+        age_group == 'ages18to29' ~ 'Ages 18 to 29',
+        age_group == 'ages30to44' ~ 'Ages 30 to 44',
+        age_group == 'ages45to59' ~ 'Ages 45 to 59',
+        age_group == 'ages60plus' ~ 'Ages 60 plus',
+        TRUE ~ "Problem"
+      )
+  )
+```
+
 
 We're just going to do some rough forecasts. For each gender and age-group we want the relevant coefficient in the example_data and we can construct the estimates.
 
-```{r initial_model_post_stratify_age_sex_specific}
-# Here we are making predictions using our model with some new data from the 
-# census, and we saving the results of those predictions by adding a new column 
-# to the census_data dataset called 'estimate'.
-census_data$estimate <- 
-  model %>% 
-  predict(newdata = census_data)
+```{r}
+post_strat_census_data <- 
+  alp_support %>% 
+  predict(newdata = post_strat_census_data, type = 'response', se.fit = TRUE) %>% 
+  as_tibble() %>% 
+  cbind(post_strat_census_data, .)
 
-census_data %>% 
-  mutate(alp_predict_prop = estimate*cell_prop_of_division_total) %>% 
+post_strat_census_data %>% 
+  mutate(alp_predict_prop = fit*cell_prop_of_division_total) %>% 
   group_by(state) %>% 
   summarise(alp_predict = sum(alp_predict_prop))
 ```
 
-We now have post-stratified estimates for each division. Our model has a fair few weaknesses. For instance small cell counts are going to be problematic. And our approach ignores uncertainty, but now that we have something working we can complicate it.
+We now have post-stratified estimates for each state Our model has a fair few weaknesses. For instance small cell counts are going to be problematic. And our approach ignores uncertainty, but now that we have something working we can complicate it.
 
 
 
 
+### Improving the model
 
+We'd like to address some of the major issues with our approach, specifically being able to deal with small cell counts, and also taking better account of uncertainty. As we are dealing with survey data, prediction intervals or something similar are crticial, and it's not appropriate to only report central estimates. To do this we'll use the same broad approach as before, but just improve the model. We're going to change to a Bayesian model and use the `rstanarm` package [@citerstanarm].
 
-## Extended example
+Now, using the same basic model as before, but in a Bayesian setting.
 
-We'd like to address some of the major issues with our approach, specifically being able to deal with small cell counts, and also taking better account of uncertainty. As we are dealing with survey data, prediction intervals or something similar are crticial, and it's not appropriate to only report central estimates. To do this we'll use the same broad approach as before, but just improving bits of our workflow.
+```{r}
+library(rstanarm)
 
-First load the packages (you don't need to reload the earlier ones - I just do it here so that each section is self-contained in case people are lost). We additionally need: `brms` [@citebrms] and `tidybayes` [@citetidybayes]. 
+improved_alp_support <- 
+  rstanarm::stan_glm(support_alp ~ gender + age_group + state,
+                     data = sample_for_australian_polling,
+                     family = binomial(link = "logit"),
+                     prior = normal(0, 1), 
+                     prior_intercept = normal(0, 1),
+                     cores = 2, 
+                     seed = 12345)
 
-```{r brms_model_workplace_setup, message=FALSE, warning=FALSE}
-# Uncomment these if you need to install the packages
-# install.packages("broom")
-# install.packages("brms")
-# install.packages("here") 
-# install.packages("tidybayes")
-# install.packages("tidyverse") 
-
-library(broom)
-library(brms) # Used for the modelling
-library(here)
-library(tidybayes) # Used to help understand the modelling estimates
-library(tidyverse) 
 ```
 
-As before, read in the polling dataset.
+As before, we'd like an estimate for each state based on their demographic features. We're just going to do some rough forecasts. For each gender and age_group we want the relevant coefficient in the example_data and we can construct the estimates (this code is from [Monica Alexander](https://www.monicaalexander.com/posts/2019-08-07-mrp/)). We're going to use `tidybayes` for this [@citetidybayes].
 
-```{r brms_model_simulate_data, message=FALSE,}
-example_poll <- read_csv("outputs/data/example_poll.csv")
+```{r}
+library(tidybayes)
 
-head(example_poll)
-```
-
-Now, using the same basic model as before, but we move it to a setting that acknowledges the dependent variable as being binary, and in a Bayesian setting.
-
-```{r brms_model_analyse_example_polling}
-model <- brm(supports_ALP ~ gender + age_group, 
-             data = example_poll, 
-             family = bernoulli(),
-             file = "outputs/model/brms_model"
-             )
-
-model <- read_rds("outputs/model/brms_model.rds")
-
-summary(model)
-```
-
-We've moved to the Bernoulli distribution, so we have to do a bit more work to understand our results, but we are broadly getting back what we'd expect.
-
-As before, we'd like an estimate for each state based on their demographic features and start by reading in the data.
-
-```{r brms_model_post_stratify_add_coefficients, message=FALSE, warning=FALSE}
-census_data <- read_csv("outputs/data/census_data.csv")
-head(census_data)
-```
-
-We're just going to do some rough forecasts. For each gender and age_group we want the relevant coefficient in the example_data and we can construct the estimates (this code is from [Monica Alexander](https://www.monicaalexander.com/posts/2019-08-07-mrp/)).
-
-```{r brms_model_post_stratify_age_sex_specific}
 post_stratified_estimates <- 
-  model %>% 
-  tidybayes::add_predicted_draws(newdata = census_data) %>% 
+  improved_alp_support %>% 
+  tidybayes::add_predicted_draws(newdata = post_strat_census_data) %>% 
   rename(alp_predict = .prediction) %>% 
   mutate(alp_predict_prop = alp_predict*cell_prop_of_division_total) %>% 
   group_by(state, .draw) %>% 
@@ -632,40 +687,7 @@ post_stratified_estimates
 
 We now have post-stratified estimates for each division. Our new Bayesian approach will enable us to think more deeply about uncertainty. We could complicate this in a variety of ways including adding more coefficients (but remember that we'd need to get new cell counts), or adding some layers.
 
-
-
-
-
-## Adding layers
-
-We may like to try to add some layers to our model. For instance, we may like a different intercept for each state.
-
-```{r brms_model_analyse_extended}
-model_states <- brm(supports_ALP ~ gender + age_group + (1|state), 
-                    data = example_poll, 
-                    family = bernoulli(),
-                    file = "outputs/model/brms_model_states",
-                    control = list(adapt_delta = 0.90)
-                    )
-summary(model_states)
-# broom::tidy(model_states, par_type = "varying")
-# broom::tidy(model_states, par_type = "non-varying", robust = TRUE)
-```
-
-One interesting aspect is that our multilevel approach will allow us to deal with small cell counts by borrowing information from other cells. 
-
-```{r brms_model_analyse_extended_state_counts}
-example_poll %>% 
-  count(state)
-```
-
-At the moment we have 50 respondents in the Northern Territory, 105 in Tasmania, and 107 in the ACT. Even if we were to remove most of the, say, 18 to 29 year old, male respondents from Tasmania our model would still provide estimates. It does this by pooling, in which the effect of these young, male, Tasmanians is partially determined by other cells that do have respondents. 
-
-
-
-
-
-## Communication
+One interesting aspect is that our multilevel approach will allow us to deal with small cell counts by borrowing information from other cells. Even if we were to remove most of the, say, 18 to 29 year old, male respondents from Tasmania our model would still provide estimates. It does this by pooling, in which the effect of these young, male, Tasmanians is partially determined by other cells that do have respondents. 
 
 There are many interesting aspects that we may like to communicate to others. For instance, we may like to show how the model is affecting the results. We can make a graph that compares the raw estimate with the model estimate.
 
@@ -674,15 +696,15 @@ post_stratified_estimates %>%
   ggplot(aes(y = mean, x = forcats::fct_inorder(state), color = "MRP estimate")) + 
   geom_point() +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0) + 
-  ylab("Proportion ALP support") + 
-  xlab("State") + 
-  geom_point(data = example_poll %>% 
-               group_by(state, supports_ALP) %>%
-               summarise(n = n()) %>% 
-               group_by(state) %>% 
-               mutate(prop = n/sum(n)) %>% 
-               filter(supports_ALP==1), 
-             aes(state, prop, color = "Raw data")) +
+  labs(y = "Proportion ALP support",
+       x = "State") + 
+  # geom_point(data = sample_for_australian_polling %>% 
+  #              group_by(state, support_alp) %>%
+  #              summarise(n = n()) %>% 
+  #              group_by(state) %>% 
+  #              mutate(prop = n/sum(n)) %>% 
+  #              filter(support_alp==1), 
+  #            aes(state, prop, color = "Raw data")) +
   theme_minimal() +
   scale_color_brewer(palette = "Set1") +
   theme(legend.position = "bottom") +
@@ -693,34 +715,731 @@ Similarly, we may like to plot the distribution of the coefficients.^[You can wo
 
 
 ```{r}
-model %>%
-  gather_draws(`b_.*`, regex=TRUE) %>%
-  ungroup() %>%
-  mutate(coefficient = stringr::str_replace_all(.variable, c("b_" = ""))) %>%
-  mutate(coefficient = forcats::fct_recode(coefficient,
-                                           Intercept = "Intercept",
-                                           `Is male` = "genderMale",
-                                           `Age 30-44` = "age_groupages30to44",
-                                           `Age 45-59` = "age_groupages45to59",
-                                           `Age 60+` = "age_groupages60plus"
-                                           )) %>% 
-
-# both %>% 
-  ggplot(aes(y=fct_rev(coefficient), x = .value)) + 
-  ggridges::geom_density_ridges2(aes(height = ..density..),
-                                 rel_min_height = 0.01, 
-                                 stat = "density",
-                                 scale=1.5) +
-  xlab("Distribution of estimate") +
-  ylab("Coefficient") +
-  scale_fill_brewer(name = "Dataset: ", palette = "Set1") +
-  theme_minimal() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) +
-  theme(legend.position = "bottom")
+# tidybayes::get_variables(improved_alp_support)
+# improved_alp_support %>%
+#   gather_draws(genderMale) %>%
+#   ungroup() %>%
+#   # mutate(coefficient = stringr::str_replace_all(.variable, c("b_" = ""))) %>%
+#   mutate(coefficient = forcats::fct_recode(coefficient,
+#                                            Intercept = "Intercept",
+#                                            `Is male` = "genderMale",
+#                                            `Age 30-44` = "age_groupages30to44",
+#                                            `Age 45-59` = "age_groupages45to59",
+#                                            `Age 60+` = "age_groupages60plus"
+#                                            )) %>% 
+# 
+# # both %>% 
+#   ggplot(aes(y=fct_rev(coefficient), x = .value)) + 
+#   ggridges::geom_density_ridges2(aes(height = ..density..),
+#                                  rel_min_height = 0.01, 
+#                                  stat = "density",
+#                                  scale=1.5) +
+#   xlab("Distribution of estimate") +
+#   ylab("Coefficient") +
+#   scale_fill_brewer(name = "Dataset: ", palette = "Set1") +
+#   theme_minimal() +
+#   theme(panel.grid.major = element_blank(),
+#         panel.grid.minor = element_blank()) +
+#   theme(legend.position = "bottom")
 
 
 ```
+
+
+## Case study - Forecasting the 2020 US election
+
+The US election has a lot of features that are unique to the US, but the model that we are going to build here is going to be fairly generic and, largely a generalization of the earlier model for the Australian election. One good thing about forecasting the US election is that there is a lot of data around. In this case we can use survey data from the [Democracy Fund Voter Study Group](https://www.voterstudygroup.org).^[I thank [Chris Warshaw](http://www.chriswarshaw.com) for putting me onto this dataset.] They conducted polling in the lead-up to the US election and make this publicly available after registration. We will use the Integrated Public Use Microdata Series (IPUMS), to access the 2018 American Community Survey (ACS) as a post-stratification dataset. We will use state, age-group, gender, and education as explanatory variables.
+
+### Survey data
+
+The first step is that we need to actually get the survey data. Go to their website:https://www.voterstudygroup.org and then you're looking for 'Nationscape' and then a button along the lines of 'Get the latest Nationscape data'. To get the dataset, you need to fill out a form, which they will process and then email you. There is a real person on the other side of this form, and so your request could take a few days.
+
+Once you get access you'll want to download the .dta files. Nationscape conducted many surveys and so there are many files. The filename is the reference date, and so 'ns20200625' refers to 25 June 2020, which is the one that I'll use here. (This data is not mine to share, which is why I'll refer)
+
+We can read in '.dta' files using the `haven` package [@citehaven]. I've based this code on that written by Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz, which is available here: https://github.com/matthewwankiewicz/US_election_forecast. 
+
+
+```{r}
+library(haven)
+library(tidyverse)
+
+raw_nationscape_data <- 
+  read_dta(here::here("dont_push/ns20200625.dta"))
+
+# The Stata format separates labels so reunite those
+raw_nationscape_data <- 
+  labelled::to_factor(raw_nationscape_data)
+
+# Just keep relevant variables
+nationscape_data <- 
+  raw_nationscape_data %>% 
+  select(vote_2020,
+         gender,
+         education,
+         state,
+         age)
+
+# For simplicity, remove anyone undecided or planning to vote for someone other than Biden/Trump and make vote a binary variable: 1 for Biden, 0 for Trump.
+nationscape_data <- 
+  nationscape_data %>% 
+  filter(vote_2020 == "Joe Biden" | vote_2020 == "Donald Trump") %>% 
+  mutate(vote_biden = if_else(vote_2020 == "Joe Biden", 1, 0)) %>% 
+  select(-vote_2020)
+
+# Create the dependent variables by grouping the existing variables
+## Age-groups: 18-29, 30-44, 45-59, 60+
+## Gender: male and female (that is all Nationscape asked about)
+
+nationscape_data <- 
+  nationscape_data %>% 
+  mutate(
+    age_group = case_when( # case_when works in order and exits when there's a match
+      age <= 29 ~ 'age_18-29',
+      age <= 44 ~ 'age_30-44',
+      age <= 59 ~ 'age_45-59',
+      age >= 60 ~ 'age_60_or_more',
+      TRUE ~ 'Trouble'
+      ),
+    gender = case_when(
+      gender == "Female" ~ 'female',
+      gender == "Male" ~ 'male',
+      TRUE ~ 'Trouble'
+      ),
+    education_level = case_when(
+      education == "3rd Grade or less" ~ "High school or less",
+      education == "Middle School - Grades 4 - 8" ~ "High school or less",
+      education == "Completed some high school" ~ "High school or less",
+      education == "High school graduate" ~ "High school or less",
+      education == "Other post high school vocational training" ~ "Some post secondary",
+      education == "Completed some college, but no degree" ~ "Some post secondary",
+      education == "Associate Degree" ~ "Post secondary or higher",
+      education == "College Degree (such as B.A., B.S.)" ~ "Post secondary or higher",
+      education == "Completed some graduate, but no degree" ~ "Post secondary or higher",
+      education == "Masters degree" ~ "Graduate degree",
+      education == "Doctorate degree" ~ "Graduate degree",
+      TRUE ~ 'Trouble'
+      )
+    ) %>% 
+  select(-education, -age)
+
+tests <- 
+  nationscape_data %>% 
+  mutate(test = stringr::str_detect(age_group, 'Trouble'),
+         test = if_else(test == TRUE, TRUE, 
+                        stringr::str_detect(education_level, 'Trouble')),
+         test = if_else(test == TRUE, TRUE, 
+                        stringr::str_detect(gender, 'Trouble'))
+         ) %>% 
+  filter(test == TRUE)
+rm(tests)
+
+nationscape_data %>% 
+  head()
+```
+
+As we've seen, one of the most difficult aspects with MRP is ensuring consistency between the datasets. In this case, we need to do some work to make the variables consistent.
+
+```{r}
+# This code is very directly from Alen Mitrovski, Xiaoyan Yang, and Matthew Wankiewicz.
+# Format state names so the whole state name is written out, to match IPUMS data
+states_names_and_abbrevs <- 
+  tibble(stateicp = state.name, state = state.abb)
+
+nationscape_data <-
+  nationscape_data %>%
+  left_join(states_names_and_abbrevs)
+
+rm(states_names_and_abbrevs)
+
+# Make lowercase to match IPUMS data
+nationscape_data <- 
+  nationscape_data %>% 
+  mutate(stateicp = tolower(stateicp))
+
+# Replace NAs with DC
+nationscape_data$stateicp <- 
+  replace_na(nationscape_data$stateicp, "district of columbia")
+
+# Tidy the class
+nationscape_data <- 
+  nationscape_data %>% 
+  mutate(across(c(gender, stateicp, education_level, age_group), as_factor))
+
+# Save data
+write_csv(nationscape_data, "outputs/data/polling_data.csv")
+
+nationscape_data %>% 
+  head()
+```
+
+
+### Post-stratification data
+
+We have a lot of options for a dataset to post-stratify by and there are various considerations. We are after a dataset that is better quality (however that is to be defined), and likely larger. From a strictly data perspective, the best choice would probably be something like the Cooperative Congressional Election Study (CCES), however for whatever reason that is only released after the election and so it's not a reasonable choice. @wang2015forecasting use exit poll data, but again that's only available after the election. 
+
+In most countries we'd be stuck using the census, which is of course quite large, but likely out-of-date. Luckily in the US we have the opportunity to use the American Community Survey (ACS) which asks analogous questions to a census, is conducted every month, and over the course of a year, we end up with a few million responses. In this case we're going to access the ACS through IPUMS. 
+
+To do this go to the IPUMS website - https://ipums.org - and we're looking for something like IPUMS USA and then 'get data'. Create an account, if you need to. That'll take a while to process. But once you have an account, go to 'Select Samples' and de-select everything apart from the 2019 ACS. Then we need to get the variables that we're interested in. From the household we want 'STATEICP', then in person we want 'SEX', 'AGE', 'EDUC'. Once everything is selected, 'view cart', and we want to be careful to change the 'data format' to '.dta' (there's nothing wrong with the other formats, but we've just already got code earlier to deal with that type). Briefly just check how many rows and columns you're requesting. It should be around a million rows, and around ten to twenty columns. If it's much more than 300MB then maybe just see if you've accidently selected something that you don't need. Submit the request and within a day, you should get an email saying that your data can be downloaded. It should only take 30 minutes or so, but if you don't get an email within a day then check again the size of the dataset, and customize the sample size to reduce the size initially.
+
+In any case let's tidy up the data.
+
+```{r}
+# Again, closely following code from Alen Mitrovski, Xiaoyan Yang, and Matthew Wankiewicz.
+library(haven)
+library(tidyverse)
+
+raw_poststrat_data <- 
+  read_dta(here::here("dont_push/usa_00004.dta"))
+
+# The Stata format separates labels so reunite those
+raw_poststrat_data <- 
+  labelled::to_factor(raw_poststrat_data)
+head(raw_poststrat_data)
+
+raw_poststrat_data$age <- as.numeric(raw_poststrat_data$age)
+
+poststrat_data <- 
+  raw_poststrat_data %>% 
+  filter(inctot < 9999999) %>% 
+  filter(age >= 18) %>% 
+  mutate(gender = sex) %>% 
+  mutate(
+    age_group = case_when( # case_when works in order and exits when there's a match
+      age <= 29 ~ 'age_18-29',
+      age <= 44 ~ 'age_30-44',
+      age <= 59 ~ 'age_45-59',
+      age >= 60 ~ 'age_60_or_more',
+      TRUE ~ 'Trouble'
+      ),
+    education_level = case_when(
+      educd == "nursery school, preschool" ~ "High school or less",
+      educd == "kindergarten" ~ "High school or less",
+      educd == "grade 1" ~ "High school or less",
+      educd == "grade 2" ~ "High school or less",
+      educd == "grade 3" ~ "High school or less",
+      educd == "grade 4" ~ "High school or less",
+      educd == "grade 5" ~ "High school or less",
+      educd == "grade 6" ~ "High school or less",
+      educd == "grade 7" ~ "High school or less",
+      educd == "grade 8" ~ "High school or less",
+      educd == "grade 9" ~ "High school or less",
+      educd == "grade 10" ~ "High school or less",
+      educd == "grade 11" ~ "High school or less",
+      educd == "12th grade, no diploma" ~ "High school or less",
+      educd == "regular high school diploma" ~ "High school or less",
+      educd == "ged or alternative credential" ~ "High school or less",
+      educd == "some college, but less than 1 year" ~ "Some post secondary",
+      educd == "1 or more years of college credit, no degree" ~ "Some post secondary",
+      educd == "associate's degree, type not specified" ~ "Post secondary or higher",
+      educd == "bachelor's degree" ~ "Post secondary or higher",
+      educd == "master's degree" ~ "Graduate degree",
+      educd == "professional degree beyond a bachelor's degree" ~ "Graduate degree",
+      educd == "doctoral degree" ~ "Graduate degree",
+      educd == "no schooling completed" ~ "High school or less",
+      TRUE ~ 'Trouble'
+      )
+    )
+
+# Just keep relevant variables
+poststrat_data <- 
+  poststrat_data %>% 
+  select(gender,
+         age_group,
+         education_level,
+         stateicp)
+
+# Tidy the class
+poststrat_data <- 
+  poststrat_data %>% 
+  mutate(across(c(gender, stateicp, education_level, age_group), as_factor))
+
+# Save data
+write_csv(poststrat_data, "outputs/data/us_poststrat.csv")
+
+poststrat_data %>% 
+  head()
+```
+
+
+
+
+### Model
+
+```{r}
+library(rstanarm)
+
+us_election_model <- 
+  rstanarm::stan_glm(vote_biden ~ gender + age_group + stateicp + education_level,
+                     data = nationscape_data,
+                     family = binomial(link = "logit"),
+                     prior = normal(0, 1), 
+                     prior_intercept = normal(0, 1),
+                     cores = 2, 
+                     seed = 12345)
+```
+
+
+Post-stratify
+
+```{r}
+# library(tidybayes)
+# 
+# poststrat_data <- 
+#   poststrat_data %>% 
+#   slice(1:10000)
+# 
+# post_stratified_estimates <- 
+#   us_election_model %>% 
+#   tidybayes::add_predicted_draws(newdata = poststrat_data) %>% 
+#   rename(biden_predict = .prediction) %>% 
+#   mutate(biden_predict_prop = biden_predict*cell_prop_of_division_total) %>% 
+#   group_by(state, .draw) %>% 
+#   summarise(biden_predict = sum(biden_predict_prop)) %>% 
+#   group_by(state) %>% 
+#   summarise(mean = mean(biden_predict), 
+#             lower = quantile(biden_predict, 0.025), 
+#             upper = quantile(biden_predict, 0.975))
+# 
+# post_stratified_estimates
+```
+
+
+
+
+
+
+
+
+
+
+
+## Case study - Self-reported abortion incidence in Uganda
+
+**By Monica Alexander**
+
+This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS. 
+
+### Load in data and tidy up 
+
+Load in the packages:
+
+```{r}
+library(tidyverse)
+library(here)
+library(brms)
+library(tidybayes)
+```
+
+#### PMA
+
+Load in the PMA data and make an age category variable:
+
+```{r}
+d <- read_csv(here::here("inputs/data/pma.csv"))
+d <- d %>% filter(age>14, age<50)
+age_groups <- seq(15, 45, by = 5)
+d$age_group <- as.numeric(as.character(cut(d$age, 
+                                           breaks= c(age_groups, Inf), 
+                                           labels = age_groups, 
+                                           right = FALSE)))
+d <- d %>% mutate(age_group = factor(age_group)) %>% 
+  mutate(age_group = fct_relevel(age_group, "35", after = 0))
+```
+
+Create a new `region_2` variable with slightly bigger regions (that match the census data):
+
+```{r}
+d <- d %>% mutate(region_2 = case_when(region == "north"|region== "karamoja"|region == "west nile" ~ "northern",
+                                       region == "eastern" ~ "eastern",
+                                       region == "central 1"|region == "central 2"|region == "east central"|region == "kampala" ~ "central",
+                                       region == "western"|region == "south west" ~ "western"))
+```
+
+#### Census
+
+Load in the data, select the columns we want and make an age category variable:
+
+```{r}
+dc <- haven::read_dta(here::here("inputs/data/uganda_census.dta"))
+dc <- dc %>% 
+  select(regnug, perwt, age, marst, edattain) %>% 
+  mutate(regnug = as_factor(regnug),
+         marst = as_factor(marst),
+         edattain = as_factor(edattain))
+dc <- dc %>% filter(age>14, age<50)
+dc$age_group <- as.numeric(as.character(cut(dc$age, 
+                                           breaks= c(age_groups, Inf), 
+                                           labels = age_groups, 
+                                           right = FALSE)))
+dc <- dc %>% mutate(age_group = factor(age_group)) %>% 
+  mutate(age_group = fct_relevel(age_group, "35", after = 0))
+```
+
+#### Recode education and marital status
+
+The PMA and census have different education and marital status categories. Let's recode so they are the same:
+
+```{r}
+# EDUCATION
+#table(d$educattgen)
+#table(dc$edattain)
+d <- d %>% mutate(educ = case_when(educattgen=="never attended"~"less than primary",
+                                   educattgen=="primary/middle school" ~"primary",
+                                   educattgen=="secondary/post-primary"|educattgen=="tertiary/post-secondary" ~ "more than primary",
+                                   TRUE ~ "NA")) %>% 
+  filter(educ != "NA", marstat!="no response or missing")
+dc <- dc %>% mutate(educ = case_when(edattain=="less than primary completed"~"less than primary",
+                                     edattain=="primary completed"~ "primary",
+                                     edattain=="secondary completed"|edattain=="university completed" ~ "more than primary",
+                                     TRUE ~ "NA")) %>% 
+  filter(educ !="NA")
+## MARITAL STATUS
+#table(d$marstat)
+#table(dc$marst)
+d <- d %>% mutate(marital = case_when(marstat == "never married" ~ "single/never married",
+                                      marstat == "currently living with partner"| marstat == "currently married" ~ "married/in union",
+                                      marstat== "divorced or separated" ~ "divorced/separated",
+                                      marstat== "widow or widower"~ "widowed",
+                                      TRUE ~ "NA"))
+dc <- dc %>% mutate(marital = case_when(marst == "single/never married" ~ "single/never married",
+                                        marst == "married/in union" ~ "married/in union",
+                                        marst== "separated/divorced/spouse absent" ~ "divorced/separated",
+                                        marst== "widowed"~ "widowed",
+                                      TRUE ~ "NA")) %>% 
+  filter(marital != "NA")
+                                
+```
+
+
+### Plot data
+
+Lets calculate the census population by key subgroups:
+
+```{r}
+census_counts <- dc %>% 
+  group_by(regnug, marital, educ, age_group) %>% 
+  summarize(n = sum(perwt)) %>% 
+  filter(age_group!="45") %>% 
+  rename(region_2 = regnug)
+```
+
+
+
+We can get an idea of differences in population distributions by plotting the PMA and census proportions by different variables:
+
+```{r}
+d %>% 
+  group_by(age_group) %>% 
+  tally() %>% 
+  mutate(pma = n/sum(n)) %>% 
+  left_join(census_counts %>% 
+              group_by(age_group) %>% 
+              summarize(n = sum(n)) %>% 
+              mutate(census = n/sum(n)) %>% 
+              select(-n)) %>% 
+  mutate(age_group = as.character(age_group)) %>% 
+  arrange(age_group) %>% 
+  pivot_longer(pma:census) %>% 
+  ggplot(aes(age_group, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
+  theme_bw(base_size = 14) + 
+  labs( x = "age", y = "proportion", title = "Proportion by age group")+
+  scale_fill_brewer(palette = "Set1", name = "source")
+d %>% 
+  group_by(educ) %>% 
+  tally() %>% 
+  mutate(pma = n/sum(n)) %>% 
+  left_join(census_counts %>% 
+              group_by(educ) %>% 
+              summarize(n = sum(n)) %>% 
+              mutate(census = n/sum(n)) %>% 
+              select(-n)) %>% 
+  mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>% 
+  pivot_longer(pma:census) %>% 
+  ggplot(aes(educ, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
+  theme_bw(base_size = 14) + 
+  labs( x = "education", y = "proportion", title = "Proportion by education")+
+  scale_fill_brewer(palette = "Set1", name = "source")
+d %>% 
+  group_by(region_2) %>% 
+  tally() %>% 
+  mutate(pma = n/sum(n)) %>% 
+  left_join(census_counts %>% 
+              group_by(region_2) %>% 
+              summarize(n = sum(n)) %>% 
+              mutate(census = n/sum(n)) %>% 
+              select(-n)) %>% 
+  pivot_longer(pma:census) %>% 
+  ggplot(aes(region_2, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
+  theme_bw(base_size = 14) + 
+  labs( x = "region", y = "proportion", title = "Proportion by region")+
+  scale_fill_brewer(palette = "Set1", name = "source")
+d %>% 
+  group_by(marital) %>% 
+  tally() %>% 
+  mutate(pma = n/sum(n)) %>% 
+  left_join(census_counts %>% 
+              group_by(marital) %>% 
+              summarize(n = sum(n)) %>% 
+              mutate(census = n/sum(n)) %>% 
+              select(-n)) %>% 
+  pivot_longer(pma:census) %>% 
+  ggplot(aes(marital, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
+  theme_bw(base_size = 14) + 
+  labs( x = "marital status", y = "proportion", title = "Proportion by marital status")+
+  scale_fill_brewer(palette = "Set1", name = "source")+coord_flip()
+```
+
+
+### Multilevel regression
+
+Let's run a logistic regression of whether or not an individual reported ever having an abortion with covariates education, age group, and region modelled hierarchically
+
+#### Run the model
+
+```{r}
+mod <- brm(abortion ~ (1|region_2)+educ+ marital +age_group, data = d, family = "bernoulli", silent = TRUE, refresh = 0)
+summary(mod)
+# optional: cf to lme4
+#summary(lme4::glmer(abortion ~ (1|region_2)+marital+educ+ age_group, data = d, family = "binomial"))
+```
+
+#### Get estimated proportions of abortion incidence
+
+Now we need to get the estimated proportions of abortion incidence by each subpopulation of interest. (i.e. by region, marital status, education and age group). First, initiate a tibble with all possible combinations:
+
+```{r}
+regions <- unique(d$region_2)
+marital_groups <- unique(d$marital)
+educ_groups  <- unique(d$educ)
+pred_df <- tibble(region_2 = NA, marital = NA, educ = NA, age_group = NA) %>% 
+  tidyr::complete(region_2 = regions, 
+                  marital = marital_groups,
+                  educ = educ_groups, 
+                  age_group = age_groups) %>% 
+  mutate_all(.funs = funs(as_factor(.))) %>% 
+  drop_na() %>% 
+  mutate(age_group = fct_relevel(age_group, "35", after = 0)) %>% 
+  filter(age_group != "45")
+```
+
+We can use the `fitted_draws` function to obtain posterior samples of the estimated proportion of women reporting an abortion by each group:
+
+```{r}
+pred_probs_draws <- mod %>% 
+  fitted_draws(pred_df  %>% 
+                    select(region_2:age_group) %>% 
+                    mutate(age_group = factor(age_group, levels = age_groups[-length(age_groups)])))
+```
+
+
+### Post-stratify the predicted proportions
+
+For the post-stratfication, we need a data frame that tells us how many women in the census are in each subgroup of interest. Let's join the census counts to the `pred_probs_draws` table above, replacing any NAs with 0's:
+
+```{r}
+pred_probs_draws <- pred_probs_draws %>% 
+  left_join(census_counts) %>% 
+  replace_na(replace = list(n = 0))
+```
+
+For each group and draw, we can calculate the estimated number of women reporting an abortion:
+
+```{r}
+pred_probs_draws <- pred_probs_draws %>% 
+  mutate(n_abo = n*.value)
+```
+
+We can now use this as a basis of getting estimates by any group of interest. For example, the national estimate and lower/upper bounds is
+
+```{r}
+pred_probs_draws %>% 
+  group_by(.draw) %>% 
+  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
+  ungroup() %>% 
+  summarize(prop_abo_group = median(prop_abo), 
+            lower = quantile(prop_abo, 0.1),
+            upper = quantile(prop_abo, 0.9))
+```
+
+By age group:
+
+```{r}
+prop_by_age <- pred_probs_draws %>% 
+  group_by(.draw, age_group) %>% 
+  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
+  group_by(age_group) %>% 
+  summarize(prop_abo_group = median(prop_abo), 
+            lower = quantile(prop_abo, 0.1),
+            upper = quantile(prop_abo, 0.9))
+prop_by_age
+```
+
+By marital status:
+
+```{r}
+prop_by_marital <- pred_probs_draws %>% 
+  group_by(.draw, marital) %>% 
+  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
+  group_by(marital) %>% 
+  summarize(prop_abo_group = median(prop_abo), 
+            lower = quantile(prop_abo, 0.1),
+            upper = quantile(prop_abo, 0.9))
+prop_by_marital
+```
+
+By education:
+
+```{r}
+prop_by_educ <- pred_probs_draws %>% 
+  group_by(.draw, educ) %>% 
+  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
+  group_by(educ) %>% 
+  summarize(prop_abo_group = median(prop_abo), 
+            lower = quantile(prop_abo, 0.1),
+            upper = quantile(prop_abo, 0.9))
+prop_by_educ
+```
+
+By region:
+
+```{r}
+prop_by_region <- pred_probs_draws %>% 
+  group_by(.draw, region_2) %>% 
+  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
+  group_by(region_2) %>% 
+  summarize(prop_abo_group = median(prop_abo), 
+            lower = quantile(prop_abo, 0.1),
+            upper = quantile(prop_abo, 0.9))
+prop_by_region
+```
+
+
+### Plotting and comparing estimates
+
+We can compare the MRP estimates with raw estimates from the PMA survey and also estimates using normal post-stratification
+
+#### Calculating raw estimates and post-stratified estimates
+
+Calculate the raw estimates from the survey:
+
+```{r}
+pma_cells <- d %>% 
+  group_by(region_2, educ, marital, age_group) %>% 
+  summarize(
+            n_sample = n(), n_abo_sample = sum(abortion),
+            prop_abo = n_abo_sample/n_sample)
+```
+
+We can then combine these with census data to get post-stratified counts:
+
+```{r}
+pma_cells <- pma_cells %>% 
+  left_join(census_counts) %>% 
+  mutate(n_abo = prop_abo*n) %>% 
+  replace_na(replace = list(n = 0,n_abo = 0)) %>% 
+  ungroup()
+```
+
+
+#### Join all estimates together
+
+Calculate raw and postratified estimates by different subpopulations and join them to the MRP estimates. By age group:
+
+```{r}
+prop_by_age <- prop_by_age %>% 
+  mutate(type = "mrp") %>% 
+  rename(point = prop_abo_group) %>% 
+  bind_rows(pma_cells %>% group_by(age_group) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
+  left_join(pma_cells %>% group_by(age_group) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
+  pivot_longer(-age_group, names_to = "type", values_to = "point")) %>% 
+  arrange(age_group)
+```
+
+By education:
+
+```{r}
+prop_by_educ <- prop_by_educ %>% 
+  mutate(type = "mrp") %>% 
+  rename(point = prop_abo_group) %>% 
+  bind_rows(pma_cells %>% group_by(educ) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
+  left_join(pma_cells %>% group_by(educ) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
+  pivot_longer(-educ, names_to = "type", values_to = "point")) %>% 
+  arrange(educ)
+```
+
+By marital status:
+
+```{r}
+prop_by_marital <- prop_by_marital %>% 
+  mutate(type = "mrp") %>% 
+  rename(point = prop_abo_group) %>% 
+  bind_rows(pma_cells %>% group_by(marital) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
+  left_join(pma_cells %>% group_by(marital) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
+  pivot_longer(-marital, names_to = "type", values_to = "point")) %>% 
+  arrange(marital)
+```
+
+By region:
+
+```{r}
+prop_by_region <- prop_by_region %>% 
+  mutate(type = "mrp") %>% 
+  rename(point = prop_abo_group) %>% 
+  bind_rows(pma_cells %>% group_by(region_2) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
+  left_join(pma_cells %>% group_by(region_2) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
+  pivot_longer(-region_2, names_to = "type", values_to = "point")) %>% 
+  arrange(region_2)
+```
+
+#### Plot!
+
+By age group:
+
+```{r}
+prop_by_age %>% 
+  ggplot(aes(age_group, point, color = type)) + geom_point(size = 2) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
+  theme_bw(base_size = 14) +
+  labs(title = "Abortion prevalence by age group", x = "age", y = "proportion of women reporting abortions")
+```
+
+By education: 
+
+```{r}
+prop_by_educ %>% 
+  mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>% 
+  ggplot(aes(educ, point, color = type)) + geom_point(size = 2) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
+  theme_bw(base_size = 14) +
+  labs(title = "Abortion prevalence by education", x = "education level", y = "proportion of women reporting abortions")
+```
+
+By marital status
+
+```{r}
+prop_by_marital %>% 
+  mutate(marital = factor(marital, c("single/never married", "married/in union", "divorced/separated", "widowed"))) %>% 
+  ggplot(aes(marital, point, color = type)) + geom_point(size = 2) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
+  theme_bw(base_size = 14) +
+  labs(title = "Abortion prevalence by marital status", x = "", y = "proportion of women reporting abortions")+
+  coord_flip()
+```
+
+By region
+
+```{r}
+prop_by_region %>% 
+  ggplot(aes(region_2, point, color = type)) + geom_point(size = 2) + 
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
+  theme_bw(base_size = 14) +
+  labs(title = "Abortion prevalence by region", x = "", y = "proportion of women reporting abortions")
+```
+
+
+
+
+
 
 
 ## Concluding remarks
