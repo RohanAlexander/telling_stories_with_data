@@ -220,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot"><i class="fa fa-check"></i><b>3.6</b> ggplot</a>
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
 <li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
@@ -283,6 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
 <li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+<li class="chapter" data-level="5.4.3" data-path="static-communication.html"><a href="static-communication.html#geocoding"><i class="fa fa-check"></i><b>5.4.3</b> Geocoding</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
 <ul>
@@ -707,7 +708,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="workflow" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Workflow</h1>
-<p><em>Last updated: 2 March 2021.</em></p>
+<p><em>Last updated: 25 April 2021.</em></p>
 <p><strong>Required reading</strong></p>
 <ul>
 <li>Alexander, Monica, 2019, ‘Reproducibility in demographic research,’ <a href="https://www.monicaalexander.com/posts/2019-10-20-reproducibility/" class="uri">https://www.monicaalexander.com/posts/2019-10-20-reproducibility/</a>.</li>
@@ -849,7 +850,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Some of the examples that <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> cites (which turned out to be dodgy) don’t really matter e.g. ESP or the power pose. It doesn’t really matter. But increasingly the same methods are being applied in areas where they do matter e.g. ‘nudge’ units. Similarly, <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> makes it clear that it’s a big problem in data science.</p>
 <p>The ‘gay face’ paper that <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> writes about has not released their dataset. We have no way of knowing what is going on with it. They have found a certain set of results based on that dataset, their methods, and what they did, but we have no way of knowing how much that matters. As <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> says ‘the paper itself does some things right. It has a detailed discussion of the limitations of the data and the method.’ You must do this in everything that you write, but it is not enough.</p>
 <p>Without the data, we don’t know what their results speak to as we don’t understand how representative the sample is. If the dataset is biased, then that undermines their claims. There’s a reason that while initial medical trials are done on mice, etc, eventually human trials are required.</p>
-<p>In order to do the study they needed a trained dataset. They trained it using Mechanical Turk. Figure <a href="workflow.html#fig:mattsonexamplemap">4.1</a> is from <span class="citation"><a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson</a> (<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">2017</a>)</span>.</p>
+<p>In order to do the study, they needed a trained dataset. They trained it using Mechanical Turk. Figure <a href="workflow.html#fig:mattsonexamplemap">4.1</a> is from <span class="citation"><a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson</a> (<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">2017</a>)</span>.</p>
 <div class="figure"><span id="fig:mattsonexamplemap"></span>
 <img src="figures/gayface_extract.png" alt="Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson." width="90%" />
 <p class="caption">
@@ -871,7 +872,7 @@ Figure 4.1: Instructions for workers to do classification piecework on the Amazo
 <h2><span class="header-section-number">4.2</span> R Markdown</h2>
 <div id="getting-started-2" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Getting started</h3>
-<p>R Markdown is a mark-up language similar to html or LaTeX, in comparison to a WYSIWYG language, such as Word. This means that all of the aspects are consistent, for instance, all ‘main headings’ will look the same. However it means that use symbols to designate how you would like certain aspects to appear, and it is only when you compile it that you get to see it.</p>
+<p>R Markdown is a mark-up language similar to html or LaTeX, in comparison to a WYSIWYG language, such as Word. This means that all of the aspects are consistent, for instance, all ‘main headings’ will look the same. However, it means that use symbols to designate how you would like certain aspects to appear, and it is only when you compile it that you get to see it.</p>
 <p>R Markdown is a variant of regular markdown that is specifically designed to allow R code chunks to be included. The advantage is that you can get a ‘live’ document in which code executes and is then printed to a document. The disadvantage is that it can take a while for the document to compile because all of the code needs to run.</p>
 <p>You can create a new R Markdown document within R Studio (File -&gt; New File -&gt; R Markdown Document). Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections.</p>
 </div>
@@ -978,7 +979,7 @@ bibliography: bibliography.bib
 (#fig:my_unique_name)More bills of penguins
 </p>
 </div>
-<p>You can do similar for tables and equations e.g <code>(Table \@ref(tab:penguinhead))</code> will produce: (Table <a href="workflow.html#tab:penguinhead">4.1</a>) (again, don’t forget to ad <code>tab</code> in front).</p>
+<p>You can do similar for tables and equations e.g. <code>(Table \@ref(tab:penguinhead))</code> will produce: (Table <a href="workflow.html#tab:penguinhead">4.1</a>) (again, don’t forget to ad <code>tab</code> in front).</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="workflow.html#cb151-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb151-2"><a href="workflow.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span> </span>
 <span id="cb151-3"><a href="workflow.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
@@ -1027,12 +1028,12 @@ Y = a + b X (\#eq:slope)
 <p><span class="math display" id="eq:slope">\[\begin{equation}
 Y = a + b X \tag{4.1}
 \end{equation}\]</span></p>
-<p>When you are using cross-references, it’s important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible avoid puncuation and just stick to letters.</p>
+<p>When you are using cross-references, it’s important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible, avoid punctuation and just stick to letters.</p>
 </div>
 </div>
 <div id="r-projects" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> R projects</h2>
-<p>RStudio has the option of creating a project, which allows you to keep all the files (data, analysis, report etc) associated with a particular project together. To create a project, click Click File &gt; New Project, then select empty project, name your project and think about where you want to save it. For example, if you are creating a project for Problem Set 2, you might call it <code>ps2</code> and save it in a sub-folder called <code>PS2</code> in your INF2178 folder.</p>
+<p>RStudio has the option of creating a project, which allows you to keep all the files (data, analysis, report etc) associated with a particular project together. To create a project, select ‘Click File’ -&gt; ‘New Project,’ then select empty project, name your project and think about where you want to save it. For example, if you are creating a project for Problem Set 2, you might call it <code>ps2</code> and save it in a sub-folder called <code>PS2</code> in your INF2178 folder.</p>
 <p>Once you have created a project, a new file with the extension <code>.RProj</code> will appear in that file. As an example, download the R help folder. Whenever I work on class materials, I open the project file and work from that.</p>
 <p>The main advantage of projects is that you don’t have to set the working directory or type the whole file path to read in a file (for example, a data file). So instead of reading a csv from <code>"~/Documents/toronto/teaching/INF2178/data/"</code> you can just read it in from <code>data/</code>.</p>
 <p>To meet even the minimal expected level of reproducibility, you must use R projects. You must not use <code>setwd()</code> because that ties your work to your computer.</p>
@@ -1059,7 +1060,7 @@ Figure 4.2: An infamous response to the launch of Dropbox in 2007, trivialising 
 </div>
 <p>Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. GitHub used to be the weapon of choice, but they were sold to Microsoft in 2018 and since then other variants such as GitLab have risen in popularity. We will introduce GitHub here because it remains the most popular, and it is built into RStudio, however you should feel free to explore other options.</p>
 <p>One of the hardest aspects of Git, and the rest, for me was the terminology. Folders are called ‘repos.’ Saving is called a ‘commit.’ You’ll get used to it eventually, but just so you know - it’s not you, it’s Git - feeling confused it entirely normal</p>
-<p>These are brief notes and you should refer to Jenny Bryan’s book for further detail. Frankly, I can’t improve on Bryan’s book and I use them regularly myself.</p>
+<p>These are brief notes, and you should refer to Jenny Bryan’s book for further detail. Frankly, I can’t improve on Bryan’s book and I use them regularly myself.</p>
 </div>
 <div id="git" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Git</h3>
@@ -1079,7 +1080,7 @@ Figure 4.3: How to access the Terminal within R Studio
 <span id="cb154-2"><a href="workflow.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></span>
 <span id="cb154-3"><a href="workflow.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global --list</span></code></pre></div>
 <p>The details that you enter here will be public (there are various ways to hide your email address if you need to do this and GitHub provides instructions about this).</p>
-<p>Again, if you have issues or need more detailed instructions please go to Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
+<p>Again, if you have issues or need more detailed instructions, please go to Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="github" class="section level3" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> GitHub</h3>
@@ -1126,7 +1127,7 @@ Figure 4.7: Get the details of your new repository
 </div>
 <div id="using-git-within-rstudio" class="section level3" number="4.4.4">
 <h3><span class="header-section-number">4.4.4</span> Using Git within RStudio</h3>
-<p>I promised that GitHub was built into RStudio, but so far we’ve not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before.</p>
+<p>I promised that GitHub was built into RStudio, but so far, we’ve not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before.</p>
 <p>At this point, you open RStudio, select <code>Files</code>, <code>New Project</code>, <code>Version Control</code>, <code>Git</code>, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking ‘Open in new session.’ This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.</p>
 <p>At this point, you’ll have a ‘Git’ tab (Figure <a href="workflow.html#fig:rstudiogit">4.8</a>).</p>
 <div class="figure"><span id="fig:rstudiogit"></span>
@@ -1184,12 +1185,12 @@ Figure 4.8: The Git pane in R Studio
 <p>(L)et’s break down the gates, there’s enough room for everyone</p>
 <p>Sharla Gelfand, <a href="https://twitter.com/sharlagelfand/status/1237365576701542400">10 March 2020</a>.</p>
 </blockquote>
-<p>I’m a little hesitant to make suggestions with regard to mentality. If you write code, then you’re coder regardless of how you do it, what you’re using it for, or who you are. But I want to share a few traits that I have found have been useful to cultivate in myself. That said, entirely, whatever works for you is great, so take or leave this section.</p>
+<p>I’m a little hesitant to make suggestions with regard to mentality. If you write code, then you’re a coder regardless of how you do it, what you’re using it for, or who you are. But I want to share a few traits that I have found have been useful to cultivate in myself. That said, entirely, whatever works for you is great, so take or leave this section.</p>
 <ul>
-<li>Focused: I’ve found that having an aim to ‘learn R’ or something similar tends to be problematic, because there’s no real end point to that. Instead I would recommend smaller, more specific goals, such as ‘make a histogram about the 2019 Canadian Election with ggplot.’ That is something that you can focus on and achieve. With more nebulous goals it becomes easier to get lost on tangents, much more difficult to get help, and I’ve noticed that people who have nebulous goals seem to give up.</li>
+<li>Focused: I’ve found that having an aim to ‘learn R’ or something similar tends to be problematic, because there’s no real end point to that. Instead, I would recommend smaller, more specific goals, such as ‘make a histogram about the 2019 Canadian Election with ggplot.’ That is something that you can focus on and achieve. With more nebulous goals it becomes easier to get lost on tangents, much more difficult to get help, and I’ve noticed that people who have nebulous goals seem to give up.</li>
 <li>Curious: I’ve found that it’s useful to just have a go. In general, the worst that happens is that you waste your time and have to give up. You can rarely break something irreparably with code. If you want to know what happens if you pass a ‘vector’ instead of a ‘dataframe’ to <code>ggplot</code> then just try it.</li>
 <li>Pragmatic: At the same time, I’ve found that it’s best to try to stick within the bounds of what I know and just make one small change each time. For instance if you’re wanting to do some regression, and curious about the <code>tidymodels</code> package <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> instead of <code>lm()</code>. Perhaps you could just use one aspect from the <code>tidymodels</code> package initially and then make another change next time. In my opinion ugly code that gets the job done, is better than beautiful code that is never finished.</li>
-<li>Tenacious: This is a balancing act. I always find there are unexpected problems and issues with every project. On the one hand persevering despite these is a good tendency. But on the other hand I’ve learned that sometimes I need to be prepared to give up on something if it doesn’t seem like a break-through is possible. This is where I have found that mentors can be useful as they tend to have a better idea. This is also where planning comes in.</li>
+<li>Tenacious: This is a balancing act. I always find there are unexpected problems and issues with every project. On the one hand persevering despite these is a good tendency. But on the other hand, I’ve learned that sometimes I need to be prepared to give up on something if it doesn’t seem like a break-through is possible. This is where I have found that mentors can be useful as they tend to have a better idea. This is also where planning comes in.</li>
 <li>Planned: I have found it is very useful to plan out what you are going to do. For instance, you may want to make a histogram of the 2019 Canadian Election. I find it useful to plan the steps that are needed and even to sketch out how I might implement each step. For instance, the first step is to get the data. What packages might be useful? Where might the data be? What is our back-up plan for if we can’t find the data in that initial spot?</li>
 <li>Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but I recommend that you try to turn them off to a certain extent when it comes to R. In the first instance just try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship.</li>
 </ul>
@@ -1280,8 +1281,8 @@ raw_data &lt;- readr::read_csv(&quot;inputs/data/raw_data.csv&quot;)
 <li>Time: What is the appropriate follow-up time to assess outcome</li>
 </ul>
 </blockquote>
-<p>Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump’s tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.</p>
-<p>Usually the creation of a counterfactual is crucial. We’ll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the ‘if’ is false. Consider the example of Humpty Dumpty from Lewis Carroll’s Through the Looking-Glass:</p>
+<p>Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump’s tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.</p>
+<p>Usually, the creation of a counterfactual is crucial. We’ll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the ‘if’ is false. Consider the example of Humpty Dumpty from Lewis Carroll’s Through the Looking-Glass:</p>
 <div class="figure"><span id="fig:humpty"></span>
 <img src="figures/humpty.png" alt="Humpty Dumpty example" width="90%" />
 <p class="caption">
@@ -1294,8 +1295,8 @@ Figure 4.9: Humpty Dumpty example
 (The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.)</p>
 <p>To see why this may be relevant, let’s go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let’s just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
 <span class="math display">\[\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2\]</span></p>
-<p>To see why this may be relevant, consider the example of Google’s AI cancer testing <span class="citation">(<a href="references-1.html#ref-citeGoogleAIbreastcancer" role="doc-biblioref">Shetty and Tse 2020</a>)</span>. Basically what they have done is to train a model that can identify breast cancer. They claim ‘greater accuracy, fewer false positives, and fewer false negatives than experts.’</p>
-<p>I, and many others <span class="citation">(<a href="references-1.html#ref-citeWiredonGoogle" role="doc-biblioref">Aschwanden 2020</a>)</span>, would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened they tend to find various things that are ‘wrong’ with them. The issue is that they’re perfectly healthy and that we’ve rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.</p>
+<p>To see why this may be relevant, consider the example of Google’s AI cancer testing <span class="citation">(<a href="references-1.html#ref-citeGoogleAIbreastcancer" role="doc-biblioref">Shetty and Tse 2020</a>)</span>. Basically, what they have done is to train a model that can identify breast cancer. They claim ‘greater accuracy, fewer false positives, and fewer false negatives than experts.’</p>
+<p>I, and many others <span class="citation">(<a href="references-1.html#ref-citeWiredonGoogle" role="doc-biblioref">Aschwanden 2020</a>)</span>, would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are ‘wrong’ with them. The issue is that they’re perfectly healthy and that we’ve rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.</p>
 <p>Given low prevalence in the community, we probably don’t want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary ‘treatment’ would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.</p>
 
 </div>

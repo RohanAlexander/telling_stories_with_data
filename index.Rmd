@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: April 19, 2021
+date: April 25, 2021
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [bibliography.bib, packages.bib]
@@ -17,7 +17,7 @@ always_allow_html: true
 
 # Introduction
 
-*Last updated: 19 April 2021.*
+*Last updated: 25 April 2021.*
 
 **These notes are being actively developed.**
 
@@ -133,7 +133,7 @@ These notes assume familiarity with first-year statistics. For instance, if you 
 
 These notes are structured around a fairly dense 12-week course. Each chapter contains a list of required reading, as well as a list of recommended reading for those who are interested in the topic and want a starting place for further exploration. All chapters contain a summary of the key concepts and skills that are developed in that chapter. Code and technical chapters additionally contain a list of the main packages and functions that are used in the chapter. Many of the chapters also have a pre-quiz. This is a short quiz that you should complete after doing the required readings, but before going through the chapter to test your knowledge. After completing the chapter, you should go back through the lists and the pre-quiz to make sure that you understand each aspect. 
 
-There are problem sets throughout these notes. These are opportunities for you to conduct your own research on a topic that is of interest to you. Although the initial problem sets require you to use data from the Toronto Open Data Portal (https://open.toronto.ca/), after those first few you are able to use any appropriate dataset. Although open-ended research may be new to you, the extent to which you are able to develop your own questions, use quantitative methods to explore them, and communicate your story to a reader, is the true measure of the success of these notes.
+There are problem sets throughout these notes. These are opportunities for you to conduct your own research on a topic that is of interest to you. Although the initial problem set requires you to use data from the Toronto Open Data Portal (https://open.toronto.ca/), after that you are able to use any appropriate dataset. Although open-ended research may be new to you, the extent to which you are able to develop your own questions, use quantitative methods to explore them, and communicate your story to a reader, is the true measure of the success of these notes.
 
 
 ## Acknowledgements

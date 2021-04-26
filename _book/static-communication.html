@@ -220,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.2" data-path="r-essentials.html"><a href="r-essentials.html#simulating-data"><i class="fa fa-check"></i><b>3.5.2</b> Simulating data</a></li>
 <li class="chapter" data-level="3.5.3" data-path="r-essentials.html"><a href="r-essentials.html#functions"><i class="fa fa-check"></i><b>3.5.3</b> Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot-i"><i class="fa fa-check"></i><b>3.6</b> ggplot I</a>
+<li class="chapter" data-level="3.6" data-path="r-essentials.html"><a href="r-essentials.html#ggplot"><i class="fa fa-check"></i><b>3.6</b> ggplot</a>
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="r-essentials.html"><a href="r-essentials.html#main-features"><i class="fa fa-check"></i><b>3.6.1</b> Main features</a></li>
 <li class="chapter" data-level="3.6.2" data-path="r-essentials.html"><a href="r-essentials.html#facets"><i class="fa fa-check"></i><b>3.6.2</b> Facets</a></li>
@@ -283,6 +283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="static-communication.html"><a href="static-communication.html#australian-polling-places"><i class="fa fa-check"></i><b>5.4.1</b> Australian polling places</a></li>
 <li class="chapter" data-level="5.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>5.4.2</b> Toronto bike parking</a></li>
+<li class="chapter" data-level="5.4.3" data-path="static-communication.html"><a href="static-communication.html#geocoding"><i class="fa fa-check"></i><b>5.4.3</b> Geocoding</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>5.5</b> Writing</a>
 <ul>
@@ -707,7 +708,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="static-communication" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Static communication</h1>
-<p><em>Last updated: 19 April 2021.</em></p>
+<p><em>Last updated: 25 April 2021.</em></p>
 <p><strong>Required reading</strong></p>
 <ul>
 <li>(The) Economist, 2013, ‘Johnson: Those six little rules,’ Prospero, 29 July 2013, available at: <a href="https://www.economist.com/prospero/2013/07/29/johnson-those-six-little-rules" class="uri">https://www.economist.com/prospero/2013/07/29/johnson-those-six-little-rules</a>.</li>
@@ -1087,7 +1088,7 @@ Figure 5.7: Relationship between income and years of education
 </div>
 <div id="histogram" class="section level4" number="5.2.4.2">
 <h4><span class="header-section-number">5.2.4.2</span> Histogram</h4>
-<p>If we want to get counts by groups then we may want to use a histogram. Figure <a href="static-communication.html#fig:hisogramone">5.8</a> shows the counts for our simulated incomes.</p>
+<p>If we want to get counts by groups, then we may want to use a histogram. Figure <a href="static-communication.html#fig:hisogramone">5.8</a> shows the counts for our simulated incomes.</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="static-communication.html#cb178-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
 <span id="cb178-2"><a href="static-communication.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> income)) <span class="sc">+</span></span>
 <span id="cb178-3"><a href="static-communication.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
@@ -2062,7 +2063,6 @@ F
 </div>
 <div id="maps" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Maps</h2>
-<p><strong>TODO: Add something about geocoding.</strong></p>
 <p>In many ways maps can be thought of as a fancy graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We are used to this type of set-up, for instance, in a ggplot setting that is quite familiar. Static maps will be useful for printed output, such as a PDF or Word report, or where there is something in particular that you want to illustrate.</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="static-communication.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb187-2"><a href="static-communication.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>( <span class="co"># First draw an outline</span></span>
@@ -2118,8 +2118,8 @@ F
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="static-communication.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If I&#39;m being honest, this &#39;simple example&#39; took me six hours to work out. Firstly </span></span>
 <span id="cb193-2"><a href="static-communication.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to find Canada and then to find Canadian cities.</span></span></code></pre></div>
-<p>As is often the case with R, there are many different ways to get started create static maps. We’ve already seen how they can be built using simply ggplot, but here we’ll explore one package that has a bunch of functionality built in that will make things easier: <code>ggmap</code>.</p>
-<p>There are two essential components to a map: 1) some border or background image (also known as a tile); and 2) something of interest within that border or on top of that tile. In <code>ggmap</code>, we will use an open source option for our tile, Stamen Maps (maps.stamen.com), and we will use plot points based on latitude and longitude.</p>
+<p>As is often the case with R, there are many different ways to get started creating static maps. We’ve already seen how they can be built using simply ggplot, but here we’ll explore one package that has a bunch of functionalities built in that will make things easier: <code>ggmap</code>.</p>
+<p>There are two essential components to a map: 1) some border or background image (also known as a tile); and 2) something of interest within that border or on top of that tile. In <code>ggmap</code>, we will use an open-source option for our tile, Stamen Maps (maps.stamen.com), and we will use plot points based on latitude and longitude.</p>
 <div id="australian-polling-places" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Australian polling places</h3>
 <p>Like Canada, in Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.</p>
@@ -2183,8 +2183,6 @@ F
 <p>We may like to save the map so that we don’t have to draw it every time, and we can do that in the same way as any other graph, using <code>ggsave()</code>.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="static-communication.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;outputs/figures/map.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 <p>Finally, the reason that I used Stamen Maps and OpenStreetMap is because it is open source, however you can also use Google Maps if you want. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. The <code>get_googlemap()</code> function with <code>ggmap</code>, brings some nice features that <code>get_stamenmap()</code> does not have. For instance, you can enter a placename and it’ll do it’s best to find it rather than needing to specify a bounding box.</p>
-<!-- ### Canadian polling places -->
-<!-- ### Airbnb data -->
 </div>
 <div id="toronto-bike-parking" class="section level3" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Toronto bike parking</h3>
@@ -2197,7 +2195,7 @@ F
 <span id="cb201-6"><a href="static-communication.html#cb201-6" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(resources, <span class="fu">row_number</span>()<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">get_resource</span>()</span>
 <span id="cb201-7"><a href="static-communication.html#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(raw_data, <span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
 <span id="cb201-8"><a href="static-communication.html#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(raw_data)</span></code></pre></div>
-<p>Now that we’ve saved a copy of the data, we can use that one. First we need to clean it up a bit. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we’ll just ignore it.</p>
+<p>Now that we’ve saved a copy of the data, we can use that one. First, we need to clean it up a bit. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we’ll just ignore it.</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="static-communication.html#cb202-1" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
 <span id="cb202-2"><a href="static-communication.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll just focus on the data that we want</span></span>
 <span id="cb202-3"><a href="static-communication.html#cb202-3" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ward =</span> raw_data<span class="sc">$</span>WARD,</span>
@@ -2217,7 +2215,7 @@ F
 <span id="cb203-7"><a href="static-communication.html#cb203-7" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span> </span>
 <span id="cb203-8"><a href="static-communication.html#cb203-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ward <span class="sc">==</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb203-9"><a href="static-communication.html#cb203-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ward)</span></code></pre></div>
-<p>If you look at the dataset at this point then you’ll notice that there is a row for every bike parking spot. But we don’t really need to know that, because sometimes there are lots right next to each other. Instead we’d just like the one point (we’ll take advantage of this in an interactive graph in a moment). So we want to create a count by address, and then just get one instance per address.</p>
+<p>If you look at the dataset at this point, then you’ll notice that there is a row for every bike parking spot. But we don’t really need to know that, because sometimes there are lots right next to each other. Instead, we’d just like the one point (we’ll take advantage of this in an interactive graph in a moment). So, we want to create a count by address, and then just get one instance per address.</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="static-communication.html#cb204-1" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> </span>
 <span id="cb204-2"><a href="static-communication.html#cb204-2" aria-hidden="true" tabindex="-1"></a>  bike_data <span class="sc">%&gt;%</span></span>
 <span id="cb204-3"><a href="static-communication.html#cb204-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(street_address) <span class="sc">%&gt;%</span> </span>
@@ -2239,7 +2237,7 @@ F
 ## 5 888 Yonge St         43.7     -79.4               1
 ## 6 180 Elizabeth St     43.7     -79.4              10</code></pre>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="static-communication.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(bike_data, <span class="st">&quot;outputs/data/bikes.csv&quot;</span>)</span></code></pre></div>
-<p>Now we can grab our tile, and add our bike rack data onto it.</p>
+<p>Now we can grab our tile and add our bike rack data onto it.</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="static-communication.html#cb207-1" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="sc">-</span><span class="fl">79.420390</span>, <span class="at">bottom =</span> <span class="fl">43.642658</span>, <span class="at">right =</span> <span class="sc">-</span><span class="fl">79.383354</span>, <span class="at">top =</span> <span class="fl">43.672557</span>)</span>
 <span id="cb207-2"><a href="static-communication.html#cb207-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb207-3"><a href="static-communication.html#cb207-3" aria-hidden="true" tabindex="-1"></a>toronto_stamen_map <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(bbox, <span class="at">zoom =</span> <span class="dv">14</span>, <span class="at">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span>
@@ -2254,6 +2252,22 @@ F
 <span id="cb207-12"><a href="static-communication.html#cb207-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>) <span class="sc">+</span></span>
 <span id="cb207-13"><a href="static-communication.html#cb207-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+</div>
+<div id="geocoding" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Geocoding</h3>
+<p>To this point we just assumed that we already had geocoded data. The places ‘Canberra, Australia,’ or ‘Ottawa, Canada,’ are just names, they don’t actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding.</p>
+<p>There are a range of options to geocode data in R, but one good package is <code>tidygeocoder</code> <span class="citation">(<a href="references-1.html#ref-citetidygeocoder" role="doc-biblioref">Cambon and Belanger 2021</a>)</span>. To get started using the package we need a dataframe of locations. So we’ll just quickly make one here.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="static-communication.html#cb208-1" aria-hidden="true" tabindex="-1"></a>some_locations <span class="ot">&lt;-</span> </span>
+<span id="cb208-2"><a href="static-communication.html#cb208-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">city =</span> <span class="fu">c</span>(<span class="st">&#39;Canberra&#39;</span>, <span class="st">&#39;Ottawa&#39;</span>),</span>
+<span id="cb208-3"><a href="static-communication.html#cb208-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&#39;Australia&#39;</span>, <span class="st">&#39;Canada&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="static-communication.html#cb209-1" aria-hidden="true" tabindex="-1"></a>tidygeocoder<span class="sc">::</span><span class="fu">geo</span>(<span class="at">city =</span> some_locations<span class="sc">$</span>city, </span>
+<span id="cb209-2"><a href="static-communication.html#cb209-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">country =</span> some_locations<span class="sc">$</span>country, </span>
+<span id="cb209-3"><a href="static-communication.html#cb209-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&#39;osm&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 4
+##   city     country     lat  long
+##   &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1 Canberra Australia -35.3 149. 
+## 2 Ottawa   Canada     45.4 -75.7</code></pre>
 </div>
 </div>
 <div id="writing" class="section level2" number="5.5">
@@ -2284,7 +2298,7 @@ F
 </div>
 <div id="figures-tables-equations-and-technical-terms" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> Figures, tables, equations, and technical terms</h3>
-<p>Figure and tables are a critical aspect of convincing people of your story. In a graph you can show your data and then let people decide for themselves. And in a table you can more easily summarise your data.</p>
+<p>Figure and tables are a critical aspect of convincing people of your story. In a graph you can show your data and then let people decide for themselves. And in a table, you can more easily summarise your data.</p>
 <p>Figures, tables, equations, etc, should be numbered and then referenced in the text e.g. “Figure 1 shows…” and then have Figure 1.</p>
 <p>You should make sure that all aspects of your graph are legible. Always label all of the axes. Your graphs should have titles, and the point that you want to communicate should be clear.</p>
 <p>If you use a technical term, then it should be briefly explained in plain language for readers who might not be familiar with it. A great example of this is <a href="https://www.monicaalexander.com/posts/2019-20-01-babynames/">this post</a> by Monica Alexander where she explains the Gini coefficient:</p>
@@ -2294,7 +2308,7 @@ F
 </div>
 <div id="on-brevity" class="section level3" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> On brevity</h3>
-<div class="figure"><span id="fig:unnamed-chunk-116"></span>
+<div class="figure"><span id="fig:unnamed-chunk-118"></span>
 <img src="figures/johnson.png" alt="'No more than four pages, or he's never going to read it. Two pages is preferable.'" width="90%" />
 <p class="caption">
 Figure 5.9: ‘No more than four pages, or he’s never going to read it. Two pages is preferable.’
@@ -2319,12 +2333,12 @@ Figure 5.9: ‘No more than four pages, or he’s never going to read it. Two pa
 </div>
 <div id="other-1" class="section level3" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> Other</h3>
-<p>Typos and other grammatical mistakes affect the credibility of your claims. If the reader can’t trust you to use a spell-checker then why should they trust you to use logistic regression? Microsoft Word has a fantastic spell-checker that is much better than what is available for R Markdown: copy/paste your work into there, look for the red lines and fix them in your R Markdown. Then look for the green lines and think about if you need to fix them in your R Markdown. If you don’t have Word then Google Docs is pretty good and so is Apple’s Pages.</p>
+<p>Typos and other grammatical mistakes affect the credibility of your claims. If the reader can’t trust you to use a spell-checker, then why should they trust you to use logistic regression? Microsoft Word has a fantastic spell-checker that is much better than what is available for R Markdown: copy/paste your work into there, look for the red lines and fix them in your R Markdown. Then look for the green lines and think about if you need to fix them in your R Markdown. If you don’t have Word, then Google Docs is pretty good and so is Apple’s Pages.</p>
 <p>A few other general tips that I have stolen from various people including the Reserve Bank of Australia’s style guide:</p>
 <ul>
 <li>Think about what you are writing. Aim to write everything as though it were on the front page of the newspaper, because one day it could be.</li>
 <li>Be concise. Remove as many words as possible.</li>
-<li>Be direct. Think about the structure of your story, and identify the key pieces of information and arrange them so that your paper flows logically from one to the next. You should use sub-headings if you need.</li>
+<li>Be direct. Think about the structure of your story and identify the key pieces of information and arrange them so that your paper flows logically from one to the next. You should use sub-headings if you need.</li>
 <li>Be precise. For instance, the stock-market didn’t improve or worsen, it rose or fell. Distinguish levels from rates of change.</li>
 <li>Be clear.</li>
 <li>Write simply.</li>

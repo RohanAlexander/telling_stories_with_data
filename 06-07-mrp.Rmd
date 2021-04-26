@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 - Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, *Regression and Other Stories*, Cambridge University Press, Chapter 17.
 - Hanretty, Chris, 2019, 'An introduction to multilevel regression and post-stratification for estimating constituency opinion', *Political Studies Review*, https://doi.org/10.1177/1478929919864773.
 - Kastellec, Jonathan, Jeffrey Lax, and Justin Phillips, 2016, 'Estimating State Public Opinion With Multi-Level Regression and Poststratification using R', https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf. 
-- Kennedy, Lauren, and Katharine Khanna and Daniel Simpson and Andrew Gelman, 2020, 'Using sex and gender in survey adjustment', https://arxiv.org/abs/2009.14401.
+- Kennedy, Lauren, Katharine Khanna, Daniel Simpson, and Andrew Gelman, 2020, 'Using sex and gender in survey adjustment', https://arxiv.org/abs/2009.14401.
 - Kennedy, Lauren, and Jonah Gabry, 2019, 'MRP with rstanarm', rstanarm vignettes, 8 October, https://mc-stan.org/rstanarm/articles/mrp.html.
 - Kennedy, Lauren, and Andrew Gelman, 2019, 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample', https://arxiv.org/abs/1906.11323.
 - Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, 'Forecasting elections with non-representative polls', *International Journal of Forecasting*, 31, no. 3, pages 980-991.

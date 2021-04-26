@@ -1,5 +1,5 @@
 ---
-date: March 2, 2021
+date: April 25, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Workflow
 
-*Last updated: 2 March 2021.*
+*Last updated: 25 April 2021.*
 
 
 **Required reading**
@@ -170,7 +170,7 @@ The 'gay face' paper that @Simpson2017 writes about has not released their datas
 
 Without the data, we don't know what their results speak to as we don't understand how representative the sample is. If the dataset is biased, then that undermines their claims. There's a reason that while initial medical trials are done on mice, etc, eventually human trials are required.
 
-In order to do the study they needed a trained dataset. They trained it using Mechanical Turk. Figure \@ref(fig:mattsonexamplemap) is from @Mattson2017.
+In order to do the study, they needed a trained dataset. They trained it using Mechanical Turk. Figure \@ref(fig:mattsonexamplemap) is from @Mattson2017.
 
 ```{r mattsonexamplemap, echo=FALSE, fig.cap="Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson.", out.width = '90%'}
 knitr::include_graphics("figures/gayface_extract.png")
@@ -194,7 +194,7 @@ What steps can we take to make our work reproducible?
 
 ### Getting started
 
-R Markdown is a mark-up language similar to html or LaTeX, in comparison to a WYSIWYG language, such as Word. This means that all of the aspects are consistent, for instance, all 'main headings' will look the same. However it means that use symbols to designate how you would like certain aspects to appear, and it is only when you compile it that you get to see it.
+R Markdown is a mark-up language similar to html or LaTeX, in comparison to a WYSIWYG language, such as Word. This means that all of the aspects are consistent, for instance, all 'main headings' will look the same. However, it means that use symbols to designate how you would like certain aspects to appear, and it is only when you compile it that you get to see it.
 
 R Markdown is a variant of regular markdown that is specifically designed to allow R code chunks to be included. The advantage is that you can get a 'live' document in which code executes and is then printed to a document. The disadvantage is that it can take a while for the document to compile because all of the code needs to run.
 
@@ -325,7 +325,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
-You can do similar for tables and equations e.g `(Table \@ref(tab:penguinhead))` will produce: (Table \@ref(tab:penguinhead)) (again, don't forget to ad `tab` in front).
+You can do similar for tables and equations e.g. `(Table \@ref(tab:penguinhead))` will produce: (Table \@ref(tab:penguinhead)) (again, don't forget to ad `tab` in front).
 
 ```{r penguinhead, echo = TRUE}
 penguins %>% 
@@ -346,13 +346,13 @@ Y = a + b X (\#eq:slope)
 Y = a + b X (\#eq:slope)
 \end{equation}
 
-When you are using cross-references, it's important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible avoid puncuation and just stick to letters.
+When you are using cross-references, it's important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible, avoid punctuation  and just stick to letters.
 
 
 
 ## R projects
 
-RStudio has the option of creating a project, which allows you to keep all the files (data, analysis, report etc) associated with a particular project together. To create a project, click Click File > New Project, then select empty project, name your project and think about where you want to save it. For example, if you are creating a project for Problem Set 2, you might call it `ps2` and save it in a sub-folder called `PS2` in your INF2178 folder. 
+RStudio has the option of creating a project, which allows you to keep all the files (data, analysis, report etc) associated with a particular project together. To create a project, select 'Click File' -> 'New Project', then select empty project, name your project and think about where you want to save it. For example, if you are creating a project for Problem Set 2, you might call it `ps2` and save it in a sub-folder called `PS2` in your INF2178 folder. 
 
 Once you have created a project, a new file with the extension `.RProj` will appear in that file. As an example, download the R help folder. Whenever I work on class materials, I open the project file and work from that. 
 
@@ -388,7 +388,7 @@ Hence, GitHub, GitLab, and various other companies offer easier-to-use services 
 
 One of the hardest aspects of Git, and the rest, for me was the terminology. Folders are called 'repos'. Saving is called a 'commit'. You'll get used to it eventually, but just so you know - it's not you, it's Git - feeling confused it entirely normal
 
-These are brief notes and you should refer to Jenny Bryan's book for further detail. Frankly, I can't improve on Bryan's book and I use them regularly myself.
+These are brief notes, and you should refer to Jenny Bryan's book for further detail. Frankly, I can't improve on Bryan's book and I use them regularly myself.
 
 
 
@@ -420,7 +420,7 @@ git config --global --list
 
 The details that you enter here will be public (there are various ways to hide your email address if you need to do this and GitHub provides instructions about this). 
 
-Again, if you have issues or need more detailed instructions please go to Chapter 7 of @happygit.
+Again, if you have issues or need more detailed instructions, please go to Chapter 7 of @happygit.
 
 
 ### GitHub
@@ -475,7 +475,7 @@ git push
 
 ### Using Git within RStudio
 
-I promised that GitHub was built into RStudio, but so far we've not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before. 
+I promised that GitHub was built into RStudio, but so far, we've not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before. 
 
 At this point, you open RStudio, select `Files`, `New Project`, `Version Control`, `Git`, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking 'Open in new session'. This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.
 
@@ -548,12 +548,12 @@ There's almost no chance that you've got a problem that someone hasn't addressed
 >
 > Sharla Gelfand, [10 March 2020](https://twitter.com/sharlagelfand/status/1237365576701542400).
 
-I'm a little hesitant to make suggestions with regard to mentality. If you write code, then you're coder regardless of how you do it, what you're using it for, or who you are. But I want to share a few traits that I have found have been useful to cultivate in myself. That said, entirely, whatever works for you is great, so take or leave this section.
+I'm a little hesitant to make suggestions with regard to mentality. If you write code, then you're a coder regardless of how you do it, what you're using it for, or who you are. But I want to share a few traits that I have found have been useful to cultivate in myself. That said, entirely, whatever works for you is great, so take or leave this section.
 
-- Focused: I've found that having an aim to 'learn R' or something similar tends to be problematic, because there's no real end point to that. Instead I would recommend smaller, more specific goals, such as 'make a histogram about the 2019 Canadian Election with ggplot'. That is something that you can focus on and achieve. With more nebulous goals it becomes easier to get lost on tangents, much more difficult to get help, and I've noticed that people who have nebulous goals seem to give up.
+- Focused: I've found that having an aim to 'learn R' or something similar tends to be problematic, because there's no real end point to that. Instead, I would recommend smaller, more specific goals, such as 'make a histogram about the 2019 Canadian Election with ggplot'. That is something that you can focus on and achieve. With more nebulous goals it becomes easier to get lost on tangents, much more difficult to get help, and I've noticed that people who have nebulous goals seem to give up.
 - Curious: I've found that it's useful to just have a go. In general, the worst that happens is that you waste your time and have to give up. You can rarely break something irreparably with code. If you want to know what happens if you pass a 'vector' instead of a 'dataframe' to `ggplot` then just try it.
 - Pragmatic: At the same time, I've found that it's best to try to stick within the bounds of what I know and just make one small change each time. For instance if you're wanting to do some regression, and curious about the `tidymodels` package [@citeTidymodels] instead of `lm()`. Perhaps you could just use one aspect from the `tidymodels` package initially and then make another change next time. In my opinion ugly code that gets the job done, is better than beautiful code that is never finished.
-- Tenacious: This is a balancing act. I always find there are unexpected problems and issues with every project. On the one hand persevering despite these is a good tendency. But on the other hand I've learned that sometimes I need to be prepared to give up on something if it doesn't seem like a break-through is possible. This is where I have found that mentors can be useful as they tend to have a better idea. This is also where planning comes in.
+- Tenacious: This is a balancing act. I always find there are unexpected problems and issues with every project. On the one hand persevering despite these is a good tendency. But on the other hand, I've learned that sometimes I need to be prepared to give up on something if it doesn't seem like a break-through is possible. This is where I have found that mentors can be useful as they tend to have a better idea. This is also where planning comes in.
 - Planned: I have found it is very useful to plan out what you are going to do. For instance, you may want to make a histogram of the 2019 Canadian Election. I find it useful to plan the steps that are needed and even to sketch out how I might implement each step. For instance, the first step is to get the data. What packages might be useful? Where might the data be? What is our back-up plan for if we can't find the data in that initial spot?
 - Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but I recommend that you try to turn them off to a certain extent when it comes to R. In the first instance just try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship.
 
@@ -672,9 +672,9 @@ The 'FINER framework' as a mnemonic device used in medicine.^[Thanks to Aaron Mi
 > - Outcome of interest: What do you intend to accomplish, measure, improve or affect?
 > - Time: What is the appropriate follow-up time to assess outcome
 
-Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
+Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
 
-Usually the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
+Usually, the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
 
 ```{r humpty, echo=FALSE, fig.cap="Humpty Dumpty example", out.width = '90%'}
 knitr::include_graphics("figures/humpty.png")
@@ -689,9 +689,9 @@ $$P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}$$
 To see why this may be relevant, let's go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let's just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
 $$\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2$$
 
-To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'. 
+To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically, what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'. 
 
-I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not. 
+I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not. 
 
 Given low prevalence in the community, we probably don't want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.
 
