@@ -492,6 +492,7 @@ To move us slightly closer to reality, we are going to simulate a survey (rather
 At this point, it's worth briefly discussing the role of sex and gender in survey research, following @kennedy2020using. Sex is based on biological attributes, while gender is socially constructed. We are likely interested in the effect of gender on our dependent variable. Moving away from a non-binary concept of gender, in terms of official statistics, is only something that has happened recently. As a researcher one of the problems of insisting on a binary is that, as @kennedy2020using [p. 2] say '...when measuring gender with simply two categories, there is a failure to capture the unique experiences of those who do not identify as either male or female, or for those whose gender does not align with their sex classification.'. A researcher has a variety of ways of proceeding, and @kennedy2020using discuss these based on: ethics, accuracy, practicality, and flexibility. However, 'there is no single good solution that can be applied to all situations. Instead, it is important to recognize that there is a compromise between ethical concerns, statistical concerns, and the most appropriate decision will be reflective of this' [p. 16]. The most important consideration is to ensure appropriate 'respect and consideration for the survey respondent'.
 
 ```{r}
+library(tidyverse)
 set.seed(853)
 
 size_of_sample_for_australian_polling <- 2000
@@ -594,9 +595,6 @@ $$
 This model says that the probability that some person, $j$, will vote for the Australian Labor Party depends on their gender and their age-group. Based on our simulated data, we would like older age-groups to be less likely to vote for the Australian Labor Party and for males to be less likely to vote for the Australian Labor Party.
 
 ```{r initial_model_analyse_example_polling}
-# Here we are running an OLS regression with supports_ALP as the dependent variable 
-# and gender and age_group as the independent variables. The dataset that we are 
-# using is example_poll. We are then saving that OLS regression to a variable called 'model'.
 alp_support <- 
   glm(support_alp ~ gender + age_group + state, 
       data = sample_for_australian_polling,
@@ -699,8 +697,8 @@ library(tidybayes)
 
 post_stratified_estimates <- 
   improved_alp_support %>% 
-  tidybayes::add_predicted_draws(newdata = post_strat_census_data) %>% 
-  rename(alp_predict = .prediction) %>% 
+  tidybayes::add_fitted_draws(newdata = post_strat_census_data) %>% 
+  rename(alp_predict = .value) %>% 
   mutate(alp_predict_prop = alp_predict*cell_prop_of_division_total) %>% 
   group_by(state, .draw) %>% 
   summarise(alp_predict = sum(alp_predict_prop)) %>% 
@@ -725,17 +723,11 @@ post_stratified_estimates %>%
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0) + 
   labs(y = "Proportion ALP support",
        x = "State") + 
-  # geom_point(data = sample_for_australian_polling %>% 
-  #              group_by(state, support_alp) %>%
-  #              summarise(n = n()) %>% 
-  #              group_by(state) %>% 
-  #              mutate(prop = n/sum(n)) %>% 
-  #              filter(support_alp==1), 
-  #            aes(state, prop, color = "Raw data")) +
   theme_minimal() +
   scale_color_brewer(palette = "Set1") +
   theme(legend.position = "bottom") +
-  theme(legend.title = element_blank())
+  theme(legend.title = element_blank()) +
+  coord_flip()
 ```
 
 Similarly, we may like to plot the distribution of the coefficients.^[You can work out which coefficients to be pass to gather_draws by using tidybayes::get_variables(model). (In this example I passed 'b_.', but the ones of interest to you may be different.)]
@@ -1048,8 +1040,8 @@ modelsummary::modelsummary(us_election_model,
 ```{r}
 biden_support_by_state <- 
   us_election_model %>%
-  tidybayes::add_predicted_draws(newdata=poststrat_data_cells) %>%
-  rename(support_biden_predict = .prediction) %>% 
+  tidybayes::add_fitted_draws(newdata=poststrat_data_cells) %>%
+  rename(support_biden_predict = .value) %>% 
   mutate(support_biden_predict_prop = support_biden_predict*prop) %>% 
   group_by(stateicp, .draw) %>% 
   summarise(support_biden_predict = sum(support_biden_predict_prop)) %>% 
@@ -1096,428 +1088,428 @@ biden_support_by_state %>%
 
 
 
-## Case study - Self-reported abortion incidence in Uganda
-
-**By Monica Alexander**
-
-This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS. 
-
-### Load in data and tidy up 
-
-Load in the packages:
-
-```{r}
-library(tidyverse)
-library(here)
-library(brms)
-library(tidybayes)
-```
-
-#### PMA
-
-Load in the PMA data and make an age category variable:
-
-```{r}
-d <- read_csv(here::here("inputs/data/pma.csv"))
-d <- d %>% filter(age>14, age<50)
-age_groups <- seq(15, 45, by = 5)
-d$age_group <- as.numeric(as.character(cut(d$age, 
-                                           breaks= c(age_groups, Inf), 
-                                           labels = age_groups, 
-                                           right = FALSE)))
-d <- d %>% mutate(age_group = factor(age_group)) %>% 
-  mutate(age_group = fct_relevel(age_group, "35", after = 0))
-```
-
-Create a new `region_2` variable with slightly bigger regions (that match the census data):
-
-```{r}
-d <- d %>% mutate(region_2 = case_when(region == "north"|region== "karamoja"|region == "west nile" ~ "northern",
-                                       region == "eastern" ~ "eastern",
-                                       region == "central 1"|region == "central 2"|region == "east central"|region == "kampala" ~ "central",
-                                       region == "western"|region == "south west" ~ "western"))
-```
-
-#### Census
-
-Load in the data, select the columns we want and make an age category variable:
-
-```{r}
-dc <- haven::read_dta(here::here("inputs/data/uganda_census.dta"))
-dc <- dc %>% 
-  select(regnug, perwt, age, marst, edattain) %>% 
-  mutate(regnug = as_factor(regnug),
-         marst = as_factor(marst),
-         edattain = as_factor(edattain))
-dc <- dc %>% filter(age>14, age<50)
-dc$age_group <- as.numeric(as.character(cut(dc$age, 
-                                           breaks= c(age_groups, Inf), 
-                                           labels = age_groups, 
-                                           right = FALSE)))
-dc <- dc %>% mutate(age_group = factor(age_group)) %>% 
-  mutate(age_group = fct_relevel(age_group, "35", after = 0))
-```
-
-#### Recode education and marital status
-
-The PMA and census have different education and marital status categories. Let's recode so they are the same:
-
-```{r}
-# EDUCATION
-#table(d$educattgen)
-#table(dc$edattain)
-d <- d %>% mutate(educ = case_when(educattgen=="never attended"~"less than primary",
-                                   educattgen=="primary/middle school" ~"primary",
-                                   educattgen=="secondary/post-primary"|educattgen=="tertiary/post-secondary" ~ "more than primary",
-                                   TRUE ~ "NA")) %>% 
-  filter(educ != "NA", marstat!="no response or missing")
-dc <- dc %>% mutate(educ = case_when(edattain=="less than primary completed"~"less than primary",
-                                     edattain=="primary completed"~ "primary",
-                                     edattain=="secondary completed"|edattain=="university completed" ~ "more than primary",
-                                     TRUE ~ "NA")) %>% 
-  filter(educ !="NA")
-## MARITAL STATUS
-#table(d$marstat)
-#table(dc$marst)
-d <- d %>% mutate(marital = case_when(marstat == "never married" ~ "single/never married",
-                                      marstat == "currently living with partner"| marstat == "currently married" ~ "married/in union",
-                                      marstat== "divorced or separated" ~ "divorced/separated",
-                                      marstat== "widow or widower"~ "widowed",
-                                      TRUE ~ "NA"))
-dc <- dc %>% mutate(marital = case_when(marst == "single/never married" ~ "single/never married",
-                                        marst == "married/in union" ~ "married/in union",
-                                        marst== "separated/divorced/spouse absent" ~ "divorced/separated",
-                                        marst== "widowed"~ "widowed",
-                                      TRUE ~ "NA")) %>% 
-  filter(marital != "NA")
-                                
-```
-
-
-### Plot data
-
-Lets calculate the census population by key subgroups:
-
-```{r}
-census_counts <- dc %>% 
-  group_by(regnug, marital, educ, age_group) %>% 
-  summarize(n = sum(perwt)) %>% 
-  filter(age_group!="45") %>% 
-  rename(region_2 = regnug)
-```
-
-
-
-We can get an idea of differences in population distributions by plotting the PMA and census proportions by different variables:
-
-```{r}
-d %>% 
-  group_by(age_group) %>% 
-  tally() %>% 
-  mutate(pma = n/sum(n)) %>% 
-  left_join(census_counts %>% 
-              group_by(age_group) %>% 
-              summarize(n = sum(n)) %>% 
-              mutate(census = n/sum(n)) %>% 
-              select(-n)) %>% 
-  mutate(age_group = as.character(age_group)) %>% 
-  arrange(age_group) %>% 
-  pivot_longer(pma:census) %>% 
-  ggplot(aes(age_group, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
-  theme_bw(base_size = 14) + 
-  labs( x = "age", y = "proportion", title = "Proportion by age group")+
-  scale_fill_brewer(palette = "Set1", name = "source")
-d %>% 
-  group_by(educ) %>% 
-  tally() %>% 
-  mutate(pma = n/sum(n)) %>% 
-  left_join(census_counts %>% 
-              group_by(educ) %>% 
-              summarize(n = sum(n)) %>% 
-              mutate(census = n/sum(n)) %>% 
-              select(-n)) %>% 
-  mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>% 
-  pivot_longer(pma:census) %>% 
-  ggplot(aes(educ, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
-  theme_bw(base_size = 14) + 
-  labs( x = "education", y = "proportion", title = "Proportion by education")+
-  scale_fill_brewer(palette = "Set1", name = "source")
-d %>% 
-  group_by(region_2) %>% 
-  tally() %>% 
-  mutate(pma = n/sum(n)) %>% 
-  left_join(census_counts %>% 
-              group_by(region_2) %>% 
-              summarize(n = sum(n)) %>% 
-              mutate(census = n/sum(n)) %>% 
-              select(-n)) %>% 
-  pivot_longer(pma:census) %>% 
-  ggplot(aes(region_2, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
-  theme_bw(base_size = 14) + 
-  labs( x = "region", y = "proportion", title = "Proportion by region")+
-  scale_fill_brewer(palette = "Set1", name = "source")
-d %>% 
-  group_by(marital) %>% 
-  tally() %>% 
-  mutate(pma = n/sum(n)) %>% 
-  left_join(census_counts %>% 
-              group_by(marital) %>% 
-              summarize(n = sum(n)) %>% 
-              mutate(census = n/sum(n)) %>% 
-              select(-n)) %>% 
-  pivot_longer(pma:census) %>% 
-  ggplot(aes(marital, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+
-  theme_bw(base_size = 14) + 
-  labs( x = "marital status", y = "proportion", title = "Proportion by marital status")+
-  scale_fill_brewer(palette = "Set1", name = "source")+coord_flip()
-```
-
-
-### Multilevel regression
-
-Let's run a logistic regression of whether or not an individual reported ever having an abortion with covariates education, age group, and region modelled hierarchically
-
-#### Run the model
-
-```{r}
-mod <- brm(abortion ~ (1|region_2)+educ+ marital +age_group, data = d, family = "bernoulli", silent = TRUE, refresh = 0)
-summary(mod)
-# optional: cf to lme4
-#summary(lme4::glmer(abortion ~ (1|region_2)+marital+educ+ age_group, data = d, family = "binomial"))
-```
-
-#### Get estimated proportions of abortion incidence
-
-Now we need to get the estimated proportions of abortion incidence by each subpopulation of interest. (i.e. by region, marital status, education and age group). First, initiate a tibble with all possible combinations:
-
-```{r}
-regions <- unique(d$region_2)
-marital_groups <- unique(d$marital)
-educ_groups  <- unique(d$educ)
-pred_df <- tibble(region_2 = NA, marital = NA, educ = NA, age_group = NA) %>% 
-  tidyr::complete(region_2 = regions, 
-                  marital = marital_groups,
-                  educ = educ_groups, 
-                  age_group = age_groups) %>% 
-  mutate_all(.funs = funs(as_factor(.))) %>% 
-  drop_na() %>% 
-  mutate(age_group = fct_relevel(age_group, "35", after = 0)) %>% 
-  filter(age_group != "45")
-```
-
-We can use the `fitted_draws` function to obtain posterior samples of the estimated proportion of women reporting an abortion by each group:
-
-```{r}
-pred_probs_draws <- mod %>% 
-  fitted_draws(pred_df  %>% 
-                    select(region_2:age_group) %>% 
-                    mutate(age_group = factor(age_group, levels = age_groups[-length(age_groups)])))
-```
-
-
-### Post-stratify the predicted proportions
-
-For the post-stratification, we need a data frame that tells us how many women in the census are in each subgroup of interest. Let's join the census counts to the `pred_probs_draws` table above, replacing any NAs with 0's:
-
-```{r}
-pred_probs_draws <- pred_probs_draws %>% 
-  left_join(census_counts) %>% 
-  replace_na(replace = list(n = 0))
-```
-
-For each group and draw, we can calculate the estimated number of women reporting an abortion:
-
-```{r}
-pred_probs_draws <- pred_probs_draws %>% 
-  mutate(n_abo = n*.value)
-```
-
-We can now use this as a basis of getting estimates by any group of interest. For example, the national estimate and lower/upper bounds is
-
-```{r}
-pred_probs_draws %>% 
-  group_by(.draw) %>% 
-  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
-  ungroup() %>% 
-  summarize(prop_abo_group = median(prop_abo), 
-            lower = quantile(prop_abo, 0.1),
-            upper = quantile(prop_abo, 0.9))
-```
-
-By age group:
-
-```{r}
-prop_by_age <- pred_probs_draws %>% 
-  group_by(.draw, age_group) %>% 
-  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
-  group_by(age_group) %>% 
-  summarize(prop_abo_group = median(prop_abo), 
-            lower = quantile(prop_abo, 0.1),
-            upper = quantile(prop_abo, 0.9))
-prop_by_age
-```
-
-By marital status:
-
-```{r}
-prop_by_marital <- pred_probs_draws %>% 
-  group_by(.draw, marital) %>% 
-  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
-  group_by(marital) %>% 
-  summarize(prop_abo_group = median(prop_abo), 
-            lower = quantile(prop_abo, 0.1),
-            upper = quantile(prop_abo, 0.9))
-prop_by_marital
-```
-
-By education:
-
-```{r}
-prop_by_educ <- pred_probs_draws %>% 
-  group_by(.draw, educ) %>% 
-  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
-  group_by(educ) %>% 
-  summarize(prop_abo_group = median(prop_abo), 
-            lower = quantile(prop_abo, 0.1),
-            upper = quantile(prop_abo, 0.9))
-prop_by_educ
-```
-
-By region:
-
-```{r}
-prop_by_region <- pred_probs_draws %>% 
-  group_by(.draw, region_2) %>% 
-  summarize(prop_abo = sum(n_abo)/sum(n)) %>% 
-  group_by(region_2) %>% 
-  summarize(prop_abo_group = median(prop_abo), 
-            lower = quantile(prop_abo, 0.1),
-            upper = quantile(prop_abo, 0.9))
-prop_by_region
-```
-
-
-### Plotting and comparing estimates
-
-We can compare the MRP estimates with raw estimates from the PMA survey and also estimates using normal post-stratification
-
-#### Calculating raw estimates and post-stratified estimates
-
-Calculate the raw estimates from the survey:
-
-```{r}
-pma_cells <- d %>% 
-  group_by(region_2, educ, marital, age_group) %>% 
-  summarize(
-            n_sample = n(), n_abo_sample = sum(abortion),
-            prop_abo = n_abo_sample/n_sample)
-```
-
-We can then combine these with census data to get post-stratified counts:
-
-```{r}
-pma_cells <- pma_cells %>% 
-  left_join(census_counts) %>% 
-  mutate(n_abo = prop_abo*n) %>% 
-  replace_na(replace = list(n = 0,n_abo = 0)) %>% 
-  ungroup()
-```
-
-
-#### Join all estimates together
-
-Calculate raw and post-stratified estimates by different subpopulations and join them to the MRP estimates. By age group:
-
-```{r}
-prop_by_age <- prop_by_age %>% 
-  mutate(type = "mrp") %>% 
-  rename(point = prop_abo_group) %>% 
-  bind_rows(pma_cells %>% group_by(age_group) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
-  left_join(pma_cells %>% group_by(age_group) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
-  pivot_longer(-age_group, names_to = "type", values_to = "point")) %>% 
-  arrange(age_group)
-```
-
-By education:
-
-```{r}
-prop_by_educ <- prop_by_educ %>% 
-  mutate(type = "mrp") %>% 
-  rename(point = prop_abo_group) %>% 
-  bind_rows(pma_cells %>% group_by(educ) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
-  left_join(pma_cells %>% group_by(educ) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
-  pivot_longer(-educ, names_to = "type", values_to = "point")) %>% 
-  arrange(educ)
-```
-
-By marital status:
-
-```{r}
-prop_by_marital <- prop_by_marital %>% 
-  mutate(type = "mrp") %>% 
-  rename(point = prop_abo_group) %>% 
-  bind_rows(pma_cells %>% group_by(marital) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
-  left_join(pma_cells %>% group_by(marital) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
-  pivot_longer(-marital, names_to = "type", values_to = "point")) %>% 
-  arrange(marital)
-```
-
-By region:
-
-```{r}
-prop_by_region <- prop_by_region %>% 
-  mutate(type = "mrp") %>% 
-  rename(point = prop_abo_group) %>% 
-  bind_rows(pma_cells %>% group_by(region_2) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>% 
-  left_join(pma_cells %>% group_by(region_2) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>% 
-  pivot_longer(-region_2, names_to = "type", values_to = "point")) %>% 
-  arrange(region_2)
-```
-
-#### Plot!
-
-By age group:
-
-```{r}
-prop_by_age %>% 
-  ggplot(aes(age_group, point, color = type)) + geom_point(size = 2) + 
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
-  theme_bw(base_size = 14) +
-  labs(title = "Abortion prevalence by age group", x = "age", y = "proportion of women reporting abortions")
-```
-
-By education: 
-
-```{r}
-prop_by_educ %>% 
-  mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>% 
-  ggplot(aes(educ, point, color = type)) + geom_point(size = 2) + 
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
-  theme_bw(base_size = 14) +
-  labs(title = "Abortion prevalence by education", x = "education level", y = "proportion of women reporting abortions")
-```
-
-By marital status
-
-```{r}
-prop_by_marital %>% 
-  mutate(marital = factor(marital, c("single/never married", "married/in union", "divorced/separated", "widowed"))) %>% 
-  ggplot(aes(marital, point, color = type)) + geom_point(size = 2) + 
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
-  theme_bw(base_size = 14) +
-  labs(title = "Abortion prevalence by marital status", x = "", y = "proportion of women reporting abortions")+
-  coord_flip()
-```
-
-By region
-
-```{r}
-prop_by_region %>% 
-  ggplot(aes(region_2, point, color = type)) + geom_point(size = 2) + 
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) + 
-  theme_bw(base_size = 14) +
-  labs(title = "Abortion prevalence by region", x = "", y = "proportion of women reporting abortions")
-```
+<!-- ## Case study - Self-reported abortion incidence in Uganda -->
+
+<!-- **By Monica Alexander** -->
+
+<!-- This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS.  -->
+
+<!-- ### Load in data and tidy up  -->
+
+<!-- Load in the packages: -->
+
+<!-- ```{r} -->
+<!-- library(tidyverse) -->
+<!-- library(here) -->
+<!-- library(brms) -->
+<!-- library(tidybayes) -->
+<!-- ``` -->
+
+<!-- #### PMA -->
+
+<!-- Load in the PMA data and make an age category variable: -->
+
+<!-- ```{r} -->
+<!-- d <- read_csv(here::here("inputs/data/pma.csv")) -->
+<!-- d <- d %>% filter(age>14, age<50) -->
+<!-- age_groups <- seq(15, 45, by = 5) -->
+<!-- d$age_group <- as.numeric(as.character(cut(d$age,  -->
+<!--                                            breaks= c(age_groups, Inf),  -->
+<!--                                            labels = age_groups,  -->
+<!--                                            right = FALSE))) -->
+<!-- d <- d %>% mutate(age_group = factor(age_group)) %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) -->
+<!-- ``` -->
+
+<!-- Create a new `region_2` variable with slightly bigger regions (that match the census data): -->
+
+<!-- ```{r} -->
+<!-- d <- d %>% mutate(region_2 = case_when(region == "north"|region== "karamoja"|region == "west nile" ~ "northern", -->
+<!--                                        region == "eastern" ~ "eastern", -->
+<!--                                        region == "central 1"|region == "central 2"|region == "east central"|region == "kampala" ~ "central", -->
+<!--                                        region == "western"|region == "south west" ~ "western")) -->
+<!-- ``` -->
+
+<!-- #### Census -->
+
+<!-- Load in the data, select the columns we want and make an age category variable: -->
+
+<!-- ```{r} -->
+<!-- dc <- haven::read_dta(here::here("inputs/data/uganda_census.dta")) -->
+<!-- dc <- dc %>%  -->
+<!--   select(regnug, perwt, age, marst, edattain) %>%  -->
+<!--   mutate(regnug = as_factor(regnug), -->
+<!--          marst = as_factor(marst), -->
+<!--          edattain = as_factor(edattain)) -->
+<!-- dc <- dc %>% filter(age>14, age<50) -->
+<!-- dc$age_group <- as.numeric(as.character(cut(dc$age,  -->
+<!--                                            breaks= c(age_groups, Inf),  -->
+<!--                                            labels = age_groups,  -->
+<!--                                            right = FALSE))) -->
+<!-- dc <- dc %>% mutate(age_group = factor(age_group)) %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) -->
+<!-- ``` -->
+
+<!-- #### Recode education and marital status -->
+
+<!-- The PMA and census have different education and marital status categories. Let's recode so they are the same: -->
+
+<!-- ```{r} -->
+<!-- # EDUCATION -->
+<!-- #table(d$educattgen) -->
+<!-- #table(dc$edattain) -->
+<!-- d <- d %>% mutate(educ = case_when(educattgen=="never attended"~"less than primary", -->
+<!--                                    educattgen=="primary/middle school" ~"primary", -->
+<!--                                    educattgen=="secondary/post-primary"|educattgen=="tertiary/post-secondary" ~ "more than primary", -->
+<!--                                    TRUE ~ "NA")) %>%  -->
+<!--   filter(educ != "NA", marstat!="no response or missing") -->
+<!-- dc <- dc %>% mutate(educ = case_when(edattain=="less than primary completed"~"less than primary", -->
+<!--                                      edattain=="primary completed"~ "primary", -->
+<!--                                      edattain=="secondary completed"|edattain=="university completed" ~ "more than primary", -->
+<!--                                      TRUE ~ "NA")) %>%  -->
+<!--   filter(educ !="NA") -->
+<!-- ## MARITAL STATUS -->
+<!-- #table(d$marstat) -->
+<!-- #table(dc$marst) -->
+<!-- d <- d %>% mutate(marital = case_when(marstat == "never married" ~ "single/never married", -->
+<!--                                       marstat == "currently living with partner"| marstat == "currently married" ~ "married/in union", -->
+<!--                                       marstat== "divorced or separated" ~ "divorced/separated", -->
+<!--                                       marstat== "widow or widower"~ "widowed", -->
+<!--                                       TRUE ~ "NA")) -->
+<!-- dc <- dc %>% mutate(marital = case_when(marst == "single/never married" ~ "single/never married", -->
+<!--                                         marst == "married/in union" ~ "married/in union", -->
+<!--                                         marst== "separated/divorced/spouse absent" ~ "divorced/separated", -->
+<!--                                         marst== "widowed"~ "widowed", -->
+<!--                                       TRUE ~ "NA")) %>%  -->
+<!--   filter(marital != "NA") -->
+
+<!-- ``` -->
+
+
+<!-- ### Plot data -->
+
+<!-- Lets calculate the census population by key subgroups: -->
+
+<!-- ```{r} -->
+<!-- census_counts <- dc %>%  -->
+<!--   group_by(regnug, marital, educ, age_group) %>%  -->
+<!--   summarize(n = sum(perwt)) %>%  -->
+<!--   filter(age_group!="45") %>%  -->
+<!--   rename(region_2 = regnug) -->
+<!-- ``` -->
+
+
+
+<!-- We can get an idea of differences in population distributions by plotting the PMA and census proportions by different variables: -->
+
+<!-- ```{r} -->
+<!-- d %>%  -->
+<!--   group_by(age_group) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(age_group) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   mutate(age_group = as.character(age_group)) %>%  -->
+<!--   arrange(age_group) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(age_group, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "age", y = "proportion", title = "Proportion by age group")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(educ) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(educ) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(educ, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "education", y = "proportion", title = "Proportion by education")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(region_2) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(region_2) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(region_2, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "region", y = "proportion", title = "Proportion by region")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(marital) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(marital) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(marital, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "marital status", y = "proportion", title = "Proportion by marital status")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source")+coord_flip() -->
+<!-- ``` -->
+
+
+<!-- ### Multilevel regression -->
+
+<!-- Let's run a logistic regression of whether or not an individual reported ever having an abortion with covariates education, age group, and region modelled hierarchically -->
+
+<!-- #### Run the model -->
+
+<!-- ```{r} -->
+<!-- mod <- brm(abortion ~ (1|region_2)+educ+ marital +age_group, data = d, family = "bernoulli", silent = TRUE, refresh = 0) -->
+<!-- summary(mod) -->
+<!-- # optional: cf to lme4 -->
+<!-- #summary(lme4::glmer(abortion ~ (1|region_2)+marital+educ+ age_group, data = d, family = "binomial")) -->
+<!-- ``` -->
+
+<!-- #### Get estimated proportions of abortion incidence -->
+
+<!-- Now we need to get the estimated proportions of abortion incidence by each subpopulation of interest. (i.e. by region, marital status, education and age group). First, initiate a tibble with all possible combinations: -->
+
+<!-- ```{r} -->
+<!-- regions <- unique(d$region_2) -->
+<!-- marital_groups <- unique(d$marital) -->
+<!-- educ_groups  <- unique(d$educ) -->
+<!-- pred_df <- tibble(region_2 = NA, marital = NA, educ = NA, age_group = NA) %>%  -->
+<!--   tidyr::complete(region_2 = regions,  -->
+<!--                   marital = marital_groups, -->
+<!--                   educ = educ_groups,  -->
+<!--                   age_group = age_groups) %>%  -->
+<!--   mutate_all(.funs = funs(as_factor(.))) %>%  -->
+<!--   drop_na() %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) %>%  -->
+<!--   filter(age_group != "45") -->
+<!-- ``` -->
+
+<!-- We can use the `fitted_draws` function to obtain posterior samples of the estimated proportion of women reporting an abortion by each group: -->
+
+<!-- ```{r} -->
+<!-- pred_probs_draws <- mod %>%  -->
+<!--   fitted_draws(pred_df  %>%  -->
+<!--                     select(region_2:age_group) %>%  -->
+<!--                     mutate(age_group = factor(age_group, levels = age_groups[-length(age_groups)]))) -->
+<!-- ``` -->
+
+
+<!-- ### Post-stratify the predicted proportions -->
+
+<!-- For the post-stratification, we need a data frame that tells us how many women in the census are in each subgroup of interest. Let's join the census counts to the `pred_probs_draws` table above, replacing any NAs with 0's: -->
+
+<!-- ```{r} -->
+<!-- pred_probs_draws <- pred_probs_draws %>%  -->
+<!--   left_join(census_counts) %>%  -->
+<!--   replace_na(replace = list(n = 0)) -->
+<!-- ``` -->
+
+<!-- For each group and draw, we can calculate the estimated number of women reporting an abortion: -->
+
+<!-- ```{r} -->
+<!-- pred_probs_draws <- pred_probs_draws %>%  -->
+<!--   mutate(n_abo = n*.value) -->
+<!-- ``` -->
+
+<!-- We can now use this as a basis of getting estimates by any group of interest. For example, the national estimate and lower/upper bounds is -->
+
+<!-- ```{r} -->
+<!-- pred_probs_draws %>%  -->
+<!--   group_by(.draw) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   ungroup() %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- ``` -->
+
+<!-- By age group: -->
+
+<!-- ```{r} -->
+<!-- prop_by_age <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, age_group) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(age_group) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_age -->
+<!-- ``` -->
+
+<!-- By marital status: -->
+
+<!-- ```{r} -->
+<!-- prop_by_marital <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, marital) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(marital) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_marital -->
+<!-- ``` -->
+
+<!-- By education: -->
+
+<!-- ```{r} -->
+<!-- prop_by_educ <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, educ) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(educ) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_educ -->
+<!-- ``` -->
+
+<!-- By region: -->
+
+<!-- ```{r} -->
+<!-- prop_by_region <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, region_2) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(region_2) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_region -->
+<!-- ``` -->
+
+
+<!-- ### Plotting and comparing estimates -->
+
+<!-- We can compare the MRP estimates with raw estimates from the PMA survey and also estimates using normal post-stratification -->
+
+<!-- #### Calculating raw estimates and post-stratified estimates -->
+
+<!-- Calculate the raw estimates from the survey: -->
+
+<!-- ```{r} -->
+<!-- pma_cells <- d %>%  -->
+<!--   group_by(region_2, educ, marital, age_group) %>%  -->
+<!--   summarize( -->
+<!--             n_sample = n(), n_abo_sample = sum(abortion), -->
+<!--             prop_abo = n_abo_sample/n_sample) -->
+<!-- ``` -->
+
+<!-- We can then combine these with census data to get post-stratified counts: -->
+
+<!-- ```{r} -->
+<!-- pma_cells <- pma_cells %>%  -->
+<!--   left_join(census_counts) %>%  -->
+<!--   mutate(n_abo = prop_abo*n) %>%  -->
+<!--   replace_na(replace = list(n = 0,n_abo = 0)) %>%  -->
+<!--   ungroup() -->
+<!-- ``` -->
+
+
+<!-- #### Join all estimates together -->
+
+<!-- Calculate raw and post-stratified estimates by different subpopulations and join them to the MRP estimates. By age group: -->
+
+<!-- ```{r} -->
+<!-- prop_by_age <- prop_by_age %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(age_group) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(age_group) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-age_group, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(age_group) -->
+<!-- ``` -->
+
+<!-- By education: -->
+
+<!-- ```{r} -->
+<!-- prop_by_educ <- prop_by_educ %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(educ) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(educ) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-educ, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(educ) -->
+<!-- ``` -->
+
+<!-- By marital status: -->
+
+<!-- ```{r} -->
+<!-- prop_by_marital <- prop_by_marital %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(marital) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(marital) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-marital, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(marital) -->
+<!-- ``` -->
+
+<!-- By region: -->
+
+<!-- ```{r} -->
+<!-- prop_by_region <- prop_by_region %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(region_2) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(region_2) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-region_2, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(region_2) -->
+<!-- ``` -->
+
+<!-- #### Plot! -->
+
+<!-- By age group: -->
+
+<!-- ```{r} -->
+<!-- prop_by_age %>%  -->
+<!--   ggplot(aes(age_group, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by age group", x = "age", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
+
+<!-- By education:  -->
+
+<!-- ```{r} -->
+<!-- prop_by_educ %>%  -->
+<!--   mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>%  -->
+<!--   ggplot(aes(educ, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by education", x = "education level", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
+
+<!-- By marital status -->
+
+<!-- ```{r} -->
+<!-- prop_by_marital %>%  -->
+<!--   mutate(marital = factor(marital, c("single/never married", "married/in union", "divorced/separated", "widowed"))) %>%  -->
+<!--   ggplot(aes(marital, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by marital status", x = "", y = "proportion of women reporting abortions")+ -->
+<!--   coord_flip() -->
+<!-- ``` -->
+
+<!-- By region -->
+
+<!-- ```{r} -->
+<!-- prop_by_region %>%  -->
+<!--   ggplot(aes(region_2, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by region", x = "", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
 
 
 
@@ -1535,6 +1527,7 @@ There's not a lot of work that's been done with it, so there's plenty of scope f
 - There's a lot to be done from a sociology perspective in terms of survey responses and how we can better design our surveys, knowing they are going to be used for MRP and putting respect for our respondents first. 
 - From a political science perspective, we just have very little idea of the conditions under which we will have the stable preferences and relationships that are required for MRP to be accurate, and further understanding how this relates to uncertainty in survey design. For those with political science interests, a natural next step would be to go through @lauderdale2020model or @ghitza2020voter.
 - Economists might be interested to think about how we could use MRP to better understand the inflation and unemployment rates at local levels. 
+- From a statistical software side of things, we really need to develop better packages around this.
 - It's from an information side of things, that I'm most excited about MRP. How do we best store and protect our datasets, yet retain the ability to have them correspond with each other? How do we put the levels together in a way that is meaningful? To what extent do people appreciate uncertainty estimates and how can we better communicate these estimates?
 
 More generally, we could pretty much use MRP anywhere we have samples. Determining the conditions under which we actually should, is the work of whole generations.

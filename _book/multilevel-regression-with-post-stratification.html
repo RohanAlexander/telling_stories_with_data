@@ -573,15 +573,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.5.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#model-3"><i class="fa fa-check"></i><b>16.5.3</b> Model</a></li>
 <li class="chapter" data-level="16.5.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-2"><i class="fa fa-check"></i><b>16.5.4</b> Post-stratify</a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#case-study---self-reported-abortion-incidence-in-uganda"><i class="fa fa-check"></i><b>16.6</b> Case study - Self-reported abortion incidence in Uganda</a>
-<ul>
-<li class="chapter" data-level="16.6.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#load-in-data-and-tidy-up"><i class="fa fa-check"></i><b>16.6.1</b> Load in data and tidy up</a></li>
-<li class="chapter" data-level="16.6.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plot-data"><i class="fa fa-check"></i><b>16.6.2</b> Plot data</a></li>
-<li class="chapter" data-level="16.6.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#multilevel-regression"><i class="fa fa-check"></i><b>16.6.3</b> Multilevel regression</a></li>
-<li class="chapter" data-level="16.6.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-the-predicted-proportions"><i class="fa fa-check"></i><b>16.6.4</b> Post-stratify the predicted proportions</a></li>
-<li class="chapter" data-level="16.6.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plotting-and-comparing-estimates"><i class="fa fa-check"></i><b>16.6.5</b> Plotting and comparing estimates</a></li>
-</ul></li>
-<li class="chapter" data-level="16.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.7</b> Concluding remarks and next steps</a></li>
+<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.6</b> Concluding remarks and next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>17</b> Text as data</a>
 <ul>
@@ -1469,77 +1461,78 @@ Figure 16.4: Post-stratified estimates of electoral college outcomes based on th
 <li>‘state,’ which is one of eight integers: 1 - 8 (inclusive).</li>
 </ul>
 <p>At this point, it’s worth briefly discussing the role of sex and gender in survey research, following <span class="citation"><a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">Kennedy et al.</a> (<a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">2020</a>)</span>. Sex is based on biological attributes, while gender is socially constructed. We are likely interested in the effect of gender on our dependent variable. Moving away from a non-binary concept of gender, in terms of official statistics, is only something that has happened recently. As a researcher one of the problems of insisting on a binary is that, as <span class="citation"><a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">Kennedy et al.</a> (<a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">2020, 2</a>)</span> say ‘…when measuring gender with simply two categories, there is a failure to capture the unique experiences of those who do not identify as either male or female, or for those whose gender does not align with their sex classification.’ A researcher has a variety of ways of proceeding, and <span class="citation"><a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">Kennedy et al.</a> (<a href="references-1.html#ref-kennedy2020using" role="doc-biblioref">2020</a>)</span> discuss these based on: ethics, accuracy, practicality, and flexibility. However, ‘there is no single good solution that can be applied to all situations. Instead, it is important to recognize that there is a compromise between ethical concerns, statistical concerns, and the most appropriate decision will be reflective of this’ [p. 16]. The most important consideration is to ensure appropriate ‘respect and consideration for the survey respondent.’</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="multilevel-regression-with-post-stratification.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb720-2"><a href="multilevel-regression-with-post-stratification.html#cb720-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-3"><a href="multilevel-regression-with-post-stratification.html#cb720-3" aria-hidden="true" tabindex="-1"></a>size_of_sample_for_australian_polling <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb720-4"><a href="multilevel-regression-with-post-stratification.html#cb720-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-5"><a href="multilevel-regression-with-post-stratification.html#cb720-5" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
-<span id="cb720-6"><a href="multilevel-regression-with-post-stratification.html#cb720-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">age_group =</span> </span>
-<span id="cb720-7"><a href="multilevel-regression-with-post-stratification.html#cb720-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>), </span>
-<span id="cb720-8"><a href="multilevel-regression-with-post-stratification.html#cb720-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
-<span id="cb720-9"><a href="multilevel-regression-with-post-stratification.html#cb720-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
-<span id="cb720-10"><a href="multilevel-regression-with-post-stratification.html#cb720-10" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb720-11"><a href="multilevel-regression-with-post-stratification.html#cb720-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">gender =</span> </span>
-<span id="cb720-12"><a href="multilevel-regression-with-post-stratification.html#cb720-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>),</span>
-<span id="cb720-13"><a href="multilevel-regression-with-post-stratification.html#cb720-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
-<span id="cb720-14"><a href="multilevel-regression-with-post-stratification.html#cb720-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
-<span id="cb720-15"><a href="multilevel-regression-with-post-stratification.html#cb720-15" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb720-16"><a href="multilevel-regression-with-post-stratification.html#cb720-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">state =</span> </span>
-<span id="cb720-17"><a href="multilevel-regression-with-post-stratification.html#cb720-17" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>),</span>
-<span id="cb720-18"><a href="multilevel-regression-with-post-stratification.html#cb720-18" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
-<span id="cb720-19"><a href="multilevel-regression-with-post-stratification.html#cb720-19" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
-<span id="cb720-20"><a href="multilevel-regression-with-post-stratification.html#cb720-20" aria-hidden="true" tabindex="-1"></a>                  ),</span>
-<span id="cb720-21"><a href="multilevel-regression-with-post-stratification.html#cb720-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(size_of_sample_for_australian_polling, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
-<span id="cb720-22"><a href="multilevel-regression-with-post-stratification.html#cb720-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">support_alp =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> age_group <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> gender <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">*</span> state <span class="sc">+</span> noise</span>
-<span id="cb720-23"><a href="multilevel-regression-with-post-stratification.html#cb720-23" aria-hidden="true" tabindex="-1"></a>         ) </span>
-<span id="cb720-24"><a href="multilevel-regression-with-post-stratification.html#cb720-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-25"><a href="multilevel-regression-with-post-stratification.html#cb720-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize the outcome variable</span></span>
-<span id="cb720-26"><a href="multilevel-regression-with-post-stratification.html#cb720-26" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
-<span id="cb720-27"><a href="multilevel-regression-with-post-stratification.html#cb720-27" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
-<span id="cb720-28"><a href="multilevel-regression-with-post-stratification.html#cb720-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">support_alp =</span> </span>
-<span id="cb720-29"><a href="multilevel-regression-with-post-stratification.html#cb720-29" aria-hidden="true" tabindex="-1"></a>           <span class="fu">if_else</span>(support_alp <span class="sc">&gt;</span> <span class="fu">median</span>(support_alp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb720-30"><a href="multilevel-regression-with-post-stratification.html#cb720-30" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;Supports ALP&#39;</span>, </span>
-<span id="cb720-31"><a href="multilevel-regression-with-post-stratification.html#cb720-31" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;Does not&#39;</span>)</span>
-<span id="cb720-32"><a href="multilevel-regression-with-post-stratification.html#cb720-32" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb720-33"><a href="multilevel-regression-with-post-stratification.html#cb720-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-34"><a href="multilevel-regression-with-post-stratification.html#cb720-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up the simulated data</span></span>
-<span id="cb720-35"><a href="multilevel-regression-with-post-stratification.html#cb720-35" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
-<span id="cb720-36"><a href="multilevel-regression-with-post-stratification.html#cb720-36" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
-<span id="cb720-37"><a href="multilevel-regression-with-post-stratification.html#cb720-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb720-38"><a href="multilevel-regression-with-post-stratification.html#cb720-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb720-39"><a href="multilevel-regression-with-post-stratification.html#cb720-39" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&#39;Ages 18 to 29&#39;</span>,</span>
-<span id="cb720-40"><a href="multilevel-regression-with-post-stratification.html#cb720-40" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Ages 30 to 44&#39;</span>,</span>
-<span id="cb720-41"><a href="multilevel-regression-with-post-stratification.html#cb720-41" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&#39;Ages 45 to 59&#39;</span>,</span>
-<span id="cb720-42"><a href="multilevel-regression-with-post-stratification.html#cb720-42" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&#39;Ages 60 plus&#39;</span>,</span>
-<span id="cb720-43"><a href="multilevel-regression-with-post-stratification.html#cb720-43" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
-<span id="cb720-44"><a href="multilevel-regression-with-post-stratification.html#cb720-44" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb720-45"><a href="multilevel-regression-with-post-stratification.html#cb720-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">gender =</span> <span class="fu">case_when</span>(</span>
-<span id="cb720-46"><a href="multilevel-regression-with-post-stratification.html#cb720-46" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&#39;Male&#39;</span>,</span>
-<span id="cb720-47"><a href="multilevel-regression-with-post-stratification.html#cb720-47" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Female&#39;</span>,</span>
-<span id="cb720-48"><a href="multilevel-regression-with-post-stratification.html#cb720-48" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
-<span id="cb720-49"><a href="multilevel-regression-with-post-stratification.html#cb720-49" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb720-50"><a href="multilevel-regression-with-post-stratification.html#cb720-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">state =</span> <span class="fu">case_when</span>(</span>
-<span id="cb720-51"><a href="multilevel-regression-with-post-stratification.html#cb720-51" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Queensland&#39;</span>,</span>
-<span id="cb720-52"><a href="multilevel-regression-with-post-stratification.html#cb720-52" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&#39;New South Wales&#39;</span>,</span>
-<span id="cb720-53"><a href="multilevel-regression-with-post-stratification.html#cb720-53" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&#39;Australian Capital Territory&#39;</span>,</span>
-<span id="cb720-54"><a href="multilevel-regression-with-post-stratification.html#cb720-54" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&#39;Victoria&#39;</span>,</span>
-<span id="cb720-55"><a href="multilevel-regression-with-post-stratification.html#cb720-55" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">&#39;Tasmania&#39;</span>,</span>
-<span id="cb720-56"><a href="multilevel-regression-with-post-stratification.html#cb720-56" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&#39;Northern Territory&#39;</span>,</span>
-<span id="cb720-57"><a href="multilevel-regression-with-post-stratification.html#cb720-57" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">&#39;South Australia&#39;</span>,</span>
-<span id="cb720-58"><a href="multilevel-regression-with-post-stratification.html#cb720-58" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">&#39;Western Australia&#39;</span>,</span>
-<span id="cb720-59"><a href="multilevel-regression-with-post-stratification.html#cb720-59" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
-<span id="cb720-60"><a href="multilevel-regression-with-post-stratification.html#cb720-60" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb720-61"><a href="multilevel-regression-with-post-stratification.html#cb720-61" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb720-62"><a href="multilevel-regression-with-post-stratification.html#cb720-62" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb720-63"><a href="multilevel-regression-with-post-stratification.html#cb720-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>noise)</span>
-<span id="cb720-64"><a href="multilevel-regression-with-post-stratification.html#cb720-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-65"><a href="multilevel-regression-with-post-stratification.html#cb720-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy the class</span></span>
-<span id="cb720-66"><a href="multilevel-regression-with-post-stratification.html#cb720-66" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
-<span id="cb720-67"><a href="multilevel-regression-with-post-stratification.html#cb720-67" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
-<span id="cb720-68"><a href="multilevel-regression-with-post-stratification.html#cb720-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(age_group, gender, state, support_alp), as_factor))</span>
-<span id="cb720-69"><a href="multilevel-regression-with-post-stratification.html#cb720-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb720-70"><a href="multilevel-regression-with-post-stratification.html#cb720-70" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="sc">%&gt;%</span>   </span>
-<span id="cb720-71"><a href="multilevel-regression-with-post-stratification.html#cb720-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="multilevel-regression-with-post-stratification.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb720-2"><a href="multilevel-regression-with-post-stratification.html#cb720-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb720-3"><a href="multilevel-regression-with-post-stratification.html#cb720-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-4"><a href="multilevel-regression-with-post-stratification.html#cb720-4" aria-hidden="true" tabindex="-1"></a>size_of_sample_for_australian_polling <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb720-5"><a href="multilevel-regression-with-post-stratification.html#cb720-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-6"><a href="multilevel-regression-with-post-stratification.html#cb720-6" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
+<span id="cb720-7"><a href="multilevel-regression-with-post-stratification.html#cb720-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">age_group =</span> </span>
+<span id="cb720-8"><a href="multilevel-regression-with-post-stratification.html#cb720-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span>), </span>
+<span id="cb720-9"><a href="multilevel-regression-with-post-stratification.html#cb720-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
+<span id="cb720-10"><a href="multilevel-regression-with-post-stratification.html#cb720-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
+<span id="cb720-11"><a href="multilevel-regression-with-post-stratification.html#cb720-11" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb720-12"><a href="multilevel-regression-with-post-stratification.html#cb720-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">gender =</span> </span>
+<span id="cb720-13"><a href="multilevel-regression-with-post-stratification.html#cb720-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>),</span>
+<span id="cb720-14"><a href="multilevel-regression-with-post-stratification.html#cb720-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
+<span id="cb720-15"><a href="multilevel-regression-with-post-stratification.html#cb720-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
+<span id="cb720-16"><a href="multilevel-regression-with-post-stratification.html#cb720-16" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb720-17"><a href="multilevel-regression-with-post-stratification.html#cb720-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">state =</span> </span>
+<span id="cb720-18"><a href="multilevel-regression-with-post-stratification.html#cb720-18" aria-hidden="true" tabindex="-1"></a>           <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>),</span>
+<span id="cb720-19"><a href="multilevel-regression-with-post-stratification.html#cb720-19" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> size_of_sample_for_australian_polling,</span>
+<span id="cb720-20"><a href="multilevel-regression-with-post-stratification.html#cb720-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span></span>
+<span id="cb720-21"><a href="multilevel-regression-with-post-stratification.html#cb720-21" aria-hidden="true" tabindex="-1"></a>                  ),</span>
+<span id="cb720-22"><a href="multilevel-regression-with-post-stratification.html#cb720-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(size_of_sample_for_australian_polling, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
+<span id="cb720-23"><a href="multilevel-regression-with-post-stratification.html#cb720-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">support_alp =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> age_group <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> gender <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">*</span> state <span class="sc">+</span> noise</span>
+<span id="cb720-24"><a href="multilevel-regression-with-post-stratification.html#cb720-24" aria-hidden="true" tabindex="-1"></a>         ) </span>
+<span id="cb720-25"><a href="multilevel-regression-with-post-stratification.html#cb720-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-26"><a href="multilevel-regression-with-post-stratification.html#cb720-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize the outcome variable</span></span>
+<span id="cb720-27"><a href="multilevel-regression-with-post-stratification.html#cb720-27" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
+<span id="cb720-28"><a href="multilevel-regression-with-post-stratification.html#cb720-28" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
+<span id="cb720-29"><a href="multilevel-regression-with-post-stratification.html#cb720-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">support_alp =</span> </span>
+<span id="cb720-30"><a href="multilevel-regression-with-post-stratification.html#cb720-30" aria-hidden="true" tabindex="-1"></a>           <span class="fu">if_else</span>(support_alp <span class="sc">&gt;</span> <span class="fu">median</span>(support_alp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb720-31"><a href="multilevel-regression-with-post-stratification.html#cb720-31" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;Supports ALP&#39;</span>, </span>
+<span id="cb720-32"><a href="multilevel-regression-with-post-stratification.html#cb720-32" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&#39;Does not&#39;</span>)</span>
+<span id="cb720-33"><a href="multilevel-regression-with-post-stratification.html#cb720-33" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb720-34"><a href="multilevel-regression-with-post-stratification.html#cb720-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-35"><a href="multilevel-regression-with-post-stratification.html#cb720-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up the simulated data</span></span>
+<span id="cb720-36"><a href="multilevel-regression-with-post-stratification.html#cb720-36" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
+<span id="cb720-37"><a href="multilevel-regression-with-post-stratification.html#cb720-37" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
+<span id="cb720-38"><a href="multilevel-regression-with-post-stratification.html#cb720-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb720-39"><a href="multilevel-regression-with-post-stratification.html#cb720-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb720-40"><a href="multilevel-regression-with-post-stratification.html#cb720-40" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&#39;Ages 18 to 29&#39;</span>,</span>
+<span id="cb720-41"><a href="multilevel-regression-with-post-stratification.html#cb720-41" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Ages 30 to 44&#39;</span>,</span>
+<span id="cb720-42"><a href="multilevel-regression-with-post-stratification.html#cb720-42" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&#39;Ages 45 to 59&#39;</span>,</span>
+<span id="cb720-43"><a href="multilevel-regression-with-post-stratification.html#cb720-43" aria-hidden="true" tabindex="-1"></a>      age_group <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&#39;Ages 60 plus&#39;</span>,</span>
+<span id="cb720-44"><a href="multilevel-regression-with-post-stratification.html#cb720-44" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
+<span id="cb720-45"><a href="multilevel-regression-with-post-stratification.html#cb720-45" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb720-46"><a href="multilevel-regression-with-post-stratification.html#cb720-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">gender =</span> <span class="fu">case_when</span>(</span>
+<span id="cb720-47"><a href="multilevel-regression-with-post-stratification.html#cb720-47" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&#39;Male&#39;</span>,</span>
+<span id="cb720-48"><a href="multilevel-regression-with-post-stratification.html#cb720-48" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Female&#39;</span>,</span>
+<span id="cb720-49"><a href="multilevel-regression-with-post-stratification.html#cb720-49" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
+<span id="cb720-50"><a href="multilevel-regression-with-post-stratification.html#cb720-50" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb720-51"><a href="multilevel-regression-with-post-stratification.html#cb720-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">state =</span> <span class="fu">case_when</span>(</span>
+<span id="cb720-52"><a href="multilevel-regression-with-post-stratification.html#cb720-52" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">&#39;Queensland&#39;</span>,</span>
+<span id="cb720-53"><a href="multilevel-regression-with-post-stratification.html#cb720-53" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">&#39;New South Wales&#39;</span>,</span>
+<span id="cb720-54"><a href="multilevel-regression-with-post-stratification.html#cb720-54" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">&#39;Australian Capital Territory&#39;</span>,</span>
+<span id="cb720-55"><a href="multilevel-regression-with-post-stratification.html#cb720-55" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&#39;Victoria&#39;</span>,</span>
+<span id="cb720-56"><a href="multilevel-regression-with-post-stratification.html#cb720-56" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">&#39;Tasmania&#39;</span>,</span>
+<span id="cb720-57"><a href="multilevel-regression-with-post-stratification.html#cb720-57" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&#39;Northern Territory&#39;</span>,</span>
+<span id="cb720-58"><a href="multilevel-regression-with-post-stratification.html#cb720-58" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">&#39;South Australia&#39;</span>,</span>
+<span id="cb720-59"><a href="multilevel-regression-with-post-stratification.html#cb720-59" aria-hidden="true" tabindex="-1"></a>      state <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">&#39;Western Australia&#39;</span>,</span>
+<span id="cb720-60"><a href="multilevel-regression-with-post-stratification.html#cb720-60" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&#39;Problem&#39;</span></span>
+<span id="cb720-61"><a href="multilevel-regression-with-post-stratification.html#cb720-61" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb720-62"><a href="multilevel-regression-with-post-stratification.html#cb720-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb720-63"><a href="multilevel-regression-with-post-stratification.html#cb720-63" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb720-64"><a href="multilevel-regression-with-post-stratification.html#cb720-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>noise)</span>
+<span id="cb720-65"><a href="multilevel-regression-with-post-stratification.html#cb720-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-66"><a href="multilevel-regression-with-post-stratification.html#cb720-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy the class</span></span>
+<span id="cb720-67"><a href="multilevel-regression-with-post-stratification.html#cb720-67" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="ot">&lt;-</span> </span>
+<span id="cb720-68"><a href="multilevel-regression-with-post-stratification.html#cb720-68" aria-hidden="true" tabindex="-1"></a>  sample_for_australian_polling <span class="sc">%&gt;%</span> </span>
+<span id="cb720-69"><a href="multilevel-regression-with-post-stratification.html#cb720-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(age_group, gender, state, support_alp), as_factor))</span>
+<span id="cb720-70"><a href="multilevel-regression-with-post-stratification.html#cb720-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-71"><a href="multilevel-regression-with-post-stratification.html#cb720-71" aria-hidden="true" tabindex="-1"></a>sample_for_australian_polling <span class="sc">%&gt;%</span>   </span>
+<span id="cb720-72"><a href="multilevel-regression-with-post-stratification.html#cb720-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-436">
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-436">Table 16.3: </span> </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gender</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">support_alp</th></tr>
@@ -2017,17 +2010,14 @@ Figure 16.4: Post-stratified estimates of electoral college outcomes based on th
 \mbox{ALP support}_j = \mbox{gender}_j + \mbox{age_group}_j + \epsilon_j
 \]</span></p>
 <p>This model says that the probability that some person, <span class="math inline">\(j\)</span>, will vote for the Australian Labor Party depends on their gender and their age-group. Based on our simulated data, we would like older age-groups to be less likely to vote for the Australian Labor Party and for males to be less likely to vote for the Australian Labor Party.</p>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="multilevel-regression-with-post-stratification.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we are running an OLS regression with supports_ALP as the dependent variable </span></span>
-<span id="cb723-2"><a href="multilevel-regression-with-post-stratification.html#cb723-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and gender and age_group as the independent variables. The dataset that we are </span></span>
-<span id="cb723-3"><a href="multilevel-regression-with-post-stratification.html#cb723-3" aria-hidden="true" tabindex="-1"></a><span class="co"># using is example_poll. We are then saving that OLS regression to a variable called &#39;model&#39;.</span></span>
-<span id="cb723-4"><a href="multilevel-regression-with-post-stratification.html#cb723-4" aria-hidden="true" tabindex="-1"></a>alp_support <span class="ot">&lt;-</span> </span>
-<span id="cb723-5"><a href="multilevel-regression-with-post-stratification.html#cb723-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(support_alp <span class="sc">~</span> gender <span class="sc">+</span> age_group <span class="sc">+</span> state, </span>
-<span id="cb723-6"><a href="multilevel-regression-with-post-stratification.html#cb723-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> sample_for_australian_polling,</span>
-<span id="cb723-7"><a href="multilevel-regression-with-post-stratification.html#cb723-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span></span>
-<span id="cb723-8"><a href="multilevel-regression-with-post-stratification.html#cb723-8" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb723-9"><a href="multilevel-regression-with-post-stratification.html#cb723-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb723-10"><a href="multilevel-regression-with-post-stratification.html#cb723-10" aria-hidden="true" tabindex="-1"></a>alp_support <span class="sc">%&gt;%</span> </span>
-<span id="cb723-11"><a href="multilevel-regression-with-post-stratification.html#cb723-11" aria-hidden="true" tabindex="-1"></a>  modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="at">fmt =</span> <span class="dv">2</span>, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="multilevel-regression-with-post-stratification.html#cb723-1" aria-hidden="true" tabindex="-1"></a>alp_support <span class="ot">&lt;-</span> </span>
+<span id="cb723-2"><a href="multilevel-regression-with-post-stratification.html#cb723-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(support_alp <span class="sc">~</span> gender <span class="sc">+</span> age_group <span class="sc">+</span> state, </span>
+<span id="cb723-3"><a href="multilevel-regression-with-post-stratification.html#cb723-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> sample_for_australian_polling,</span>
+<span id="cb723-4"><a href="multilevel-regression-with-post-stratification.html#cb723-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span></span>
+<span id="cb723-5"><a href="multilevel-regression-with-post-stratification.html#cb723-5" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb723-6"><a href="multilevel-regression-with-post-stratification.html#cb723-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb723-7"><a href="multilevel-regression-with-post-stratification.html#cb723-7" aria-hidden="true" tabindex="-1"></a>alp_support <span class="sc">%&gt;%</span> </span>
+<span id="cb723-8"><a href="multilevel-regression-with-post-stratification.html#cb723-8" aria-hidden="true" tabindex="-1"></a>  modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="at">fmt =</span> <span class="dv">2</span>, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2358,8 +2348,8 @@ Log.Lik.
 <span id="cb728-2"><a href="multilevel-regression-with-post-stratification.html#cb728-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb728-3"><a href="multilevel-regression-with-post-stratification.html#cb728-3" aria-hidden="true" tabindex="-1"></a>post_stratified_estimates <span class="ot">&lt;-</span> </span>
 <span id="cb728-4"><a href="multilevel-regression-with-post-stratification.html#cb728-4" aria-hidden="true" tabindex="-1"></a>  improved_alp_support <span class="sc">%&gt;%</span> </span>
-<span id="cb728-5"><a href="multilevel-regression-with-post-stratification.html#cb728-5" aria-hidden="true" tabindex="-1"></a>  tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(<span class="at">newdata =</span> post_strat_census_data) <span class="sc">%&gt;%</span> </span>
-<span id="cb728-6"><a href="multilevel-regression-with-post-stratification.html#cb728-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">alp_predict =</span> .prediction) <span class="sc">%&gt;%</span> </span>
+<span id="cb728-5"><a href="multilevel-regression-with-post-stratification.html#cb728-5" aria-hidden="true" tabindex="-1"></a>  tidybayes<span class="sc">::</span><span class="fu">add_fitted_draws</span>(<span class="at">newdata =</span> post_strat_census_data) <span class="sc">%&gt;%</span> </span>
+<span id="cb728-6"><a href="multilevel-regression-with-post-stratification.html#cb728-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">alp_predict =</span> .value) <span class="sc">%&gt;%</span> </span>
 <span id="cb728-7"><a href="multilevel-regression-with-post-stratification.html#cb728-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">alp_predict_prop =</span> alp_predict<span class="sc">*</span>cell_prop_of_division_total) <span class="sc">%&gt;%</span> </span>
 <span id="cb728-8"><a href="multilevel-regression-with-post-stratification.html#cb728-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, .draw) <span class="sc">%&gt;%</span> </span>
 <span id="cb728-9"><a href="multilevel-regression-with-post-stratification.html#cb728-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">alp_predict =</span> <span class="fu">sum</span>(alp_predict_prop)) <span class="sc">%&gt;%</span> </span>
@@ -2373,21 +2363,21 @@ Log.Lik.
 <caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-442">Table 16.5: </span> </caption><col><col><col><col><tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">state</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">mean</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Australian Capital Territory</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.546</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.241</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.878</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Australian Capital Territory</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.55&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.494</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.604</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">New South Wales</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.489</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.214</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.766</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">New South Wales</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.486</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.429</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.544</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Northern Territory</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.544</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.21&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.852</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Northern Territory</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.544</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.483</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.607</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Queensland</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.491</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.215</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.762</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Queensland</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.491</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.432</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.548</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">South Australia</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.414</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.101</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.735</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">South Australia</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.412</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.361</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.464</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Tasmania</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.429</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.11&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.741</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Tasmania</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.429</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.372</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.487</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Victoria</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.518</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.231</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.87&nbsp;</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Victoria</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.519</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.453</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.583</td></tr>
 <tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Western Australia</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.463</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.129</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.765</td></tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Western Australia</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.46&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.401</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.52&nbsp;</td></tr>
 </table>
 
 <p>We now have post-stratified estimates for each division. Our new Bayesian approach will enable us to think more deeply about uncertainty. We could complicate this in a variety of ways including adding more coefficients (but remember that we’d need to get new cell counts), or adding some layers.</p>
@@ -2399,17 +2389,11 @@ Log.Lik.
 <span id="cb729-4"><a href="multilevel-regression-with-post-stratification.html#cb729-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
 <span id="cb729-5"><a href="multilevel-regression-with-post-stratification.html#cb729-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Proportion ALP support&quot;</span>,</span>
 <span id="cb729-6"><a href="multilevel-regression-with-post-stratification.html#cb729-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;State&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb729-7"><a href="multilevel-regression-with-post-stratification.html#cb729-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># geom_point(data = sample_for_australian_polling %&gt;% </span></span>
-<span id="cb729-8"><a href="multilevel-regression-with-post-stratification.html#cb729-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#              group_by(state, support_alp) %&gt;%</span></span>
-<span id="cb729-9"><a href="multilevel-regression-with-post-stratification.html#cb729-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#              summarise(n = n()) %&gt;% </span></span>
-<span id="cb729-10"><a href="multilevel-regression-with-post-stratification.html#cb729-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#              group_by(state) %&gt;% </span></span>
-<span id="cb729-11"><a href="multilevel-regression-with-post-stratification.html#cb729-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#              mutate(prop = n/sum(n)) %&gt;% </span></span>
-<span id="cb729-12"><a href="multilevel-regression-with-post-stratification.html#cb729-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#              filter(support_alp==1), </span></span>
-<span id="cb729-13"><a href="multilevel-regression-with-post-stratification.html#cb729-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#            aes(state, prop, color = &quot;Raw data&quot;)) +</span></span>
-<span id="cb729-14"><a href="multilevel-regression-with-post-stratification.html#cb729-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb729-15"><a href="multilevel-regression-with-post-stratification.html#cb729-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
-<span id="cb729-16"><a href="multilevel-regression-with-post-stratification.html#cb729-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
-<span id="cb729-17"><a href="multilevel-regression-with-post-stratification.html#cb729-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<span id="cb729-7"><a href="multilevel-regression-with-post-stratification.html#cb729-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb729-8"><a href="multilevel-regression-with-post-stratification.html#cb729-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb729-9"><a href="multilevel-regression-with-post-stratification.html#cb729-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
+<span id="cb729-10"><a href="multilevel-regression-with-post-stratification.html#cb729-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb729-11"><a href="multilevel-regression-with-post-stratification.html#cb729-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-443-1.png" width="672" /></p>
 <p>Similarly, we may like to plot the distribution of the coefficients.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 <div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="multilevel-regression-with-post-stratification.html#cb730-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tidybayes::get_variables(improved_alp_support)</span></span>
@@ -2976,8 +2960,8 @@ pss
 <h3><span class="header-section-number">16.5.4</span> Post-stratify</h3>
 <div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="multilevel-regression-with-post-stratification.html#cb740-1" aria-hidden="true" tabindex="-1"></a>biden_support_by_state <span class="ot">&lt;-</span> </span>
 <span id="cb740-2"><a href="multilevel-regression-with-post-stratification.html#cb740-2" aria-hidden="true" tabindex="-1"></a>  us_election_model <span class="sc">%&gt;%</span></span>
-<span id="cb740-3"><a href="multilevel-regression-with-post-stratification.html#cb740-3" aria-hidden="true" tabindex="-1"></a>  tidybayes<span class="sc">::</span><span class="fu">add_predicted_draws</span>(<span class="at">newdata=</span>poststrat_data_cells) <span class="sc">%&gt;%</span></span>
-<span id="cb740-4"><a href="multilevel-regression-with-post-stratification.html#cb740-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">support_biden_predict =</span> .prediction) <span class="sc">%&gt;%</span> </span>
+<span id="cb740-3"><a href="multilevel-regression-with-post-stratification.html#cb740-3" aria-hidden="true" tabindex="-1"></a>  tidybayes<span class="sc">::</span><span class="fu">add_fitted_draws</span>(<span class="at">newdata=</span>poststrat_data_cells) <span class="sc">%&gt;%</span></span>
+<span id="cb740-4"><a href="multilevel-regression-with-post-stratification.html#cb740-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">support_biden_predict =</span> .value) <span class="sc">%&gt;%</span> </span>
 <span id="cb740-5"><a href="multilevel-regression-with-post-stratification.html#cb740-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">support_biden_predict_prop =</span> support_biden_predict<span class="sc">*</span>prop) <span class="sc">%&gt;%</span> </span>
 <span id="cb740-6"><a href="multilevel-regression-with-post-stratification.html#cb740-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(stateicp, .draw) <span class="sc">%&gt;%</span> </span>
 <span id="cb740-7"><a href="multilevel-regression-with-post-stratification.html#cb740-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">support_biden_predict =</span> <span class="fu">sum</span>(support_biden_predict_prop)) <span class="sc">%&gt;%</span> </span>
@@ -3006,438 +2990,354 @@ pss
 <span id="cb741-18"><a href="multilevel-regression-with-post-stratification.html#cb741-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>) <span class="sc">+</span></span>
 <span id="cb741-19"><a href="multilevel-regression-with-post-stratification.html#cb741-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-453-1.png" width="672" /></p>
+<!-- ## Case study - Self-reported abortion incidence in Uganda -->
+<!-- **By Monica Alexander** -->
+<!-- This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS.  -->
+<!-- ### Load in data and tidy up  -->
+<!-- Load in the packages: -->
+<!-- ```{r} -->
+<!-- library(tidyverse) -->
+<!-- library(here) -->
+<!-- library(brms) -->
+<!-- library(tidybayes) -->
+<!-- ``` -->
+<!-- #### PMA -->
+<!-- Load in the PMA data and make an age category variable: -->
+<!-- ```{r} -->
+<!-- d <- read_csv(here::here("inputs/data/pma.csv")) -->
+<!-- d <- d %>% filter(age>14, age<50) -->
+<!-- age_groups <- seq(15, 45, by = 5) -->
+<!-- d$age_group <- as.numeric(as.character(cut(d$age,  -->
+<!--                                            breaks= c(age_groups, Inf),  -->
+<!--                                            labels = age_groups,  -->
+<!--                                            right = FALSE))) -->
+<!-- d <- d %>% mutate(age_group = factor(age_group)) %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) -->
+<!-- ``` -->
+<!-- Create a new `region_2` variable with slightly bigger regions (that match the census data): -->
+<!-- ```{r} -->
+<!-- d <- d %>% mutate(region_2 = case_when(region == "north"|region== "karamoja"|region == "west nile" ~ "northern", -->
+<!--                                        region == "eastern" ~ "eastern", -->
+<!--                                        region == "central 1"|region == "central 2"|region == "east central"|region == "kampala" ~ "central", -->
+<!--                                        region == "western"|region == "south west" ~ "western")) -->
+<!-- ``` -->
+<!-- #### Census -->
+<!-- Load in the data, select the columns we want and make an age category variable: -->
+<!-- ```{r} -->
+<!-- dc <- haven::read_dta(here::here("inputs/data/uganda_census.dta")) -->
+<!-- dc <- dc %>%  -->
+<!--   select(regnug, perwt, age, marst, edattain) %>%  -->
+<!--   mutate(regnug = as_factor(regnug), -->
+<!--          marst = as_factor(marst), -->
+<!--          edattain = as_factor(edattain)) -->
+<!-- dc <- dc %>% filter(age>14, age<50) -->
+<!-- dc$age_group <- as.numeric(as.character(cut(dc$age,  -->
+<!--                                            breaks= c(age_groups, Inf),  -->
+<!--                                            labels = age_groups,  -->
+<!--                                            right = FALSE))) -->
+<!-- dc <- dc %>% mutate(age_group = factor(age_group)) %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) -->
+<!-- ``` -->
+<!-- #### Recode education and marital status -->
+<!-- The PMA and census have different education and marital status categories. Let's recode so they are the same: -->
+<!-- ```{r} -->
+<!-- # EDUCATION -->
+<!-- #table(d$educattgen) -->
+<!-- #table(dc$edattain) -->
+<!-- d <- d %>% mutate(educ = case_when(educattgen=="never attended"~"less than primary", -->
+<!--                                    educattgen=="primary/middle school" ~"primary", -->
+<!--                                    educattgen=="secondary/post-primary"|educattgen=="tertiary/post-secondary" ~ "more than primary", -->
+<!--                                    TRUE ~ "NA")) %>%  -->
+<!--   filter(educ != "NA", marstat!="no response or missing") -->
+<!-- dc <- dc %>% mutate(educ = case_when(edattain=="less than primary completed"~"less than primary", -->
+<!--                                      edattain=="primary completed"~ "primary", -->
+<!--                                      edattain=="secondary completed"|edattain=="university completed" ~ "more than primary", -->
+<!--                                      TRUE ~ "NA")) %>%  -->
+<!--   filter(educ !="NA") -->
+<!-- ## MARITAL STATUS -->
+<!-- #table(d$marstat) -->
+<!-- #table(dc$marst) -->
+<!-- d <- d %>% mutate(marital = case_when(marstat == "never married" ~ "single/never married", -->
+<!--                                       marstat == "currently living with partner"| marstat == "currently married" ~ "married/in union", -->
+<!--                                       marstat== "divorced or separated" ~ "divorced/separated", -->
+<!--                                       marstat== "widow or widower"~ "widowed", -->
+<!--                                       TRUE ~ "NA")) -->
+<!-- dc <- dc %>% mutate(marital = case_when(marst == "single/never married" ~ "single/never married", -->
+<!--                                         marst == "married/in union" ~ "married/in union", -->
+<!--                                         marst== "separated/divorced/spouse absent" ~ "divorced/separated", -->
+<!--                                         marst== "widowed"~ "widowed", -->
+<!--                                       TRUE ~ "NA")) %>%  -->
+<!--   filter(marital != "NA") -->
+<!-- ``` -->
+<!-- ### Plot data -->
+<!-- Lets calculate the census population by key subgroups: -->
+<!-- ```{r} -->
+<!-- census_counts <- dc %>%  -->
+<!--   group_by(regnug, marital, educ, age_group) %>%  -->
+<!--   summarize(n = sum(perwt)) %>%  -->
+<!--   filter(age_group!="45") %>%  -->
+<!--   rename(region_2 = regnug) -->
+<!-- ``` -->
+<!-- We can get an idea of differences in population distributions by plotting the PMA and census proportions by different variables: -->
+<!-- ```{r} -->
+<!-- d %>%  -->
+<!--   group_by(age_group) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(age_group) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   mutate(age_group = as.character(age_group)) %>%  -->
+<!--   arrange(age_group) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(age_group, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "age", y = "proportion", title = "Proportion by age group")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(educ) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(educ) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(educ, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "education", y = "proportion", title = "Proportion by education")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(region_2) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(region_2) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(region_2, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "region", y = "proportion", title = "Proportion by region")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source") -->
+<!-- d %>%  -->
+<!--   group_by(marital) %>%  -->
+<!--   tally() %>%  -->
+<!--   mutate(pma = n/sum(n)) %>%  -->
+<!--   left_join(census_counts %>%  -->
+<!--               group_by(marital) %>%  -->
+<!--               summarize(n = sum(n)) %>%  -->
+<!--               mutate(census = n/sum(n)) %>%  -->
+<!--               select(-n)) %>%  -->
+<!--   pivot_longer(pma:census) %>%  -->
+<!--   ggplot(aes(marital, value, fill = name)) + geom_bar(stat = "identity", position = 'dodge')+ -->
+<!--   theme_bw(base_size = 14) +  -->
+<!--   labs( x = "marital status", y = "proportion", title = "Proportion by marital status")+ -->
+<!--   scale_fill_brewer(palette = "Set1", name = "source")+coord_flip() -->
+<!-- ``` -->
+<!-- ### Multilevel regression -->
+<!-- Let's run a logistic regression of whether or not an individual reported ever having an abortion with covariates education, age group, and region modelled hierarchically -->
+<!-- #### Run the model -->
+<!-- ```{r} -->
+<!-- mod <- brm(abortion ~ (1|region_2)+educ+ marital +age_group, data = d, family = "bernoulli", silent = TRUE, refresh = 0) -->
+<!-- summary(mod) -->
+<!-- # optional: cf to lme4 -->
+<!-- #summary(lme4::glmer(abortion ~ (1|region_2)+marital+educ+ age_group, data = d, family = "binomial")) -->
+<!-- ``` -->
+<!-- #### Get estimated proportions of abortion incidence -->
+<!-- Now we need to get the estimated proportions of abortion incidence by each subpopulation of interest. (i.e. by region, marital status, education and age group). First, initiate a tibble with all possible combinations: -->
+<!-- ```{r} -->
+<!-- regions <- unique(d$region_2) -->
+<!-- marital_groups <- unique(d$marital) -->
+<!-- educ_groups  <- unique(d$educ) -->
+<!-- pred_df <- tibble(region_2 = NA, marital = NA, educ = NA, age_group = NA) %>%  -->
+<!--   tidyr::complete(region_2 = regions,  -->
+<!--                   marital = marital_groups, -->
+<!--                   educ = educ_groups,  -->
+<!--                   age_group = age_groups) %>%  -->
+<!--   mutate_all(.funs = funs(as_factor(.))) %>%  -->
+<!--   drop_na() %>%  -->
+<!--   mutate(age_group = fct_relevel(age_group, "35", after = 0)) %>%  -->
+<!--   filter(age_group != "45") -->
+<!-- ``` -->
+<!-- We can use the `fitted_draws` function to obtain posterior samples of the estimated proportion of women reporting an abortion by each group: -->
+<!-- ```{r} -->
+<!-- pred_probs_draws <- mod %>%  -->
+<!--   fitted_draws(pred_df  %>%  -->
+<!--                     select(region_2:age_group) %>%  -->
+<!--                     mutate(age_group = factor(age_group, levels = age_groups[-length(age_groups)]))) -->
+<!-- ``` -->
+<!-- ### Post-stratify the predicted proportions -->
+<!-- For the post-stratification, we need a data frame that tells us how many women in the census are in each subgroup of interest. Let's join the census counts to the `pred_probs_draws` table above, replacing any NAs with 0's: -->
+<!-- ```{r} -->
+<!-- pred_probs_draws <- pred_probs_draws %>%  -->
+<!--   left_join(census_counts) %>%  -->
+<!--   replace_na(replace = list(n = 0)) -->
+<!-- ``` -->
+<!-- For each group and draw, we can calculate the estimated number of women reporting an abortion: -->
+<!-- ```{r} -->
+<!-- pred_probs_draws <- pred_probs_draws %>%  -->
+<!--   mutate(n_abo = n*.value) -->
+<!-- ``` -->
+<!-- We can now use this as a basis of getting estimates by any group of interest. For example, the national estimate and lower/upper bounds is -->
+<!-- ```{r} -->
+<!-- pred_probs_draws %>%  -->
+<!--   group_by(.draw) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   ungroup() %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- ``` -->
+<!-- By age group: -->
+<!-- ```{r} -->
+<!-- prop_by_age <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, age_group) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(age_group) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_age -->
+<!-- ``` -->
+<!-- By marital status: -->
+<!-- ```{r} -->
+<!-- prop_by_marital <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, marital) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(marital) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_marital -->
+<!-- ``` -->
+<!-- By education: -->
+<!-- ```{r} -->
+<!-- prop_by_educ <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, educ) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(educ) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_educ -->
+<!-- ``` -->
+<!-- By region: -->
+<!-- ```{r} -->
+<!-- prop_by_region <- pred_probs_draws %>%  -->
+<!--   group_by(.draw, region_2) %>%  -->
+<!--   summarize(prop_abo = sum(n_abo)/sum(n)) %>%  -->
+<!--   group_by(region_2) %>%  -->
+<!--   summarize(prop_abo_group = median(prop_abo),  -->
+<!--             lower = quantile(prop_abo, 0.1), -->
+<!--             upper = quantile(prop_abo, 0.9)) -->
+<!-- prop_by_region -->
+<!-- ``` -->
+<!-- ### Plotting and comparing estimates -->
+<!-- We can compare the MRP estimates with raw estimates from the PMA survey and also estimates using normal post-stratification -->
+<!-- #### Calculating raw estimates and post-stratified estimates -->
+<!-- Calculate the raw estimates from the survey: -->
+<!-- ```{r} -->
+<!-- pma_cells <- d %>%  -->
+<!--   group_by(region_2, educ, marital, age_group) %>%  -->
+<!--   summarize( -->
+<!--             n_sample = n(), n_abo_sample = sum(abortion), -->
+<!--             prop_abo = n_abo_sample/n_sample) -->
+<!-- ``` -->
+<!-- We can then combine these with census data to get post-stratified counts: -->
+<!-- ```{r} -->
+<!-- pma_cells <- pma_cells %>%  -->
+<!--   left_join(census_counts) %>%  -->
+<!--   mutate(n_abo = prop_abo*n) %>%  -->
+<!--   replace_na(replace = list(n = 0,n_abo = 0)) %>%  -->
+<!--   ungroup() -->
+<!-- ``` -->
+<!-- #### Join all estimates together -->
+<!-- Calculate raw and post-stratified estimates by different subpopulations and join them to the MRP estimates. By age group: -->
+<!-- ```{r} -->
+<!-- prop_by_age <- prop_by_age %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(age_group) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(age_group) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-age_group, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(age_group) -->
+<!-- ``` -->
+<!-- By education: -->
+<!-- ```{r} -->
+<!-- prop_by_educ <- prop_by_educ %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(educ) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(educ) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-educ, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(educ) -->
+<!-- ``` -->
+<!-- By marital status: -->
+<!-- ```{r} -->
+<!-- prop_by_marital <- prop_by_marital %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(marital) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(marital) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-marital, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(marital) -->
+<!-- ``` -->
+<!-- By region: -->
+<!-- ```{r} -->
+<!-- prop_by_region <- prop_by_region %>%  -->
+<!--   mutate(type = "mrp") %>%  -->
+<!--   rename(point = prop_abo_group) %>%  -->
+<!--   bind_rows(pma_cells %>% group_by(region_2) %>%summarize(poststrat = sum(n_abo)/sum(n)) %>%  -->
+<!--   left_join(pma_cells %>% group_by(region_2) %>%summarize(raw = sum(n_abo_sample)/sum(n_sample))) %>%  -->
+<!--   pivot_longer(-region_2, names_to = "type", values_to = "point")) %>%  -->
+<!--   arrange(region_2) -->
+<!-- ``` -->
+<!-- #### Plot! -->
+<!-- By age group: -->
+<!-- ```{r} -->
+<!-- prop_by_age %>%  -->
+<!--   ggplot(aes(age_group, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by age group", x = "age", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
+<!-- By education:  -->
+<!-- ```{r} -->
+<!-- prop_by_educ %>%  -->
+<!--   mutate(educ = fct_relevel(educ, "more than primary", after = 2)) %>%  -->
+<!--   ggplot(aes(educ, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by education", x = "education level", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
+<!-- By marital status -->
+<!-- ```{r} -->
+<!-- prop_by_marital %>%  -->
+<!--   mutate(marital = factor(marital, c("single/never married", "married/in union", "divorced/separated", "widowed"))) %>%  -->
+<!--   ggplot(aes(marital, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by marital status", x = "", y = "proportion of women reporting abortions")+ -->
+<!--   coord_flip() -->
+<!-- ``` -->
+<!-- By region -->
+<!-- ```{r} -->
+<!-- prop_by_region %>%  -->
+<!--   ggplot(aes(region_2, point, color = type)) + geom_point(size = 2) +  -->
+<!--   geom_errorbar(aes(ymin = lower, ymax = upper), width = NA, alpha = 0.5) +  -->
+<!--   theme_bw(base_size = 14) + -->
+<!--   labs(title = "Abortion prevalence by region", x = "", y = "proportion of women reporting abortions") -->
+<!-- ``` -->
 </div>
 </div>
-<div id="case-study---self-reported-abortion-incidence-in-uganda" class="section level2" number="16.6">
-<h2><span class="header-section-number">16.6</span> Case study - Self-reported abortion incidence in Uganda</h2>
-<p><strong>By Monica Alexander</strong></p>
-<p>This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS.</p>
-<div id="load-in-data-and-tidy-up" class="section level3" number="16.6.1">
-<h3><span class="header-section-number">16.6.1</span> Load in data and tidy up</h3>
-<p>Load in the packages:</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="multilevel-regression-with-post-stratification.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb742-2"><a href="multilevel-regression-with-post-stratification.html#cb742-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb742-3"><a href="multilevel-regression-with-post-stratification.html#cb742-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb742-4"><a href="multilevel-regression-with-post-stratification.html#cb742-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span></code></pre></div>
-<div id="pma" class="section level4" number="16.6.1.1">
-<h4><span class="header-section-number">16.6.1.1</span> PMA</h4>
-<p>Load in the PMA data and make an age category variable:</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="multilevel-regression-with-post-stratification.html#cb743-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;inputs/data/pma.csv&quot;</span>))</span>
-<span id="cb743-2"><a href="multilevel-regression-with-post-stratification.html#cb743-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age<span class="sc">&gt;</span><span class="dv">14</span>, age<span class="sc">&lt;</span><span class="dv">50</span>)</span>
-<span id="cb743-3"><a href="multilevel-regression-with-post-stratification.html#cb743-3" aria-hidden="true" tabindex="-1"></a>age_groups <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">15</span>, <span class="dv">45</span>, <span class="at">by =</span> <span class="dv">5</span>)</span>
-<span id="cb743-4"><a href="multilevel-regression-with-post-stratification.html#cb743-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>age_group <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(<span class="fu">cut</span>(d<span class="sc">$</span>age, </span>
-<span id="cb743-5"><a href="multilevel-regression-with-post-stratification.html#cb743-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">breaks=</span> <span class="fu">c</span>(age_groups, <span class="cn">Inf</span>), </span>
-<span id="cb743-6"><a href="multilevel-regression-with-post-stratification.html#cb743-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">labels =</span> age_groups, </span>
-<span id="cb743-7"><a href="multilevel-regression-with-post-stratification.html#cb743-7" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">right =</span> <span class="cn">FALSE</span>)))</span>
-<span id="cb743-8"><a href="multilevel-regression-with-post-stratification.html#cb743-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">factor</span>(age_group)) <span class="sc">%&gt;%</span> </span>
-<span id="cb743-9"><a href="multilevel-regression-with-post-stratification.html#cb743-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">fct_relevel</span>(age_group, <span class="st">&quot;35&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>))</span></code></pre></div>
-<p>Create a new <code>region_2</code> variable with slightly bigger regions (that match the census data):</p>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="multilevel-regression-with-post-stratification.html#cb744-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">region_2 =</span> <span class="fu">case_when</span>(region <span class="sc">==</span> <span class="st">&quot;north&quot;</span><span class="sc">|</span>region<span class="sc">==</span> <span class="st">&quot;karamoja&quot;</span><span class="sc">|</span>region <span class="sc">==</span> <span class="st">&quot;west nile&quot;</span> <span class="sc">~</span> <span class="st">&quot;northern&quot;</span>,</span>
-<span id="cb744-2"><a href="multilevel-regression-with-post-stratification.html#cb744-2" aria-hidden="true" tabindex="-1"></a>                                       region <span class="sc">==</span> <span class="st">&quot;eastern&quot;</span> <span class="sc">~</span> <span class="st">&quot;eastern&quot;</span>,</span>
-<span id="cb744-3"><a href="multilevel-regression-with-post-stratification.html#cb744-3" aria-hidden="true" tabindex="-1"></a>                                       region <span class="sc">==</span> <span class="st">&quot;central 1&quot;</span><span class="sc">|</span>region <span class="sc">==</span> <span class="st">&quot;central 2&quot;</span><span class="sc">|</span>region <span class="sc">==</span> <span class="st">&quot;east central&quot;</span><span class="sc">|</span>region <span class="sc">==</span> <span class="st">&quot;kampala&quot;</span> <span class="sc">~</span> <span class="st">&quot;central&quot;</span>,</span>
-<span id="cb744-4"><a href="multilevel-regression-with-post-stratification.html#cb744-4" aria-hidden="true" tabindex="-1"></a>                                       region <span class="sc">==</span> <span class="st">&quot;western&quot;</span><span class="sc">|</span>region <span class="sc">==</span> <span class="st">&quot;south west&quot;</span> <span class="sc">~</span> <span class="st">&quot;western&quot;</span>))</span></code></pre></div>
-</div>
-<div id="census" class="section level4" number="16.6.1.2">
-<h4><span class="header-section-number">16.6.1.2</span> Census</h4>
-<p>Load in the data, select the columns we want and make an age category variable:</p>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="multilevel-regression-with-post-stratification.html#cb745-1" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;inputs/data/uganda_census.dta&quot;</span>))</span>
-<span id="cb745-2"><a href="multilevel-regression-with-post-stratification.html#cb745-2" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> </span>
-<span id="cb745-3"><a href="multilevel-regression-with-post-stratification.html#cb745-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(regnug, perwt, age, marst, edattain) <span class="sc">%&gt;%</span> </span>
-<span id="cb745-4"><a href="multilevel-regression-with-post-stratification.html#cb745-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">regnug =</span> <span class="fu">as_factor</span>(regnug),</span>
-<span id="cb745-5"><a href="multilevel-regression-with-post-stratification.html#cb745-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">marst =</span> <span class="fu">as_factor</span>(marst),</span>
-<span id="cb745-6"><a href="multilevel-regression-with-post-stratification.html#cb745-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">edattain =</span> <span class="fu">as_factor</span>(edattain))</span>
-<span id="cb745-7"><a href="multilevel-regression-with-post-stratification.html#cb745-7" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age<span class="sc">&gt;</span><span class="dv">14</span>, age<span class="sc">&lt;</span><span class="dv">50</span>)</span>
-<span id="cb745-8"><a href="multilevel-regression-with-post-stratification.html#cb745-8" aria-hidden="true" tabindex="-1"></a>dc<span class="sc">$</span>age_group <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(<span class="fu">cut</span>(dc<span class="sc">$</span>age, </span>
-<span id="cb745-9"><a href="multilevel-regression-with-post-stratification.html#cb745-9" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">breaks=</span> <span class="fu">c</span>(age_groups, <span class="cn">Inf</span>), </span>
-<span id="cb745-10"><a href="multilevel-regression-with-post-stratification.html#cb745-10" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">labels =</span> age_groups, </span>
-<span id="cb745-11"><a href="multilevel-regression-with-post-stratification.html#cb745-11" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">right =</span> <span class="cn">FALSE</span>)))</span>
-<span id="cb745-12"><a href="multilevel-regression-with-post-stratification.html#cb745-12" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">factor</span>(age_group)) <span class="sc">%&gt;%</span> </span>
-<span id="cb745-13"><a href="multilevel-regression-with-post-stratification.html#cb745-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">fct_relevel</span>(age_group, <span class="st">&quot;35&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>))</span></code></pre></div>
-</div>
-<div id="recode-education-and-marital-status" class="section level4" number="16.6.1.3">
-<h4><span class="header-section-number">16.6.1.3</span> Recode education and marital status</h4>
-<p>The PMA and census have different education and marital status categories. Let’s recode so they are the same:</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="multilevel-regression-with-post-stratification.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EDUCATION</span></span>
-<span id="cb746-2"><a href="multilevel-regression-with-post-stratification.html#cb746-2" aria-hidden="true" tabindex="-1"></a><span class="co">#table(d$educattgen)</span></span>
-<span id="cb746-3"><a href="multilevel-regression-with-post-stratification.html#cb746-3" aria-hidden="true" tabindex="-1"></a><span class="co">#table(dc$edattain)</span></span>
-<span id="cb746-4"><a href="multilevel-regression-with-post-stratification.html#cb746-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">educ =</span> <span class="fu">case_when</span>(educattgen<span class="sc">==</span><span class="st">&quot;never attended&quot;</span><span class="sc">~</span><span class="st">&quot;less than primary&quot;</span>,</span>
-<span id="cb746-5"><a href="multilevel-regression-with-post-stratification.html#cb746-5" aria-hidden="true" tabindex="-1"></a>                                   educattgen<span class="sc">==</span><span class="st">&quot;primary/middle school&quot;</span> <span class="sc">~</span><span class="st">&quot;primary&quot;</span>,</span>
-<span id="cb746-6"><a href="multilevel-regression-with-post-stratification.html#cb746-6" aria-hidden="true" tabindex="-1"></a>                                   educattgen<span class="sc">==</span><span class="st">&quot;secondary/post-primary&quot;</span><span class="sc">|</span>educattgen<span class="sc">==</span><span class="st">&quot;tertiary/post-secondary&quot;</span> <span class="sc">~</span> <span class="st">&quot;more than primary&quot;</span>,</span>
-<span id="cb746-7"><a href="multilevel-regression-with-post-stratification.html#cb746-7" aria-hidden="true" tabindex="-1"></a>                                   <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;NA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb746-8"><a href="multilevel-regression-with-post-stratification.html#cb746-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(educ <span class="sc">!=</span> <span class="st">&quot;NA&quot;</span>, marstat<span class="sc">!=</span><span class="st">&quot;no response or missing&quot;</span>)</span>
-<span id="cb746-9"><a href="multilevel-regression-with-post-stratification.html#cb746-9" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">educ =</span> <span class="fu">case_when</span>(edattain<span class="sc">==</span><span class="st">&quot;less than primary completed&quot;</span><span class="sc">~</span><span class="st">&quot;less than primary&quot;</span>,</span>
-<span id="cb746-10"><a href="multilevel-regression-with-post-stratification.html#cb746-10" aria-hidden="true" tabindex="-1"></a>                                     edattain<span class="sc">==</span><span class="st">&quot;primary completed&quot;</span><span class="sc">~</span> <span class="st">&quot;primary&quot;</span>,</span>
-<span id="cb746-11"><a href="multilevel-regression-with-post-stratification.html#cb746-11" aria-hidden="true" tabindex="-1"></a>                                     edattain<span class="sc">==</span><span class="st">&quot;secondary completed&quot;</span><span class="sc">|</span>edattain<span class="sc">==</span><span class="st">&quot;university completed&quot;</span> <span class="sc">~</span> <span class="st">&quot;more than primary&quot;</span>,</span>
-<span id="cb746-12"><a href="multilevel-regression-with-post-stratification.html#cb746-12" aria-hidden="true" tabindex="-1"></a>                                     <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;NA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb746-13"><a href="multilevel-regression-with-post-stratification.html#cb746-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(educ <span class="sc">!=</span><span class="st">&quot;NA&quot;</span>)</span>
-<span id="cb746-14"><a href="multilevel-regression-with-post-stratification.html#cb746-14" aria-hidden="true" tabindex="-1"></a><span class="do">## MARITAL STATUS</span></span>
-<span id="cb746-15"><a href="multilevel-regression-with-post-stratification.html#cb746-15" aria-hidden="true" tabindex="-1"></a><span class="co">#table(d$marstat)</span></span>
-<span id="cb746-16"><a href="multilevel-regression-with-post-stratification.html#cb746-16" aria-hidden="true" tabindex="-1"></a><span class="co">#table(dc$marst)</span></span>
-<span id="cb746-17"><a href="multilevel-regression-with-post-stratification.html#cb746-17" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">marital =</span> <span class="fu">case_when</span>(marstat <span class="sc">==</span> <span class="st">&quot;never married&quot;</span> <span class="sc">~</span> <span class="st">&quot;single/never married&quot;</span>,</span>
-<span id="cb746-18"><a href="multilevel-regression-with-post-stratification.html#cb746-18" aria-hidden="true" tabindex="-1"></a>                                      marstat <span class="sc">==</span> <span class="st">&quot;currently living with partner&quot;</span><span class="sc">|</span> marstat <span class="sc">==</span> <span class="st">&quot;currently married&quot;</span> <span class="sc">~</span> <span class="st">&quot;married/in union&quot;</span>,</span>
-<span id="cb746-19"><a href="multilevel-regression-with-post-stratification.html#cb746-19" aria-hidden="true" tabindex="-1"></a>                                      marstat<span class="sc">==</span> <span class="st">&quot;divorced or separated&quot;</span> <span class="sc">~</span> <span class="st">&quot;divorced/separated&quot;</span>,</span>
-<span id="cb746-20"><a href="multilevel-regression-with-post-stratification.html#cb746-20" aria-hidden="true" tabindex="-1"></a>                                      marstat<span class="sc">==</span> <span class="st">&quot;widow or widower&quot;</span><span class="sc">~</span> <span class="st">&quot;widowed&quot;</span>,</span>
-<span id="cb746-21"><a href="multilevel-regression-with-post-stratification.html#cb746-21" aria-hidden="true" tabindex="-1"></a>                                      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;NA&quot;</span>))</span>
-<span id="cb746-22"><a href="multilevel-regression-with-post-stratification.html#cb746-22" aria-hidden="true" tabindex="-1"></a>dc <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">marital =</span> <span class="fu">case_when</span>(marst <span class="sc">==</span> <span class="st">&quot;single/never married&quot;</span> <span class="sc">~</span> <span class="st">&quot;single/never married&quot;</span>,</span>
-<span id="cb746-23"><a href="multilevel-regression-with-post-stratification.html#cb746-23" aria-hidden="true" tabindex="-1"></a>                                        marst <span class="sc">==</span> <span class="st">&quot;married/in union&quot;</span> <span class="sc">~</span> <span class="st">&quot;married/in union&quot;</span>,</span>
-<span id="cb746-24"><a href="multilevel-regression-with-post-stratification.html#cb746-24" aria-hidden="true" tabindex="-1"></a>                                        marst<span class="sc">==</span> <span class="st">&quot;separated/divorced/spouse absent&quot;</span> <span class="sc">~</span> <span class="st">&quot;divorced/separated&quot;</span>,</span>
-<span id="cb746-25"><a href="multilevel-regression-with-post-stratification.html#cb746-25" aria-hidden="true" tabindex="-1"></a>                                        marst<span class="sc">==</span> <span class="st">&quot;widowed&quot;</span><span class="sc">~</span> <span class="st">&quot;widowed&quot;</span>,</span>
-<span id="cb746-26"><a href="multilevel-regression-with-post-stratification.html#cb746-26" aria-hidden="true" tabindex="-1"></a>                                      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;NA&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb746-27"><a href="multilevel-regression-with-post-stratification.html#cb746-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(marital <span class="sc">!=</span> <span class="st">&quot;NA&quot;</span>)</span></code></pre></div>
-</div>
-</div>
-<div id="plot-data" class="section level3" number="16.6.2">
-<h3><span class="header-section-number">16.6.2</span> Plot data</h3>
-<p>Lets calculate the census population by key subgroups:</p>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="multilevel-regression-with-post-stratification.html#cb747-1" aria-hidden="true" tabindex="-1"></a>census_counts <span class="ot">&lt;-</span> dc <span class="sc">%&gt;%</span> </span>
-<span id="cb747-2"><a href="multilevel-regression-with-post-stratification.html#cb747-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(regnug, marital, educ, age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb747-3"><a href="multilevel-regression-with-post-stratification.html#cb747-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(perwt)) <span class="sc">%&gt;%</span> </span>
-<span id="cb747-4"><a href="multilevel-regression-with-post-stratification.html#cb747-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_group<span class="sc">!=</span><span class="st">&quot;45&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb747-5"><a href="multilevel-regression-with-post-stratification.html#cb747-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">region_2 =</span> regnug)</span></code></pre></div>
-<p>We can get an idea of differences in population distributions by plotting the PMA and census proportions by different variables:</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="multilevel-regression-with-post-stratification.html#cb748-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
-<span id="cb748-2"><a href="multilevel-regression-with-post-stratification.html#cb748-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-3"><a href="multilevel-regression-with-post-stratification.html#cb748-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb748-4"><a href="multilevel-regression-with-post-stratification.html#cb748-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pma =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-5"><a href="multilevel-regression-with-post-stratification.html#cb748-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts <span class="sc">%&gt;%</span> </span>
-<span id="cb748-6"><a href="multilevel-regression-with-post-stratification.html#cb748-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-7"><a href="multilevel-regression-with-post-stratification.html#cb748-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-8"><a href="multilevel-regression-with-post-stratification.html#cb748-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">census =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-9"><a href="multilevel-regression-with-post-stratification.html#cb748-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(<span class="sc">-</span>n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-10"><a href="multilevel-regression-with-post-stratification.html#cb748-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">as.character</span>(age_group)) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-11"><a href="multilevel-regression-with-post-stratification.html#cb748-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-12"><a href="multilevel-regression-with-post-stratification.html#cb748-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(pma<span class="sc">:</span>census) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-13"><a href="multilevel-regression-with-post-stratification.html#cb748-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age_group, value, <span class="at">fill =</span> name)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)<span class="sc">+</span></span>
-<span id="cb748-14"><a href="multilevel-regression-with-post-stratification.html#cb748-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
-<span id="cb748-15"><a href="multilevel-regression-with-post-stratification.html#cb748-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">x =</span> <span class="st">&quot;age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Proportion by age group&quot;</span>)<span class="sc">+</span></span>
-<span id="cb748-16"><a href="multilevel-regression-with-post-stratification.html#cb748-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="multilevel-regression-with-post-stratification.html#cb749-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
-<span id="cb749-2"><a href="multilevel-regression-with-post-stratification.html#cb749-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(educ) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-3"><a href="multilevel-regression-with-post-stratification.html#cb749-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb749-4"><a href="multilevel-regression-with-post-stratification.html#cb749-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pma =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-5"><a href="multilevel-regression-with-post-stratification.html#cb749-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts <span class="sc">%&gt;%</span> </span>
-<span id="cb749-6"><a href="multilevel-regression-with-post-stratification.html#cb749-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(educ) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-7"><a href="multilevel-regression-with-post-stratification.html#cb749-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-8"><a href="multilevel-regression-with-post-stratification.html#cb749-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">census =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-9"><a href="multilevel-regression-with-post-stratification.html#cb749-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(<span class="sc">-</span>n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-10"><a href="multilevel-regression-with-post-stratification.html#cb749-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">educ =</span> <span class="fu">fct_relevel</span>(educ, <span class="st">&quot;more than primary&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-11"><a href="multilevel-regression-with-post-stratification.html#cb749-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(pma<span class="sc">:</span>census) <span class="sc">%&gt;%</span> </span>
-<span id="cb749-12"><a href="multilevel-regression-with-post-stratification.html#cb749-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(educ, value, <span class="at">fill =</span> name)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)<span class="sc">+</span></span>
-<span id="cb749-13"><a href="multilevel-regression-with-post-stratification.html#cb749-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
-<span id="cb749-14"><a href="multilevel-regression-with-post-stratification.html#cb749-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">x =</span> <span class="st">&quot;education&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Proportion by education&quot;</span>)<span class="sc">+</span></span>
-<span id="cb749-15"><a href="multilevel-regression-with-post-stratification.html#cb749-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-460-2.png" width="672" /></p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="multilevel-regression-with-post-stratification.html#cb750-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
-<span id="cb750-2"><a href="multilevel-regression-with-post-stratification.html#cb750-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region_2) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-3"><a href="multilevel-regression-with-post-stratification.html#cb750-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb750-4"><a href="multilevel-regression-with-post-stratification.html#cb750-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pma =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-5"><a href="multilevel-regression-with-post-stratification.html#cb750-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts <span class="sc">%&gt;%</span> </span>
-<span id="cb750-6"><a href="multilevel-regression-with-post-stratification.html#cb750-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(region_2) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-7"><a href="multilevel-regression-with-post-stratification.html#cb750-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-8"><a href="multilevel-regression-with-post-stratification.html#cb750-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">census =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-9"><a href="multilevel-regression-with-post-stratification.html#cb750-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(<span class="sc">-</span>n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-10"><a href="multilevel-regression-with-post-stratification.html#cb750-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(pma<span class="sc">:</span>census) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-11"><a href="multilevel-regression-with-post-stratification.html#cb750-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(region_2, value, <span class="at">fill =</span> name)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)<span class="sc">+</span></span>
-<span id="cb750-12"><a href="multilevel-regression-with-post-stratification.html#cb750-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
-<span id="cb750-13"><a href="multilevel-regression-with-post-stratification.html#cb750-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">x =</span> <span class="st">&quot;region&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Proportion by region&quot;</span>)<span class="sc">+</span></span>
-<span id="cb750-14"><a href="multilevel-regression-with-post-stratification.html#cb750-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-460-3.png" width="672" /></p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="multilevel-regression-with-post-stratification.html#cb751-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
-<span id="cb751-2"><a href="multilevel-regression-with-post-stratification.html#cb751-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(marital) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-3"><a href="multilevel-regression-with-post-stratification.html#cb751-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb751-4"><a href="multilevel-regression-with-post-stratification.html#cb751-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pma =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-5"><a href="multilevel-regression-with-post-stratification.html#cb751-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts <span class="sc">%&gt;%</span> </span>
-<span id="cb751-6"><a href="multilevel-regression-with-post-stratification.html#cb751-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">group_by</span>(marital) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-7"><a href="multilevel-regression-with-post-stratification.html#cb751-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-8"><a href="multilevel-regression-with-post-stratification.html#cb751-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">census =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-9"><a href="multilevel-regression-with-post-stratification.html#cb751-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">select</span>(<span class="sc">-</span>n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-10"><a href="multilevel-regression-with-post-stratification.html#cb751-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(pma<span class="sc">:</span>census) <span class="sc">%&gt;%</span> </span>
-<span id="cb751-11"><a href="multilevel-regression-with-post-stratification.html#cb751-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(marital, value, <span class="at">fill =</span> name)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span>)<span class="sc">+</span></span>
-<span id="cb751-12"><a href="multilevel-regression-with-post-stratification.html#cb751-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
-<span id="cb751-13"><a href="multilevel-regression-with-post-stratification.html#cb751-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>( <span class="at">x =</span> <span class="st">&quot;marital status&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Proportion by marital status&quot;</span>)<span class="sc">+</span></span>
-<span id="cb751-14"><a href="multilevel-regression-with-post-stratification.html#cb751-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">name =</span> <span class="st">&quot;source&quot;</span>)<span class="sc">+</span><span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-460-4.png" width="672" /></p>
-</div>
-<div id="multilevel-regression" class="section level3" number="16.6.3">
-<h3><span class="header-section-number">16.6.3</span> Multilevel regression</h3>
-<p>Let’s run a logistic regression of whether or not an individual reported ever having an abortion with covariates education, age group, and region modelled hierarchically</p>
-<div id="run-the-model" class="section level4" number="16.6.3.1">
-<h4><span class="header-section-number">16.6.3.1</span> Run the model</h4>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="multilevel-regression-with-post-stratification.html#cb752-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">brm</span>(abortion <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>region_2)<span class="sc">+</span>educ<span class="sc">+</span> marital <span class="sc">+</span>age_group, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">&quot;bernoulli&quot;</span>, <span class="at">silent =</span> <span class="cn">TRUE</span>, <span class="at">refresh =</span> <span class="dv">0</span>)</span>
-<span id="cb752-2"><a href="multilevel-regression-with-post-stratification.html#cb752-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
-<pre><code>##  Family: bernoulli 
-##   Links: mu = logit 
-## Formula: abortion ~ (1 | region_2) + educ + marital + age_group 
-##    Data: d (Number of observations: 2774) 
-## Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
-##          total post-warmup samples = 4000
-## 
-## Group-Level Effects: 
-## ~region_2 (Number of levels: 4) 
-##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-## sd(Intercept)     0.73      0.42     0.25     1.86 1.00      989      766
-## 
-## Population-Level Effects: 
-##                            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-## Intercept                     -2.38      0.47    -3.30    -1.39 1.00     1256
-## educmorethanprimary            0.77      0.23     0.32     1.23 1.00     2610
-## educprimary                    0.70      0.21     0.29     1.12 1.00     2583
-## maritalmarriedDinunion        -0.46      0.15    -0.76    -0.17 1.00     3580
-## maritalsingleDnevermarried    -1.16      0.39    -2.00    -0.45 1.00     3831
-## maritalwidowed                -0.91      0.43    -1.80    -0.11 1.00     3021
-## age_group15                    0.01      0.23    -0.44     0.46 1.00     1754
-## age_group20                    0.13      0.23    -0.33     0.59 1.00     1556
-## age_group25                    0.35      0.23    -0.09     0.81 1.00     2026
-## age_group30                    0.10      0.25    -0.38     0.57 1.00     1930
-## age_group40                    0.03      0.38    -0.77     0.75 1.00     2741
-##                            Tail_ESS
-## Intercept                      1337
-## educmorethanprimary            2734
-## educprimary                    2605
-## maritalmarriedDinunion         2846
-## maritalsingleDnevermarried     2419
-## maritalwidowed                 2770
-## age_group15                    1580
-## age_group20                    1593
-## age_group25                    2319
-## age_group30                    2658
-## age_group40                    2353
-## 
-## Samples were drawn using sampling(NUTS). For each parameter, Bulk_ESS
-## and Tail_ESS are effective sample size measures, and Rhat is the potential
-## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="multilevel-regression-with-post-stratification.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="co"># optional: cf to lme4</span></span>
-<span id="cb754-2"><a href="multilevel-regression-with-post-stratification.html#cb754-2" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(lme4::glmer(abortion ~ (1|region_2)+marital+educ+ age_group, data = d, family = &quot;binomial&quot;))</span></span></code></pre></div>
-</div>
-<div id="get-estimated-proportions-of-abortion-incidence" class="section level4" number="16.6.3.2">
-<h4><span class="header-section-number">16.6.3.2</span> Get estimated proportions of abortion incidence</h4>
-<p>Now we need to get the estimated proportions of abortion incidence by each subpopulation of interest. (i.e. by region, marital status, education and age group). First, initiate a tibble with all possible combinations:</p>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="multilevel-regression-with-post-stratification.html#cb755-1" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> <span class="fu">unique</span>(d<span class="sc">$</span>region_2)</span>
-<span id="cb755-2"><a href="multilevel-regression-with-post-stratification.html#cb755-2" aria-hidden="true" tabindex="-1"></a>marital_groups <span class="ot">&lt;-</span> <span class="fu">unique</span>(d<span class="sc">$</span>marital)</span>
-<span id="cb755-3"><a href="multilevel-regression-with-post-stratification.html#cb755-3" aria-hidden="true" tabindex="-1"></a>educ_groups  <span class="ot">&lt;-</span> <span class="fu">unique</span>(d<span class="sc">$</span>educ)</span>
-<span id="cb755-4"><a href="multilevel-regression-with-post-stratification.html#cb755-4" aria-hidden="true" tabindex="-1"></a>pred_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">region_2 =</span> <span class="cn">NA</span>, <span class="at">marital =</span> <span class="cn">NA</span>, <span class="at">educ =</span> <span class="cn">NA</span>, <span class="at">age_group =</span> <span class="cn">NA</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb755-5"><a href="multilevel-regression-with-post-stratification.html#cb755-5" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(<span class="at">region_2 =</span> regions, </span>
-<span id="cb755-6"><a href="multilevel-regression-with-post-stratification.html#cb755-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">marital =</span> marital_groups,</span>
-<span id="cb755-7"><a href="multilevel-regression-with-post-stratification.html#cb755-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">educ =</span> educ_groups, </span>
-<span id="cb755-8"><a href="multilevel-regression-with-post-stratification.html#cb755-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">age_group =</span> age_groups) <span class="sc">%&gt;%</span> </span>
-<span id="cb755-9"><a href="multilevel-regression-with-post-stratification.html#cb755-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="at">.funs =</span> <span class="fu">funs</span>(<span class="fu">as_factor</span>(.))) <span class="sc">%&gt;%</span> </span>
-<span id="cb755-10"><a href="multilevel-regression-with-post-stratification.html#cb755-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb755-11"><a href="multilevel-regression-with-post-stratification.html#cb755-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">fct_relevel</span>(age_group, <span class="st">&quot;35&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb755-12"><a href="multilevel-regression-with-post-stratification.html#cb755-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_group <span class="sc">!=</span> <span class="st">&quot;45&quot;</span>)</span></code></pre></div>
-<p>We can use the <code>fitted_draws</code> function to obtain posterior samples of the estimated proportion of women reporting an abortion by each group:</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="multilevel-regression-with-post-stratification.html#cb756-1" aria-hidden="true" tabindex="-1"></a>pred_probs_draws <span class="ot">&lt;-</span> mod <span class="sc">%&gt;%</span> </span>
-<span id="cb756-2"><a href="multilevel-regression-with-post-stratification.html#cb756-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fitted_draws</span>(pred_df  <span class="sc">%&gt;%</span> </span>
-<span id="cb756-3"><a href="multilevel-regression-with-post-stratification.html#cb756-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">select</span>(region_2<span class="sc">:</span>age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb756-4"><a href="multilevel-regression-with-post-stratification.html#cb756-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">factor</span>(age_group, <span class="at">levels =</span> age_groups[<span class="sc">-</span><span class="fu">length</span>(age_groups)])))</span></code></pre></div>
-</div>
-</div>
-<div id="post-stratify-the-predicted-proportions" class="section level3" number="16.6.4">
-<h3><span class="header-section-number">16.6.4</span> Post-stratify the predicted proportions</h3>
-<p>For the post-stratification, we need a data frame that tells us how many women in the census are in each subgroup of interest. Let’s join the census counts to the <code>pred_probs_draws</code> table above, replacing any NAs with 0’s:</p>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="multilevel-regression-with-post-stratification.html#cb757-1" aria-hidden="true" tabindex="-1"></a>pred_probs_draws <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb757-2"><a href="multilevel-regression-with-post-stratification.html#cb757-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts) <span class="sc">%&gt;%</span> </span>
-<span id="cb757-3"><a href="multilevel-regression-with-post-stratification.html#cb757-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="at">replace =</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>))</span></code></pre></div>
-<p>For each group and draw, we can calculate the estimated number of women reporting an abortion:</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="multilevel-regression-with-post-stratification.html#cb758-1" aria-hidden="true" tabindex="-1"></a>pred_probs_draws <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb758-2"><a href="multilevel-regression-with-post-stratification.html#cb758-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_abo =</span> n<span class="sc">*</span>.value)</span></code></pre></div>
-<p>We can now use this as a basis of getting estimates by any group of interest. For example, the national estimate and lower/upper bounds is</p>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="multilevel-regression-with-post-stratification.html#cb759-1" aria-hidden="true" tabindex="-1"></a>pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb759-2"><a href="multilevel-regression-with-post-stratification.html#cb759-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.draw) <span class="sc">%&gt;%</span> </span>
-<span id="cb759-3"><a href="multilevel-regression-with-post-stratification.html#cb759-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb759-4"><a href="multilevel-regression-with-post-stratification.html#cb759-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb759-5"><a href="multilevel-regression-with-post-stratification.html#cb759-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo_group =</span> <span class="fu">median</span>(prop_abo), </span>
-<span id="cb759-6"><a href="multilevel-regression-with-post-stratification.html#cb759-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.1</span>),</span>
-<span id="cb759-7"><a href="multilevel-regression-with-post-stratification.html#cb759-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.9</span>))</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-466">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-466">Table 16.10: </span> </caption><col><col><col><tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">prop_abo_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0902</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0801</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.102</td></tr>
-</table>
-
-<p>By age group:</p>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="multilevel-regression-with-post-stratification.html#cb760-1" aria-hidden="true" tabindex="-1"></a>prop_by_age <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb760-2"><a href="multilevel-regression-with-post-stratification.html#cb760-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.draw, age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb760-3"><a href="multilevel-regression-with-post-stratification.html#cb760-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb760-4"><a href="multilevel-regression-with-post-stratification.html#cb760-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb760-5"><a href="multilevel-regression-with-post-stratification.html#cb760-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo_group =</span> <span class="fu">median</span>(prop_abo), </span>
-<span id="cb760-6"><a href="multilevel-regression-with-post-stratification.html#cb760-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.1</span>),</span>
-<span id="cb760-7"><a href="multilevel-regression-with-post-stratification.html#cb760-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.9</span>))</span>
-<span id="cb760-8"><a href="multilevel-regression-with-post-stratification.html#cb760-8" aria-hidden="true" tabindex="-1"></a>prop_by_age</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-467">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-467">Table 16.11: </span> </caption><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">age_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">prop_abo_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">15</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0641</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0482</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0849</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">20</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.096&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0807</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.114&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">25</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.124&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.106&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.143&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">30</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0937</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0765</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.112&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">35</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.084&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0661</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.105&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">40</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0829</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0546</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.119&nbsp;</td></tr>
-</table>
-
-<p>By marital status:</p>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="multilevel-regression-with-post-stratification.html#cb761-1" aria-hidden="true" tabindex="-1"></a>prop_by_marital <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb761-2"><a href="multilevel-regression-with-post-stratification.html#cb761-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.draw, marital) <span class="sc">%&gt;%</span> </span>
-<span id="cb761-3"><a href="multilevel-regression-with-post-stratification.html#cb761-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb761-4"><a href="multilevel-regression-with-post-stratification.html#cb761-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(marital) <span class="sc">%&gt;%</span> </span>
-<span id="cb761-5"><a href="multilevel-regression-with-post-stratification.html#cb761-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo_group =</span> <span class="fu">median</span>(prop_abo), </span>
-<span id="cb761-6"><a href="multilevel-regression-with-post-stratification.html#cb761-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.1</span>),</span>
-<span id="cb761-7"><a href="multilevel-regression-with-post-stratification.html#cb761-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.9</span>))</span>
-<span id="cb761-8"><a href="multilevel-regression-with-post-stratification.html#cb761-8" aria-hidden="true" tabindex="-1"></a>prop_by_marital</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-468">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-468">Table 16.12: </span> </caption><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">marital</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">prop_abo_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">divorced/separated</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.147&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.124&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.171&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">married/in union</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.1&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0901</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.111&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">single/never married</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0581</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0365</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0867</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">widowed</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0552</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0324</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0876</td></tr>
-</table>
-
-<p>By education:</p>
-<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="multilevel-regression-with-post-stratification.html#cb762-1" aria-hidden="true" tabindex="-1"></a>prop_by_educ <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb762-2"><a href="multilevel-regression-with-post-stratification.html#cb762-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.draw, educ) <span class="sc">%&gt;%</span> </span>
-<span id="cb762-3"><a href="multilevel-regression-with-post-stratification.html#cb762-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb762-4"><a href="multilevel-regression-with-post-stratification.html#cb762-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(educ) <span class="sc">%&gt;%</span> </span>
-<span id="cb762-5"><a href="multilevel-regression-with-post-stratification.html#cb762-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo_group =</span> <span class="fu">median</span>(prop_abo), </span>
-<span id="cb762-6"><a href="multilevel-regression-with-post-stratification.html#cb762-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.1</span>),</span>
-<span id="cb762-7"><a href="multilevel-regression-with-post-stratification.html#cb762-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.9</span>))</span>
-<span id="cb762-8"><a href="multilevel-regression-with-post-stratification.html#cb762-8" aria-hidden="true" tabindex="-1"></a>prop_by_educ</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-469">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-469">Table 16.13: </span> </caption><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">educ</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">prop_abo_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">less than primary</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0581</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0452</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0735</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">more than primary</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.122&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.104&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.142&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">primary</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.109&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0961</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.125&nbsp;</td></tr>
-</table>
-
-<p>By region:</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="multilevel-regression-with-post-stratification.html#cb763-1" aria-hidden="true" tabindex="-1"></a>prop_by_region <span class="ot">&lt;-</span> pred_probs_draws <span class="sc">%&gt;%</span> </span>
-<span id="cb763-2"><a href="multilevel-regression-with-post-stratification.html#cb763-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.draw, region_2) <span class="sc">%&gt;%</span> </span>
-<span id="cb763-3"><a href="multilevel-regression-with-post-stratification.html#cb763-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb763-4"><a href="multilevel-regression-with-post-stratification.html#cb763-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region_2) <span class="sc">%&gt;%</span> </span>
-<span id="cb763-5"><a href="multilevel-regression-with-post-stratification.html#cb763-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">prop_abo_group =</span> <span class="fu">median</span>(prop_abo), </span>
-<span id="cb763-6"><a href="multilevel-regression-with-post-stratification.html#cb763-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.1</span>),</span>
-<span id="cb763-7"><a href="multilevel-regression-with-post-stratification.html#cb763-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(prop_abo, <span class="fl">0.9</span>))</span>
-<span id="cb763-8"><a href="multilevel-regression-with-post-stratification.html#cb763-8" aria-hidden="true" tabindex="-1"></a>prop_by_region</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-470">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-470">Table 16.14: </span> </caption><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">region_2</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">prop_abo_group</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lower</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">upper</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">central</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.118&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.104&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.135&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">eastern</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.12&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0984</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.146&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">northern</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0629</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0516</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0752</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">western</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0487</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0384</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.0606</td></tr>
-</table>
-
-</div>
-<div id="plotting-and-comparing-estimates" class="section level3" number="16.6.5">
-<h3><span class="header-section-number">16.6.5</span> Plotting and comparing estimates</h3>
-<p>We can compare the MRP estimates with raw estimates from the PMA survey and also estimates using normal post-stratification</p>
-<div id="calculating-raw-estimates-and-post-stratified-estimates" class="section level4" number="16.6.5.1">
-<h4><span class="header-section-number">16.6.5.1</span> Calculating raw estimates and post-stratified estimates</h4>
-<p>Calculate the raw estimates from the survey:</p>
-<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="multilevel-regression-with-post-stratification.html#cb764-1" aria-hidden="true" tabindex="-1"></a>pma_cells <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb764-2"><a href="multilevel-regression-with-post-stratification.html#cb764-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region_2, educ, marital, age_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb764-3"><a href="multilevel-regression-with-post-stratification.html#cb764-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb764-4"><a href="multilevel-regression-with-post-stratification.html#cb764-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_sample =</span> <span class="fu">n</span>(), <span class="at">n_abo_sample =</span> <span class="fu">sum</span>(abortion),</span>
-<span id="cb764-5"><a href="multilevel-regression-with-post-stratification.html#cb764-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">prop_abo =</span> n_abo_sample<span class="sc">/</span>n_sample)</span></code></pre></div>
-<p>We can then combine these with census data to get post-stratified counts:</p>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="multilevel-regression-with-post-stratification.html#cb765-1" aria-hidden="true" tabindex="-1"></a>pma_cells <span class="ot">&lt;-</span> pma_cells <span class="sc">%&gt;%</span> </span>
-<span id="cb765-2"><a href="multilevel-regression-with-post-stratification.html#cb765-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(census_counts) <span class="sc">%&gt;%</span> </span>
-<span id="cb765-3"><a href="multilevel-regression-with-post-stratification.html#cb765-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_abo =</span> prop_abo<span class="sc">*</span>n) <span class="sc">%&gt;%</span> </span>
-<span id="cb765-4"><a href="multilevel-regression-with-post-stratification.html#cb765-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="at">replace =</span> <span class="fu">list</span>(<span class="at">n =</span> <span class="dv">0</span>,<span class="at">n_abo =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb765-5"><a href="multilevel-regression-with-post-stratification.html#cb765-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
-</div>
-<div id="join-all-estimates-together" class="section level4" number="16.6.5.2">
-<h4><span class="header-section-number">16.6.5.2</span> Join all estimates together</h4>
-<p>Calculate raw and post-stratified estimates by different subpopulations and join them to the MRP estimates. By age group:</p>
-<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="multilevel-regression-with-post-stratification.html#cb766-1" aria-hidden="true" tabindex="-1"></a>prop_by_age <span class="ot">&lt;-</span> prop_by_age <span class="sc">%&gt;%</span> </span>
-<span id="cb766-2"><a href="multilevel-regression-with-post-stratification.html#cb766-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;mrp&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb766-3"><a href="multilevel-regression-with-post-stratification.html#cb766-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">point =</span> prop_abo_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb766-4"><a href="multilevel-regression-with-post-stratification.html#cb766-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">poststrat =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb766-5"><a href="multilevel-regression-with-post-stratification.html#cb766-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">raw =</span> <span class="fu">sum</span>(n_abo_sample)<span class="sc">/</span><span class="fu">sum</span>(n_sample))) <span class="sc">%&gt;%</span> </span>
-<span id="cb766-6"><a href="multilevel-regression-with-post-stratification.html#cb766-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>age_group, <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;point&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb766-7"><a href="multilevel-regression-with-post-stratification.html#cb766-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(age_group)</span></code></pre></div>
-<p>By education:</p>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="multilevel-regression-with-post-stratification.html#cb767-1" aria-hidden="true" tabindex="-1"></a>prop_by_educ <span class="ot">&lt;-</span> prop_by_educ <span class="sc">%&gt;%</span> </span>
-<span id="cb767-2"><a href="multilevel-regression-with-post-stratification.html#cb767-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;mrp&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb767-3"><a href="multilevel-regression-with-post-stratification.html#cb767-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">point =</span> prop_abo_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb767-4"><a href="multilevel-regression-with-post-stratification.html#cb767-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(educ) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">poststrat =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb767-5"><a href="multilevel-regression-with-post-stratification.html#cb767-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(educ) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">raw =</span> <span class="fu">sum</span>(n_abo_sample)<span class="sc">/</span><span class="fu">sum</span>(n_sample))) <span class="sc">%&gt;%</span> </span>
-<span id="cb767-6"><a href="multilevel-regression-with-post-stratification.html#cb767-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>educ, <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;point&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb767-7"><a href="multilevel-regression-with-post-stratification.html#cb767-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(educ)</span></code></pre></div>
-<p>By marital status:</p>
-<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="multilevel-regression-with-post-stratification.html#cb768-1" aria-hidden="true" tabindex="-1"></a>prop_by_marital <span class="ot">&lt;-</span> prop_by_marital <span class="sc">%&gt;%</span> </span>
-<span id="cb768-2"><a href="multilevel-regression-with-post-stratification.html#cb768-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;mrp&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb768-3"><a href="multilevel-regression-with-post-stratification.html#cb768-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">point =</span> prop_abo_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb768-4"><a href="multilevel-regression-with-post-stratification.html#cb768-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(marital) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">poststrat =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb768-5"><a href="multilevel-regression-with-post-stratification.html#cb768-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(marital) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">raw =</span> <span class="fu">sum</span>(n_abo_sample)<span class="sc">/</span><span class="fu">sum</span>(n_sample))) <span class="sc">%&gt;%</span> </span>
-<span id="cb768-6"><a href="multilevel-regression-with-post-stratification.html#cb768-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>marital, <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;point&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb768-7"><a href="multilevel-regression-with-post-stratification.html#cb768-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(marital)</span></code></pre></div>
-<p>By region:</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="multilevel-regression-with-post-stratification.html#cb769-1" aria-hidden="true" tabindex="-1"></a>prop_by_region <span class="ot">&lt;-</span> prop_by_region <span class="sc">%&gt;%</span> </span>
-<span id="cb769-2"><a href="multilevel-regression-with-post-stratification.html#cb769-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">&quot;mrp&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb769-3"><a href="multilevel-regression-with-post-stratification.html#cb769-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">point =</span> prop_abo_group) <span class="sc">%&gt;%</span> </span>
-<span id="cb769-4"><a href="multilevel-regression-with-post-stratification.html#cb769-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(region_2) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">poststrat =</span> <span class="fu">sum</span>(n_abo)<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb769-5"><a href="multilevel-regression-with-post-stratification.html#cb769-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pma_cells <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(region_2) <span class="sc">%&gt;%</span><span class="fu">summarize</span>(<span class="at">raw =</span> <span class="fu">sum</span>(n_abo_sample)<span class="sc">/</span><span class="fu">sum</span>(n_sample))) <span class="sc">%&gt;%</span> </span>
-<span id="cb769-6"><a href="multilevel-regression-with-post-stratification.html#cb769-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>region_2, <span class="at">names_to =</span> <span class="st">&quot;type&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;point&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb769-7"><a href="multilevel-regression-with-post-stratification.html#cb769-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(region_2)</span></code></pre></div>
-</div>
-<div id="plot" class="section level4" number="16.6.5.3">
-<h4><span class="header-section-number">16.6.5.3</span> Plot!</h4>
-<p>By age group:</p>
-<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="multilevel-regression-with-post-stratification.html#cb770-1" aria-hidden="true" tabindex="-1"></a>prop_by_age <span class="sc">%&gt;%</span> </span>
-<span id="cb770-2"><a href="multilevel-regression-with-post-stratification.html#cb770-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age_group, point, <span class="at">color =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb770-3"><a href="multilevel-regression-with-post-stratification.html#cb770-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb770-4"><a href="multilevel-regression-with-post-stratification.html#cb770-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb770-5"><a href="multilevel-regression-with-post-stratification.html#cb770-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Abortion prevalence by age group&quot;</span>, <span class="at">x =</span> <span class="st">&quot;age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion of women reporting abortions&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-477-1.png" width="672" /></p>
-<p>By education:</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="multilevel-regression-with-post-stratification.html#cb771-1" aria-hidden="true" tabindex="-1"></a>prop_by_educ <span class="sc">%&gt;%</span> </span>
-<span id="cb771-2"><a href="multilevel-regression-with-post-stratification.html#cb771-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">educ =</span> <span class="fu">fct_relevel</span>(educ, <span class="st">&quot;more than primary&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb771-3"><a href="multilevel-regression-with-post-stratification.html#cb771-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(educ, point, <span class="at">color =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb771-4"><a href="multilevel-regression-with-post-stratification.html#cb771-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb771-5"><a href="multilevel-regression-with-post-stratification.html#cb771-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb771-6"><a href="multilevel-regression-with-post-stratification.html#cb771-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Abortion prevalence by education&quot;</span>, <span class="at">x =</span> <span class="st">&quot;education level&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion of women reporting abortions&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-478-1.png" width="672" /></p>
-<p>By marital status</p>
-<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="multilevel-regression-with-post-stratification.html#cb772-1" aria-hidden="true" tabindex="-1"></a>prop_by_marital <span class="sc">%&gt;%</span> </span>
-<span id="cb772-2"><a href="multilevel-regression-with-post-stratification.html#cb772-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> <span class="fu">factor</span>(marital, <span class="fu">c</span>(<span class="st">&quot;single/never married&quot;</span>, <span class="st">&quot;married/in union&quot;</span>, <span class="st">&quot;divorced/separated&quot;</span>, <span class="st">&quot;widowed&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb772-3"><a href="multilevel-regression-with-post-stratification.html#cb772-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(marital, point, <span class="at">color =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb772-4"><a href="multilevel-regression-with-post-stratification.html#cb772-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb772-5"><a href="multilevel-regression-with-post-stratification.html#cb772-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb772-6"><a href="multilevel-regression-with-post-stratification.html#cb772-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Abortion prevalence by marital status&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion of women reporting abortions&quot;</span>)<span class="sc">+</span></span>
-<span id="cb772-7"><a href="multilevel-regression-with-post-stratification.html#cb772-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-479-1.png" width="672" /></p>
-<p>By region</p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="multilevel-regression-with-post-stratification.html#cb773-1" aria-hidden="true" tabindex="-1"></a>prop_by_region <span class="sc">%&gt;%</span> </span>
-<span id="cb773-2"><a href="multilevel-regression-with-post-stratification.html#cb773-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(region_2, point, <span class="at">color =</span> type)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb773-3"><a href="multilevel-regression-with-post-stratification.html#cb773-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb773-4"><a href="multilevel-regression-with-post-stratification.html#cb773-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb773-5"><a href="multilevel-regression-with-post-stratification.html#cb773-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Abortion prevalence by region&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;proportion of women reporting abortions&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-480-1.png" width="672" /></p>
-</div>
-</div>
-</div>
-<div id="concluding-remarks-and-next-steps" class="section level2" number="16.7">
-<h2><span class="header-section-number">16.7</span> Concluding remarks and next steps</h2>
+<div id="concluding-remarks-and-next-steps" class="section level2" number="16.6">
+<h2><span class="header-section-number">16.6</span> Concluding remarks and next steps</h2>
 <p>In general, MRP is a good way to accomplish specific aims, but it’s not without trade-offs. If you have a good quality survey, then it may be a way to speak to disaggregated aspects of it. Or if you are concerned about uncertainty then it is a good way to think about that. If you have a biased survey then it’s a great place to start, but it’s not a panacea.</p>
 <p>There’s not a lot of work that’s been done with it, so there’s plenty of scope for exciting work from a variety of approaches:</p>
 <ul>
@@ -3445,6 +3345,7 @@ pss
 <li>There’s a lot to be done from a sociology perspective in terms of survey responses and how we can better design our surveys, knowing they are going to be used for MRP and putting respect for our respondents first.</li>
 <li>From a political science perspective, we just have very little idea of the conditions under which we will have the stable preferences and relationships that are required for MRP to be accurate, and further understanding how this relates to uncertainty in survey design. For those with political science interests, a natural next step would be to go through <span class="citation"><a href="references-1.html#ref-lauderdale2020model" role="doc-biblioref">Lauderdale et al.</a> (<a href="references-1.html#ref-lauderdale2020model" role="doc-biblioref">2020</a>)</span> or <span class="citation"><a href="references-1.html#ref-ghitza2020voter" role="doc-biblioref">Ghitza and Gelman</a> (<a href="references-1.html#ref-ghitza2020voter" role="doc-biblioref">2020</a>)</span>.</li>
 <li>Economists might be interested to think about how we could use MRP to better understand the inflation and unemployment rates at local levels.</li>
+<li>From a statistical software side of things, we really need to develop better packages around this.</li>
 <li>It’s from an information side of things, that I’m most excited about MRP. How do we best store and protect our datasets, yet retain the ability to have them correspond with each other? How do we put the levels together in a way that is meaningful? To what extent do people appreciate uncertainty estimates and how can we better communicate these estimates?</li>
 </ul>
 <p>More generally, we could pretty much use MRP anywhere we have samples. Determining the conditions under which we actually should, is the work of whole generations.</p>
