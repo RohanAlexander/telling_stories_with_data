@@ -1,5 +1,5 @@
 ---
-date: April 07, 2021
+date: April 28, 2021
 bibliography: bibliography.bib
 ---
 
@@ -8,7 +8,7 @@ bibliography: bibliography.bib
 # Papers
 
 
-*Last updated: 07 April 2021.*
+*Last updated: 28 April 2021.*
 
 
 
@@ -113,13 +113,13 @@ bibliography: bibliography.bib
 	- You must cite literature that you refer to (and you should refer to literature).
 	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
 	- If you take a large chunk of code then cite it fully.
-	- 3 means one minor issue. More than one minor issues receives 0.
+	- 3 means one minor issue. More than one minor issue receives 0.
 - Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
 	- The paper and analysis must be fully reproducible.
 	- A detailed README is included.
 	- All code should be thoroughly documented.
 	- An R project is used. Do not use `setwd()`.
-	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- The code must appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds are used where needed.
 	- Code must have a preamble etc.
 	- You must appropriately document your scripts such that someone coming in could follow them.
 	- Your repo must be thoroughly organized.
@@ -298,13 +298,13 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
 	- You must cite literature that you refer to (and you should refer to literature).
 	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
 	- If you take a large chunk of code then cite it fully.
-	- 3 means one minor issue. More than one minor issues receives 0.
+	- 3 means one minor issue. More than one minor issue receives 0.
 - Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
 	- The paper and analysis must be fully reproducible.
 	- A detailed README is included.
 	- All code should be thoroughly documented.
 	- An R project is used. Do not use `setwd()`.
-	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- The code must appropriately read data, prepare it, create plots, conduct analysis, generate documents, etc. Seeds are used where needed.
 	- Code must have a preamble etc.
 	- You must appropriately document your scripts such that someone coming in could follow them.
 	- Your repo must be thoroughly organized and not contain extraneous files.
@@ -458,13 +458,13 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
 	- You must cite literature that you refer to (and you should refer to literature).
 	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
 	- If you take a large chunk of code then cite it fully.
-	- 3 means one minor issue. More than one minor issues receives 0.
+	- 3 means one minor issue. More than one minor issue receives 0.
 - Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
 	- The paper and analysis must be fully reproducible.
 	- A detailed README is included.
 	- All code should be thoroughly documented.
 	- An R project is used. Do not use `setwd()`.
-	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- The code must appropriately read data, prepare it, create plots, conduct analysis, generate documents, etc. Seeds are used where needed.
 	- Code must have a preamble etc.
 	- You must appropriately document your scripts such that someone coming in could follow them.
 	- Your repo must be thoroughly organized and not contain extraneous files.
@@ -508,7 +508,7 @@ You have various options for topics (pick one):
   - All top-matter (title, author (you can use a pseudonym if you want), date, keywords, abstract) completely filled out.
   - A fully written Introduction section.
 - All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Data' heading, but you don't need to have content in that section).
-- To be clear - it is fine to later change any aspect of what you submit at this check-point.
+- To be clear - it is fine to later change any aspect of what you submit at this checkpoint.
 - You will be awarded one percentage point just for submitting a draft that meets this minimum.
 - The point of this is to get feedback on your work (and to make sure you have at least started thinking about this project) so you are more than welcome to (and so, if it is at all possible) include other sections that you wish to get feedback on.
 - There will be no extensions granted for this submission since the following submission is dependent on this date.
@@ -531,7 +531,7 @@ You have various options for topics (pick one):
 ### FAQ
 
 - Can I work as part of a team? No. It's important that you have some work that is entirely your own. You really need your own work to show off for job applications etc.
-- How much should I write? Most students submit something in the 10-to-15-page range, but it's really up to you. Be precise and thorough.
+- How much should I write? Most students submit something that has 10-to-16-pages of main content, with additional pages devoted to appendices, but it's really up to you. Be precise and thorough.
 
 
 
@@ -612,13 +612,13 @@ You have various options for topics (pick one):
 	- You must cite literature that you refer to (and you should refer to literature).
 	- If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code.
 	- If you take a large chunk of code then cite it fully.
-	- 3 means one minor issue. More than one minor issues receives 0.
+	- 3 means one minor issue. More than one minor issue receives 0.
 - Reproducibility - [4 'Exceptional', 3 'Great', 2 'Fine', 1 'Gets job done',  0 'Poor or not done']
 	- The paper and analysis must be fully reproducible.
 	- A detailed README is included.
 	- All code should be thoroughly documented.
 	- An R project is used. Do not use `setwd()`.
-	- The code must appropriately reads data, prepares it, creates plots, conducts analysis, and generate documents. Seeds are used where needed.
+	- The code must appropriately read data, prepare it, create plots, conduct analysis, generate documents, etc. Seeds are used where needed.
 	- Code must have a preamble etc.
 	- You must appropriately document your scripts such that someone coming in could follow them.
 	- Your repo must be thoroughly organized and not contain extraneous files.
@@ -633,6 +633,9 @@ You have various options for topics (pick one):
   - There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.
 
 
+### Previous examples
+
+Some examples of papers that well in the past include those by: [Amy Farrow](inputs/pdfs/Farrow_Amy-replication_paper.pdf), [Laura Cline](inputs/pdfs/Cline_Laura-IndigenousWomenInPrison.pdf), and [Hong Shi](inputs/pdfs/Shi_Hong-replication_paper.pdf).
 
 
 
@@ -780,7 +783,7 @@ Working in teams of one to four people, please consider this scenario:
     - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, but it must be consistent.
     - If you don't cite R then you will get zero for this problem set.
     - As a team, via Quercus, submit a PDF of your paper. Again, in your paper you must have a link to the associated GitHub repo. And you must include the R Markdown file that produced the PDF in that repo. 
-    The-  R Markdown file must exactly produce the PDF. Don't edit it manually ex post - that isn't reproducible.
+    The RMarkdown file must exactly produce the PDF. Don't edit it manually ex post - that isn't reproducible.
 - A good way to work as a team would be to split up the work, so that one person is doing each section. The people doing the sections that rely on data (such as the analysis and the graphs) could just simulate it while they are waiting for the person putting together the data to finish. We have recommended a split above, but you do what works for you.
 
 
@@ -846,7 +849,7 @@ At a minimum this must include:
 All top-matter (title, author (you can use a pseudonym if you want), date, keywords, abstract) completely filled out.
 A fully written Introduction section.
 All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Data’ heading, but you don’t need to have content in that section).
-To be clear - it is fine to later change any aspect of what you submit at this check-point.
+To be clear - it is fine to later change any aspect of what you submit at this checkpoint.
 You will be awarded 1 percentage point just for submitting a draft that meets this minimum (that is 1 out of the 30 that are available for the final paper). If you don’t submit, then the percentage point will be pushed to part d).
 The point of this is to get feedback on your work (and to make sure you have at least started thinking about this project) so you are more than welcome to include other sections that you wish to get feedback on.
 There will be no extensions granted for this submission since the following submission is dependent on this date.
@@ -865,8 +868,8 @@ At a minimum this must include:
 All top-matter.
 Fully written Introduction, Data, Model, and Results sections.
 All other sections must be present in your paper, but don’t have to be filled out (e.g. you must have a 'Discussion’ heading, but you don’t need to have content in that section).
-To be clear - it is fine to later change any aspect of what you submit at this check-point.
-You receive 1 percentage point for submitting something that meets that minimum. If you don’t submit anything then this is pushed to the final paper.
+To be clear - it is fine to later change any aspect of what you submit at this checkpoint.
+You receive 1 percentage point for submitting something that meets that minimum. If you don't submit anything then this is pushed to the final paper.
 There are no extensions possible on this aspect.
 (Compulsory) December 20 11:59pm ET
 As an individual, via Quercus, submit a PDF of your paper. Again, in your paper, you must have a link to the associated GitHub repo. 
@@ -875,6 +878,9 @@ This submission will be graded based on a rubric that will be posted on Quercus 
 
 ### Check offs points
 
+
+
 ### FAQ
 
+- Do I have to submit an initial paper in order to do the peer-review? Yes.
 
