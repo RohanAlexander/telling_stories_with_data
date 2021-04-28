@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Text as data | Telling Stories With Data</title>
+  <title>Chapter 11 Storing and retrieving data | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Text as data | Telling Stories With Data" />
+  <meta property="og:title" content="Chapter 11 Storing and retrieving data | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Text as data | Telling Stories With Data" />
+  <meta name="twitter:title" content="Chapter 11 Storing and retrieving data | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="multilevel-regression-with-post-stratification.html"/>
-<link rel="next" href="cloud.html"/>
+<link rel="prev" href="cleaning-and-preparing-data.html"/>
+<link rel="next" href="disseminating-and-protecting-data.html"/>
 <script src="libs/header-attrs-2.7.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -573,7 +573,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.5.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#model-3"><i class="fa fa-check"></i><b>16.5.3</b> Model</a></li>
 <li class="chapter" data-level="16.5.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-2"><i class="fa fa-check"></i><b>16.5.4</b> Post-stratify</a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.6</b> Concluding remarks and next steps</a></li>
+<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#case-study---self-reported-abortion-incidence-in-uganda"><i class="fa fa-check"></i><b>16.6</b> Case study - Self-reported abortion incidence in Uganda</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#load-in-data-and-tidy-up"><i class="fa fa-check"></i><b>16.6.1</b> Load in data and tidy up</a></li>
+<li class="chapter" data-level="16.6.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plot-data"><i class="fa fa-check"></i><b>16.6.2</b> Plot data</a></li>
+<li class="chapter" data-level="16.6.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#multilevel-regression"><i class="fa fa-check"></i><b>16.6.3</b> Multilevel regression</a></li>
+<li class="chapter" data-level="16.6.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-the-predicted-proportions"><i class="fa fa-check"></i><b>16.6.4</b> Post-stratify the predicted proportions</a></li>
+<li class="chapter" data-level="16.6.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plotting-and-comparing-estimates"><i class="fa fa-check"></i><b>16.6.5</b> Plotting and comparing estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.7</b> Concluding remarks and next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>17</b> Text as data</a>
 <ul>
@@ -696,22 +704,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="text-as-data" class="section level1" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Text as data</h1>
-<p><em>Last updated: 29 March 2021.</em></p>
+<div id="storing-and-retrieving-data" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Storing and retrieving data</h1>
+<p><em>Last updated: 30 January 2021.</em></p>
 <p><strong>Required reading</strong></p>
-<ul>
-<li>Hvitfeldt, Emil, and Julia Silge, 2021, <em>Supervised Machine Learning for Text Analysis in R</em>, Chapters 2, 5, 6, 7, <a href="https://smltar.com" class="uri">https://smltar.com</a>.</li>
-<li>Silge, Julia, and David Robinson, 2017, <em>Text Mining with R</em>, <a href="https://www.tidytextmining.com" class="uri">https://www.tidytextmining.com</a>.</li>
-</ul>
-<p><strong>Required viewing</strong></p>
-<ul>
-<li></li>
-</ul>
 <p><strong>Recommended reading</strong></p>
-<ul>
-<li>Amaka, Ofunne, and Amber Thomas, 2020, ‘The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty,’ The Pudding, March, <a href="https://pudding.cool/2021/03/foundation-names/" class="uri">https://pudding.cool/2021/03/foundation-names/</a>.</li>
-</ul>
 <p><strong>Key concepts/skills/etc</strong></p>
 <ul>
 <li></li>
@@ -725,339 +722,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li></li>
 </ul>
 <p><strong>Quiz</strong></p>
-<ul>
-<li></li>
-</ul>
-<div id="introduction-23" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> Introduction</h2>
-<p>Text can be thought of as an unwieldy, but in generally</p>
-</div>
-<div id="lasso-regression" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> Lasso regression</h2>
-<p><strong>This subsection, and much of the code that is used, directly draws on Julia Silge’s notes, in particular: <a href="https://juliasilge.com/blog/tidy-text-classification/" class="uri">https://juliasilge.com/blog/tidy-text-classification/</a> <span class="citation">(<a href="references-1.html#ref-silge2018" role="doc-biblioref">Silge 2018</a>)</span>.</strong></p>
-<p>One of the nice aspects of text is that we can adapt our existing methods to use it as an input. Here we are going to use a variation of logistics regression, along with text inputs, to forecast. If you want to learn more about Lasso regression, then you should consider taking Arik’s course over the summer, where he will dive into machine learning using Python.</p>
-<p>In this section we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, you could imagine many real-world applications. For instance, if you work at Twitter then you may want to know if a tweet was likely written by a bot, or by a human. Or similarly, imagine that you work for a political party - you may like to know if an email was likely from an email campaign organised by a group, or from an individual.</p>
-<p>First we need to get some data. Julia Silge’s example, nicely, uses book text as input. Seeing as I am jointly appointed at a Faculty of Information, that seems especially nice. The wonderful thing about this is that there is an R package - <code>gutenbergr</code> - that makes it easy to get text from Project Gutenberg into R. The key function is <code>gutenberg_download()</code>, which needs a key for the book that you want. We’ll consider Jane Eyre and Alice’s Adventures in Wonderland, which have the keys of 1260 and 11, respectively.</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="text-as-data.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb742-2"><a href="text-as-data.html#cb742-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> gutenbergr<span class="sc">::</span><span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">1260</span>, <span class="dv">11</span>), <span class="at">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</span>
-<span id="cb742-3"><a href="text-as-data.html#cb742-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb742-4"><a href="text-as-data.html#cb742-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset so that we don&#39;t need to overwhelm the servers each time</span></span>
-<span id="cb742-5"><a href="text-as-data.html#cb742-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(alice_and_jane, <span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb742-6"><a href="text-as-data.html#cb742-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb742-7"><a href="text-as-data.html#cb742-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="text-as-data.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb743-2"><a href="text-as-data.html#cb743-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb743-3"><a href="text-as-data.html#cb743-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/books/alice_and_jane.csv&quot;</span>)</span>
-<span id="cb743-4"><a href="text-as-data.html#cb743-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb743-5"><a href="text-as-data.html#cb743-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alice_and_jane)</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-456">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-456">Table 17.1: </span> </caption><col><col><col><tr>
-<th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">gutenberg_id</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">text</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">title</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">ALICE'S ADVENTURES IN WONDERLAND</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Lewis Carroll</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">THE MILLENNIUM FULCRUM EDITION 3.0</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">11</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Alice's Adventures in Wonderland</td></tr>
-</table>
 
-<p>One of the great things about this is that the dataset is a tibble. So we can just work with all our familiar skills. The package has a lot more functionality, so I’d encourage you to look at the package’s website: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a>. Each line of the book is read in as a different row in the dataset. Notice that we have downloaded two books here at once, and so we added the title. The two books are one after each other. You can see that we have both by looking at some summary statistics.</p>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="text-as-data.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
-<pre><code>## 
-## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
-##                             3339                            20659</code></pre>
-<p>So it looks like Jane Eyre is much longer than Alice in Wonderland, which isn’t a surprise to those who have read them. I don’t want to step into Digital Humanities too much, as I don’t know anything about it, but looking at things like the broader context of when these books were written, or other books that were written at similar times, is likely a fascinating area.</p>
-<p>We’ll just get rid of blank lines</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="text-as-data.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb746-2"><a href="text-as-data.html#cb746-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> There&#39;s a way to do this within janitor, but I forget, need to look it up.</span></span>
-<span id="cb746-3"><a href="text-as-data.html#cb746-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb746-4"><a href="text-as-data.html#cb746-4" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb746-5"><a href="text-as-data.html#cb746-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">blank_line =</span> <span class="fu">if_else</span>(text <span class="sc">==</span> <span class="st">&quot;&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb746-6"><a href="text-as-data.html#cb746-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(blank_line <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb746-7"><a href="text-as-data.html#cb746-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>blank_line)</span>
-<span id="cb746-8"><a href="text-as-data.html#cb746-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb746-9"><a href="text-as-data.html#cb746-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
-<pre><code>## 
-## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
-##                             2481                            16395</code></pre>
-<p>There’s still an overwhelming amount of Jane Eyre in there. So we’ll just sample from Jane Eyre to make it more equal.</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="text-as-data.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb748-2"><a href="text-as-data.html#cb748-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb748-3"><a href="text-as-data.html#cb748-3" aria-hidden="true" tabindex="-1"></a>alice_and_jane<span class="sc">$</span>rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(alice_and_jane))</span>
-<span id="cb748-4"><a href="text-as-data.html#cb748-4" aria-hidden="true" tabindex="-1"></a>sample_from_me <span class="ot">&lt;-</span> alice_and_jane <span class="sc">%&gt;%</span> <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Jane Eyre: An Autobiography&quot;</span>)</span>
-<span id="cb748-5"><a href="text-as-data.html#cb748-5" aria-hidden="true" tabindex="-1"></a>keep_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> sample_from_me<span class="sc">$</span>rows, <span class="at">size =</span> <span class="dv">2481</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb748-6"><a href="text-as-data.html#cb748-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb748-7"><a href="text-as-data.html#cb748-7" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb748-8"><a href="text-as-data.html#cb748-8" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb748-9"><a href="text-as-data.html#cb748-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">&quot;Alice&#39;s Adventures in Wonderland&quot;</span> <span class="sc">|</span> rows <span class="sc">%in%</span> keep_me) <span class="sc">%&gt;%</span> </span>
-<span id="cb748-10"><a href="text-as-data.html#cb748-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rows)</span>
-<span id="cb748-11"><a href="text-as-data.html#cb748-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb748-12"><a href="text-as-data.html#cb748-12" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(alice_and_jane<span class="sc">$</span>title)</span></code></pre></div>
-<pre><code>## 
-## Alice&#39;s Adventures in Wonderland      Jane Eyre: An Autobiography 
-##                             2481                             2481</code></pre>
-<p>There’s a bunch of issues here, for instance, we have the whole of Alice, but we only have random bits of Jane, but nonetheless let’s continue and we’ll try to do something about that in a moment.</p>
-<p>Now we want to get a sample of text from each book. We will use the lines to distinguish these samples. So we use a counter that will add a line number.</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="text-as-data.html#cb750-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane <span class="ot">&lt;-</span> </span>
-<span id="cb750-2"><a href="text-as-data.html#cb750-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb750-3"><a href="text-as-data.html#cb750-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-4"><a href="text-as-data.html#cb750-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_number =</span> <span class="fu">paste</span>(gutenberg_id, <span class="fu">row_number</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb750-5"><a href="text-as-data.html#cb750-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
-<p>We now want to separate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="text-as-data.html#cb751-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb751-2"><a href="text-as-data.html#cb751-2" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb751-3"><a href="text-as-data.html#cb751-3" aria-hidden="true" tabindex="-1"></a>  alice_and_jane <span class="sc">%&gt;%</span> </span>
-<span id="cb751-4"><a href="text-as-data.html#cb751-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
-<span id="cb751-5"><a href="text-as-data.html#cb751-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
-<span id="cb751-6"><a href="text-as-data.html#cb751-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb751-7"><a href="text-as-data.html#cb751-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
-<p>Notice here that we removed any word that wasn’t used more than 10 times. Nonetheless we still have a lot of unique words. (If we didn’t require that the word be used by the author at least 10 times then we end up with more than 6,000 words.)</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="text-as-data.html#cb752-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word<span class="sc">$</span>word <span class="sc">%&gt;%</span> <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
-<pre><code>## [1] 585</code></pre>
-<p>The reason this is relevant is because these are our independent variables. So where you may be used to having something less than 10 explanatory variables, in this case we are going to have 585 As such, we need a model that can handle this.</p>
-<p>However, as mentioned before, we are going to have some rows that essentially just had one word. While we could allow that, it might also be nice to give the model at least a few words to work with.</p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="text-as-data.html#cb754-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word <span class="ot">&lt;-</span> </span>
-<span id="cb754-2"><a href="text-as-data.html#cb754-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb754-3"><a href="text-as-data.html#cb754-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb754-4"><a href="text-as-data.html#cb754-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_words_in_line =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb754-5"><a href="text-as-data.html#cb754-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb754-6"><a href="text-as-data.html#cb754-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(number_of_words_in_line <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb754-7"><a href="text-as-data.html#cb754-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>number_of_words_in_line)</span></code></pre></div>
-<p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="text-as-data.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb755-2"><a href="text-as-data.html#cb755-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb755-3"><a href="text-as-data.html#cb755-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb755-4"><a href="text-as-data.html#cb755-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb755-5"><a href="text-as-data.html#cb755-5" aria-hidden="true" tabindex="-1"></a>alice_and_jane_by_word_split <span class="ot">&lt;-</span> </span>
-<span id="cb755-6"><a href="text-as-data.html#cb755-6" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span></span>
-<span id="cb755-7"><a href="text-as-data.html#cb755-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, line_number) <span class="sc">%&gt;%</span> </span>
-<span id="cb755-8"><a href="text-as-data.html#cb755-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb755-9"><a href="text-as-data.html#cb755-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">initial_split</span>(<span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> title)</span>
-<span id="cb755-10"><a href="text-as-data.html#cb755-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb755-11"><a href="text-as-data.html#cb755-11" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span></span>
-<span id="cb755-12"><a href="text-as-data.html#cb755-12" aria-hidden="true" tabindex="-1"></a><span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span></span>
-<span id="cb755-13"><a href="text-as-data.html#cb755-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb755-14"><a href="text-as-data.html#cb755-14" aria-hidden="true" tabindex="-1"></a><span class="co"># rm(alice_and_jane_by_word_split)</span></span></code></pre></div>
-<p>Now we need to create a document-term matrix.</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="text-as-data.html#cb756-1" aria-hidden="true" tabindex="-1"></a>alice_and_jane_dtm_training <span class="ot">&lt;-</span> </span>
-<span id="cb756-2"><a href="text-as-data.html#cb756-2" aria-hidden="true" tabindex="-1"></a>  alice_and_jane_by_word <span class="sc">%&gt;%</span> </span>
-<span id="cb756-3"><a href="text-as-data.html#cb756-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(line_number, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb756-4"><a href="text-as-data.html#cb756-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">training</span>(alice_and_jane_by_word_split) <span class="sc">%&gt;%</span> <span class="fu">select</span>(line_number)) <span class="sc">%&gt;%</span> </span>
-<span id="cb756-5"><a href="text-as-data.html#cb756-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cast_dtm</span>(<span class="at">term =</span> word, <span class="at">document =</span> line_number, <span class="at">value =</span> n)</span>
-<span id="cb756-6"><a href="text-as-data.html#cb756-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb756-7"><a href="text-as-data.html#cb756-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(alice_and_jane_dtm_training)</span></code></pre></div>
-<pre><code>## [1] 3415  585</code></pre>
-<p>So we have our independent variables sorted, now we need our binary dependent variable, which is whether the book is Alice in Wonderland or Jane Eyre.</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="text-as-data.html#cb758-1" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> </span>
-<span id="cb758-2"><a href="text-as-data.html#cb758-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">dimnames</span>(alice_and_jane_dtm_training)[[<span class="dv">1</span>]]) <span class="sc">%&gt;%</span> </span>
-<span id="cb758-3"><a href="text-as-data.html#cb758-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;book&quot;</span>, <span class="st">&quot;line&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb758-4"><a href="text-as-data.html#cb758-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_alice =</span> <span class="fu">if_else</span>(book <span class="sc">==</span> <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">0</span>)) </span>
-<span id="cb758-5"><a href="text-as-data.html#cb758-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb758-6"><a href="text-as-data.html#cb758-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb758-7"><a href="text-as-data.html#cb758-7" aria-hidden="true" tabindex="-1"></a>predictor <span class="ot">&lt;-</span> alice_and_jane_dtm_training[] <span class="sc">%&gt;%</span> <span class="fu">as.matrix</span>()</span></code></pre></div>
-<p>Now we can run our model.</p>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="text-as-data.html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb759-2"><a href="text-as-data.html#cb759-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb759-3"><a href="text-as-data.html#cb759-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="at">x =</span> predictor,</span>
-<span id="cb759-4"><a href="text-as-data.html#cb759-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> response<span class="sc">$</span>is_alice,</span>
-<span id="cb759-5"><a href="text-as-data.html#cb759-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>,</span>
-<span id="cb759-6"><a href="text-as-data.html#cb759-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep =</span> <span class="cn">TRUE</span></span>
-<span id="cb759-7"><a href="text-as-data.html#cb759-7" aria-hidden="true" tabindex="-1"></a>                   )</span>
-<span id="cb759-8"><a href="text-as-data.html#cb759-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb759-9"><a href="text-as-data.html#cb759-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(model, <span class="at">file =</span> <span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="text-as-data.html#cb760-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;outputs/models/alice_vs_jane.rda&quot;</span>)</span>
-<span id="cb760-2"><a href="text-as-data.html#cb760-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb760-3"><a href="text-as-data.html#cb760-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb760-4"><a href="text-as-data.html#cb760-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb760-5"><a href="text-as-data.html#cb760-5" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> model<span class="sc">$</span>glmnet.fit <span class="sc">%&gt;%</span></span>
-<span id="cb760-6"><a href="text-as-data.html#cb760-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb760-7"><a href="text-as-data.html#cb760-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lambda <span class="sc">==</span> model<span class="sc">$</span>lambda<span class="fl">.1</span>se)</span>
-<span id="cb760-8"><a href="text-as-data.html#cb760-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb760-9"><a href="text-as-data.html#cb760-9" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-468">
-<caption style="caption-side: top; text-align: center;"><span id="tab:unnamed-chunk-468">Table 17.2: </span> </caption><col><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">term</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">step</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">estimate</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">lambda</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">dev.ratio</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">(Intercept)</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-0.335&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.562</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">in</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.144&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.562</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">she</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.39&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.562</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">so</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00249</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.562</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">a</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-0.117&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.562</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">about</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">36</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.279&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00597</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.562</td></tr>
-</table>
-
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="text-as-data.html#cb761-1" aria-hidden="true" tabindex="-1"></a>coefs <span class="sc">%&gt;%</span></span>
-<span id="cb761-2"><a href="text-as-data.html#cb761-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb761-3"><a href="text-as-data.html#cb761-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(estimate)) <span class="sc">%&gt;%</span></span>
-<span id="cb761-4"><a href="text-as-data.html#cb761-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb761-5"><a href="text-as-data.html#cb761-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(term, estimate), estimate, <span class="at">fill =</span> estimate <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb761-6"><a href="text-as-data.html#cb761-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb761-7"><a href="text-as-data.html#cb761-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb761-8"><a href="text-as-data.html#cb761-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb761-9"><a href="text-as-data.html#cb761-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Coefficient&quot;</span>,</span>
-<span id="cb761-10"><a href="text-as-data.html#cb761-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Word&quot;</span>) <span class="sc">+</span></span>
-<span id="cb761-11"><a href="text-as-data.html#cb761-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-469-1.png" width="672" /></p>
-<p>Perhaps unsurprisingly, if you mention Alice then it’s likely to be a Alice in Wonderland and if you mention Jane then it’s likely to be Jane Eyre.</p>
-</div>
-<div id="topic-models" class="section level2" number="17.3">
-<h2><span class="header-section-number">17.3</span> Topic models</h2>
-<p><strong>A version of these notes was previously circulated as part of <span class="citation"><a href="references-1.html#ref-Alexander2020" role="doc-biblioref">R. Alexander and Alexander</a> (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2020</a>)</span>.</strong></p>
-<div id="overview-7" class="section level3" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> Overview</h3>
-<p>Sometimes we have a statement and we want to know what it is about. Sometimes this will be easy, but we don’t always have titles for statements, and even when we do, sometimes we do not have titles that define topics in a well-defined and consistent way. One way to get consistent estimates of the topics of each statement is to use topic models. While there are many variants, one way is to use the latent Dirichlet allocation (LDA) method of <span class="citation"><a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">Blei, Ng, and Jordan</a> (<a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">2003</a>)</span>, as implemented by the R package ‘topicmodels’ by <span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>.</p>
-<p>The key assumption behind the LDA method is that each statement, ‘a document,’ is made by a person who decides the topics they would like to talk about in that document, and then chooses words, ‘terms,’ that are appropriate to those topics. A topic could be thought of as a collection of terms, and a document as a collection of topics. The topics are not specified <em>ex ante</em>; they are an outcome of the method. Terms are not necessarily unique to a particular topic, and a document could be about more than one topic. This provides more flexibility than other approaches such as a strict word count method. The goal is to have the words found in documents group themselves to define topics.</p>
-</div>
-<div id="document-generation-process" class="section level3" number="17.3.2">
-<h3><span class="header-section-number">17.3.2</span> Document generation process</h3>
-<p>The LDA method considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a>).</p>
-<div class="figure"><span id="fig:topicsoverdocuments"></span>
-<img src="telling_stories_with_data_files/figure-html/topicsoverdocuments-1.png" alt="Probability distributions over topics" width="672" /><img src="telling_stories_with_data_files/figure-html/topicsoverdocuments-2.png" alt="Probability distributions over topics" width="672" />
-<p class="caption">
-Figure 17.1: Probability distributions over topics
-</p>
-</div>
-<p>Similarly, each topic could be considered a probability distribution over terms. To choose the terms used in each document the speaker picks terms from each topic in the appropriate proportion. For instance, if there were ten terms, then one topic could be defined by giving more weight to terms related to immigration; and some other topic may give more weight to terms related to the economy (Figure <a href="text-as-data.html#fig:topicsoverterms">17.2</a>).</p>
-<div class="figure"><span id="fig:topicsoverterms"></span>
-<img src="telling_stories_with_data_files/figure-html/topicsoverterms-1.png" alt="Probability distributions over terms" width="672" /><img src="telling_stories_with_data_files/figure-html/topicsoverterms-2.png" alt="Probability distributions over terms" width="672" />
-<p class="caption">
-Figure 17.2: Probability distributions over terms
-</p>
-</div>
-<p>Following <span class="citation"><a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">Blei and Lafferty</a> (<a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">2009</a>)</span>, <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span> and <span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span>, the process by which a document is generated is more formally considered to be:</p>
-<ol style="list-style-type: decimal">
-<li>There are <span class="math inline">\(1, 2, \dots, k, \dots, K\)</span> topics and the vocabulary consists of <span class="math inline">\(1, 2, \dots, V\)</span> terms. For each topic, decide the terms that the topic uses by randomly drawing distributions over the terms. The distribution over the terms for the <span class="math inline">\(k\)</span>th topic is <span class="math inline">\(\beta_k\)</span>. Typically a topic would be a small number of terms and so the Dirichlet distribution with hyperparameter <span class="math inline">\(0&lt;\eta&lt;1\)</span> is used: <span class="math inline">\(\beta_k \sim \mbox{Dirichlet}(\eta)\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Strictly, <span class="math inline">\(\eta\)</span> is actually a vector of hyperparameters, one for each <span class="math inline">\(K\)</span>, but in practice they all tend to be the same value.</li>
-<li>Decide the topics that each document will cover by randomly drawing distributions over the <span class="math inline">\(K\)</span> topics for each of the <span class="math inline">\(1, 2, \dots, d, \dots, D\)</span> documents. The topic distributions for the <span class="math inline">\(d\)</span>th document are <span class="math inline">\(\theta_d\)</span>, and <span class="math inline">\(\theta_{d,k}\)</span> is the topic distribution for topic <span class="math inline">\(k\)</span> in document <span class="math inline">\(d\)</span>. Again, the Dirichlet distribution with the hyperparameter <span class="math inline">\(0&lt;\alpha&lt;1\)</span> is used here because usually a document would only cover a handful of topics: <span class="math inline">\(\theta_d \sim \mbox{Dirichlet}(\alpha)\)</span>. Again, strictly <span class="math inline">\(\alpha\)</span> is vector of length <span class="math inline">\(K\)</span> of hyperparameters, but in practice each is usually the same value.</li>
-<li>If there are <span class="math inline">\(1, 2, \dots, n, \dots, N\)</span> terms in the <span class="math inline">\(d\)</span>th document, then to choose the <span class="math inline">\(n\)</span>th term, <span class="math inline">\(w_{d, n}\)</span>:
-<ol style="list-style-type: lower-alpha">
-<li>Randomly choose a topic for that term <span class="math inline">\(n\)</span>, in that document <span class="math inline">\(d\)</span>, <span class="math inline">\(z_{d,n}\)</span>, from the multinomial distribution over topics in that document, <span class="math inline">\(z_{d,n} \sim \mbox{Multinomial}(\theta_d)\)</span>.</li>
-<li>Randomly choose a term from the relevant multinomial distribution over the terms for that topic, <span class="math inline">\(w_{d,n} \sim \mbox{Multinomial}(\beta_{z_{d,n}})\)</span>.</li>
-</ol></li>
-</ol>
-<p>Given this set-up, the joint distribution for the variables is (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.6):
-<span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}) = \prod^{K}_{i=1}p(\beta_i) \prod^{D}_{d=1}p(\theta_d) \left(\prod^N_{n=1}p(z_{d,n}|\theta_d)p\left(w_{d,n}|\beta_{1:K},z_{d,n}\right) \right).\]</span></p>
-<p>Based on this document generation process the analysis problem, discussed in the next section, is to compute a posterior over <span class="math inline">\(\beta_{1:K}\)</span> and <span class="math inline">\(\theta_{1:D}\)</span>, given <span class="math inline">\(w_{1:D, 1:N}\)</span>. This is intractable directly, but can be approximated (<span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span> and <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>).</p>
-</div>
-<div id="analysis-process" class="section level3" number="17.3.3">
-<h3><span class="header-section-number">17.3.3</span> Analysis process</h3>
-<p>After the documents are created, they are all that we have to analyse. The term usage in each document, <span class="math inline">\(w_{1:D, 1:N}\)</span>, is observed, but the topics are hidden, or ‘latent.’ We do not know the topics of each document, nor how terms defined the topics. That is, we do not know the probability distributions of Figures <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a> or <a href="text-as-data.html#fig:topicsoverterms">17.2</a>. In a sense we are trying to reverse the document generation process – we have the terms and we would like to discover the topics.</p>
-<p>If the earlier process around how the documents were generated is assumed and we observe the terms in each document, then we can obtain estimates of the topics (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The outcomes of the LDA process are probability distributions and these define the topics. Each term will be given a probability of being a member of a particular topic, and each document will be given a probability of being about a particular topic. That is, we are trying to calculate the posterior distribution of the topics given the terms observed in each document (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.7):
-<span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N} | w_{1:D, 1:N}) = \frac{p\left(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}\right)}{p(w_{1:D, 1:N})}.\]</span></p>
-<p>The initial practical step when implementing LDA given a corpus of documents is to remove ‘stop words.’ These are words that are common, but that don’t typically help to define topics. There is a general list of stop words such as: “a”; “a’s”; “able”; “about”; “above”… We also remove punctuation and capitalisation. The documents need to then be transformed into a document-term-matrix. This is essentially a table with a column of the number of times each term appears in each document.</p>
-<p>After the dataset is ready, the R package ‘topicmodels’ by <span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span> can be used to implement LDA and approximate the posterior. It does this using Gibbs sampling or the variational expectation-maximization algorithm. Following <span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> and <span class="citation"><a href="references-1.html#ref-Darling2011" role="doc-biblioref">Darling</a> (<a href="references-1.html#ref-Darling2011" role="doc-biblioref">2011</a>)</span>, the Gibbs sampling process attempts to find a topic for a particular term in a particular document, given the topics of all other terms for all other documents. Broadly, it does this by first assigning every term in every document to a random topic, specified by Dirichlet priors with <span class="math inline">\(\alpha = \frac{50}{K}\)</span> and <span class="math inline">\(\eta = 0.1\)</span> (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> recommends <span class="math inline">\(\eta = 0.01\)</span>), where <span class="math inline">\(\alpha\)</span> refers to the distribution over topics and <span class="math inline">\(\eta\)</span> refers to the distribution over terms (<span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.7). It then selects a particular term in a particular document and assigns it to a new topic based on the conditional distribution where the topics for all other terms in all documents are taken as given (<span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.6):
-<span class="math display">\[p(z_{d, n}=k | w_{1:D, 1:N}, z&#39;_{d, n}) \propto \frac{\lambda&#39;_{n\rightarrow k}+\eta}{\lambda&#39;_{.\rightarrow k}+V\eta} \frac{\lambda&#39;^{(d)}_{n\rightarrow k}+\alpha}{\lambda&#39;^{(d)}_{-i}+K\alpha} \]</span>
-where <span class="math inline">\(z&#39;_{d, n}\)</span> refers to all other topic assignments; <span class="math inline">\(\lambda&#39;_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda&#39;_{.\rightarrow k}\)</span> is a count of how many other times that any term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda&#39;^{(d)}_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span> in that particular document; and <span class="math inline">\(\lambda&#39;^{(d)}_{-i}\)</span> is a count of how many other times that term has been assigned in that document. Once <span class="math inline">\(z_{d,n}\)</span> has been estimated, then estimates for the distribution of words into topics and topics into documents can be backed out.</p>
-<p>This conditional distribution assigns topics depending on how often a term has been assigned to that topic previously, and how common the topic is in that document (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The initial random allocation of topics means that the results of early passes through the corpus of document are poor, but given enough time the algorithm converges to an appropriate estimate.</p>
-</div>
-<div id="warnings-and-extensions" class="section level3" number="17.3.4">
-<h3><span class="header-section-number">17.3.4</span> Warnings and extensions</h3>
-<p>The choice of the number of topics, <em>k</em>, affects the results, and must be specified <em>a priori</em>. If there is a strong reason for a particular number, then this can be used. Otherwise, one way to choose an appropriate number is to use a test and training set process. Essentially, this means running the process on a variety of possible values for <em>k</em> and then picking an appropriate value that performs well.</p>
-<p>One weakness of the LDA method is that it considers a ‘bag of words’ where the order of those words does not matter (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>). It is possible to extend the model to reduce the impact of the bag-of-words assumption and add conditionality to word order. Additionally, alternatives to the Dirichlet distribution can be used to extend the model to allow for correlation. For instance, in Hansard topics related the army may be expected to be more commonly found with topics related to the navy, but less commonly with topics related to banking.</p>
-</div>
-</div>
-<div id="word-embedding" class="section level2" number="17.4">
-<h2><span class="header-section-number">17.4</span> Word embedding</h2>
-<!-- ## Simulated example - categorising spending by merchant -->
-<!-- *Thank you to Josh Harris for discussions that led to this example. The code draws on Alexander and Leslie, 2019.* -->
-<!-- To begin with, let's pretend that we work for KOHO - a Toronto-based fintech. One important feature of the KOHO app is that it categorises your spending. For instance, buying a double-double from Tim Hortons could be categorised into "Eating out". This works because each merchant has a unique name, however that uniqueness means that the Tim Hortons at Sid Smith has a slightly different name to the Tim Hortons at Queen and John. Despite this slightly different name, we would like for them both to be classified as "Eating out".  -->
-<!-- To get started, let's generate some data: -->
-<!-- ```{r} -->
-<!-- library(glmnet) -->
-<!-- library(tidytext) -->
-<!-- library(tidyverse) -->
-<!-- size_of_labelled_data <- 1000 -->
-<!-- # List of retailers in Toronto -->
-<!-- list_of_retailers <- c("Tim Hortons", "Hudsons Bay", "Loblaws", "Shoppers Drug Mart", "Canadian Tire") -->
-<!-- # List of roads in Toronto -->
-<!-- # This is from https://en.wikipedia.org/wiki/List_of_north%E2%80%93south_roads_in_Toronto and https://en.wikipedia.org/wiki/List_of_east%E2%80%93west_roads_in_Toronto. -->
-<!-- list_of_roads <- c("Adelaide St", "Allen Rd", "Annette St", "Ave Rd", "Bathurst St", "Bay St", "Bayview Ave", "Beare Rd", "Bellamy Rd", "Beverley St", "Birchmount Rd", "Black Creek Dr", "Bloor St", "Blythwood Rd", "Bond St", "Brimley Rd", "BRdview Ave", "Browns Line", "Burnhamthorpe Rd", "Caledonia Rd", "Carlingview Dr", "Carlton St", "Centennial Rd", "Christie St", "Church St", "College St", "Conlins Rd", "Coxwell Ave", "Cummer Ave", "Danforth Ave", "Davenport Rd", "Davisville Ave", "Dixon Rd", "Don Mills Rd", "Don Valley Parkway", "Donlands Ave", "Draper St", "Dufferin St", "Dundas St", "Dupont St", "East Ave", "Eastern Ave", "Eglinton Ave", "Ellesmere Rd", "Ellis Ave", "Finch Ave", "Front St", "Galloway Rd", "Gardiner Expressway", "Gerrard St", "Glencairn Ave", "Greenwood Ave", "Harbord St", "Highway 27", "Highway 401", "Highway 404", "Highway 427", "Islington Ave", "Jameson Ave", "Jane St", "Jarvis St", "John St", "Keele St", "Kennedy Rd", "King St", "Kipling Ave", "Laird Dr", "Lake Shore Boulevard", "Lansdowne Ave", "Lawrence Ave", "Leader Lane", "Leslie St", "Main St", "Manse Rd", "Markham Rd", "Marlee Ave", "Martin Grove Rd", "McCowan Rd", "Meadowvale Rd", "Middlefield Rd", "Midland Ave", "Mill St", "Millwood Rd", "Morningside Ave", "Morrish Rd", "Mount Pleasant Rd", "Neilson Rd", "Oakwood Ave", "OConnor Dr", "Ontario Highway 409", "Orfus Rd", "Orton Park Rd", "Ossington Ave", "Pape Ave", "Parkside Dr", "Parliament St", "Pharmacy Ave", "Port Union Rd", "Queen St", "Queens Park", "Queens Quay", "Rathburn Rd", "Rees St", "Reesor Rd", "Reggae Lane", "Renforth Dr", "Richmond St", "Rogers Rd", "Roncesvalles Ave", "Roselawn Ave", "Royal York Rd", "Runnymede Rd", "Scarborough Golf Club Rd", "Scarborough-Pickering Townline", "Scarlett Rd", "Sewells Rd", "Sheppard Ave", "Sherbourne St", "Simcoe St", "Spadina Ave", "St Clair Ave", "St George St", "Steeles Ave", "The Queensway", "University Ave", "Victoria Park Ave", "Warden Ave", "Wellesley St", "Wellington St", "Weston Rd", "Willowdale Ave", "Wilson Ave", "Woodbine Ave", "Yonge St", "York Mills Rd", "York St") -->
-<!-- example_spending_data <-  -->
-<!--   tibble( -->
-<!--     merchant_actual = sample(list_of_retailers,  -->
-<!--                              size = size_of_labelled_data,  -->
-<!--                              replace = TRUE), -->
-<!--     merchant_unique_name_noise = sample(list_of_roads,  -->
-<!--                                         size = size_of_labelled_data,  -->
-<!--                                         replace = TRUE), -->
-<!--     merchant_unique_name = paste(merchant_actual, merchant_unique_name_noise, sep = " ") -->
-<!--     ) %>%  -->
-<!--   select(-merchant_unique_name_noise) -->
-<!-- head(example_spending_data) -->
-<!-- ``` -->
-<!-- We could pretend that we have these 1,000 data points of the unique names and that we labelled the actual merchant by hand so that we are sure. Let's use this dataset to train a model. We'll then use that trained model on a new dataset. -->
-<!-- First make a separate line for every word.  -->
-<!-- ```{r} -->
-<!-- all_words <-  -->
-<!--   example_spending_data %>% -->
-<!--   unnest_tokens(word, merchant_unique_name)  -->
-<!-- head(all_words) -->
-<!-- ``` -->
-<!-- Now create a document-term matrix. -->
-<!-- ```{r} -->
-<!-- example_dtm <-  -->
-<!--   all_words %>% -->
-<!--   count(merchant_actual, word, sort = TRUE) %>%  -->
-<!--   cast_dtm(merchant_actual, word, n) -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- predictor <- example_dtm %>% as.matrix()  -->
-<!-- response <- dimnames(example_dtm)[[1]] -->
-<!-- ``` -->
-<!-- Now we can model it. -->
-<!-- ```{r} -->
-<!-- # names_model <- cv.glmnet(predictor, -->
-<!-- #                          response, -->
-<!-- #                          family = "multinomial", -->
-<!-- #                          alpha = 0.9) -->
-<!-- ``` -->
-</div>
-<div id="conclusion-1" class="section level2" number="17.5">
-<h2><span class="header-section-number">17.5</span> Conclusion</h2>
-<p>Using text as data is exciting because of the quantity and variety of text that is available to us. In general, dealing with text datasets is messy. There is a lot of cleaning and preparation that is typically required. Often text datasets are large. As such, having a workflow in place, in which you work in a reproducible way, simulating data first, and then clearly communicating your findings becomes critical, if only to keep everything organised in your own mind. Nonetheless, it is an exciting area, and I encourage you to regularly use text analysis where possible.</p>
-<p>In terms of next steps there are two, related, concerns: data and analysis.</p>
-<p>In terms of data there are many places to get large amounts of text data relatively easily, including:</p>
-<ul>
-<li>The r package <code>rtweets</code> makes it easy to get Twitter data (although typically this is going to be looking forward from when you start using it, rather than being able to look back). Plenty of people at U of T work with Twitter data including Jia Xue in the iSchool, and Ludovic Rheault in political science.</li>
-<li>The inside Airbnb dataset that we used earlier provides text from reviews.</li>
-<li>We’ve seen the <code>gutenbergr</code> package already in these notes, which provides easy access to text from Project Gutenberg.</li>
-<li>We’ve seen scraping of Wikipedia, but if you are going to do a bit of this then you may find it better to use a package, for instance <code>WikipediR</code>.</li>
-</ul>
-<p>In terms of analysis:</p>
-<ul>
-<li>Start by going through the tidytext book, <code>tidytext</code>, as it has a lot of nice explanations, code, and examples.</li>
-<li>It would then be worthwhile working through the Quanteda package <code>quanteda</code> tutorials.</li>
-<li>Finally, consider packages such as <code>text2vec</code>, and <code>spacyr</code>.</li>
-</ul>
-
-</div>
-</div>
-
-
-
-<div class="footnotes">
-<hr />
-<ol start="13">
-<li id="fn13"><p>The Dirichlet distribution is a variation of the beta distribution that is commonly used as a prior for categorical and multinomial variables. If there are just two categories, then the Dirichlet and the beta distributions are the same. In the special case of a symmetric Dirichlet distribution, <span class="math inline">\(\eta=1\)</span>, it is equivalent to a uniform distribution. If <span class="math inline">\(\eta&lt;1\)</span>, then the distribution is sparse and concentrated on a smaller number of the values, and this number decreases as <span class="math inline">\(\eta\)</span> decreases. A hyperparameter is a parameter of a prior distribution.<a href="text-as-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="multilevel-regression-with-post-stratification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cloud.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cleaning-and-preparing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="disseminating-and-protecting-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

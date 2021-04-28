@@ -613,7 +613,7 @@ Now we'd like to see if we can use what we found in the poll to get an estimate 
 
 First read in some real demographic data, on a state basis, from the ABS.
 
-```{r initial_model_post_stratify_add_coefficients, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 post_strat_census_data <- 
   read_csv("outputs/data/census_data.csv")
 
@@ -999,6 +999,8 @@ poststrat_data_cells <-
   group_by(stateicp) %>% 
   mutate(prop = n/sum(n)) %>% 
   ungroup()
+
+poststrat_data_cells %>% head()
 ```
 
 

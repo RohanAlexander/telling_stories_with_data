@@ -573,7 +573,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.5.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#model-3"><i class="fa fa-check"></i><b>16.5.3</b> Model</a></li>
 <li class="chapter" data-level="16.5.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-2"><i class="fa fa-check"></i><b>16.5.4</b> Post-stratify</a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.6</b> Concluding remarks and next steps</a></li>
+<li class="chapter" data-level="16.6" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#case-study---self-reported-abortion-incidence-in-uganda"><i class="fa fa-check"></i><b>16.6</b> Case study - Self-reported abortion incidence in Uganda</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#load-in-data-and-tidy-up"><i class="fa fa-check"></i><b>16.6.1</b> Load in data and tidy up</a></li>
+<li class="chapter" data-level="16.6.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plot-data"><i class="fa fa-check"></i><b>16.6.2</b> Plot data</a></li>
+<li class="chapter" data-level="16.6.3" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#multilevel-regression"><i class="fa fa-check"></i><b>16.6.3</b> Multilevel regression</a></li>
+<li class="chapter" data-level="16.6.4" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#post-stratify-the-predicted-proportions"><i class="fa fa-check"></i><b>16.6.4</b> Post-stratify the predicted proportions</a></li>
+<li class="chapter" data-level="16.6.5" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#plotting-and-comparing-estimates"><i class="fa fa-check"></i><b>16.6.5</b> Plotting and comparing estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>16.7</b> Concluding remarks and next steps</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>17</b> Text as data</a>
 <ul>
@@ -835,18 +843,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="exploratory-data-analysis.html#cb435-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> opendatatoronto<span class="sc">::</span><span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
 <span id="cb435-2"><a href="exploratory-data-analysis.html#cb435-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
 <pre><code>## # A tibble: 412 x 11
-##    title    id      topics   civic_issues  publisher excerpt    dataset_category
-##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;           
-##  1 Outbrea… 80ce0b… Health,… &lt;NA&gt;          Toronto … &quot;This dat… Document        
-##  2 Municip… 5da2e2… City go… Affordable h… Municipa… &quot;This dat… Document        
-##  3 Buildin… 8219e9… Develop… &lt;NA&gt;          Toronto … &quot;Provides… Document        
-##  4 Buildin… 108c2b… Develop… Affordable h… Toronto … &quot;Provides… Document        
-##  5 License… 059d37… Communi… &lt;NA&gt;          Children… &quot;Licensed… Map             
-##  6 EarlyON… 261962… Communi… Poverty redu… Children… &quot;EarlyON … Map             
-##  7 TTC Sub… 996cfe… Transpo… Mobility      Toronto … &quot;TTC Subw… Document        
-##  8 Short T… fc4189… Permits… Affordable h… Municipa… &quot;This dat… Table           
-##  9 COVID-1… 64b545… Health   &lt;NA&gt;          Toronto … &quot;Line-lis… Table           
-## 10 City Su… 2db048… City go… &lt;NA&gt;          City Cle… &quot;This sub… Document        
+##    title    id      topics    civic_issues publisher  excerpt   dataset_category
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;           
+##  1 COVID-1… 64b545… Health    &lt;NA&gt;         Toronto P… &quot;Line-li… Table           
+##  2 City Su… 2db048… City gov… &lt;NA&gt;         City Cler… &quot;This su… Document        
+##  3 Polls c… 7bce9b… City gov… &lt;NA&gt;         City Cler… &quot;Polls a… Table           
+##  4 Rain Ga… f29335… Location… Climate cha… Toronto W… &quot;This da… Document        
+##  5 COVID-1… cd616c… Health    &lt;NA&gt;         Toronto P… &quot;This da… Map             
+##  6 COVID-1… d3f21f… Health    &lt;NA&gt;         Toronto P… &quot;This da… Map             
+##  7 Daily S… 8a6ece… City gov… Affordable … Shelter, … &quot;Daily o… Table           
+##  8 Street … 99b1f3… City gov… &lt;NA&gt;         Transport… &quot;Informa… Map             
+##  9 Automat… a15479… Transpor… Mobility     Transport… &quot;This da… Map             
+## 10 BodySafe c4052f… City gov… &lt;NA&gt;         Toronto P… &quot;This da… Table           
 ## # … with 402 more rows, and 4 more variables: num_resources &lt;int&gt;,
 ## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
 <p>We’ll download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and then make them into one big dataframe.</p>
