@@ -125,6 +125,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
+> [T]he duty of a scientist is not only to find new things, bu to communicate them successfully in at least three forms: 1) Writing papers and books. 2) Prepared public talks. 3) Impromptu talks.
+>
+> @hamming1996 [p. 65]
+
 In order to convince someone of your story, your paper must be well-written, well-organized, and easy to follow. It should flow easily from one point to the next. It should have proper sentence structure, spelling, vocabulary, and grammar. Each point should be articulated clearly and completely without being overly verbose. Papers should demonstrate your understanding of the topics you are writing about and your confidence in discussing the terms, techniques and issues that are relevant. References must be included and properly cited because this enhances your credibility.
 
 > People who need to write: founders, VCs, lawyers, software engineers, designers, painters, data scientists, musicians, filmmakers, creative directors, physical trainers, teachers, writers. 

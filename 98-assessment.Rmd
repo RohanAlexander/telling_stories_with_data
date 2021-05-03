@@ -635,7 +635,8 @@ You have various options for topics (pick one):
 
 ### Previous examples
 
-Some examples of papers that well in the past include those by: [Amy Farrow](inputs/pdfs/Farrow_Amy-replication_paper.pdf), [Laura Cline](inputs/pdfs/Cline_Laura-IndigenousWomenInPrison.pdf), and [Hong Shi](inputs/pdfs/Shi_Hong-replication_paper.pdf).
+Some examples of papers that well in the past include those by: [Amy Farrow](inputs/pdfs/Farrow_Amy-replication_paper.pdf), [Laura Cline](inputs/pdfs/Cline_Laura-IndigenousWomenInPrison.pdf), [Hong Shi](inputs/pdfs/Shi_Hong-replication_paper.pdf), [Jia Jia Ji](Jia_Jia_Ji-effect_of_DLL_ON_spanish_literacy_skills.pdf), and 
+[Rachael Lam](Lam_Rachael-final_paper.pdf).
 
 
 

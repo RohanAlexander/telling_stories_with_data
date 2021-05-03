@@ -1,5 +1,5 @@
 ---
-date: March 9, 2021
+date: May 1, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -20,16 +20,19 @@ knitr::opts_chunk$set(
 
 # Interactive communication
 
+*Last updated: 28 April 2021.*
+
 
 **Required reading**
 
+- Cooley, David, 2020, 'mapdeck', freely available at: https://symbolixau.github.io/mapdeck/index.html.
+- Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, freely available at: https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
 - Hill, Alison, 2017, 'Up & Running with blogdown', 12 June, freely available at: https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/.
+- Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, freely available at: https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
+- 'Leaflet for R', freely available at: https://rstudio.github.io/leaflet/.
 - Salmon, Maëlle, 2020, 'What to know before you adopt Hugo/blogdown', 29 February, freely available at: https://masalmon.eu/2020/02/29/hugo-maintenance/.
 - Xie, Yihui, Amber Thomas, and Alison Presmanes Hill, 2020, *blogdown: Creating Websites with R Markdown*', as at 6 February, freely available at: https://bookdown.org/yihui/blogdown/.
-- Cooley, David, 2020, 'mapdeck', freely available at: https://symbolixau.github.io/mapdeck/index.html.
-- Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, freely available at: https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
-- Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, freely available at: https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
-- 'Leaflet for R', freely available at: https://rstudio.github.io/leaflet/.
+
 
 **Required viewing**
 
@@ -37,8 +40,8 @@ knitr::opts_chunk$set(
 
 **Recommended reading**
 
-- Hill, Alison, 2019, 'A Spoonful of Hugo: Troubleshooting Your Build', 4 March, freely available at: https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/.
 - De Leon, Desirée, 2019, 'Trying out Blogdown', 4 September, freely available at: http://desiree.rbind.io/post/2019/trying-out-blogdown/. 
+- Hill, Alison, 2019, 'A Spoonful of Hugo: Troubleshooting Your Build', 4 March, freely available at: https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/.
 - Navarro, Danielle, 2018, 'Day 1: Getting started with blogdown', 27 April, freely available at: https://djnavarro.net/post/starting-blogdown/.
 
 
@@ -84,9 +87,9 @@ knitr::opts_chunk$set(
 ### Introduction
 
 
-A website is a critical part of communication. If you are searching for a job then it acts as one place to bring everything that you can do together. If you are using R, then you might like a website that makes it easy to share your work. This is where `blogdown` helps.
+A website is a critical part of communication. If you are searching for a job then it acts as one place to bring everything that you can do together. If you are using R, then you might like a website that makes it easy to share your work. You need a website.
 
-`blogdown` is a package that allows you to make websites (not just blogs, notwithstanding its name) largely within R Studio. It builds on Hugo, which is a popular tool for making websites. `blogdown` lets you freely and quickly get a website up-and-running. It is easy to add content from time-to-time. It integrates with R Markdown which lets you easily share your work. And the separation of content and styling allows you to relatively quickly change your website's design.
+One way to make a website is to use the `blogdown` package [@citeblogdown]. `blogdown` is a package that allows you to make websites (not just blogs, notwithstanding its name) largely within R Studio. It builds on Hugo, which is a popular tool for making websites. `blogdown` lets you freely and quickly get a website up-and-running. It is easy to add content from time-to-time. It integrates with R Markdown which lets you easily share your work. And the separation of content and styling allows you to relatively quickly change your website's design.
 
 That said, using `blogdown` is more work than Google sites or Squarespace. It requires a little more knowledge than using a basic Wordpress site. And if you want to customise many aspects of your website, or need everything to be 'just so' then `blogdown` may not be for you. `blogdown` is still under active development and various aspects may break in future releases. That said, the investment of time required to set up a `blogdown` website is unlikely to be wasted. Even if `blogdown` were shuttered tomorrow most of the content could be repurposed for a regular Hugo website.
 

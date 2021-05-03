@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | Telling Stories With Data</title>
+  <title>Chapter 4 Workflow | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | Telling Stories With Data" />
+  <meta property="og:title" content="Chapter 4 Workflow | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | Telling Stories With Data" />
+  <meta name="twitter:title" content="Chapter 4 Workflow | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="papers.html"/>
-
+<link rel="prev" href="r-essentials.html"/>
+<link rel="next" href="static-communication.html"/>
 <script src="libs/header-attrs-2.7.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -696,487 +696,617 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references-1" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="workflow" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Workflow</h1>
+<p><em>Last updated: 25 April 2021.</em></p>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>Alexander, Monica, 2019, ‘Reproducibility in demographic research,’ <a href="https://www.monicaalexander.com/posts/2019-10-20-reproducibility/" class="uri">https://www.monicaalexander.com/posts/2019-10-20-reproducibility/</a>.</li>
+<li>Bailey, Jack, 2020, ‘UK Voting Intention Poll Tracker,’ <a href="https://github.com/jackobailey/poll_tracker" class="uri">https://github.com/jackobailey/poll_tracker</a>.</li>
+<li>Bryan, Jennifer and Jim Hester, 2020, ‘What they Forgot to Teach You About R,’ Chapters 11, 12, and 13, <a href="https://rstats.wtf/debugging-r-code.html" class="uri">https://rstats.wtf/debugging-r-code.html</a>.</li>
+<li>Bryan, Jenny, 2020, <em>Happy Git and GitHub for the useR</em>, Chapters 4, 6, 7, 9, <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a>.</li>
+<li>Fan, Jean, ‘R Style Guide,’ <a href="https://jef.works/R-style-guide/" class="uri">https://jef.works/R-style-guide/</a>.</li>
+<li>Gelman, Andrew, 2016, ‘What has happened down here is the winds have changed,’ <a href="https://statmodeling.stat.columbia.edu/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/" class="uri">https://statmodeling.stat.columbia.edu/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/</a>.</li>
+<li>Healy, Kieran, 2020, ‘The Kitchen Counter Observatory,’ 21 May, <a href="https://kieranhealy.org/blog/archives/2020/05/21/the-kitchen-counter-observatory/" class="uri">https://kieranhealy.org/blog/archives/2020/05/21/the-kitchen-counter-observatory/</a>.</li>
+<li>Hill, Alison, 2020, ‘How I Teach R Markdown,’ 28 May, <a href="https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/" class="uri">https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/</a>.</li>
+<li>Mostipak, Jesse, 2018, ‘So you’ve been asked to make a reprex,’ 24 February, <a href="https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/" class="uri">https://www.jessemaegan.com/post/so-you-ve-been-asked-to-make-a-reprex/</a>.</li>
+<li>Phillips, Nathaniel D., 2018, <em>YaRrr! The Pirate’s Guide to R</em>, Chapter 4.3, <a href="https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html" class="uri">https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html</a>.</li>
+<li>Taback, Nathan, 2019, ‘R Markdown for Class Reports,’ <a href="https://scidesign.github.io/Rmarkdownforclassreports.html" class="uri">https://scidesign.github.io/Rmarkdownforclassreports.html</a>.</li>
+<li>Tierney, Nicholas, 2020, <em>RMarkdown for Scientists</em>, 9 September, Chapters 7-10, 12-15, <a href="https://rmd4sci.njtierney.com" class="uri">https://rmd4sci.njtierney.com</a>.</li>
+<li>Wickham, Hadley, <em>Advanced R</em>, Chapter on Style, <a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>.</li>
+<li>Wickham, Hadley, and Garrett Grolemund, 2017, <em>R for Data Science</em>, Chapter 27, <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a>.</li>
+<li>Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, Tracy K. Teal, 2017, ‘Good enough practices in scientific computing,’ <em>PLoS Computational Biology</em>, 13(6).</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>AirbnbEng, 2016, ‘Scaling Knowledge at Airbnb,’ 25 February, <a href="https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091" class="uri">https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091</a>.</li>
+<li>Bik, Elisabeth, 2020, ‘The Tadpole Paper Mill,’ <em>Science Integrity Digest</em>, 21 February, <a href="https://scienceintegritydigest.com/2020/02/21/the-tadpole-paper-mill/" class="uri">https://scienceintegritydigest.com/2020/02/21/the-tadpole-paper-mill/</a>.</li>
+<li>Chan, Martin, 2020, ‘RStudio Projects and Working Directories: A Beginner’s Guide,’ <a href="https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner&#39;s-guide/" class="uri">https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/</a>.</li>
+<li>Daly, Darren, 2020, ‘A brief history of medical statistics and its impact on reproducibility,’ 2 February, <a href="https://medium.com/@darren_dahly/a-brief-history-of-medical-statistics-and-its-role-in-reproducibility-23e31082f024" class="uri">https://medium.com/@darren_dahly/a-brief-history-of-medical-statistics-and-its-role-in-reproducibility-23e31082f024</a>.</li>
+<li>Ebert, Philip A. “Bayesian reasoning in avalanche terrain: a theoretical investigation.” Journal of Adventure Education and Outdoor Learning 19, no. 1 (2019): 84-95.</li>
+<li>Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, ‘Impact Evaluation in Practice,’ Chapters 1, 2.</li>
+<li>Guzey, Alexey, 2020, ‘How Life Sciences Actually Work: Findings of a Year-Long Investigation,’ <a href="https://guzey.com/how-life-sciences-actually-work/" class="uri">https://guzey.com/how-life-sciences-actually-work/</a>.</li>
+<li>King, Gary, ‘How to Write a Publishable Paper as a Class Project,’ <a href="https://gking.harvard.edu/papers" class="uri">https://gking.harvard.edu/papers</a>.</li>
+<li>King, Gary, 2006, ‘Publication, publication,’ <em>PS: Political Science &amp; Politics</em>, vol. 39, pp. 119-125, <a href="https://gking.harvard.edu/files/gking/files/paperspub.pdf" class="uri">https://gking.harvard.edu/files/gking/files/paperspub.pdf</a>.</li>
+<li>Lowndes, Julia S. Stewart, Benjamin D. Best, Courtney Scarborough, Jamie C. Afflerbach, Melanie R. Frazier, Casey C. O’Hara, Ning Jiang, and Benjamin S. Halpern, 2017, ‘Our path to better science in less time using open data science tools,’ Nature ecology &amp; evolution, 1(6).</li>
+<li>Miyakawa, Tsuyoshi, 2020, ‘No raw data, no science: another possible source of the reproducibility crisis,’ <em>Molecular Brain</em>, 13, 24. <a href="https://doi.org/10.1186/s13041-020-0552-2" class="uri">https://doi.org/10.1186/s13041-020-0552-2</a></li>
+<li>Peek, Ryan, 2020, ‘10 tips to souping up rmarkdown,’ 20 February, <a href="https://ryanpeek.github.io/2020-02-20-10-tips-to-souping-up-rmarkdown/#S8" class="uri">https://ryanpeek.github.io/2020-02-20-10-tips-to-souping-up-rmarkdown/#S8</a>.</li>
+<li>Riederer, Emily, 2019, ‘Resource Round-Up: Reproducible Research Edition,’ 29 August, <a href="https://emilyriederer.netlify.com/post/resource-round-up-reproducible-research-edition/" class="uri">https://emilyriederer.netlify.com/post/resource-round-up-reproducible-research-edition/</a>.</li>
+<li>Riederer, Emily, 2019, ‘RMarkdown Driven Development (RmdDD),’ 4 May, <a href="https://emilyriederer.netlify.com/post/rmarkdown-driven-development/" class="uri">https://emilyriederer.netlify.com/post/rmarkdown-driven-development/</a>.</li>
+<li>Silver, Nate, 2020, ‘We Fixed An Issue With How Our Primary Forecast Was Calculating Candidates’ Demographic Strengths’, 19 February, <a href="https://fivethirtyeight.com/features/we-fixed-a-mistake-in-how-our-primary-forecast-was-calculating-candidates-demographic-strengths/" class="uri">https://fivethirtyeight.com/features/we-fixed-a-mistake-in-how-our-primary-forecast-was-calculating-candidates-demographic-strengths/</a>.</li>
+<li>Soetewey, Antoine, 2020, ‘Getting started in R markdown,’ 18 February, <a href="https://www.statsandr.com/blog/getting-started-in-r-markdown/" class="uri">https://www.statsandr.com/blog/getting-started-in-r-markdown/</a>.</li>
+<li>Varian, Hal, ‘How to Build an Economic Model in Your Spare Time,’ <a href="http://people.ischool.berkeley.edu/~hal/Papers/how.pdf" class="uri">http://people.ischool.berkeley.edu/~hal/Papers/how.pdf</a>. (This paper was written a while ago for economists, please just ignore the economics specific parts.)</li>
+<li>Wayne, Hillel, 2017, ‘How do we trust our science code?’ 14 August, <a href="https://www.hillelwayne.com/post/how-do-we-trust-science-code/" class="uri">https://www.hillelwayne.com/post/how-do-we-trust-science-code/</a>.</li>
+<li>Wayne, Hillel, 2020, ‘This is how science happens,’ 9 March, <a href="https://www.hillelwayne.com/post/this-is-how-science-happens/" class="uri">https://www.hillelwayne.com/post/this-is-how-science-happens/</a>.</li>
+</ul>
+<!-- https://www.chronicle.com/article/The-Scientific-Paper-Is/248045 -->
+<p><strong>Required viewing</strong></p>
+<ul>
+<li>Bryan, Jenny, ‘Debugging in R,’ <a href="https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan" class="uri">https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan</a>.</li>
+<li>Gelfand, Sharla, ‘Help! my code doesn’t work,’ Toronto Workshop on Reproducibility, 26 February, <a href="https://youtu.be/G5Nm-GpmrLw" class="uri">https://youtu.be/G5Nm-GpmrLw</a>.</li>
+</ul>
+<p><strong>Recommended viewing</strong></p>
+<ul>
+<li>Gelfand, Sharla, 2020, ‘Don’t repeat yourself, talk to yourself! Repeated reporting in the R universe,’ 30 January, talk given at rstudio::conf, San Francisco, <a href="https://resources.rstudio.com/rstudio-conf-2020/dont-repeat-yourself-talk-to-yourself-repeated-reporting-in-the-r-universe-sharla-gelfand" class="uri">https://resources.rstudio.com/rstudio-conf-2020/dont-repeat-yourself-talk-to-yourself-repeated-reporting-in-the-r-universe-sharla-gelfand</a>.</li>
+</ul>
+<p><strong>Recommended activity</strong></p>
+<ul>
+<li>‘First Contributions’ <a href="https://github.com/forwards/first-contributions" class="uri">https://github.com/forwards/first-contributions</a>.</li>
+</ul>
+<p><strong>Fun song</strong></p>
+<ul>
+<li>The Magnetic Fields, 2016, ‘’86 How I Failed Ethics,’ 17 November, <a href="https://youtu.be/Hu5dEXZ7DOY" class="uri">https://youtu.be/Hu5dEXZ7DOY</a> (thanks to Paul Hodgetts).</li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>Restart R often (Session -&gt; Restart R and Clear Output).</li>
+<li>Debugging is a skill, and you will get better at it with time and practice.</li>
+<li>Start with reading the error message.</li>
+<li>Check the class.</li>
+<li>You may get frustrated at times, this is normal.</li>
+<li>There are various tools that can help. Google is your friend.</li>
+<li>Make a small example and try to get the code running on that.</li>
+<li>Cultivating a tenacious mentality may help.</li>
+<li>Writing code that future-you can understand.</li>
+<li>Developing important questions.</li>
+<li>Reproducibility and replicability</li>
+<li>The importance of data and code access</li>
+<li>The importance of version control in a modern scientific workflow.</li>
+<li>The basics of Git and GitHub, as a solo data scientist.</li>
+</ul>
+<p><strong>Key GitHub workflow with commands</strong></p>
+<ul>
+<li>Get the latest changes: <code>git pull</code>.</li>
+<li>Add your updates: <code>git add -A</code>.</li>
+<li>Check on everything: <code>git status</code>.</li>
+<li>Commit your changes: <code>git commit -m "Short description of changes"</code>.</li>
+<li>Push your changes to GitHub: <code>git push</code>.</li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>What are three features of a good research question (write a paragraph or two)?</li>
+<li>What is a counterfactual (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>If-then statements in which the if didn’t happen.</li>
+<li>If-then statements in which the if happen.</li>
+<li>Statements that are either true or false.</li>
+<li>Statements that are neither true or false.</li>
+</ol></li>
+<li>How do you hide the warnings in a R Markdown R chunk (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>echo = FALSE</code></li>
+<li><code>include = FALSE</code></li>
+<li><code>eval = FALSE</code></li>
+<li><code>warning = FALSE</code></li>
+<li><code>message = FALSE</code></li>
+</ol></li>
+<li>What is a reprex and why is it important to be able to make one (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>A reproducible example that enables your error to be reproduced.</li>
+<li>A reproducible example that helps others help you.</li>
+<li>A reproducible example during the construction of which you may solve your own problem.</li>
+<li>A reproducible example that demonstrates you’ve actually tried to help yourself.</li>
+</ol></li>
+<li>Why are R Projects important (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>They help with reproducibility.</li>
+<li>They make it easier to share code.</li>
+<li>They make your workspace more organized.</li>
+<li>They are all that needs to be done.</li>
+</ol></li>
+<li>Consider this sequence: ‘<code>git pull</code>, <code>git status</code>, ________, <code>git status</code>, <code>git commit -m "My message"</code>, <code>git push</code>.’ What is the missing step (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>git add -A</code>.</li>
+<li><code>git status</code>.</li>
+<li><code>git pull</code>.</li>
+<li><code>git push</code>.</li>
+</ol></li>
+</ol>
+<div id="introduction-1" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<blockquote>
+<p>Suppose you have cancer and you have to choose between a black box AI surgeon that cannot explain how it works but has a 90% cure rate and a human surgeon with an 80% cure rate. Do you want the AI surgeon to be illegal?</p>
+<p><a href="https://twitter.com/geoffreyhinton/status/1230592238490615816?s=21">Geoffrey Hinton</a>, 20 February 2020.</p>
+</blockquote>
+<blockquote>
+<p>The number one thing to keep in mind about machine learning is that performance is evaluated on samples from one dataset, but the model is used in production on samples that may not necessarily follow the same characteristics… The finance industry has a saying for this: “past performance is no guarantee of future results.” Your model scoring X on your test dataset doesn’t mean it will perform at level X on the next N situations it encounters in the real world. The future may not be like the past.</p>
+<p>So when asking the question, “would you rather use a model that was evaluated as 90% accurate, or a human that was evaluated as 80% accurate,” the answer depends on whether your data is typical per the evaluation process. Humans are adaptable, models are not. If significant uncertainty is involved, go with the human. They may have inferior pattern recognition capabilities (versus models trained on enormous amounts of data), but they understand what they do, they can reason about it, and they can improvise when faced with novelty</p>
+<p>If every possible situation is known and you want to prioritize scalability and cost-reduction, go with the model. Models exist to encode and operationalize human cognition in well-understood situations. (“well understood” meaning either that it can be explicitly described by a programmer, or that you can amass a dataset that densely samples the distribution of possible situations – which must be static)</p>
+<p><a href="https://twitter.com/fchollet/status/1230611916701229064?s=21">François Chollet</a>, 20 February 2020.</p>
+</blockquote>
+<p>If science is about systematically building and organising knowledge in terms of testable explanations and predictions, then data science takes this and focuses on data. Fundamentally data science is still science, and as such, building and organising knowledge is a critical aspect. Being able to do something yourself, once, does not achieve this. Hence, the focus on reproducibility and replicability.</p>
+<p><span class="citation"><a href="references-1.html#ref-Alexander2019" role="doc-biblioref">M. Alexander</a> (<a href="references-1.html#ref-Alexander2019" role="doc-biblioref">2019</a>)</span> says ‘Research is reproducible if it can be reproduced exactly, given all the materials used in the study.’ ‘[Hence] materials need to be provided!’ ’‘[M]aterials’ usually means data, code and software.’ The minimum requirement is to be able to ‘<a href="r-essentials.html#r">r</a>eproduce the data, methods and results (including figures, tables).’</p>
+<p>Similarly, from <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> you should have noticed that this has been an issue in other sciences. e.g. psychology. The issue with not being reproducible is that we are not contributing to knowledge. We no longer have any idea was is fact in the field of psychology. (This is coming for other fields too, including the field that I was trained in - economics.) Do this matter? Yes.</p>
+<p>Some of the examples that <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> cites (which turned out to be dodgy) don’t really matter e.g. ESP or the power pose. It doesn’t really matter. But increasingly the same methods are being applied in areas where they do matter e.g. ‘nudge’ units. Similarly, <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> makes it clear that it’s a big problem in data science.</p>
+<p>The ‘gay face’ paper that <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> writes about has not released their dataset. We have no way of knowing what is going on with it. They have found a certain set of results based on that dataset, their methods, and what they did, but we have no way of knowing how much that matters. As <span class="citation"><a href="references-1.html#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="references-1.html#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> says ‘the paper itself does some things right. It has a detailed discussion of the limitations of the data and the method.’ You must do this in everything that you write, but it is not enough.</p>
+<p>Without the data, we don’t know what their results speak to as we don’t understand how representative the sample is. If the dataset is biased, then that undermines their claims. There’s a reason that while initial medical trials are done on mice, etc, eventually human trials are required.</p>
+<p>In order to do the study, they needed a trained dataset. They trained it using Mechanical Turk. Figure <a href="workflow.html#fig:mattsonexamplemap">4.1</a> is from <span class="citation"><a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson</a> (<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">2017</a>)</span>.</p>
+<div class="figure"><span id="fig:mattsonexamplemap"></span>
+<img src="figures/gayface_extract.png" alt="Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson." width="90%" />
+<p class="caption">
+Figure 4.1: Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson.
+</p>
+</div>
+<p><span class="citation"><a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson</a> (<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">2017</a>)</span> comments:</p>
+<blockquote>
+<p>The problems here are legion: Barack Obama is biracial but simply “Black” by American cultural norms. “Clearly Latino” begs the question “to whom?” Latino is an ethnic category, not a racial one: many Latinos already are Caucasian, and increasingly so. By training their workers according to stereotypical American categories, WAK’s algorithm can only spit out the garbage they put in.</p>
+</blockquote>
+<p>‘WAK’s algorithm can only spit out the garbage they put in.’ I would encourage you to print out that statement and paste it somewhere that you will see it every time you get a data science result.</p>
+<p>What steps can we take to make our work reproducible?</p>
+<ol style="list-style-type: decimal">
+<li>Ensure your entire workflow is documented. How did you get the raw data? Can you save the raw data? Will the raw data always be available? Is the raw data available to others? What steps are you taking to transform the raw data in data that can be analysed? How are you analysing the data? How are you building the report?</li>
+<li>Try to improve each time. Can you run your entire workflow again? Can ‘another person’ run your entire workflow again? Can a future you run your entire workflow again? Can a future ‘another person’ run your entire workflow again? Each of these requirements is increasingly more onerous. We are going to start with worrying about the first. The way we are going to do this is by using R Markdown.</li>
+</ol>
+</div>
+<div id="r-markdown" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> R Markdown</h2>
+<div id="getting-started-2" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Getting started</h3>
+<p>R Markdown is a mark-up language similar to html or LaTeX, in comparison to a WYSIWYG language, such as Word. This means that all of the aspects are consistent, for instance, all ‘main headings’ will look the same. However, it means that use symbols to designate how you would like certain aspects to appear, and it is only when you compile it that you get to see it.</p>
+<p>R Markdown is a variant of regular markdown that is specifically designed to allow R code chunks to be included. The advantage is that you can get a ‘live’ document in which code executes and is then printed to a document. The disadvantage is that it can take a while for the document to compile because all of the code needs to run.</p>
+<p>You can create a new R Markdown document within R Studio (File -&gt; New File -&gt; R Markdown Document). Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections.</p>
+</div>
+<div id="basic-commands" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Basic commands</h3>
+<p>If you ever need a reminder of the basics of R Markdown then this is built into R Studio (Help -&gt; Markdown Quick Reference). This provides the code for commonly needed commands:</p>
+<ul>
+<li>Emphasis: <code>*italic*, **bold**, _italic_, __bold__</code></li>
+<li>Headers (these need to go on their own line with a line before and after): <code># Header 1, ## Header 2, ### Header 3</code></li>
+<li>Lists:</li>
+</ul>
+<pre><code>Unordered List
+* Item 1
+* Item 2
+    + Item 2a
+    + Item 2b
+Ordered List
+1. Item 1
+2. Item 2
+3. Item 3
+    + Item 3a
+    + Item 3b</code></pre>
+<ul>
+<li>URLs: Can just include an address: <a href="http://example.com" class="uri">http://example.com</a>, or can include a <code>[linked phrase](http://example.com)</code>.</li>
+<li>Basic images can just be included either from the internet: <code>![alt text](http://example.com/logo.png)</code> or from a local file: <code>![alt text](figures/img.png)</code>.</li>
+</ul>
+<p>In order to create an actual document, once you have these pieces set up, click ‘Knit.’</p>
+</div>
+<div id="r-chunks" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> R chunks</h3>
+<p>You can include R (and a bunch of other languages) code in code chunks within your R Markdown document. Then when you knit your document, the R code will run and be included in your document.</p>
+<p>To create an R chunk start with three backticks and then within curly braces tell markdown that this is an R chunk. Anything inside this chunk will be considered R code and run as such.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="workflow.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb144-2"><a href="workflow.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span> </span>
+<span id="cb144-3"><a href="workflow.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat))</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p>There are various evaluation options that are available in chunks. You include these by putting a comma after <code>r</code> and then specifying any options before the closing curly brace. Helpful options include:</p>
+<ul>
+<li><code>echo = FALSE</code>: run the code and include the output, but don’t print the code in the document.</li>
+<li><code>include = FALSE</code>: run the code but don’t output anything and don’t print the code in the document.</li>
+<li><code>eval = FALSE</code>: don’t run the code, and hence don’t include the outputs, but do print the code in the document.</li>
+<li><code>warning = FALSE</code>: don’t display warnings.</li>
+<li><code>message = FALSE</code>: don’t display messages.</li>
+</ul>
+</div>
+<div id="abstracts-and-pdf-outputs" class="section level3" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Abstracts and PDF outputs</h3>
+<p>In the default header, you can add a section for a header, so that it would look like this:</p>
+<pre><code>---
+title: My document
+author: Rohan Alexander
+date: 5 January 2020
+output: html_document
+abstract: &quot;This is my abstract.&quot;
+---</code></pre>
+<p>Similarly, you can change the output from <code>html_document</code> to <code>pdf_document</code> in order to produce a PDF. This uses LaTeX in the background so you may need to install a bunch of related packages.</p>
+</div>
+<div id="references" class="section level3" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> References</h3>
+<p>You can reference a bibliography by including one in the preamble and then calling it in the text when you need.</p>
+<pre><code>---
+title: My document
+author: Rohan Alexander
+date: 5 January 2020
+output: html_document
+abstract: &quot;This is my abstract.&quot;
+bibliography: bibliography.bib
+---</code></pre>
+<p>You need to make a separate file called <code>bibliography.bib</code>. In that you need an entry for the item that you want to reference. R and R packages usually provide this for you for instance, if you run <code>citation()</code> then it tells you the entry to put in your bibtex file:</p>
+<pre><code>@Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2020},
+    url = {https://www.R-project.org/},
+  }</code></pre>
+<p>You need to create a unique key that you’ll refer to it with in the text. This can be anything if it’s unique, but I try to use meaningful ones, so that bibtex entry could become:</p>
+<pre><code>@Manual{citeR,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2020},
+    url = {https://www.R-project.org/},
+  }</code></pre>
+<p>And to cite R you’d then include the following: <code>@citeR</code>, which would put the brackets around the year, like this: <span class="citation"><a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team</a> (<a href="references-1.html#ref-citeR" role="doc-biblioref">2020</a>)</span> or <code>[@citeR]</code>, which would put the brackets around the whole thing, like this: <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2020</a>)</span>.</p>
+</div>
+<div id="cross-references" class="section level3" number="4.2.6">
+<h3><span class="header-section-number">4.2.6</span> Cross-references</h3>
+<p>Finally, it can be useful to cross-reference figures, tables and equations. This makes it easier to refer to them in the text. To do this for a figure you refer to the name of the R chunk that creates/contains the figure. For instance, <code>(Figure \@ref(fig:my_unique_name))</code> will produce: (Figure @ref(fig:my_unique_name)) as the name of the R chunk is <code>my_unique_name</code> (don’t forget to add the <code>fig</code> in front of the chunk name. Also, super annoyingly you need to have a ‘fig.cap’ in the R chunk, so it looks something like this:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb149-1"><a href="workflow.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my_unique_name, fig.cap=&quot;More bills of penguins&quot;, echo = TRUE}</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="workflow.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb150-2"><a href="workflow.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb150-3"><a href="workflow.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb150-4"><a href="workflow.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;cyan4&quot;</span>),</span>
+<span id="cb150-5"><a href="workflow.html#cb150-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb150-6"><a href="workflow.html#cb150-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb150-7"><a href="workflow.html#cb150-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb150-8"><a href="workflow.html#cb150-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="figure">
+<img src="telling_stories_with_data_files/figure-html/my_unique_name-1.png" alt="More bills of penguins" width="672" />
+<p class="caption">
+(#fig:my_unique_name)More bills of penguins
+</p>
+</div>
+<p>You can do similar for tables and equations e.g. <code>(Table \@ref(tab:penguinhead))</code> will produce: (Table <a href="workflow.html#tab:penguinhead">4.1</a>) (again, don’t forget to ad <code>tab</code> in front).</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="workflow.html#cb151-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb151-2"><a href="workflow.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-3"><a href="workflow.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb151-4"><a href="workflow.html#cb151-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A penguin table&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:penguinhead">Table 4.1: </span>A penguin table</caption>
+<thead>
+<tr class="header">
+<th align="left">species</th>
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="right">39.1</td>
+<td align="right">18.7</td>
+</tr>
+<tr class="even">
+<td align="left">Adelie</td>
+<td align="right">39.5</td>
+<td align="right">17.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="right">40.3</td>
+<td align="right">18.0</td>
+</tr>
+<tr class="even">
+<td align="left">Adelie</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="right">36.7</td>
+<td align="right">19.3</td>
+</tr>
+</tbody>
+</table>
+<p>And finally, you can, and should, cross-reference equations also, but this time you need to add a tag <code>(\#eq:slope)</code> and then reference that e.g. use <code>Equation \@ref(eq:slope).</code> to produce Equation <a href="workflow.html#eq:slope">(4.1)</a>.</p>
+<pre><code>\begin{equation}
+Y = a + b X (\#eq:slope)
+\end{equation}</code></pre>
+<p><span class="math display" id="eq:slope">\[\begin{equation}
+Y = a + b X \tag{4.1}
+\end{equation}\]</span></p>
+<p>When you are using cross-references, it’s important that your R chunks have simple labels. For instance, no underbars. In general, try to keep the names simple, and if possible, avoid punctuation and just stick to letters.</p>
+</div>
+</div>
+<div id="r-projects" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> R projects</h2>
+<p>RStudio has the option of creating a project, which allows you to keep all the files (data, analysis, report etc) associated with a particular project together. To create a project, select ‘Click File’ -&gt; ‘New Project,’ then select empty project, name your project and think about where you want to save it. For example, if you are creating a project for Problem Set 2, you might call it <code>ps2</code> and save it in a sub-folder called <code>PS2</code> in your INF2178 folder.</p>
+<p>Once you have created a project, a new file with the extension <code>.RProj</code> will appear in that file. As an example, download the R help folder. Whenever I work on class materials, I open the project file and work from that.</p>
+<p>The main advantage of projects is that you don’t have to set the working directory or type the whole file path to read in a file (for example, a data file). So instead of reading a csv from <code>"~/Documents/toronto/teaching/INF2178/data/"</code> you can just read it in from <code>data/</code>.</p>
+<p>To meet even the minimal expected level of reproducibility, you must use R projects. You must not use <code>setwd()</code> because that ties your work to your computer.</p>
+</div>
+<div id="git-and-github" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Git and GitHub</h2>
+<div id="introduction-2" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Introduction</h3>
+<p>Here we introduce Git and GitHub. These are tools that:</p>
+<ol style="list-style-type: lower-alpha">
+<li>enhance the reproducibility of your work by making it easier to share your code and data;</li>
+<li>make it easier to show off your work;</li>
+<li>improve your workflow by encouraging you to think systematically about your approach; and</li>
+<li>(although we won’t take advantage of this) make it easier to work in teams.</li>
+</ol>
+<p>Git is a version control system. One way you might be used to doing version control is to have various versions of your files: <code>first_go.R</code>, <code>first_go-fixed.R</code>, <code>first_go-fixed-with-mons-edits.R</code>. But this soon becomes cumbersome. Some of you may use dates, for instance: <code>2020-03-12-analysis.R</code>, <code>2020-03-13-analysis.R</code>, <code>2020-03-14-analysis.R</code>, etc. While this keeps a record it can be difficult to search if you need to go back - will you really remember the date of some change in a week? How about a month or a year? It gets unwieldy fairly quickly.</p>
+<p>Instead of this, Git allows you to only have one version of the file <code>analysis.R</code> and it keeps a record of the changes to that file, and a snapshot of that file at a given point in time. When it takes that snapshot is determined by you. When you want Git to take a snapshot you additionally include a message, saying what changed between this snapshot and the last. In that way, there is only ever one version of the file, but the history can be more easily searched.</p>
+<p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="workflow.html#fig:hackernews">4.2</a>).</p>
+<div class="figure"><span id="fig:hackernews"></span>
+<img src="figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn't for most of us." width="90%" />
+<p class="caption">
+Figure 4.2: An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn’t for most of us.
+</p>
+</div>
+<p>Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. GitHub used to be the weapon of choice, but they were sold to Microsoft in 2018 and since then other variants such as GitLab have risen in popularity. We will introduce GitHub here because it remains the most popular, and it is built into RStudio, however you should feel free to explore other options.</p>
+<p>One of the hardest aspects of Git, and the rest, for me was the terminology. Folders are called ‘repos.’ Saving is called a ‘commit.’ You’ll get used to it eventually, but just so you know - it’s not you, it’s Git - feeling confused it entirely normal</p>
+<p>These are brief notes, and you should refer to Jenny Bryan’s book for further detail. Frankly, I can’t improve on Bryan’s book and I use them regularly myself.</p>
+</div>
+<div id="git" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Git</h3>
+<p>Check if you have Git installed by opening R Studio and then going to the Terminal and typing the following and then return.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="workflow.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> --version</span></code></pre></div>
+<p>If you get a version number, then you are done (Figure <a href="workflow.html#fig:gitone">4.3</a>).</p>
+<div class="figure"><span id="fig:gitone"></span>
+<img src="figures/git_one.png" alt="How to access the Terminal within R Studio" width="90%" />
+<p class="caption">
+Figure 4.3: How to access the Terminal within R Studio
+</p>
+</div>
+<p>If you have a Mac then Git should come pre-installed, if you have Windows then there’s a chance, and if you have Linux then you probably don’t need this guide. If you don’t get a version number, then you need to install it. Please go to Chapter 5 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span> for some instructions based on your operating system.</p>
+<p>After you have Git, then you need to tell it your username and email. You need this because Git adds this information whenever you take a ‘snapshot,’ or to use Git’s language whenever you make a commit.</p>
+<p>Again, within the Terminal, type the following, replacing the details with yours, and then return after each line.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="workflow.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></span>
+<span id="cb154-2"><a href="workflow.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></span>
+<span id="cb154-3"><a href="workflow.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global --list</span></code></pre></div>
+<p>The details that you enter here will be public (there are various ways to hide your email address if you need to do this and GitHub provides instructions about this).</p>
+<p>Again, if you have issues or need more detailed instructions, please go to Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+<div id="github" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> GitHub</h3>
+<p>The first step is to create an account on GitHub (<a href="https://github.com" class="uri">https://github.com</a>) (Figure <a href="workflow.html#fig:githubone">4.4</a>).</p>
+<div class="figure"><span id="fig:githubone"></span>
+<img src="figures/github_1.png" alt="Sign up screen at GitHub" width="90%" />
+<p class="caption">
+Figure 4.4: Sign up screen at GitHub
+</p>
+</div>
+<p>GitHub doesn’t have the most intuitive user experience in the world, but we are now going to make a new folder (which is called a ‘repo’ in Git). You are looking for a plus sign in the top right, and then select ‘New Repository’ (Figure <a href="workflow.html#fig:githubtwo">4.5</a>).</p>
+<div class="figure"><span id="fig:githubtwo"></span>
+<img src="figures/github_2.png" alt="Create a new repository" width="90%" />
+<p class="caption">
+Figure 4.5: Create a new repository
+</p>
+</div>
+<p>At this point you can add a sensible name for your repo. Leave it as public (you can delete it later if you want). And check the box to initialize with a readme. In the ‘Add .gitignore’ option you can leave it for now, but if you start using GitHub more regularly then you may like to select the R option here. (That just tells Git to ignore various files.) After that, just click the button to create a new repository (Figure <a href="workflow.html#fig:githubthree">4.6</a>).</p>
+<div class="figure"><span id="fig:githubthree"></span>
+<img src="figures/github_3.png" alt="Create a new repository, really" width="90%" />
+<p class="caption">
+Figure 4.6: Create a new repository, really
+</p>
+</div>
+<p>You’ll now be taken to a screen that is fairly empty, but the details that you need are in the green ‘Clone or Download’ button, then click the clipboard (Figure <a href="workflow.html#fig:githubfour">4.7</a>).</p>
+<div class="figure"><span id="fig:githubfour"></span>
+<img src="figures/github_4.png" alt="Get the details of your new repository" width="90%" />
+<p class="caption">
+Figure 4.7: Get the details of your new repository
+</p>
+</div>
+<p>Now you need to open Terminal, and use <code>cd</code> to get to where you want to save the folder, then:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb155-1"><a href="workflow.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
+<p>At this point, a new folder has been created. We can now interact with it.</p>
+<p>The first step is almost always to pull the latest changes with <code>git pull</code> (this is slightly pointless in this example because it’s just us but it’s a good habit to get into). We can then make a change to the folder, for instance, update the readme, and then save it as usual. Once this is done, we need to add, commit, and push. As before, use <code>cd</code> to navigate to your folder, then <code>git status</code> to see if there is anything going on (you should see some reference to the change you made). Then <code>git add -A</code> adds the changes to the staging area (this seems pointless, and it is in this context, but this allows you to specify specific files and similar if needed). Then <code>git status</code> to check what has happened. Then <code>git commit -m "Minor update to readme"</code>, and then <code>git status</code> to check on everything, and finally <code>git push</code>.</p>
+<p>To summarise (assuming you are in the relevant folder):</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb156-1"><a href="workflow.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb156-2"><a href="workflow.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb156-3"><a href="workflow.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add -A</span>
+<span id="cb156-4"><a href="workflow.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb156-5"><a href="workflow.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;Short commit message&quot;</span></span>
+<span id="cb156-6"><a href="workflow.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb156-7"><a href="workflow.html#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+<div id="using-git-within-rstudio" class="section level3" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Using Git within RStudio</h3>
+<p>I promised that GitHub was built into RStudio, but so far, we’ve not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before.</p>
+<p>At this point, you open RStudio, select <code>Files</code>, <code>New Project</code>, <code>Version Control</code>, <code>Git</code>, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking ‘Open in new session.’ This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.</p>
+<p>At this point, you’ll have a ‘Git’ tab (Figure <a href="workflow.html#fig:rstudiogit">4.8</a>).</p>
+<div class="figure"><span id="fig:rstudiogit"></span>
+<img src="figures/RStudio_git.png" alt="The Git pane in R Studio" width="90%" />
+<p class="caption">
+Figure 4.8: The Git pane in R Studio
+</p>
+</div>
+<p>First pull (click the blue down arrow). Now you want to tick the ‘staged’ box against the files that you want to commit. Then click ‘Commit.’ Type a message in the ‘Commit message’ box and then click ‘Commit.’ Finally ‘Push.’ Again, the details are in <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>, especially Chapter 12.</p>
+</div>
+<div id="next-steps" class="section level3" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Next steps</h3>
+<p>We haven’t really taken advantage of GitHub’s features in terms of teams or branches. That is certainly something that you should get into once you have more confidence with these basics. As always, when it comes to Git for data scientists who use R, you should go to the relevant sections of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+</div>
+<div id="using-r-in-practice" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Using R in practice</h2>
+<div id="introduction-3" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Introduction</h3>
+<p>This section is what do when your code doesn’t do what you want, discusses a mindset that may help when doing quantitative analysis with R, and finally, some recommendations around how to write your code.</p>
+</div>
+<div id="getting-help" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Getting help</h3>
+<p>Programming is hard and everyone struggles sometimes. At some point your code won’t run or will throw an error. This is normal, and it happens to everyone. It happens to me on a daily, sometimes hourly, basis. Everyone gets frustrated. There are a few steps that are worthwhile taking when this happens:</p>
+<ul>
+<li>Sometimes the error messages in R are useful. Read it carefully and see if there’s anything of use in it. At the very least, if you get the same message in the future, hopefully you might remember how you solved the problem this time!</li>
+<li>If you’re getting an error then try googling it, (I find it can help to include the term ‘R’ or ‘tidyverse’ or the relevant package name).</li>
+<li>If there’s a particular function that seems to be giving trouble, have a look at the help file for it. Sometimes you might be putting in the arguments in the wrong order. You can do this with ‘?function’ e.g. for help with select, you would type ‘<code>?select</code>’ and then run that line.</li>
+<li>Check the class of the object. Sometimes R is a little fussy and converting the class can help.</li>
+<li>If your code just isn’t running, then try searching for what you are trying to do, e.g. ‘save PDF of graph in R made using ggplot.’ Almost always there are relevant blog posts or Stack Overflow answers that will help.</li>
+<li>Try to restart R and R Studio and load everything again.</li>
+<li>Try to restart your computer.</li>
+</ul>
+<p>There are a few small mistakes that I often make and may be worth checking in case you make them too:</p>
+<ul>
+<li>check the class e.g. <code>class(my_dataset$its_column)</code> to make sure that is what it should be;</li>
+<li>when you’re using ggplot make sure you use ‘<code>+</code>’ not ‘<code>%&gt;%</code>’; and</li>
+<li>check whether you are using ‘.’ when you shouldn’t be, or vice versa.</li>
+</ul>
+<p>It’s almost always helpful to take a break and come back the next day.</p>
+<p>Asking for help is a skill that you will get better at. Try not to say ‘this doesn’t work,’ or ‘I tried everything’ or ‘here’s the error message, what do I do?’ In general, it’s not possible to help based on that because there are too many possibilities. Instead:</p>
+<ol style="list-style-type: decimal">
+<li>Provide a small example of your data, and code, and detail what is going wrong.</li>
+<li>Document what you have tried so far - what Stack Overflow pages have you looked at and why are they not quite what you’re after? What RStudio Community pages have you tried?</li>
+<li>Be clear about the outcome that you would like.</li>
+</ol>
+<p>As the RStudio Community welcome page <a href="https://community.rstudio.com/t/welcome-to-the-rstudio-community/8">says</a> ‘your job is to make it as easy as possible for others to help you.’ To enable that to happen you need to ‘create a minimal reproducible example, or reprex for short’ You can get more information about this <a href="https://www.tidyverse.org/help/#reprex">here</a>, but basically what is needed is that you code is reproducible (so include things like <code>library()</code>, etc) and that is it minimal - that means making a very simple smaller example and reproducing the error on that small example.</p>
+<p>Usually doing this actually allows you to solve your own problem. If it doesn’t then it’ll allow someone else a fighting chance as being able to help you. I especially recommend the <code>reprex</code> package <span class="citation">(<a href="references-1.html#ref-citereprex" role="doc-biblioref">Jennifer Bryan et al. 2019</a>)</span>.</p>
+<p>There’s almost no chance that you’ve got a problem that someone hasn’t addressed before, it’s just a matter of finding the answer! Try to be tenacious with this and learn how to solve your own problems.</p>
+</div>
+<div id="mentality" class="section level3" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Mentality</h3>
+<blockquote>
+<p>(Y)ou are a real, valid, <em>competent</em> user and programmer no matter what IDE you develop in or what tools you use to make your work work for you</p>
+<p>(L)et’s break down the gates, there’s enough room for everyone</p>
+<p>Sharla Gelfand, <a href="https://twitter.com/sharlagelfand/status/1237365576701542400">10 March 2020</a>.</p>
+</blockquote>
+<p>I’m a little hesitant to make suggestions with regard to mentality. If you write code, then you’re a coder regardless of how you do it, what you’re using it for, or who you are. But I want to share a few traits that I have found have been useful to cultivate in myself. That said, entirely, whatever works for you is great, so take or leave this section.</p>
+<ul>
+<li>Focused: I’ve found that having an aim to ‘learn R’ or something similar tends to be problematic, because there’s no real end point to that. Instead, I would recommend smaller, more specific goals, such as ‘make a histogram about the 2019 Canadian Election with ggplot.’ That is something that you can focus on and achieve. With more nebulous goals it becomes easier to get lost on tangents, much more difficult to get help, and I’ve noticed that people who have nebulous goals seem to give up.</li>
+<li>Curious: I’ve found that it’s useful to just have a go. In general, the worst that happens is that you waste your time and have to give up. You can rarely break something irreparably with code. If you want to know what happens if you pass a ‘vector’ instead of a ‘dataframe’ to <code>ggplot</code> then just try it.</li>
+<li>Pragmatic: At the same time, I’ve found that it’s best to try to stick within the bounds of what I know and just make one small change each time. For instance if you’re wanting to do some regression, and curious about the <code>tidymodels</code> package <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> instead of <code>lm()</code>. Perhaps you could just use one aspect from the <code>tidymodels</code> package initially and then make another change next time. In my opinion ugly code that gets the job done, is better than beautiful code that is never finished.</li>
+<li>Tenacious: This is a balancing act. I always find there are unexpected problems and issues with every project. On the one hand persevering despite these is a good tendency. But on the other hand, I’ve learned that sometimes I need to be prepared to give up on something if it doesn’t seem like a break-through is possible. This is where I have found that mentors can be useful as they tend to have a better idea. This is also where planning comes in.</li>
+<li>Planned: I have found it is very useful to plan out what you are going to do. For instance, you may want to make a histogram of the 2019 Canadian Election. I find it useful to plan the steps that are needed and even to sketch out how I might implement each step. For instance, the first step is to get the data. What packages might be useful? Where might the data be? What is our back-up plan for if we can’t find the data in that initial spot?</li>
+<li>Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but I recommend that you try to turn them off to a certain extent when it comes to R. In the first instance just try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship.</li>
+</ul>
+</div>
+<div id="code-comments" class="section level3" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Code comments</h3>
+<p>Comment your code.</p>
+<p>There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you’re just working on your own.</p>
+<p>Comment your code.</p>
+<p>Comments in R can be added by including the # symbol. The shortcut on Mac is ‘Command + Shift + m.’ You don’t have to put a comment at the start of the line, it can be midway through. In general, you don’t need to comment what every aspect of your code is doing but you should comment parts that are not obvious. For instance, if you read in some value then you may like to comment where it is coming from.</p>
+<p>Comment your code.</p>
+<p>You should comment why you are doing something. What are you trying to achieve?</p>
+<p>Comment your code.</p>
+<p>You must comment to explain weird things. Like if you’re removing some specific row, say row 27, then why are you removing that row? It may seem obvious in the moment, but future-you in six months won’t remember.</p>
+<p>Comment your code.</p>
+<p>I like to break my code into sections. For instance, setting up my workspace, reading in datasets, manipulating and cleaning the dataset, analysing the datasets, and finally producing tables and figures. While it can be difficult to speak generally, I usually separate each of those certainly with comments explaining what is going on, and sometimes into separate files, depending on the length.</p>
+<p>Comment your code.</p>
+<p>Additionally, at the top of each file I put basic information, such as the purpose of the file, and pre-requisites or dependencies, the date, the author and contact information, and finally and red-flags, bodies, or todos.</p>
+<p>Comment your code.</p>
+<p>At the very least I recommend something like the following for every R script:</p>
+<pre><code>#### Preamble ####
+# Purpose: Brief sentence about what this script does
+# Author: Your name
+# Data: The date it was written
+# Contact: Add your email
+# License: Think about how your code may be used
+# Pre-requisites: 
+# - Maybe you need some data or some other script to have been run?
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-acemoglu2001colonial" class="csl-entry">
-Acemoglu, Daron, Simon Johnson, and James A Robinson. 2001. <span>“The Colonial Origins of Comparative Development: An Empirical Investigation.”</span> <em>American Economic Review</em> 91 (5): 1369–1401.
-</div>
-<div id="ref-akerlof1978market" class="csl-entry">
-Akerlof, George A. 1978. <span>“The Market for ’Lemons’: Quality Uncertainty and the Market Mechanism.”</span> In <em>Uncertainty in Economics</em>, 235–51. Elsevier.
-</div>
-<div id="ref-Alexander2019" class="csl-entry">
-Alexander, Monica. 2019. <span>“Reproducibility in Demographic Research.”</span> <a href="https://www.monicaalexander.com/posts/2019-10-20-reproducibility/">https://www.monicaalexander.com/posts/2019-10-20-reproducibility/</a>.
-</div>
-<div id="ref-Alexander2020" class="csl-entry">
-Alexander, Rohan, and Monica Alexander. 2020. <span>“The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament Between 1901 and 2018.”</span> <a href="https://rohanalexander.com/pdfs/AlexanderAlexander-EffectofElectionsandPrimeMinisters.pdf">https://rohanalexander.com/pdfs/AlexanderAlexander-EffectofElectionsandPrimeMinisters.pdf</a>.
-</div>
-<div id="ref-allen2017reference" class="csl-entry">
-Allen, Eric J, Patricia M Dechow, Devin G Pope, and George Wu. 2017. <span>“Reference-Dependent Preferences: Evidence from Marathon Runners.”</span> <em>Management Science</em> 63 (6): 1657–72.
-</div>
-<div id="ref-citeplumberdeploy" class="csl-entry">
-Allen, Jeff. 2021. <em>plumberDeploy: Plumber Deployment</em>. <a href="https://CRAN.R-project.org/package=plumberDeploy">https://CRAN.R-project.org/package=plumberDeploy</a>.
-</div>
-<div id="ref-marcella" class="csl-entry">
-Alsan, Marcella, and Marianne Wanamaker. 2018. <span>“Tuskegee and the Health of Black Men.”</span> <em>The Quarterly Journal of Economics</em> 133 (1): 407–55.
-</div>
-<div id="ref-citemodelsummary" class="csl-entry">
-Arel-Bundock, Vincent. 2020. <em>Modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</em>. <a href="https://CRAN.R-project.org/package=modelsummary">https://CRAN.R-project.org/package=modelsummary</a>.
-</div>
-<div id="ref-citemodelsummary" class="csl-entry">
-———. 2020. <em>Modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</em>. <a href="https://CRAN.R-project.org/package=modelsummary">https://CRAN.R-project.org/package=modelsummary</a>.
-</div>
-<div id="ref-citeWiredonGoogle" class="csl-entry">
-Aschwanden, Christie. 2020. <em>Artificial Intelligence Makes Bad Medicine Even Worse</em>. <a href="https://www.wired.com/story/artificial-intelligence-makes-bad-medicine-even-worse/">https://www.wired.com/story/artificial-intelligence-makes-bad-medicine-even-worse/</a>.
-</div>
-<div id="ref-athey2017state" class="csl-entry">
-Athey, Susan, and Guido W Imbens. 2017. <span>“The State of Applied Econometrics: Causality and Policy Evaluation.”</span> <em>Journal of Economic Perspectives</em> 31 (2): 3–32.
-</div>
-<div id="ref-citeBarrett" class="csl-entry">
-Barrett, Malcolm. 2021a. <em>Data Science as an Atomic Habit</em>. <a href="https://malco.io/2021/01/04/data-science-as-an-atomic-habit/">https://malco.io/2021/01/04/data-science-as-an-atomic-habit/</a>.
-</div>
-<div id="ref-citeggdag" class="csl-entry">
-———. 2021b. <em>Ggdag: Analyze and Create Elegant Directed Acyclic Graphs</em>. <a href="https://CRAN.R-project.org/package=ggdag">https://CRAN.R-project.org/package=ggdag</a>.
-</div>
-<div id="ref-Bastian2020" class="csl-entry">
-Bastian, Hilda. 2020. <span>“A Timeline of the Oxford-AstraZeneca Covid-19 Vaccine Trials.”</span> <a href="http://hildabastian.net/index.php/100">http://hildabastian.net/index.php/100</a>.
-</div>
-<div id="ref-citelme" class="csl-entry">
-Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. <span>“Fitting Linear Mixed-Effects Models Using <span class="nocase">lme4</span>.”</span> <em>Journal of Statistical Software</em> 67 (1): 1–48. <a href="https://doi.org/10.18637/jss.v067.i01">https://doi.org/10.18637/jss.v067.i01</a>.
-</div>
-<div id="ref-citeberkson" class="csl-entry">
-Berkson, Joseph. 1946. <span>“Limitations of the Application of Fourfold Table Analysis to Hospital Data.”</span> <em>Biometrics Bulletin</em> 2 (3): 47–53. <a href="http://www.jstor.org/stable/3002000">http://www.jstor.org/stable/3002000</a>.
-</div>
-<div id="ref-citedeclaredesign" class="csl-entry">
-Blair, Graeme, Jasper Cooper, Alexander Coppock, and Macartan Humphreys. 2019. <span>“Declaring and Diagnosing Research Designs.”</span> <em>American Political Science Review</em> 113: 838–59. <a href="https://declaredesign.org/paper.pdf">https://declaredesign.org/paper.pdf</a>.
-</div>
-<div id="ref-blei2012" class="csl-entry">
-Blei, David M. 2012. <span>“Probabilistic Topic Models.”</span> <em>Communications of the ACM</em> 55 (4): 77–84.
-</div>
-<div id="ref-BleiLafferty2009" class="csl-entry">
-Blei, David M, and John D Lafferty. 2009. <span>“Topic Models.”</span> In <em>Text Mining</em>, 101–24. Chapman; Hall/CRC.
-</div>
-<div id="ref-Blei2003latent" class="csl-entry">
-Blei, David M, Andrew Y Ng, and Michael I Jordan. 2003. <span>“Latent Dirichlet Allocation.”</span> <em>Journal of Machine Learning Research</em> 3 (Jan): 993–1022.
-</div>
-<div id="ref-bloombellreiman2020" class="csl-entry">
-Bloom, Howard, Andrew Bell, and Kayla Reiman. 2020. <span>“Using Data from Randomized Trials to Assess the Likely Generalizability of Educational Treatment-Effect Estimates from Regression Discontinuity Designs.”</span> <em>Journal of Research on Educational Effectiveness</em>, 1–30. <a href="https://doi.org/10.1080/19345747.2019.1634169">https://doi.org/10.1080/19345747.2019.1634169</a>.
-</div>
-<div id="ref-brandt1978racism" class="csl-entry">
-Brandt, Allan M. 1978. <span>“Racism and Research: The Case of the Tuskegee Syphilis Study.”</span> <em>Hastings Center Report</em>, 21–29.
-</div>
-<div id="ref-janeeyre" class="csl-entry">
-Bronte, Charlotte. 1847. <em>Jane Eyre</em>. <a href="https://www.gutenberg.org/files/1260/1260-h/1260-h.htm">https://www.gutenberg.org/files/1260/1260-h/1260-h.htm</a>.
-</div>
-<div id="ref-randhealth" class="csl-entry">
-Brook, Robert H, John E Ware, William H Rogers, Emmett B Keeler, Allyson Ross Davies, Cathy D Sherbourne, George A Goldberg, Kathleen N Lohr, Patricia Camp, and Joseph P Newhouse. 1984. <span>“The Effect of Coinsurance on the Health of Adults: Results from the RAND Health Insurance Experiment.”</span>
-</div>
-<div id="ref-whattheyforgot" class="csl-entry">
-Bryan, Jennifer, and Jim Hester. 2020. <em>What They Forgot to Teach You about r</em>. <a href="https://rstats.wtf/index.html">https://rstats.wtf/index.html</a>.
-</div>
-<div id="ref-citereprex" class="csl-entry">
-Bryan, Jennifer, Jim Hester, David Robinson, and Hadley Wickham. 2019. <em>Reprex: Prepare Reproducible Example Code via the Clipboard</em>. <a href="https://CRAN.R-project.org/package=reprex">https://CRAN.R-project.org/package=reprex</a>.
-</div>
-<div id="ref-happygit" class="csl-entry">
-Bryan, Jenny. 2020. <em><span class="nocase">Happy Git and GitHub for the useR</span></em>. <a href="https://happygitwithr.com">https://happygitwithr.com</a>.
-</div>
-<div id="ref-buhrplumber" class="csl-entry">
-Buhr, Ray. 2017. <em>Using r as a Production Machine Learning Language (Part i)</em>. <a href="https://raybuhr.github.io/blog/posts/making-predictions-over-http/">https://raybuhr.github.io/blog/posts/making-predictions-over-http/</a>.
-</div>
-<div id="ref-citetidygeocoder" class="csl-entry">
-Cambon, Jesse, and Christopher Belanger. 2021. <span>“Tidygeocoder: Geocoding Made Easy.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.3981510">https://doi.org/10.5281/zenodo.3981510</a>.
-</div>
-<div id="ref-citeanalogsea" class="csl-entry">
-Chamberlain, Scott, Hadley Wickham, and Winston Chang. 2021. <em>Analogsea: Interface to ’Digital Ocean’</em>.
-</div>
-<div id="ref-walletsdata" class="csl-entry">
-Cohn, Alain. 2019. <span>“<span class="nocase">Data and code for: Civic Honesty Around the Globe</span>.”</span> Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/YKBODN">https://doi.org/10.7910/DVN/YKBODN</a>.
-</div>
-<div id="ref-cohn2019civic" class="csl-entry">
-Cohn, Alain, Michel André Maréchal, David Tannenbaum, and Christian Lukas Zünd. 2019a. <span>“Civic Honesty Around the Globe.”</span> <em>Science</em> 365 (6448): 70–73.
-</div>
-<div id="ref-cohn2019civicaddendum" class="csl-entry">
-———. 2019b. <span>“Supplementary Materials for: Civic Honesty Around the Globe.”</span> <em>Science</em> 365 (6448): 70–73.
-</div>
-<div id="ref-cohn2016" class="csl-entry">
-Cohn, Nate. 2016. <em>We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results</em>.
-</div>
-<div id="ref-zapierapis" class="csl-entry">
-Cooksey, Brian. 2014. <span>“An Introduction to APIs.”</span> <em>Zapier</em>. <a href="https://zapier.com/learn/apis/">https://zapier.com/learn/apis/</a>.
-</div>
-<div id="ref-airbnbdata" class="csl-entry">
-Cox, Murray. 2021. <span>“<span>Inside Airbnb - Toronto Data</span>.”</span> <a href="http://insideairbnb.com/get-the-data.html">http://insideairbnb.com/get-the-data.html</a>.
-</div>
-<div id="ref-cunninghamnorap" class="csl-entry">
-Cunningham, Scott. 2020. <em>Causal Inference: The Mixtape</em>. <a href="https://www.scunning.com/mixtape.html">https://www.scunning.com/mixtape.html</a>.
-</div>
-<div id="ref-Cunningham2021" class="csl-entry">
-———. 2021. <em>Causal Inference: The Mixtape</em>. Yale Press.
-</div>
-<div id="ref-dagan2021bnt162b2" class="csl-entry">
-Dagan, Noa, Noam Barda, Eldad Kepten, Oren Miron, Shay Perchik, Mark A Katz, Miguel A Hernán, Marc Lipsitch, Ben Reis, and Ran D Balicer. 2021. <span>“BNT162b2 mRNA Covid-19 Vaccine in a Nationwide Mass Vaccination Setting.”</span> <em>New England Journal of Medicine</em>.
-</div>
-<div id="ref-citeDahly" class="csl-entry">
-Dahly, Darren. 2020. <em>A Brief History of Medical Statistics and Its Impact on Reproducibility.</em> <a href="https://statsepi.substack.com/p/a-brief-history-of-medical-statistics">https://statsepi.substack.com/p/a-brief-history-of-medical-statistics</a>.
-</div>
-<div id="ref-Darling2011" class="csl-entry">
-Darling, William M. 2011. <span>“A Theoretical and Practical Implementation Tutorial on Topic Modeling and Gibbs Sampling.”</span> In <em>Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies</em>, 642–47.
-</div>
-<div id="ref-mangosolutions" class="csl-entry">
-<span>“Data Science Radar: How to Identify World-Class Data Science Capabilities.”</span> 2020. <em>Mango Solutions</em>. <a href="https://www.mango-solutions.com/data-science-radar-how-to-identify-world-class-data-science-capabilities/">https://www.mango-solutions.com/data-science-radar-how-to-identify-world-class-data-science-capabilities/</a>.
-</div>
-<div id="ref-farrugia2010research" class="csl-entry">
-Farrugia, Patricia, Bradley A Petrisor, Forough Farrokhyar, and Mohit Bhandari. 2010. <span>“Research Questions, Hypotheses and Objectives.”</span> <em>Canadian Journal of Surgery</em> 53 (4): 278.
-</div>
-<div id="ref-finkelstein2012oregon" class="csl-entry">
-Finkelstein, Amy, Sarah Taubman, Bill Wright, Mira Bernstein, Jonathan Gruber, Joseph P Newhouse, Heidi Allen, Katherine Baicker, and Oregon Health Study Group. 2012. <span>“The Oregon Health Insurance Experiment: Evidence from the First Year.”</span> <em>The Quarterly Journal of Economics</em> 127 (3): 1057–1106.
-</div>
-<div id="ref-janitor" class="csl-entry">
-Firke, Sam. 2020. <em>Janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. <a href="https://CRAN.R-project.org/package=janitor">https://CRAN.R-project.org/package=janitor</a>.
-</div>
-<div id="ref-fisherdesignofexperiments" class="csl-entry">
-Fisher, Ronald. 1935. <em>The Design of Experiments</em>. Oliver; Boyd.
-</div>
-<div id="ref-aboutupworthy" class="csl-entry">
-Fitts, Alexis Sobel. 2014. <span>“The King of Content: How Upworthy Aims to Alter the Web, and Could End up Altering the World.”</span> <em>Columbia Journalism Review</em>. <a href="https://archives.cjr.org/feature/the_king_of_content.php">https://archives.cjr.org/feature/the_king_of_content.php</a>.
-</div>
-<div id="ref-ftcoronavirus" class="csl-entry">
-FT Visual &amp; Data Journalism team. 2020. <span>“Coronavirus Tracked: See How Your Country Compares.”</span> <a href="https://ig.ft.com/coronavirus-chart/">https://ig.ft.com/coronavirus-chart/</a>.
-</div>
-<div id="ref-stringi" class="csl-entry">
-Gagolewski, Marek. 2020. <em>R Package Stringi: Character String Processing Facilities</em>. <a href="http://www.gagolewski.com/software/stringi/">http://www.gagolewski.com/software/stringi/</a>.
-</div>
-<div id="ref-gao2021improving" class="csl-entry">
-Gao, Yuxiang, Lauren Kennedy, Daniel Simpson, Andrew Gelman, and others. 2021. <span>“Improving Multilevel Regression and Poststratification with Structured Priors.”</span> <em>Bayesian Analysis</em>.
-</div>
-<div id="ref-gebru2020datasheets" class="csl-entry">
-Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III au2, and Kate Crawford. 2020. <span>“Datasheets for Datasets.”</span> <a href="http://arxiv.org/abs/1803.09010">http://arxiv.org/abs/1803.09010</a>.
-</div>
-<div id="ref-citeSharla" class="csl-entry">
-Gelfand, Sharla. 2020. <em>Opendatatoronto: Access the City of Toronto Open Data Portal</em>. <a href="https://CRAN.R-project.org/package=opendatatoronto">https://CRAN.R-project.org/package=opendatatoronto</a>.
-</div>
-<div id="ref-Gelman2016" class="csl-entry">
-Gelman, Andrew. 2016. <span>“What Has Happened down Here Is the Winds Have Changed.”</span> <a href="https://statmodeling.stat.columbia.edu/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/">https://statmodeling.stat.columbia.edu/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/</a>.
-</div>
-<div id="ref-gelmanandhill" class="csl-entry">
-Gelman, Andrew, and Jennifer Hill. 2007. <em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em>.
-</div>
-<div id="ref-gelmanhillvehtari2020" class="csl-entry">
-Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <em>Regression and Other Stories</em>. Cambridge University Press.
-</div>
-<div id="ref-gertler2016impact" class="csl-entry">
-Gertler, Paul J, Sebastian Martinez, Patrick Premand, Laura B Rawlings, and Christel MJ Vermeersch. 2016. <em>Impact Evaluation in Practice</em>. The World Bank.
-</div>
-<div id="ref-ghitza2020voter" class="csl-entry">
-Ghitza, Yair, and Andrew Gelman. 2020. <span>“Voter Registration Databases and MRP: Toward the Use of Large-Scale Databases in Public Opinion Research.”</span> <em>Political Analysis</em> 28 (4): 507–31.
-</div>
-<div id="ref-ghitza2020voter" class="csl-entry">
-———. 2020. <span>“Voter Registration Databases and MRP: Toward the Use of Large-Scale Databases in Public Opinion Research.”</span> <em>Political Analysis</em> 28 (4): 507–31.
-</div>
-<div id="ref-citerstanarm" class="csl-entry">
-Goodrich, Ben, Jonah Gabry, Imad Ali, and Sam Brilleman. 2020. <span>“Rstanarm: <span>Bayesian</span> Applied Regression Modeling via <span>Stan</span>.”</span> <a href="https://mc-stan.org/rstanarm">https://mc-stan.org/rstanarm</a>.
-</div>
-<div id="ref-greenland2016statistical" class="csl-entry">
-Greenland, Sander, Stephen J Senn, Kenneth J Rothman, John B Carlin, Charles Poole, Steven N Goodman, and Douglas G Altman. 2016. <span>“Statistical Tests, p Values, Confidence Intervals, and Power: A Guide to Misinterpretations.”</span> <em>European Journal of Epidemiology</em> 31 (4): 337–50.
-</div>
-<div id="ref-GriffithsSteyvers2004" class="csl-entry">
-Griffiths, Thomas, and Mark Steyvers. 2004. <span>“Finding Scientific Topics.”</span> <em>PNAS</em> 101: 5228–35.
-</div>
-<div id="ref-GrolemundWickham2011" class="csl-entry">
-Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times Made Easy with <span class="nocase">lubridate</span>.”</span> <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="http://www.jstatsoft.org/v40/i03/">http://www.jstatsoft.org/v40/i03/</a>.
-</div>
-<div id="ref-Grun2011" class="csl-entry">
-Grün, Bettina, and Kurt Hornik. 2011. <span>“<span class="nocase">topicmodels</span>: An <span>R</span> Package for Fitting Topic Models.”</span> <em>Journal of Statistical Software</em> 40 (13): 1–30. <a href="https://doi.org/10.18637/jss.v040.i13">https://doi.org/10.18637/jss.v040.i13</a>.
-</div>
-<div id="ref-hamming1996" class="csl-entry">
-Hamming, Richard W. 1996. <em>The Art of Doing Science and Engineering</em>. Stripe Press.
-</div>
-<div id="ref-hanretty2020" class="csl-entry">
-Hanretty, Chris. 2020. <span>“An Introduction to Multilevel Regression and Post-Stratification for Estimating Constituency Opinion.”</span> <em>Political Studies Review</em> 18 (4): 630–45.
-</div>
-<div id="ref-hastie1990generalized" class="csl-entry">
-Hastie, Trevor J, and Robert J Tibshirani. 1990. <em>Generalized Additive Models</em>. Vol. 43. CRC press.
-</div>
-<div id="ref-citepurrr" class="csl-entry">
-Henry, Lionel, and Hadley Wickham. 2020. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.
-</div>
-<div id="ref-hernanrobins2020" class="csl-entry">
-Hernan, Miguel A, and James M Robins. 2020. <em>What If</em>. CRC Press.
-</div>
-<div id="ref-citehuxtable" class="csl-entry">
-Hugh-Jones, David. 2020. <em>Huxtable: Easily Create and Style Tables for LaTeX, HTML and Other Formats</em>. <a href="https://CRAN.R-project.org/package=huxtable">https://CRAN.R-project.org/package=huxtable</a>.
-</div>
-<div id="ref-hulley2007designing" class="csl-entry">
-Hulley, Stephen B. 2007. <em>Designing Clinical Research</em>. Lippincott Williams &amp; Wilkins.
-</div>
-<div id="ref-citeDiagrammeR" class="csl-entry">
-Iannone, Richard. 2020. <em>DiagrammeR: Graph/Network Visualization</em>. <a href="https://CRAN.R-project.org/package=DiagrammeR">https://CRAN.R-project.org/package=DiagrammeR</a>.
-</div>
-<div id="ref-citegt" class="csl-entry">
-Iannone, Richard, Joe Cheng, and Barret Schloerke. 2020a. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a>.
-</div>
-<div id="ref-citeGT" class="csl-entry">
-———. 2020b. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a>.
-</div>
-<div id="ref-citeerik" class="csl-entry">
-Igelström, Erik. 2020. <span>“Causal Graphs in r with DiagrammeR.”</span> <a href="https://www.erikigelstrom.com/articles/causal-graphs-in-r-with-diagrammer/">https://www.erikigelstrom.com/articles/causal-graphs-in-r-with-diagrammer/</a>.
-</div>
-<div id="ref-Imai2017" class="csl-entry">
-Imai, Kosuke. 2017. <em>Quantitative Social Science</em>. Princeton University Press.
-</div>
-<div id="ref-islr" class="csl-entry">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2017. <em>An Introduction to Statistical Learning with Applications in r</em>.
-</div>
-<div id="ref-citetidybayes" class="csl-entry">
-Kay, Matthew. 2020. <em><span class="nocase">tidybayes</span>: Tidy Data and Geoms for <span>Bayesian</span> Models</em>. <a href="https://doi.org/10.5281/zenodo.1308151">https://doi.org/10.5281/zenodo.1308151</a>.
-</div>
-<div id="ref-rtweet-package" class="csl-entry">
-Kearney, Michael W. 2019. <span>“Rtweet: Collecting and Analyzing Twitter Data.”</span> <em>Journal of Open Source Software</em> 4 (42): 1829. <a href="https://doi.org/10.21105/joss.01829">https://doi.org/10.21105/joss.01829</a>.
-</div>
-<div id="ref-kennedygabry2020" class="csl-entry">
-Kennedy, Lauren, and Jonah Gabry. 2020. <span>“MRP with Rstanarm.”</span> <a href="https://mc-stan.org/rstanarm/articles/mrp.html">https://mc-stan.org/rstanarm/articles/mrp.html</a>.
-</div>
-<div id="ref-kennedy2020using" class="csl-entry">
-Kennedy, Lauren, Katharine Khanna, Daniel Simpson, and Andrew Gelman. 2020. <span>“Using Sex and Gender in Survey Adjustment.”</span> <a href="http://arxiv.org/abs/2009.14401">http://arxiv.org/abs/2009.14401</a>.
-</div>
-<div id="ref-keyes2009" class="csl-entry">
-Keyes, Os. 2019. <span>“Counting the Countless.”</span> <em>Real Life</em>. <a href="https://reallifemag.com/counting-the-countless/">https://reallifemag.com/counting-the-countless/</a>.
-</div>
-<div id="ref-kohavi" class="csl-entry">
-Kohavi, Ron, Diane Tang, and Ya Xu. 2020. <em>Trustworthy Online Controlled Experiments: A Practical Guide to a/b Testing</em>. Cambridge University Press.
-</div>
-<div id="ref-citeTidymodels" class="csl-entry">
-Kuhn, Max, and Hadley Wickham. 2020. <em>Tidymodels: A Collection of Packages for Modeling and Machine Learning Using Tidyverse Principles.</em> <a href="https://www.tidymodels.org">https://www.tidymodels.org</a>.
-</div>
-<div id="ref-lauderdale2020model" class="csl-entry">
-Lauderdale, Benjamin E, Delia Bailey, Jack Blumenau, and Douglas Rivers. 2020. <span>“Model-Based Pre-Election Polling for National and Sub-National Outcomes in the US and UK.”</span> <em>International Journal of Forecasting</em> 36 (2): 399–413.
-</div>
-<div id="ref-levitt87using" class="csl-entry">
-Levitt, Steven D. 1997. <span>“Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on Crime.”</span> <em>The American Economic Review</em> 87 (3).
-</div>
-<div id="ref-levitt2002using" class="csl-entry">
-———. 2002. <span>“Using Electoral Cycles in Police Hiring to Estimate the Effects of Police on Crime: Reply.”</span> <em>American Economic Review</em> 92 (4): 1244–50.
-</div>
-<div id="ref-citedatasauRus" class="csl-entry">
-Locke, Steph, and Lucy D’Agostino McGowan. 2018. <em>datasauRus: Datasets from the Datasaurus Dozen</em>. <a href="https://CRAN.R-project.org/package=datasauRus">https://CRAN.R-project.org/package=datasauRus</a>.
-</div>
-<div id="ref-renvironrstudio" class="csl-entry">
-Lopp, Sean. 2017. <span>“R for Enterprise: Understanding r’s Startup.”</span> <em>R Views</em>. <a href="https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/">https://rviews.rstudio.com/2017/04/19/r-for-enterprise-understanding-r-s-startup/</a>.
-</div>
-<div id="ref-citesurvey" class="csl-entry">
-Lumley, Thomas. 2020. <span>“Survey: Analysis of Complex Survey Samples.”</span>
-</div>
-<div id="ref-citePerformance" class="csl-entry">
-Lüdecke, Daniel, Dominique Makowski, Philip Waggoner, and Indrajeet Patil. 2020. <span>“Performance: Assessment of Regression Models Performance.”</span> <em>CRAN</em>. <a href="https://doi.org/10.5281/zenodo.3952174">https://doi.org/10.5281/zenodo.3952174</a>.
-</div>
-<div id="ref-upworthy" class="csl-entry">
-Matias, J. Nathan, Kevin Munger, Marianne Aubin Le Quere, and Charles Ebersole. 2019. <span>“The Upworthy Research Archive.”</span> <a href="https://upworthy.natematias.com">https://upworthy.natematias.com</a>.
-</div>
-<div id="ref-Mattson2017" class="csl-entry">
-Mattson, Greggor. 2017. <span>“Artificial Intelligence Discovers Gayface. Sigh.”</span> <a href="https://greggormattson.com/2017/09/09/artificial-intelligence-discovers-gayface/amp/">https://greggormattson.com/2017/09/09/artificial-intelligence-discovers-gayface/amp/</a>.
-</div>
-<div id="ref-mccrary2002using" class="csl-entry">
-McCrary, Justin. 2002. <span>“Using Electoral Cycles in Police Hiring to Estimate the Effect of Police on Crime: Comment.”</span> <em>American Economic Review</em> 92 (4): 1236–43.
-</div>
-<div id="ref-citemcelreath" class="csl-entry">
-McElreath, Richard. 2020. <em>Statistical Rethinking: A Bayesian Course with Examples in r and Stan</em>. CRC Press.
-</div>
-<div id="ref-meng2018statistical" class="csl-entry">
-Meng, Xiao-Li, and others. 2018. <span>“Statistical Paradises and Paradoxes in Big Data (i): Law of Large Populations, Big Data Paradox, and the 2016 US Presidential Election.”</span> <em>The Annals of Applied Statistics</em> 12 (2): 685–726.
-</div>
-<div id="ref-Mitchell_2019" class="csl-entry">
-Mitchell, Margaret, Simone Wu, Andrew Zaldivar, Parker Barnes, Lucy Vasserman, Ben Hutchinson, Elena Spitzer, Inioluwa Deborah Raji, and Timnit Gebru. 2019. <span>“Model Cards for Model Reporting.”</span> <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, January. <a href="https://doi.org/10.1145/3287560.3287596">https://doi.org/10.1145/3287560.3287596</a>.
-</div>
-<div id="ref-citehere" class="csl-entry">
-Müller, Kirill. 2017b. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
-</div>
-<div id="ref-here" class="csl-entry">
-———. 2017a. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
-</div>
-<div id="ref-nelder1972generalized" class="csl-entry">
-Nelder, John Ashworth, and Robert WM Wedderburn. 1972. <span>“Generalized Linear Models.”</span> <em>Journal of the Royal Statistical Society: Series A (General)</em> 135 (3): 370–84.
-</div>
-<div id="ref-obermeyer2019dissecting" class="csl-entry">
-Obermeyer, Ziad, Brian Powers, Christine Vogeli, and Sendhil Mullainathan. 2019. <span>“Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations.”</span> <em>Science</em> 366 (6464): 447–53.
-</div>
-<div id="ref-obermeyer2019dissecting" class="csl-entry">
-———. 2019. <span>“Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations.”</span> <em>Science</em> 366 (6464): 447–53.
-</div>
-<div id="ref-citepdftools" class="csl-entry">
-Ooms, Jeroen. 2019a. <em>Pdftools: Text Extraction, Rendering and Converting of PDF Documents</em>. <a href="https://CRAN.R-project.org/package=pdftools">https://CRAN.R-project.org/package=pdftools</a>.
-</div>
-<div id="ref-pdftools" class="csl-entry">
-———. 2019b. <em>Pdftools: Text Extraction, Rendering and Converting of PDF Documents</em>. <a href="https://CRAN.R-project.org/package=pdftools">https://CRAN.R-project.org/package=pdftools</a>.
-</div>
-<div id="ref-citetesseract" class="csl-entry">
-———. 2019c. <em>Tesseract: Open Source OCR Engine</em>. <a href="https://CRAN.R-project.org/package=tesseract">https://CRAN.R-project.org/package=tesseract</a>.
-</div>
-<div id="ref-oostrom2021" class="csl-entry">
-Oostrom, Tamar. 2021. <span>“Funding of Clinical Trials and Reported Drug Efficacy.”</span> <a href="https://drive.google.com/file/d/1EQLCH0ns99IxYBkxPNbagcZtGgE9a8MQ/view">https://drive.google.com/file/d/1EQLCH0ns99IxYBkxPNbagcZtGgE9a8MQ/view</a>.
-</div>
-<div id="ref-Oreopoulos2018" class="csl-entry">
-Oreopoulos, Philip, and Uros Petronijevic. 2018. <span>“Student Coaching: How Far Can Technology Go?”</span> <em>Journal of Human Resources</em> 53 (2): 299–329. <a href="https://doi.org/10.3368/jhr.53.2.1216-8439R">https://doi.org/10.3368/jhr.53.2.1216-8439R</a>.
-</div>
-<div id="ref-OxfordAstraZeneca" class="csl-entry">
-Oxford-AstraZeneca. 2020. <span>“Azd1222 Vaccine Met Primary Efficacy Endpoint in Preventing COVID-19.”</span> <a href="https://www.astrazeneca.com/media-centre/press-releases/2020/azd1222hlr.html">https://www.astrazeneca.com/media-centre/press-releases/2020/azd1222hlr.html</a>.
-</div>
-<div id="ref-kaylinpavlik" class="csl-entry">
-Pavlik, Kaylin. 2019. <span>“Understanding + Classifying Genres Using Spotify Audio Features.”</span> <a href="https://www.kaylinpavlik.com/classifying-songs-genres/">https://www.kaylinpavlik.com/classifying-songs-genres/</a>.
-</div>
-<div id="ref-citepatchwork" class="csl-entry">
-Pedersen, Thomas Lin. 2020. <em>Patchwork: The Composer of Plots</em>. <a href="https://CRAN.R-project.org/package=patchwork">https://CRAN.R-project.org/package=patchwork</a>.
-</div>
-<div id="ref-pitman" class="csl-entry">
-Pitman, Jim. 1993. <em>Probability</em>.
-</div>
-<div id="ref-citeR" class="csl-entry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-raju2005" class="csl-entry">
-Raju, Tonse. 2005. <em>William Sealy Gosset and William a. Silverman: Two "Students" of Science</em>. <em>Pediatrics</em>. Vol. 116. <a href="https://doi.org/10.1542/peds.2005-1134">https://doi.org/10.1542/peds.2005-1134</a>.
-</div>
-<div id="ref-citebroom" class="csl-entry">
-Robinson, David, Alex Hayes, and Simon Couch. 2020. <em>Broom: Convert Statistical Objects into Tidy Tibbles</em>. <a href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.
-</div>
-<div id="ref-robinsonnolis2020" class="csl-entry">
-Robinson, Emily, and Jacqueline Nolis. 2020. <em>Build a Career in Data Science</em>. <a href="https://livebook.manning.com/book/build-a-career-in-data-science?origin=product-look-inside">https://livebook.manning.com/book/build-a-career-in-data-science?origin=product-look-inside</a>.
-</div>
-<div id="ref-Salganik2018" class="csl-entry">
-Salganik, Matthew. 2018. <em>Bit by Bit: Social Research in the Digital Age</em>. Princeton University Press.
-</div>
-<div id="ref-citeplumber" class="csl-entry">
-Schloerke, Barret, and Jeff Allen. 2021. <em>Plumber: An API Generator for r</em>. <a href="https://CRAN.R-project.org/package=plumber">https://CRAN.R-project.org/package=plumber</a>.
-</div>
-<div id="ref-citeGoogleAIbreastcancer" class="csl-entry">
-Shetty, Shravya, and Daniel Tse. 2020. <em>Using AI to Improve Breast Cancer Screening</em>. <a href="https://blog.google/technology/health/improving-breast-cancer-screening/">https://blog.google/technology/health/improving-breast-cancer-screening/</a>.
-</div>
-<div id="ref-si2020use" class="csl-entry">
-Si, Yajuan. 2020. <span>“On the Use of Auxiliary Variables in Multilevel Regression and Poststratification.”</span> <a href="http://arxiv.org/abs/2011.00360">http://arxiv.org/abs/2011.00360</a>.
-</div>
-<div id="ref-silge2018" class="csl-entry">
-Silge, Julia. 2018. <em>Text Classification with Tidy Data Principles</em>. <a href="https://juliasilge.com/blog/tidy-text-classification/">https://juliasilge.com/blog/tidy-text-classification/</a>.
-</div>
-<div id="ref-Simpson2017" class="csl-entry">
-Simpson, Dan. 2017. <span>“It Seemed to Me That Most Destruction Was Being Done by Those Who Could Not Choose Between the Two.”</span> <a href="https://statmodeling.stat.columbia.edu/2017/09/12/seemed-destruction-done-not-choose-two/">https://statmodeling.stat.columbia.edu/2017/09/12/seemed-destruction-done-not-choose-two/</a>.
-</div>
-<div id="ref-simpson1951interpretation" class="csl-entry">
-Simpson, Edward H. 1951. <span>“The Interpretation of Interaction in Contingency Tables.”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 13 (2): 238–41.
-</div>
-<div id="ref-citegtsummary" class="csl-entry">
-Sjoberg, Daniel D., Michael Curry, Margie Hannum, Joseph Larmarange, Karissa Whiting, and Emily C. Zabor. 2021. <em>Gtsummary: Presentation-Ready Data Summary and Analytic Result Tables</em>. <a href="https://CRAN.R-project.org/package=gtsummary">https://CRAN.R-project.org/package=gtsummary</a>.
-</div>
-<div id="ref-citeggrepel" class="csl-entry">
-Slowikowski, Kamil. 2021. <em>Ggrepel: Automatically Position Non-Overlapping Text Labels with ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggrepel">https://CRAN.R-project.org/package=ggrepel</a>.
-</div>
-<div id="ref-SteyversGriffiths2006" class="csl-entry">
-Steyvers, Mark, and Tom Griffiths. 2006. <span>“Probabilistic Topic Models.”</span> In <em>Latent Semantic Analysis: A Road to Meaning</em>, edited by T. Landauer, D McNamara, S. Dennis, and W. Kintsch.
-</div>
-<div id="ref-stock2003retrospectives" class="csl-entry">
-Stock, James H, and Francesco Trebbi. 2003. <span>“Retrospectives: Who Invented Instrumental Variable Regression?”</span> <em>Journal of Economic Perspectives</em> 17 (3): 177–94.
-</div>
-<div id="ref-taback2020" class="csl-entry">
-Taback, Nathan. 2020. <em>Design of Experiments and Observational Studies</em>. <a href="https://scidesign.github.io/designbook/">https://scidesign.github.io/designbook/</a>.
-</div>
-<div id="ref-taddy2019" class="csl-entry">
-Taddy, Matt. 2019. <em>Business Data Science</em>. McGraw Hill.
-</div>
-<div id="ref-spotifyr" class="csl-entry">
-Thompson, Charlie, Josiah Parry, Donal Phipps, and Tom Wolff. 2020. <em>Spotifyr: R Wrapper for the ’Spotify’ Web API</em>. <a href="http://github.com/charlie86/spotifyr">http://github.com/charlie86/spotifyr</a>.
-</div>
-<div id="ref-citevisdat" class="csl-entry">
-Tierney, Nicholas. 2017. <span>“Visdat: Visualising Whole Data Frames.”</span> <em>JOSS</em> 2 (16): 355. <a href="https://doi.org/10.21105/joss.00355">https://doi.org/10.21105/joss.00355</a>.
-</div>
-<div id="ref-tukey1962future" class="csl-entry">
-Tukey, John W. 1962. <span>“The Future of Data Analysis.”</span> <em>The Annals of Mathematical Statistics</em> 33 (1): 1–67.
-</div>
-<div id="ref-wang2015forecasting" class="csl-entry">
-Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman. 2015. <span>“Forecasting Elections with Non-Representative Polls.”</span> <em>International Journal of Forecasting</em> 31 (3): 980–91.
-</div>
-<div id="ref-ware1989" class="csl-entry">
-Ware, James. 1989. <span>“Investigating Therapies of Potentially Great Benefit: ECMO.”</span> <em>Statistical Science</em>, no. 4: 298–306.
-</div>
-<div id="ref-citeggplot" class="csl-entry">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-Wickham2017" class="csl-entry">
-———. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
-</div>
-<div id="ref-citehttr" class="csl-entry">
-———. 2019a. <em>Httr: Tools for Working with URLs and HTTP</em>. <a href="https://CRAN.R-project.org/package=httr">https://CRAN.R-project.org/package=httr</a>.
-</div>
-<div id="ref-citervest" class="csl-entry">
-———. 2019b. <em>Rvest: Easily Harvest (Scrape) Web Pages</em>. <a href="https://CRAN.R-project.org/package=rvest">https://CRAN.R-project.org/package=rvest</a>.
-</div>
-<div id="ref-citestringr" class="csl-entry">
-———. 2019c. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
-</div>
-<div id="ref-citeforcats" class="csl-entry">
-———. 2020a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
-</div>
-<div id="ref-tidyversewebsite" class="csl-entry">
-———. 2020b. <em>Tidyverse</em>. <a href="https://www.tidyverse.org/">https://www.tidyverse.org/</a>.
-</div>
-<div id="ref-citetidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019b. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
-</div>
-<div id="ref-tidyverse" class="csl-entry">
-———, et al. 2019a. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
-</div>
-<div id="ref-citeusethis" class="csl-entry">
-Wickham, Hadley, and Jennifer Bryan. 2020. <em>Usethis: Automate Package and Project Setup</em>. <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.
-</div>
-<div id="ref-citedplyr" class="csl-entry">
-Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2020. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
-</div>
-<div id="ref-r4ds" class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
-</div>
-<div id="ref-citeDevtools" class="csl-entry">
-Wickham, Hadley, Jim Hester, and Winston Chang. 2020. <em>Devtools: Tools to Make Developing r Packages Easier</em>. <a href="https://CRAN.R-project.org/package=devtools">https://CRAN.R-project.org/package=devtools</a>.
-</div>
-<div id="ref-citehaven" class="csl-entry">
-Wickham, Hadley, and Evan Miller. 2020. <em>Haven: Import and Export ’SPSS’, ’Stata’ and ’SAS’ Files</em>. <a href="https://CRAN.R-project.org/package=haven">https://CRAN.R-project.org/package=haven</a>.
-</div>
-<div id="ref-wright1928tariff" class="csl-entry">
-Wright, Philip G. 1928. <em>The Tariff on Animal and Vegetable Oils</em>. Macmillan Company.
-</div>
-<div id="ref-wuandthompson" class="csl-entry">
-Wu, Changbao, and Mary E Thompson. 2020. <em>Sampling Theory and Practice</em>. Springer.
-</div>
-<div id="ref-citeblogdown" class="csl-entry">
-Xie, Yihui, Christophe Dervieux, and Alison Presmanes Hill. 2021. <em>Blogdown: Create Blogs and Websites with r Markdown</em>. <a href="https://github.com/rstudio/blogdown">https://github.com/rstudio/blogdown</a>.
-</div>
-<div id="ref-citekableextra" class="csl-entry">
-Zhu, Hao. 2020. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
-</div>
+
+#### Workspace setup ####
+# Don&#39;t keep the install.packages line - just comment out if need be
+# Load libraries
+library(tidyverse)
+
+# Read in the raw data. 
+raw_data &lt;- readr::read_csv(&quot;inputs/data/raw_data.csv&quot;)
+
+
+#### Next section ####
+...
+</code></pre>
+</div>
+<div id="learning-more" class="section level3" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Learning more</h3>
+<p>One of the great aspects of R is that there is a friendly community of people who use it. There are a variety of ways that I learn about new tricks, functions, and packages including:</p>
+<ul>
+<li><a href="https://rladies.org/">R Ladies</a> ‘is a world-wide organization to promote gender diversity in the R community.’ Whether that is your cup of tea or not, they tend to share fantastic material on their twitter feeds: <a href="https://twitter.com/rladiesglobal" class="uri">https://twitter.com/rladiesglobal</a> and <a href="https://twitter.com/WeAreRLadies" class="uri">https://twitter.com/WeAreRLadies</a> (where someone takes over the account for the week, so the enthusiasm never wanes). If you’re in Toronto, then the local chapter is: <a href="https://rladies.org/canada-rladies/locality/Toronto/" class="uri">https://rladies.org/canada-rladies/locality/Toronto/</a> and <a href="https://www.meetup.com/rladies-toronto/" class="uri">https://www.meetup.com/rladies-toronto/</a>.</li>
+<li><a href="https://rweekly.org/">R Weekly</a> is a weekly newsletter that highlights new things that have happened recently.</li>
+<li>A popular R podcast is <a href="http://nssdeviations.com/">Not So Standard Deviations</a>.</li>
+</ul>
+<p>Another great way to learn is by exchanging your code with others. Initially, just have them read it and give you feedback about it. But after you get a bit more confident run each other’s code. The most efficiently I’ve ever improved in my R journey has been by having Monica try to run my code.</p>
+</div>
+</div>
+<div id="developing-research-questions" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Developing research questions</h2>
+<p>Both qualitative and quantitative approaches have their place, but here we focus on quantitative approaches. (Qualitative research is important as well, and often the most interesting work has a little of both - ‘mixed methods.’) This means that we are subject to issues surrounding data quality, scales, measures, sources, etc. We are especially interested in trying to tease out causality.</p>
+<p>Broadly there are two ways to go about research:</p>
+<ol style="list-style-type: decimal">
+<li>data-first,</li>
+<li>question-first.</li>
+</ol>
+<p>If you get a job somewhere typically you will initially be data-first. This means that you will need to work out the questions that you can reasonably answer with the data available to you. After you show some promise, you may be given the latitude to explore specific questions, possibly even gathering data specifically for that purpose. Contrast this with the example of the Behavioural Insights Team, <span class="citation">(<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al. 2016, 23</a>)</span> who got to design and then carry out experiments given the remit of the entire British government (as they were spun out of the prime minister’s office).</p>
+<p>When deciding the questions that you can reasonably answer with the data that are available, you need to think about:</p>
+<ol style="list-style-type: decimal">
+<li>Theory: Do you have a reasonable expectation that there is something causal that could be determined? Charting the stock market - maybe, but might be better with haruspex because at least that way you have something you could eat. You need a reasonable theory of how <span class="math inline">\(x\)</span> may be affecting <span class="math inline">\(y\)</span>.</li>
+<li>Importance: There are plenty of trivial questions that you could ask, but it’s important to not waste your time. The importance of a question also helps with motivation when you are on your fourth straight week of cleaning data and de-bugging your code. It also (and this becomes important) makes it easier to get talented people to work with you, or similarly to convince people to fund you or allow you to work on this project.</li>
+<li>Availability: Can you reasonably expect get more data about this research question in the future or is this the extent of the data that could be gathered?</li>
+<li>Iteration: Is this something that you can come back to and run often or is this a once-off analysis?</li>
+</ol>
+<p>The ‘FINER framework’ as a mnemonic device used in medicine.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> This framework reminds us to ask questions that are <span class="citation">(<a href="references-1.html#ref-hulley2007designing" role="doc-biblioref">Hulley 2007</a>)</span>:</p>
+<blockquote>
+<ul>
+<li>Feasible: Adequate number of subjects; adequate technical expertise; affordable in time and money; manageable in scope.</li>
+<li>Interesting: Getting the answer intrigues investigator, peers and community.</li>
+<li>Novel: Confirms, refutes or extends previous findings</li>
+<li>Ethical: Amenable to a study that institutional review board will approve.</li>
+<li>Relevant: To scientific knowledge; to clinical and health policy; to future research.</li>
+</ul>
+</blockquote>
+<p><span class="citation"><a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">Farrugia et al.</a> (<a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">2010</a>)</span> build on this in terms of developing research questions and recommend ‘PICOT’:</p>
+<blockquote>
+<ul>
+<li>Population: What specific population are you interested in?</li>
+<li>Intervention: What is your investigational intervention?</li>
+<li>Comparison group: What is the main alternative to compare with the intervention?</li>
+<li>Outcome of interest: What do you intend to accomplish, measure, improve or affect?</li>
+<li>Time: What is the appropriate follow-up time to assess outcome</li>
+</ul>
+</blockquote>
+<p>Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump’s tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.</p>
+<p>Usually, the creation of a counterfactual is crucial. We’ll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the ‘if’ is false. Consider the example of Humpty Dumpty from Lewis Carroll’s Through the Looking-Glass:</p>
+<div class="figure"><span id="fig:humpty"></span>
+<img src="figures/humpty.png" alt="Humpty Dumpty example" width="90%" />
+<p class="caption">
+Figure 4.9: Humpty Dumpty example
+</p>
+</div>
+<p>Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won’t ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.</p>
+<p>Finally, we can often dodge ethics boards in data science, especially once you leave university. Typically, ethics guides from medicine and other fields are focused on ethics boards. But we often don’t have those in data science applications. Even if your intentions are unimpeachable, I want to suggest one additional aspect to think about, and that is Bayes theorem:
+<span class="math display">\[P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}\]</span>
+(The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.)</p>
+<p>To see why this may be relevant, let’s go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let’s just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
+<span class="math display">\[\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2\]</span></p>
+<p>To see why this may be relevant, consider the example of Google’s AI cancer testing <span class="citation">(<a href="references-1.html#ref-citeGoogleAIbreastcancer" role="doc-biblioref">Shetty and Tse 2020</a>)</span>. Basically, what they have done is to train a model that can identify breast cancer. They claim ‘greater accuracy, fewer false positives, and fewer false negatives than experts.’</p>
+<p>I, and many others <span class="citation">(<a href="references-1.html#ref-citeWiredonGoogle" role="doc-biblioref">Aschwanden 2020</a>)</span>, would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are ‘wrong’ with them. The issue is that they’re perfectly healthy and that we’ve rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.</p>
+<p>Given low prevalence in the community, we probably don’t want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary ‘treatment’ would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.</p>
+
 </div>
 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Thanks to Aaron Miller for pointing me to this.<a href="workflow.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="papers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="r-essentials.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="static-communication.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

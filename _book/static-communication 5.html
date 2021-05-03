@@ -24,7 +24,7 @@
 <meta name="author" content="Rohan Alexander" />
 
 
-<meta name="date" content="2021-04-28" />
+<meta name="date" content="2021-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,30 +53,6 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
-<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
-<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
-<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
-<script src="libs/legend-0.0.1/legend.js"></script>
-<script src="libs/title-0.0.1/title.js"></script>
-<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
-<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
-<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
-<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
-<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
-<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
-<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
-<script src="libs/arc-1.0.0/arc.js"></script>
-<script src="libs/viz-1.8.2/viz.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
@@ -819,7 +795,7 @@ Learn to write.</p>
 <p>This chapter is about writing. By the end of it you will have a better idea of how to write short, detailed, quantitative papers that communicate exactly what you want them to and don’t waste the time of your reader.</p>
 <p>One critical part of telling stories with <em>data</em>, is that it’s ultimately the data that has to convince them. You’re the medium, but the data are the message. To that end, the easiest way to try to convince someone of your story is to show them the data that allowed you to come to that story. Plot your raw data, or as close to it as possible.</p>
 <p>While <code>ggplot</code> is a fantastic tool for doing this, there is a lot to that package and so it can be difficult to know where to start. My recommendation is that you start with either a scatter plot or a bar chart. What is critical is that you show the reader your raw data. These notes run through how to do that. It then discusses some more advanced options, but the important thing is that you show the reader your raw data (or as close to it as you can). Students seem to get confused what ‘raw’ means; I’m using it to refer to as close to the original dataset as possible, so no sums, or averages, etc, if possible. Sometimes your data are too disperse for that or you’ve got other constraints, so there needs to be an element of manipulation. The main point is that you, at the very least, need to plot the data that you’re going to be modelling. If you are dealing with larger datasets then just take a 10/1/0.1/etc per cent sample.</p>
-<div class="figure"><span id="fig:unnamed-chunk-86"></span>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
 <img src="figures/jerry.png" alt="Show me the data!" width="90%" />
 <p class="caption">
 Figure 5.1: Show me the data!
@@ -878,16 +854,16 @@ Figure 5.2: How do we get started with our data?
 <!-- #   y = value) -->
 <!-- ``` -->
 <p>Let’s look at a somewhat fun example from the <code>datasauRus</code> package <span class="citation">(<a href="references-1.html#ref-citedatasauRus" role="doc-biblioref">Locke and D’Agostino McGowan 2018</a>)</span>.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="static-communication.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasauRus)</span>
-<span id="cb158-2"><a href="static-communication.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb158-3"><a href="static-communication.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from: https://juliasilge.com/blog/datasaurus-multiclass/</span></span>
-<span id="cb158-4"><a href="static-communication.html#cb158-4" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span></span>
-<span id="cb158-5"><a href="static-communication.html#cb158-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>, <span class="st">&quot;bullseye&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb158-6"><a href="static-communication.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">%&gt;%</span></span>
-<span id="cb158-7"><a href="static-communication.html#cb158-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(x, y), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)),</span>
-<span id="cb158-8"><a href="static-communication.html#cb158-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_y_cor =</span> <span class="fu">cor</span>(x, y)</span>
-<span id="cb158-9"><a href="static-communication.html#cb158-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb158-10"><a href="static-communication.html#cb158-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="static-communication.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasauRus)</span>
+<span id="cb1-2"><a href="static-communication.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="static-communication.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Code from: https://juliasilge.com/blog/datasaurus-multiclass/</span></span>
+<span id="cb1-4"><a href="static-communication.html#cb1-4" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="static-communication.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>, <span class="st">&quot;bullseye&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="static-communication.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="static-communication.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(x, y), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)),</span>
+<span id="cb1-8"><a href="static-communication.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_y_cor =</span> <span class="fu">cor</span>(x, y)</span>
+<span id="cb1-9"><a href="static-communication.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="static-communication.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 6
 ##   dataset  x_mean  x_sd y_mean  y_sd x_y_cor
 ##   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
@@ -896,39 +872,39 @@ Figure 5.2: How do we get started with our data?
 ## 3 dino       54.3  16.8   47.8  26.9 -0.0645
 ## 4 star       54.3  16.8   47.8  26.9 -0.0630</code></pre>
 <p>And despite these similarities at a summary statistic level, they’re actually very different, well, beasts, when you plot the raw data.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="static-communication.html#cb160-1" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span> </span>
-<span id="cb160-2"><a href="static-communication.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>, <span class="st">&quot;bullseye&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb160-3"><a href="static-communication.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, <span class="at">colour=</span>dataset)) <span class="sc">+</span></span>
-<span id="cb160-4"><a href="static-communication.html#cb160-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb160-5"><a href="static-communication.html#cb160-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb160-6"><a href="static-communication.html#cb160-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(dataset), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb160-7"><a href="static-communication.html#cb160-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;Dataset&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="static-communication.html#cb3-1" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="static-communication.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>, <span class="st">&quot;bullseye&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="static-communication.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y, <span class="at">colour=</span>dataset)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="static-communication.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="static-communication.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href="static-communication.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(dataset), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="static-communication.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;Dataset&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div id="bar-chart" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Bar chart</h3>
 <p>Bar charts are useful when you have one variable that you want to focus on. Hint: you almost always have one variable that you want to focus on. Hence, you should almost always include at least one (and likely many) bar charts. Bar charts go by a variety of names, depending on their specifics. I recommend the <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">R Studio Data Viz Cheat Sheet</a>.</p>
 <p>To get started, let’s simulate some data.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="static-communication.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb161-2"><a href="static-communication.html#cb161-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb161-3"><a href="static-communication.html#cb161-3" aria-hidden="true" tabindex="-1"></a>number_of_observation <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb161-4"><a href="static-communication.html#cb161-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb161-5"><a href="static-communication.html#cb161-5" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>number_of_observation),</span>
-<span id="cb161-6"><a href="static-communication.html#cb161-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">smoker =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-smoker&quot;</span>),</span>
-<span id="cb161-7"><a href="static-communication.html#cb161-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">size =</span> number_of_observation, </span>
-<span id="cb161-8"><a href="static-communication.html#cb161-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb161-9"><a href="static-communication.html#cb161-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">age_died =</span> <span class="fu">runif</span>(number_of_observation,</span>
-<span id="cb161-10"><a href="static-communication.html#cb161-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">min =</span> <span class="dv">0</span>,</span>
-<span id="cb161-11"><a href="static-communication.html#cb161-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">max =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">0</span>),</span>
-<span id="cb161-12"><a href="static-communication.html#cb161-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">height =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">50</span><span class="sc">:</span><span class="dv">220</span>), </span>
-<span id="cb161-13"><a href="static-communication.html#cb161-13" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">size =</span>  number_of_observation, </span>
-<span id="cb161-14"><a href="static-communication.html#cb161-14" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb161-15"><a href="static-communication.html#cb161-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">num_children =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb161-16"><a href="static-communication.html#cb161-16" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">size =</span> number_of_observation, </span>
-<span id="cb161-17"><a href="static-communication.html#cb161-17" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb161-18"><a href="static-communication.html#cb161-18" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>))</span>
-<span id="cb161-19"><a href="static-communication.html#cb161-19" aria-hidden="true" tabindex="-1"></a>                       )</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="static-communication.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb4-2"><a href="static-communication.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="static-communication.html#cb4-3" aria-hidden="true" tabindex="-1"></a>number_of_observation <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb4-4"><a href="static-communication.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="static-communication.html#cb4-5" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">person =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>number_of_observation),</span>
+<span id="cb4-6"><a href="static-communication.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">smoker =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-smoker&quot;</span>),</span>
+<span id="cb4-7"><a href="static-communication.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">size =</span> number_of_observation, </span>
+<span id="cb4-8"><a href="static-communication.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-9"><a href="static-communication.html#cb4-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">age_died =</span> <span class="fu">runif</span>(number_of_observation,</span>
+<span id="cb4-10"><a href="static-communication.html#cb4-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb4-11"><a href="static-communication.html#cb4-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">max =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">0</span>),</span>
+<span id="cb4-12"><a href="static-communication.html#cb4-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">height =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">50</span><span class="sc">:</span><span class="dv">220</span>), </span>
+<span id="cb4-13"><a href="static-communication.html#cb4-13" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">size =</span>  number_of_observation, </span>
+<span id="cb4-14"><a href="static-communication.html#cb4-14" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-15"><a href="static-communication.html#cb4-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">num_children =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb4-16"><a href="static-communication.html#cb4-16" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">size =</span> number_of_observation, </span>
+<span id="cb4-17"><a href="static-communication.html#cb4-17" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-18"><a href="static-communication.html#cb4-18" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>))</span>
+<span id="cb4-19"><a href="static-communication.html#cb4-19" aria-hidden="true" tabindex="-1"></a>                       )</span></code></pre></div>
 <p>First, let’s have a look at the data.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="static-communication.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_data)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="static-communication.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(example_data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   person smoker     age_died height num_children
 ##    &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;  &lt;int&gt;        &lt;int&gt;
@@ -939,19 +915,19 @@ Figure 5.2: How do we get started with our data?
 ## 5      5 Smoker           32    135            1
 ## 6      6 Smoker           37    220            0</code></pre>
 <p>Now let’s plot the age distribution. Based on our simulated data, we’re expecting a fairly uniform plot.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="static-communication.html#cb164-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb164-2"><a href="static-communication.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
-<span id="cb164-3"><a href="static-communication.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="static-communication.html#cb7-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="static-communication.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="static-communication.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Now let’s make it look a little better. There are themes that are built into ggplot, or you can install other themes from other packages, or you can edit aspects yourself. I’d recommend starting with the <code>ggthemes</code> package for some fun ones, but I tend to just use classic or minimal. Remember that you must always refer to your graphs in your text (Figure <a href="static-communication.html#fig:myfrstgraph">5.3</a>).</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="static-communication.html#cb165-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb165-2"><a href="static-communication.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
-<span id="cb165-3"><a href="static-communication.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb165-4"><a href="static-communication.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb165-5"><a href="static-communication.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
-<span id="cb165-6"><a href="static-communication.html#cb165-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
-<span id="cb165-7"><a href="static-communication.html#cb165-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age&quot;</span>,</span>
-<span id="cb165-8"><a href="static-communication.html#cb165-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="static-communication.html#cb8-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="static-communication.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="static-communication.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="static-communication.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="static-communication.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
+<span id="cb8-6"><a href="static-communication.html#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
+<span id="cb8-7"><a href="static-communication.html#cb8-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age&quot;</span>,</span>
+<span id="cb8-8"><a href="static-communication.html#cb8-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:myfrstgraph"></span>
 <img src="telling_stories_with_data_files/figure-html/myfrstgraph-1.png" alt="Number of people who died at each age" width="672" />
 <p class="caption">
@@ -959,15 +935,15 @@ Figure 5.3: Number of people who died at each age
 </p>
 </div>
 <p>We may want to facet by some variable, in this case whether the person is a smoker (Figure <a href="static-communication.html#fig:mysecndgraph">5.4</a>).</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="static-communication.html#cb166-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb166-2"><a href="static-communication.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
-<span id="cb166-3"><a href="static-communication.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb166-4"><a href="static-communication.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb166-5"><a href="static-communication.html#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(smoker)) <span class="sc">+</span></span>
-<span id="cb166-6"><a href="static-communication.html#cb166-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
-<span id="cb166-7"><a href="static-communication.html#cb166-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
-<span id="cb166-8"><a href="static-communication.html#cb166-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age, by whether they smoke&quot;</span>,</span>
-<span id="cb166-9"><a href="static-communication.html#cb166-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="static-communication.html#cb9-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="static-communication.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="static-communication.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="static-communication.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="static-communication.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(smoker)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="static-communication.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
+<span id="cb9-7"><a href="static-communication.html#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
+<span id="cb9-8"><a href="static-communication.html#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age, by whether they smoke&quot;</span>,</span>
+<span id="cb9-9"><a href="static-communication.html#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:mysecndgraph"></span>
 <img src="telling_stories_with_data_files/figure-html/mysecndgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
 <p class="caption">
@@ -975,16 +951,16 @@ Figure 5.4: Number of people who died at each age, by whether they smoke
 </p>
 </div>
 <p>Alternatively, we may wish to colour by that instead (Figure <a href="static-communication.html#fig:mysthidgraph">5.5</a>). I’ll filter to just a handful of age-groups to keep it tractable.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="static-communication.html#cb167-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb167-2"><a href="static-communication.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_died <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb167-3"><a href="static-communication.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
-<span id="cb167-4"><a href="static-communication.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb167-5"><a href="static-communication.html#cb167-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb167-6"><a href="static-communication.html#cb167-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
-<span id="cb167-7"><a href="static-communication.html#cb167-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
-<span id="cb167-8"><a href="static-communication.html#cb167-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Smoker&quot;</span>,</span>
-<span id="cb167-9"><a href="static-communication.html#cb167-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age, by whether they smoke&quot;</span>,</span>
-<span id="cb167-10"><a href="static-communication.html#cb167-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="static-communication.html#cb10-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="static-communication.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_died <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="static-communication.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> age_died, <span class="at">fill =</span> smoker)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="static-communication.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="static-communication.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="static-communication.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age died&quot;</span>,</span>
+<span id="cb10-7"><a href="static-communication.html#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
+<span id="cb10-8"><a href="static-communication.html#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Smoker&quot;</span>,</span>
+<span id="cb10-9"><a href="static-communication.html#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Number of people who died at each age, by whether they smoke&quot;</span>,</span>
+<span id="cb10-10"><a href="static-communication.html#cb10-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:mysthidgraph"></span>
 <img src="telling_stories_with_data_files/figure-html/mysthidgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
 <p class="caption">
@@ -996,18 +972,18 @@ Figure 5.5: Number of people who died at each age, by whether they smoke
 <div id="scatter-plot" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Scatter plot</h3>
 <p>Often, we are also interested in the relationship between two series. We’ll do that with a scatter plot. In this case, let’s simulate some data, say years of education and income.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="static-communication.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb168-2"><a href="static-communication.html#cb168-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-3"><a href="static-communication.html#cb168-3" aria-hidden="true" tabindex="-1"></a>number_of_observation <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb168-4"><a href="static-communication.html#cb168-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-5"><a href="static-communication.html#cb168-5" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> </span>
-<span id="cb168-6"><a href="static-communication.html#cb168-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">years_of_education =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_observation, <span class="at">min =</span> <span class="dv">10</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
-<span id="cb168-7"><a href="static-communication.html#cb168-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">error =</span> <span class="fu">rnorm</span>(<span class="at">n=</span> number_of_observation, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">10000</span>),</span>
-<span id="cb168-8"><a href="static-communication.html#cb168-8" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb168-9"><a href="static-communication.html#cb168-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">income =</span> years_of_education <span class="sc">*</span> <span class="dv">5000</span> <span class="sc">+</span> error,</span>
-<span id="cb168-10"><a href="static-communication.html#cb168-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">income =</span> <span class="fu">if_else</span>(income <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, income))</span>
-<span id="cb168-11"><a href="static-communication.html#cb168-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb168-12"><a href="static-communication.html#cb168-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(scatter_data)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="static-communication.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb11-2"><a href="static-communication.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="static-communication.html#cb11-3" aria-hidden="true" tabindex="-1"></a>number_of_observation <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb11-4"><a href="static-communication.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="static-communication.html#cb11-5" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> </span>
+<span id="cb11-6"><a href="static-communication.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">years_of_education =</span> <span class="fu">runif</span>(<span class="at">n =</span> number_of_observation, <span class="at">min =</span> <span class="dv">10</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
+<span id="cb11-7"><a href="static-communication.html#cb11-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">error =</span> <span class="fu">rnorm</span>(<span class="at">n=</span> number_of_observation, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">10000</span>),</span>
+<span id="cb11-8"><a href="static-communication.html#cb11-8" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-9"><a href="static-communication.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">income =</span> years_of_education <span class="sc">*</span> <span class="dv">5000</span> <span class="sc">+</span> error,</span>
+<span id="cb11-10"><a href="static-communication.html#cb11-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">income =</span> <span class="fu">if_else</span>(income <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, income))</span>
+<span id="cb11-11"><a href="static-communication.html#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="static-communication.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(scatter_data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   years_of_education   error income
 ##                &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -1018,14 +994,14 @@ Figure 5.5: Number of people who died at each age, by whether they smoke
 ## 5               10.6  -1500. 51302.
 ## 6               16.1   1911. 82202.</code></pre>
 <p>Now let’s look at income as a function of years of education (Figure <a href="static-communication.html#fig:scattorplot">5.6</a>).</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="static-communication.html#cb170-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
-<span id="cb170-2"><a href="static-communication.html#cb170-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> years_of_education, <span class="at">y =</span> income)) <span class="sc">+</span></span>
-<span id="cb170-3"><a href="static-communication.html#cb170-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb170-4"><a href="static-communication.html#cb170-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb170-5"><a href="static-communication.html#cb170-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Years of education&quot;</span>,</span>
-<span id="cb170-6"><a href="static-communication.html#cb170-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Income&quot;</span>,</span>
-<span id="cb170-7"><a href="static-communication.html#cb170-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Relationship between income and years of education&quot;</span>,</span>
-<span id="cb170-8"><a href="static-communication.html#cb170-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="static-communication.html#cb13-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="static-communication.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> years_of_education, <span class="at">y =</span> income)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="static-communication.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="static-communication.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-5"><a href="static-communication.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Years of education&quot;</span>,</span>
+<span id="cb13-6"><a href="static-communication.html#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb13-7"><a href="static-communication.html#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Relationship between income and years of education&quot;</span>,</span>
+<span id="cb13-8"><a href="static-communication.html#cb13-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:scattorplot"></span>
 <img src="telling_stories_with_data_files/figure-html/scattorplot-1.png" alt="Relationship between income and years of education" width="672" />
 <p class="caption">
@@ -1036,42 +1012,42 @@ Figure 5.6: Relationship between income and years of education
 <div id="never-use-box-plots" class="section level3" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> Never use box plots</h3>
 <p>Box plots are almost never appropriate because they hide the distribution of data. To see this, consider some data from a beta distribution.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="static-communication.html#cb171-1" aria-hidden="true" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
-<span id="cb171-2"><a href="static-communication.html#cb171-2" aria-hidden="true" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb171-3"><a href="static-communication.html#cb171-3" aria-hidden="true" tabindex="-1"></a>middle <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
-<span id="cb171-4"><a href="static-communication.html#cb171-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-5"><a href="static-communication.html#cb171-5" aria-hidden="true" tabindex="-1"></a>tricky_data <span class="ot">&lt;-</span> </span>
-<span id="cb171-6"><a href="static-communication.html#cb171-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">left_and_right =</span> </span>
-<span id="cb171-7"><a href="static-communication.html#cb171-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(</span>
-<span id="cb171-8"><a href="static-communication.html#cb171-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">2</span>),</span>
-<span id="cb171-9"><a href="static-communication.html#cb171-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb171-10"><a href="static-communication.html#cb171-10" aria-hidden="true" tabindex="-1"></a>           ),</span>
-<span id="cb171-11"><a href="static-communication.html#cb171-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">middle =</span> </span>
-<span id="cb171-12"><a href="static-communication.html#cb171-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rbeta</span>(<span class="dv">20000</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="static-communication.html#cb14-1" aria-hidden="true" tabindex="-1"></a>left <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="static-communication.html#cb14-2" aria-hidden="true" tabindex="-1"></a>right <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb14-3"><a href="static-communication.html#cb14-3" aria-hidden="true" tabindex="-1"></a>middle <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb14-4"><a href="static-communication.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="static-communication.html#cb14-5" aria-hidden="true" tabindex="-1"></a>tricky_data <span class="ot">&lt;-</span> </span>
+<span id="cb14-6"><a href="static-communication.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">left_and_right =</span> </span>
+<span id="cb14-7"><a href="static-communication.html#cb14-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">c</span>(</span>
+<span id="cb14-8"><a href="static-communication.html#cb14-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">2</span>),</span>
+<span id="cb14-9"><a href="static-communication.html#cb14-9" aria-hidden="true" tabindex="-1"></a>             <span class="fu">rbeta</span>(<span class="dv">10000</span>,<span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb14-10"><a href="static-communication.html#cb14-10" aria-hidden="true" tabindex="-1"></a>           ),</span>
+<span id="cb14-11"><a href="static-communication.html#cb14-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">middle =</span> </span>
+<span id="cb14-12"><a href="static-communication.html#cb14-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">rbeta</span>(<span class="dv">20000</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
 <p>Then compare the box plots.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="static-communication.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tricky_data<span class="sc">$</span>left_and_right)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="static-communication.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tricky_data<span class="sc">$</span>middle)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-94-2.png" width="672" /></p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="static-communication.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tricky_data<span class="sc">$</span>left_and_right)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-94-3.png" width="672" /></p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="static-communication.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tricky_data<span class="sc">$</span>middle)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-94-4.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="static-communication.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tricky_data<span class="sc">$</span>left_and_right)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="static-communication.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tricky_data<span class="sc">$</span>middle)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="static-communication.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tricky_data<span class="sc">$</span>left_and_right)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="static-communication.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tricky_data<span class="sc">$</span>middle)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
 </div>
 <div id="other" class="section level3" number="5.2.4">
 <h3><span class="header-section-number">5.2.4</span> Other</h3>
 <div id="best-fit" class="section level4" number="5.2.4.1">
 <h4><span class="header-section-number">5.2.4.1</span> Best fit</h4>
 <p>If we’re interested in quickly adding a line of best fit then, continuing with the earlier income example, we can do that with <code>geom_smooth()</code> (Figure <a href="static-communication.html#fig:scattorplottwo">5.7</a>).</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="static-communication.html#cb176-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
-<span id="cb176-2"><a href="static-communication.html#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> years_of_education, <span class="at">y =</span> income)) <span class="sc">+</span></span>
-<span id="cb176-3"><a href="static-communication.html#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb176-4"><a href="static-communication.html#cb176-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb176-5"><a href="static-communication.html#cb176-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb176-6"><a href="static-communication.html#cb176-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Years of education&quot;</span>,</span>
-<span id="cb176-7"><a href="static-communication.html#cb176-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Income&quot;</span>,</span>
-<span id="cb176-8"><a href="static-communication.html#cb176-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Relationship between income and years of education&quot;</span>,</span>
-<span id="cb176-9"><a href="static-communication.html#cb176-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="static-communication.html#cb19-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="static-communication.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> years_of_education, <span class="at">y =</span> income)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="static-communication.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="static-communication.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="static-communication.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="static-communication.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Years of education&quot;</span>,</span>
+<span id="cb19-7"><a href="static-communication.html#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb19-8"><a href="static-communication.html#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Relationship between income and years of education&quot;</span>,</span>
+<span id="cb19-9"><a href="static-communication.html#cb19-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span id="fig:scattorplottwo"></span>
 <img src="telling_stories_with_data_files/figure-html/scattorplottwo-1.png" alt="Relationship between income and years of education" width="672" />
@@ -1083,14 +1059,14 @@ Figure 5.7: Relationship between income and years of education
 <div id="histogram" class="section level4" number="5.2.4.2">
 <h4><span class="header-section-number">5.2.4.2</span> Histogram</h4>
 <p>If we want to get counts by groups, then we may want to use a histogram. Figure <a href="static-communication.html#fig:hisogramone">5.8</a> shows the counts for our simulated incomes.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="static-communication.html#cb178-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
-<span id="cb178-2"><a href="static-communication.html#cb178-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> income)) <span class="sc">+</span></span>
-<span id="cb178-3"><a href="static-communication.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb178-4"><a href="static-communication.html#cb178-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb178-5"><a href="static-communication.html#cb178-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Income&quot;</span>,</span>
-<span id="cb178-6"><a href="static-communication.html#cb178-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
-<span id="cb178-7"><a href="static-communication.html#cb178-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribution of income&quot;</span>,</span>
-<span id="cb178-8"><a href="static-communication.html#cb178-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="static-communication.html#cb21-1" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="static-communication.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> income)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="static-communication.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="static-communication.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="static-communication.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb21-6"><a href="static-communication.html#cb21-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>,</span>
+<span id="cb21-7"><a href="static-communication.html#cb21-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribution of income&quot;</span>,</span>
+<span id="cb21-8"><a href="static-communication.html#cb21-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Simulated data.&quot;</span>)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="figure"><span id="fig:hisogramone"></span>
 <img src="telling_stories_with_data_files/figure-html/hisogramone-1.png" alt="Distribution of income" width="672" />
@@ -1102,26 +1078,26 @@ Figure 5.8: Distribution of income
 <div id="multiple-plots" class="section level4" number="5.2.4.3">
 <h4><span class="header-section-number">5.2.4.3</span> Multiple plots</h4>
 <p>Finally, let’s try putting them together. We’re going to use the <code>patchwork</code> package <span class="citation">(<a href="references-1.html#ref-citepatchwork" role="doc-biblioref">Pedersen 2020</a>)</span> and the <code>penguins</code> package for data. Don’t forget <code>install.packages("palmerpenguins")</code> as this is probably the first time you’ve used the package.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="static-communication.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb180-2"><a href="static-communication.html#cb180-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb180-3"><a href="static-communication.html#cb180-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-4"><a href="static-communication.html#cb180-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
-<span id="cb180-5"><a href="static-communication.html#cb180-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(palmerpenguins<span class="sc">::</span>penguins) <span class="sc">+</span> </span>
-<span id="cb180-6"><a href="static-communication.html#cb180-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(bill_length_mm, bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb180-7"><a href="static-communication.html#cb180-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Bill length (mm)&quot;</span>,</span>
-<span id="cb180-8"><a href="static-communication.html#cb180-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Bill depth (mm)&quot;</span>)</span>
-<span id="cb180-9"><a href="static-communication.html#cb180-9" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
-<span id="cb180-10"><a href="static-communication.html#cb180-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(palmerpenguins<span class="sc">::</span>penguins) <span class="sc">+</span> </span>
-<span id="cb180-11"><a href="static-communication.html#cb180-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span></span>
-<span id="cb180-12"><a href="static-communication.html#cb180-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb180-13"><a href="static-communication.html#cb180-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>)</span>
-<span id="cb180-14"><a href="static-communication.html#cb180-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-15"><a href="static-communication.html#cb180-15" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="static-communication.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb23-2"><a href="static-communication.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb23-3"><a href="static-communication.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="static-communication.html#cb23-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> </span>
+<span id="cb23-5"><a href="static-communication.html#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(palmerpenguins<span class="sc">::</span>penguins) <span class="sc">+</span> </span>
+<span id="cb23-6"><a href="static-communication.html#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(bill_length_mm, bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="static-communication.html#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Bill length (mm)&quot;</span>,</span>
+<span id="cb23-8"><a href="static-communication.html#cb23-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Bill depth (mm)&quot;</span>)</span>
+<span id="cb23-9"><a href="static-communication.html#cb23-9" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> </span>
+<span id="cb23-10"><a href="static-communication.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(palmerpenguins<span class="sc">::</span>penguins) <span class="sc">+</span> </span>
+<span id="cb23-11"><a href="static-communication.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(species)) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="static-communication.html#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb23-13"><a href="static-communication.html#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number&quot;</span>)</span>
+<span id="cb23-14"><a href="static-communication.html#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="static-communication.html#cb23-15" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>And we can make things fairly involved fairly quickly.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="static-communication.html#cb181-1" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span></span>
-<span id="cb181-2"><a href="static-communication.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  p2</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="static-communication.html#cb24-1" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">|</span> p2) <span class="sc">/</span></span>
+<span id="cb24-2"><a href="static-communication.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  p2</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -1129,17 +1105,17 @@ Figure 5.8: Distribution of income
 <h2><span class="header-section-number">5.3</span> Tables</h2>
 <p>Tables are also critical to tell a compelling story. We may prefer a table to a graph when there are only a few features that we want to focus on. We’ll use <code>knitr::kable()</code> alongside the ‘kableExtra’ package and also the <code>gt</code> package.</p>
 <p>Let’s start with the kable package and the summary dinosaur data from earlier.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="static-communication.html#cb182-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> </span>
-<span id="cb182-2"><a href="static-communication.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  datasaurus_dozen <span class="sc">%&gt;%</span> </span>
-<span id="cb182-3"><a href="static-communication.html#cb182-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb182-4"><a href="static-communication.html#cb182-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">%&gt;%</span> </span>
-<span id="cb182-5"><a href="static-communication.html#cb182-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb182-6"><a href="static-communication.html#cb182-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean    =</span> <span class="fu">mean</span>(x),</span>
-<span id="cb182-7"><a href="static-communication.html#cb182-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Std_dev =</span> <span class="fu">sd</span>(x),</span>
-<span id="cb182-8"><a href="static-communication.html#cb182-8" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb182-9"><a href="static-communication.html#cb182-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb182-10"><a href="static-communication.html#cb182-10" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb182-11"><a href="static-communication.html#cb182-11" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="static-communication.html#cb25-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">&lt;-</span> </span>
+<span id="cb25-2"><a href="static-communication.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  datasaurus_dozen <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="static-communication.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(dataset <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;dino&quot;</span>, <span class="st">&quot;star&quot;</span>, <span class="st">&quot;away&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="static-communication.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="static-communication.html#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb25-6"><a href="static-communication.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean    =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb25-7"><a href="static-communication.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Std_dev =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb25-8"><a href="static-communication.html#cb25-8" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb25-9"><a href="static-communication.html#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="static-communication.html#cb25-10" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb25-11"><a href="static-communication.html#cb25-11" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1167,14 +1143,14 @@ Figure 5.8: Distribution of income
 </tbody>
 </table>
 <p>Even the defaults are pretty good, but we can add a few tweaks to make the table better. The first is that this many significant digits is inappropriate, we may also like to add a caption, make the column names consistent, and change the alignment.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="static-communication.html#cb183-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb183-2"><a href="static-communication.html#cb183-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>, </span>
-<span id="cb183-3"><a href="static-communication.html#cb183-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">caption =</span> <span class="st">&quot;My first table.&quot;</span>, </span>
-<span id="cb183-4"><a href="static-communication.html#cb183-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Dataset&quot;</span>, <span class="st">&quot;Mean&quot;</span>, <span class="st">&quot;Standard deviation&quot;</span>),</span>
-<span id="cb183-5"><a href="static-communication.html#cb183-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&#39;l&#39;</span>, <span class="st">&#39;l&#39;</span>, <span class="st">&#39;l&#39;</span>)</span>
-<span id="cb183-6"><a href="static-communication.html#cb183-6" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="static-communication.html#cb26-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="static-communication.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">2</span>, </span>
+<span id="cb26-3"><a href="static-communication.html#cb26-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">caption =</span> <span class="st">&quot;My first table.&quot;</span>, </span>
+<span id="cb26-4"><a href="static-communication.html#cb26-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Dataset&quot;</span>, <span class="st">&quot;Mean&quot;</span>, <span class="st">&quot;Standard deviation&quot;</span>),</span>
+<span id="cb26-5"><a href="static-communication.html#cb26-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&#39;l&#39;</span>, <span class="st">&#39;l&#39;</span>, <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb26-6"><a href="static-communication.html#cb26-6" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-98">Table 5.1: </span>My first table.</caption>
+<caption><span id="tab:unnamed-chunk-14">Table 5.1: </span>My first table.</caption>
 <thead>
 <tr class="header">
 <th align="left">Dataset</th>
@@ -1201,11 +1177,11 @@ Figure 5.8: Distribution of income
 </tbody>
 </table>
 <p>The ‘’kableExtra’ package builds extra functionality <span class="citation">(<a href="references-1.html#ref-citekableextra" role="doc-biblioref">Zhu 2020</a>)</span>.</p>
-<p>The <code>gt</code> package <span class="citation">(<a href="references-1.html#ref-citegt" role="doc-biblioref">Iannone, Cheng, and Schloerke 2020a</a>)</span> is a newer package that brings a lot of exciting features. However, being newer it sometimes has issues with PDF output.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="static-communication.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb184-2"><a href="static-communication.html#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-3"><a href="static-communication.html#cb184-3" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb184-4"><a href="static-communication.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div>
+<p>The <code>gt</code> package <span class="citation">(<a href="references-1.html#ref-citegt" role="doc-biblioref">Iannone, Cheng, and Schloerke 2020</a>)</span> is a newer package that brings a lot of exciting features. However, being newer it sometimes has issues with PDF output.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="static-communication.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb27-2"><a href="static-communication.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="static-communication.html#cb27-3" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="static-communication.html#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1572,12 +1548,12 @@ Figure 5.8: Distribution of income
   
 </table></div>
 <p>We could add sub-titles easily.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="static-communication.html#cb185-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
-<span id="cb185-2"><a href="static-communication.html#cb185-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb185-3"><a href="static-communication.html#cb185-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb185-4"><a href="static-communication.html#cb185-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Summary stats can be misleading&quot;</span>,</span>
-<span id="cb185-5"><a href="static-communication.html#cb185-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;With an example from a dinosaur!&quot;</span></span>
-<span id="cb185-6"><a href="static-communication.html#cb185-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="static-communication.html#cb28-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="static-communication.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="static-communication.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb28-4"><a href="static-communication.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Summary stats can be misleading&quot;</span>,</span>
+<span id="cb28-5"><a href="static-communication.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;With an example from a dinosaur!&quot;</span></span>
+<span id="cb28-6"><a href="static-communication.html#cb28-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1951,10 +1927,10 @@ Figure 5.8: Distribution of income
   
 </table></div>
 <p>One common reason for needing a table is to report regression results. You should consider <code>gtsummary</code>, <code>stargazer</code>, and <code>modelsummary</code>. But at the moment, my favourite is <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="static-communication.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb186-2"><a href="static-communication.html#cb186-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-3"><a href="static-communication.html#cb186-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, datasaurus_dozen)</span>
-<span id="cb186-4"><a href="static-communication.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="static-communication.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb29-2"><a href="static-communication.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="static-communication.html#cb29-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, datasaurus_dozen)</span>
+<span id="cb29-4"><a href="static-communication.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(mod)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2058,26 +2034,26 @@ F
 <div id="maps" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Maps</h2>
 <p>In many ways maps can be thought of as a fancy graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We are used to this type of set-up, for instance, in a ggplot setting that is quite familiar. Static maps will be useful for printed output, such as a PDF or Word report, or where there is something in particular that you want to illustrate.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="static-communication.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb187-2"><a href="static-communication.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>( <span class="co"># First draw an outline</span></span>
-<span id="cb187-3"><a href="static-communication.html#cb187-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> some_data, </span>
-<span id="cb187-4"><a href="static-communication.html#cb187-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> latitude, </span>
-<span id="cb187-5"><a href="static-communication.html#cb187-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> longitude,</span>
-<span id="cb187-6"><a href="static-communication.html#cb187-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> group</span>
-<span id="cb187-7"><a href="static-communication.html#cb187-7" aria-hidden="true" tabindex="-1"></a>        )) <span class="sc">+</span></span>
-<span id="cb187-8"><a href="static-communication.html#cb187-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="co"># Then add points of interest</span></span>
-<span id="cb187-9"><a href="static-communication.html#cb187-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> some_other_data, </span>
-<span id="cb187-10"><a href="static-communication.html#cb187-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> latitude, </span>
-<span id="cb187-11"><a href="static-communication.html#cb187-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> longitude)</span>
-<span id="cb187-12"><a href="static-communication.html#cb187-12" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="static-communication.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-2"><a href="static-communication.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>( <span class="co"># First draw an outline</span></span>
+<span id="cb30-3"><a href="static-communication.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> some_data, </span>
+<span id="cb30-4"><a href="static-communication.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> latitude, </span>
+<span id="cb30-5"><a href="static-communication.html#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> longitude,</span>
+<span id="cb30-6"><a href="static-communication.html#cb30-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">group =</span> group</span>
+<span id="cb30-7"><a href="static-communication.html#cb30-7" aria-hidden="true" tabindex="-1"></a>        )) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="static-communication.html#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="co"># Then add points of interest</span></span>
+<span id="cb30-9"><a href="static-communication.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> some_other_data, </span>
+<span id="cb30-10"><a href="static-communication.html#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> latitude, </span>
+<span id="cb30-11"><a href="static-communication.html#cb30-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> longitude)</span>
+<span id="cb30-12"><a href="static-communication.html#cb30-12" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p>And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. And helpfully, there is some geographic data built into ggplot, and there is some other information built into a package called <code>maps</code>.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="static-communication.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
-<span id="cb188-2"><a href="static-communication.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb188-3"><a href="static-communication.html#cb188-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-4"><a href="static-communication.html#cb188-4" aria-hidden="true" tabindex="-1"></a>canada <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">database =</span> <span class="st">&quot;world&quot;</span>, <span class="at">regions =</span> <span class="st">&quot;canada&quot;</span>)</span>
-<span id="cb188-5"><a href="static-communication.html#cb188-5" aria-hidden="true" tabindex="-1"></a>canadian_cities <span class="ot">&lt;-</span> maps<span class="sc">::</span>canada.cities</span>
-<span id="cb188-6"><a href="static-communication.html#cb188-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-7"><a href="static-communication.html#cb188-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(canada)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="static-communication.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb31-2"><a href="static-communication.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb31-3"><a href="static-communication.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="static-communication.html#cb31-4" aria-hidden="true" tabindex="-1"></a>canada <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">database =</span> <span class="st">&quot;world&quot;</span>, <span class="at">regions =</span> <span class="st">&quot;canada&quot;</span>)</span>
+<span id="cb31-5"><a href="static-communication.html#cb31-5" aria-hidden="true" tabindex="-1"></a>canadian_cities <span class="ot">&lt;-</span> maps<span class="sc">::</span>canada.cities</span>
+<span id="cb31-6"><a href="static-communication.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="static-communication.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(canada)</span></code></pre></div>
 <pre><code>##        long      lat group order region    subregion
 ## 1 -59.78760 43.93960     1     1 Canada Sable Island
 ## 2 -59.92227 43.90391     1     2 Canada Sable Island
@@ -2085,7 +2061,7 @@ F
 ## 4 -60.11426 43.93911     1     4 Canada Sable Island
 ## 5 -60.11748 43.95337     1     5 Canada Sable Island
 ## 6 -59.93604 43.93960     1     6 Canada Sable Island</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="static-communication.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(canadian_cities)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="static-communication.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(canadian_cities)</span></code></pre></div>
 <pre><code>##            name country.etc    pop   lat    long capital
 ## 1 Abbotsford BC          BC 157795 49.06 -122.30       0
 ## 2      Acton ON          ON   8308 43.63  -80.03       0
@@ -2094,46 +2070,46 @@ F
 ## 5    Aklavik NT          NT    643 68.22 -135.00       0
 ## 6    Albanel QC          QC   1090 48.87  -72.42       0</code></pre>
 <p>With that information in hand we can then create a map of Canada that shows the cities with a population over 1,000. (The <code>geom_polygon()</code> function within <code>ggplot</code> draws shapes, by connecting points within groups. And the <code>coord_map()</code> function adjusts for the fact that we are making something that is 2D map to represent something that is 3D.)</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="static-communication.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb192-2"><a href="static-communication.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> canada,</span>
-<span id="cb192-3"><a href="static-communication.html#cb192-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> long,</span>
-<span id="cb192-4"><a href="static-communication.html#cb192-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> lat,</span>
-<span id="cb192-5"><a href="static-communication.html#cb192-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> group),</span>
-<span id="cb192-6"><a href="static-communication.html#cb192-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, </span>
-<span id="cb192-7"><a href="static-communication.html#cb192-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb192-8"><a href="static-communication.html#cb192-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">70</span>)) <span class="sc">+</span></span>
-<span id="cb192-9"><a href="static-communication.html#cb192-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> canadian_cities<span class="sc">$</span>long, </span>
-<span id="cb192-10"><a href="static-communication.html#cb192-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> canadian_cities<span class="sc">$</span>lat),</span>
-<span id="cb192-11"><a href="static-communication.html#cb192-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb192-12"><a href="static-communication.html#cb192-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb192-13"><a href="static-communication.html#cb192-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb192-14"><a href="static-communication.html#cb192-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
-<span id="cb192-15"><a href="static-communication.html#cb192-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="static-communication.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If I&#39;m being honest, this &#39;simple example&#39; took me six hours to work out. Firstly </span></span>
-<span id="cb193-2"><a href="static-communication.html#cb193-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to find Canada and then to find Canadian cities.</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="static-communication.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb35-2"><a href="static-communication.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> canada,</span>
+<span id="cb35-3"><a href="static-communication.html#cb35-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> long,</span>
+<span id="cb35-4"><a href="static-communication.html#cb35-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> lat,</span>
+<span id="cb35-5"><a href="static-communication.html#cb35-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group =</span> group),</span>
+<span id="cb35-6"><a href="static-communication.html#cb35-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, </span>
+<span id="cb35-7"><a href="static-communication.html#cb35-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="static-communication.html#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">70</span>)) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="static-communication.html#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> canadian_cities<span class="sc">$</span>long, </span>
+<span id="cb35-10"><a href="static-communication.html#cb35-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> canadian_cities<span class="sc">$</span>lat),</span>
+<span id="cb35-11"><a href="static-communication.html#cb35-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb35-12"><a href="static-communication.html#cb35-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb35-13"><a href="static-communication.html#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb35-14"><a href="static-communication.html#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb35-15"><a href="static-communication.html#cb35-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="static-communication.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If I&#39;m being honest, this &#39;simple example&#39; took me six hours to work out. Firstly </span></span>
+<span id="cb36-2"><a href="static-communication.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to find Canada and then to find Canadian cities.</span></span></code></pre></div>
 <p>As is often the case with R, there are many different ways to get started creating static maps. We’ve already seen how they can be built using simply ggplot, but here we’ll explore one package that has a bunch of functionalities built in that will make things easier: <code>ggmap</code>.</p>
 <p>There are two essential components to a map: 1) some border or background image (also known as a tile); and 2) something of interest within that border or on top of that tile. In <code>ggmap</code>, we will use an open-source option for our tile, Stamen Maps (maps.stamen.com), and we will use plot points based on latitude and longitude.</p>
 <div id="australian-polling-places" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Australian polling places</h3>
 <p>Like Canada, in Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.</p>
 <p>To get started we need to get a tile. We are going to use <code>ggmap</code> to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. (It can be useful to use Google Maps, or an alternative, to find the values of these that you need.) The bounding box provides the coordinates of the edges that you are interested in. In this case I have provided it with coordinates such that it will be centered around Canberra, Australia (our equivalent of Ottawa - a small city that was created for the purposes of being the capital).</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="static-communication.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
-<span id="cb194-2"><a href="static-communication.html#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-3"><a href="static-communication.html#cb194-3" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="fl">148.95</span>, <span class="at">bottom =</span> <span class="sc">-</span><span class="fl">35.5</span>, <span class="at">right =</span> <span class="fl">149.3</span>, <span class="at">top =</span> <span class="sc">-</span><span class="fl">35.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="static-communication.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
+<span id="cb37-2"><a href="static-communication.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="static-communication.html#cb37-3" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="fl">148.95</span>, <span class="at">bottom =</span> <span class="sc">-</span><span class="fl">35.5</span>, <span class="at">right =</span> <span class="fl">149.3</span>, <span class="at">top =</span> <span class="sc">-</span><span class="fl">35.1</span>)</span></code></pre></div>
 <p>Once you have defined the bounding box, then the function <code>get_stamenmap()</code> will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. I’ve chosen the maptype that I like here - the black and white option - but the helpfile specifies a few others that you may like. At this point you can pass your maps to ggmap and it will plot the tile! It will be actively downloading these tiles, so you need an internet connection.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="static-communication.html#cb195-1" aria-hidden="true" tabindex="-1"></a>canberra_stamen_map <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(bbox, <span class="at">zoom =</span> <span class="dv">11</span>, <span class="at">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span>
-<span id="cb195-2"><a href="static-communication.html#cb195-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-3"><a href="static-communication.html#cb195-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(canberra_stamen_map)</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="static-communication.html#cb38-1" aria-hidden="true" tabindex="-1"></a>canberra_stamen_map <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(bbox, <span class="at">zoom =</span> <span class="dv">11</span>, <span class="at">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span>
+<span id="cb38-2"><a href="static-communication.html#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="static-communication.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(canberra_stamen_map)</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>Once we have a map then we can use <code>ggmap()</code> to plot it. (That circle in the middle of the map is where the Australian Parliament House is… yes, our parliament is surrounded by circular roads (we call them ‘roundabouts’), actually it’s surrounded by two of them.)</p>
 <p>Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which ‘division’ (the Australian equivalent to ‘ridings’ in Canada) it is. This is available here: <a href="https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv" class="uri">https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv</a>. (The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.)</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="static-communication.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the booths data for each year</span></span>
-<span id="cb196-2"><a href="static-communication.html#cb196-2" aria-hidden="true" tabindex="-1"></a>booths <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://results.aec.gov.au/24310/Website/Downloads/GeneralPollingPlacesDownload-24310.csv&quot;</span>, </span>
-<span id="cb196-3"><a href="static-communication.html#cb196-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">skip =</span> <span class="dv">1</span>, </span>
-<span id="cb196-4"><a href="static-communication.html#cb196-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">guess_max =</span> <span class="dv">10000</span>)</span>
-<span id="cb196-5"><a href="static-communication.html#cb196-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb196-6"><a href="static-communication.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(booths)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="static-communication.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the booths data for each year</span></span>
+<span id="cb39-2"><a href="static-communication.html#cb39-2" aria-hidden="true" tabindex="-1"></a>booths <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://results.aec.gov.au/24310/Website/Downloads/GeneralPollingPlacesDownload-24310.csv&quot;</span>, </span>
+<span id="cb39-3"><a href="static-communication.html#cb39-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">skip =</span> <span class="dv">1</span>, </span>
+<span id="cb39-4"><a href="static-communication.html#cb39-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">guess_max =</span> <span class="dv">10000</span>)</span>
+<span id="cb39-5"><a href="static-communication.html#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="static-communication.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(booths)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 15
 ##   State DivisionID DivisionNm PollingPlaceID PollingPlaceTypeID PollingPlaceNm  
 ##   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;              &lt;dbl&gt; &lt;chr&gt;           
@@ -2148,79 +2124,79 @@ F
 ## #   PremisesStateAb &lt;chr&gt;, PremisesPostCode &lt;chr&gt;, Latitude &lt;dbl&gt;,
 ## #   Longitude &lt;dbl&gt;</code></pre>
 <p>This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we will filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still ‘booths’ in this dataset).</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="static-communication.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reduce the booths data to only rows with that have latitude and longitude</span></span>
-<span id="cb198-2"><a href="static-communication.html#cb198-2" aria-hidden="true" tabindex="-1"></a>booths_reduced <span class="ot">&lt;-</span></span>
-<span id="cb198-3"><a href="static-communication.html#cb198-3" aria-hidden="true" tabindex="-1"></a>  booths <span class="sc">%&gt;%</span></span>
-<span id="cb198-4"><a href="static-communication.html#cb198-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(State <span class="sc">==</span> <span class="st">&quot;ACT&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb198-5"><a href="static-communication.html#cb198-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PollingPlaceID, DivisionNm, Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
-<span id="cb198-6"><a href="static-communication.html#cb198-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Longitude)) <span class="sc">%&gt;%</span> <span class="co"># Remove rows that don&#39;t have a geography</span></span>
-<span id="cb198-7"><a href="static-communication.html#cb198-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Longitude <span class="sc">&lt;</span> <span class="dv">165</span>) <span class="co"># Remove Norfolk Island</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="static-communication.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reduce the booths data to only rows with that have latitude and longitude</span></span>
+<span id="cb41-2"><a href="static-communication.html#cb41-2" aria-hidden="true" tabindex="-1"></a>booths_reduced <span class="ot">&lt;-</span></span>
+<span id="cb41-3"><a href="static-communication.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  booths <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="static-communication.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(State <span class="sc">==</span> <span class="st">&quot;ACT&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a href="static-communication.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PollingPlaceID, DivisionNm, Latitude, Longitude) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-6"><a href="static-communication.html#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Longitude)) <span class="sc">%&gt;%</span> <span class="co"># Remove rows that don&#39;t have a geography</span></span>
+<span id="cb41-7"><a href="static-communication.html#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Longitude <span class="sc">&lt;</span> <span class="dv">165</span>) <span class="co"># Remove Norfolk Island</span></span></code></pre></div>
 <p>Now we can use <code>ggmap</code> in the same way as before to plot our underlying tiles, and then build on that using <code>geom_point()</code> to add our points of interest.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="static-communication.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(canberra_stamen_map, </span>
-<span id="cb199-2"><a href="static-communication.html#cb199-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">extent =</span> <span class="st">&quot;normal&quot;</span>, </span>
-<span id="cb199-3"><a href="static-communication.html#cb199-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">maprange =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb199-4"><a href="static-communication.html#cb199-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> booths_reduced,</span>
-<span id="cb199-5"><a href="static-communication.html#cb199-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Longitude, </span>
-<span id="cb199-6"><a href="static-communication.html#cb199-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Latitude, </span>
-<span id="cb199-7"><a href="static-communication.html#cb199-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> DivisionNm),</span>
-<span id="cb199-8"><a href="static-communication.html#cb199-8" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
-<span id="cb199-9"><a href="static-communication.html#cb199-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="st">&quot;2019 Division&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
-<span id="cb199-10"><a href="static-communication.html#cb199-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection=</span><span class="st">&quot;mercator&quot;</span>,</span>
-<span id="cb199-11"><a href="static-communication.html#cb199-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlim=</span><span class="fu">c</span>(<span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ll.lon, <span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ur.lon),</span>
-<span id="cb199-12"><a href="static-communication.html#cb199-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">ylim=</span><span class="fu">c</span>(<span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ll.lat, <span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ur.lat)) <span class="sc">+</span></span>
-<span id="cb199-13"><a href="static-communication.html#cb199-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
-<span id="cb199-14"><a href="static-communication.html#cb199-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>) <span class="sc">+</span></span>
-<span id="cb199-15"><a href="static-communication.html#cb199-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb199-16"><a href="static-communication.html#cb199-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb199-17"><a href="static-communication.html#cb199-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="static-communication.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(canberra_stamen_map, </span>
+<span id="cb42-2"><a href="static-communication.html#cb42-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">extent =</span> <span class="st">&quot;normal&quot;</span>, </span>
+<span id="cb42-3"><a href="static-communication.html#cb42-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">maprange =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="static-communication.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> booths_reduced,</span>
+<span id="cb42-5"><a href="static-communication.html#cb42-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> Longitude, </span>
+<span id="cb42-6"><a href="static-communication.html#cb42-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> Latitude, </span>
+<span id="cb42-7"><a href="static-communication.html#cb42-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> DivisionNm),</span>
+<span id="cb42-8"><a href="static-communication.html#cb42-8" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="static-communication.html#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="st">&quot;2019 Division&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb42-10"><a href="static-communication.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>(<span class="at">projection=</span><span class="st">&quot;mercator&quot;</span>,</span>
+<span id="cb42-11"><a href="static-communication.html#cb42-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">xlim=</span><span class="fu">c</span>(<span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ll.lon, <span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ur.lon),</span>
+<span id="cb42-12"><a href="static-communication.html#cb42-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">ylim=</span><span class="fu">c</span>(<span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ll.lat, <span class="fu">attr</span>(map, <span class="st">&quot;bb&quot;</span>)<span class="sc">$</span>ur.lat)) <span class="sc">+</span></span>
+<span id="cb42-13"><a href="static-communication.html#cb42-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb42-14"><a href="static-communication.html#cb42-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>) <span class="sc">+</span></span>
+<span id="cb42-15"><a href="static-communication.html#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb42-16"><a href="static-communication.html#cb42-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb42-17"><a href="static-communication.html#cb42-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>We may like to save the map so that we don’t have to draw it every time, and we can do that in the same way as any other graph, using <code>ggsave()</code>.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="static-communication.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;outputs/figures/map.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="static-communication.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;outputs/figures/map.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 <p>Finally, the reason that I used Stamen Maps and OpenStreetMap is because it is open source, however you can also use Google Maps if you want. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. The <code>get_googlemap()</code> function with <code>ggmap</code>, brings some nice features that <code>get_stamenmap()</code> does not have. For instance, you can enter a placename and it’ll do it’s best to find it rather than needing to specify a bounding box.</p>
 </div>
 <div id="toronto-bike-parking" class="section level3" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Toronto bike parking</h3>
 <p>Let’s see another example of a static map, this time using Toronto data accessed via the <code>opendatatoronto</code> package. The dataset that we are going to plot is available here: <a href="https://open.toronto.ca/dataset/street-furniture-bicycle-parking/" class="uri">https://open.toronto.ca/dataset/street-furniture-bicycle-parking/</a>.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="static-communication.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is based on code from: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.</span></span>
-<span id="cb201-2"><a href="static-communication.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opendatatoronto)</span>
-<span id="cb201-3"><a href="static-communication.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (The string identifies the package.)</span></span>
-<span id="cb201-4"><a href="static-communication.html#cb201-4" aria-hidden="true" tabindex="-1"></a>resources <span class="ot">&lt;-</span> <span class="fu">list_package_resources</span>(<span class="st">&quot;71e6c206-96e1-48f1-8f6f-0e804687e3be&quot;</span>)</span>
-<span id="cb201-5"><a href="static-communication.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In this case there is only one dataset within this resource so just need the first one    </span></span>
-<span id="cb201-6"><a href="static-communication.html#cb201-6" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(resources, <span class="fu">row_number</span>()<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">get_resource</span>()</span>
-<span id="cb201-7"><a href="static-communication.html#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(raw_data, <span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
-<span id="cb201-8"><a href="static-communication.html#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(raw_data)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="static-communication.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This code is based on code from: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.</span></span>
+<span id="cb44-2"><a href="static-communication.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opendatatoronto)</span>
+<span id="cb44-3"><a href="static-communication.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (The string identifies the package.)</span></span>
+<span id="cb44-4"><a href="static-communication.html#cb44-4" aria-hidden="true" tabindex="-1"></a>resources <span class="ot">&lt;-</span> <span class="fu">list_package_resources</span>(<span class="st">&quot;71e6c206-96e1-48f1-8f6f-0e804687e3be&quot;</span>)</span>
+<span id="cb44-5"><a href="static-communication.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In this case there is only one dataset within this resource so just need the first one    </span></span>
+<span id="cb44-6"><a href="static-communication.html#cb44-6" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(resources, <span class="fu">row_number</span>()<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">get_resource</span>()</span>
+<span id="cb44-7"><a href="static-communication.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(raw_data, <span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
+<span id="cb44-8"><a href="static-communication.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(raw_data)</span></code></pre></div>
 <p>Now that we’ve saved a copy of the data, we can use that one. First, we need to clean it up a bit. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we’ll just ignore it.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="static-communication.html#cb202-1" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
-<span id="cb202-2"><a href="static-communication.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll just focus on the data that we want</span></span>
-<span id="cb202-3"><a href="static-communication.html#cb202-3" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ward =</span> raw_data<span class="sc">$</span>WARD,</span>
-<span id="cb202-4"><a href="static-communication.html#cb202-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> raw_data<span class="sc">$</span>ID,</span>
-<span id="cb202-5"><a href="static-communication.html#cb202-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">status =</span> raw_data<span class="sc">$</span>STATUS,</span>
-<span id="cb202-6"><a href="static-communication.html#cb202-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">street_address =</span> <span class="fu">paste</span>(raw_data<span class="sc">$</span>ADDRESSNUMBERTEXT, raw_data<span class="sc">$</span>ADDRESSSTREET),</span>
-<span id="cb202-7"><a href="static-communication.html#cb202-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">latitude =</span> raw_data<span class="sc">$</span>LATITUDE,</span>
-<span id="cb202-8"><a href="static-communication.html#cb202-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">longitude =</span> raw_data<span class="sc">$</span>LONGITUDE)</span>
-<span id="cb202-9"><a href="static-communication.html#cb202-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(raw_data)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="static-communication.html#cb45-1" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;inputs/data/bike_racks.csv&quot;</span>)</span>
+<span id="cb45-2"><a href="static-communication.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We&#39;ll just focus on the data that we want</span></span>
+<span id="cb45-3"><a href="static-communication.html#cb45-3" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ward =</span> raw_data<span class="sc">$</span>WARD,</span>
+<span id="cb45-4"><a href="static-communication.html#cb45-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id =</span> raw_data<span class="sc">$</span>ID,</span>
+<span id="cb45-5"><a href="static-communication.html#cb45-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">status =</span> raw_data<span class="sc">$</span>STATUS,</span>
+<span id="cb45-6"><a href="static-communication.html#cb45-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">street_address =</span> <span class="fu">paste</span>(raw_data<span class="sc">$</span>ADDRESSNUMBERTEXT, raw_data<span class="sc">$</span>ADDRESSSTREET),</span>
+<span id="cb45-7"><a href="static-communication.html#cb45-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">latitude =</span> raw_data<span class="sc">$</span>LATITUDE,</span>
+<span id="cb45-8"><a href="static-communication.html#cb45-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">longitude =</span> raw_data<span class="sc">$</span>LONGITUDE)</span>
+<span id="cb45-9"><a href="static-communication.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(raw_data)</span></code></pre></div>
 <p>Some of the bike racks were temporary so remove them and also let’s just look at the area around the university, which is Ward 11</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="static-communication.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only keep ones that still exist</span></span>
-<span id="cb203-2"><a href="static-communication.html#cb203-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> </span>
-<span id="cb203-3"><a href="static-communication.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  bike_data <span class="sc">%&gt;%</span></span>
-<span id="cb203-4"><a href="static-communication.html#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(status <span class="sc">==</span> <span class="st">&quot;Existing&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb203-5"><a href="static-communication.html#cb203-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>status)</span>
-<span id="cb203-6"><a href="static-communication.html#cb203-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb203-7"><a href="static-communication.html#cb203-7" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span> </span>
-<span id="cb203-8"><a href="static-communication.html#cb203-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ward <span class="sc">==</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb203-9"><a href="static-communication.html#cb203-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ward)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="static-communication.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only keep ones that still exist</span></span>
+<span id="cb46-2"><a href="static-communication.html#cb46-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> </span>
+<span id="cb46-3"><a href="static-communication.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="static-communication.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(status <span class="sc">==</span> <span class="st">&quot;Existing&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="static-communication.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>status)</span>
+<span id="cb46-6"><a href="static-communication.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="static-communication.html#cb46-7" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span> </span>
+<span id="cb46-8"><a href="static-communication.html#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ward <span class="sc">==</span> <span class="dv">11</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-9"><a href="static-communication.html#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ward)</span></code></pre></div>
 <p>If you look at the dataset at this point, then you’ll notice that there is a row for every bike parking spot. But we don’t really need to know that, because sometimes there are lots right next to each other. Instead, we’d just like the one point (we’ll take advantage of this in an interactive graph in a moment). So, we want to create a count by address, and then just get one instance per address.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="static-communication.html#cb204-1" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> </span>
-<span id="cb204-2"><a href="static-communication.html#cb204-2" aria-hidden="true" tabindex="-1"></a>  bike_data <span class="sc">%&gt;%</span></span>
-<span id="cb204-3"><a href="static-communication.html#cb204-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(street_address) <span class="sc">%&gt;%</span> </span>
-<span id="cb204-4"><a href="static-communication.html#cb204-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_spots =</span> <span class="fu">n</span>(),</span>
-<span id="cb204-5"><a href="static-communication.html#cb204-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">running_total =</span> <span class="fu">row_number</span>()</span>
-<span id="cb204-6"><a href="static-communication.html#cb204-6" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb204-7"><a href="static-communication.html#cb204-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb204-8"><a href="static-communication.html#cb204-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(running_total <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb204-9"><a href="static-communication.html#cb204-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>running_total)</span>
-<span id="cb204-10"><a href="static-communication.html#cb204-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-11"><a href="static-communication.html#cb204-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_data)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="static-communication.html#cb47-1" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> </span>
+<span id="cb47-2"><a href="static-communication.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="static-communication.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(street_address) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-4"><a href="static-communication.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_of_spots =</span> <span class="fu">n</span>(),</span>
+<span id="cb47-5"><a href="static-communication.html#cb47-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">running_total =</span> <span class="fu">row_number</span>()</span>
+<span id="cb47-6"><a href="static-communication.html#cb47-6" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-7"><a href="static-communication.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb47-8"><a href="static-communication.html#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(running_total <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-9"><a href="static-communication.html#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>running_total)</span>
+<span id="cb47-10"><a href="static-communication.html#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-11"><a href="static-communication.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_data)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   street_address   latitude longitude number_of_spots
 ##   &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;           &lt;int&gt;
@@ -2230,33 +2206,33 @@ F
 ## 4 147 Baldwin St       43.7     -79.4               2
 ## 5 888 Yonge St         43.7     -79.4               1
 ## 6 180 Elizabeth St     43.7     -79.4              10</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="static-communication.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(bike_data, <span class="st">&quot;outputs/data/bikes.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="static-communication.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(bike_data, <span class="st">&quot;outputs/data/bikes.csv&quot;</span>)</span></code></pre></div>
 <p>Now we can grab our tile and add our bike rack data onto it.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="static-communication.html#cb207-1" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="sc">-</span><span class="fl">79.420390</span>, <span class="at">bottom =</span> <span class="fl">43.642658</span>, <span class="at">right =</span> <span class="sc">-</span><span class="fl">79.383354</span>, <span class="at">top =</span> <span class="fl">43.672557</span>)</span>
-<span id="cb207-2"><a href="static-communication.html#cb207-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-3"><a href="static-communication.html#cb207-3" aria-hidden="true" tabindex="-1"></a>toronto_stamen_map <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(bbox, <span class="at">zoom =</span> <span class="dv">14</span>, <span class="at">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span>
-<span id="cb207-4"><a href="static-communication.html#cb207-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-5"><a href="static-communication.html#cb207-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(toronto_stamen_map,  <span class="at">maprange =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb207-6"><a href="static-communication.html#cb207-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> bike_data,</span>
-<span id="cb207-7"><a href="static-communication.html#cb207-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> longitude, </span>
-<span id="cb207-8"><a href="static-communication.html#cb207-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> latitude),</span>
-<span id="cb207-9"><a href="static-communication.html#cb207-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.3</span></span>
-<span id="cb207-10"><a href="static-communication.html#cb207-10" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
-<span id="cb207-11"><a href="static-communication.html#cb207-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
-<span id="cb207-12"><a href="static-communication.html#cb207-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>) <span class="sc">+</span></span>
-<span id="cb207-13"><a href="static-communication.html#cb207-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
-<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="static-communication.html#cb50-1" aria-hidden="true" tabindex="-1"></a>bbox <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="sc">-</span><span class="fl">79.420390</span>, <span class="at">bottom =</span> <span class="fl">43.642658</span>, <span class="at">right =</span> <span class="sc">-</span><span class="fl">79.383354</span>, <span class="at">top =</span> <span class="fl">43.672557</span>)</span>
+<span id="cb50-2"><a href="static-communication.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="static-communication.html#cb50-3" aria-hidden="true" tabindex="-1"></a>toronto_stamen_map <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(bbox, <span class="at">zoom =</span> <span class="dv">14</span>, <span class="at">maptype =</span> <span class="st">&quot;toner-lite&quot;</span>)</span>
+<span id="cb50-4"><a href="static-communication.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="static-communication.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggmap</span>(toronto_stamen_map,  <span class="at">maprange =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="static-communication.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> bike_data,</span>
+<span id="cb50-7"><a href="static-communication.html#cb50-7" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> longitude, </span>
+<span id="cb50-8"><a href="static-communication.html#cb50-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> latitude),</span>
+<span id="cb50-9"><a href="static-communication.html#cb50-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb50-10"><a href="static-communication.html#cb50-10" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb50-11"><a href="static-communication.html#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb50-12"><a href="static-communication.html#cb50-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>) <span class="sc">+</span></span>
+<span id="cb50-13"><a href="static-communication.html#cb50-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 </div>
 <div id="geocoding" class="section level3" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Geocoding</h3>
 <p>To this point we just assumed that we already had geocoded data. The places ‘Canberra, Australia,’ or ‘Ottawa, Canada,’ are just names, they don’t actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding.</p>
 <p>There are a range of options to geocode data in R, but one good package is <code>tidygeocoder</code> <span class="citation">(<a href="references-1.html#ref-citetidygeocoder" role="doc-biblioref">Cambon and Belanger 2021</a>)</span>. To get started using the package we need a dataframe of locations. So we’ll just quickly make one here.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="static-communication.html#cb208-1" aria-hidden="true" tabindex="-1"></a>some_locations <span class="ot">&lt;-</span> </span>
-<span id="cb208-2"><a href="static-communication.html#cb208-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">city =</span> <span class="fu">c</span>(<span class="st">&#39;Canberra&#39;</span>, <span class="st">&#39;Ottawa&#39;</span>),</span>
-<span id="cb208-3"><a href="static-communication.html#cb208-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&#39;Australia&#39;</span>, <span class="st">&#39;Canada&#39;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="static-communication.html#cb209-1" aria-hidden="true" tabindex="-1"></a>tidygeocoder<span class="sc">::</span><span class="fu">geo</span>(<span class="at">city =</span> some_locations<span class="sc">$</span>city, </span>
-<span id="cb209-2"><a href="static-communication.html#cb209-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">country =</span> some_locations<span class="sc">$</span>country, </span>
-<span id="cb209-3"><a href="static-communication.html#cb209-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&#39;osm&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="static-communication.html#cb51-1" aria-hidden="true" tabindex="-1"></a>some_locations <span class="ot">&lt;-</span> </span>
+<span id="cb51-2"><a href="static-communication.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">city =</span> <span class="fu">c</span>(<span class="st">&#39;Canberra&#39;</span>, <span class="st">&#39;Ottawa&#39;</span>),</span>
+<span id="cb51-3"><a href="static-communication.html#cb51-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&#39;Australia&#39;</span>, <span class="st">&#39;Canada&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="static-communication.html#cb52-1" aria-hidden="true" tabindex="-1"></a>tidygeocoder<span class="sc">::</span><span class="fu">geo</span>(<span class="at">city =</span> some_locations<span class="sc">$</span>city, </span>
+<span id="cb52-2"><a href="static-communication.html#cb52-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">country =</span> some_locations<span class="sc">$</span>country, </span>
+<span id="cb52-3"><a href="static-communication.html#cb52-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method =</span> <span class="st">&#39;osm&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
 ##   city     country     lat  long
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
@@ -2302,7 +2278,7 @@ F
 </div>
 <div id="on-brevity" class="section level3" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> On brevity</h3>
-<div class="figure"><span id="fig:unnamed-chunk-118"></span>
+<div class="figure"><span id="fig:unnamed-chunk-34"></span>
 <img src="figures/johnson.png" alt="'No more than four pages, or he's never going to read it. Two pages is preferable.'" width="90%" />
 <p class="caption">
 Figure 5.9: ‘No more than four pages, or he’s never going to read it. Two pages is preferable.’
@@ -2403,20 +2379,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
