@@ -24,7 +24,7 @@
 <meta name="author" content="Rohan Alexander" />
 
 
-<meta name="date" content="2021-05-03" />
+<meta name="date" content="2021-04-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,8 +51,97 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+<script src="libs/deckgl-8.1.6/deckgl.min.js"></script>
+<script src="libs/legend-0.0.1/legend.js"></script>
+<script src="libs/title-0.0.1/title.js"></script>
+<script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+<script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+<script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+<link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet" />
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+<link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+<script src="libs/arc-1.0.0/arc.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -209,10 +298,9 @@
 <li class="chapter" data-level="6.1" data-path="interactive-communication.html"><a href="interactive-communication.html#making-a-website"><i class="fa fa-check"></i><b>6.1</b> Making a website</a>
 <ul>
 <li class="chapter" data-level="6.1.1" data-path="interactive-communication.html"><a href="interactive-communication.html#introduction-5"><i class="fa fa-check"></i><b>6.1.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#foundations"><i class="fa fa-check"></i><b>6.1.2</b> Foundations</a></li>
-<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#build-the-frame"><i class="fa fa-check"></i><b>6.1.3</b> Build the frame</a></li>
-<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#add-content"><i class="fa fa-check"></i><b>6.1.4</b> Add content</a></li>
-<li class="chapter" data-level="6.1.5" data-path="interactive-communication.html"><a href="interactive-communication.html#making-your-website-public"><i class="fa fa-check"></i><b>6.1.5</b> Making your website public</a></li>
+<li class="chapter" data-level="6.1.2" data-path="interactive-communication.html"><a href="interactive-communication.html#postcards"><i class="fa fa-check"></i><b>6.1.2</b> Postcards</a></li>
+<li class="chapter" data-level="6.1.3" data-path="interactive-communication.html"><a href="interactive-communication.html#distill"><i class="fa fa-check"></i><b>6.1.3</b> Distill</a></li>
+<li class="chapter" data-level="6.1.4" data-path="interactive-communication.html"><a href="interactive-communication.html#blogdown"><i class="fa fa-check"></i><b>6.1.4</b> Blogdown</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="interactive-communication.html"><a href="interactive-communication.html#interactive-maps"><i class="fa fa-check"></i><b>6.2</b> Interactive maps</a></li>
 <li class="chapter" data-level="6.3" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>6.3</b> Shiny</a></li>
@@ -330,16 +418,21 @@
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Clean</b></span></li>
-<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a></li>
+<li class="chapter" data-level="10" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>10</b> Cleaning and preparing data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#introduction-15"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#checks-and-tests"><i class="fa fa-check"></i><b>10.2</b> Checks and tests</a></li>
+<li class="chapter" data-level="10.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#documentation"><i class="fa fa-check"></i><b>10.3</b> Documentation</a></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>11</b> Storing and retrieving data</a></li>
 <li class="chapter" data-level="12" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>12</b> Disseminating and protecting data</a></li>
 <li class="part"><span><b>V Model</b></span></li>
 <li class="chapter" data-level="13" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>13</b> Exploratory data analysis</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-15"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#case-study---ttc-subway-delays"><i class="fa fa-check"></i><b>13.2</b> Case study - TTC subway delays</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-16"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#introduction-17"><i class="fa fa-check"></i><b>13.2.1</b> Introduction</a></li>
 <li class="chapter" data-level="13.2.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#gather-the-data"><i class="fa fa-check"></i><b>13.2.2</b> Gather the data</a></li>
 <li class="chapter" data-level="13.2.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#sanity-checks"><i class="fa fa-check"></i><b>13.2.3</b> Sanity Checks</a></li>
 <li class="chapter" data-level="13.2.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#missing-values"><i class="fa fa-check"></i><b>13.2.4</b> Missing values</a></li>
@@ -401,7 +494,7 @@
 </ul></li>
 <li class="chapter" data-level="15" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html"><i class="fa fa-check"></i><b>15</b> Causality from observational data</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-17"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-18"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#dags-and-trying-not-to-be-tricked-by-the-data"><i class="fa fa-check"></i><b>15.2</b> DAGs and trying not to be tricked by the data</a>
 <ul>
 <li class="chapter" data-level="15.2.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#dags-and-confounding"><i class="fa fa-check"></i><b>15.2.1</b> DAGs and confounding</a></li>
@@ -414,7 +507,7 @@
 </ul></li>
 <li class="chapter" data-level="15.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---lower-advertising-revenue-reduced-french-newspaper-prices-between-1960-and-1974"><i class="fa fa-check"></i><b>15.4</b> Case study - Lower advertising revenue reduced French newspaper prices between 1960 and 1974</a>
 <ul>
-<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-19"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.4.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.4.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.4.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#background"><i class="fa fa-check"></i><b>15.4.2</b> Background</a></li>
 <li class="chapter" data-level="15.4.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#data"><i class="fa fa-check"></i><b>15.4.3</b> Data</a></li>
 <li class="chapter" data-level="15.4.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#model"><i class="fa fa-check"></i><b>15.4.4</b> Model</a></li>
@@ -424,7 +517,7 @@
 <li class="chapter" data-level="15.5" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---funding-of-clinical-trials-and-reported-drug-efficacy"><i class="fa fa-check"></i><b>15.5</b> Case study - Funding of Clinical Trials and Reported Drug Efficacy</a></li>
 <li class="chapter" data-level="15.6" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#regression-discontinuity-design"><i class="fa fa-check"></i><b>15.6</b> Regression discontinuity design</a>
 <ul>
-<li class="chapter" data-level="15.6.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-20"><i class="fa fa-check"></i><b>15.6.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.6.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-21"><i class="fa fa-check"></i><b>15.6.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.6.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-1"><i class="fa fa-check"></i><b>15.6.2</b> Simulated example</a></li>
 <li class="chapter" data-level="15.6.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#overlap"><i class="fa fa-check"></i><b>15.6.3</b> Overlap</a></li>
 <li class="chapter" data-level="15.6.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#examples"><i class="fa fa-check"></i><b>15.6.4</b> Examples</a></li>
@@ -437,7 +530,7 @@
 <li class="chapter" data-level="15.8" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#case-study---caughey-and-sekhon.-2011"><i class="fa fa-check"></i><b>15.8</b> Case study - Caughey, and Sekhon., 2011</a></li>
 <li class="chapter" data-level="15.9" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#instrumental-variables"><i class="fa fa-check"></i><b>15.9</b> Instrumental variables</a>
 <ul>
-<li class="chapter" data-level="15.9.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-21"><i class="fa fa-check"></i><b>15.9.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.9.1" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#introduction-22"><i class="fa fa-check"></i><b>15.9.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.9.2" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#history"><i class="fa fa-check"></i><b>15.9.2</b> History</a></li>
 <li class="chapter" data-level="15.9.3" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#simulated-example-2"><i class="fa fa-check"></i><b>15.9.3</b> Simulated example</a></li>
 <li class="chapter" data-level="15.9.4" data-path="causality-from-observational-data.html"><a href="causality-from-observational-data.html#implementation-1"><i class="fa fa-check"></i><b>15.9.4</b> Implementation</a></li>
@@ -454,7 +547,7 @@
 </ul></li>
 <li class="chapter" data-level="16" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html"><i class="fa fa-check"></i><b>16</b> Multilevel regression with post-stratification</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#introduction-22"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#introduction-23"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
 <li class="chapter" data-level="16.2" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#simulation---toddler-bedtimes"><i class="fa fa-check"></i><b>16.2</b> Simulation - Toddler bedtimes</a>
 <ul>
 <li class="chapter" data-level="16.2.1" data-path="multilevel-regression-with-post-stratification.html"><a href="multilevel-regression-with-post-stratification.html#construct-a-population"><i class="fa fa-check"></i><b>16.2.1</b> Construct a population</a></li>
@@ -488,7 +581,7 @@
 </ul></li>
 <li class="chapter" data-level="17" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>17</b> Text as data</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-23"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.1" data-path="text-as-data.html"><a href="text-as-data.html#introduction-24"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
 <li class="chapter" data-level="17.2" data-path="text-as-data.html"><a href="text-as-data.html#lasso-regression"><i class="fa fa-check"></i><b>17.2</b> Lasso regression</a></li>
 <li class="chapter" data-level="17.3" data-path="text-as-data.html"><a href="text-as-data.html#topic-models"><i class="fa fa-check"></i><b>17.3</b> Topic models</a>
 <ul>
@@ -503,7 +596,7 @@
 <li class="part"><span><b>VI Scale</b></span></li>
 <li class="chapter" data-level="18" data-path="cloud.html"><a href="cloud.html"><i class="fa fa-check"></i><b>18</b> Cloud</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="cloud.html"><a href="cloud.html#introduction-24"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
+<li class="chapter" data-level="18.1" data-path="cloud.html"><a href="cloud.html#introduction-25"><i class="fa fa-check"></i><b>18.1</b> Introduction</a></li>
 <li class="chapter" data-level="18.2" data-path="cloud.html"><a href="cloud.html#google-colab"><i class="fa fa-check"></i><b>18.2</b> Google Colab</a></li>
 <li class="chapter" data-level="18.3" data-path="cloud.html"><a href="cloud.html#aws"><i class="fa fa-check"></i><b>18.3</b> AWS</a></li>
 <li class="chapter" data-level="18.4" data-path="cloud.html"><a href="cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>18.4</b> Google Compute Engine</a></li>
@@ -511,7 +604,7 @@
 </ul></li>
 <li class="chapter" data-level="19" data-path="deploy.html"><a href="deploy.html"><i class="fa fa-check"></i><b>19</b> Deploy</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="deploy.html"><a href="deploy.html#introduction-25"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
+<li class="chapter" data-level="19.1" data-path="deploy.html"><a href="deploy.html#introduction-26"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="deploy.html"><a href="deploy.html#packages"><i class="fa fa-check"></i><b>19.2</b> Packages</a></li>
 <li class="chapter" data-level="19.3" data-path="deploy.html"><a href="deploy.html#shiny-1"><i class="fa fa-check"></i><b>19.3</b> Shiny</a></li>
 <li class="chapter" data-level="19.4" data-path="deploy.html"><a href="deploy.html#plumber-and-model-apis"><i class="fa fa-check"></i><b>19.4</b> Plumber and model APIs</a>
@@ -610,7 +703,7 @@
 <div id="header">
 <h1 class="title">Telling Stories With Data</h1>
 <p class="author"><em>Rohan Alexander</em></p>
-<p class="date"><em>May 03, 2021</em></p>
+<p class="date"><em>April 28, 2021</em></p>
 </div>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -711,7 +804,7 @@
 <p>All of these aspects are critical to being able to convince a reader of your story. Your ability to convince them of your story depends on the quality of all aspects of your workflow.</p>
 <p>If we were to expand on this workflow then we roughly get the chapters that are covered in this book, although they are re-ordered as necessary. From the first chapter we will have a workflow (make a graph then write about it convincingly) that allows us to tell a convincing (albeit likely basic) story. In each subsequent chapter we add aspects and depth to our workflow that will allow us to speak with increasing sophistication and credibility.</p>
 <p>This workflow also aligns nicely with the skills that are sought in data scientists. For instance, Mango Solutions, a UK data science consultancy, describes ‘the six core capabilities of data scientists’ as: 1. communicator; 2. data-wrangler; 3. programmer; 4. technologist; 5. modeller; and 6. visualiser <span class="citation">(<a href="references-1.html#ref-mangosolutions" role="doc-biblioref"><span>“Data Science Radar: How to Identify World-Class Data Science Capabilities”</span> 2020</a>)</span>.</p>
-<p>This book is also designed to enable you to build a portfolio of work that you could show to a potential employer. This is arguably the most important thing that you should be doing. <span class="citation">(<a href="references-1.html#ref-robinsonnolis2020" role="doc-biblioref">Robinson and Nolis 2020, 55</a>)</span> describe a portfolio as ‘a set of data science projects that you can show to people so they can see what kind of data science work you can do.’ They describe this as a ‘step [that] can really help you be successful.’</p>
+<p>This book is also designed to enable you to build a portfolio of work that you could show to a potential employer. This is arguably the most important thing that you should be doing. <span class="citation">(<a href="references-1.html#ref-robinsonnolis2020" role="doc-biblioref">E. Robinson and Nolis 2020, 55</a>)</span> describe a portfolio as ‘a set of data science projects that you can show to people so they can see what kind of data science work you can do.’ They describe this as a ‘step [that] can really help you be successful.’</p>
 <div id="software" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Software</h3>
 <p>The software that we use in this book is R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2020</a>)</span>. This language was chosen because it is open-source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of the tools that we need for statistical analysis built in. We do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users which is, in general, especially welcoming of new-comers and there are a lot of great beginner-friendly materials available.</p>
@@ -815,6 +908,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

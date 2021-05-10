@@ -1,5 +1,5 @@
 ---
-date: May 17, 2020
+date: May 09, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -12,10 +12,12 @@ output:
 
 # Cleaning and preparing data
 
-*Last updated: 30 January 2021.*
+*Last updated: 09 May 2021.*
 
 **Required reading**
 
+- Data Feminism, Chapter 5.
+- R for Data Science, Chapter 9.
 
 **Recommended reading**
 
@@ -36,9 +38,12 @@ output:
 
 **Quiz**
 
+1. With regard to @Jordan2019Artificial and @datafeminism2020 [Chapter 6], to what extent do you think we should let the data speak for themselves? [Please write a page or two.]
 
 
-<!-- Please consider Lee, 2018, 'Ten simple rules for documenting scientific software' and match the following. -->
+
+
+<!-- Please consider Lee, 2018, 'Ten simple rules for documenting scientific software' and match the following. -->
 
 <!-- Beaumont, Jean-François, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’ -->
 <!-- Cohn, Nate, 2016, ‘We Gave Four Good Pollsters the Same Raw Data. They Had Four Different Results’ -->
@@ -50,3 +55,70 @@ output:
 <!-- Lee, Benjamin, 2018, 'Ten simple rules for documenting scientific software' -->
 <!-- Nelder, John A., 1999, ‘From Statistics to Statistical Science’ -->
 <!--  (Links to an external site.)Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, 'Forecasting elections with non-representative polls'.  -->
+
+
+## Introduction
+
+In earlier chapters we've done data cleaning and preparation, but in this chapter we get into the weeds. For a long time, data cleaning and preparation was largely overlooked. In a similar way 
+
+
+The approach that I recommend that you follow is:
+
+1. Plan the end state.
+2. Execute that plan on a tiny sample.
+3. Write tests and documentation
+4. Iterate the plan.
+5. Generalize the execution.
+6. Update tests and documentation.
+
+
+- Plot.
+- Look for missingness.
+
+## Checks and tests
+
+## Documentation
+
+Datasheets
+
+
+
+
+
+--
+
+It is no longer possible to trust almost any result in disciplines that apply statistics. The reproducibility crisis, which started in psychology but has now extended to many other fields in the physical and social sciences, has brought to light issues such as p-value 'hacking', researcher degrees of freedom, file-drawer issues, and even data and results fabrication (Gelman and Loken, 2013). Steps are now being put in place to address these. However, there has been relatively little focus on the data gathering, cleaning, and preparation aspects of applied statistics, despite evidence that decisions made during these steps greatly affect statistical results (Huntington-Klein, Arenas, Beam, et al, 2020). This research program would: 
+
+Establish the concept of a consistency score that tracks how data change during the data cleaning and preparation process.
+Create tools that can be built into existing open-source statistical workflows to integrate consistency scores into everyday work.
+Bring together researchers from different disciplines to develop and disseminate best practice.
+Conduct experiments where participants are given a raw dataset and best practice guidelines, and then evaluate their resulting processed datasets in a consistent way, to understand the effect of decisions in that earlier stage.
+Determine the extent of the problem through systematic re-evaluation of papers in applied statistics.
+
+This research program is critical as interdisciplinary data science initiatives develop and are integrated across many universities. While the statistical practices that underpin data science are themselves correct and robust when applied to ‘fake’ datasets created in a simulated environment, data science is typically not conducted with these types of datasets. For instance, data scientists are interested in ‘...the kind of messy, unfiltered, and possibly unclean data - tainted by heteroskedasticity, complex dependence and missingness patterns - that until recently were avoided in polite conversations between more traditional statisticians...’ Craui (2019). Big data does not resolve this issue, and may even exacerbate it, for instance ‘without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves’ Meng (2018). It is important to note that the issues that are found in much applied statistics research are not necessarily associated with researcher quality, or their biases (Silberzahn, Uhlmann, Martin, et al, 2018). Instead, they are a result of the environment within which data science is conducted. This research program aims to improve that environment. 
+
+In the same way that the need for reproducibility in research has expanded the use of code to conduct applied statistics (rather than point-and-click statistical software), we need new tools that account for uncertainty at the unavoidable data preparation stage of any data science project. This research program would develop these tools and would bridge the gap between statistical methods that have been developed for data analysis, and the application of these methods to real-world data. 
+
+We propose a Collaborative Research Team that brings statisticians together with computer scientists, economists, sociologists, political scientists, ecologists, and information scientists to develop new statistical methods to understand and measure how data change as they are cleaned and prepared, and create open-source tools that can build this into the existing workflows used in data science so that disciplines that apply statistical methods to real-world data can do so on a solid foundation. 
+Research aims
+Our main goal is to develop the statistical concept of a ‘consistency score’, which measures how data change in response to cleaning and preparation. It does this by using a statistical model to make forecasts based on the available data, and then comparing this forecast with what is actually present in the dataset. The key is to measure how consistency scores change during the preparation process. Large changes identify code that should be investigated and justified. Consistency scores summarize and quantify assumptions made by the researchers, thereby offering a way of easily quantifying sensitivities of the data to various assumptions. 
+
+The consistency score itself can be shared even when the underlying data cannot. Because of this consistency scores would enable greater confidence in claims even when completely open science is not possible. For instance, in biostatistics and public health applications there are already STROBE (STrengthening the Reporting of OBservational studies in Epidemiology) and RECORD (REporting of studies Conducted using Observational Routinely-collected Data) guidelines, but these are often not followed (Denaxas, Direk, Gonzalez-Izquierdo, et al, 2017). One reason may be that training data are confidential. Consistency scores could help here by offering a middle-ground. An initial implementation of, and proof-of-concept for, consistency scores is available in Chiu and Alexander (2021).
+
+Additional goals include firstly, documenting the ways in which this can occur by running experiments with groups of researchers and students from different disciplines, and having them clean and prepare a dataset, which is then evaluated in a consistent way to understand the effect on eventual claims. A second additional goal involves developing software in the open-source statistical language R, that can measure the consistency score and how it changes as code is run, along with appropriate reporting outputs, without any additional work from a researcher, other than installing a package and running a function. The third additional goal is to determine the extent of the problem through systematic review and re-evaluation of papers in applied statistics across multiple disciplines. 
+Anticipated outcomes
+The expected outcomes of this research program are an understanding of the effect of decisions made in the pre-analysis steps of an applied statistics project, and the development of processes to account for this. This will involve developing new statistical tools, creating open-source statistical software, training high-quality personnel (HQP), and collaboration across disciplines.
+
+Developing new statistical tools. At the moment, the notion of a consistency score is only defined in the context of natural language processing (NLP), rather than more generally. We will develop a grammar (see, for instance, Wickham, 2010) around data cleaning that will generalise practices that are currently domain specific. We will also develop statistical tools that more generally help us appreciate the degree to which a data entry is expected, given the broader data context in which it exists. These will be general enough to be able to be used across a variety of disciplines. Gelman and Vehtari (2021) writing about the most important statistical ideas of the past 50 years say that: 
+...each of them was not so much a method for solving an existing problem, as an opening to new ways of thinking about statistics and new ways of data analysis. To put it another way, each of these ideas was a codification, bringing inside the tent an approach that had been considered more a matter of taste or philosophy than statistics.
+We see the research program proposed here as analogous, insofar, as it represents a codification, or bringing inside the tent, of aspects that are typically (incorrectly) considered those of taste rather than statistics.
+Creating open-source statistical software. Modern statistical workflows and best practices are the focus of considerable research (for instance Gelman, Vehtari, Simpson, et al, 2020). And there has been extensive development around statistical software, for example within the R (R Core Team, 2020) ecosystem and the probabilistic programming language Stan (Stan Development Team, 2021). But it is the development of packages as part of the R and Stan ecosystems, such as rstanarm (Goodrich, Gabry, Ali, and Brilleman, 2020) and tidybayes package (Kay, 2020) that have brought a sophisticated and reproducible workflow to a larger audience by reducing computational difficulties in adopting these workflows. This research program would develop a comprehensive set of open-source statistical software that play a similar role for the necessary data-focused initial steps in any data science project that involve data cleaning and preparation.
+Training high-quality personnel (HQP). Currently, training in the development of statistical software does not generally happen in a systematic way in statistical sciences. One expected outcome of this research program is training of HQP not only in specific statistical skills, but also in broader quantitative skills, such as data management and software development, that are necessary to work in both academia and industry.
+Collaboration across disciplines. Data science has seen the methods and approaches of applied statistics used in a large variety of disciplines. This research program is deliberately multi-disciplinary because the issues that it identifies are felt in the same way across many disciplines. By bringing together experts from different disciplines, this research program will create solutions that are more widely applicable. Arguably, collaboration across disciplines is the defining feature of data science. For instance, Irizarry, (2020) discusses what is involved in data science and then says, ‘we should not expect one individual to encompass all of these’. This research program borrows from many disciplines for precisely this reason.
+
+--
+
+
+
+
+

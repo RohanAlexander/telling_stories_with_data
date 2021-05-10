@@ -1,5 +1,5 @@
 ---
-date: January 25, 2021
+date: May 09, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -27,13 +27,14 @@ library(gt)
 
 # Gather data
 
-*Last updated: 2 February 2021.*
+*Last updated: 9 May 2021.*
 
 **Recommended reading**
 
 - Benoit, Kenneth, 2019, 'Text as data: An overview', 17 July, https://kenbenoit.net/pdfs/28%20Benoit%20Text%20as%20Data%20draft%202.pdf.
 - Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/.
 - Bryan, Jennifer, and Jim Hester, 2020, *What They Forgot to Teach You About R*, Chapter 7, https://rstats.wtf/index.html.
+- Cardoso, Tom, 2019, 'Introduction to scraping', https://github.com/tomcardoso/intro-to-scraping.
 - Clavelle, Tyler, 2017, 'Using R to extract data from web APIs', 5 June, https://www.tylerclavelle.com/code/2017/randapis/.
 - Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/.
 - Dogucu, Mine, and Mine Çetinkaya-Runde, 2020,'Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities', 6 May.
@@ -314,9 +315,9 @@ rstats_tweets %>%
 ```
 
 
-There is a bunch of other things that you can do just using a regular user account, and if you're interested then you should try the examples in the `rtweet` package documentation: https://rtweet.info/index.html. But more is available once you register as a developer (https://developer.twitter.com/en/apply-for-access). The Twitter API document is surprisingly readable and you may enjoy some of it: https://developer.twitter.com/en/docs. 
+There is a bunch of other things that you can do just using a regular user account, and if you're interested then you should try the examples in the `rtweet` package documentation: https://rtweet.info/index.html. But more is available once you register as a developer (https://developer.twitter.com/en/apply-for-access). The Twitter API document is surprisingly readable, and you may enjoy some of it: https://developer.twitter.com/en/docs. 
 
-When I introduced APIs I said that the 'data provider specifies exactly the data that they are willing to provide...' and we have certainly been able to take advantage of what they provide But I continued '...and the terms under which they will provide it' and here we haven't done our part. In particular, I took some tweets and saved them. If I had pushed these to GitHub then it's possible I may have accidently stored sensitive information if there happened to be some in the tweets. Or if I had taken enough tweets to start to do some reasonable statistical analysis then even if there wasn't sensitive information I may have violated the terms if I had pushed those saved tweets to GitHub. Finally, I linked a Twitter user name, in this case `@Liza_Bolton` with Professor Bolton. I happened to ask her if this was okay, but if I hadn't done that then I would have been violating the Twitter terms of service.
+When I introduced APIs I said that the 'data provider specifies exactly the data that they are willing to provide...' and we have certainly been able to take advantage of what they provide But I continued '...and the terms under which they will provide it' and here we haven't done our part. In particular, I took some tweets and saved them. If I had pushed these to GitHub, then it's possible I may have accidently stored sensitive information if there happened to be some in the tweets. Or if I had taken enough tweets to start to do some reasonable statistical analysis then even if there wasn't sensitive information, I may have violated the terms if I had pushed those saved tweets to GitHub. Finally, I linked a Twitter username, in this case `@Liza_Bolton` with Professor Bolton. I happened to ask her if this was okay, but if I hadn't done that then I would have been violating the Twitter terms of service.
 
 If you use Twitter data, please take a moment to look at the terms: https://developer.twitter.com/en/developer-terms/more-on-restricted-use-cases.
 
@@ -332,7 +333,7 @@ library(spotifyr)
 ```
 
 
-In order to use this account you need a Spotify Developer Account, which you can set-up here: https://developer.spotify.com/dashboard/. That'll have you log in with your Spotify details and then accept their terms (it's worth looking at some of these and I'll follow up on a few below) as in Figure \@ref(fig:spotifyaccept).
+In order to use this account, you need a Spotify Developer Account, which you can set-up here: https://developer.spotify.com/dashboard/. That'll have you log in with your Spotify details and then accept their terms (it's worth looking at some of these and I'll follow up on a few below) as in Figure \@ref(fig:spotifyaccept).
 
 ```{r spotifyaccept, echo=FALSE, fig.cap="rtweet authorisation page", out.width = '90%'}
 knitr::include_graphics(here::here("figures/spotify.png"))
@@ -1063,7 +1064,7 @@ knitr::include_graphics(here::here("figures/tfr_desired.jpeg"))
 
 ### Start simple, then iterate. 
 
-There are 19 different PDFs and we are interested in a particular column in a particular table in each of them. Unfortunately there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.
+There are 19 different PDFs, and we are interested in a particular column in a particular table in each of them. Unfortunately, there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.
 
 ```{r}
 monicas_data <- read_csv("inputs/tfr_tables_info.csv")
@@ -1116,7 +1117,7 @@ dhs_2000 <-
 head(dhs_2000)
 ```
 
-Now we are searching for patterns that we can use. (If you have a lot of tables that you are interested in grabbing from PDFs then it may also be worthwhile considering the tabulizer package which is specifically designed for that. The issue is that it depends on Java and I always seem to run into trouble when I need to use Java so I avoid it when I can.)
+Now we are searching for patterns that we can use. (If you have a lot of tables that you are interested in grabbing from PDFs then it may also be worthwhile considering the `tabulizer` package which is specifically designed for that [@citetabulizergross]. The issue is that it depends on Java and I always seem to run into trouble when I need to use Java so I avoid it when I can.)
 
 Let's look at the first ten lines of content.
 
@@ -1259,7 +1260,7 @@ dhs_2000
 
 There are a bunch of aspects here that have been hardcoded, but the first thing that we want to iterate is the argument to `pdf_text()`, then the number in in `slice()` will also need to change (that is doing the work to get only the page that we are interested in).
 
-Two aspects are hardcoded and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works in this particular case. Finally, we add the year only at the end, whereas we'd need to bring that up earlier in the process. 
+Two aspects are hardcoded, and these may need to be updated. In particular: 1) The separate only works if each of the tables has the same columns in the same order; and 2) the slice (which restricts the data to just the states) only works in this particular case. Finally, we add the year only at the end, whereas we'd need to bring that up earlier in the process. 
 
 We'll start by writing a function that will go through all the files, grab the data, get the page of interest, and then expand the rows. We'll then use a function from `purrr` to apply that function to all of the PDFs and to output a tibble.
 
@@ -1416,7 +1417,7 @@ And then I need to read in the PDF that I want to convert.
 all_content <- pdftools::pdf_text("inputs/pdfs/2019_Kenya_census.pdf")
 ```
 
-The `pdf_text` function from `pdftools` is useful when you have a PDF and you want to read the content into R. For many recently produced PDFs it'll work pretty well, but there are alternatives. If the PDF is an image, then it won't work and you'll need to turn to OCR.
+The `pdf_text` function from `pdftools` is useful when you have a PDF and you want to read the content into R. For many recently produced PDFs it'll work pretty well, but there are alternatives. If the PDF is an image, then it won't work, and you'll need to turn to OCR.
 
 You can see a page of the PDF here:
 
@@ -1744,7 +1745,7 @@ head(follow_up)
 rm(follow_up)
 ```
 
-There are just a few, but they only have a a difference of 1, so I'll just move on.
+There are just a few, but they only have a difference of 1, so I'll just move on.
 
 
 #### Ages sum to age-groups
@@ -2034,7 +2035,7 @@ crying_by_words %>%
 
 ```
 
-So you can see that the most popular word for five star reviews is 'i', and that the most popular word for one star reviews is 'the'.
+So you can see that the most popular word for five-star reviews is 'i', and that the most popular word for one star reviews is 'the'.
 
 At this point, we can use the data to do a whole bunch of different things, but one nice measure to look at is term frequency e.g. in this case how many times is a word used in reviews with a particular star rating. The issue is that there are a lot of words that are commonly used regardless of context. As such, we may also like to look at the inverse document frequency in which we 'penalise' words that occur in many particular star ratings. For instance, 'the' probably occurs in both one star and five star reviews and so its idf is lower than 'hate' which probably only occurs in one star reviews. The term frequency–inverse document frequency (tf-idf) is then the product of these.
 
