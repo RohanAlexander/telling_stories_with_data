@@ -25,8 +25,9 @@ knitr::opts_chunk$set(
 
 **Required reading**
 
+- Hill, Alison, 2021, 'M-F-E-O: postcards + distill', 16 March, https://alison.rbind.io/post/2020-12-22-postcards-distill/.
 - Hill, Alison, 2021, 'Up & running with blogdown in 2021', 6 January, https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/.
-- Xie, Yihui, Amber Thomas, and Alison Presmanes Hill, 2020, *blogdown: Creating Websites with R Markdown*, https://bookdown.org/yihui/blogdown/.
+- Mock, Thomas, 2020, 'Building a blog with distill', 31 July, https://themockup.blog/posts/2020-08-01-building-a-blog-with-distill/.
 
 
 **Required viewing**
@@ -35,48 +36,36 @@ knitr::opts_chunk$set(
 
 **Recommended reading**
 
-- De Leon, Desirée, 2019, 'Trying out Blogdown', 4 September, http://desiree.rbind.io/post/2019/trying-out-blogdown/. 
-- Hill, Alison, 2019, 'A Spoonful of Hugo: Troubleshooting Your Build', 4 March, https://alison.rbind.io/post/2019-03-04-hugo-troubleshooting/.
-- Navarro, Danielle, 2018, 'Day 1: Getting started with blogdown', 27 April, https://djnavarro.net/post/starting-blogdown/.
 - Cooley, David, 2020, 'mapdeck', https://symbolixau.github.io/mapdeck/index.html.
 - Gabrielle, 2019, 'Visualising spatial data using sf and mapdeck - part one', 4 December, https://resources.symbolix.com.au/2019/12/04/mapdeck-1/.
 - Kolb, Jan-Philipp, 2019, 'Using Web Services to Work with Geodata in R', *The R Journal*, 11:2, pages 6-23, https://journal.r-project.org/archive/2019/RJ-2019-041/index.html.
 - 'Leaflet for R', https://rstudio.github.io/leaflet/.
-- Salmon, Maëlle, 2020, 'What to know before you adopt Hugo/blogdown', 29 February, https://masalmon.eu/2020/02/29/hugo-maintenance/.
+- Xie, Yihui, Amber Thomas, and Alison Presmanes Hill, 2020, *blogdown: Creating Websites with R Markdown*, https://bookdown.org/yihui/blogdown/.
 
 
 
 **Key concepts/skills/etc**
 
-- Building a website using blogdown and hugo.
-- Thinking of maps as a (often fiddly, but strangely enjoyable) variant of a usual ggplot.
-- Broadening the data that we make available via interactive maps, while still telling a clear story.
-- Becoming comfortable with (and excited about) creating both static and interactive maps.
+- Building a website using within the R environment using (in order of ease): `postcards`, `distill`, and `blogdown`.
+- Thinking of about how we can take advantage of interaction in maps, and broadening the data that we make available via interactive maps, while still telling a clear story.
 
 **Key libraries**
 
 - `blogdown`
-- `tidyverse`
-- `ggmap`
+- `distill`
 - `leaflet`
-- `maps`
 - `mapdeck`
+- `postcards`
+- `tidyverse`
+- `usethis`
 
 **Key functions/etc**
 
-- `add_arc()`
-- `addCircleMarkers()`
-- `addMarkers()`
-- `addTiles()`
-- `canada.cities`
-- `geom_polygon()`
-- `get_stamenmap()`
-- `ggmap()`
-- `leaflet()`
-- `map()`
-- `map_data()`
-- `mapdeck()`
-- `mapdeck_style()`
+- `blogdown:::serve_site()`
+- `distill::create_article()`
+- `postcards::create_postcard()`
+- `usethis::use_git()`
+- `usethis::use_github()`
 
 
 
@@ -84,7 +73,7 @@ knitr::opts_chunk$set(
 
 ### Introduction
 
-A website is a critical part of communication. For instance, it is a place to bring together everything that you've done and it allows you some control of your online presence. You need a website.
+A website is a critical part of communication. For instance, it is a place to bring together everything that you've done, and it allows you some control of your online presence. You need a website.
 
 One way to make a website is to use the `blogdown` package [@citeblogdown]. `blogdown` is a package that allows you to make websites (not just blogs, notwithstanding its name) largely within R Studio. It builds on Hugo, which is a popular tool for making websites. `blogdown` lets you freely and quickly get a website up-and-running. It is easy to add content from time-to-time. It integrates with R Markdown which lets you easily share your work. And the separation of content and styling allows you to relatively quickly change your website's design.
 
@@ -92,7 +81,7 @@ However, `blogdown` is brittle. Because it is so dependent on Hugo, features tha
 
 The first is `distill` [@citedistill]. Again, this is an R package that wraps around another framework, in this case Distill. However, in contrast to Hugo, Distill is more focused on common needs in data science, and is also only maintained by one group, so it can be a more stable choice. That said, the default `distill` site is fairly unremarkable. As such, here we recommend a third option.
 
-The third option, and the one that we'll start with, is `postcards` [@citepostcards]. This is a tailored solution that creates simple biographical websites that look great. If you followed the earlier chapter and set-up GitHub then you should literally be able to get a `postcards` website online in five minutes.
+The third option, and the one that we'll start with, is `postcards` [@citepostcards]. This is a tailored solution that creates simple biographical websites that look great. If you followed the earlier chapter and set-up GitHub, then you should literally be able to get a `postcards` website online in five minutes.
 
 
 ### Postcards
@@ -130,7 +119,7 @@ usethis::use_git()
 usethis::use_github()
 ```
 
-The project will then be no your GitHub repo and you can use GitHub pages to host it: 'Settings -> Pages' and then change the source to 'main' or 'master', depending on your settings.
+The project will then be on your GitHub repo and you can use GitHub pages to host it: 'Settings -> Pages' and then change the source to 'main' or 'master', depending on your settings.
 
 
 
@@ -138,7 +127,7 @@ The project will then be no your GitHub repo and you can use GitHub pages to hos
 ### Distill
 
 
-To get started with `distill` [@citedistill], we are going to build a framework around our `postcards` site, following @hillpostcards fairly closely (please go to Alison's blogpost for the details). After that we'll explore some of the aspects of `distill` that make it a nice choice, and mention some of the trade-offs that you make if you choose this option. First we need to install `distill`.
+To get started with `distill` [@citedistill], we are going to build a framework around our `postcards` site, following @hillpostcards fairly closely (please go to Alison's blogpost for the details). After that we'll explore some of the aspects of `distill` that make it a nice choice, and mention some of the trade-offs that you make if you choose this option. First, we need to install `distill`.
 
 ```{r, eval = FALSE, echo = TRUE}
 install.packages('distill')
@@ -158,7 +147,7 @@ At this point you can click 'Build Website' in the Build tab, and you'll see the
 knitr::include_graphics(here::here("figures/distill_two.png"))
 ```
 
-Again, now we need to do the work to update things. The default for the 'Distill Blog' setting is that the blog is the homepage. So we can change that. I really liked the bio page from earlier, so we could use that approach.
+Again, now we need to do the work to update things. The default for the 'Distill Blog' setting is that the blog is the homepage. We can change that. I really liked the bio page from earlier, so we could use that approach.
 
 First change the name of the 'index.Rmd' file to 'blog.Rmd'. Then create a new 'trestles' page:
 
@@ -178,7 +167,7 @@ In Figure \@ref(fig:distillthree) I added it to line 16 and then rebuilt the web
 knitr::include_graphics(here::here("figures/distill_three.png"))
 ```
 
-We can make the same changes to the default content as earlier, updating the links, image, and bio. The advantage of using `Distill` is that we now have additional pages, not just a one-page website, and we also have a blog. By default we have an 'about' page, but some other pages that may be useful, depending on your particular use-case, could include: 'research', 'teaching', 'talks', 'projects', 'software', 'datasets'. For now, I'll talk through adding and editing a page called 'software'.
+We can make the same changes to the default content as earlier, updating the links, image, and bio. The advantage of using `Distill` is that we now have additional pages, not just a one-page website, and we also have a blog. By default, we have an 'about' page, but some other pages that may be useful, depending on your particular use-case, could include: 'research', 'teaching', 'talks', 'projects', 'software', 'datasets'. For now, I'll talk through adding and editing a page called 'software'.
 
 We can use the following function:
 
@@ -236,112 +225,21 @@ The site will show in the 'Viewer' pane (Figure \@ref(fig:blogdowntwo)).
 knitr::include_graphics(here::here("figures/blogdown_two.png"))
 ```
 
-At this point, the default website is being 'served' locally. This means that changes you make will be reflected in the website that you see in your Viewer pane. To see the website in a web browser click 'Show in new window' button on the top left of the Viewer. That will open the website using the address that the R Studio also tells you.
+At this point, the default website is being 'served' locally. This means that changes you make will be reflected in the website that you see in your Viewer pane. To see the website in a web browser, click 'Show in new window' button on the top left of the Viewer. That will open the website using the address that the R Studio also tells you.
 
+You probably want to update the 'About' section. To do that go to 'content -> about.md' and add your own content. One nice aspect of `blogdown` is that it will automatically re-load the content when you save, so you should see your changes immediately show up.
 
+You may also like to change the logo. You could do this by adding a square image to 'public/images/' and then changing the call to 'logo.png' in 'config.yaml'.
 
-The first change to make is to update the headshot. In your folder, go to my_website -> static -> img. Replace 'portrait.jpg' with your own square headshot jpg. If you do this correctly then when you go back to your website the image will have updated.
+When you're happy with it, you can make your website public in the same way that is described for `postcards`.
 
-To update the biography and other details in that first pane, go to <tt>File -> Open File</tt> in the R Studio menu and open <tt>config.toml</tt> which is in <tt>my_website -> config.toml</tt>. This file will either open in a text editor or in R Studio -- it doesn't matter which. When you save the file the changes will be reflected in the website.
+This all said, the biggest advantage of using `blogdown` is that it allows us to use Hugo templates. This provides a large number of beautifully crafted websites. To pick a theme you can go to the Hugo themes page: https://themes.gohugo.io. There are hundreds of different themes. In general, most of them can be made to work with `blogdown`, but sometimes it can be a bit of a hassle to get them working. 
 
-Search for 'title' or go to line 2. It should say:
+One that I particularly like is Apéro: https://hugo-apero-docs.netlify.app. If you like that too, then you could use that theme by calling it when you create a new site. As a reminder, 'File -> New Project -> New Directory -> Website using blogdown'. At this point, in addition to setting the name and location, you can specify a theme. Specifically, in 'Hugo theme' field, you specify the GitHub username and repository, which in this case is 'hugo-apero/apero' (Figure \@ref(fig:blogdownthree)).
 
-```{r, eval=FALSE, echo=TRUE}
-'title = "Academic"'
+```{r blogdownthree, echo=FALSE, fig.cap = "Using the Apéro theme.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/blogdown_three.png"))
 ```
-
-Change that to:
-
-```{r, eval=FALSE, echo=TRUE}
-'title = "Your Name"'
-```
-
-Search for '[params]' or go to line 21. There you can update parameters such as name, role, and contact details. If you don't want a particular parameter to show up on your website then set it equal to "". (An example of this is on line 33.)
-
-Once you've updated these parameters, search for '[[params.social]]' or go to line 126. There you can update your contact details, such as email, twitter, etc. Just delete or comment out the full four lines if you don't want a particular contact type displayed on your website. You can always add more later.
-
-Finally, search for '[[menu.main]]' or go to line 152. There you can change the menu items that are displayed on the top right of your website. For instance if you don't want a blog then delete or comment out the four lines:
-
-```{r, eval=FALSE, echo=TRUE}
-[[menu.main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 3
-```
-
-If you want to change the order of the items then change the 'weight'. Ascending values from left to right.
-
-In your folder, go to <tt>my_website -> content -> home -> about.md</tt>. That should open in R Studio or your text editor. Any changes that you save should immediately show up in your website.
-
-Search for '# List your academic interests.' or go to line 12. There you can change your academic interests. If you don't want this to show up on your website then you can just delete or comment out lines 12-18.
-
-Search for '# List your qualifications (such as academic degrees).' or go to line 20. There you can change your academic qualification. If you don't want this to show up on your website then you can just delete or comment out these lines. 
-
-The 'year' is a numeric field. If you'd prefer to include duration (e.g. 2013 -- 2017), then replace the '2012' with '"2013 -- 2017"' (the "" are important). Or similarly, if you are expecting a degree then you could replace the 'year' with '"Expected month year"'.
-
-Search for '# Biography' or go to line 43. There you can add a brief biography.
-
-
-Most of the other files in <tt>my_website -> content -> home</tt> just display content from elsewhere. This is because of the setup of the website. The exception is teaching.md. Open that and edit everything after line 15.
-
-In your folder, go to <tt>my_website -> content -> publication</tt>. There are two default publications added there. You can edit those and then copy them to add extra publications.
-
-
-If you want a blog in your website then the content is saved in: <tt>my_website -> content -> post</tt>. If you don't want a blog then just delete this folder and comment out the posts menu item from <tt>my_website -> config.toml</tt> file so it doesn't show up in the menu.
-
-Once your website is working, if you want a new blog post, then you can simply use the R Studio menu bar: <tt>Tools -> Addins -> New Post</tt>.
-
-To come back to editing your website once you've closed R Studio, go to the 'my_website' folder and then double-click on the Rproj file, 'blogdown_test.Rproj'. That will open a new instance of R Studio. 
-
-From there you can type 'blogdown:::serve_site()' into the console to serve your site and then continue editing, or you could use the R Studio menu bar: 
-<tt>Tools -> Addins -> Serve Site.</tt> 
-
-
-
-
-
-
-
-Using that new R Studio session create your website with the following code:
-
-```{r, eval=FALSE, echo=TRUE}
-blogdown::new_site(theme = "gcushen/hugo-academic", theme_example = TRUE)
-```
-
-This will: 
-
-* download files into your 'my_website' folder; 
-* open a R Markdown file that you can close for now; and
-* begin serving the site in your R Studio viewer.
-
-The console and viewer of your R Studio session should look like this:
-
-```{r, echo=FALSE}
-knitr::include_graphics("figures/images/blogdown_serve_site.png")
-```
-
-Now that we have a frame, we can add our own content.
-
-
-
-
-#### Making your website public
-
-So far everything has happened on your own computer. The first step to making your website public is to commit these changes to GitHub. To do this open Terminal again and as before use <tt>cd</tt> and <tt>ls</tt> to navigate to 'my_website'.
-
-Once there, type each of the following lines (adding your own description) and follow each by 'return'
-
-```{r, eval=FALSE, echo=TRUE}
-git add -A
-git commit -m "DESCRIBE THE CHANGE YOU ARE ADDING"
-git push
-```
-
-(You may be asked for your GitHub password. Terminal is a bit tricky to type passwords into because you don't know how many characters you've typed, but have a go and follow it by 'return'.)
-
-There are many ways to make your website public, but one way is to use Netlify. What we are going to do is to link GitHub and Netlify, so that when you make a change in GitHub then Netlify automatically updates. Once you have an account then click "New site from Git" and at that point you can link your GitHub account. Once it has been authorised, then you should select the repo that you want to make public. The publish director is 'public'.
-
-Once this is all specified then you can "Deploy site". Netlify gives you a default address, but you can change this. However it will still have .netlify.com. To get rid of this you need to purchase a domain, and then go through the custom domains setting in Netlify.
 
 
 
