@@ -1,5 +1,5 @@
 ---
-date: May 9, 2021
+date: May 11, 2021
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 # Interactive communication
 
-*Last updated: 09 May 2021.*
+*Last updated: 11 May 2021.*
 
 
 **Required reading**
@@ -92,15 +92,14 @@ However, `blogdown` is brittle. Because it is so dependent on Hugo, features tha
 
 The first is `distill` [@citedistill]. Again, this is an R package that wraps around another framework, in this case Distill. However, in contrast to Hugo, Distill is more focused on common needs in data science, and is also only maintained by one group, so it can be a more stable choice. That said, the default `distill` site is fairly unremarkable. As such, here we recommend a third option.
 
-The third option, and the one that we'll start with, is `postcards` [@citepostcards]. This is a tailored version of `distill` that creates simple biographical websites that look great. 
+The third option, and the one that we'll start with, is `postcards` [@citepostcards]. This is a tailored solution that creates simple biographical websites that look great. If you followed the earlier chapter and set-up GitHub then you should literally be able to get a `postcards` website online in five minutes.
 
 
 ### Postcards
 
-To get started with `postcards`, we are going to follow @hillpostcards fairly closely and you should go there for further details. We first need to install the packages.
+To get started with `postcards`, we first need to install the packages.
 
 ```{r, eval = FALSE, echo = TRUE}
-install.packages('distill')
 install.packages('postcards')
 ```
 
@@ -139,76 +138,107 @@ The project will then be no your GitHub repo and you can use GitHub pages to hos
 ### Distill
 
 
+To get started with `distill` [@citedistill], we are going to build a framework around our `postcards` site, following @hillpostcards fairly closely (please go to Alison's blogpost for the details). After that we'll explore some of the aspects of `distill` that make it a nice choice, and mention some of the trade-offs that you make if you choose this option. First we need to install `distill`.
+
+```{r, eval = FALSE, echo = TRUE}
+install.packages('distill')
+```
+
+Again, create a new project for your website, so 'File -> New Project -> New Directory -> Distill Blog' (there's not really much difference between the website and blog options). 
+
+You'll then get a pick a name and location for the project, and you can set a title. Select 'Configure for GitHub Pages' and also 'Open in a new session' (if you forget to do any of this or change your mind then it's not a big deal - these can always be changed ex post or you can just delete the directory and start again). It should look something like Figure \@ref(fig:distillone).
+
+```{r distillone, echo=FALSE, fig.cap = "Example settings for setting up Distill.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/distill_one.png"))
+```
+
+At this point you can click 'Build Website' in the Build tab, and you'll see the default website, which should look something like Figure \@ref(fig:distilltwo).
+
+```{r distilltwo, echo=FALSE, fig.cap = "Example of default Distill website.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/distill_two.png"))
+```
+
+Again, now we need to do the work to update things. The default for the 'Distill Blog' setting is that the blog is the homepage. So we can change that. I really liked the bio page from earlier, so we could use that approach.
+
+First change the name of the 'index.Rmd' file to 'blog.Rmd'. Then create a new 'trestles' page:
+
+```{r, eval = FALSE, echo = TRUE}
+postcards::create_postcard(file = "index.Rmd", template = "trestles")
+```
+
+The trestles page that you just created will open, and you need to add the following line in the yaml. 
+
+```{r, eval = FALSE, echo = TRUE}
+site: distill::distill_website
+```
+
+In Figure \@ref(fig:distillthree) I added it to line 16 and then rebuilt the website.
+
+```{r distillthree, echo=FALSE, fig.cap = "Updating the yaml to change the homepage.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/distill_three.png"))
+```
+
+We can make the same changes to the default content as earlier, updating the links, image, and bio. The advantage of using `Distill` is that we now have additional pages, not just a one-page website, and we also have a blog. By default we have an 'about' page, but some other pages that may be useful, depending on your particular use-case, could include: 'research', 'teaching', 'talks', 'projects', 'software', 'datasets'. For now, I'll talk through adding and editing a page called 'software'.
+
+We can use the following function:
+
+```{r, eval = FALSE, echo = TRUE}
+distill::create_article(file = 'software')
+```
+
+That will create and open an R Markdown document. To add it to the website, open '_site.yml' and then add a line to the 'navbar' (Figure \@ref(fig:distillfour)(. After this is done then re-building the site will result in that software page having been added.
+
+```{r distillfour, echo=FALSE, fig.cap = "Adding another page to the website.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/distill_four.png"))
+```
+
+Continue with this process until you're happy with your site. For instance, we may want to add our blog back. To do this follow the same pattern as before, but with 'blog' instance of 'software'.
+
+When you're ready, you can get your website online in the same way as we did with the `postcards` site (i.e. push to GitHub and then use GitHub Pages).
+
+Using the `distill` is a great option if you want a multi-page website, but still want a fairly controlled environment. There are a lot of options that you can change and the best place to start with that is to see Alison Hill's blog post [@hillpostcards], but the `distill` package [homepage](https://rstudio.github.io/distill/) is also useful.
+
+That said, `distill` is very opinionated. Until recently they didn't even allow a different citation style! While it is a great option (and what I use for my own website), if you want something that is more flexible, then `blogdown` might be a better option.
+
+
+
+
+
+
 
 ### Blogdown
 
-Using `blogdown` is more work than Google sites or Squarespace. It requires a little more knowledge than using a basic Wordpress site. And if you want to customise many aspects of your website, or need everything to be 'just so' then `blogdown` may not be for you. `blogdown` is still under active development and various aspects may break in future releases. That said, the investment of time required to set up a `blogdown` website is unlikely to be wasted. Even if `blogdown` were shuttered tomorrow most of the content could be repurposed for a regular Hugo website.
+Using `blogdown` [@citeblogdown] is more work than Google sites or Squarespace. It requires a little more knowledge than using a basic Wordpress site. And if you want to customise absolutely every aspect of your website, or need everything to be 'just so' then `blogdown` may not be for you. Further, `blogdown` is still under active development and various aspects may break in future releases. However, `blogdown` allows a variety and level of expression that is not possible with `distill`.
 
-This post is a simplified version of the `blogdown` user-guide and the blog post by Alison Presmanes Hill [@citealisonhillblogdown]. It sticks to the basics and doesn't require much decision-making. The purpose is to allow someone without much experience to use `blogdown` to get a website up-and-running. Head to those two resources once you've got a website working and want to dive a bit deeper.
+This post is a simplified version of @citealisonhillblogdown and @blogdownbook. It sticks to the basics and doesn't require much decision-making. The purpose is to allow someone without much experience to use `blogdown` to get a website up-and-running. Head to those two resources once you've got a website working and want to dive a bit deeper.
 
-
-#### Foundations
-
-We'll install the `blogdown` package then use GitHub to create a new folder where we'll create our website. First install blogdown:
+We'll need to install `blogdown`.
 
 ```{r, eval=FALSE, echo=TRUE}
 install.packages("blogdown")
 ```
 
-Now we want to create a folder in GitHub (because it will be easier to put your website onto the internet if you have a GitHub account). We have seen GitHub earlier in this book, but if you didn't do this at that point, then please create a free GitHub account at https://github.com/. 
+Again, create a new project for your website, so 'File -> New Project -> New Directory -> Website using blogdown'. At this point you can set a name and location, and also select 'Open in a new session'. It should look something like Figure \@ref(fig:blogdownone).
 
-Once you have an account, create a new repository by clicking on the plus and call it 'my_website' (or whatever you want).
-
-```{r, echo=FALSE}
-knitr::include_graphics("figures/images/blogdown_github_1.png")
+```{r blogdownone, echo=FALSE, fig.cap = "Example settings for setting up blogdown", out.width = '90%'}
+knitr::include_graphics(here::here("figures/blogdown_one.png"))
 ```
 
-Don't worry about including a readme or gitignore. Once you get to the 'Quick setup' page, copy the website address.
-
-```{r, echo=FALSE}
-knitr::include_graphics("figures/images/blogdown_github_2.png")
-```
-
-
-At this point, we want to get that folder onto our own computer. So open RStudio, select `Files`, `New Project`, `Version Control`, `Git`, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking 'Open in new session'. This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.
-
-We can now construct a frame for our website in that folder.
-
-
-#### Build the frame
-
-Open R Studio and install Hugo via the blogdown package with the following code:
+You can again click 'Build Website' from the 'Build' pane, but then an extra step is needed, of serving the site:
 
 ```{r, eval=FALSE, echo=TRUE}
-blogdown::install_hugo()
+blogdown:::serve_site()
 ```
 
-In R Studio create a new project in the folder that you just created 'my_website'. To do this click on: <tt>File -> New Project -> Existing Directory</tt>. Then navigate to the folder 'my_website'. This will open a new R Studio session. Creating a project just adds a .proj file in the folder that makes it easier to come back to your website later.
+The site will show in the 'Viewer' pane (Figure \@ref(fig:blogdowntwo)).
 
-Using that new R Studio session create your website with the following code:
-
-```{r, eval=FALSE, echo=TRUE}
-blogdown::new_site(theme = "gcushen/hugo-academic", theme_example = TRUE)
+```{r blogdowntwo, echo=FALSE, fig.cap = "Serving default blogdown site.", out.width = '90%'}
+knitr::include_graphics(here::here("figures/blogdown_two.png"))
 ```
 
-This will: 
-
-* download files into your 'my_website' folder; 
-* open a R Markdown file that you can close for now; and
-* begin serving the site in your R Studio viewer.
-
-The console and viewer of your R Studio session should look like this:
-
-```{r, echo=FALSE}
-knitr::include_graphics("figures/images/blogdown_serve_site.png")
-```
-
-Now that we have a frame, we can add our own content.
+At this point, the default website is being 'served' locally. This means that changes you make will be reflected in the website that you see in your Viewer pane. To see the website in a web browser click 'Show in new window' button on the top left of the Viewer. That will open the website using the address that the R Studio also tells you.
 
 
-#### Add content
-
-At this point, the default website is being 'served' locally. This means that changes you make will be reflected in the website that you see in your R Studio Viewer. To see the website in a web browser click the 'show in new window' button on the top left of the Viewer. This is circled in the above image. That will open the website using the address that the R Studio also tells you.
 
 The first change to make is to update the headshot. In your folder, go to my_website -> static -> img. Replace 'portrait.jpg' with your own square headshot jpg. If you do this correctly then when you go back to your website the image will have updated.
 
@@ -265,6 +295,34 @@ To come back to editing your website once you've closed R Studio, go to the 'my_
 
 From there you can type 'blogdown:::serve_site()' into the console to serve your site and then continue editing, or you could use the R Studio menu bar: 
 <tt>Tools -> Addins -> Serve Site.</tt> 
+
+
+
+
+
+
+
+Using that new R Studio session create your website with the following code:
+
+```{r, eval=FALSE, echo=TRUE}
+blogdown::new_site(theme = "gcushen/hugo-academic", theme_example = TRUE)
+```
+
+This will: 
+
+* download files into your 'my_website' folder; 
+* open a R Markdown file that you can close for now; and
+* begin serving the site in your R Studio viewer.
+
+The console and viewer of your R Studio session should look like this:
+
+```{r, echo=FALSE}
+knitr::include_graphics("figures/images/blogdown_serve_site.png")
+```
+
+Now that we have a frame, we can add our own content.
+
+
 
 
 #### Making your website public
