@@ -73,7 +73,7 @@
 <script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
 <link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
 <script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
-<script src="libs/arc-1.0.0/arc.js"></script>
+<script src="libs/scatterplot-1.0.0/scatterplot.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
@@ -839,18 +839,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="exploratory-data-analysis.html#cb437-1" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> opendatatoronto<span class="sc">::</span><span class="fu">list_packages</span>(<span class="at">limit =</span> <span class="dv">500</span>)</span>
 <span id="cb437-2"><a href="exploratory-data-analysis.html#cb437-2" aria-hidden="true" tabindex="-1"></a>all_data</span></code></pre></div>
 <pre><code>## # A tibble: 412 x 11
-##    title    id      topics   civic_issues  publisher excerpt    dataset_category
-##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;           
-##  1 Catalog… 473def… City go… &lt;NA&gt;          Informat… &quot;Historic… Table           
-##  2 Rain Ga… f29335… Locatio… Climate chan… Toronto … &quot;This dat… Document        
-##  3 EarlyON… 261962… Communi… Poverty redu… Children… &quot;EarlyON … Map             
-##  4 License… 059d37… Communi… &lt;NA&gt;          Children… &quot;Licensed… Map             
-##  5 Municip… 57b228… Busines… &lt;NA&gt;          Municipa… &quot;Some bus… Document        
-##  6 Municip… 5da2e2… City go… Affordable h… Municipa… &quot;This dat… Document        
-##  7 Buildin… 8219e9… Develop… &lt;NA&gt;          Toronto … &quot;Provides… Document        
-##  8 Buildin… 108c2b… Develop… Affordable h… Toronto … &quot;Provides… Document        
-##  9 Address… abedd8… Locatio… Mobility      Informat… &quot;This dat… Document        
-## 10 Propert… 1acaa8… Locatio… Mobility      Informat… &quot;This dat… Document        
+##    title    id      topics    civic_issues  publisher excerpt   dataset_category
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;           
+##  1 Apartme… 4ef827… Location… Affordable h… Municipa… &quot;This da… Table           
+##  2 Address… abedd8… Location… Mobility      Informat… &quot;This da… Document        
+##  3 Propert… 1acaa8… Location… Mobility      Informat… &quot;This da… Document        
+##  4 Lobbyis… 6a87b8… City gov… &lt;NA&gt;          Lobbyist… &quot;The Lob… Document        
+##  5 Toronto… 1d0797… City gov… Mobility      Informat… &quot;Linear … Map             
+##  6 Municip… 5da2e2… City gov… Affordable h… Municipa… &quot;This da… Document        
+##  7 Buildin… 8219e9… Developm… &lt;NA&gt;          Toronto … &quot;Provide… Document        
+##  8 Buildin… 108c2b… Developm… Affordable h… Toronto … &quot;Provide… Document        
+##  9 License… 059d37… Communit… &lt;NA&gt;          Children… &quot;License… Map             
+## 10 EarlyON… 261962… Communit… Poverty redu… Children… &quot;EarlyON… Map             
 ## # … with 402 more rows, and 4 more variables: num_resources &lt;int&gt;,
 ## #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;, last_refreshed &lt;date&gt;</code></pre>
 <p>We’ll download the data on TTC subway delays in 2019. There are multiple files for 2019 so we need to get them all and then make them into one big dataframe.</p>

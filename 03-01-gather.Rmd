@@ -343,7 +343,7 @@ What we need from here is a 'Client ID' and you can just fill out some basic det
 
 These are things that you want to keep to yourself. There are a variety of ways of keeping this secret, (and my understanding is that a helpful package is on its way) but we'll keep them in our System Environment. In this way, when we push to GitHub they won't be included. To do this we need to be careful about the naming, because `spotifyr` will look in our environment for specifically named keys. 
 
-To do this we are going to use the `usethis` package @citeusethis. If you don't have that then please install it. There is a file called '.Renviron' which we will open and add our secrets to. This file also controls things like your default library location and more information is available at @renvironrstudio and @whattheyforgot. 
+To do this we are going to use the `usethis` package [@citeusethis]. If you don't have that then please install it. There is a file called '.Renviron' which we will open and add our secrets to. This file also controls things like your default library location and more information is available at @renvironrstudio and @whattheyforgot. 
 
 ```{r, eval = FALSE}
 usethis::edit_r_environ() 

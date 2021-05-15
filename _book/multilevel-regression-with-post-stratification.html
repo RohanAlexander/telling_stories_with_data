@@ -73,7 +73,7 @@
 <script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
 <link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
 <script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
-<script src="libs/arc-1.0.0/arc.js"></script>
+<script src="libs/scatterplot-1.0.0/scatterplot.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
@@ -850,7 +850,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>[The Presidential election of] 2016 was the largest analytics failure in US political history.</p>
 <p>David Shor, 13 August 2020</p>
 </blockquote>
-<p>Multilevel regression with post-stratification (MRP) is a popular way to adjust non-representative samples to better analyse opinion and other survey responses.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> It uses a regression model to relate individual-level survey responses to various characteristics and then rebuilds the sample to better match the population. In this way MRP can not only allow a better understanding of responses, but also allow us to analyse data that may otherwise be unusable. However, it can be a challenge to get started with MRP as the terminology may be unfamiliar, and the data requirements can be onerous.</p>
+<p>Multilevel regression with post-stratification (MRP) is a popular way to adjust non-representative samples to better analyse opinion and other survey responses.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> It uses a regression model to relate individual-level survey responses to various characteristics and then rebuilds the sample to better match the population. In this way MRP can not only allow a better understanding of responses, but also allow us to analyse data that may otherwise be unusable. However, it can be a challenge to get started with MRP as the terminology may be unfamiliar, and the data requirements can be onerous.</p>
 <p>Let’s say that we have a biased survey. Maybe we conducted a survey about computers at an academic seminar, so folks with post-graduate degrees are likely over-represented. We are nonetheless interested in making claims about the population. Let’s say that we found 37.5 per cent of our respondents prefer Macs. One way forward is to just ignore the bias and say that ‘37.5 per cent of people prefer Macs.’ Another way is to say, well 50 per cent of our respondents with a post-graduate degree prefer Macs, and of those without a post-graduate degree, 25 per cent prefer Macs. If we knew what proportion of the broader population has post-graduate degree, let’s assume 10 per cent, then we could conduct re-weighting, or post-stratification, as follows: <span class="math inline">\(0.5 * 0.1 + 0.25 * 0.9 = 0.275\)</span>, and so our estimate is that 27.5 per cent of people prefer Macs. MRP is a third approach, and uses a model to help do that re-weighting. So we use logistic regression to estimate the relationship between preferring Macs and highest educational attainment in our survey. We then apply that relationship to population dataset.</p>
 <p>MRP is a handy approach when dealing with survey data. <span class="citation"><a href="references-1.html#ref-hanretty2020" role="doc-biblioref">Hanretty</a> (<a href="references-1.html#ref-hanretty2020" role="doc-biblioref">2020</a>)</span> puts it well when he says ‘MRP is used because the alternatives are either very poor or very expensive.’ Essentially, it trains a model based on the survey, and then applies that trained model to another dataset. There are two main, related, advantages:</p>
 <ol style="list-style-type: decimal">
@@ -2399,7 +2399,7 @@ Log.Lik.
 <span id="cb731-10"><a href="multilevel-regression-with-post-stratification.html#cb731-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
 <span id="cb731-11"><a href="multilevel-regression-with-post-stratification.html#cb731-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="telling_stories_with_data_files/figure-html/unnamed-chunk-443-1.png" width="672" /></p>
-<p>Similarly, we may like to plot the distribution of the coefficients.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>Similarly, we may like to plot the distribution of the coefficients.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 <div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="multilevel-regression-with-post-stratification.html#cb732-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tidybayes::get_variables(improved_alp_support)</span></span>
 <span id="cb732-2"><a href="multilevel-regression-with-post-stratification.html#cb732-2" aria-hidden="true" tabindex="-1"></a><span class="co"># improved_alp_support %&gt;%</span></span>
 <span id="cb732-3"><a href="multilevel-regression-with-post-stratification.html#cb732-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   gather_draws(genderMale) %&gt;%</span></span>
@@ -2430,7 +2430,7 @@ Log.Lik.
 </div>
 <div id="forecasting-the-2020-us-election" class="section level2" number="16.5">
 <h2><span class="header-section-number">16.5</span> Forecasting the 2020 US election</h2>
-<p>The US election has a lot of features that are unique to the US, but the model that we are going to build here is going to be fairly generic and, largely a generalization of the earlier model for the Australian election. One good thing about forecasting the US election is that there is a lot of data around. In this case we can use survey data from the <a href="https://www.voterstudygroup.org">Democracy Fund Voter Study Group</a>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> They conducted polling in the lead-up to the US election and make this publicly available after registration. We will use the Integrated Public Use Microdata Series (IPUMS), to access the 2018 American Community Survey (ACS) as a post-stratification dataset. We will use state, age-group, gender, and education as explanatory variables.</p>
+<p>The US election has a lot of features that are unique to the US, but the model that we are going to build here is going to be fairly generic and, largely a generalization of the earlier model for the Australian election. One good thing about forecasting the US election is that there is a lot of data around. In this case we can use survey data from the <a href="https://www.voterstudygroup.org">Democracy Fund Voter Study Group</a>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> They conducted polling in the lead-up to the US election and make this publicly available after registration. We will use the Integrated Public Use Microdata Series (IPUMS), to access the 2018 American Community Survey (ACS) as a post-stratification dataset. We will use state, age-group, gender, and education as explanatory variables.</p>
 <div id="survey-data" class="section level3" number="16.5.1">
 <h3><span class="header-section-number">16.5.1</span> Survey data</h3>
 <p>The first step is that we need to actually get the survey data. Go to their website:<a href="https://www.voterstudygroup.org" class="uri">https://www.voterstudygroup.org</a> and then you’re looking for ‘Nationscape’ and then a button along the lines of ‘Get the latest Nationscape data.’ To get the dataset, you need to fill out a form, which they will process and then email you. There is a real person on the other side of this form, and so your request could take a few days.</p>
@@ -3377,10 +3377,10 @@ pss
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>I’d like to acknowledge and thank Lauren Kennedy and <a href="https://www.monicaalexander.com">Monica Alexander</a>, through whose generous sharing of code, data, and countless conversations my thoughts about MRP have developed.<a href="multilevel-regression-with-post-stratification.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>You can work out which coefficients to be pass to gather_draws by using tidybayes::get_variables(model). (In this example I passed ‘b_.’ but the ones of interest to you may be different.)<a href="multilevel-regression-with-post-stratification.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>I thank <a href="http://www.chriswarshaw.com">Chris Warshaw</a> for putting me onto this dataset.<a href="multilevel-regression-with-post-stratification.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>I’d like to acknowledge and thank Lauren Kennedy and <a href="https://www.monicaalexander.com">Monica Alexander</a>, through whose generous sharing of code, data, and countless conversations my thoughts about MRP have developed.<a href="multilevel-regression-with-post-stratification.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>You can work out which coefficients to be pass to gather_draws by using tidybayes::get_variables(model). (In this example I passed ‘b_.’ but the ones of interest to you may be different.)<a href="multilevel-regression-with-post-stratification.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>I thank <a href="http://www.chriswarshaw.com">Chris Warshaw</a> for putting me onto this dataset.<a href="multilevel-regression-with-post-stratification.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

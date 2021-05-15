@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - Bronner, Laura, 2020, 'Quant Editing', http://www.laurabronner.com/quant-editing. (Read these points and evaluate your own writing against them. It's fine to not comply with them if you have a good reason, but you need to know that you're not complying with them).
 - Girouard, Dave, 2020, 'A Founder's Guide to Writing Well', First Round Review, 4 August, https://firstround.com/review/a-founders-guide-to-writing-well/.
 - Graham, Paul, 2020, 'How to Write Usefully', http://paulgraham.com/useful.html. (Graham is good at writing for a programmer, but if you have a similar background then you may like this.)
-- Healy, Kieran, 2019, *Data Visualization: A Practical Introduction*, Princeton University Press, Chapters 3 and 4, https://socviz.co/.
+- Healy, Kieran, 2019, *Data Visualization: A Practical Introduction*, Princeton University Press, Chapters 3, 4, and 7, https://socviz.co/.
 - Hodgetts, Paul, 2020, 'The ggfortify Package', 31 December, https://www.hodgettsp.com/posts/r-ggfortify/. 
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 28, https://r4ds.had.co.nz/.
 - Zinsser, William, 1976 [2016], *On Writing Well*. (Any edition is fine. This book is included because if you're serious about improving your writing then you should start with this book. It only takes a few hours to read. You'll go onto other books, but start with this one.)

@@ -73,7 +73,7 @@
 <script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
 <link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet" />
 <script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
-<script src="libs/arc-1.0.0/arc.js"></script>
+<script src="libs/scatterplot-1.0.0/scatterplot.js"></script>
 <script src="libs/viz-1.8.2/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
@@ -894,7 +894,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>[a]n API is the tool that makes a website’s data digestible for a computer. Through it, a computer can view and edit data, just like a person can by loading pages and submitting forms.</p>
 <p><span class="citation"><a href="references-1.html#ref-zapierapis" role="doc-biblioref">Cooksey</a> (<a href="references-1.html#ref-zapierapis" role="doc-biblioref">2014</a>)</span>, Chapter 1.</p>
 </blockquote>
-<p>For instance, you could go to <a href="https://www.google.ca/maps">Google Maps</a> and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: <a href="https://www.google.ca/maps/@-35.2812958,149.1248113,16z" class="uri">https://www.google.ca/maps/@-35.2812958,149.1248113,16z</a>. You just used the Google Maps API.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> The result should be a map that looks something like Figure <a href="gather-data.html#fig:focuson2020">7.1</a> .</p>
+<p>For instance, you could go to <a href="https://www.google.ca/maps">Google Maps</a> and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: <a href="https://www.google.ca/maps/@-35.2812958,149.1248113,16z" class="uri">https://www.google.ca/maps/@-35.2812958,149.1248113,16z</a>. You just used the Google Maps API.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> The result should be a map that looks something like Figure <a href="gather-data.html#fig:focuson2020">7.1</a> .</p>
 <div class="figure"><span id="fig:focuson2020"></span>
 <img src="figures/googlemaps.png" alt="Example of Google Maps, as at 25 January 2021." width="90%" />
 <p class="caption">
@@ -906,7 +906,7 @@ Figure 7.1: Example of Google Maps, as at 25 January 2021.
 </div>
 <div id="case-study---arxiv" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Case study - arXiv</h2>
-<p>In this section we introduce GET requests in which we use an API directly. We will use the <code>httr</code> package <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019a</a>)</span>. A GET request tries to obtain some specific data and the main argument is <code>url</code>. Exactly as before with the Google Maps example! In that case, the specific information was a map and some information about it.</p>
+<p>In this section we introduce GET requests in which we use an API directly. We will use the <code>httr</code> package <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019b</a>)</span>. A GET request tries to obtain some specific data and the main argument is <code>url</code>. Exactly as before with the Google Maps example! In that case, the specific information was a map and some information about it.</p>
 <p>For this example we’ll look at <a href="https://arxiv.org">arXiv</a>, which is a repository for academic articles before they go through peer-review. I’ll ask arXiv to return some information about a paper that I recently uploaded with a former student. The content that is returned will be a series of information about that paper.</p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="gather-data.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&#39;httr&#39;)</span></span>
 <span id="cb230-2"><a href="gather-data.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
@@ -920,7 +920,7 @@ Figure 7.1: Example of Google Maps, as at 25 January 2021.
 ##   &lt;link href=&quot;http://arxiv.org/api/query?search_query%3D%26id_list%3D2101.05225%26start%3D0%26max_results%3D10&quot; rel=&quot;self&quot; type=&quot;application/atom+xml&quot;/&gt;
 ##   &lt;title type=&quot;html&quot;&gt;ArXiv Query: search_query=&amp;amp;id_list=2101.05225&amp;amp;start=0&amp;amp;max_results=10&lt;/title&gt;
 ##   &lt;id&gt;http://arxiv.org/api/p9UZyl2Vt0cHwPSKinDSThE23qI&lt;/id&gt;
-##   &lt;updated&gt;2021-05-11T00:00:00-04:00&lt;/updated&gt;
+##   &lt;updated&gt;2021-05-14T00:00:00-04:00&lt;/updated&gt;
 ##   &lt;opensearch:totalResults xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;1&lt;/opensearch:totalResults&gt;
 ##   &lt;opensearch:startIndex xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;0&lt;/opensearch:startIndex&gt;
 ##   &lt;opensearch:itemsPerPage xmlns:opensearch=&quot;http://a9.com/-/spec/opensearch/1.1/&quot;&gt;10&lt;/opensearch:itemsPerPage&gt;
@@ -1068,7 +1068,7 @@ Figure 7.3: rtweet authorisation page
 </div>
 <p>What we need from here is a ‘Client ID’ and you can just fill out some basic details. In our case we probably ‘don’t know’ what we’re building, which means that Spotify requires us to use a non-commercial agreement, which is fine. In order to use the Spotify API we need a Client ID and a Client Secret.</p>
 <p>These are things that you want to keep to yourself. There are a variety of ways of keeping this secret, (and my understanding is that a helpful package is on its way) but we’ll keep them in our System Environment. In this way, when we push to GitHub they won’t be included. To do this we need to be careful about the naming, because <code>spotifyr</code> will look in our environment for specifically named keys.</p>
-<p>To do this we are going to use the <code>usethis</code> package <span class="citation"><a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan</a> (<a href="references-1.html#ref-citeusethis" role="doc-biblioref">2020</a>)</span>. If you don’t have that then please install it. There is a file called ‘.Renviron’ which we will open and add our secrets to. This file also controls things like your default library location and more information is available at <span class="citation"><a href="references-1.html#ref-renvironrstudio" role="doc-biblioref">Lopp</a> (<a href="references-1.html#ref-renvironrstudio" role="doc-biblioref">2017</a>)</span> and <span class="citation"><a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester</a> (<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">2020</a>)</span>.</p>
+<p>To do this we are going to use the <code>usethis</code> package <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span>. If you don’t have that then please install it. There is a file called ‘.Renviron’ which we will open and add our secrets to. This file also controls things like your default library location and more information is available at <span class="citation"><a href="references-1.html#ref-renvironrstudio" role="doc-biblioref">Lopp</a> (<a href="references-1.html#ref-renvironrstudio" role="doc-biblioref">2017</a>)</span> and <span class="citation"><a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester</a> (<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">2020</a>)</span>.</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="gather-data.html#cb245-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>() </span></code></pre></div>
 <p>When you run that function it will open a file. There you can add your Spotify secrets.</p>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="gather-data.html#cb246-1" aria-hidden="true" tabindex="-1"></a>SPOTIFY_CLIENT_ID <span class="ot">=</span> <span class="st">&#39;PUT_YOUR_CLIENT_ID_HERE&#39;</span></span>
@@ -1212,7 +1212,7 @@ Figure 7.3: rtweet authorisation page
 <p>When scraping we will search for these tags.</p>
 <p>To get started, this is some HTML/CSS from my website. Let’s say that we want to grab my name from it. We can see that the name is in bold, so we want to probably focus on that feature and extract it.</p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="gather-data.html#cb260-1" aria-hidden="true" tabindex="-1"></a>website_extract <span class="ot">&lt;-</span> <span class="st">&quot;&lt;p&gt;Hi, I’m &lt;b&gt;Rohan&lt;/b&gt; Alexander.&lt;/p&gt;&quot;</span></span></code></pre></div>
-<p>We will use the <code>rvest</code> package <span class="citation"><a href="references-1.html#ref-citervest" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-citervest" role="doc-biblioref">2019b</a>)</span>.</p>
+<p>We will use the <code>rvest</code> package <span class="citation"><a href="references-1.html#ref-citervest" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-citervest" role="doc-biblioref">2019c</a>)</span>.</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="gather-data.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;rvest&quot;)</span></span>
 <span id="cb261-2"><a href="gather-data.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
 <span id="cb261-3"><a href="gather-data.html#cb261-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1456,12 +1456,12 @@ Figure 7.6: Source code for list
 <pre><code>## # A tibble: 6 x 4
 ##   prime_minister birth_year death_year years_lived
 ##   &lt;chr&gt;               &lt;int&gt;      &lt;int&gt;       &lt;int&gt;
-## 1 Barbara              1714       1789          75
-## 2 Scott                1721       1802          81
-## 3 Marilyn              1726       1799          73
-## 4 Gregory              1737       1800          63
-## 5 Judy                 1748       1816          68
-## 6 Jessica              1759       1828          69</code></pre>
+## 1 Nicholas             1745       1828          83
+## 2 Joseph               1759       1814          55
+## 3 Sandra               1788       1841          53
+## 4 Donna                1807       1872          65
+## 5 Alexis               1814       1908          94
+## 6 Jason                1879       1962          83</code></pre>
 <p>One of the advantages of generating a simulated dataset is that if you are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we want something like Figure <a href="gather-data.html#fig:pmsgraphexample">7.7</a>.</p>
 <div class="figure"><span id="fig:pmsgraphexample"></span>
 <img src="figures/IMG_4185.jpeg" alt="Sketch of planned graph." width="90%" />
@@ -1714,7 +1714,7 @@ Figure 7.10: First few paragraphs of Jane Eyre
 <h2><span class="header-section-number">7.9</span> Case-study: US Total Fertility Rate, by state and year (2000-2018)</h2>
 <div id="introduction-10" class="section level3" number="7.9.1">
 <h3><span class="header-section-number">7.9.1</span> Introduction</h3>
-<p>If you’re married to a demographer it is not too long until you are asked to look at a US Department of Health and Human Services Vital Statistics Report. In this case we are interested in trying to get the total fertility rate (the average number of births per woman assuming that woman experience the current age-specific fertility rates throughout their reproductive years)<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> for each state for nineteen years. Annoyingly, the US persists in only making this data available in PDFs, but it makes a nice case study.</p>
+<p>If you’re married to a demographer it is not too long until you are asked to look at a US Department of Health and Human Services Vital Statistics Report. In this case we are interested in trying to get the total fertility rate (the average number of births per woman assuming that woman experience the current age-specific fertility rates throughout their reproductive years)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> for each state for nineteen years. Annoyingly, the US persists in only making this data available in PDFs, but it makes a nice case study.</p>
 <p>In the case of the year 2000 the table that we are interested in is on page 40 of a PDF that is available <a href="https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf" class="uri">https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf</a> and it is the column labelled: “Total fertility rate” (Figure <a href="gather-data.html#fig:dhsexample">7.11</a>).</p>
 <div class="figure"><span id="fig:dhsexample"></span>
 <img src="figures/dhs_example.png" alt="Example Vital Statistics Report, from 2000" width="90%" />
@@ -1746,7 +1746,7 @@ Figure 7.12: Desired output from the PDF
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#skmcfbdfyb .gt_table {
+#mgrgwnxkwe .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1771,7 +1771,7 @@ Figure 7.12: Desired output from the PDF
   border-left-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_heading {
+#mgrgwnxkwe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1783,7 +1783,7 @@ Figure 7.12: Desired output from the PDF
   border-right-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_title {
+#mgrgwnxkwe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1793,7 +1793,7 @@ Figure 7.12: Desired output from the PDF
   border-bottom-width: 0;
 }
 
-#skmcfbdfyb .gt_subtitle {
+#mgrgwnxkwe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1803,13 +1803,13 @@ Figure 7.12: Desired output from the PDF
   border-top-width: 0;
 }
 
-#skmcfbdfyb .gt_bottom_border {
+#mgrgwnxkwe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_col_headings {
+#mgrgwnxkwe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1824,7 +1824,7 @@ Figure 7.12: Desired output from the PDF
   border-right-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_col_heading {
+#mgrgwnxkwe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1844,7 +1844,7 @@ Figure 7.12: Desired output from the PDF
   overflow-x: hidden;
 }
 
-#skmcfbdfyb .gt_column_spanner_outer {
+#mgrgwnxkwe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1856,15 +1856,15 @@ Figure 7.12: Desired output from the PDF
   padding-right: 4px;
 }
 
-#skmcfbdfyb .gt_column_spanner_outer:first-child {
+#mgrgwnxkwe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#skmcfbdfyb .gt_column_spanner_outer:last-child {
+#mgrgwnxkwe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#skmcfbdfyb .gt_column_spanner {
+#mgrgwnxkwe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1876,7 +1876,7 @@ Figure 7.12: Desired output from the PDF
   width: 100%;
 }
 
-#skmcfbdfyb .gt_group_heading {
+#mgrgwnxkwe .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1898,7 +1898,7 @@ Figure 7.12: Desired output from the PDF
   vertical-align: middle;
 }
 
-#skmcfbdfyb .gt_empty_group_heading {
+#mgrgwnxkwe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1913,15 +1913,15 @@ Figure 7.12: Desired output from the PDF
   vertical-align: middle;
 }
 
-#skmcfbdfyb .gt_from_md > :first-child {
+#mgrgwnxkwe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#skmcfbdfyb .gt_from_md > :last-child {
+#mgrgwnxkwe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#skmcfbdfyb .gt_row {
+#mgrgwnxkwe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1940,7 +1940,7 @@ Figure 7.12: Desired output from the PDF
   overflow-x: hidden;
 }
 
-#skmcfbdfyb .gt_stub {
+#mgrgwnxkwe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1952,7 +1952,7 @@ Figure 7.12: Desired output from the PDF
   padding-left: 12px;
 }
 
-#skmcfbdfyb .gt_summary_row {
+#mgrgwnxkwe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1962,7 +1962,7 @@ Figure 7.12: Desired output from the PDF
   padding-right: 5px;
 }
 
-#skmcfbdfyb .gt_first_summary_row {
+#mgrgwnxkwe .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1972,7 +1972,7 @@ Figure 7.12: Desired output from the PDF
   border-top-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_grand_summary_row {
+#mgrgwnxkwe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1982,7 +1982,7 @@ Figure 7.12: Desired output from the PDF
   padding-right: 5px;
 }
 
-#skmcfbdfyb .gt_first_grand_summary_row {
+#mgrgwnxkwe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1992,11 +1992,11 @@ Figure 7.12: Desired output from the PDF
   border-top-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_striped {
+#mgrgwnxkwe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#skmcfbdfyb .gt_table_body {
+#mgrgwnxkwe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2005,7 +2005,7 @@ Figure 7.12: Desired output from the PDF
   border-bottom-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_footnotes {
+#mgrgwnxkwe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2019,13 +2019,13 @@ Figure 7.12: Desired output from the PDF
   border-right-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_footnote {
+#mgrgwnxkwe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#skmcfbdfyb .gt_sourcenotes {
+#mgrgwnxkwe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2039,46 +2039,46 @@ Figure 7.12: Desired output from the PDF
   border-right-color: #D3D3D3;
 }
 
-#skmcfbdfyb .gt_sourcenote {
+#mgrgwnxkwe .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#skmcfbdfyb .gt_left {
+#mgrgwnxkwe .gt_left {
   text-align: left;
 }
 
-#skmcfbdfyb .gt_center {
+#mgrgwnxkwe .gt_center {
   text-align: center;
 }
 
-#skmcfbdfyb .gt_right {
+#mgrgwnxkwe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#skmcfbdfyb .gt_font_normal {
+#mgrgwnxkwe .gt_font_normal {
   font-weight: normal;
 }
 
-#skmcfbdfyb .gt_font_bold {
+#mgrgwnxkwe .gt_font_bold {
   font-weight: bold;
 }
 
-#skmcfbdfyb .gt_font_italic {
+#mgrgwnxkwe .gt_font_italic {
   font-style: italic;
 }
 
-#skmcfbdfyb .gt_super {
+#mgrgwnxkwe .gt_super {
   font-size: 65%;
 }
 
-#skmcfbdfyb .gt_footnote_marks {
+#mgrgwnxkwe .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="skmcfbdfyb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="mgrgwnxkwe" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -3267,9 +3267,9 @@ Figure 7.13: Scan of first page of Jane Eyre.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>There are at least six great coffee shops shown just in this section of map including: Mocan &amp; Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn’t classify as ‘great’ including: The Street Theatre Cafe; and the CBE Cafe.<a href="gather-data.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>And if you’d like to know more about this then I’d recommend starting a PhD with <a href="https://www.monicaalexander.com/">Monica Alexander</a>.<a href="gather-data.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="5">
+<li id="fn5"><p>There are at least six great coffee shops shown just in this section of map including: Mocan &amp; Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn’t classify as ‘great’ including: The Street Theatre Cafe; and the CBE Cafe.<a href="gather-data.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>And if you’d like to know more about this then I’d recommend starting a PhD with <a href="https://www.monicaalexander.com/">Monica Alexander</a>.<a href="gather-data.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

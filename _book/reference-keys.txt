@@ -34,6 +34,7 @@ fig:distillfour
 fig:blogdownone
 fig:blogdowntwo
 fig:blogdownthree
+fig:shinyone
 fig:focuson2020
 fig:rtweetlogin
 fig:spotifyaccept
@@ -210,7 +211,6 @@ distill
 blogdown
 interactive-maps
 leaflet
-covid-19
 mapdeck
 shiny
 gather-data
