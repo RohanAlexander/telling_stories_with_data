@@ -1,5 +1,5 @@
 ---
-date: May 17, 2020
+date: May 16, 2020
 bibliography: bibliography.bib
 output:
   pdf_document:
@@ -10,7 +10,7 @@ output:
 
 # Storing and retrieving data
 
-*Last updated: 30 January 2021.*
+*Last updated: 16 May 2021.*
 
 **Required reading**
 
@@ -33,4 +33,7 @@ output:
 
 
 **Quiz**
+
+
+<!-- Lee, Benjamin, 2018, 'Ten simple rules for documenting scientific software' -->
 
