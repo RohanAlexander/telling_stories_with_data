@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 20 Deploying models | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 20 Deploying models | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="/tellingstorieswithdatapainting.png" />
   <meta property="og:description" content="This book is about learning how to tell stories with data." />
-  <meta name="github-repo" content="yihui/bookdown-crc" />
+  <meta name="github-repo" content="RohanAlexander/telling_stories_with_data" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 20 Deploying models | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
-  
+  <meta name="twitter:image" content="/tellingstorieswithdatapainting.png" />
 
 <meta name="author" content="Rohan Alexander" />
 
@@ -32,9 +32,9 @@
   
   
 <link rel="prev" href="using-the-cloud.html"/>
-<link rel="next" href="data-efficiency.html"/>
+<link rel="next" href="efficiency.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -85,6 +85,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -187,23 +188,24 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#audience-and-assumed-background"><i class="fa fa-check"></i>Audience and assumed background</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pedagogy"><i class="fa fa-check"></i>Pedagogy</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-and-content"><i class="fa fa-check"></i>Structure and content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pedagogy-and-key-features"><i class="fa fa-check"></i>Pedagogy and key features</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information-and-conventions"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="part"><span><b>I Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html"><i class="fa fa-check"></i><b>1</b> Telling Stories with Data</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#on-telling-stories"><i class="fa fa-check"></i><b>1.1</b> On telling stories</a></li>
 <li class="chapter" data-level="1.2" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#telling-stories-with-data-1"><i class="fa fa-check"></i><b>1.2</b> Telling stories with data</a></li>
-<li class="chapter" data-level="1.3" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#how-do-our-worlds-become-data"><i class="fa fa-check"></i><b>1.3</b> How do our worlds become data?</a></li>
-<li class="chapter" data-level="1.4" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#what-is-data-and-how-should-we-use-it-to-learn-about-the-world"><i class="fa fa-check"></i><b>1.4</b> What is data and how should we use it to learn about the world</a></li>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises-and-tutorial"><i class="fa fa-check"></i>Exercises and tutorial</a>
+<li class="chapter" data-level="1.3" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#workflow-components"><i class="fa fa-check"></i><b>1.3</b> Workflow components</a></li>
+<li class="chapter" data-level="1.4" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#how-do-our-worlds-become-data"><i class="fa fa-check"></i><b>1.4</b> How do our worlds become data?</a></li>
+<li class="chapter" data-level="1.5" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#what-is-data-science-and-how-should-we-use-it-to-learn-about-the-world"><i class="fa fa-check"></i><b>1.5</b> What is data science and how should we use it to learn about the world</a></li>
+<li class="chapter" data-level="1.6" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises-and-tutorial"><i class="fa fa-check"></i><b>1.6</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#tutorial"><i class="fa fa-check"></i>Tutorial</a></li>
+<li class="chapter" data-level="1.6.1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises"><i class="fa fa-check"></i><b>1.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="1.6.2" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#tutorial"><i class="fa fa-check"></i><b>1.6.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
@@ -222,6 +224,11 @@ div.csl-indent {
 <li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#exercises-and-tutorial-1"><i class="fa fa-check"></i><b>2.4</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#exercises-1"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="2.4.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#tutorial-1"><i class="fa fa-check"></i><b>2.4.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
@@ -267,6 +274,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
 <li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
 </ul></li>
+<li class="chapter" data-level="3.8" data-path="r-essentials.html"><a href="r-essentials.html#exercises-and-tutorial-2"><i class="fa fa-check"></i><b>3.8</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="r-essentials.html"><a href="r-essentials.html#exercises-2"><i class="fa fa-check"></i><b>3.8.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.8.2" data-path="r-essentials.html"><a href="r-essentials.html#tutorial-2"><i class="fa fa-check"></i><b>3.8.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
 <ul>
@@ -298,11 +310,28 @@ div.csl-indent {
 <li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+<li class="chapter" data-level="4.7" data-path="workflow.html"><a href="workflow.html#exercises-and-tutorial-3"><i class="fa fa-check"></i><b>4.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="workflow.html"><a href="workflow.html#exercises-3"><i class="fa fa-check"></i><b>4.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="4.7.2" data-path="workflow.html"><a href="workflow.html#tutorial-3"><i class="fa fa-check"></i><b>4.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Communication</b></span></li>
 <li class="chapter" data-level="5" data-path="on-writing.html"><a href="on-writing.html"><i class="fa fa-check"></i><b>5</b> On writing</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="on-writing.html"><a href="on-writing.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="on-writing.html"><a href="on-writing.html#writing"><i class="fa fa-check"></i><b>5.2</b> Writing</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="on-writing.html"><a href="on-writing.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.2.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.2.2" data-path="on-writing.html"><a href="on-writing.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.2.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.2.3" data-path="on-writing.html"><a href="on-writing.html#on-brevity"><i class="fa fa-check"></i><b>5.2.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.2.4" data-path="on-writing.html"><a href="on-writing.html#other"><i class="fa fa-check"></i><b>5.2.4</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="on-writing.html"><a href="on-writing.html#exercises-and-tutorial-4"><i class="fa fa-check"></i><b>5.3</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="on-writing.html"><a href="on-writing.html#exercises-4"><i class="fa fa-check"></i><b>5.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.3.2" data-path="on-writing.html"><a href="on-writing.html#tutorial-4"><i class="fa fa-check"></i><b>5.3.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>6</b> Static communication</a>
 <ul>
@@ -312,7 +341,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>6.2.1</b> Bar chart</a></li>
 <li class="chapter" data-level="6.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>6.2.2</b> Scatter plot</a></li>
 <li class="chapter" data-level="6.2.3" data-path="static-communication.html"><a href="static-communication.html#never-use-box-plots"><i class="fa fa-check"></i><b>6.2.3</b> Never use box plots</a></li>
-<li class="chapter" data-level="6.2.4" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>6.2.4</b> Other</a></li>
+<li class="chapter" data-level="6.2.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>6.2.4</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>6.3</b> Tables</a></li>
 <li class="chapter" data-level="6.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>6.4</b> Maps</a>
@@ -321,12 +350,10 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>6.4.2</b> Toronto bike parking</a></li>
 <li class="chapter" data-level="6.4.3" data-path="static-communication.html"><a href="static-communication.html#geocoding"><i class="fa fa-check"></i><b>6.4.3</b> Geocoding</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>6.5</b> Writing</a>
+<li class="chapter" data-level="6.5" data-path="static-communication.html"><a href="static-communication.html#exercises-and-tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>6.5.1</b> Title, abstract, and introduction</a></li>
-<li class="chapter" data-level="6.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>6.5.2</b> Figures, tables, equations, and technical terms</a></li>
-<li class="chapter" data-level="6.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>6.5.3</b> On brevity</a></li>
-<li class="chapter" data-level="6.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>6.5.4</b> Other</a></li>
+<li class="chapter" data-level="6.5.1" data-path="static-communication.html"><a href="static-communication.html#exercises-5"><i class="fa fa-check"></i><b>6.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="6.5.2" data-path="static-communication.html"><a href="static-communication.html#tutorial-5"><i class="fa fa-check"></i><b>6.5.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>7</b> Interactive communication</a>
@@ -344,8 +371,13 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.2" data-path="interactive-communication.html"><a href="interactive-communication.html#mapdeck"><i class="fa fa-check"></i><b>7.2.2</b> Mapdeck</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>7.3</b> Shiny</a></li>
+<li class="chapter" data-level="7.4" data-path="interactive-communication.html"><a href="interactive-communication.html#exercises-and-tutorial-6"><i class="fa fa-check"></i><b>7.4</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="interactive-communication.html"><a href="interactive-communication.html#exercises-6"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.4.2" data-path="interactive-communication.html"><a href="interactive-communication.html#tutorial-6"><i class="fa fa-check"></i><b>7.4.2</b> Tutorial</a></li>
 </ul></li>
-<li class="part"><span><b>III Acquisition</b></span></li>
+</ul></li>
+<li class="part"><span><b>III Measure and acquire</b></span></li>
 <li class="chapter" data-level="8" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>8</b> Gather data</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>8.1</b> APIs</a></li>
@@ -383,14 +415,9 @@ div.csl-indent {
 <li class="chapter" data-level="8.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>8.9.3</b> Start simple, then iterate.</a></li>
 <li class="chapter" data-level="8.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>8.9.4</b> Iterating</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>8.10</b> Case-study: Kenyan census data</a>
+<li class="chapter" data-level="8.10" data-path="gather-data.html"><a href="gather-data.html#semi-structured"><i class="fa fa-check"></i><b>8.10</b> Semi-structured</a>
 <ul>
-<li class="chapter" data-level="8.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>8.10.1</b> Set-up</a></li>
-<li class="chapter" data-level="8.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>8.10.2</b> Extract</a></li>
-<li class="chapter" data-level="8.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>8.10.3</b> Clean</a></li>
-<li class="chapter" data-level="8.10.4" data-path="gather-data.html"><a href="gather-data.html#check"><i class="fa fa-check"></i><b>8.10.4</b> Check</a></li>
-<li class="chapter" data-level="8.10.5" data-path="gather-data.html"><a href="gather-data.html#tidy-up"><i class="fa fa-check"></i><b>8.10.5</b> Tidy-up</a></li>
-<li class="chapter" data-level="8.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>8.10.6</b> Make Monica’s dataset</a></li>
+<li class="chapter" data-level="8.10.1" data-path="gather-data.html"><a href="gather-data.html#json-and-xml"><i class="fa fa-check"></i><b>8.10.1</b> JSON and XML</a></li>
 </ul></li>
 <li class="chapter" data-level="8.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>8.11</b> Optical Character Recognition</a></li>
 <li class="chapter" data-level="8.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>8.12</b> Text</a>
@@ -398,6 +425,11 @@ div.csl-indent {
 <li class="chapter" data-level="8.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>8.12.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>8.12.2</b> Getting text data</a></li>
 <li class="chapter" data-level="8.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>8.12.3</b> Preparing text datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.13" data-path="gather-data.html"><a href="gather-data.html#exercises-and-tutorial-7"><i class="fa fa-check"></i><b>8.13</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="gather-data.html"><a href="gather-data.html#exercises-7"><i class="fa fa-check"></i><b>8.13.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.13.2" data-path="gather-data.html"><a href="gather-data.html#tutorial-7"><i class="fa fa-check"></i><b>8.13.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>9</b> Hunt data</a>
@@ -412,26 +444,26 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="hunt-data.html"><a href="hunt-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>9.2</b> Case study - Fisher’s tea party</a></li>
 <li class="chapter" data-level="9.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>9.3</b> Case study - Tuskegee Syphilis Study</a></li>
-<li class="chapter" data-level="9.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>9.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
-<li class="chapter" data-level="9.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>9.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
-<li class="chapter" data-level="9.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>9.6</b> Case study - Civic Honesty Around The Globe</a></li>
-<li class="chapter" data-level="9.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>9.7</b> A/B testing</a>
+<li class="chapter" data-level="9.4" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>9.4</b> Sampling and survey essentials</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>9.7.1</b> Introduction</a></li>
-<li class="chapter" data-level="9.7.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>9.7.2</b> Delivery</a></li>
-<li class="chapter" data-level="9.7.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>9.7.3</b> Instrumentation</a></li>
-<li class="chapter" data-level="9.7.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>9.7.4</b> Randomisation unit</a></li>
-<li class="chapter" data-level="9.7.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>9.7.5</b> Partnerships</a></li>
-<li class="chapter" data-level="9.7.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>9.7.6</b> Speed vs quality</a></li>
-<li class="chapter" data-level="9.7.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>9.7.7</b> Conflicting priorities</a></li>
+<li class="chapter" data-level="9.4.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>9.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.4.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>9.4.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="9.4.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>9.4.3</b> Stratified and cluster sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>9.8</b> Case study - Upworthy</a></li>
-<li class="chapter" data-level="9.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>9.9</b> Sampling and survey essentials</a>
+<li class="chapter" data-level="9.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>9.5</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="9.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>9.6</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
+<li class="chapter" data-level="9.7" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>9.7</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="9.8" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>9.8</b> A/B testing</a>
 <ul>
-<li class="chapter" data-level="9.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>9.9.1</b> Introduction</a></li>
-<li class="chapter" data-level="9.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>9.9.2</b> Simple random sampling</a></li>
-<li class="chapter" data-level="9.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>9.9.3</b> Stratified and cluster sampling</a></li>
+<li class="chapter" data-level="9.8.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>9.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.8.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>9.8.2</b> Delivery</a></li>
+<li class="chapter" data-level="9.8.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>9.8.3</b> Instrumentation</a></li>
+<li class="chapter" data-level="9.8.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>9.8.4</b> Randomisation unit</a></li>
+<li class="chapter" data-level="9.8.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>9.8.5</b> Partnerships</a></li>
+<li class="chapter" data-level="9.8.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>9.8.6</b> Speed vs quality</a></li>
+<li class="chapter" data-level="9.8.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>9.8.7</b> Conflicting priorities</a></li>
 </ul></li>
+<li class="chapter" data-level="9.9" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>9.9</b> Case study - Upworthy</a></li>
 <li class="chapter" data-level="9.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>9.10</b> Implementing surveys</a>
 <ul>
 <li class="chapter" data-level="9.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>9.10.1</b> Google</a></li>
@@ -443,6 +475,11 @@ div.csl-indent {
 <li class="chapter" data-level="9.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>9.10.7</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="9.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>9.11</b> Next steps</a></li>
+<li class="chapter" data-level="9.12" data-path="hunt-data.html"><a href="hunt-data.html#exercises-and-tutorial-8"><i class="fa fa-check"></i><b>9.12</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="9.12.1" data-path="hunt-data.html"><a href="hunt-data.html#exercises-8"><i class="fa fa-check"></i><b>9.12.1</b> Exercises</a></li>
+<li class="chapter" data-level="9.12.2" data-path="hunt-data.html"><a href="hunt-data.html#tutorial-8"><i class="fa fa-check"></i><b>9.12.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>10</b> Farm data</a>
 <ul>
@@ -470,21 +507,58 @@ div.csl-indent {
 <li class="chapter" data-level="10.5.3" data-path="farm-data.html"><a href="farm-data.html#cces"><i class="fa fa-check"></i><b>10.5.3</b> CCES</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="farm-data.html"><a href="farm-data.html#other-3"><i class="fa fa-check"></i><b>10.6</b> Other</a></li>
+<li class="chapter" data-level="10.7" data-path="farm-data.html"><a href="farm-data.html#exercises-and-tutorial-9"><i class="fa fa-check"></i><b>10.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="farm-data.html"><a href="farm-data.html#exercises-9"><i class="fa fa-check"></i><b>10.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="10.7.2" data-path="farm-data.html"><a href="farm-data.html#tutorial-9"><i class="fa fa-check"></i><b>10.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Preparation</b></span></li>
 <li class="chapter" data-level="11" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>11</b> Cleaning and preparing data</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#introduction-15"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
-<li class="chapter" data-level="11.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#workflow-1"><i class="fa fa-check"></i><b>11.2</b> Workflow</a></li>
-<li class="chapter" data-level="11.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#checks-and-tests"><i class="fa fa-check"></i><b>11.3</b> Checks and tests</a></li>
-<li class="chapter" data-level="11.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#naming-things"><i class="fa fa-check"></i><b>11.4</b> Naming things</a></li>
-<li class="chapter" data-level="11.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#documentation"><i class="fa fa-check"></i><b>11.5</b> Documentation</a></li>
-<li class="chapter" data-level="11.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#pipelines"><i class="fa fa-check"></i><b>11.6</b> Pipelines</a></li>
+<li class="chapter" data-level="11.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#workflow-1"><i class="fa fa-check"></i><b>11.2</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#save-a-copy-of-the-raw-data"><i class="fa fa-check"></i><b>11.2.1</b> Save a copy of the raw data</a></li>
+<li class="chapter" data-level="11.2.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#begin-with-an-end-in-mind-1"><i class="fa fa-check"></i><b>11.2.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="11.2.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#start-small"><i class="fa fa-check"></i><b>11.2.3</b> Start small</a></li>
+<li class="chapter" data-level="11.2.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#write-tests-and-documentation."><i class="fa fa-check"></i><b>11.2.4</b> Write tests and documentation.</a></li>
+<li class="chapter" data-level="11.2.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#iterate-generalize-and-update"><i class="fa fa-check"></i><b>11.2.5</b> Iterate, generalize and update</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#case-study---kenya-census"><i class="fa fa-check"></i><b>11.3</b> Case study - Kenya census</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#set-up"><i class="fa fa-check"></i><b>11.3.1</b> Set-up</a></li>
+<li class="chapter" data-level="11.3.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#extract"><i class="fa fa-check"></i><b>11.3.2</b> Extract</a></li>
+<li class="chapter" data-level="11.3.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#clean-2"><i class="fa fa-check"></i><b>11.3.3</b> Clean</a></li>
+<li class="chapter" data-level="11.3.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#check"><i class="fa fa-check"></i><b>11.3.4</b> Check</a></li>
+<li class="chapter" data-level="11.3.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#tidy-up"><i class="fa fa-check"></i><b>11.3.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="11.3.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>11.3.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#checks-and-tests"><i class="fa fa-check"></i><b>11.4</b> Checks and tests</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#plots"><i class="fa fa-check"></i><b>11.4.1</b> Plots</a></li>
+<li class="chapter" data-level="11.4.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#counts"><i class="fa fa-check"></i><b>11.4.2</b> Counts</a></li>
+<li class="chapter" data-level="11.4.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#gono-go"><i class="fa fa-check"></i><b>11.4.3</b> Go/no-go</a></li>
+<li class="chapter" data-level="11.4.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#class-1"><i class="fa fa-check"></i><b>11.4.4</b> Class</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#naming-things"><i class="fa fa-check"></i><b>11.5</b> Naming things</a></li>
+<li class="chapter" data-level="11.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#exercises-and-tutorial-10"><i class="fa fa-check"></i><b>11.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#exercises-10"><i class="fa fa-check"></i><b>11.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="11.6.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#tutorial-10"><i class="fa fa-check"></i><b>11.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>12</b> Storing and retrieving data</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#introduction-16"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#r-packages-for-data"><i class="fa fa-check"></i><b>12.2</b> R Packages for data</a></li>
+<li class="chapter" data-level="12.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#plan"><i class="fa fa-check"></i><b>12.2</b> Plan</a></li>
+<li class="chapter" data-level="12.3" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#r-packages-for-data"><i class="fa fa-check"></i><b>12.3</b> R Packages for data</a></li>
+<li class="chapter" data-level="12.4" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#documentation"><i class="fa fa-check"></i><b>12.4</b> Documentation</a></li>
+<li class="chapter" data-level="12.5" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#exercises-and-tutorial-11"><i class="fa fa-check"></i><b>12.5</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#exercises-11"><i class="fa fa-check"></i><b>12.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="12.5.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#tutorial-11"><i class="fa fa-check"></i><b>12.5.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>13</b> Disseminating and protecting data</a>
 <ul>
@@ -492,8 +566,13 @@ div.csl-indent {
 <li class="chapter" data-level="13.2" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#what-is-personally-identifying-information"><i class="fa fa-check"></i><b>13.2</b> What is personally identifying information</a></li>
 <li class="chapter" data-level="13.3" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#hashing-and-salting"><i class="fa fa-check"></i><b>13.3</b> Hashing and salting</a></li>
 <li class="chapter" data-level="13.4" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#gdpr-and-hipaa"><i class="fa fa-check"></i><b>13.4</b> GDPR and HIPAA</a></li>
-<li class="chapter" data-level="13.5" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#datasheets-and-documentation"><i class="fa fa-check"></i><b>13.5</b> Datasheets and documentation</a></li>
+<li class="chapter" data-level="13.5" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#making-fake-data-to-distribute-when-you-cant-share-the-real-stuff"><i class="fa fa-check"></i><b>13.5</b> Making fake data to distribute when you can’t share the real stuff</a></li>
 <li class="chapter" data-level="13.6" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#differential-privacy"><i class="fa fa-check"></i><b>13.6</b> Differential privacy</a></li>
+<li class="chapter" data-level="13.7" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#exercises-and-tutorial-12"><i class="fa fa-check"></i><b>13.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#exercises-12"><i class="fa fa-check"></i><b>13.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="13.7.2" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#tutorial-12"><i class="fa fa-check"></i><b>13.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>V Modelling</b></span></li>
 <li class="chapter" data-level="14" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>14</b> Exploratory data analysis</a>
@@ -528,6 +607,11 @@ div.csl-indent {
 <li class="chapter" data-level="14.4.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>14.4.5</b> Explore data</a></li>
 <li class="chapter" data-level="14.4.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>14.4.6</b> Model data</a></li>
 </ul></li>
+<li class="chapter" data-level="14.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises-and-tutorial-13"><i class="fa fa-check"></i><b>14.5</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises-13"><i class="fa fa-check"></i><b>14.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="14.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#tutorial-13"><i class="fa fa-check"></i><b>14.5.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ijalm.html"><a href="ijalm.html"><i class="fa fa-check"></i><b>15</b> It’s Just A Linear Model</a>
 <ul>
@@ -559,6 +643,11 @@ div.csl-indent {
 <li class="chapter" data-level="15.5.1" data-path="ijalm.html"><a href="ijalm.html#overview-4"><i class="fa fa-check"></i><b>15.5.1</b> Overview</a></li>
 <li class="chapter" data-level="15.5.2" data-path="ijalm.html"><a href="ijalm.html#implementation-in-base-1"><i class="fa fa-check"></i><b>15.5.2</b> Implementation in base</a></li>
 <li class="chapter" data-level="15.5.3" data-path="ijalm.html"><a href="ijalm.html#implementation-in-tidymodels-2"><i class="fa fa-check"></i><b>15.5.3</b> Implementation in <code>tidymodels</code></a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="ijalm.html"><a href="ijalm.html#exercises-and-tutorial-14"><i class="fa fa-check"></i><b>15.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="ijalm.html"><a href="ijalm.html#exercises-14"><i class="fa fa-check"></i><b>15.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="15.6.2" data-path="ijalm.html"><a href="ijalm.html#tutorial-14"><i class="fa fa-check"></i><b>15.6.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="causality.html"><a href="causality.html"><i class="fa fa-check"></i><b>16</b> Causality from observational data</a>
@@ -613,6 +702,11 @@ div.csl-indent {
 <li class="chapter" data-level="16.10.3" data-path="causality.html"><a href="causality.html#model-1"><i class="fa fa-check"></i><b>16.10.3</b> Model</a></li>
 <li class="chapter" data-level="16.10.4" data-path="causality.html"><a href="causality.html#discussion"><i class="fa fa-check"></i><b>16.10.4</b> Discussion</a></li>
 </ul></li>
+<li class="chapter" data-level="16.11" data-path="causality.html"><a href="causality.html#exercises-and-tutorial-15"><i class="fa fa-check"></i><b>16.11</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="16.11.1" data-path="causality.html"><a href="causality.html#exercises-15"><i class="fa fa-check"></i><b>16.11.1</b> Exercises</a></li>
+<li class="chapter" data-level="16.11.2" data-path="causality.html"><a href="causality.html#tutorial-15"><i class="fa fa-check"></i><b>16.11.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="mrp.html"><a href="mrp.html"><i class="fa fa-check"></i><b>17</b> Multilevel regression with post-stratification</a>
 <ul>
@@ -647,6 +741,11 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.4" data-path="mrp.html"><a href="mrp.html#post-stratify-2"><i class="fa fa-check"></i><b>17.5.4</b> Post-stratify</a></li>
 </ul></li>
 <li class="chapter" data-level="17.6" data-path="mrp.html"><a href="mrp.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>17.6</b> Concluding remarks and next steps</a></li>
+<li class="chapter" data-level="17.7" data-path="mrp.html"><a href="mrp.html#exercises-and-tutorial-16"><i class="fa fa-check"></i><b>17.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="mrp.html"><a href="mrp.html#exercises-16"><i class="fa fa-check"></i><b>17.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="17.7.2" data-path="mrp.html"><a href="mrp.html#tutorial-16"><i class="fa fa-check"></i><b>17.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
@@ -661,6 +760,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>18.4</b> Word embedding</a></li>
 <li class="chapter" data-level="18.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>18.5</b> Conclusion</a></li>
+<li class="chapter" data-level="18.6" data-path="text-as-data.html"><a href="text-as-data.html#exercises-and-tutorial-17"><i class="fa fa-check"></i><b>18.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="text-as-data.html"><a href="text-as-data.html#exercises-17"><i class="fa fa-check"></i><b>18.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="18.6.2" data-path="text-as-data.html"><a href="text-as-data.html#tutorial-17"><i class="fa fa-check"></i><b>18.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Enrichment</b></span></li>
 <li class="chapter" data-level="19" data-path="using-the-cloud.html"><a href="using-the-cloud.html"><i class="fa fa-check"></i><b>19</b> Using the cloud</a>
@@ -670,6 +774,11 @@ div.csl-indent {
 <li class="chapter" data-level="19.3" data-path="using-the-cloud.html"><a href="using-the-cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
 <li class="chapter" data-level="19.4" data-path="using-the-cloud.html"><a href="using-the-cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
 <li class="chapter" data-level="19.5" data-path="using-the-cloud.html"><a href="using-the-cloud.html#azure"><i class="fa fa-check"></i><b>19.5</b> Azure</a></li>
+<li class="chapter" data-level="19.6" data-path="using-the-cloud.html"><a href="using-the-cloud.html#exercises-and-tutorial-18"><i class="fa fa-check"></i><b>19.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="using-the-cloud.html"><a href="using-the-cloud.html#exercises-18"><i class="fa fa-check"></i><b>19.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="19.6.2" data-path="using-the-cloud.html"><a href="using-the-cloud.html#tutorial-18"><i class="fa fa-check"></i><b>19.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="deploying-models.html"><a href="deploying-models.html"><i class="fa fa-check"></i><b>20</b> Deploying models</a>
 <ul>
@@ -682,12 +791,36 @@ div.csl-indent {
 <li class="chapter" data-level="20.4.2" data-path="deploying-models.html"><a href="deploying-models.html#local-model"><i class="fa fa-check"></i><b>20.4.2</b> Local model</a></li>
 <li class="chapter" data-level="20.4.3" data-path="deploying-models.html"><a href="deploying-models.html#cloud-model"><i class="fa fa-check"></i><b>20.4.3</b> Cloud model</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="data-efficiency.html"><a href="data-efficiency.html"><i class="fa fa-check"></i><b>21</b> Data efficiency</a>
+<li class="chapter" data-level="20.5" data-path="deploying-models.html"><a href="deploying-models.html#exercises-and-tutorial-19"><i class="fa fa-check"></i><b>20.5</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="data-efficiency.html"><a href="data-efficiency.html#introduction-29"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
-<li class="chapter" data-level="21.2" data-path="data-efficiency.html"><a href="data-efficiency.html#sql"><i class="fa fa-check"></i><b>21.2</b> SQL</a></li>
-<li class="chapter" data-level="21.3" data-path="data-efficiency.html"><a href="data-efficiency.html#feather"><i class="fa fa-check"></i><b>21.3</b> Feather</a></li>
+<li class="chapter" data-level="20.5.1" data-path="deploying-models.html"><a href="deploying-models.html#exercises-19"><i class="fa fa-check"></i><b>20.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="20.5.2" data-path="deploying-models.html"><a href="deploying-models.html#tutorial-19"><i class="fa fa-check"></i><b>20.5.2</b> Tutorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="efficiency.html"><a href="efficiency.html"><i class="fa fa-check"></i><b>21</b> Efficiency</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="efficiency.html"><a href="efficiency.html#introduction-29"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="efficiency.html"><a href="efficiency.html#data-efficiency"><i class="fa fa-check"></i><b>21.2</b> Data efficiency</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="efficiency.html"><a href="efficiency.html#sql"><i class="fa fa-check"></i><b>21.2.1</b> SQL</a></li>
+<li class="chapter" data-level="21.2.2" data-path="efficiency.html"><a href="efficiency.html#feather"><i class="fa fa-check"></i><b>21.2.2</b> Feather</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="efficiency.html"><a href="efficiency.html#code-efficiency"><i class="fa fa-check"></i><b>21.3</b> Code efficiency</a></li>
+<li class="chapter" data-level="21.4" data-path="efficiency.html"><a href="efficiency.html#code-refactoring"><i class="fa fa-check"></i><b>21.4</b> Code refactoring</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="efficiency.html"><a href="efficiency.html#measure"><i class="fa fa-check"></i><b>21.4.1</b> Measure</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="efficiency.html"><a href="efficiency.html#experimental-efficiency"><i class="fa fa-check"></i><b>21.5</b> Experimental efficiency</a></li>
+<li class="chapter" data-level="21.6" data-path="efficiency.html"><a href="efficiency.html#other-languages"><i class="fa fa-check"></i><b>21.6</b> Other languages</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="efficiency.html"><a href="efficiency.html#python"><i class="fa fa-check"></i><b>21.6.1</b> Python</a></li>
+<li class="chapter" data-level="21.6.2" data-path="efficiency.html"><a href="efficiency.html#julia"><i class="fa fa-check"></i><b>21.6.2</b> Julia</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="efficiency.html"><a href="efficiency.html#exercises-and-tutorial-20"><i class="fa fa-check"></i><b>21.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="efficiency.html"><a href="efficiency.html#exercises-20"><i class="fa fa-check"></i><b>21.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="21.7.2" data-path="efficiency.html"><a href="efficiency.html#tutorial-20"><i class="fa fa-check"></i><b>21.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="concludingremarks.html"><a href="concludingremarks.html"><i class="fa fa-check"></i><b>22</b> Concluding remarks, next steps, and open problems</a>
 <ul>
@@ -696,72 +829,74 @@ div.csl-indent {
 <li class="chapter" data-level="22.3" data-path="concludingremarks.html"><a href="concludingremarks.html#open-problems"><i class="fa fa-check"></i><b>22.3</b> Open problems</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="oh-you-think-we-have-good-data-on-that.html"><a href="oh-you-think-we-have-good-data-on-that.html"><i class="fa fa-check"></i><b>A</b> Oh, you think we have good data on that!</a></li>
+<li class="chapter" data-level="B" data-path="shoulders-of-giants.html"><a href="shoulders-of-giants.html"><i class="fa fa-check"></i><b>B</b> Shoulders of giants</a></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
-<li class="chapter" data-level="A" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>A</b> Papers</a>
+<li class="chapter" data-level="C" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>C</b> Papers</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>A.1</b> ‘Mandatory Minimums’</a>
+<li class="chapter" data-level="C.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>C.1</b> ‘Mandatory Minimums’</a>
 <ul>
-<li class="chapter" data-level="A.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>A.1.1</b> Task</a></li>
-<li class="chapter" data-level="A.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>A.1.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>A.1.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>A.1.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>A.1.5</b> Rubric</a></li>
-<li class="chapter" data-level="A.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>A.1.6</b> Previous examples</a></li>
+<li class="chapter" data-level="C.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>C.1.1</b> Task</a></li>
+<li class="chapter" data-level="C.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>C.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>C.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>C.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>C.1.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>C.1.6</b> Previous examples</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>A.2</b> ‘These numbers mean dial it up’</a>
+<li class="chapter" data-level="C.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>C.2</b> ‘These numbers mean dial it up’</a>
 <ul>
-<li class="chapter" data-level="A.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>A.2.1</b> Task</a></li>
-<li class="chapter" data-level="A.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>A.2.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>A.2.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>A.2.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>A.2.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>C.2.1</b> Task</a></li>
+<li class="chapter" data-level="C.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>C.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>C.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>C.2.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>C.2.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="A.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>A.3</b> ‘The Short List’</a>
+<li class="chapter" data-level="C.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>C.3</b> ‘The Short List’</a>
 <ul>
-<li class="chapter" data-level="A.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>A.3.1</b> Task</a></li>
-<li class="chapter" data-level="A.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>A.3.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>A.3.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>A.3.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.3.5" data-path="papers.html"><a href="papers.html#rubric-2"><i class="fa fa-check"></i><b>A.3.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>C.3.1</b> Task</a></li>
+<li class="chapter" data-level="C.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>C.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>C.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>C.3.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.3.5" data-path="papers.html"><a href="papers.html#rubric-2"><i class="fa fa-check"></i><b>C.3.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="A.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>A.4</b> ‘Two Cathedrals’</a>
+<li class="chapter" data-level="C.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>C.4</b> ‘Two Cathedrals’</a>
 <ul>
-<li class="chapter" data-level="A.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>A.4.1</b> Task</a></li>
-<li class="chapter" data-level="A.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>A.4.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>A.4.3</b> Peer review submission</a></li>
-<li class="chapter" data-level="A.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>A.4.4</b> Conduct peer-review</a></li>
-<li class="chapter" data-level="A.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>A.4.5</b> Check offs points</a></li>
-<li class="chapter" data-level="A.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>A.4.6</b> FAQ</a></li>
-<li class="chapter" data-level="A.4.7" data-path="papers.html"><a href="papers.html#rubric-3"><i class="fa fa-check"></i><b>A.4.7</b> Rubric</a></li>
-<li class="chapter" data-level="A.4.8" data-path="papers.html"><a href="papers.html#previous-examples-1"><i class="fa fa-check"></i><b>A.4.8</b> Previous examples</a></li>
+<li class="chapter" data-level="C.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>C.4.1</b> Task</a></li>
+<li class="chapter" data-level="C.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>C.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>C.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="C.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>C.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="C.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>C.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="C.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>C.4.6</b> FAQ</a></li>
+<li class="chapter" data-level="C.4.7" data-path="papers.html"><a href="papers.html#rubric-3"><i class="fa fa-check"></i><b>C.4.7</b> Rubric</a></li>
+<li class="chapter" data-level="C.4.8" data-path="papers.html"><a href="papers.html#previous-examples-1"><i class="fa fa-check"></i><b>C.4.8</b> Previous examples</a></li>
 </ul></li>
-<li class="chapter" data-level="A.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>A.5</b> ‘A Proportional Response’</a>
+<li class="chapter" data-level="C.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>C.5</b> ‘A Proportional Response’</a>
 <ul>
-<li class="chapter" data-level="A.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>A.5.1</b> Task</a></li>
-<li class="chapter" data-level="A.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>A.5.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>A.5.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>A.5.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>C.5.1</b> Task</a></li>
+<li class="chapter" data-level="C.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>C.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>C.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>C.5.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>A.6</b> ‘Mr Willis of Ohio’</a>
+<li class="chapter" data-level="C.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>C.6</b> ‘Mr Willis of Ohio’</a>
 <ul>
-<li class="chapter" data-level="A.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>A.6.1</b> Task</a></li>
-<li class="chapter" data-level="A.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>A.6.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>A.6.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>A.6.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>C.6.1</b> Task</a></li>
+<li class="chapter" data-level="C.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>C.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>C.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>C.6.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>A.7</b> ‘Five Votes Down’</a>
+<li class="chapter" data-level="C.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>C.7</b> ‘Five Votes Down’</a>
 <ul>
-<li class="chapter" data-level="A.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>A.7.1</b> Task</a></li>
-<li class="chapter" data-level="A.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>A.7.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>A.7.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>A.7.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>C.7.1</b> Task</a></li>
+<li class="chapter" data-level="C.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>C.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>C.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>C.7.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>A.8</b> ‘What’s next?’</a>
+<li class="chapter" data-level="C.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>C.8</b> ‘What’s next?’</a>
 <ul>
-<li class="chapter" data-level="A.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>A.8.1</b> Task</a></li>
-<li class="chapter" data-level="A.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>A.8.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>A.8.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>A.8.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>C.8.1</b> Task</a></li>
+<li class="chapter" data-level="C.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>C.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>C.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>C.8.4</b> FAQ</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
@@ -842,13 +977,13 @@ div.csl-indent {
 <h3><span class="header-section-number">20.4.1</span> Hello Toronto</h3>
 <p>The general idea behind the <code>plumber</code> package <span class="citation">(<a href="#ref-citeplumber" role="doc-biblioref">Schloerke and Allen 2021</a>)</span> is that we can train a model and make it available via an API that we can call when we want a forecast. It’s pretty great.</p>
 <p>Just to get something working, let’s make a function that returns ‘Hello Toronto’ regardless of the output. Open a new R file, add the following, and then save it as ‘plumber.R’ (you may need to install the <code>plumber</code> package if you’ve not done that yet).</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="deploying-models.html#cb769-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb769-2"><a href="deploying-models.html#cb769-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb769-3"><a href="deploying-models.html#cb769-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /print_toronto</span></span>
-<span id="cb769-4"><a href="deploying-models.html#cb769-4" aria-hidden="true" tabindex="-1"></a>print_toronto <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb769-5"><a href="deploying-models.html#cb769-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;Hello Toronto&quot;</span></span>
-<span id="cb769-6"><a href="deploying-models.html#cb769-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb769-7"><a href="deploying-models.html#cb769-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="deploying-models.html#cb828-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb828-2"><a href="deploying-models.html#cb828-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb828-3"><a href="deploying-models.html#cb828-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /print_toronto</span></span>
+<span id="cb828-4"><a href="deploying-models.html#cb828-4" aria-hidden="true" tabindex="-1"></a>print_toronto <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb828-5"><a href="deploying-models.html#cb828-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;Hello Toronto&quot;</span></span>
+<span id="cb828-6"><a href="deploying-models.html#cb828-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb828-7"><a href="deploying-models.html#cb828-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>After that is saved, in the top right of the editor you should get a button to ‘Run API.’ Click that, and your API should load. It’ll be a ‘Swagger’ application, which provides a GUI around our API. Expand the GET method, and then clik ‘Try it out’ and ‘Execute.’ In the response body, you should get ‘Toronto.’</p>
 <p>To more closely reflect the fact that this is an API designed for computers, you can copy/paste the ‘request HTML’ into a browser and it should return ‘Hello Toronto.’</p>
 </div>
@@ -856,76 +991,76 @@ div.csl-indent {
 <h3><span class="header-section-number">20.4.2</span> Local model</h3>
 <p>Now, we’re going to update the API so that it serves a model output, given some input. We’re going to follow <span class="citation"><a href="#ref-buhrplumber" role="doc-biblioref">Buhr</a> (<a href="#ref-buhrplumber" role="doc-biblioref">2017</a>)</span> fairly closely.</p>
 <p>At this point, I’d recommend starting a new R Project. To get started, let’s simulate some data and then train a model on it. In this case we’re interested in forecasting how long a baby may sleep overnight, given we know how long they slept during their afternoon nap.</p>
-<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="deploying-models.html#cb770-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb770-2"><a href="deploying-models.html#cb770-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb770-3"><a href="deploying-models.html#cb770-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb770-4"><a href="deploying-models.html#cb770-4" aria-hidden="true" tabindex="-1"></a>number_of_observations <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb770-5"><a href="deploying-models.html#cb770-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb770-6"><a href="deploying-models.html#cb770-6" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="ot">&lt;-</span> </span>
-<span id="cb770-7"><a href="deploying-models.html#cb770-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">afternoon_nap_length =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">120</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">abs</span>(),</span>
-<span id="cb770-8"><a href="deploying-models.html#cb770-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">0</span>, <span class="dv">120</span>),</span>
-<span id="cb770-9"><a href="deploying-models.html#cb770-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">night_sleep_length =</span> afternoon_nap_length <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> noise,</span>
-<span id="cb770-10"><a href="deploying-models.html#cb770-10" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb770-11"><a href="deploying-models.html#cb770-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb770-12"><a href="deploying-models.html#cb770-12" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="sc">%&gt;%</span> </span>
-<span id="cb770-13"><a href="deploying-models.html#cb770-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> afternoon_nap_length, <span class="at">y =</span> night_sleep_length)) <span class="sc">+</span></span>
-<span id="cb770-14"><a href="deploying-models.html#cb770-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb770-15"><a href="deploying-models.html#cb770-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Baby&#39;s afternoon nap length (minutes)&quot;</span>,</span>
-<span id="cb770-16"><a href="deploying-models.html#cb770-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Baby&#39;s overnight sleep length (minutes)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb770-17"><a href="deploying-models.html#cb770-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="deploying-models.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb829-2"><a href="deploying-models.html#cb829-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb829-3"><a href="deploying-models.html#cb829-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb829-4"><a href="deploying-models.html#cb829-4" aria-hidden="true" tabindex="-1"></a>number_of_observations <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb829-5"><a href="deploying-models.html#cb829-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb829-6"><a href="deploying-models.html#cb829-6" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="ot">&lt;-</span> </span>
+<span id="cb829-7"><a href="deploying-models.html#cb829-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">afternoon_nap_length =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">120</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">abs</span>(),</span>
+<span id="cb829-8"><a href="deploying-models.html#cb829-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">noise =</span> <span class="fu">rnorm</span>(number_of_observations, <span class="dv">0</span>, <span class="dv">120</span>),</span>
+<span id="cb829-9"><a href="deploying-models.html#cb829-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">night_sleep_length =</span> afternoon_nap_length <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> noise,</span>
+<span id="cb829-10"><a href="deploying-models.html#cb829-10" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb829-11"><a href="deploying-models.html#cb829-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb829-12"><a href="deploying-models.html#cb829-12" aria-hidden="true" tabindex="-1"></a>baby_sleep <span class="sc">%&gt;%</span> </span>
+<span id="cb829-13"><a href="deploying-models.html#cb829-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> afternoon_nap_length, <span class="at">y =</span> night_sleep_length)) <span class="sc">+</span></span>
+<span id="cb829-14"><a href="deploying-models.html#cb829-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb829-15"><a href="deploying-models.html#cb829-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Baby&#39;s afternoon nap length (minutes)&quot;</span>,</span>
+<span id="cb829-16"><a href="deploying-models.html#cb829-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Baby&#39;s overnight sleep length (minutes)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb829-17"><a href="deploying-models.html#cb829-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p>Let’s now use <code>tidymodels</code> to quickly make a dodgy model.</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="deploying-models.html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
-<span id="cb771-2"><a href="deploying-models.html#cb771-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb771-3"><a href="deploying-models.html#cb771-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb771-4"><a href="deploying-models.html#cb771-4" aria-hidden="true" tabindex="-1"></a>baby_sleep_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(baby_sleep, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb771-5"><a href="deploying-models.html#cb771-5" aria-hidden="true" tabindex="-1"></a>baby_sleep_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(baby_sleep_split)</span>
-<span id="cb771-6"><a href="deploying-models.html#cb771-6" aria-hidden="true" tabindex="-1"></a>baby_sleep_test <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(baby_sleep_split)</span>
-<span id="cb771-7"><a href="deploying-models.html#cb771-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb771-8"><a href="deploying-models.html#cb771-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
-<span id="cb771-9"><a href="deploying-models.html#cb771-9" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb771-10"><a href="deploying-models.html#cb771-10" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb771-11"><a href="deploying-models.html#cb771-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(night_sleep_length <span class="sc">~</span> afternoon_nap_length, </span>
-<span id="cb771-12"><a href="deploying-models.html#cb771-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> baby_sleep_train</span>
-<span id="cb771-13"><a href="deploying-models.html#cb771-13" aria-hidden="true" tabindex="-1"></a>               )</span>
-<span id="cb771-14"><a href="deploying-models.html#cb771-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb771-15"><a href="deploying-models.html#cb771-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(<span class="at">x =</span> model, <span class="at">file =</span> <span class="st">&quot;baby_sleep.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="deploying-models.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">853</span>)</span>
+<span id="cb830-2"><a href="deploying-models.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb830-3"><a href="deploying-models.html#cb830-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb830-4"><a href="deploying-models.html#cb830-4" aria-hidden="true" tabindex="-1"></a>baby_sleep_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(baby_sleep, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb830-5"><a href="deploying-models.html#cb830-5" aria-hidden="true" tabindex="-1"></a>baby_sleep_train <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(baby_sleep_split)</span>
+<span id="cb830-6"><a href="deploying-models.html#cb830-6" aria-hidden="true" tabindex="-1"></a>baby_sleep_test <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(baby_sleep_split)</span>
+<span id="cb830-7"><a href="deploying-models.html#cb830-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb830-8"><a href="deploying-models.html#cb830-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> </span>
+<span id="cb830-9"><a href="deploying-models.html#cb830-9" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb830-10"><a href="deploying-models.html#cb830-10" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="at">engine =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb830-11"><a href="deploying-models.html#cb830-11" aria-hidden="true" tabindex="-1"></a>  parsnip<span class="sc">::</span><span class="fu">fit</span>(night_sleep_length <span class="sc">~</span> afternoon_nap_length, </span>
+<span id="cb830-12"><a href="deploying-models.html#cb830-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> baby_sleep_train</span>
+<span id="cb830-13"><a href="deploying-models.html#cb830-13" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb830-14"><a href="deploying-models.html#cb830-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb830-15"><a href="deploying-models.html#cb830-15" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(<span class="at">x =</span> model, <span class="at">file =</span> <span class="st">&quot;baby_sleep.rds&quot;</span>)</span></code></pre></div>
 <p>At this point, we have a model. One difference from what you might be used to is that we’ve saved the model as an ‘.rds’ file. We are going to read that in.</p>
 <p>Now that we have our model we want to put that into a file that we will use the API to access, again called ‘plumber.R.’ And we also want a file that sets up the API, called ‘server.R.’ So make an R script called ‘server.R’ and add the following content:</p>
-<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="deploying-models.html#cb772-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb772-2"><a href="deploying-models.html#cb772-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb772-3"><a href="deploying-models.html#cb772-3" aria-hidden="true" tabindex="-1"></a>serve_model <span class="ot">&lt;-</span> <span class="fu">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
-<span id="cb772-4"><a href="deploying-models.html#cb772-4" aria-hidden="true" tabindex="-1"></a>serve_model<span class="sc">$</span><span class="fu">run</span>(<span class="at">port =</span> <span class="dv">8000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="deploying-models.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb831-2"><a href="deploying-models.html#cb831-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb831-3"><a href="deploying-models.html#cb831-3" aria-hidden="true" tabindex="-1"></a>serve_model <span class="ot">&lt;-</span> <span class="fu">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
+<span id="cb831-4"><a href="deploying-models.html#cb831-4" aria-hidden="true" tabindex="-1"></a>serve_model<span class="sc">$</span><span class="fu">run</span>(<span class="at">port =</span> <span class="dv">8000</span>)</span></code></pre></div>
 <p>Then in ‘plumber.R’ add the following content:</p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="deploying-models.html#cb773-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb773-2"><a href="deploying-models.html#cb773-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb773-3"><a href="deploying-models.html#cb773-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-4"><a href="deploying-models.html#cb773-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;baby_sleep.rds&quot;</span>)</span>
-<span id="cb773-5"><a href="deploying-models.html#cb773-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-6"><a href="deploying-models.html#cb773-6" aria-hidden="true" tabindex="-1"></a>version_number <span class="ot">&lt;-</span> <span class="st">&quot;0.0.1&quot;</span></span>
-<span id="cb773-7"><a href="deploying-models.html#cb773-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-8"><a href="deploying-models.html#cb773-8" aria-hidden="true" tabindex="-1"></a>variables <span class="ot">&lt;-</span> </span>
-<span id="cb773-9"><a href="deploying-models.html#cb773-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb773-10"><a href="deploying-models.html#cb773-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">afternoon_nap_length =</span> <span class="st">&quot;A value in minutes, likely between 0 and 240.&quot;</span>,</span>
-<span id="cb773-11"><a href="deploying-models.html#cb773-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">night_sleep_length =</span> <span class="st">&quot;A forecast, in minutes, likely between 0 and 1000.&quot;</span></span>
-<span id="cb773-12"><a href="deploying-models.html#cb773-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb773-13"><a href="deploying-models.html#cb773-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-14"><a href="deploying-models.html#cb773-14" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param afternoon_nap_length</span></span>
-<span id="cb773-15"><a href="deploying-models.html#cb773-15" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /survival</span></span>
-<span id="cb773-16"><a href="deploying-models.html#cb773-16" aria-hidden="true" tabindex="-1"></a>predict_sleep <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">afternoon_nap_length=</span><span class="dv">0</span>) {</span>
-<span id="cb773-17"><a href="deploying-models.html#cb773-17" aria-hidden="true" tabindex="-1"></a>  afternoon_nap_length <span class="ot">=</span> <span class="fu">as.integer</span>(afternoon_nap_length)</span>
-<span id="cb773-18"><a href="deploying-models.html#cb773-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb773-19"><a href="deploying-models.html#cb773-19" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">afternoon_nap_length=</span>afternoon_nap_length)</span>
-<span id="cb773-20"><a href="deploying-models.html#cb773-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb773-21"><a href="deploying-models.html#cb773-21" aria-hidden="true" tabindex="-1"></a>  prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, payload)</span>
-<span id="cb773-22"><a href="deploying-models.html#cb773-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-23"><a href="deploying-models.html#cb773-23" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb773-24"><a href="deploying-models.html#cb773-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">input =</span> <span class="fu">list</span>(payload),</span>
-<span id="cb773-25"><a href="deploying-models.html#cb773-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> <span class="fu">list</span>(<span class="st">&quot;estimated_night_sleep&quot;</span> <span class="ot">=</span> prediction),</span>
-<span id="cb773-26"><a href="deploying-models.html#cb773-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="dv">200</span>,</span>
-<span id="cb773-27"><a href="deploying-models.html#cb773-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_version =</span> version_number)</span>
-<span id="cb773-28"><a href="deploying-models.html#cb773-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb773-29"><a href="deploying-models.html#cb773-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb773-30"><a href="deploying-models.html#cb773-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="deploying-models.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb832-2"><a href="deploying-models.html#cb832-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb832-3"><a href="deploying-models.html#cb832-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-4"><a href="deploying-models.html#cb832-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;baby_sleep.rds&quot;</span>)</span>
+<span id="cb832-5"><a href="deploying-models.html#cb832-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-6"><a href="deploying-models.html#cb832-6" aria-hidden="true" tabindex="-1"></a>version_number <span class="ot">&lt;-</span> <span class="st">&quot;0.0.1&quot;</span></span>
+<span id="cb832-7"><a href="deploying-models.html#cb832-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-8"><a href="deploying-models.html#cb832-8" aria-hidden="true" tabindex="-1"></a>variables <span class="ot">&lt;-</span> </span>
+<span id="cb832-9"><a href="deploying-models.html#cb832-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb832-10"><a href="deploying-models.html#cb832-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">afternoon_nap_length =</span> <span class="st">&quot;A value in minutes, likely between 0 and 240.&quot;</span>,</span>
+<span id="cb832-11"><a href="deploying-models.html#cb832-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">night_sleep_length =</span> <span class="st">&quot;A forecast, in minutes, likely between 0 and 1000.&quot;</span></span>
+<span id="cb832-12"><a href="deploying-models.html#cb832-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb832-13"><a href="deploying-models.html#cb832-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-14"><a href="deploying-models.html#cb832-14" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param afternoon_nap_length</span></span>
+<span id="cb832-15"><a href="deploying-models.html#cb832-15" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /survival</span></span>
+<span id="cb832-16"><a href="deploying-models.html#cb832-16" aria-hidden="true" tabindex="-1"></a>predict_sleep <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">afternoon_nap_length=</span><span class="dv">0</span>) {</span>
+<span id="cb832-17"><a href="deploying-models.html#cb832-17" aria-hidden="true" tabindex="-1"></a>  afternoon_nap_length <span class="ot">=</span> <span class="fu">as.integer</span>(afternoon_nap_length)</span>
+<span id="cb832-18"><a href="deploying-models.html#cb832-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb832-19"><a href="deploying-models.html#cb832-19" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">afternoon_nap_length=</span>afternoon_nap_length)</span>
+<span id="cb832-20"><a href="deploying-models.html#cb832-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb832-21"><a href="deploying-models.html#cb832-21" aria-hidden="true" tabindex="-1"></a>  prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, payload)</span>
+<span id="cb832-22"><a href="deploying-models.html#cb832-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-23"><a href="deploying-models.html#cb832-23" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb832-24"><a href="deploying-models.html#cb832-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">input =</span> <span class="fu">list</span>(payload),</span>
+<span id="cb832-25"><a href="deploying-models.html#cb832-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> <span class="fu">list</span>(<span class="st">&quot;estimated_night_sleep&quot;</span> <span class="ot">=</span> prediction),</span>
+<span id="cb832-26"><a href="deploying-models.html#cb832-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="dv">200</span>,</span>
+<span id="cb832-27"><a href="deploying-models.html#cb832-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_version =</span> version_number)</span>
+<span id="cb832-28"><a href="deploying-models.html#cb832-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb832-29"><a href="deploying-models.html#cb832-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb832-30"><a href="deploying-models.html#cb832-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Again, after you save the ‘plumber.R’ file you should have an option to ‘Run API.’ Click that and you can try out the API locally in the same way as before.</p>
 </div>
 <div id="cloud-model" class="section level3" number="20.4.3">
@@ -936,45 +1071,54 @@ div.csl-indent {
 <li><code>plumberDeploy</code> <span class="citation">(<a href="#ref-citeplumberdeploy" role="doc-biblioref">J. Allen 2021</a>)</span>.</li>
 <li><code>analogsea</code> <span class="citation">(<a href="#ref-citeanalogsea" role="doc-biblioref">Chamberlain, Wickham, and Chang 2021</a>)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="deploying-models.html#cb774-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;plumberDeploy&quot;</span>)</span>
-<span id="cb774-2"><a href="deploying-models.html#cb774-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;sckott/analogsea&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="deploying-models.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;plumberDeploy&quot;</span>)</span>
+<span id="cb833-2"><a href="deploying-models.html#cb833-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;sckott/analogsea&quot;</span>)</span></code></pre></div>
 <p>Now we need to connect your local computer with your DigitalOcean account. Get started with:</p>
-<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="deploying-models.html#cb775-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">account</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="deploying-models.html#cb834-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">account</span>()</span></code></pre></div>
 <p>Now you need to authenticate the connection and this is done using a SSH public key. You can do this using:</p>
-<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="deploying-models.html#cb776-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">key_create</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="deploying-models.html#cb835-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">key_create</span>()</span></code></pre></div>
 <p>But if this is your first time doing this then it may be more useful to have a visual process, in which case follow the instructions here: <a href="https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-account/" class="uri">https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-account/</a>. What you want is to have a ‘.pub’ file on your computer. Then copy the public key aspect in that file, and add it to the SSH keys section in the account security settings. When you have the key on your local computer then you can check this using:</p>
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="deploying-models.html#cb777-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="sc">::</span><span class="fu">ssh_key_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="deploying-models.html#cb836-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="sc">::</span><span class="fu">ssh_key_info</span>()</span></code></pre></div>
 <p>Again, this will all take a while to validate. DigitalOcean calls every computer that you start a ‘droplet.’ So if you start three computers, then you’ll have started three droplets. You can check the droplets that you have running using:</p>
-<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="deploying-models.html#cb778-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">droplets</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="deploying-models.html#cb837-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">droplets</span>()</span></code></pre></div>
 <p>If everything is set-up properly, then this will print the information about all droplets that you have associated with your account (which at this point, is probably none).</p>
 <p>To create a droplet, you run:</p>
-<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="deploying-models.html#cb779-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> plumberDeploy<span class="sc">::</span><span class="fu">do_provision</span>(<span class="at">example =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="deploying-models.html#cb838-1" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> plumberDeploy<span class="sc">::</span><span class="fu">do_provision</span>(<span class="at">example =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>Then you’ll get asked for your SSH passphrase and then it’ll just set-up a bunch of things. After this we’re going to need to install a whole bunch of things onto our droplet:</p>
-<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="deploying-models.html#cb780-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(<span class="at">droplet =</span> id, <span class="fu">c</span>(<span class="st">&quot;plumber&quot;</span>, </span>
-<span id="cb780-2"><a href="deploying-models.html#cb780-2" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;remotes&quot;</span>, </span>
-<span id="cb780-3"><a href="deploying-models.html#cb780-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;here&quot;</span>))</span>
-<span id="cb780-4"><a href="deploying-models.html#cb780-4" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, <span class="st">&quot;libssl-dev&quot;</span>, </span>
-<span id="cb780-5"><a href="deploying-models.html#cb780-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libsodium-dev&quot;</span>, </span>
-<span id="cb780-6"><a href="deploying-models.html#cb780-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libcurl4-openssl-dev&quot;</span>)</span>
-<span id="cb780-7"><a href="deploying-models.html#cb780-7" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, </span>
-<span id="cb780-8"><a href="deploying-models.html#cb780-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libxml2-dev&quot;</span>)</span>
-<span id="cb780-9"><a href="deploying-models.html#cb780-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb780-10"><a href="deploying-models.html#cb780-10" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;config&quot;</span>,</span>
-<span id="cb780-11"><a href="deploying-models.html#cb780-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;httr&quot;</span>,</span>
-<span id="cb780-12"><a href="deploying-models.html#cb780-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;urltools&quot;</span>,</span>
-<span id="cb780-13"><a href="deploying-models.html#cb780-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;plumber&quot;</span>))</span>
-<span id="cb780-14"><a href="deploying-models.html#cb780-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb780-15"><a href="deploying-models.html#cb780-15" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;xml2&quot;</span>))</span>
-<span id="cb780-16"><a href="deploying-models.html#cb780-16" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>))</span>
-<span id="cb780-17"><a href="deploying-models.html#cb780-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb780-18"><a href="deploying-models.html#cb780-18" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidymodels&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="deploying-models.html#cb839-1" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(<span class="at">droplet =</span> id, <span class="fu">c</span>(<span class="st">&quot;plumber&quot;</span>, </span>
+<span id="cb839-2"><a href="deploying-models.html#cb839-2" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;remotes&quot;</span>, </span>
+<span id="cb839-3"><a href="deploying-models.html#cb839-3" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;here&quot;</span>))</span>
+<span id="cb839-4"><a href="deploying-models.html#cb839-4" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, <span class="st">&quot;libssl-dev&quot;</span>, </span>
+<span id="cb839-5"><a href="deploying-models.html#cb839-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libsodium-dev&quot;</span>, </span>
+<span id="cb839-6"><a href="deploying-models.html#cb839-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libcurl4-openssl-dev&quot;</span>)</span>
+<span id="cb839-7"><a href="deploying-models.html#cb839-7" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">debian_apt_get_install</span>(id, </span>
+<span id="cb839-8"><a href="deploying-models.html#cb839-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;libxml2-dev&quot;</span>)</span>
+<span id="cb839-9"><a href="deploying-models.html#cb839-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb839-10"><a href="deploying-models.html#cb839-10" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;config&quot;</span>,</span>
+<span id="cb839-11"><a href="deploying-models.html#cb839-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;httr&quot;</span>,</span>
+<span id="cb839-12"><a href="deploying-models.html#cb839-12" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;urltools&quot;</span>,</span>
+<span id="cb839-13"><a href="deploying-models.html#cb839-13" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;plumber&quot;</span>))</span>
+<span id="cb839-14"><a href="deploying-models.html#cb839-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb839-15"><a href="deploying-models.html#cb839-15" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;xml2&quot;</span>))</span>
+<span id="cb839-16"><a href="deploying-models.html#cb839-16" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>))</span>
+<span id="cb839-17"><a href="deploying-models.html#cb839-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb839-18"><a href="deploying-models.html#cb839-18" aria-hidden="true" tabindex="-1"></a>analogsea<span class="sc">::</span><span class="fu">install_r_package</span>(id, <span class="fu">c</span>(<span class="st">&quot;tidymodels&quot;</span>))</span></code></pre></div>
 <p>And then when that is finally set-up (it’ll seriously take 30 min or so) we can deploy our API!</p>
-<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="deploying-models.html#cb781-1" aria-hidden="true" tabindex="-1"></a>plumberDeploy<span class="sc">::</span><span class="fu">do_deploy_api</span>(<span class="at">droplet =</span> id, </span>
-<span id="cb781-2"><a href="deploying-models.html#cb781-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">path =</span> <span class="st">&quot;example&quot;</span>, </span>
-<span id="cb781-3"><a href="deploying-models.html#cb781-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">localPath =</span> <span class="fu">getwd</span>(), </span>
-<span id="cb781-4"><a href="deploying-models.html#cb781-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">port =</span> <span class="dv">8000</span>, </span>
-<span id="cb781-5"><a href="deploying-models.html#cb781-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">docs =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb781-6"><a href="deploying-models.html#cb781-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="deploying-models.html#cb840-1" aria-hidden="true" tabindex="-1"></a>plumberDeploy<span class="sc">::</span><span class="fu">do_deploy_api</span>(<span class="at">droplet =</span> id, </span>
+<span id="cb840-2"><a href="deploying-models.html#cb840-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">path =</span> <span class="st">&quot;example&quot;</span>, </span>
+<span id="cb840-3"><a href="deploying-models.html#cb840-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">localPath =</span> <span class="fu">getwd</span>(), </span>
+<span id="cb840-4"><a href="deploying-models.html#cb840-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">port =</span> <span class="dv">8000</span>, </span>
+<span id="cb840-5"><a href="deploying-models.html#cb840-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">docs =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb840-6"><a href="deploying-models.html#cb840-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">overwrite=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="exercises-and-tutorial-19" class="section level2" number="20.5">
+<h2><span class="header-section-number">20.5</span> Exercises and tutorial</h2>
+<div id="exercises-19" class="section level3" number="20.5.1">
+<h3><span class="header-section-number">20.5.1</span> Exercises</h3>
+</div>
+<div id="tutorial-19" class="section level3" number="20.5.2">
+<h3><span class="header-section-number">20.5.2</span> Tutorial</h3>
 
 </div>
 </div>
@@ -1000,7 +1144,7 @@ Schloerke, Barret, and Jeff Allen. 2021. <em>Plumber: An API Generator for r</em
         </div>
       </div>
 <a href="using-the-cloud.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-efficiency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="efficiency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -1043,7 +1187,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }

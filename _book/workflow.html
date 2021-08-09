@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Workflow | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Workflow | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="/tellingstorieswithdatapainting.png" />
   <meta property="og:description" content="This book is about learning how to tell stories with data." />
-  <meta name="github-repo" content="yihui/bookdown-crc" />
+  <meta name="github-repo" content="RohanAlexander/telling_stories_with_data" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 Workflow | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
-  
+  <meta name="twitter:image" content="/tellingstorieswithdatapainting.png" />
 
 <meta name="author" content="Rohan Alexander" />
 
@@ -34,7 +34,7 @@
 <link rel="prev" href="r-essentials.html"/>
 <link rel="next" href="on-writing.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -85,6 +85,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -187,23 +188,24 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#audience-and-assumed-background"><i class="fa fa-check"></i>Audience and assumed background</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pedagogy"><i class="fa fa-check"></i>Pedagogy</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-and-content"><i class="fa fa-check"></i>Structure and content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pedagogy-and-key-features"><i class="fa fa-check"></i>Pedagogy and key features</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information-and-conventions"><i class="fa fa-check"></i>Software information and conventions</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="part"><span><b>I Foundations</b></span></li>
 <li class="chapter" data-level="1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html"><i class="fa fa-check"></i><b>1</b> Telling Stories with Data</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#on-telling-stories"><i class="fa fa-check"></i><b>1.1</b> On telling stories</a></li>
 <li class="chapter" data-level="1.2" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#telling-stories-with-data-1"><i class="fa fa-check"></i><b>1.2</b> Telling stories with data</a></li>
-<li class="chapter" data-level="1.3" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#how-do-our-worlds-become-data"><i class="fa fa-check"></i><b>1.3</b> How do our worlds become data?</a></li>
-<li class="chapter" data-level="1.4" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#what-is-data-and-how-should-we-use-it-to-learn-about-the-world"><i class="fa fa-check"></i><b>1.4</b> What is data and how should we use it to learn about the world</a></li>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises-and-tutorial"><i class="fa fa-check"></i>Exercises and tutorial</a>
+<li class="chapter" data-level="1.3" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#workflow-components"><i class="fa fa-check"></i><b>1.3</b> Workflow components</a></li>
+<li class="chapter" data-level="1.4" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#how-do-our-worlds-become-data"><i class="fa fa-check"></i><b>1.4</b> How do our worlds become data?</a></li>
+<li class="chapter" data-level="1.5" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#what-is-data-science-and-how-should-we-use-it-to-learn-about-the-world"><i class="fa fa-check"></i><b>1.5</b> What is data science and how should we use it to learn about the world</a></li>
+<li class="chapter" data-level="1.6" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises-and-tutorial"><i class="fa fa-check"></i><b>1.6</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#tutorial"><i class="fa fa-check"></i>Tutorial</a></li>
+<li class="chapter" data-level="1.6.1" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#exercises"><i class="fa fa-check"></i><b>1.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="1.6.2" data-path="telling-stories-with-data.html"><a href="telling-stories-with-data.html#tutorial"><i class="fa fa-check"></i><b>1.6.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html"><i class="fa fa-check"></i><b>2</b> Drinking from a fire hose</a>
@@ -222,6 +224,11 @@ div.csl-indent {
 <li class="chapter" data-level="2.3.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#getting-started-1"><i class="fa fa-check"></i><b>2.3.1</b> Getting started</a></li>
 <li class="chapter" data-level="2.3.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#get-the-data-1"><i class="fa fa-check"></i><b>2.3.2</b> Get the data</a></li>
 <li class="chapter" data-level="2.3.3" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#make-a-graph-1"><i class="fa fa-check"></i><b>2.3.3</b> Make a graph</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#exercises-and-tutorial-1"><i class="fa fa-check"></i><b>2.4</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#exercises-1"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="2.4.2" data-path="drinking-from-a-fire-hose.html"><a href="drinking-from-a-fire-hose.html#tutorial-1"><i class="fa fa-check"></i><b>2.4.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-essentials.html"><a href="r-essentials.html"><i class="fa fa-check"></i><b>3</b> R Essentials</a>
@@ -267,6 +274,11 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.6" data-path="r-essentials.html"><a href="r-essentials.html#factors"><i class="fa fa-check"></i><b>3.7.6</b> Factors</a></li>
 <li class="chapter" data-level="3.7.7" data-path="r-essentials.html"><a href="r-essentials.html#cases"><i class="fa fa-check"></i><b>3.7.7</b> Cases</a></li>
 </ul></li>
+<li class="chapter" data-level="3.8" data-path="r-essentials.html"><a href="r-essentials.html#exercises-and-tutorial-2"><i class="fa fa-check"></i><b>3.8</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="r-essentials.html"><a href="r-essentials.html#exercises-2"><i class="fa fa-check"></i><b>3.8.1</b> Exercises</a></li>
+<li class="chapter" data-level="3.8.2" data-path="r-essentials.html"><a href="r-essentials.html#tutorial-2"><i class="fa fa-check"></i><b>3.8.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>4</b> Workflow</a>
 <ul>
@@ -298,11 +310,28 @@ div.csl-indent {
 <li class="chapter" data-level="4.5.5" data-path="workflow.html"><a href="workflow.html#learning-more"><i class="fa fa-check"></i><b>4.5.5</b> Learning more</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="workflow.html"><a href="workflow.html#developing-research-questions"><i class="fa fa-check"></i><b>4.6</b> Developing research questions</a></li>
+<li class="chapter" data-level="4.7" data-path="workflow.html"><a href="workflow.html#exercises-and-tutorial-3"><i class="fa fa-check"></i><b>4.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="workflow.html"><a href="workflow.html#exercises-3"><i class="fa fa-check"></i><b>4.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="4.7.2" data-path="workflow.html"><a href="workflow.html#tutorial-3"><i class="fa fa-check"></i><b>4.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Communication</b></span></li>
 <li class="chapter" data-level="5" data-path="on-writing.html"><a href="on-writing.html"><i class="fa fa-check"></i><b>5</b> On writing</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="on-writing.html"><a href="on-writing.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="on-writing.html"><a href="on-writing.html#writing"><i class="fa fa-check"></i><b>5.2</b> Writing</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="on-writing.html"><a href="on-writing.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>5.2.1</b> Title, abstract, and introduction</a></li>
+<li class="chapter" data-level="5.2.2" data-path="on-writing.html"><a href="on-writing.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>5.2.2</b> Figures, tables, equations, and technical terms</a></li>
+<li class="chapter" data-level="5.2.3" data-path="on-writing.html"><a href="on-writing.html#on-brevity"><i class="fa fa-check"></i><b>5.2.3</b> On brevity</a></li>
+<li class="chapter" data-level="5.2.4" data-path="on-writing.html"><a href="on-writing.html#other"><i class="fa fa-check"></i><b>5.2.4</b> Other</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="on-writing.html"><a href="on-writing.html#exercises-and-tutorial-4"><i class="fa fa-check"></i><b>5.3</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="on-writing.html"><a href="on-writing.html#exercises-4"><i class="fa fa-check"></i><b>5.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="5.3.2" data-path="on-writing.html"><a href="on-writing.html#tutorial-4"><i class="fa fa-check"></i><b>5.3.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="static-communication.html"><a href="static-communication.html"><i class="fa fa-check"></i><b>6</b> Static communication</a>
 <ul>
@@ -312,7 +341,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.2.1" data-path="static-communication.html"><a href="static-communication.html#bar-chart"><i class="fa fa-check"></i><b>6.2.1</b> Bar chart</a></li>
 <li class="chapter" data-level="6.2.2" data-path="static-communication.html"><a href="static-communication.html#scatter-plot"><i class="fa fa-check"></i><b>6.2.2</b> Scatter plot</a></li>
 <li class="chapter" data-level="6.2.3" data-path="static-communication.html"><a href="static-communication.html#never-use-box-plots"><i class="fa fa-check"></i><b>6.2.3</b> Never use box plots</a></li>
-<li class="chapter" data-level="6.2.4" data-path="static-communication.html"><a href="static-communication.html#other"><i class="fa fa-check"></i><b>6.2.4</b> Other</a></li>
+<li class="chapter" data-level="6.2.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>6.2.4</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="static-communication.html"><a href="static-communication.html#tables"><i class="fa fa-check"></i><b>6.3</b> Tables</a></li>
 <li class="chapter" data-level="6.4" data-path="static-communication.html"><a href="static-communication.html#maps"><i class="fa fa-check"></i><b>6.4</b> Maps</a>
@@ -321,12 +350,10 @@ div.csl-indent {
 <li class="chapter" data-level="6.4.2" data-path="static-communication.html"><a href="static-communication.html#toronto-bike-parking"><i class="fa fa-check"></i><b>6.4.2</b> Toronto bike parking</a></li>
 <li class="chapter" data-level="6.4.3" data-path="static-communication.html"><a href="static-communication.html#geocoding"><i class="fa fa-check"></i><b>6.4.3</b> Geocoding</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="static-communication.html"><a href="static-communication.html#writing"><i class="fa fa-check"></i><b>6.5</b> Writing</a>
+<li class="chapter" data-level="6.5" data-path="static-communication.html"><a href="static-communication.html#exercises-and-tutorial-5"><i class="fa fa-check"></i><b>6.5</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="static-communication.html"><a href="static-communication.html#title-abstract-and-introduction"><i class="fa fa-check"></i><b>6.5.1</b> Title, abstract, and introduction</a></li>
-<li class="chapter" data-level="6.5.2" data-path="static-communication.html"><a href="static-communication.html#figures-tables-equations-and-technical-terms"><i class="fa fa-check"></i><b>6.5.2</b> Figures, tables, equations, and technical terms</a></li>
-<li class="chapter" data-level="6.5.3" data-path="static-communication.html"><a href="static-communication.html#on-brevity"><i class="fa fa-check"></i><b>6.5.3</b> On brevity</a></li>
-<li class="chapter" data-level="6.5.4" data-path="static-communication.html"><a href="static-communication.html#other-1"><i class="fa fa-check"></i><b>6.5.4</b> Other</a></li>
+<li class="chapter" data-level="6.5.1" data-path="static-communication.html"><a href="static-communication.html#exercises-5"><i class="fa fa-check"></i><b>6.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="6.5.2" data-path="static-communication.html"><a href="static-communication.html#tutorial-5"><i class="fa fa-check"></i><b>6.5.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="interactive-communication.html"><a href="interactive-communication.html"><i class="fa fa-check"></i><b>7</b> Interactive communication</a>
@@ -344,8 +371,13 @@ div.csl-indent {
 <li class="chapter" data-level="7.2.2" data-path="interactive-communication.html"><a href="interactive-communication.html#mapdeck"><i class="fa fa-check"></i><b>7.2.2</b> Mapdeck</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="interactive-communication.html"><a href="interactive-communication.html#shiny"><i class="fa fa-check"></i><b>7.3</b> Shiny</a></li>
+<li class="chapter" data-level="7.4" data-path="interactive-communication.html"><a href="interactive-communication.html#exercises-and-tutorial-6"><i class="fa fa-check"></i><b>7.4</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="interactive-communication.html"><a href="interactive-communication.html#exercises-6"><i class="fa fa-check"></i><b>7.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="7.4.2" data-path="interactive-communication.html"><a href="interactive-communication.html#tutorial-6"><i class="fa fa-check"></i><b>7.4.2</b> Tutorial</a></li>
 </ul></li>
-<li class="part"><span><b>III Acquisition</b></span></li>
+</ul></li>
+<li class="part"><span><b>III Measure and acquire</b></span></li>
 <li class="chapter" data-level="8" data-path="gather-data.html"><a href="gather-data.html"><i class="fa fa-check"></i><b>8</b> Gather data</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="gather-data.html"><a href="gather-data.html#apis"><i class="fa fa-check"></i><b>8.1</b> APIs</a></li>
@@ -383,14 +415,9 @@ div.csl-indent {
 <li class="chapter" data-level="8.9.3" data-path="gather-data.html"><a href="gather-data.html#start-simple-then-iterate."><i class="fa fa-check"></i><b>8.9.3</b> Start simple, then iterate.</a></li>
 <li class="chapter" data-level="8.9.4" data-path="gather-data.html"><a href="gather-data.html#iterating"><i class="fa fa-check"></i><b>8.9.4</b> Iterating</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="gather-data.html"><a href="gather-data.html#case-study-kenyan-census-data"><i class="fa fa-check"></i><b>8.10</b> Case-study: Kenyan census data</a>
+<li class="chapter" data-level="8.10" data-path="gather-data.html"><a href="gather-data.html#semi-structured"><i class="fa fa-check"></i><b>8.10</b> Semi-structured</a>
 <ul>
-<li class="chapter" data-level="8.10.1" data-path="gather-data.html"><a href="gather-data.html#set-up"><i class="fa fa-check"></i><b>8.10.1</b> Set-up</a></li>
-<li class="chapter" data-level="8.10.2" data-path="gather-data.html"><a href="gather-data.html#extract"><i class="fa fa-check"></i><b>8.10.2</b> Extract</a></li>
-<li class="chapter" data-level="8.10.3" data-path="gather-data.html"><a href="gather-data.html#clean-2"><i class="fa fa-check"></i><b>8.10.3</b> Clean</a></li>
-<li class="chapter" data-level="8.10.4" data-path="gather-data.html"><a href="gather-data.html#check"><i class="fa fa-check"></i><b>8.10.4</b> Check</a></li>
-<li class="chapter" data-level="8.10.5" data-path="gather-data.html"><a href="gather-data.html#tidy-up"><i class="fa fa-check"></i><b>8.10.5</b> Tidy-up</a></li>
-<li class="chapter" data-level="8.10.6" data-path="gather-data.html"><a href="gather-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>8.10.6</b> Make Monica’s dataset</a></li>
+<li class="chapter" data-level="8.10.1" data-path="gather-data.html"><a href="gather-data.html#json-and-xml"><i class="fa fa-check"></i><b>8.10.1</b> JSON and XML</a></li>
 </ul></li>
 <li class="chapter" data-level="8.11" data-path="gather-data.html"><a href="gather-data.html#optical-character-recognition"><i class="fa fa-check"></i><b>8.11</b> Optical Character Recognition</a></li>
 <li class="chapter" data-level="8.12" data-path="gather-data.html"><a href="gather-data.html#text"><i class="fa fa-check"></i><b>8.12</b> Text</a>
@@ -398,6 +425,11 @@ div.csl-indent {
 <li class="chapter" data-level="8.12.1" data-path="gather-data.html"><a href="gather-data.html#introduction-11"><i class="fa fa-check"></i><b>8.12.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.12.2" data-path="gather-data.html"><a href="gather-data.html#getting-text-data"><i class="fa fa-check"></i><b>8.12.2</b> Getting text data</a></li>
 <li class="chapter" data-level="8.12.3" data-path="gather-data.html"><a href="gather-data.html#preparing-text-datasets"><i class="fa fa-check"></i><b>8.12.3</b> Preparing text datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.13" data-path="gather-data.html"><a href="gather-data.html#exercises-and-tutorial-7"><i class="fa fa-check"></i><b>8.13</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="gather-data.html"><a href="gather-data.html#exercises-7"><i class="fa fa-check"></i><b>8.13.1</b> Exercises</a></li>
+<li class="chapter" data-level="8.13.2" data-path="gather-data.html"><a href="gather-data.html#tutorial-7"><i class="fa fa-check"></i><b>8.13.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="hunt-data.html"><a href="hunt-data.html"><i class="fa fa-check"></i><b>9</b> Hunt data</a>
@@ -412,26 +444,26 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="hunt-data.html"><a href="hunt-data.html#case-study---fishers-tea-party"><i class="fa fa-check"></i><b>9.2</b> Case study - Fisher’s tea party</a></li>
 <li class="chapter" data-level="9.3" data-path="hunt-data.html"><a href="hunt-data.html#case-study---tuskegee-syphilis-study"><i class="fa fa-check"></i><b>9.3</b> Case study - Tuskegee Syphilis Study</a></li>
-<li class="chapter" data-level="9.4" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>9.4</b> Case study - The Oregon Health Insurance Experiment</a></li>
-<li class="chapter" data-level="9.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>9.5</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
-<li class="chapter" data-level="9.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>9.6</b> Case study - Civic Honesty Around The Globe</a></li>
-<li class="chapter" data-level="9.7" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>9.7</b> A/B testing</a>
+<li class="chapter" data-level="9.4" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>9.4</b> Sampling and survey essentials</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>9.7.1</b> Introduction</a></li>
-<li class="chapter" data-level="9.7.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>9.7.2</b> Delivery</a></li>
-<li class="chapter" data-level="9.7.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>9.7.3</b> Instrumentation</a></li>
-<li class="chapter" data-level="9.7.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>9.7.4</b> Randomisation unit</a></li>
-<li class="chapter" data-level="9.7.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>9.7.5</b> Partnerships</a></li>
-<li class="chapter" data-level="9.7.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>9.7.6</b> Speed vs quality</a></li>
-<li class="chapter" data-level="9.7.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>9.7.7</b> Conflicting priorities</a></li>
+<li class="chapter" data-level="9.4.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-13"><i class="fa fa-check"></i><b>9.4.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.4.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>9.4.2</b> Simple random sampling</a></li>
+<li class="chapter" data-level="9.4.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>9.4.3</b> Stratified and cluster sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>9.8</b> Case study - Upworthy</a></li>
-<li class="chapter" data-level="9.9" data-path="hunt-data.html"><a href="hunt-data.html#sampling-and-survey-essentials"><i class="fa fa-check"></i><b>9.9</b> Sampling and survey essentials</a>
+<li class="chapter" data-level="9.5" data-path="hunt-data.html"><a href="hunt-data.html#case-study---the-oregon-health-insurance-experiment"><i class="fa fa-check"></i><b>9.5</b> Case study - The Oregon Health Insurance Experiment</a></li>
+<li class="chapter" data-level="9.6" data-path="hunt-data.html"><a href="hunt-data.html#case-study---student-coaching-how-far-can-technology-go"><i class="fa fa-check"></i><b>9.6</b> Case study - Student Coaching: How Far Can Technology Go?</a></li>
+<li class="chapter" data-level="9.7" data-path="hunt-data.html"><a href="hunt-data.html#case-study---civic-honesty-around-the-globe"><i class="fa fa-check"></i><b>9.7</b> Case study - Civic Honesty Around The Globe</a></li>
+<li class="chapter" data-level="9.8" data-path="hunt-data.html"><a href="hunt-data.html#ab-testing"><i class="fa fa-check"></i><b>9.8</b> A/B testing</a>
 <ul>
-<li class="chapter" data-level="9.9.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>9.9.1</b> Introduction</a></li>
-<li class="chapter" data-level="9.9.2" data-path="hunt-data.html"><a href="hunt-data.html#simple-random-sampling"><i class="fa fa-check"></i><b>9.9.2</b> Simple random sampling</a></li>
-<li class="chapter" data-level="9.9.3" data-path="hunt-data.html"><a href="hunt-data.html#stratified-and-cluster-sampling"><i class="fa fa-check"></i><b>9.9.3</b> Stratified and cluster sampling</a></li>
+<li class="chapter" data-level="9.8.1" data-path="hunt-data.html"><a href="hunt-data.html#introduction-14"><i class="fa fa-check"></i><b>9.8.1</b> Introduction</a></li>
+<li class="chapter" data-level="9.8.2" data-path="hunt-data.html"><a href="hunt-data.html#delivery"><i class="fa fa-check"></i><b>9.8.2</b> Delivery</a></li>
+<li class="chapter" data-level="9.8.3" data-path="hunt-data.html"><a href="hunt-data.html#instrumentation"><i class="fa fa-check"></i><b>9.8.3</b> Instrumentation</a></li>
+<li class="chapter" data-level="9.8.4" data-path="hunt-data.html"><a href="hunt-data.html#randomisation-unit"><i class="fa fa-check"></i><b>9.8.4</b> Randomisation unit</a></li>
+<li class="chapter" data-level="9.8.5" data-path="hunt-data.html"><a href="hunt-data.html#partnerships"><i class="fa fa-check"></i><b>9.8.5</b> Partnerships</a></li>
+<li class="chapter" data-level="9.8.6" data-path="hunt-data.html"><a href="hunt-data.html#speed-vs-quality"><i class="fa fa-check"></i><b>9.8.6</b> Speed vs quality</a></li>
+<li class="chapter" data-level="9.8.7" data-path="hunt-data.html"><a href="hunt-data.html#conflicting-priorities"><i class="fa fa-check"></i><b>9.8.7</b> Conflicting priorities</a></li>
 </ul></li>
+<li class="chapter" data-level="9.9" data-path="hunt-data.html"><a href="hunt-data.html#case-study---upworthy"><i class="fa fa-check"></i><b>9.9</b> Case study - Upworthy</a></li>
 <li class="chapter" data-level="9.10" data-path="hunt-data.html"><a href="hunt-data.html#implementing-surveys"><i class="fa fa-check"></i><b>9.10</b> Implementing surveys</a>
 <ul>
 <li class="chapter" data-level="9.10.1" data-path="hunt-data.html"><a href="hunt-data.html#google"><i class="fa fa-check"></i><b>9.10.1</b> Google</a></li>
@@ -443,6 +475,11 @@ div.csl-indent {
 <li class="chapter" data-level="9.10.7" data-path="hunt-data.html"><a href="hunt-data.html#other-2"><i class="fa fa-check"></i><b>9.10.7</b> Other</a></li>
 </ul></li>
 <li class="chapter" data-level="9.11" data-path="hunt-data.html"><a href="hunt-data.html#next-steps-1"><i class="fa fa-check"></i><b>9.11</b> Next steps</a></li>
+<li class="chapter" data-level="9.12" data-path="hunt-data.html"><a href="hunt-data.html#exercises-and-tutorial-8"><i class="fa fa-check"></i><b>9.12</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="9.12.1" data-path="hunt-data.html"><a href="hunt-data.html#exercises-8"><i class="fa fa-check"></i><b>9.12.1</b> Exercises</a></li>
+<li class="chapter" data-level="9.12.2" data-path="hunt-data.html"><a href="hunt-data.html#tutorial-8"><i class="fa fa-check"></i><b>9.12.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="farm-data.html"><a href="farm-data.html"><i class="fa fa-check"></i><b>10</b> Farm data</a>
 <ul>
@@ -470,21 +507,58 @@ div.csl-indent {
 <li class="chapter" data-level="10.5.3" data-path="farm-data.html"><a href="farm-data.html#cces"><i class="fa fa-check"></i><b>10.5.3</b> CCES</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="farm-data.html"><a href="farm-data.html#other-3"><i class="fa fa-check"></i><b>10.6</b> Other</a></li>
+<li class="chapter" data-level="10.7" data-path="farm-data.html"><a href="farm-data.html#exercises-and-tutorial-9"><i class="fa fa-check"></i><b>10.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="farm-data.html"><a href="farm-data.html#exercises-9"><i class="fa fa-check"></i><b>10.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="10.7.2" data-path="farm-data.html"><a href="farm-data.html#tutorial-9"><i class="fa fa-check"></i><b>10.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Preparation</b></span></li>
 <li class="chapter" data-level="11" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html"><i class="fa fa-check"></i><b>11</b> Cleaning and preparing data</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#introduction-15"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
-<li class="chapter" data-level="11.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#workflow-1"><i class="fa fa-check"></i><b>11.2</b> Workflow</a></li>
-<li class="chapter" data-level="11.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#checks-and-tests"><i class="fa fa-check"></i><b>11.3</b> Checks and tests</a></li>
-<li class="chapter" data-level="11.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#naming-things"><i class="fa fa-check"></i><b>11.4</b> Naming things</a></li>
-<li class="chapter" data-level="11.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#documentation"><i class="fa fa-check"></i><b>11.5</b> Documentation</a></li>
-<li class="chapter" data-level="11.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#pipelines"><i class="fa fa-check"></i><b>11.6</b> Pipelines</a></li>
+<li class="chapter" data-level="11.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#workflow-1"><i class="fa fa-check"></i><b>11.2</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#save-a-copy-of-the-raw-data"><i class="fa fa-check"></i><b>11.2.1</b> Save a copy of the raw data</a></li>
+<li class="chapter" data-level="11.2.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#begin-with-an-end-in-mind-1"><i class="fa fa-check"></i><b>11.2.2</b> Begin with an end in mind</a></li>
+<li class="chapter" data-level="11.2.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#start-small"><i class="fa fa-check"></i><b>11.2.3</b> Start small</a></li>
+<li class="chapter" data-level="11.2.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#write-tests-and-documentation."><i class="fa fa-check"></i><b>11.2.4</b> Write tests and documentation.</a></li>
+<li class="chapter" data-level="11.2.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#iterate-generalize-and-update"><i class="fa fa-check"></i><b>11.2.5</b> Iterate, generalize and update</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#case-study---kenya-census"><i class="fa fa-check"></i><b>11.3</b> Case study - Kenya census</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#set-up"><i class="fa fa-check"></i><b>11.3.1</b> Set-up</a></li>
+<li class="chapter" data-level="11.3.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#extract"><i class="fa fa-check"></i><b>11.3.2</b> Extract</a></li>
+<li class="chapter" data-level="11.3.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#clean-2"><i class="fa fa-check"></i><b>11.3.3</b> Clean</a></li>
+<li class="chapter" data-level="11.3.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#check"><i class="fa fa-check"></i><b>11.3.4</b> Check</a></li>
+<li class="chapter" data-level="11.3.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#tidy-up"><i class="fa fa-check"></i><b>11.3.5</b> Tidy-up</a></li>
+<li class="chapter" data-level="11.3.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#make-monicas-dataset"><i class="fa fa-check"></i><b>11.3.6</b> Make Monica’s dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#checks-and-tests"><i class="fa fa-check"></i><b>11.4</b> Checks and tests</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#plots"><i class="fa fa-check"></i><b>11.4.1</b> Plots</a></li>
+<li class="chapter" data-level="11.4.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#counts"><i class="fa fa-check"></i><b>11.4.2</b> Counts</a></li>
+<li class="chapter" data-level="11.4.3" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#gono-go"><i class="fa fa-check"></i><b>11.4.3</b> Go/no-go</a></li>
+<li class="chapter" data-level="11.4.4" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#class-1"><i class="fa fa-check"></i><b>11.4.4</b> Class</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#naming-things"><i class="fa fa-check"></i><b>11.5</b> Naming things</a></li>
+<li class="chapter" data-level="11.6" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#exercises-and-tutorial-10"><i class="fa fa-check"></i><b>11.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#exercises-10"><i class="fa fa-check"></i><b>11.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="11.6.2" data-path="cleaning-and-preparing-data.html"><a href="cleaning-and-preparing-data.html#tutorial-10"><i class="fa fa-check"></i><b>11.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html"><i class="fa fa-check"></i><b>12</b> Storing and retrieving data</a>
 <ul>
 <li class="chapter" data-level="12.1" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#introduction-16"><i class="fa fa-check"></i><b>12.1</b> Introduction</a></li>
-<li class="chapter" data-level="12.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#r-packages-for-data"><i class="fa fa-check"></i><b>12.2</b> R Packages for data</a></li>
+<li class="chapter" data-level="12.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#plan"><i class="fa fa-check"></i><b>12.2</b> Plan</a></li>
+<li class="chapter" data-level="12.3" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#r-packages-for-data"><i class="fa fa-check"></i><b>12.3</b> R Packages for data</a></li>
+<li class="chapter" data-level="12.4" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#documentation"><i class="fa fa-check"></i><b>12.4</b> Documentation</a></li>
+<li class="chapter" data-level="12.5" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#exercises-and-tutorial-11"><i class="fa fa-check"></i><b>12.5</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#exercises-11"><i class="fa fa-check"></i><b>12.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="12.5.2" data-path="storing-and-retrieving-data.html"><a href="storing-and-retrieving-data.html#tutorial-11"><i class="fa fa-check"></i><b>12.5.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html"><i class="fa fa-check"></i><b>13</b> Disseminating and protecting data</a>
 <ul>
@@ -492,8 +566,13 @@ div.csl-indent {
 <li class="chapter" data-level="13.2" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#what-is-personally-identifying-information"><i class="fa fa-check"></i><b>13.2</b> What is personally identifying information</a></li>
 <li class="chapter" data-level="13.3" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#hashing-and-salting"><i class="fa fa-check"></i><b>13.3</b> Hashing and salting</a></li>
 <li class="chapter" data-level="13.4" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#gdpr-and-hipaa"><i class="fa fa-check"></i><b>13.4</b> GDPR and HIPAA</a></li>
-<li class="chapter" data-level="13.5" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#datasheets-and-documentation"><i class="fa fa-check"></i><b>13.5</b> Datasheets and documentation</a></li>
+<li class="chapter" data-level="13.5" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#making-fake-data-to-distribute-when-you-cant-share-the-real-stuff"><i class="fa fa-check"></i><b>13.5</b> Making fake data to distribute when you can’t share the real stuff</a></li>
 <li class="chapter" data-level="13.6" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#differential-privacy"><i class="fa fa-check"></i><b>13.6</b> Differential privacy</a></li>
+<li class="chapter" data-level="13.7" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#exercises-and-tutorial-12"><i class="fa fa-check"></i><b>13.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#exercises-12"><i class="fa fa-check"></i><b>13.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="13.7.2" data-path="disseminating-and-protecting-data.html"><a href="disseminating-and-protecting-data.html#tutorial-12"><i class="fa fa-check"></i><b>13.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>V Modelling</b></span></li>
 <li class="chapter" data-level="14" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>14</b> Exploratory data analysis</a>
@@ -528,6 +607,11 @@ div.csl-indent {
 <li class="chapter" data-level="14.4.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#explore-data"><i class="fa fa-check"></i><b>14.4.5</b> Explore data</a></li>
 <li class="chapter" data-level="14.4.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#model-data"><i class="fa fa-check"></i><b>14.4.6</b> Model data</a></li>
 </ul></li>
+<li class="chapter" data-level="14.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises-and-tutorial-13"><i class="fa fa-check"></i><b>14.5</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#exercises-13"><i class="fa fa-check"></i><b>14.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="14.5.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#tutorial-13"><i class="fa fa-check"></i><b>14.5.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ijalm.html"><a href="ijalm.html"><i class="fa fa-check"></i><b>15</b> It’s Just A Linear Model</a>
 <ul>
@@ -559,6 +643,11 @@ div.csl-indent {
 <li class="chapter" data-level="15.5.1" data-path="ijalm.html"><a href="ijalm.html#overview-4"><i class="fa fa-check"></i><b>15.5.1</b> Overview</a></li>
 <li class="chapter" data-level="15.5.2" data-path="ijalm.html"><a href="ijalm.html#implementation-in-base-1"><i class="fa fa-check"></i><b>15.5.2</b> Implementation in base</a></li>
 <li class="chapter" data-level="15.5.3" data-path="ijalm.html"><a href="ijalm.html#implementation-in-tidymodels-2"><i class="fa fa-check"></i><b>15.5.3</b> Implementation in <code>tidymodels</code></a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="ijalm.html"><a href="ijalm.html#exercises-and-tutorial-14"><i class="fa fa-check"></i><b>15.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="ijalm.html"><a href="ijalm.html#exercises-14"><i class="fa fa-check"></i><b>15.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="15.6.2" data-path="ijalm.html"><a href="ijalm.html#tutorial-14"><i class="fa fa-check"></i><b>15.6.2</b> Tutorial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="causality.html"><a href="causality.html"><i class="fa fa-check"></i><b>16</b> Causality from observational data</a>
@@ -613,6 +702,11 @@ div.csl-indent {
 <li class="chapter" data-level="16.10.3" data-path="causality.html"><a href="causality.html#model-1"><i class="fa fa-check"></i><b>16.10.3</b> Model</a></li>
 <li class="chapter" data-level="16.10.4" data-path="causality.html"><a href="causality.html#discussion"><i class="fa fa-check"></i><b>16.10.4</b> Discussion</a></li>
 </ul></li>
+<li class="chapter" data-level="16.11" data-path="causality.html"><a href="causality.html#exercises-and-tutorial-15"><i class="fa fa-check"></i><b>16.11</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="16.11.1" data-path="causality.html"><a href="causality.html#exercises-15"><i class="fa fa-check"></i><b>16.11.1</b> Exercises</a></li>
+<li class="chapter" data-level="16.11.2" data-path="causality.html"><a href="causality.html#tutorial-15"><i class="fa fa-check"></i><b>16.11.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="mrp.html"><a href="mrp.html"><i class="fa fa-check"></i><b>17</b> Multilevel regression with post-stratification</a>
 <ul>
@@ -647,6 +741,11 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.4" data-path="mrp.html"><a href="mrp.html#post-stratify-2"><i class="fa fa-check"></i><b>17.5.4</b> Post-stratify</a></li>
 </ul></li>
 <li class="chapter" data-level="17.6" data-path="mrp.html"><a href="mrp.html#concluding-remarks-and-next-steps"><i class="fa fa-check"></i><b>17.6</b> Concluding remarks and next steps</a></li>
+<li class="chapter" data-level="17.7" data-path="mrp.html"><a href="mrp.html#exercises-and-tutorial-16"><i class="fa fa-check"></i><b>17.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="mrp.html"><a href="mrp.html#exercises-16"><i class="fa fa-check"></i><b>17.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="17.7.2" data-path="mrp.html"><a href="mrp.html#tutorial-16"><i class="fa fa-check"></i><b>17.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="text-as-data.html"><a href="text-as-data.html"><i class="fa fa-check"></i><b>18</b> Text as data</a>
 <ul>
@@ -661,6 +760,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="text-as-data.html"><a href="text-as-data.html#word-embedding"><i class="fa fa-check"></i><b>18.4</b> Word embedding</a></li>
 <li class="chapter" data-level="18.5" data-path="text-as-data.html"><a href="text-as-data.html#conclusion-1"><i class="fa fa-check"></i><b>18.5</b> Conclusion</a></li>
+<li class="chapter" data-level="18.6" data-path="text-as-data.html"><a href="text-as-data.html#exercises-and-tutorial-17"><i class="fa fa-check"></i><b>18.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="text-as-data.html"><a href="text-as-data.html#exercises-17"><i class="fa fa-check"></i><b>18.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="18.6.2" data-path="text-as-data.html"><a href="text-as-data.html#tutorial-17"><i class="fa fa-check"></i><b>18.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>VI Enrichment</b></span></li>
 <li class="chapter" data-level="19" data-path="using-the-cloud.html"><a href="using-the-cloud.html"><i class="fa fa-check"></i><b>19</b> Using the cloud</a>
@@ -670,6 +774,11 @@ div.csl-indent {
 <li class="chapter" data-level="19.3" data-path="using-the-cloud.html"><a href="using-the-cloud.html#aws"><i class="fa fa-check"></i><b>19.3</b> AWS</a></li>
 <li class="chapter" data-level="19.4" data-path="using-the-cloud.html"><a href="using-the-cloud.html#google-compute-engine"><i class="fa fa-check"></i><b>19.4</b> Google Compute Engine</a></li>
 <li class="chapter" data-level="19.5" data-path="using-the-cloud.html"><a href="using-the-cloud.html#azure"><i class="fa fa-check"></i><b>19.5</b> Azure</a></li>
+<li class="chapter" data-level="19.6" data-path="using-the-cloud.html"><a href="using-the-cloud.html#exercises-and-tutorial-18"><i class="fa fa-check"></i><b>19.6</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="using-the-cloud.html"><a href="using-the-cloud.html#exercises-18"><i class="fa fa-check"></i><b>19.6.1</b> Exercises</a></li>
+<li class="chapter" data-level="19.6.2" data-path="using-the-cloud.html"><a href="using-the-cloud.html#tutorial-18"><i class="fa fa-check"></i><b>19.6.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="deploying-models.html"><a href="deploying-models.html"><i class="fa fa-check"></i><b>20</b> Deploying models</a>
 <ul>
@@ -682,12 +791,36 @@ div.csl-indent {
 <li class="chapter" data-level="20.4.2" data-path="deploying-models.html"><a href="deploying-models.html#local-model"><i class="fa fa-check"></i><b>20.4.2</b> Local model</a></li>
 <li class="chapter" data-level="20.4.3" data-path="deploying-models.html"><a href="deploying-models.html#cloud-model"><i class="fa fa-check"></i><b>20.4.3</b> Cloud model</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="data-efficiency.html"><a href="data-efficiency.html"><i class="fa fa-check"></i><b>21</b> Data efficiency</a>
+<li class="chapter" data-level="20.5" data-path="deploying-models.html"><a href="deploying-models.html#exercises-and-tutorial-19"><i class="fa fa-check"></i><b>20.5</b> Exercises and tutorial</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="data-efficiency.html"><a href="data-efficiency.html#introduction-29"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
-<li class="chapter" data-level="21.2" data-path="data-efficiency.html"><a href="data-efficiency.html#sql"><i class="fa fa-check"></i><b>21.2</b> SQL</a></li>
-<li class="chapter" data-level="21.3" data-path="data-efficiency.html"><a href="data-efficiency.html#feather"><i class="fa fa-check"></i><b>21.3</b> Feather</a></li>
+<li class="chapter" data-level="20.5.1" data-path="deploying-models.html"><a href="deploying-models.html#exercises-19"><i class="fa fa-check"></i><b>20.5.1</b> Exercises</a></li>
+<li class="chapter" data-level="20.5.2" data-path="deploying-models.html"><a href="deploying-models.html#tutorial-19"><i class="fa fa-check"></i><b>20.5.2</b> Tutorial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="efficiency.html"><a href="efficiency.html"><i class="fa fa-check"></i><b>21</b> Efficiency</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="efficiency.html"><a href="efficiency.html#introduction-29"><i class="fa fa-check"></i><b>21.1</b> Introduction</a></li>
+<li class="chapter" data-level="21.2" data-path="efficiency.html"><a href="efficiency.html#data-efficiency"><i class="fa fa-check"></i><b>21.2</b> Data efficiency</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="efficiency.html"><a href="efficiency.html#sql"><i class="fa fa-check"></i><b>21.2.1</b> SQL</a></li>
+<li class="chapter" data-level="21.2.2" data-path="efficiency.html"><a href="efficiency.html#feather"><i class="fa fa-check"></i><b>21.2.2</b> Feather</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="efficiency.html"><a href="efficiency.html#code-efficiency"><i class="fa fa-check"></i><b>21.3</b> Code efficiency</a></li>
+<li class="chapter" data-level="21.4" data-path="efficiency.html"><a href="efficiency.html#code-refactoring"><i class="fa fa-check"></i><b>21.4</b> Code refactoring</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="efficiency.html"><a href="efficiency.html#measure"><i class="fa fa-check"></i><b>21.4.1</b> Measure</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="efficiency.html"><a href="efficiency.html#experimental-efficiency"><i class="fa fa-check"></i><b>21.5</b> Experimental efficiency</a></li>
+<li class="chapter" data-level="21.6" data-path="efficiency.html"><a href="efficiency.html#other-languages"><i class="fa fa-check"></i><b>21.6</b> Other languages</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="efficiency.html"><a href="efficiency.html#python"><i class="fa fa-check"></i><b>21.6.1</b> Python</a></li>
+<li class="chapter" data-level="21.6.2" data-path="efficiency.html"><a href="efficiency.html#julia"><i class="fa fa-check"></i><b>21.6.2</b> Julia</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="efficiency.html"><a href="efficiency.html#exercises-and-tutorial-20"><i class="fa fa-check"></i><b>21.7</b> Exercises and tutorial</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="efficiency.html"><a href="efficiency.html#exercises-20"><i class="fa fa-check"></i><b>21.7.1</b> Exercises</a></li>
+<li class="chapter" data-level="21.7.2" data-path="efficiency.html"><a href="efficiency.html#tutorial-20"><i class="fa fa-check"></i><b>21.7.2</b> Tutorial</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="concludingremarks.html"><a href="concludingremarks.html"><i class="fa fa-check"></i><b>22</b> Concluding remarks, next steps, and open problems</a>
 <ul>
@@ -696,72 +829,74 @@ div.csl-indent {
 <li class="chapter" data-level="22.3" data-path="concludingremarks.html"><a href="concludingremarks.html#open-problems"><i class="fa fa-check"></i><b>22.3</b> Open problems</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="oh-you-think-we-have-good-data-on-that.html"><a href="oh-you-think-we-have-good-data-on-that.html"><i class="fa fa-check"></i><b>A</b> Oh, you think we have good data on that!</a></li>
+<li class="chapter" data-level="B" data-path="shoulders-of-giants.html"><a href="shoulders-of-giants.html"><i class="fa fa-check"></i><b>B</b> Shoulders of giants</a></li>
 <li class="part"><span><b>VII Assessment</b></span></li>
-<li class="chapter" data-level="A" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>A</b> Papers</a>
+<li class="chapter" data-level="C" data-path="papers.html"><a href="papers.html"><i class="fa fa-check"></i><b>C</b> Papers</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>A.1</b> ‘Mandatory Minimums’</a>
+<li class="chapter" data-level="C.1" data-path="papers.html"><a href="papers.html#mandatory-minimums"><i class="fa fa-check"></i><b>C.1</b> ‘Mandatory Minimums’</a>
 <ul>
-<li class="chapter" data-level="A.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>A.1.1</b> Task</a></li>
-<li class="chapter" data-level="A.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>A.1.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>A.1.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>A.1.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>A.1.5</b> Rubric</a></li>
-<li class="chapter" data-level="A.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>A.1.6</b> Previous examples</a></li>
+<li class="chapter" data-level="C.1.1" data-path="papers.html"><a href="papers.html#task"><i class="fa fa-check"></i><b>C.1.1</b> Task</a></li>
+<li class="chapter" data-level="C.1.2" data-path="papers.html"><a href="papers.html#guidance"><i class="fa fa-check"></i><b>C.1.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.1.3" data-path="papers.html"><a href="papers.html#check-offs-points"><i class="fa fa-check"></i><b>C.1.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.1.4" data-path="papers.html"><a href="papers.html#faq"><i class="fa fa-check"></i><b>C.1.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.1.5" data-path="papers.html"><a href="papers.html#rubric"><i class="fa fa-check"></i><b>C.1.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.1.6" data-path="papers.html"><a href="papers.html#previous-examples"><i class="fa fa-check"></i><b>C.1.6</b> Previous examples</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>A.2</b> ‘These numbers mean dial it up’</a>
+<li class="chapter" data-level="C.2" data-path="papers.html"><a href="papers.html#these-numbers-mean-dial-it-up"><i class="fa fa-check"></i><b>C.2</b> ‘These numbers mean dial it up’</a>
 <ul>
-<li class="chapter" data-level="A.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>A.2.1</b> Task</a></li>
-<li class="chapter" data-level="A.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>A.2.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>A.2.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>A.2.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>A.2.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.2.1" data-path="papers.html"><a href="papers.html#task-1"><i class="fa fa-check"></i><b>C.2.1</b> Task</a></li>
+<li class="chapter" data-level="C.2.2" data-path="papers.html"><a href="papers.html#guidance-1"><i class="fa fa-check"></i><b>C.2.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.2.3" data-path="papers.html"><a href="papers.html#check-offs-points-1"><i class="fa fa-check"></i><b>C.2.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.2.4" data-path="papers.html"><a href="papers.html#faq-1"><i class="fa fa-check"></i><b>C.2.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.2.5" data-path="papers.html"><a href="papers.html#rubric-1"><i class="fa fa-check"></i><b>C.2.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="A.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>A.3</b> ‘The Short List’</a>
+<li class="chapter" data-level="C.3" data-path="papers.html"><a href="papers.html#the-short-list"><i class="fa fa-check"></i><b>C.3</b> ‘The Short List’</a>
 <ul>
-<li class="chapter" data-level="A.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>A.3.1</b> Task</a></li>
-<li class="chapter" data-level="A.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>A.3.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>A.3.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>A.3.4</b> FAQ</a></li>
-<li class="chapter" data-level="A.3.5" data-path="papers.html"><a href="papers.html#rubric-2"><i class="fa fa-check"></i><b>A.3.5</b> Rubric</a></li>
+<li class="chapter" data-level="C.3.1" data-path="papers.html"><a href="papers.html#task-2"><i class="fa fa-check"></i><b>C.3.1</b> Task</a></li>
+<li class="chapter" data-level="C.3.2" data-path="papers.html"><a href="papers.html#guidance-2"><i class="fa fa-check"></i><b>C.3.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.3.3" data-path="papers.html"><a href="papers.html#check-offs-points-2"><i class="fa fa-check"></i><b>C.3.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.3.4" data-path="papers.html"><a href="papers.html#faq-2"><i class="fa fa-check"></i><b>C.3.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.3.5" data-path="papers.html"><a href="papers.html#rubric-2"><i class="fa fa-check"></i><b>C.3.5</b> Rubric</a></li>
 </ul></li>
-<li class="chapter" data-level="A.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>A.4</b> ‘Two Cathedrals’</a>
+<li class="chapter" data-level="C.4" data-path="papers.html"><a href="papers.html#two-cathedrals"><i class="fa fa-check"></i><b>C.4</b> ‘Two Cathedrals’</a>
 <ul>
-<li class="chapter" data-level="A.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>A.4.1</b> Task</a></li>
-<li class="chapter" data-level="A.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>A.4.2</b> Guidance</a></li>
-<li class="chapter" data-level="A.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>A.4.3</b> Peer review submission</a></li>
-<li class="chapter" data-level="A.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>A.4.4</b> Conduct peer-review</a></li>
-<li class="chapter" data-level="A.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>A.4.5</b> Check offs points</a></li>
-<li class="chapter" data-level="A.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>A.4.6</b> FAQ</a></li>
-<li class="chapter" data-level="A.4.7" data-path="papers.html"><a href="papers.html#rubric-3"><i class="fa fa-check"></i><b>A.4.7</b> Rubric</a></li>
-<li class="chapter" data-level="A.4.8" data-path="papers.html"><a href="papers.html#previous-examples-1"><i class="fa fa-check"></i><b>A.4.8</b> Previous examples</a></li>
+<li class="chapter" data-level="C.4.1" data-path="papers.html"><a href="papers.html#task-3"><i class="fa fa-check"></i><b>C.4.1</b> Task</a></li>
+<li class="chapter" data-level="C.4.2" data-path="papers.html"><a href="papers.html#guidance-3"><i class="fa fa-check"></i><b>C.4.2</b> Guidance</a></li>
+<li class="chapter" data-level="C.4.3" data-path="papers.html"><a href="papers.html#peer-review-submission"><i class="fa fa-check"></i><b>C.4.3</b> Peer review submission</a></li>
+<li class="chapter" data-level="C.4.4" data-path="papers.html"><a href="papers.html#conduct-peer-review"><i class="fa fa-check"></i><b>C.4.4</b> Conduct peer-review</a></li>
+<li class="chapter" data-level="C.4.5" data-path="papers.html"><a href="papers.html#check-offs-points-3"><i class="fa fa-check"></i><b>C.4.5</b> Check offs points</a></li>
+<li class="chapter" data-level="C.4.6" data-path="papers.html"><a href="papers.html#faq-3"><i class="fa fa-check"></i><b>C.4.6</b> FAQ</a></li>
+<li class="chapter" data-level="C.4.7" data-path="papers.html"><a href="papers.html#rubric-3"><i class="fa fa-check"></i><b>C.4.7</b> Rubric</a></li>
+<li class="chapter" data-level="C.4.8" data-path="papers.html"><a href="papers.html#previous-examples-1"><i class="fa fa-check"></i><b>C.4.8</b> Previous examples</a></li>
 </ul></li>
-<li class="chapter" data-level="A.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>A.5</b> ‘A Proportional Response’</a>
+<li class="chapter" data-level="C.5" data-path="papers.html"><a href="papers.html#a-proportional-response"><i class="fa fa-check"></i><b>C.5</b> ‘A Proportional Response’</a>
 <ul>
-<li class="chapter" data-level="A.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>A.5.1</b> Task</a></li>
-<li class="chapter" data-level="A.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>A.5.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>A.5.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>A.5.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.5.1" data-path="papers.html"><a href="papers.html#task-4"><i class="fa fa-check"></i><b>C.5.1</b> Task</a></li>
+<li class="chapter" data-level="C.5.2" data-path="papers.html"><a href="papers.html#recommended-steps"><i class="fa fa-check"></i><b>C.5.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.5.3" data-path="papers.html"><a href="papers.html#check-offs-points-4"><i class="fa fa-check"></i><b>C.5.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.5.4" data-path="papers.html"><a href="papers.html#faq-4"><i class="fa fa-check"></i><b>C.5.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>A.6</b> ‘Mr Willis of Ohio’</a>
+<li class="chapter" data-level="C.6" data-path="papers.html"><a href="papers.html#mr-willis-of-ohio"><i class="fa fa-check"></i><b>C.6</b> ‘Mr Willis of Ohio’</a>
 <ul>
-<li class="chapter" data-level="A.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>A.6.1</b> Task</a></li>
-<li class="chapter" data-level="A.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>A.6.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>A.6.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>A.6.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.6.1" data-path="papers.html"><a href="papers.html#task-5"><i class="fa fa-check"></i><b>C.6.1</b> Task</a></li>
+<li class="chapter" data-level="C.6.2" data-path="papers.html"><a href="papers.html#recommended-steps-1"><i class="fa fa-check"></i><b>C.6.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.6.3" data-path="papers.html"><a href="papers.html#check-offs-points-5"><i class="fa fa-check"></i><b>C.6.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.6.4" data-path="papers.html"><a href="papers.html#faq-5"><i class="fa fa-check"></i><b>C.6.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>A.7</b> ‘Five Votes Down’</a>
+<li class="chapter" data-level="C.7" data-path="papers.html"><a href="papers.html#five-votes-down"><i class="fa fa-check"></i><b>C.7</b> ‘Five Votes Down’</a>
 <ul>
-<li class="chapter" data-level="A.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>A.7.1</b> Task</a></li>
-<li class="chapter" data-level="A.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>A.7.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>A.7.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>A.7.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.7.1" data-path="papers.html"><a href="papers.html#task-6"><i class="fa fa-check"></i><b>C.7.1</b> Task</a></li>
+<li class="chapter" data-level="C.7.2" data-path="papers.html"><a href="papers.html#recommended-steps-2"><i class="fa fa-check"></i><b>C.7.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.7.3" data-path="papers.html"><a href="papers.html#check-offs-points-6"><i class="fa fa-check"></i><b>C.7.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.7.4" data-path="papers.html"><a href="papers.html#faq-6"><i class="fa fa-check"></i><b>C.7.4</b> FAQ</a></li>
 </ul></li>
-<li class="chapter" data-level="A.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>A.8</b> ‘What’s next?’</a>
+<li class="chapter" data-level="C.8" data-path="papers.html"><a href="papers.html#whats-next"><i class="fa fa-check"></i><b>C.8</b> ‘What’s next?’</a>
 <ul>
-<li class="chapter" data-level="A.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>A.8.1</b> Task</a></li>
-<li class="chapter" data-level="A.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>A.8.2</b> Recommended steps</a></li>
-<li class="chapter" data-level="A.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>A.8.3</b> Check offs points</a></li>
-<li class="chapter" data-level="A.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>A.8.4</b> FAQ</a></li>
+<li class="chapter" data-level="C.8.1" data-path="papers.html"><a href="papers.html#task-7"><i class="fa fa-check"></i><b>C.8.1</b> Task</a></li>
+<li class="chapter" data-level="C.8.2" data-path="papers.html"><a href="papers.html#recommended-steps-3"><i class="fa fa-check"></i><b>C.8.2</b> Recommended steps</a></li>
+<li class="chapter" data-level="C.8.3" data-path="papers.html"><a href="papers.html#check-offs-points-7"><i class="fa fa-check"></i><b>C.8.3</b> Check offs points</a></li>
+<li class="chapter" data-level="C.8.4" data-path="papers.html"><a href="papers.html#faq-7"><i class="fa fa-check"></i><b>C.8.4</b> FAQ</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
@@ -868,46 +1003,6 @@ div.csl-indent {
 <li>Commit your changes: <code>git commit -m "Short description of changes"</code>.</li>
 <li>Push your changes to GitHub: <code>git push</code>.</li>
 </ul>
-<p><strong>Quiz</strong></p>
-<ol style="list-style-type: decimal">
-<li>What are three features of a good research question (write a paragraph or two)?</li>
-<li>What is a counterfactual (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>If-then statements in which the if didn’t happen.</li>
-<li>If-then statements in which the if happen.</li>
-<li>Statements that are either true or false.</li>
-<li>Statements that are neither true or false.</li>
-</ol></li>
-<li>How do you hide the warnings in a R Markdown R chunk (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li><code>echo = FALSE</code></li>
-<li><code>include = FALSE</code></li>
-<li><code>eval = FALSE</code></li>
-<li><code>warning = FALSE</code></li>
-<li><code>message = FALSE</code></li>
-</ol></li>
-<li>What is a reprex and why is it important to be able to make one (select all)?
-<ol style="list-style-type: lower-alpha">
-<li>A reproducible example that enables your error to be reproduced.</li>
-<li>A reproducible example that helps others help you.</li>
-<li>A reproducible example during the construction of which you may solve your own problem.</li>
-<li>A reproducible example that demonstrates you’ve actually tried to help yourself.</li>
-</ol></li>
-<li>Why are R Projects important (select all)?
-<ol style="list-style-type: lower-alpha">
-<li>They help with reproducibility.</li>
-<li>They make it easier to share code.</li>
-<li>They make your workspace more organized.</li>
-<li>They are all that needs to be done.</li>
-</ol></li>
-<li>Consider this sequence: ‘<code>git pull</code>, <code>git status</code>, ________, <code>git status</code>, <code>git commit -m "My message"</code>, <code>git push</code>.’ What is the missing step (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li><code>git add -A</code>.</li>
-<li><code>git status</code>.</li>
-<li><code>git pull</code>.</li>
-<li><code>git push</code>.</li>
-</ol></li>
-</ol>
 <div id="introduction" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <blockquote>
@@ -927,7 +1022,7 @@ div.csl-indent {
 <p>The ‘gay face’ paper that <span class="citation"><a href="#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> writes about has not released their dataset. We have no way of knowing what is going on with it. They have found a certain set of results based on that dataset, their methods, and what they did, but we have no way of knowing how much that matters. As <span class="citation"><a href="#ref-Simpson2017" role="doc-biblioref">D. Simpson</a> (<a href="#ref-Simpson2017" role="doc-biblioref">2017</a>)</span> says ‘the paper itself does some things right. It has a detailed discussion of the limitations of the data and the method.’ You must do this in everything that you write, but it is not enough.</p>
 <p>Without the data, we don’t know what their results speak to as we don’t understand how representative the sample is. If the dataset is biased, then that undermines their claims. There’s a reason that while initial medical trials are done on mice, etc, eventually human trials are required.</p>
 <p>In order to do the study, they needed a trained dataset. They trained it using Mechanical Turk. Figure <a href="workflow.html#fig:mattsonexamplemap">4.1</a> is from <span class="citation"><a href="#ref-Mattson2017" role="doc-biblioref">Mattson</a> (<a href="#ref-Mattson2017" role="doc-biblioref">2017</a>)</span>.</p>
-<div class="figure"><span id="fig:mattsonexamplemap"></span>
+<div class="figure"><span style="display:block;" id="fig:mattsonexamplemap"></span>
 <img src="figures/gayface_extract.png" alt="Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson." width="90%" />
 <p class="caption">
 FIGURE 4.1: Instructions for workers to do classification piecework on the Amazon Mechanical Turk platform, p. 46. From Mattson.
@@ -981,10 +1076,10 @@ Ordered List
 <h3><span class="header-section-number">4.2.3</span> R chunks</h3>
 <p>You can include R (and a bunch of other languages) code in code chunks within your R Markdown document. Then when you knit your document, the R code will run and be included in your document.</p>
 <p>To create an R chunk start with three backticks and then within curly braces tell markdown that this is an R chunk. Anything inside this chunk will be considered R code and run as such.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="workflow.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb145-2"><a href="workflow.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span> </span>
-<span id="cb145-3"><a href="workflow.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat))</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="workflow.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb155-2"><a href="workflow.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span> </span>
+<span id="cb155-3"><a href="workflow.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat))</span></code></pre></div>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 <p>There are various evaluation options that are available in chunks. You include these by putting a comma after <code>r</code> and then specifying any options before the closing curly brace. Helpful options include:</p>
 <ul>
 <li><code>echo = FALSE</code>: run the code and include the output, but don’t print the code in the document.</li>
@@ -1040,15 +1135,17 @@ bibliography: bibliography.bib
 <div id="cross-references" class="section level3" number="4.2.6">
 <h3><span class="header-section-number">4.2.6</span> Cross-references</h3>
 <p>Finally, it can be useful to cross-reference figures, tables and equations. This makes it easier to refer to them in the text. To do this for a figure you refer to the name of the R chunk that creates/contains the figure. For instance, <code>(Figure \@ref(fig:my_unique_name))</code> will produce: (Figure @ref(fig:my_unique_name)) as the name of the R chunk is <code>my_unique_name</code> (don’t forget to add the <code>fig</code> in front of the chunk name. Also, super annoyingly you need to have a ‘fig.cap’ in the R chunk, so it looks something like this:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb150-1"><a href="workflow.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my_unique_name, fig.cap=&quot;More bills of penguins&quot;, echo = TRUE}</span></span></code></pre></div>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="workflow.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb151-2"><a href="workflow.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
-<span id="cb151-3"><a href="workflow.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb151-4"><a href="workflow.html#cb151-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;cyan4&quot;</span>),</span>
-<span id="cb151-5"><a href="workflow.html#cb151-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb151-6"><a href="workflow.html#cb151-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb151-7"><a href="workflow.html#cb151-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb151-8"><a href="workflow.html#cb151-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb160-1"><a href="workflow.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r my_unique_name, fig.cap=&quot;More bills of penguins&quot;, echo = TRUE}</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="workflow.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb161-2"><a href="workflow.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb161-3"><a href="workflow.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb161-4"><a href="workflow.html#cb161-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;darkorange&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;cyan4&quot;</span>),</span>
+<span id="cb161-5"><a href="workflow.html#cb161-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb161-6"><a href="workflow.html#cb161-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb161-7"><a href="workflow.html#cb161-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb161-8"><a href="workflow.html#cb161-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to
+## remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <div class="figure">
 <img src="bookdown_files/figure-html/my_unique_name-1.png" alt="More bills of penguins" width="672" />
 <p class="caption">
@@ -1056,10 +1153,10 @@ bibliography: bibliography.bib
 </p>
 </div>
 <p>You can do similar for tables and equations e.g. <code>(Table \@ref(tab:penguinhead))</code> will produce: (Table <a href="workflow.html#tab:penguinhead">4.1</a>) (again, don’t forget to ad <code>tab</code> in front).</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="workflow.html#cb152-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb152-2"><a href="workflow.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span> </span>
-<span id="cb152-3"><a href="workflow.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb152-4"><a href="workflow.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A penguin table&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="workflow.html#cb163-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb163-2"><a href="workflow.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-3"><a href="workflow.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-4"><a href="workflow.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;A penguin table&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:penguinhead">TABLE 4.1: </span>A penguin table</caption>
 <thead>
@@ -1128,7 +1225,7 @@ Y = a + b X \tag{4.1}
 <p>Git is a version control system. One way you might be used to doing version control is to have various versions of your files: <code>first_go.R</code>, <code>first_go-fixed.R</code>, <code>first_go-fixed-with-mons-edits.R</code>. But this soon becomes cumbersome. Some of you may use dates, for instance: <code>2020-03-12-analysis.R</code>, <code>2020-03-13-analysis.R</code>, <code>2020-03-14-analysis.R</code>, etc. While this keeps a record it can be difficult to search if you need to go back - will you really remember the date of some change in a week? How about a month or a year? It gets unwieldy fairly quickly.</p>
 <p>Instead of this, Git allows you to only have one version of the file <code>analysis.R</code> and it keeps a record of the changes to that file, and a snapshot of that file at a given point in time. When it takes that snapshot is determined by you. When you want Git to take a snapshot you additionally include a message, saying what changed between this snapshot and the last. In that way, there is only ever one version of the file, but the history can be more easily searched.</p>
 <p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="workflow.html#fig:hackernews">4.2</a>).</p>
-<div class="figure"><span id="fig:hackernews"></span>
+<div class="figure"><span style="display:block;" id="fig:hackernews"></span>
 <img src="figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn't for most of us." width="90%" />
 <p class="caption">
 FIGURE 4.2: An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn’t for most of us.
@@ -1141,9 +1238,9 @@ FIGURE 4.2: An infamous response to the launch of Dropbox in 2007, trivialising 
 <div id="git" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Git</h3>
 <p>Check if you have Git installed by opening R Studio and then going to the Terminal and typing the following and then return.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="workflow.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> --version</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb165-1"><a href="workflow.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
 <p>If you get a version number, then you are done (Figure <a href="workflow.html#fig:gitone">4.3</a>).</p>
-<div class="figure"><span id="fig:gitone"></span>
+<div class="figure"><span style="display:block;" id="fig:gitone"></span>
 <img src="figures/git_one.png" alt="How to access the Terminal within R Studio" width="90%" />
 <p class="caption">
 FIGURE 4.3: How to access the Terminal within R Studio
@@ -1152,61 +1249,61 @@ FIGURE 4.3: How to access the Terminal within R Studio
 <p>If you have a Mac then Git should come pre-installed, if you have Windows then there’s a chance, and if you have Linux then you probably don’t need this guide. If you don’t get a version number, then you need to install it. Please go to Chapter 5 of <span class="citation"><a href="#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="#ref-happygit" role="doc-biblioref">2020</a>)</span> for some instructions based on your operating system.</p>
 <p>After you have Git, then you need to tell it your username and email. You need this because Git adds this information whenever you take a ‘snapshot,’ or to use Git’s language whenever you make a commit.</p>
 <p>Again, within the Terminal, type the following, replacing the details with yours, and then return after each line.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb155-1"><a href="workflow.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></span>
-<span id="cb155-2"><a href="workflow.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></span>
-<span id="cb155-3"><a href="workflow.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global --list</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb166-1"><a href="workflow.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&#39;Jane Doe&#39;</span></span>
+<span id="cb166-2"><a href="workflow.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&#39;jane@example.com&#39;</span></span>
+<span id="cb166-3"><a href="workflow.html#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div>
 <p>The details that you enter here will be public (there are various ways to hide your email address if you need to do this and GitHub provides instructions about this).</p>
 <p>Again, if you have issues or need more detailed instructions, please go to Chapter 7 of <span class="citation"><a href="#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="github" class="section level3" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> GitHub</h3>
 <p>The first step is to create an account on GitHub (<a href="https://github.com" class="uri">https://github.com</a>) (Figure <a href="workflow.html#fig:githubone">4.4</a>).</p>
-<div class="figure"><span id="fig:githubone"></span>
+<div class="figure"><span style="display:block;" id="fig:githubone"></span>
 <img src="figures/github_1.png" alt="Sign up screen at GitHub" width="90%" />
 <p class="caption">
 FIGURE 4.4: Sign up screen at GitHub
 </p>
 </div>
 <p>GitHub doesn’t have the most intuitive user experience in the world, but we are now going to make a new folder (which is called a ‘repo’ in Git). You are looking for a plus sign in the top right, and then select ‘New Repository’ (Figure <a href="workflow.html#fig:githubtwo">4.5</a>).</p>
-<div class="figure"><span id="fig:githubtwo"></span>
+<div class="figure"><span style="display:block;" id="fig:githubtwo"></span>
 <img src="figures/github_2.png" alt="Create a new repository" width="90%" />
 <p class="caption">
 FIGURE 4.5: Create a new repository
 </p>
 </div>
 <p>At this point you can add a sensible name for your repo. Leave it as public (you can delete it later if you want). And check the box to initialize with a readme. In the ‘Add .gitignore’ option you can leave it for now, but if you start using GitHub more regularly then you may like to select the R option here. (That just tells Git to ignore various files.) After that, just click the button to create a new repository (Figure <a href="workflow.html#fig:githubthree">4.6</a>).</p>
-<div class="figure"><span id="fig:githubthree"></span>
+<div class="figure"><span style="display:block;" id="fig:githubthree"></span>
 <img src="figures/github_3.png" alt="Create a new repository, really" width="90%" />
 <p class="caption">
 FIGURE 4.6: Create a new repository, really
 </p>
 </div>
 <p>You’ll now be taken to a screen that is fairly empty, but the details that you need are in the green ‘Clone or Download’ button, then click the clipboard (Figure <a href="workflow.html#fig:githubfour">4.7</a>).</p>
-<div class="figure"><span id="fig:githubfour"></span>
+<div class="figure"><span style="display:block;" id="fig:githubfour"></span>
 <img src="figures/github_4.png" alt="Get the details of your new repository" width="90%" />
 <p class="caption">
 FIGURE 4.7: Get the details of your new repository
 </p>
 </div>
 <p>Now you need to open Terminal, and use <code>cd</code> to get to where you want to save the folder, then:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb156-1"><a href="workflow.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb167-1"><a href="workflow.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
 <p>At this point, a new folder has been created. We can now interact with it.</p>
 <p>The first step is almost always to pull the latest changes with <code>git pull</code> (this is slightly pointless in this example because it’s just us but it’s a good habit to get into). We can then make a change to the folder, for instance, update the readme, and then save it as usual. Once this is done, we need to add, commit, and push. As before, use <code>cd</code> to navigate to your folder, then <code>git status</code> to see if there is anything going on (you should see some reference to the change you made). Then <code>git add -A</code> adds the changes to the staging area (this seems pointless, and it is in this context, but this allows you to specify specific files and similar if needed). Then <code>git status</code> to check what has happened. Then <code>git commit -m "Minor update to readme"</code>, and then <code>git status</code> to check on everything, and finally <code>git push</code>.</p>
 <p>To summarise (assuming you are in the relevant folder):</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb157-1"><a href="workflow.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb157-2"><a href="workflow.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb157-3"><a href="workflow.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add -A</span>
-<span id="cb157-4"><a href="workflow.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb157-5"><a href="workflow.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;Short commit message&quot;</span></span>
-<span id="cb157-6"><a href="workflow.html#cb157-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb157-7"><a href="workflow.html#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb168-1"><a href="workflow.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb168-2"><a href="workflow.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb168-3"><a href="workflow.html#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb168-4"><a href="workflow.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb168-5"><a href="workflow.html#cb168-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Short commit message&quot;</span></span>
+<span id="cb168-6"><a href="workflow.html#cb168-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb168-7"><a href="workflow.html#cb168-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="using-git-within-rstudio" class="section level3" number="4.4.4">
 <h3><span class="header-section-number">4.4.4</span> Using Git within RStudio</h3>
 <p>I promised that GitHub was built into RStudio, but so far, we’ve not really taken advantage of that. The way to do it is to create a new repo in GitHub, and copy the information, as before.</p>
 <p>At this point, you open RStudio, select <code>Files</code>, <code>New Project</code>, <code>Version Control</code>, <code>Git</code>, and paste the information for the repo. Go through the rest of it, saving the folder somewhere sensible, and clicking ‘Open in new session.’ This will then create a new folder on your computer which will be a Git folder that is linked to the GitHub repo that you created.</p>
 <p>At this point, you’ll have a ‘Git’ tab (Figure <a href="workflow.html#fig:rstudiogit">4.8</a>).</p>
-<div class="figure"><span id="fig:rstudiogit"></span>
+<div class="figure"><span style="display:block;" id="fig:rstudiogit"></span>
 <img src="figures/RStudio_git.png" alt="The Git pane in R Studio" width="90%" />
 <p class="caption">
 FIGURE 4.8: The Git pane in R Studio
@@ -1223,7 +1320,7 @@ FIGURE 4.8: The Git pane in R Studio
 <h2><span class="header-section-number">4.5</span> Using R in practice</h2>
 <div id="introduction-2" class="section level3" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> Introduction</h3>
-<p>This section is what do when your code doesn’t do what you want, discusses a mindset that may help when doing quantitative analysis with R, and finally, some recommendations around how to write your code.</p>
+<p>This section is what do when your code doesn’t do what you want, discusses a mindset that may help when doing quantitative analysis with R, and finally, some recommendations around how to write your code. ‘No one can advise or help you—no one. There is only one thing you should do. Go into yourself.’ <span class="citation">(<a href="#ref-rilke" role="doc-biblioref">Rilke 1929</a>)</span>.</p>
 </div>
 <div id="getting-help" class="section level3" number="4.5.2">
 <h3><span class="header-section-number">4.5.2</span> Getting help</h3>
@@ -1273,7 +1370,8 @@ FIGURE 4.8: The Git pane in R Studio
 </div>
 <div id="code-comments" class="section level3" number="4.5.4">
 <h3><span class="header-section-number">4.5.4</span> Code comments</h3>
-<p>Comment your code.</p>
+<p>ADD A BUNCH OF CITATIONS FOR EVERY TIME IT SAYS COMMENT YOUR CODE. LOL</p>
+<p>Comment your code <span class="citation">(<a href="#ref-lee2018ten" role="doc-biblioref">Lee 2018</a>)</span>.</p>
 <p>There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you’re just working on your own.</p>
 <p>Comment your code.</p>
 <p>Comments in R can be added by including the # symbol. The shortcut on Mac is ‘Command + Shift + m.’ You don’t have to put a comment at the start of the line, it can be midway through. In general, you don’t need to comment what every aspect of your code is doing but you should comment parts that are not obvious. For instance, if you read in some value then you may like to comment where it is coming from.</p>
@@ -1359,7 +1457,7 @@ raw_data &lt;- readr::read_csv(&quot;inputs/data/raw_data.csv&quot;)
 </blockquote>
 <p>Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump’s tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.</p>
 <p>Usually, the creation of a counterfactual is crucial. We’ll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the ‘if’ is false. Consider the example of Humpty Dumpty from Lewis Carroll’s Through the Looking-Glass:</p>
-<div class="figure"><span id="fig:humpty"></span>
+<div class="figure"><span style="display:block;" id="fig:humpty"></span>
 <img src="figures/humpty.png" alt="Humpty Dumpty example" width="90%" />
 <p class="caption">
 FIGURE 4.9: Humpty Dumpty example
@@ -1374,7 +1472,55 @@ FIGURE 4.9: Humpty Dumpty example
 <p>To see why this may be relevant, consider the example of Google’s AI cancer testing <span class="citation">(<a href="#ref-citeGoogleAIbreastcancer" role="doc-biblioref">Shetty and Tse 2020</a>)</span>. Basically, what they have done is to train a model that can identify breast cancer. They claim ‘greater accuracy, fewer false positives, and fewer false negatives than experts.’</p>
 <p>I, and many others <span class="citation">(<a href="#ref-citeWiredonGoogle" role="doc-biblioref">Aschwanden 2020</a>)</span>, would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are ‘wrong’ with them. The issue is that they’re perfectly healthy and that we’ve rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.</p>
 <p>Given low prevalence in the community, we probably don’t want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary ‘treatment’ would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.</p>
+</div>
+<div id="exercises-and-tutorial-3" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Exercises and tutorial</h2>
+<div id="exercises-3" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>What are three features of a good research question (write a paragraph or two)?</li>
+<li>What is a counterfactual (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>If-then statements in which the if didn’t happen.</li>
+<li>If-then statements in which the if happen.</li>
+<li>Statements that are either true or false.</li>
+<li>Statements that are neither true or false.</li>
+</ol></li>
+<li>How do you hide the warnings in a R Markdown R chunk (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>echo = FALSE</code></li>
+<li><code>include = FALSE</code></li>
+<li><code>eval = FALSE</code></li>
+<li><code>warning = FALSE</code></li>
+<li><code>message = FALSE</code></li>
+</ol></li>
+<li>What is a reprex and why is it important to be able to make one (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>A reproducible example that enables your error to be reproduced.</li>
+<li>A reproducible example that helps others help you.</li>
+<li>A reproducible example during the construction of which you may solve your own problem.</li>
+<li>A reproducible example that demonstrates you’ve actually tried to help yourself.</li>
+</ol></li>
+<li>Why are R Projects important (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>They help with reproducibility.</li>
+<li>They make it easier to share code.</li>
+<li>They make your workspace more organized.</li>
+<li>They are all that needs to be done.</li>
+</ol></li>
+<li>Consider this sequence: ‘<code>git pull</code>, <code>git status</code>, ________, <code>git status</code>, <code>git commit -m "My message"</code>, <code>git push</code>.’ What is the missing step (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>git add -A</code>.</li>
+<li><code>git status</code>.</li>
+<li><code>git pull</code>.</li>
+<li><code>git push</code>.</li>
+</ol></li>
+</ol>
+</div>
+<div id="tutorial-3" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Tutorial</h3>
 
+</div>
 </div>
 </div>
 
@@ -1409,11 +1555,17 @@ Hulley, Stephen B. 2007. <em>Designing Clinical Research</em>. Lippincott Willia
 <div id="ref-citeTidymodels" class="csl-entry">
 Kuhn, Max, and Hadley Wickham. 2020. <em>Tidymodels: A Collection of Packages for Modeling and Machine Learning Using Tidyverse Principles.</em> <a href="https://www.tidymodels.org">https://www.tidymodels.org</a>.
 </div>
+<div id="ref-lee2018ten" class="csl-entry">
+Lee, Benjamin D. 2018. <span>“Ten Simple Rules for Documenting Scientific Software.”</span> Public Library of Science San Francisco, CA USA.
+</div>
 <div id="ref-Mattson2017" class="csl-entry">
 Mattson, Greggor. 2017. <span>“Artificial Intelligence Discovers Gayface. Sigh.”</span> <a href="https://greggormattson.com/2017/09/09/artificial-intelligence-discovers-gayface/amp/">https://greggormattson.com/2017/09/09/artificial-intelligence-discovers-gayface/amp/</a>.
 </div>
 <div id="ref-citeR" class="csl-entry">
 R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-rilke" class="csl-entry">
+Rilke, Rainer Maria. 1929. <em>Letters to a Young Poet</em>.
 </div>
 <div id="ref-citeGoogleAIbreastcancer" class="csl-entry">
 Shetty, Shravya, and Daniel Tse. 2020. <em>Using AI to Improve Breast Cancer Screening</em>. <a href="https://blog.google/technology/health/improving-breast-cancer-screening/">https://blog.google/technology/health/improving-breast-cancer-screening/</a>.
@@ -1477,7 +1629,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown.pdf"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }

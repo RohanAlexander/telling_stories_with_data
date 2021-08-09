@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Telling Stories With Data</title>
+  <title>Chapter 13 Disseminating and protecting data | Telling Stories With Data</title>
   <meta name="description" content="This book is about learning how to tell stories with data." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Telling Stories With Data" />
+  <meta property="og:title" content="Chapter 13 Disseminating and protecting data | Telling Stories With Data" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yihui/bookdown-crc" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Telling Stories With Data" />
+  <meta name="twitter:title" content="Chapter 13 Disseminating and protecting data | Telling Stories With Data" />
   
   <meta name="twitter:description" content="This book is about learning how to tell stories with data." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="about-the-author.html"/>
+<link rel="prev" href="storing-and-retrieving-data.html"/>
+<link rel="next" href="exploratory-data-analysis.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -782,95 +782,77 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Telling Stories With Data</h1>
-<p class="author"><em>Rohan Alexander</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>May 11, 2021</em></p>
+<div id="disseminating-and-protecting-data" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Disseminating and protecting data</h1>
+<p><em>Last updated: 5 June 2021.</em></p>
+<ul>
+<li><p>Hawes, M. B. (2020). Implementing Differential Privacy: Seven Lessons From the 2020 United States Census. Harvard Data Science Review. <a href="https://doi.org/10.1162/99608f92.353c6f99" class="uri">https://doi.org/10.1162/99608f92.353c6f99</a></p></li>
+<li><p><a href="https://hdsr.mitpress.mit.edu/pub/g9o4z8au/release/2" class="uri">https://hdsr.mitpress.mit.edu/pub/g9o4z8au/release/2</a></p></li>
+<li><p><a href="https://www.census.gov/newsroom/blogs/research-matters/2020/02/census_bureau_works.html" class="uri">https://www.census.gov/newsroom/blogs/research-matters/2020/02/census_bureau_works.html</a></p></li>
+</ul>
+<p><strong>Required reading</strong></p>
+<p><strong>Recommended reading</strong></p>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li></li>
+</ul>
+<p><strong>Quiz</strong></p>
+<ol style="list-style-type: decimal">
+<li>According to <span class="citation"><a href="#ref-gebru2020datasheets" role="doc-biblioref">Gebru et al.</a> (<a href="#ref-gebru2020datasheets" role="doc-biblioref">2020, 2</a>)</span>, a datasheet should document a dataset’s (please select all that apply):
+<ol style="list-style-type: lower-alpha">
+<li>composition.</li>
+<li>recommended uses.</li>
+<li>motivation.</li>
+<li>collection process.</li>
+</ol></li>
+</ol>
+<div id="introduction-17" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Introduction</h2>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This aim of this book is to help you learn how to tell stories with data. It establishes a foundation on which you can build and share knowledge, based on data, about an aspect of the world of interest to you.</p>
-<p>In this book we explore, prod, push, manipulate, knead, and ultimately, try to understand the implications of, data. The motto of the university from which I took my PhD is ‘Naturam primum cognoscere rerum’ or roughly ‘first to learn the nature of things,’ and we will indeed attempt to do that. But the original quote continues ‘temporis aeterni quoniam,’ or roughly ‘for eternal time,’ and it is tools, approaches, and workflows that enable you to establish lasting knowledge that I focus on in this book.</p>
-<p>When I talk of data in this book, it will typically be related to humans. This means that humans are at the centre of our stories, and we must keep that front of mind at all times. Respecting those whose data are contained in our datasets is a primary concern, but so is thinking of those who are systematically not in our dataset. To become knowledge, our findings must be communicated to, understood, and trusted by, others. These factors drive the choices in this book.</p>
-<p>Improving the quality of quantitative work is an enormous challenge, yet it is the challenge of our time. Data are all around us, but there is very little knowledge being created. This book hopes to contribute, in some small way, to changing that.</p>
-<div id="audience-and-assumed-background" class="section level2 unnumbered">
-<h2>Audience and assumed background</h2>
-<p>The typical audience for this book has some familiarity with first-year statistics. For instance, if you have a taken a course or two where you covered hypothesis testing and similar concepts then that should be enough. It is not targeted specifically at undergraduate or graduate levels, however, provides essentials for any level of education. I have taught aspects of it to everyone from high schoolers through to professors.</p>
-<p>This book especially complements books such as <span class="citation"><a href="#ref-citemcelreath" role="doc-biblioref">McElreath</a> (<a href="#ref-citemcelreath" role="doc-biblioref">2020</a>)</span>, <span class="citation"><a href="#ref-r4ds" role="doc-biblioref">Wickham and Grolemund</a> (<a href="#ref-r4ds" role="doc-biblioref">2017</a>)</span>, <span class="citation"><a href="#ref-islr" role="doc-biblioref">James et al.</a> (<a href="#ref-islr" role="doc-biblioref">2017</a>)</span>, and <span class="citation"><a href="#ref-Cunningham2021" role="doc-biblioref">Cunningham</a> (<a href="#ref-Cunningham2021" role="doc-biblioref">2021</a>)</span>. For instance, after taking a course based on this book, or concurrently, many students would likely also be interested in Bayesian statistics, data science, statistical learning, and causal inference.</p>
-<p>All of that said, enthusiasm and interest has taken students very far in the past. Some of the most successful students have been those with no quantitative background at all. If you have enthusiasm and interest, then don’t worry about too much else.</p>
+<div id="what-is-personally-identifying-information" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> What is personally identifying information</h2>
 </div>
-<div id="structure" class="section level2 unnumbered">
-<h2>Structure</h2>
-<p>This book is structured around six parts: I) Foundations, II) Communication, III) Acquisition IV) Preparation, V) Modelling, and VI) Enrichment.</p>
-<p>Part I – Foundations – begins with Chapter <a href="telling-stories-with-data.html#telling-stories-with-data">1</a>, which provides an overview of what we are trying to achieve with this book and why you should read it. Chapter <a href="drinking-from-a-fire-hose.html#drinking-from-a-fire-hose">2</a>, then provides some worked examples. The intention of these is that you can run the R code without worrying too much about the specifics of what is happening. It is normal to not follow everything in this chapter, but you should go through it, typing out and executing the code. Chapter <a href="r-essentials.html#r-essentials">3</a> goes through some essential functions of R, which is the statistical programming language used in this book. It is more of a reference chapter, and you will find yourself returning to it from time to time. And finally, Chapter <a href="workflow.html#workflow">4</a> introduces the key aspects of the workflow that you should adopt. These are things like using R Markdown, R Projects, Git and GitHub, using R in practice and finally developing research questions.</p>
-<p>Part II – Communication – considers three types of communication: writing, static, and interactive. Chapter <a href="on-writing.html#on-writing">5</a> details the features that quantitative writing should have and how to go about writing a paper when you start with a blank page. Static communication in Chapter <a href="static-communication.html#static-communication">6</a> introduces features like graphs, tables and maps that are fixed. Interactive communication in Chapter <a href="interactive-communication.html#interactive-communication">7</a> refers to things like websites, Shiny and maps that a reader can manipulate.</p>
-<p>Part III – Acquisition – focuses on three aspects. Gather data in Chapter <a href="gather-data.html#gather-data">8</a> covers things like APIs, scraping data, getting data from PDFs, and OCR. The idea is that the data are available, albeit not necessarily designed to be data, and that we have to go and get it. Hunt data in Chapter <a href="hunt-data.html#hunt-data">9</a> covers aspects where more is expected from the analyst. For instance, we may conduct an experiment, run an A/B test, or do some surveys. Finally, farm data in Chapter <a href="farm-data.html#farm-data">10</a> covers datasets that are explicitly provided for us to use as data, for instance censuses and other government statistics. These are clean, pre-packaged datasets that we can just use.</p>
-<p>Part IV – Preparation – covers how to get data from a raw form into something that can be explored and shared with others in a respectful way. Chapter <a href="cleaning-and-preparing-data.html#cleaning-and-preparing-data">11</a> begins by detailing some principles to follow when approaching the task of cleaning and preparing data, and then steps through specific steps to take and checks to implement. Chapter <a href="storing-and-retrieving-data.html#storing-and-retrieving-data">12</a> focuses on methods of storing and retrieving those datasets, including the use of R packages. Chapter <a href="disseminating-and-protecting-data.html#disseminating-and-protecting-data">13</a> discusses considerations and steps to take when wanting to, correctly, disseminate the datasets, while at the same time respecting those whose data they are based on.</p>
-<p>Part V – Modelling – begins with exploratory data analysis in Chapter <a href="exploratory-data-analysis.html#exploratory-data-analysis">14</a>. This is the critical process of coming to understand the dataset, but not something that typically finds itself into the final product. In Chapter <a href="ijalm.html#ijalm">15</a> the use of statistical models to explore data is introduced. Chapter <a href="causality.html#causality">16</a> is the first of three applications of modelling. It focuses on attempts to make causal claims from observational data. Chapter <a href="mrp.html#mrp">17</a> is the second of the modelling applications chapters and focuses on multilevel regression with post-stratification. Chapter <a href="text-as-data.html#text-as-data">18</a> is the third and final modelling application and is focused on models of text datasets.</p>
-<p>Part VI – Enrichment – goes through various next steps that you could take Next steps begins with Chapter <a href="using-the-cloud.html#using-the-cloud">19</a> which goes through moving away from your own computer and toward using other people’s computer. Chapter <a href="deploying-models.html#deploying-models">20</a> discusses deploying models through the use of packages, <code>shiny</code>, and <code>plumber</code>. Chapter <a href="data-efficiency.html#data-efficiency">21</a> discusses various alternatives to the storage of data including feather and SQL. Finally, Chapter <a href="concludingremarks.html#concludingremarks">22</a> concludes and offers some concluding remarks, details some open problems, and suggests some next steps</p>
+<div id="hashing-and-salting" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> Hashing and salting</h2>
 </div>
-<div id="pedagogy" class="section level2 unnumbered">
-<h2>Pedagogy</h2>
-<p>This book is structured around a fairly dense 12-week course. It provides enough material for advanced readers to push themselves, and pick projects and a focus of their own, while there is a core of essential material that all readers should master. Typically courses cover all of the material through to Chapter <a href="ijalm.html#ijalm">15</a>, and then pick another couple that are of particular interest. The key is that readers actively go through material and code themselves, rather than be passively lectured at.</p>
-<p>In <span class="citation"><a href="#ref-helendewitt" role="doc-biblioref">DeWitt</a> (<a href="#ref-helendewitt" role="doc-biblioref">2000, 326</a>)</span>, a character says of another:</p>
-<blockquote>
-<p>[A] scholar should be able to look at any word in a passage and instantly think of another passage where it occurred; … [a] text was like a pack of icebergs each word a snowy peak with a huge frozen mass of cross-references beneath the surface.</p>
-</blockquote>
-<p>This book not only provides readers with snowy peaks, but also develops the masses of knowledge on which to build. No chapter contains the last word, instead it is written in relation to other work. As such, each chapter contains a list of required materials that all readers should go through before they read that chapter. To be clear, readers should first read that material and then return to this book. Each chapter also contains recommended materials for those who are particularly interested in the topic and want a starting place for further exploration.</p>
-<p>Each chapter also contains a short quiz that readers should complete after going through the required materials, but before going through the chapter to test their knowledge. After completing the chapter, readers should go back through the lists, and the pre-quiz to make sure that they understand each aspect.</p>
-<p>All chapters contain a summary of the key concepts and skills that are developed in that chapter. Code and technical chapters additionally contain a list of the main packages and functions that are used in the chapter.</p>
-<p>A set of tutorial questions is included at the end of each chapter to encourage readers to actively engage with the material. Readers could consider forming small groups to discuss their answers to these questions, or writing brief answers.</p>
-<p>Finally, a set of six papers is included in the appendix. Readers that write these papers will be conducting their own research on a topic that is of interest to them. Although open-ended research may be new to readers, the extent to which a reader is able to: develops their own questions, uses quantitative methods to explore them, and communicates their findings, is the measure of the success of this book.</p>
+<div id="gdpr-and-hipaa" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> GDPR and HIPAA</h2>
 </div>
-<div id="software-information-and-conventions" class="section level2 unnumbered">
-<h2>Software information and conventions</h2>
-<p>The software that we use in this book is R <span class="citation">(<a href="#ref-citeR" role="doc-biblioref">R Core Team 2020</a>)</span>. This language was chosen because it is open-source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of the tools that we need for statistical analysis built in. We do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users which is, in general, especially welcoming of new-comers and there are a lot of great beginner-friendly materials available.</p>
-<p>If you don’t have a programming language, then R is a great one to start with. If you have a preferred programming language already, then it wouldn’t hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.</p>
-<p>Please download R and R Studio onto your own computer. You can download R for free here: <a href="http://cran.utstat.utoronto.ca/" class="uri">http://cran.utstat.utoronto.ca/</a>, and you can download R Studio Desktop for free here: <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.
-Please also create an account on R Studio Cloud: <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a>. This will allow you to run R in the cloud, which will be helpful when we are getting started.</p>
-<p>Packages are in typewriter text, for instance, <code>tidyverse</code>, while functions are also in typewriter text, but include brackets, for instance `<code>dplyr::filter()</code>.</p>
+<div id="datasheets-and-documentation" class="section level2" number="13.5">
+<h2><span class="header-section-number">13.5</span> Datasheets and documentation</h2>
 </div>
-<div id="acknowledgments" class="section level2 unnumbered">
-<h2>Acknowledgments</h2>
-<p>Many people gave generously of their code, data, examples, thoughts, and time, to help develop this book.</p>
-<p>Thank you to <a href="https://michael-chong.github.io/index">Michael Chong</a>, and <a href="https://sharla.party/">Sharla Gelfand</a> for allowing their code to be used, and for helping shape some of the approaches advocated in this book. However, both do much more than that and also contribute in an enormous way to the spirit of generosity that characterises the R community.</p>
-<p>Thank you to <a href="http://individual.utoronto.ca/klyons/">Kelly Lyons</a> for her incredible support, guidance, mentorship and friendship.</p>
-<p>Thank you to Hareem Naveed, and Periklis Andritsos for helpful comments and encouragement.</p>
-<p>Thank you to Greg Wilson for providing a structure to think about teaching and for being the catalyst for this book.</p>
-<p>Thank you to my supervisory panel John Tang (chair), Martine Mariotti, Tim Hatton, and Zach Ward who gave me the freedom to explore the intellectual space that was of interest to me.</p>
-<p>Thank you to Elle Côtè for enabling this book to be written.</p>
-<p>This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail’s ‘Text as Data’; Scott Cunningham’s ‘Causal Inference: The Mixtape’; Andrew Heiss’ ‘Program Evaluation for Public Service’; Lisa Lendway’s ‘Advanced Data Science in R’; Grant McDermott’s ‘Data Science for Economists’; Nathan Matias’ ‘Designing Field Experiments at Scale’; David Mimno’s ‘Text Mining for History and Literature,’ and Ed Rubin’s ‘PhD Econometrics (III)’ and ‘Introduction to Econometrics (II).’ The changed norm such that scholars increasingly make the entirety of their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.</p>
-<p>Thank you to those who identified specific improvements in this book, including: A Mahfouz, Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Faria Khandaker, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, and Yang Wu.</p>
-<p>More broadly, thank you to the Winter 2020 and 2021 INF2178 and Fall 2020 Term STA304 students at the University of Toronto, whose feedback greatly improved all aspects of this book.</p>
-<p>Finally, thank you to <a href="https://www.monicaalexander.com/">Monica Alexander</a>…</p>
-<p>You can contact me at: <a href="mailto:rohan.alexander@utoronto.ca" class="email">rohan.alexander@utoronto.ca</a>.</p>
-
-<p class="flushright">
-Rohan Alexander<br />
-Toronto, Canada
-</p>
+<div id="differential-privacy" class="section level2" number="13.6">
+<h2><span class="header-section-number">13.6</span> Differential privacy</h2>
+<p><span class="citation"><a href="#ref-kenny2021impact" role="doc-biblioref">Kenny et al.</a> (<a href="#ref-kenny2021impact" role="doc-biblioref">2021</a>)</span></p>
+<p><span class="citation"><a href="#ref-ruggles2019differential" role="doc-biblioref">Ruggles et al.</a> (<a href="#ref-ruggles2019differential" role="doc-biblioref">2019</a>)</span></p>
+<p><span class="citation"><a href="#ref-suriyakumar2020chasing" role="doc-biblioref">Suriyakumar et al.</a> (<a href="#ref-suriyakumar2020chasing" role="doc-biblioref">2020</a>)</span></p>
 
 </div>
 </div>
+
+
+
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Cunningham2021" class="csl-entry">
-Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. Yale Press.
+<div id="ref-gebru2020datasheets" class="csl-entry">
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III au2, and Kate Crawford. 2020. <span>“Datasheets for Datasets.”</span> <a href="http://arxiv.org/abs/1803.09010">http://arxiv.org/abs/1803.09010</a>.
 </div>
-<div id="ref-helendewitt" class="csl-entry">
-DeWitt, Helen. 2000. <em>The Last Samurai</em>. Talk Mirimax Books.
+<div id="ref-kenny2021impact" class="csl-entry">
+Kenny, Christopher T., Shiro Kuriwaki, Cory McCartan, Evan Rosenman, Tyler Simko, and Kosuke Imai. 2021. <span>“The Impact of the u.s. Census Disclosure Avoidance System on Redistricting and Voting Rights Analysis.”</span> <a href="http://arxiv.org/abs/2105.14197">http://arxiv.org/abs/2105.14197</a>.
 </div>
-<div id="ref-islr" class="csl-entry">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2017. <em>An Introduction to Statistical Learning with Applications in r</em>.
+<div id="ref-ruggles2019differential" class="csl-entry">
+Ruggles, Steven, Catherine Fitch, Diana Magnuson, and Jonathan Schroeder. 2019. <span>“Differential Privacy and Census Data: Implications for Social and Economic Research.”</span> In <em>AEA Papers and Proceedings</em>, 109:403–8.
 </div>
-<div id="ref-citemcelreath" class="csl-entry">
-McElreath, Richard. 2020. <em><span class="nocase">Statistical Rethinking: A Bayesian Course with Examples in R and Stan</span></em>. CRC Press.
-</div>
-<div id="ref-citeR" class="csl-entry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-<div id="ref-r4ds" class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science</em>. <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a>.
+<div id="ref-suriyakumar2020chasing" class="csl-entry">
+Suriyakumar, Vinith M., Nicolas Papernot, Anna Goldenberg, and Marzyeh Ghassemi. 2020. <span>“Chasing Your Long Tails: Differentially Private Prediction in Health Care Settings.”</span> <a href="http://arxiv.org/abs/2010.06667">http://arxiv.org/abs/2010.06667</a>.
 </div>
 </div>
             </section>
@@ -878,8 +860,8 @@ Wickham, Hadley, and Garrett Grolemund. 2017. <em>R for Data Science</em>. <a hr
           </div>
         </div>
       </div>
-
-<a href="about-the-author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="storing-and-retrieving-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploratory-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
