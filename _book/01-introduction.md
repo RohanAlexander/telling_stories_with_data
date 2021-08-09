@@ -83,7 +83,7 @@ Most of the questions we are interested in will use data that are more complicat
 Pablo Picasso, the twentieth century Spanish painter, has a series of drawings where he depicts the outline of an animal using only one line (Figure \@ref(fig:lumpthedog)). Despite their simplicity, we recognise which animal is being depicted---the drawing is sufficient to tell the animal is a dog, not a cat.  Could this be used to determine whether the dog is sick? Probably not. We would likely want a more detailed drawing. The decision as to which features should be measured and collected, and which to ignore, turns on context and purpose.
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
+<img src="/Users/rohanalexander/Documents/bs4_version/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
 <p class="caption">(\#fig:lumpthedog)This drawing is clearly a dog, even though it is just one line</p>
 </div>
 
