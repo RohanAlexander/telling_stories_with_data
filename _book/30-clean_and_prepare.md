@@ -1,18 +1,11 @@
----
-date: July 26, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 
 
 # (PART) Preparation {-}
 
 # Cleaning and preparing data
+
+**STATUS: Under construction.**
 
 **Required reading**
 
@@ -112,7 +105,7 @@ The first step is to save the raw data into a separate folder location. It is cr
 Planning the end state, or forcing yourself to begin with an end in mind is important for a variety of reasons. As with scraping data, it helps us to be pre-active about scope-creep, but with data cleaning I see a bigger benefit being that it forces us to really think about what we want the final dataset to look like. As before, I recommend first sketching the dataset. The key features of your sketch will be aspects such as the names of the columns, their class, and the possible range of values. It might look something like Figure \@ref(fig:sketchdataplan) .
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/sketchofdataset.png" alt="Example of a dataset end plan" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/sketchofdataset.png" alt="Example of a dataset end plan" width="90%" />
 <p class="caption">(\#fig:sketchdataplan)Example of a dataset end plan</p>
 </div>
 

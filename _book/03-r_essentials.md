@@ -5,45 +5,28 @@
 
 # R Essentials
 
-**Required reading**
 
-- @whattheyforgot, Chapters 1 to 5.
-- @r4ds, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18.
+**STATUS: Under construction.**
 
 
-**Required viewing**
+**Required material**
 
-- Kuriwaki, Shiro, 2020, 'Defining Custom Functions in R', *Vimeo*, 2 February, https://vimeo.com/388825332.
-
-
-**Alternative reading**
-
-There are a lot of great alternative 'getting started with R' type materials. Depending on your background and interests you may find some of the following useful:
-
-- Arnold, Taylor, and Lauren Tilton, 2015, *Humanities Data in R*, Springer, Chapters 1 to 5.
-- Hall, Megan, 2019, 'An Introduction to R With Hockey Data', https://hockey-graphs.com/2019/12/11/an-introduction-to-r-with-hockey-data/.
-- Hanretty, Chris, 2020, 'ConveRt', slides http://chrishanretty.co.uk/conveRt/#1.
-- Phillips, Nathaniel D., 2018, *YaRrr! The Pirate's Guide to R*, Chapter 2, https://bookdown.org/ndphillips/YaRrr/started.html.
+- Read *What They Forgot to Teach You About R*, Chapters 1-5, [@whattheyforgot].
+- Read *R for Data Science*, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18 [@r4ds].
+- Watch *Defining Custom Functions in R*, [@shiroonfunctions].
 
 
-**Recommended reading**
+<!-- **Recommended reading** -->
 
-- Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/. 
-- Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/.
-- Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/.
-- 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide.
-- Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/.
-- Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/.
-- Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/.
+<!-- - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/.  -->
+<!-- - Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/. -->
+<!-- - Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/. -->
+<!-- - 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide. -->
+<!-- - Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/. -->
+<!-- - Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/. -->
+<!-- - Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/. -->
 
-
-**Key libraries**
-
-- `ggplot2`
-- `tidyverse`
-
-
-**Key concepts/skills/etc**
+**Key concepts and skills**
 
 - Tibbles
 - Importing data
@@ -53,10 +36,12 @@ There are a lot of great alternative 'getting started with R' type materials. De
 - Dates
 - Pivot
 
+**Key libraries**
 
+- `ggplot2`
+- `tidyverse`
 
 **Key functions**
-
 
 - `class()`
 - `dplyr::case_when()`
@@ -70,16 +55,11 @@ There are a lot of great alternative 'getting started with R' type materials. De
 - `tidyr::pivot_wider()`
 
 
-   
-    
-
 ## R essentials
 
 This section is the basics of using R. Some of it may not make sense at first, but these are commands that we will come back to throughout these notes. You should initially just go through this chapter quickly, noting aspects that you don't understand. Then start to play around with some of the initial case studies. Then maybe come back to this chapter. That way you will see how the various bits fit into context, and hopefully be more motivated to pick up various aspects. We will come back to everything in this chapter in more detail at some point in these notes.
 
-R is an open-source language that is useful for statistical programming
-
-You can download R for free here: http://cran.utstat.utoronto.ca/, and you can download R Studio Desktop for free here: https://rstudio.com/products/rstudio/download/#download. 
+R is an open-source language that is useful for statistical programming. You can download R for free here: http://cran.utstat.utoronto.ca/, and you can download R Studio Desktop for free here: https://rstudio.com/products/rstudio/download/#download. 
 
 When you are using R you will run into trouble at some point. To work through that trouble:
 
@@ -92,8 +72,7 @@ When you are using R you will run into trouble at some point. To work through th
 7. Try to make a small example and see if you have the same issues. 
 8. Restart your computer.
 
-
-The past ten years or so of R have been characterised by the rise of the tidyverse. This is '... an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.' @tidyversewebsite. There are three distinctions here: the original R language, typically referred to as 'base'; the 'tidyverse' which is a collection of packages that build on top of the R language; and other packages. 
+The past ten years or so of R have been characterised by the rise of the tidyverse. This is '... an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures' [@tidyversewebsite]. There are three distinctions here: the original R language, typically referred to as 'base'; the 'tidyverse' which is a collection of packages that build on top of the R language; and other packages. 
 
 Pretty much everything that you can do in the tidyverse, you can also do in base. However, as the tidyverse was built especially for modern data science it is usually easier to use the tidyverse, especially when you are setting out. Additionally, pretty much everything that you can do in the tidyverse, you can also do with other packages. However, as the tidyverse is a coherent collection of packages, it is often easier to use the tidyverse, especially when you are setting out. Eventually you will start to see cases where it makes sense to trade-off the convenience and coherence of the tidyverse for some features of base or other packages. Indeed, you'll see that at various points in these notes. For instance, the tidyverse can be slow, and so if you need to import thousands of CSVs then it can make sense to switch away from `read_csv()`. That is great and the appropriate use of base and non-tidyverse packages, rather than dogmatic insistence on a solution, is a sign of your development as an applied statistician. 
 
@@ -192,7 +171,7 @@ You can download R Studio here: https://rstudio.com/products/rstudio/download/#d
 When you open R Studio it will look like Figure \@ref(fig:first).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/01-03_r_essentials/01.png" alt="Opening R Studio for the first time" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/01.png" alt="Opening R Studio for the first time" width="100%" />
 <p class="caption">(\#fig:first)Opening R Studio for the first time</p>
 </div>
 
@@ -239,7 +218,7 @@ To get started, go to https://rstudio.cloud/ and create an account. If you are g
 Once you have an account and log in, then it should look something like Figure \@ref(fig:second).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
 <p class="caption">(\#fig:second)Opening R Studio Cloud for the first time</p>
 </div>
 
@@ -281,7 +260,7 @@ AustralianPoliticians::all %>%
 You can save your R Script as 'my_first_r_script.R' using File -> Save As (or the keyboard shortcut: Command + S). When you're done your workspace should look something like Figure \@ref(fig:third).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/01-03_r_essentials/03.png" alt="After running an R Script" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/03.png" alt="After running an R Script" width="100%" />
 <p class="caption">(\#fig:third)After running an R Script</p>
 </div>
 

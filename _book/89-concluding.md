@@ -1,15 +1,7 @@
----
-date: June 6, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
-
 
 # Concluding remarks, next steps, and open problems {#concludingremarks}
+
+**STATUS: Under construction.**
 
 ## Concluding remarks
 
@@ -52,9 +44,9 @@ Thinking through production and SQL and things like, a next natural step is...
 We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. Never do anything in moderation, and if you can't do anything else then, be kind.
 
 
-## Open problems
+<!-- ## Open problems -->
 
-- Optimal names
-- 
+<!-- - Optimal names -->
+<!-- -  -->
 
 

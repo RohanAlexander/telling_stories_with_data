@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "2021-08-09"
+date: "12 August, 2021"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -11,12 +11,11 @@ lot: yes
 lof: yes
 site: bookdown::bookdown_site
 monofont: "inconsolata"
-description: "Learning how to tell stories with data."
+description: "This book is about learning how to tell stories with data."
 github-repo: RohanAlexander/telling_stories_with_data
 graphics: yes
 always_allow_html: true
 cover-image: tellingstorieswithdatapainting.png
-url: tellingstorieswithdata.com
 ---
 
 
@@ -25,7 +24,7 @@ url: tellingstorieswithdata.com
 # Preface {-}
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
 <p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
 </div>
 
@@ -47,7 +46,7 @@ Improving the quality of quantitative work is an enormous challenge, yet it is t
 
 ## Audience and assumed background {-}
 
-The typical person reading this book has some familiarity with first-year statistics. But it is not targeted at a particular level, instead providing aspects relevant to almost any quantitative course. I have taught from this book at high school, undergraduate, and graduate levels. Everyone has unique needs, but hopefully some aspect of this book speaks to you.
+The typical person reading this book has some familiarity with first-year statistics, for instance they have run a regression. But it is not targeted at a particular level, instead providing aspects relevant to almost any quantitative course. I have taught from this book at high school, undergraduate, and graduate levels. Everyone has unique needs, but hopefully some aspect of this book speaks to you.
 
 This book especially complements *Statistical Rethinking* [@citemcelreath], *R for Data Science* [@r4ds], *An Introduction to Statistical Learning* [@islr], *Causal Inference: The Mixtape* [@Cunningham2021], and *Building Software Together* [@buildingsoftwaretogether]. For instance, after this book you may be interested in learning more about Bayesian statistics, data science, statistical learning, causal inference, and building software.
 
@@ -86,21 +85,22 @@ From as early as Chapter \@ref(drinking-from-a-fire-hose) you will have a workfl
 
 One of the defining aspects of this book is that ethics and inequity concerns are integrated throughout, rather than being clustered in one, easily ignorable, chapter. These aspects are critical, yet it can be difficult to immediately see their value, hence their tight integration.
 
-This book is also designed to enable you to build a portfolio of work that you could show to a potential employer. If you want a, industry job, then this is arguably the most important thing that you should be doing. @robinsonnolis2020 [p. 55] describe how a portfolio is a collection of projects that show what you can do and is something that can help be successful in a job search.
+This book is also designed to enable you to build a portfolio of work that you could show to a potential employer. If you want an industry job, then this is arguably the most important thing that you should be doing. @robinsonnolis2020 [p. 55] describe how a portfolio is a collection of projects that show what you can do and is something that can help be successful in a job search.
 
 In @helendewitt[p. 326], a character says:
 
 > [A] scholar should be able to look at any word in a passage and instantly think of another passage where it occurred; ... [so a] text was like a pack of icebergs each word a snowy peak with a huge frozen mass of cross-references beneath the surface.
 
-In an analogous way, this book not only provides you with text and instruction that is self-contained, but also helps develop critical masses of knowledge on which expertise is built. No chapter positions itself as the last word, instead they are written in relation to other work. As such, each chapter contains required materials that you should go through before you read that chapter. To be clear, you should first read that material and then return to this book. Each chapter also contains recommended materials for those who are particularly interested in the topic and want a starting place for further exploration. 
+In an analogous way, this book not only provides you with text and instruction that is self-contained, but also helps develop critical masses of knowledge on which expertise is built. No chapter positions itself as the last word, instead they are written in relation to other work. 
 
-Each chapter includes a section called 'Oh, you think we have good data on that!', and a section called 'Shoulders of giants'. These, respectively, focus on a particular setting, such as cause of death, in which it is often assumed that there is unimpeachable and unambiguous data but the reality tends to be quite far from that, and a focus on some of those who created the intellectual foundation on which we build.
+Each chapter has the following features:
 
-Each chapter contains short exercises that you should complete after going through the required materials, but before going through the chapter, to test your knowledge. After completing the chapter, you should go back through the exercises to make sure that you understand each aspect. 
-
-All chapters contain a summary of the key concepts and skills that are developed in that chapter. Technical chapters additionally contain a list of the main packages and functions that are used in the chapter. The combination of these features acts as a checklist for your learning, and you should return to them after completing the chapter.
-
-One or two tutorial questions are included at the end of each chapter to further encourage you to actively engage with the material. You could consider forming small groups to discuss your answers to these questions.
+- A list of required materials that you should go through before you read that chapter. To be clear, you should first read that material and then return to this book. Each chapter also contains recommended materials for those who are particularly interested in the topic and want a starting place for further exploration. 
+- A summary of the key concepts and skills that are developed in that chapter. Technical chapters additionally contain a list of the main packages and functions that are used in the chapter. The combination of these features acts as a checklist for your learning, and you should return to them after completing the chapter.
+- A section called 'Oh, you think we have good data on that!' which focuses on a particular setting, such as cause of death, in which it is often assumed that there is unimpeachable and unambiguous data but the reality tends to be quite far from that.
+- A section called 'Shoulders of giants', which focuses on some of those who created the intellectual foundation on which we build.
+- A series of short exercises that you should complete after going through the required materials, but before going through the chapter, to test your knowledge. After completing the chapter, you should go back through the exercises to make sure that you understand each aspect. 
+- One or two tutorial questions are included at the end of each chapter to further encourage you to actively engage with the material. You could consider forming small groups to discuss your answers to these questions.
 
 Finally, a set of six papers is included in the appendix. If you write these, you will be conducting original research on a topic that is of interest to you. Although open-ended research may be new to you, the extent to which you are able to: develop your own questions, use quantitative methods to explore them, and communicates your findings, is the measure of the success of this book.
 
@@ -109,7 +109,7 @@ Finally, a set of six papers is included in the appendix. If you write these, yo
 
 ## Software information and conventions {-}
 
-The software that I use in this book is R [@citeR]. This language was chosen because it is open source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of well-developed features. I do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users. The community is especially welcoming of new-comers and there is a lot of complementary beginner-friendly material available. There is an R package, `DoSSToolkit` [@alexander2021introduction], that contains `learnr` modules [@citelearnr] modules. This may be useful if you are newer to R and are especially complementary to this book.
+The software that I use in this book is R [@citeR]. This language was chosen because it is open source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of well-developed features. I do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users. The community is especially welcoming of new-comers and there is a lot of complementary beginner-friendly material available. There is an R package, `DoSSToolkit` [@alexander2021introduction], that contains `learnr` modules [@citelearnr]. This may be useful if you are newer to R and are especially complementary to this book.
 
 If you don't have a programming language, then R is a great one to start with. If you have a preferred programming language already, then it wouldn't hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.
 
@@ -146,7 +146,7 @@ Thank you to those students who contributed substantially to the development of 
 
 Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, and Yang Wu.
 
-Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Thank you for your inestimable help with this most recent challenge, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), your patience, encouragement, reading everything in this book many times, and much more.
+Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Thank you for your inestimable help with writing this book, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), giving me the time that I needed to write when that was the only thing I could think about, encouragement when it turned out that writing a book just meant endlessly re-writing that which was perfect the day before, reading everything in this book many times, and much more.
 
 You can contact me at: rohan.alexander@utoronto.ca.
 

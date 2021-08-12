@@ -1,40 +1,24 @@
----
-date: April 28, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # Multilevel regression with post-stratification {#mrp}
 
-*Last updated: 28 April 2021.*
+**STATUS: Under construction.**
 
 
 
 
-**Required reading**
+**Required material**
 
-- Alexander, Monica, 2019, 'Analyzing name changes after marriage using a non-representative survey', 7 August, https://www.monicaalexander.com/posts/2019-08-07-mrp/.
-- Gelman, Andrew, Jennifer Hill and Aki Vehtari, 2020, *Regression and Other Stories*, Cambridge University Press, Chapter 17.
-- Hanretty, Chris, 2019, 'An introduction to multilevel regression and post-stratification for estimating constituency opinion', *Political Studies Review*, https://doi.org/10.1177/1478929919864773.
-- Kastellec, Jonathan, Jeffrey Lax, and Justin Phillips, 2016, 'Estimating State Public Opinion With Multi-Level Regression and Poststratification using R', https://scholar.princeton.edu/sites/default/files/jkastellec/files/mrp_primer.pdf. 
-- Kennedy, Lauren, Katharine Khanna, Daniel Simpson, and Andrew Gelman, 2020, 'Using sex and gender in survey adjustment', https://arxiv.org/abs/2009.14401.
-- Kennedy, Lauren, and Jonah Gabry, 2019, 'MRP with rstanarm', rstanarm vignettes, 8 October, https://mc-stan.org/rstanarm/articles/mrp.html.
-- Kennedy, Lauren, and Andrew Gelman, 2019, 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample', https://arxiv.org/abs/1906.11323.
-- Wang, Wei, David Rothschild, Sharad Goel, and Andrew Gelman, 2015, 'Forecasting elections with non-representative polls', *International Journal of Forecasting*, 31, no. 3, pages 980-991.
-- Wu, Changbao and Mary E. Thompson, 2020, *Sampling Theory and Practice*, Springer, Chapter 17.
-
-
-**Required viewing**
-
-- Gelman, Andrew, 2020, 'Statistical Models of Election Outcomes', *CPSR Summer Program in Quantitative Methods of Social Research*, https://youtu.be/7gjDnrbLQ4k.
-
-**Required listening**
-
-- Galef, Julia, 2020, 'Episode 248: Are Democrats being irrational? (David Shor),' *Rationally Speaking*, available at: http://rationallyspeakingpodcast.org/show/episode-248-are-democrats-being-irrational-david-shor.html.
+- Read *Analyzing name changes after marriage using a non-representative survey*, [@monicanamechanges].
+- Read Chapter 17 of *Regression and Other Stories*, [@gelmanhillvehtari2020].
+- Read *An introduction to multilevel regression and post-stratification for estimating constituency opinion*, [@hanretty2020].
+- Read the Introduction from *Estimating State Public Opinion With Multi-Level Regression and Poststratification using R*, [@kastelleclaxphillips].
+- Read *Using sex and gender in survey adjustment*, [@kennedy2020using].
+- Read *MRP with rstanarm*, [@kennedygabry2020].
+- Read *Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample*, [@kennedy2020know].
+- Read *Forecasting elections with non-representative polls*, [@wang2015forecasting].
+- Read Chapter 17 of *Sampling Theory and Practice*, [@wuandthompson].
+- Watch *Statistical Models of Election Outcomes*, [@gelmantalks].
+- Listen to *Episode 248: Are Democrats being irrational? (David Shor)*, [@galefandshor].
 
 
 
@@ -226,7 +210,7 @@ population_for_mrp_example %>%
 At this point, Figure \@ref(fig:bernie) provides invaluable advice (thank you to A Mahfouz).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/bernie.png" alt="What does Bernie ask us to do?" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/bernie.png" alt="What does Bernie ask us to do?" width="90%" />
 <p class="caption">(\#fig:bernie)What does Bernie ask us to do?</p>
 </div>
 
@@ -576,21 +560,21 @@ This means that they need cross-tabulated population data. In general, the censu
 They make state-specific estimates by post-stratifying to the features of each state (Figure \@ref(fig:states)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/states.png" alt="Post-stratified estimates for each state based on the Xbox survey and MRP" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/states.png" alt="Post-stratified estimates for each state based on the Xbox survey and MRP" width="100%" />
 <p class="caption">(\#fig:states)Post-stratified estimates for each state based on the Xbox survey and MRP</p>
 </div>
 
 Similarly, they can examine demographic-differences (Figure \@ref(fig:demographics)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/demographics.png" alt="Post-stratified estimates on a demographic basis based on the Xbox survey and MRP" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/demographics.png" alt="Post-stratified estimates on a demographic basis based on the Xbox survey and MRP" width="100%" />
 <p class="caption">(\#fig:demographics)Post-stratified estimates on a demographic basis based on the Xbox survey and MRP</p>
 </div>
 
 Finally, they convert their estimates into electoral college estimates (Figure \@ref(fig:electoralcollege)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/electoral_college.png" alt="Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP" width="100%" />
+<img src="/Users/rohanalexander/Documents/book/figures/electoral_college.png" alt="Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP" width="100%" />
 <p class="caption">(\#fig:electoralcollege)Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP</p>
 </div>
 

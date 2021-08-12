@@ -1,31 +1,26 @@
 
 
 
-
-
-
-
 # Drinking from a fire hose
+
+**STATUS: Under construction.**
 
 **Required material**
 
 - Read *Data science as an atomic habit*, [@citeBarrett]
-- Read *This is how AI bias really happens---and why it's so hard to fix*, [@hao2019]
+- Read *This is how AI bias really happens*, [@hao2019]
 
+**Key concepts and skills**
+
+- The statistical programming language R enables us to tell interesting stories using data.
+- It is a language like any other, and there is a slow path to mastery.
+- The way to learn is to start with a small project, and break down what is required to achieve it into tiny steps. Then look at other people's code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Don't worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you'll get a little better. 
+- The key is to just start.
 
 **Key libraries**
 
 - `ggplot2` [@citeggplot]
 - `tidyverse` [@Wickham2017]
-
-
-**Key concepts/skills/etc**
-
-- R is fun and allows you to tell interesting stories.
-- But like any language it is a slow path to mastery.
-- The way to learn is to start with a small project, and break down the steps required to achieve it. Look at other people's code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Don't worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you'll get a little better. 
-
-
 
 **Key functions**
 
@@ -40,35 +35,21 @@
 - `ggplot::facet_wrap()`
 - `ggplot::geom_histogram()`
 
-       
-    
 
-## Hello world
+## Hello, World!
 
-To jump in we will get some data from the wild, make a graph with it, and then use this to tell a story. Some of the code may be a bit unfamiliar to you if it's your first-time using R. It'll all soon be familiar. But the only way to learn how to code is to code. Please try to get this working on your own computer, typing out (not copy/pasting) all the code that you need. It's important and normal to realise that you're going to be bad at this for a while.
+The way to start is to start. In this chapter we go through three complete examples of the workflow advocated in this book. This means we will: plan, simulate, acquire, model, and communicate. If you are new to R, then some of the code may be a bit unfamiliar to you. If you are new to statistical modelling, then some of the concepts may be unfamiliar. Do not worry. It will all soon be familiar. 
 
-> Whenever you’re learning a new tool, for a long time, you're going to suck... But the good news is that is typical; that's something that happens to everyone, and it's only temporary.
+The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (possibly using R Studio Cloud), and execute it all. It is important, and normal, to realise that you are going to be bad at this for a while.
+
+> Whenever you're learning a new tool, for a long time, you're going to suck... But the good news is that is typical; that's something that happens to everyone, and it's only temporary.
 >
 > Hadley Wickham as quoted by @citeBarrett.
 
-One of the great things about graphs is that sometimes this is all you need to have a convincing story, as Figure \@ref(fig:covid) from @ftcoronavirus show.
-
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/covid.png" alt="New confirmed cases of Covid-19 in United States, United Kingdom, Canada and Australia, as at 22 December 2020." width="90%" />
-<p class="caption">(\#fig:covid)New confirmed cases of Covid-19 in United States, United Kingdom, Canada and Australia, as at 22 December 2020.</p>
-</div>
-
-In this section we are going to focus on making a table and a graph from our data. Although you will be guided thoroughly to achieve this, hopefully by seeing the power of quantitative analysis with R you will be motivated to stick with it when you run into difficulties later on.
+Although you will be guided thoroughly to achieve this, hopefully by seeing the power of telling stories with data here, you will be empowered to stick with it when you run into difficulties later on.
 
 
-## Case study - Canadian elections
-
-
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/county_election.jpg" alt="The County Election (1851–52), by George Caleb Bingham (American, 1811 - 1879), as downloaded from https://artvee.com/dl/the-county-election." width="90%" />
-<p class="caption">(\#fig:canadianelections)The County Election (1851–52), by George Caleb Bingham (American, 1811 - 1879), as downloaded from https://artvee.com/dl/the-county-election.</p>
-</div>
-
+## Canadian elections
 
 ### Getting started
 
@@ -303,8 +284,23 @@ cleaned_elections_data %>%
 ```
 
 
+## Kenyan populations
 
-## Case study - Toronto homelessness
+
+## US tax rates
+
+
+## UK something!
+
+
+## Australian baby names
+
+
+
+
+
+
+## Toronto homelessness
 
 Toronto has a large homeless population, and of course given the pandemic and winter it is critical that there are enough places in shelters. Unfortunately, as we will see in this case study, there are not enough places. However, the one good thing is that we have the data to see this is a problem. 
 
@@ -328,8 +324,6 @@ Again, add some top matter with some comments and explanations of the code.
 # Issues: 
 # To do:
 ```
-
-
 
 I want to talk a little about the libraries this time. Libraries are bits of code that other people have written. There are a few common ones that you'll see regularly, especially the `tidyverse`. To use a package we first have to install it and then we need to load it. Jenny Bryan has a wonderful analogy of installing a lightbulb - `install.packages("tidyverse")`. You only need to do this once, but then if you want light then you need to turn on the switch - `library(tidyverse)`. So because we installed everything earlier we won't need to do it again, we can just call the library.
 

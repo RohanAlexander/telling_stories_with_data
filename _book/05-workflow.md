@@ -4,8 +4,7 @@
 
 # Workflow
 
-*Last updated: 25 April 2021.*
-
+**STATUS: Under construction.**
 
 **Required reading**
 
@@ -373,7 +372,7 @@ Instead of this, Git allows you to only have one version of the file `analysis.R
 The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure \@ref(fig:hackernews)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn't for most of us." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn't for most of us." width="90%" />
 <p class="caption">(\#fig:hackernews)An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this actually would work, it wouldn't for most of us.</p>
 </div>
 
@@ -397,7 +396,7 @@ git --version
 If you get a version number, then you are done (Figure \@ref(fig:gitone)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/git_one.png" alt="How to access the Terminal within R Studio" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/git_one.png" alt="How to access the Terminal within R Studio" width="90%" />
 <p class="caption">(\#fig:gitone)How to access the Terminal within R Studio</p>
 </div>
 
@@ -424,28 +423,28 @@ Again, if you have issues or need more detailed instructions, please go to Chapt
 The first step is to create an account on GitHub (https://github.com) (Figure \@ref(fig:githubone)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/github_1.png" alt="Sign up screen at GitHub" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/github_1.png" alt="Sign up screen at GitHub" width="90%" />
 <p class="caption">(\#fig:githubone)Sign up screen at GitHub</p>
 </div>
 
 GitHub doesn't have the most intuitive user experience in the world, but we are now going to make a new folder (which is called a 'repo' in Git). You are looking for a plus sign in the top right, and then select 'New Repository' (Figure \@ref(fig:githubtwo)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/github_2.png" alt="Create a new repository" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/github_2.png" alt="Create a new repository" width="90%" />
 <p class="caption">(\#fig:githubtwo)Create a new repository</p>
 </div>
 
 At this point you can add a sensible name for your repo. Leave it as public (you can delete it later if you want). And check the box to initialize with a readme. In the 'Add .gitignore' option you can leave it for now, but if you start using GitHub more regularly then you may like to select the R option here. (That just tells Git to ignore various files.) After that, just click the button to create a new repository  (Figure \@ref(fig:githubthree)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/github_3.png" alt="Create a new repository, really" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/github_3.png" alt="Create a new repository, really" width="90%" />
 <p class="caption">(\#fig:githubthree)Create a new repository, really</p>
 </div>
 
 You'll now be taken to a screen that is fairly empty, but the details that you need are in the green 'Clone or Download' button, then click the clipboard (Figure \@ref(fig:githubfour)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/github_4.png" alt="Get the details of your new repository" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/github_4.png" alt="Get the details of your new repository" width="90%" />
 <p class="caption">(\#fig:githubfour)Get the details of your new repository</p>
 </div>
 
@@ -484,7 +483,7 @@ At this point, you open RStudio, select `Files`, `New Project`, `Version Control
 At this point, you'll have a 'Git' tab (Figure \@ref(fig:rstudiogit)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/RStudio_git.png" alt="The Git pane in R Studio" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/RStudio_git.png" alt="The Git pane in R Studio" width="90%" />
 <p class="caption">(\#fig:rstudiogit)The Git pane in R Studio</p>
 </div>
 

@@ -1,18 +1,9 @@
----
-date: March 2, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # (PART) Modelling {-}
 
 # Exploratory data analysis
 
-*Last updated: 9 March 2021.*
+**STATUS: Under construction.**
 
 
 **Required reading**

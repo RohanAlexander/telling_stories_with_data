@@ -1,16 +1,7 @@
----
-date: March 23, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # Text as data
 
-*Last updated: 29 March 2021.*
+**STATUS: Under construction.**
 
 
 

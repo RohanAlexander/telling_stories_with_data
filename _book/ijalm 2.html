@@ -6,19 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 15 It’s Just A Linear Model | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Last updated: 16 March 2021. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
+<meta name="description" content="STATUS: Under construction. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
 <meta name="generator" content="bookdown 0.22.17 with bs4_book()">
 <meta property="og:title" content="Chapter 15 It’s Just A Linear Model | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Last updated: 16 March 2021. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
+<meta property="og:description" content="STATUS: Under construction. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 15 It’s Just A Linear Model | Telling Stories With Data">
-<meta name="twitter:description" content="Last updated: 16 March 2021. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
+<meta name="twitter:description" content="STATUS: Under construction. Required reading Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
@@ -81,7 +83,6 @@
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-we-have-good-data-on-that.html"><span class="header-section-number">A</span> Oh, you think we have good data on that!</a></li>
 <li><a class="" href="shoulders-of-giants.html"><span class="header-section-number">B</span> Shoulders of giants</a></li>
-<li class="book-part">Assessment</li>
 <li><a class="" href="papers.html"><span class="header-section-number">C</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -95,7 +96,7 @@
 <h1>
 <span class="header-section-number">15</span> It’s Just A Linear Model<a class="anchor" aria-label="anchor" href="#ijalm"><i class="fas fa-link"></i></a>
 </h1>
-<p><em>Last updated: 16 March 2021.</em></p>
+<p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required reading</strong></p>
 <ul>
 <li>Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, ‘Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations,’ <em>European journal of epidemiology</em>, 31, no. 4, pp. 337-350.</li>
@@ -260,11 +261,11 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> measures the num
 <p>In <code>R</code> we can simulate <span class="math inline">\(n\)</span> data points from the Normal distribution with <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>.</p>
 <div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt;  [1]  1.246718474 -0.835912195  0.209192534  0.900277126</span>
-<span class="co">#&gt;  [5] -0.184458605  1.349081732  0.114714241 -1.183837552</span>
-<span class="co">#&gt;  [9] -0.934426271  1.459278670 -1.079298031 -0.276935834</span>
-<span class="co">#&gt; [13] -0.183462313 -0.879136997  0.543772148 -1.537322410</span>
-<span class="co">#&gt; [17]  1.080550388  0.003937295 -0.449126882  0.338462625</span></code></pre></div>
+<span class="co">#&gt;  [1] -0.78864447 -0.45134191  0.05461905 -0.37292350</span>
+<span class="co">#&gt;  [5]  2.32565329  0.36762677 -0.17576346 -0.84710210</span>
+<span class="co">#&gt;  [9] -0.26851699 -0.91060680  0.85118349 -0.92692735</span>
+<span class="co">#&gt; [13] -0.54699953  0.41426388 -0.04631119 -0.12160771</span>
+<span class="co">#&gt; [17] -0.74290701  0.23540924 -1.92155852  1.08220624</span></code></pre></div>
 <p>It will take a few draws before we get the expected shape.</p>
 <div class="sourceCode" id="cb398"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -1245,7 +1246,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on May 11, 2021.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 August, 2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,16 +1,7 @@
----
-date: March 16, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # It's Just A Linear Model {#ijalm}
 
-*Last updated: 16 March 2021.*
+**STATUS: Under construction.**
 
 
 **Required reading**
@@ -155,7 +146,7 @@ In this chapter we... It is called 'It's Just A Linear Model' after a famous quo
 ## Simple linear regression
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/lolregression.png" alt="Oh my." width="70%" />
+<img src="/Users/rohanalexander/Documents/book/figures/lolregression.png" alt="Oh my." width="70%" />
 <p class="caption">(\#fig:logregression)Oh my.</p>
 </div>
 Source: [Mijke Rhemtulla](https://twitter.com/mijkenijk/status/1234899588311474176), 3 March 2020.
@@ -172,10 +163,11 @@ In `R` we can simulate $n$ data points from the Normal distribution with `rnorm(
 
 ```r
 rnorm(n = 20, mean = 0, sd = 1)
-#>  [1] -0.2076271 -0.4347116 -1.5905712 -0.8047987 -1.3769313
-#>  [6]  1.1334907  0.9006523  1.2531533 -0.1676737  0.3466793
-#> [11] -0.3599908 -1.3051645 -0.6477646 -1.4798834  0.2792780
-#> [16]  0.1748904  0.2698881  1.8558875  0.6672402  0.6428832
+#>  [1]  0.47131297  1.11544227 -0.42754909 -0.92820361
+#>  [5] -0.86338477 -0.49599150  0.81260417  1.51140420
+#>  [9]  0.83871199  0.03299332  0.24621804 -0.79369061
+#> [13] -0.43308285  1.74797522  1.62641456  0.42867644
+#> [17] -0.87872543  0.30310350  2.46193109 -0.48488075
 ```
 
 It will take a few draws before we get the expected shape.
@@ -977,7 +969,7 @@ white_gold_model_tidymodels <-
 white_gold_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  2ms 
+#> Fit time:  3ms 
 #> 
 #> Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
 #>     data = data)

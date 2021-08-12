@@ -4,6 +4,8 @@
 
 # Static communication
 
+**STATUS: Under construction.**
+
 
 **Required reading**
 
@@ -109,7 +111,7 @@ One critical part of telling stories with *data*, is that it's ultimately the da
 While `ggplot` is a fantastic tool for doing this, there is a lot to that package and so it can be difficult to know where to start. My recommendation is that you start with either a scatter plot or a bar chart. What is critical is that you show the reader your raw data. These notes run through how to do that. It then discusses some more advanced options, but the important thing is that you show the reader your raw data (or as close to it as you can). Students seem to get confused what 'raw' means; I'm using it to refer to as close to the original dataset as possible, so no sums, or averages, etc, if possible. Sometimes your data are too disperse for that or you've got other constraints, so there needs to be an element of manipulation. The main point is that you, at the very least, need to plot the data that you're going to be modelling. If you are dealing with larger datasets then just take a 10/1/0.1/etc per cent sample.
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/jerry.png" alt="Show me the data!" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/jerry.png" alt="Show me the data!" width="90%" />
 <p class="caption">(\#fig:unnamed-chunk-2)Show me the data!</p>
 </div>
 Source: YouTube screenshot.
@@ -124,7 +126,7 @@ Graphs are critical to tell a compelling story. And the most important thing wit
 Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/thomowillrose.png" alt="How do we get started with our data?" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/thomowillrose.png" alt="How do we get started with our data?" width="90%" />
 <p class="caption">(\#fig:thomowillrose)How do we get started with our data?</p>
 </div>
 

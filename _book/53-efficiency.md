@@ -1,17 +1,8 @@
----
-date: June 11, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 
 # Efficiency
 
-*Last updated: 11 June 2021.*
+**STATUS: Under construction.**
 
 **Required reading**
 

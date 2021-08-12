@@ -1,12 +1,3 @@
----
-date: January 18, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 
 
@@ -15,7 +6,7 @@ output:
 
 # Hunt data
 
-*Last updated: 9 March 2021.*
+**STATUS: Under construction.**
 
 **Required reading**
 
@@ -455,7 +446,7 @@ But a better way to deal with this may be to change the experiment. For instance
 
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/drinking_tea.jpg" alt="Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/drinking_tea.jpg" alt="Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party." width="90%" />
 <p class="caption">(\#fig:ladiesdrinkingtea)Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party.</p>
 </div>
 
@@ -504,12 +495,12 @@ Finally, an aside on this magical '5 per cent'. Fisher himself describes this as
 
 At the start of these notes, I said that Fisher held views that we would consider reprehensible today. My guess is, were he around today, he would think our use of p-values as discrediting. Do not just go searching for meaning in constellations of stars. Thoroughly interrogate your data and think precisely about the statistical methods you are applying. For conclusions that you want to hold up in the long-run, aim to use as simple, and as understandable, statistical methods as you can. Ensure that you can explain and justify your statistical decisions without recourse to astrology.
 
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/significant.png" width="60%" />
+<img src="/Users/rohanalexander/Documents/book/figures/significant.png" width="60%" />
 Source: https://xkcd.com/882/
 
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/wisdom_over_fortune.jpg" alt="'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/wisdom_over_fortune.jpg" alt="'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune." width="90%" />
 <p class="caption">(\#fig:unnamed-chunk-11)'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune.</p>
 </div>
 
@@ -645,7 +636,7 @@ Equation \@ref(eq:toronto) explains the outcome of student $i$ at campus $j$ bas
 It was found, that the one-on-one coaching 'increased grades by approximately 5 percentage points', while the other treatments had 'had no detectable impact'. One set of results are summarised in Figure \@ref(fig:torontointervention).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/toronto_intervention.png" alt="Example of the results of the intervention." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/toronto_intervention.png" alt="Example of the results of the intervention." width="90%" />
 <p class="caption">(\#fig:torontointervention)Example of the results of the intervention.</p>
 </div>
 
@@ -667,7 +658,7 @@ The way the experiment worked is that a research assistant turned the wallet in 
 The wallets were transparent, and the business card had a name and email contact details. It also had a key and a grocery list (Figure \@ref(fig:walletsexample)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/wallet_example.png" alt="Example of the wallet." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/wallet_example.png" alt="Example of the wallet." width="90%" />
 <p class="caption">(\#fig:walletsexample)Example of the wallet.</p>
 </div>
 
@@ -678,7 +669,7 @@ The primary treatment in the experiment is whether the wallet contained money or
 Considerable differences were found between countries (Figure \@ref(fig:wallets)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/wallet_results.png" alt="Key finding as to wallet return rates." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/wallet_results.png" alt="Key finding as to wallet return rates." width="90%" />
 <p class="caption">(\#fig:wallets)Key finding as to wallet return rates.</p>
 </div>
 

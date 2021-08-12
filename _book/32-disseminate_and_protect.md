@@ -1,16 +1,8 @@
----
-date: June 05, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # Disseminating and protecting data
 
-*Last updated: 5 June 2021.*
+**STATUS: Under construction.**
+
 
 - Hawes, M. B. (2020). Implementing Differential Privacy: Seven Lessons From the 2020 United States Census. Harvard Data Science Review. https://doi.org/10.1162/99608f92.353c6f99
 

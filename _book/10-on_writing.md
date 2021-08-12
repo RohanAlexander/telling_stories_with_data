@@ -3,6 +3,8 @@
 
 # (PART) Communication {-}
 
+**STATUS: Under construction.**
+
 # On writing
 
 

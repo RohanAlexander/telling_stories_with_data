@@ -9,12 +9,12 @@
 
 # Telling Stories with Data
 
+**STATUS: Draft.**
 
 **Required material**
 
 - Read *Counting the Countless*, [@keyes2019].
 - Watch *Data Science Ethics in 6 Minutes*, [@register2020].
-
 
 
 ## On telling stories
@@ -83,7 +83,7 @@ Most of the questions we are interested in will use data that are more complicat
 Pablo Picasso, the twentieth century Spanish painter, has a series of drawings where he depicts the outline of an animal using only one line (Figure \@ref(fig:lumpthedog)). Despite their simplicity, we recognise which animal is being depicted---the drawing is sufficient to tell the animal is a dog, not a cat.  Could this be used to determine whether the dog is sick? Probably not. We would likely want a more detailed drawing. The decision as to which features should be measured and collected, and which to ignore, turns on context and purpose.
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
+<img src="/Users/rohanalexander/Documents/book/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
 <p class="caption">(\#fig:lumpthedog)This drawing is clearly a dog, even though it is just one line</p>
 </div>
 
@@ -102,10 +102,6 @@ It is difficult to delineate where EDA ends and formal statistical modelling beg
 Statistical significance is not the same as scientific significance, and we are realising the cost of what has been the dominant paradigm. It is rarely appropriate to put our data through some arbitrary pass/fail statistical test. Instead, the proper use for statistical modelling is as a kind of echolocation. We listen to what comes back to us from the model, to help learn about the shape of the world, while recognising that it is only one representation of the world.
 
 The use of statistical programming languages, such as R, enables us to rapidly **scale** our work. This refers to both inputs and outputs. It is basically just as easy to consider 10 observations as 1,000, or even 1,000,000. This enables us to more quickly see the extent to which our stories apply. It is also the case that our outputs can be consumed as easily by one person as by 10, or 100. Using an Application Programming Interface (API) it is even possible for our stories to be considered many thousands of times each second.
-
-
-
-
 
 
 ## Workflow components
@@ -187,8 +183,6 @@ It is not just the 'science' bit that is hard, it is the 'data' bit as well. For
 Our world is messy, and so are our data. To successfully tell stories with data you need to become comfortable with the fact that the process will be difficult. Hannah Fry, the British mathematician, describes spending six months rewriting code before it solved her problem [@hannahfryft]! You need to learn to stick with it. You also need to countenance failure, and you do this by developing resilience and having intrinsic motivation. The world of data is about considering possibilities and probabilities, and learning to make trade-offs between them. There is almost never anything that we know for certain, and there is no perfect analysis.
 
 Data science is multi-disciplinary and increasingly critical; hence it must reflect our world. There is a pressing need a diversity of backgrounds, of approaches, and of disciplines in data science. Ultimately, we are all just telling stories with data, but these stories are increasingly among the most important in the world.
-
-
 
 
 

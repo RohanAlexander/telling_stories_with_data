@@ -1,13 +1,3 @@
----
-date: May 09, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
-
 
 
 
@@ -15,7 +5,7 @@ output:
 
 # Gather data
 
-*Last updated: 9 May 2021.*
+**STATUS: Under construction.**
 
 **Recommended reading**
 
@@ -142,7 +132,7 @@ In our case, we are going to focus on using APIs for gathering data. I'll tailor
 For instance, you could go to [Google Maps](https://www.google.ca/maps) and then scroll and click and drag to center the map on Canberra, Australia, or you could just paste this into your browser: https://www.google.ca/maps/@-35.2812958,149.1248113,16z. You just used the Google Maps API.^[There are at least six great coffee shops shown just in this section of map including: Mocan & Green Grout; The Cupping Room; Barrio Collective Coffee; Lonsdale Street Cafe; Two Before Ten; and Red Brick. There are also two coffee shops that I love but that most wouldn't classify as 'great' including: The Street Theatre Cafe; and the CBE Cafe.] The result should be a map that looks something like Figure \@ref(fig:focuson2020) .
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/googlemaps.png" alt="Example of Google Maps, as at 25 January 2021." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/googlemaps.png" alt="Example of Google Maps, as at 25 January 2021." width="90%" />
 <p class="caption">(\#fig:focuson2020)Example of Google Maps, as at 25 January 2021.</p>
 </div>
 
@@ -174,7 +164,7 @@ content(arxiv, "text") %>%
 #>   <link href="http://arxiv.org/api/query?search_query%3D%26id_list%3D2101.05225%26start%3D0%26max_results%3D10" rel="self" type="application/atom+xml"/>
 #>   <title type="html">ArXiv Query: search_query=&amp;id_list=2101.05225&amp;start=0&amp;max_results=10</title>
 #>   <id>http://arxiv.org/api/p9UZyl2Vt0cHwPSKinDSThE23qI</id>
-#>   <updated>2021-08-09T00:00:00-04:00</updated>
+#>   <updated>2021-08-12T00:00:00-04:00</updated>
 #>   <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">1</opensearch:totalResults>
 #>   <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
 #>   <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">10</opensearch:itemsPerPage>
@@ -235,7 +225,7 @@ get_favorites(user = "RohanAlexander")
 This will open a browser on your computer, and you will then have to log into your regular Twitter account as shown in Figure \@ref(fig:rtweetlogin).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/rtweet.png" alt="rtweet authorisation page" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/rtweet.png" alt="rtweet authorisation page" width="90%" />
 <p class="caption">(\#fig:rtweetlogin)rtweet authorisation page</p>
 </div>
 
@@ -367,7 +357,7 @@ library(spotifyr)
 In order to use this account, you need a Spotify Developer Account, which you can set-up here: https://developer.spotify.com/dashboard/. That'll have you log in with your Spotify details and then accept their terms (it's worth looking at some of these and I'll follow up on a few below) as in Figure \@ref(fig:spotifyaccept).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/spotify.png" alt="rtweet authorisation page" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/spotify.png" alt="rtweet authorisation page" width="90%" />
 <p class="caption">(\#fig:spotifyaccept)rtweet authorisation page</p>
 </div>
 
@@ -732,21 +722,21 @@ rohans_data
 Now we need to identify the data that we are interested in using html tags and convert it to a tibble. If you look at the website, then you should notice that we are likely trying to focus on list items (Figure \@ref(fig:rohansbooks)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/rohansbooks.png" alt="Some of Rohan's books" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/rohansbooks.png" alt="Some of Rohan's books" width="90%" />
 <p class="caption">(\#fig:rohansbooks)Some of Rohan's books</p>
 </div>
 
 Let's look at the source (Figure \@ref(fig:rohanssourceone)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/sourcetop.png" alt="Source code for top of the page" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/sourcetop.png" alt="Source code for top of the page" width="90%" />
 <p class="caption">(\#fig:rohanssourceone)Source code for top of the page</p>
 </div>
 
 There's a lot of debris, but scrolling down we eventually get to a list (Figure \@ref(fig:rohanssourcetwo)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/sourcelist.png" alt="Source code for list" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/sourcelist.png" alt="Source code for list" width="90%" />
 <p class="caption">(\#fig:rohanssourcetwo)Source code for list</p>
 </div>
 
@@ -931,18 +921,18 @@ head(simulated_dataset)
 #> # A tibble: 6 × 4
 #>   prime_minister birth_year death_year years_lived
 #>   <chr>               <int>      <int>       <int>
-#> 1 Lori                 1702       1800          98
-#> 2 Tammy                1715       1790          75
-#> 3 Paul                 1804       1903          99
-#> 4 Julie                1850       1912          62
-#> 5 Marie                1861       1948          87
-#> 6 Ida                  1928       1986          58
+#> 1 Raymond              1724       1777          53
+#> 2 Matthew              1750       1837          87
+#> 3 Carolyn              1754       1854         100
+#> 4 Deborah              1785       1866          81
+#> 5 Judith               1793       1869          76
+#> 6 Jonathan             1851       1948          97
 ```
 
 One of the advantages of generating a simulated dataset is that if you are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we want something like Figure \@ref(fig:pmsgraphexample).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/IMG_4185.jpeg" alt="Sketch of planned graph." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_4185.jpeg" alt="Sketch of planned graph." width="90%" />
 <p class="caption">(\#fig:pmsgraphexample)Sketch of planned graph.</p>
 </div>
 
@@ -1032,7 +1022,7 @@ head(parsed_data)
 If you are comfortable with html then you might be able to see patterns, but one tool that may help is the SelectorGadget: https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html. This allows you to pick and choose the elements that you want, and then gives you the input to give to `html_nodes()` (Figure \@ref(fig:selectorgadget))
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/selectorgadget.png" alt="Using the Selector Gadget to identify the tag, as at 13 March 2020." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/selectorgadget.png" alt="Using the Selector Gadget to identify the tag, as at 13 March 2020." width="90%" />
 <p class="caption">(\#fig:selectorgadget)Using the Selector Gadget to identify the tag, as at 13 March 2020.</p>
 </div>
 
@@ -1191,7 +1181,7 @@ In this chapter we start by walking through several examples and then go through
 Figure \@ref(fig:firstpdfexample) is a PDF that consists of just the first sentence from Jane Eyre taken from Project Gutenberg @janeeyre.
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/inputs/pdfs/first_example.png" alt="First sentence of Jane Eyre" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/inputs/pdfs/first_example.png" alt="First sentence of Jane Eyre" width="90%" />
 <p class="caption">(\#fig:firstpdfexample)First sentence of Jane Eyre</p>
 </div>
 
@@ -1217,7 +1207,7 @@ We can see that the PDF has been correctly read in, as a character vector.
 We will now try a slightly more complicated example that consists of the first few paragraphs of Jane Eyre (Figure \@ref(fig:secondpdfexample)). Also notice that now we have the chapter heading as well.
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/inputs/pdfs/second_example.png" alt="First few paragraphs of Jane Eyre" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/inputs/pdfs/second_example.png" alt="First few paragraphs of Jane Eyre" width="90%" />
 <p class="caption">(\#fig:secondpdfexample)First few paragraphs of Jane Eyre</p>
 </div>
 
@@ -1297,7 +1287,7 @@ If you're married to a demographer it is not too long until you are asked to loo
 In the case of the year 2000 the table that we are interested in is on page 40 of a PDF that is available https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf and it is the column labelled: "Total fertility rate" (Figure \@ref(fig:dhsexample)). 
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/dhs_example.png" alt="Example Vital Statistics Report, from 2000" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/dhs_example.png" alt="Example Vital Statistics Report, from 2000" width="90%" />
 <p class="caption">(\#fig:dhsexample)Example Vital Statistics Report, from 2000</p>
 </div>
 
@@ -1309,7 +1299,7 @@ The first step when getting data out of a PDF is to sketch out what you eventual
 In this case, what is needed is a table with a column for state, year and TFR (Figure \@ref(fig:tfrdesired)). 
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/tfr_desired.jpeg" alt="Desired output from the PDF" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/tfr_desired.jpeg" alt="Desired output from the PDF" width="90%" />
 <p class="caption">(\#fig:tfrdesired)Desired output from the PDF</p>
 </div>
 
@@ -1329,12 +1319,12 @@ monicas_data %>%
 ```
 
 ```{=html}
-<div id="xfkrrtvzjo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="benosuotew" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xfkrrtvzjo .gt_table {
+#benosuotew .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1359,7 +1349,7 @@ monicas_data %>%
   border-left-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_heading {
+#benosuotew .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1371,7 +1361,7 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_title {
+#benosuotew .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1381,7 +1371,7 @@ monicas_data %>%
   border-bottom-width: 0;
 }
 
-#xfkrrtvzjo .gt_subtitle {
+#benosuotew .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1391,13 +1381,13 @@ monicas_data %>%
   border-top-width: 0;
 }
 
-#xfkrrtvzjo .gt_bottom_border {
+#benosuotew .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_col_headings {
+#benosuotew .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1412,7 +1402,7 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_col_heading {
+#benosuotew .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1432,7 +1422,7 @@ monicas_data %>%
   overflow-x: hidden;
 }
 
-#xfkrrtvzjo .gt_column_spanner_outer {
+#benosuotew .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1444,15 +1434,15 @@ monicas_data %>%
   padding-right: 4px;
 }
 
-#xfkrrtvzjo .gt_column_spanner_outer:first-child {
+#benosuotew .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xfkrrtvzjo .gt_column_spanner_outer:last-child {
+#benosuotew .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xfkrrtvzjo .gt_column_spanner {
+#benosuotew .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1464,7 +1454,7 @@ monicas_data %>%
   width: 100%;
 }
 
-#xfkrrtvzjo .gt_group_heading {
+#benosuotew .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1486,7 +1476,7 @@ monicas_data %>%
   vertical-align: middle;
 }
 
-#xfkrrtvzjo .gt_empty_group_heading {
+#benosuotew .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1501,15 +1491,15 @@ monicas_data %>%
   vertical-align: middle;
 }
 
-#xfkrrtvzjo .gt_from_md > :first-child {
+#benosuotew .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xfkrrtvzjo .gt_from_md > :last-child {
+#benosuotew .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xfkrrtvzjo .gt_row {
+#benosuotew .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1528,7 +1518,7 @@ monicas_data %>%
   overflow-x: hidden;
 }
 
-#xfkrrtvzjo .gt_stub {
+#benosuotew .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1540,7 +1530,7 @@ monicas_data %>%
   padding-left: 12px;
 }
 
-#xfkrrtvzjo .gt_summary_row {
+#benosuotew .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1550,7 +1540,7 @@ monicas_data %>%
   padding-right: 5px;
 }
 
-#xfkrrtvzjo .gt_first_summary_row {
+#benosuotew .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1560,7 +1550,7 @@ monicas_data %>%
   border-top-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_grand_summary_row {
+#benosuotew .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1570,7 +1560,7 @@ monicas_data %>%
   padding-right: 5px;
 }
 
-#xfkrrtvzjo .gt_first_grand_summary_row {
+#benosuotew .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1580,11 +1570,11 @@ monicas_data %>%
   border-top-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_striped {
+#benosuotew .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xfkrrtvzjo .gt_table_body {
+#benosuotew .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1593,7 +1583,7 @@ monicas_data %>%
   border-bottom-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_footnotes {
+#benosuotew .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1607,13 +1597,13 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_footnote {
+#benosuotew .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#xfkrrtvzjo .gt_sourcenotes {
+#benosuotew .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1627,41 +1617,41 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#xfkrrtvzjo .gt_sourcenote {
+#benosuotew .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#xfkrrtvzjo .gt_left {
+#benosuotew .gt_left {
   text-align: left;
 }
 
-#xfkrrtvzjo .gt_center {
+#benosuotew .gt_center {
   text-align: center;
 }
 
-#xfkrrtvzjo .gt_right {
+#benosuotew .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xfkrrtvzjo .gt_font_normal {
+#benosuotew .gt_font_normal {
   font-weight: normal;
 }
 
-#xfkrrtvzjo .gt_font_bold {
+#benosuotew .gt_font_bold {
   font-weight: bold;
 }
 
-#xfkrrtvzjo .gt_font_italic {
+#benosuotew .gt_font_italic {
   font-style: italic;
 }
 
-#xfkrrtvzjo .gt_super {
+#benosuotew .gt_super {
   font-size: 65%;
 }
 
-#xfkrrtvzjo .gt_footnote_marks {
+#benosuotew .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2294,7 +2284,7 @@ All of the above is predicated on having a PDF that is already 'digitized'. But 
 Let's see an example with a scan from the first page of Jane Eyre (Figure \@ref(fig:janescan)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/bs4_version/figures/jane_scan.png" alt="Scan of first page of Jane Eyre." width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/jane_scan.png" alt="Scan of first page of Jane Eyre." width="90%" />
 <p class="caption">(\#fig:janescan)Scan of first page of Jane Eyre.</p>
 </div>
 

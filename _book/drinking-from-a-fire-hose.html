@@ -6,20 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Drinking from a fire hose | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Key libraries ggplot2 (Wickham 2016) ...">
+<meta name="description" content="STATUS: Under construction. Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Key concepts and skills The statistical...">
 <meta name="generator" content="bookdown 0.22.17 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Drinking from a fire hose | Telling Stories With Data">
 <meta property="og:type" content="book">
-<meta property="og:url" content="tellingstorieswithdata.com/drinking-from-a-fire-hose.html">
-<meta property="og:image" content="tellingstorieswithdata.com/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Key libraries ggplot2 (Wickham 2016) ...">
+<meta property="og:image" content="/tellingstorieswithdatapainting.png">
+<meta property="og:description" content="STATUS: Under construction. Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Key concepts and skills The statistical...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Drinking from a fire hose | Telling Stories With Data">
-<meta name="twitter:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Key libraries ggplot2 (Wickham 2016) ...">
-<meta name="twitter:image" content="tellingstorieswithdata.com/tellingstorieswithdatapainting.png">
+<meta name="twitter:description" content="STATUS: Under construction. Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Key concepts and skills The statistical...">
+<meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
@@ -82,7 +83,6 @@
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-we-have-good-data-on-that.html"><span class="header-section-number">A</span> Oh, you think we have good data on that!</a></li>
 <li><a class="" href="shoulders-of-giants.html"><span class="header-section-number">B</span> Shoulders of giants</a></li>
-<li class="book-part">Assessment</li>
 <li><a class="" href="papers.html"><span class="header-section-number">C</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -96,12 +96,20 @@
 <h1>
 <span class="header-section-number">2</span> Drinking from a fire hose<a class="anchor" aria-label="anchor" href="#drinking-from-a-fire-hose"><i class="fas fa-link"></i></a>
 </h1>
+<p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required material</strong></p>
 <ul>
 <li>Read <em>Data science as an atomic habit</em>, <span class="citation">(<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett 2021a</a>)</span>
 </li>
-<li>Read <em>This is how AI bias really happens—and why it’s so hard to fix</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
+<li>Read <em>This is how AI bias really happens</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
 </li>
+</ul>
+<p><strong>Key concepts and skills</strong></p>
+<ul>
+<li>The statistical programming language R enables us to tell interesting stories using data.</li>
+<li>It is a language like any other, and there is a slow path to mastery.</li>
+<li>The way to learn is to start with a small project, and break down what is required to achieve it into tiny steps. Then look at other people’s code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Don’t worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you’ll get a little better.</li>
+<li>The key is to just start.</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
@@ -111,12 +119,6 @@
 <li>
 <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>
 </li>
-</ul>
-<p><strong>Key concepts/skills/etc</strong></p>
-<ul>
-<li>R is fun and allows you to tell interesting stories.</li>
-<li>But like any language it is a slow path to mastery.</li>
-<li>The way to learn is to start with a small project, and break down the steps required to achieve it. Look at other people’s code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Don’t worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you’ll get a little better.</li>
 </ul>
 <p><strong>Key functions</strong></p>
 <ul>
@@ -134,32 +136,20 @@
 </ul>
 <div id="hello-world" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.1</span> Hello world<a class="anchor" aria-label="anchor" href="#hello-world"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> Hello, World!<a class="anchor" aria-label="anchor" href="#hello-world"><i class="fas fa-link"></i></a>
 </h2>
-<p>To jump in we will get some data from the wild, make a graph with it, and then use this to tell a story. Some of the code may be a bit unfamiliar to you if it’s your first-time using R. It’ll all soon be familiar. But the only way to learn how to code is to code. Please try to get this working on your own computer, typing out (not copy/pasting) all the code that you need. It’s important and normal to realise that you’re going to be bad at this for a while.</p>
+<p>The way to start is to start. In this chapter we go through three complete examples of the workflow advocated in this book. This means we will: plan, simulate, acquire, model, and communicate. If you are new to R, then some of the code may be a bit unfamiliar to you. If you are new to statistical modelling, then some of the concepts may be unfamiliar. Do not worry. It will all soon be familiar.</p>
+<p>The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (possibly using R Studio Cloud), and execute it all. It is important, and normal, to realise that you are going to be bad at this for a while.</p>
 <blockquote>
 <p>Whenever you’re learning a new tool, for a long time, you’re going to suck… But the good news is that is typical; that’s something that happens to everyone, and it’s only temporary.</p>
 <p>Hadley Wickham as quoted by <span class="citation"><a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett</a> (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>.</p>
 </blockquote>
-<p>One of the great things about graphs is that sometimes this is all you need to have a convincing story, as Figure <a href="drinking-from-a-fire-hose.html#fig:covid">2.1</a> from <span class="citation"><a href="references-1.html#ref-ftcoronavirus" role="doc-biblioref">FT Visual &amp; Data Journalism team</a> (<a href="references-1.html#ref-ftcoronavirus" role="doc-biblioref">2020</a>)</span> show.</p>
-<div class="figure">
-<span style="display:block;" id="fig:covid"></span>
-<img src="figures/covid.png" alt="New confirmed cases of Covid-19 in United States, United Kingdom, Canada and Australia, as at 22 December 2020." width="90%"><p class="caption">
-Figure 2.1: New confirmed cases of Covid-19 in United States, United Kingdom, Canada and Australia, as at 22 December 2020.
-</p>
+<p>Although you will be guided thoroughly to achieve this, hopefully by seeing the power of telling stories with data here, you will be empowered to stick with it when you run into difficulties later on.</p>
 </div>
-<p>In this section we are going to focus on making a table and a graph from our data. Although you will be guided thoroughly to achieve this, hopefully by seeing the power of quantitative analysis with R you will be motivated to stick with it when you run into difficulties later on.</p>
-</div>
-<div id="case-study---canadian-elections" class="section level2" number="2.2">
+<div id="canadian-elections" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.2</span> Case study - Canadian elections<a class="anchor" aria-label="anchor" href="#case-study---canadian-elections"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Canadian elections<a class="anchor" aria-label="anchor" href="#canadian-elections"><i class="fas fa-link"></i></a>
 </h2>
-<div class="figure">
-<span style="display:block;" id="fig:canadianelections"></span>
-<img src="figures/county_election.jpg" alt="The County Election (1851–52), by George Caleb Bingham (American, 1811 - 1879), as downloaded from https://artvee.com/dl/the-county-election." width="90%"><p class="caption">
-Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 1811 - 1879), as downloaded from <a href="https://artvee.com/dl/the-county-election" class="uri">https://artvee.com/dl/the-county-election</a>.
-</p>
-</div>
 <div id="getting-started" class="section level3" number="2.2.1">
 <h3>
 <span class="header-section-number">2.2.1</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
@@ -365,15 +355,35 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <span class="co">#&gt; 9 People's Party - PPC       1.1  2.35   3.6</span></code></pre></div>
 </div>
 </div>
-<div id="case-study---toronto-homelessness" class="section level2" number="2.3">
+<div id="kenyan-populations" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">2.3</span> Case study - Toronto homelessness<a class="anchor" aria-label="anchor" href="#case-study---toronto-homelessness"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Kenyan populations<a class="anchor" aria-label="anchor" href="#kenyan-populations"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="us-tax-rates" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> US tax rates<a class="anchor" aria-label="anchor" href="#us-tax-rates"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="uk-something" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> UK something!<a class="anchor" aria-label="anchor" href="#uk-something"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="australian-baby-names" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Australian baby names<a class="anchor" aria-label="anchor" href="#australian-baby-names"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="toronto-homelessness" class="section level2" number="2.7">
+<h2>
+<span class="header-section-number">2.7</span> Toronto homelessness<a class="anchor" aria-label="anchor" href="#toronto-homelessness"><i class="fas fa-link"></i></a>
 </h2>
 <p>Toronto has a large homeless population, and of course given the pandemic and winter it is critical that there are enough places in shelters. Unfortunately, as we will see in this case study, there are not enough places. However, the one good thing is that we have the data to see this is a problem.</p>
 <p>In this case study we are going to use data on the number of people in Toronto shelters to make a graph of usage. This will also introduce us to Tidy Tuesday! In my experience, people are most successful at ‘learning R’ when they are learning it to achieve something else. If you’re in a university course then that might be ‘pass the course,’ but often it’s nice to have some other projects. TidyTuesday is a weekly event in which the R community comes together around a dataset and shares code and approaches. You can learn more about it here: <a href="https://github.com/rfordatascience/tidytuesday" class="uri">https://github.com/rfordatascience/tidytuesday</a>.</p>
-<div id="getting-started-1" class="section level3" number="2.3.1">
+<div id="getting-started-1" class="section level3" number="2.7.1">
 <h3>
-<span class="header-section-number">2.3.1</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7.1</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Again, open a new R Markdown file: (File -&gt; New File -&gt; R Markdown). Update the details so that they reflect your own.</p>
 <p>Again, add some top matter with some comments and explanations of the code.</p>
@@ -437,9 +447,9 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <span class="co">#&gt;   }</span>
 <span class="co"># Again, don't worry too much about the details - we'll get into them later.</span></code></pre></div>
 </div>
-<div id="get-the-data-1" class="section level3" number="2.3.2">
+<div id="get-the-data-1" class="section level3" number="2.7.2">
 <h3>
-<span class="header-section-number">2.3.2</span> Get the data<a class="anchor" aria-label="anchor" href="#get-the-data-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7.2</span> Get the data<a class="anchor" aria-label="anchor" href="#get-the-data-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>We are going to grab some data that has been made available about Toronto homeless shelters. Again, don’t worry too much about the details for now, but what we are saying here, is that there’s a CSV that has been made available to us on GitHub and this code downloads it to our own computer. After we download it we can quickly look at the data using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -473,9 +483,9 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <span class="co">#&gt; #   program_name &lt;chr&gt;, sector &lt;chr&gt;, occupancy &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   capacity &lt;dbl&gt;</span></code></pre></div>
 </div>
-<div id="make-a-graph-1" class="section level3" number="2.3.3">
+<div id="make-a-graph-1" class="section level3" number="2.7.3">
 <h3>
-<span class="header-section-number">2.3.3</span> Make a graph<a class="anchor" aria-label="anchor" href="#make-a-graph-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.7.3</span> Make a graph<a class="anchor" aria-label="anchor" href="#make-a-graph-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The dataset is on a daily basis for each shelter. What I’d like to do is to get an overall picture of the availability of shelter places in Toronto. This code is based on code by <a href="https://florencevdubois.github.io">Florence Vallée-Dubois</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/florencevdubois/MyTidyTuesdays/blob/master/2020.12.01.R" class="uri"&gt;https://github.com/florencevdubois/MyTidyTuesdays/blob/master/2020.12.01.R&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a> and <a href="https://lisalendway.netlify.app">Lisa Lendway</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://github.com/llendway/tidy_tuesday_in_thirty/blob/main/2020_12_01_tidy_tuesday.Rmd" class="uri"&gt;https://github.com/llendway/tidy_tuesday_in_thirty/blob/main/2020_12_01_tidy_tuesday.Rmd&lt;/a&gt;&lt;/p&gt;'><sup>2</sup></a>.</p>
 <p>Now, I’d like to first do some data manipulation before we graph it this time. I’m going to introduce a few new functions here that we’ll see a lot more soon. Again, don’t worry if this doesn’t all make sense right now. You’re learning a brand-new language! Just try to focus on picking up a word or two and staying motivated!</p>
@@ -512,18 +522,18 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <div class="inline-figure"><img src="02-drinking_from_a_fire_hose_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
 </div>
 </div>
-<div id="exercises-and-tutorial-1" class="section level2" number="2.4">
+<div id="exercises-and-tutorial-1" class="section level2" number="2.8">
 <h2>
-<span class="header-section-number">2.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.8</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-1"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-1" class="section level3" number="2.4.1">
+<div id="exercises-1" class="section level3" number="2.8.1">
 <h3>
-<span class="header-section-number">2.4.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.8.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="tutorial-1" class="section level3" number="2.4.2">
+<div id="tutorial-1" class="section level3" number="2.8.2">
 <h3>
-<span class="header-section-number">2.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.8.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-1"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
@@ -537,9 +547,9 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#drinking-from-a-fire-hose"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
-<li><a class="nav-link" href="#hello-world"><span class="header-section-number">2.1</span> Hello world</a></li>
+<li><a class="nav-link" href="#hello-world"><span class="header-section-number">2.1</span> Hello, World!</a></li>
 <li>
-<a class="nav-link" href="#case-study---canadian-elections"><span class="header-section-number">2.2</span> Case study - Canadian elections</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#canadian-elections"><span class="header-section-number">2.2</span> Canadian elections</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#getting-started"><span class="header-section-number">2.2.1</span> Getting started</a></li>
 <li><a class="nav-link" href="#get-the-data"><span class="header-section-number">2.2.2</span> Get the data</a></li>
 <li><a class="nav-link" href="#clean-the-data"><span class="header-section-number">2.2.3</span> Clean the data</a></li>
@@ -547,17 +557,21 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <li><a class="nav-link" href="#make-a-table"><span class="header-section-number">2.2.5</span> Make a table</a></li>
 </ul>
 </li>
+<li><a class="nav-link" href="#kenyan-populations"><span class="header-section-number">2.3</span> Kenyan populations</a></li>
+<li><a class="nav-link" href="#us-tax-rates"><span class="header-section-number">2.4</span> US tax rates</a></li>
+<li><a class="nav-link" href="#uk-something"><span class="header-section-number">2.5</span> UK something!</a></li>
+<li><a class="nav-link" href="#australian-baby-names"><span class="header-section-number">2.6</span> Australian baby names</a></li>
 <li>
-<a class="nav-link" href="#case-study---toronto-homelessness"><span class="header-section-number">2.3</span> Case study - Toronto homelessness</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#getting-started-1"><span class="header-section-number">2.3.1</span> Getting started</a></li>
-<li><a class="nav-link" href="#get-the-data-1"><span class="header-section-number">2.3.2</span> Get the data</a></li>
-<li><a class="nav-link" href="#make-a-graph-1"><span class="header-section-number">2.3.3</span> Make a graph</a></li>
+<a class="nav-link" href="#toronto-homelessness"><span class="header-section-number">2.7</span> Toronto homelessness</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#getting-started-1"><span class="header-section-number">2.7.1</span> Getting started</a></li>
+<li><a class="nav-link" href="#get-the-data-1"><span class="header-section-number">2.7.2</span> Get the data</a></li>
+<li><a class="nav-link" href="#make-a-graph-1"><span class="header-section-number">2.7.3</span> Make a graph</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-1"><span class="header-section-number">2.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-1"><span class="header-section-number">2.4.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-1"><span class="header-section-number">2.4.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-1"><span class="header-section-number">2.8</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-1"><span class="header-section-number">2.8.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-1"><span class="header-section-number">2.8.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -577,7 +591,7 @@ Figure 2.2: The County Election (1851–52), by George Caleb Bingham (American, 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on May 11, 2021.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 August, 2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

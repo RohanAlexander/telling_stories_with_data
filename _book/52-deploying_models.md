@@ -1,17 +1,8 @@
----
-date: April 6, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 
 # Deploying models
 
-*Last updated: 6 April 2021.*
+**STATUS: Under construction.**
 
 **Required reading**
 

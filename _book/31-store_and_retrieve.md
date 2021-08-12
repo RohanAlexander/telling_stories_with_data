@@ -1,15 +1,8 @@
----
-date: July 28, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
+
 
 # Storing and retrieving data
 
+**STATUS: Under construction.**
 
 **Required reading**
 

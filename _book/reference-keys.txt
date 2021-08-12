@@ -1,7 +1,5 @@
 fig:unnamed-chunk-1
 fig:lumpthedog
-fig:covid
-fig:canadianelections
 fig:unnamed-chunk-3
 fig:first
 fig:second
@@ -103,13 +101,17 @@ exercises
 tutorial
 drinking-from-a-fire-hose
 hello-world
-case-study---canadian-elections
+canadian-elections
 getting-started
 get-the-data
 clean-the-data
 make-a-graph
 make-a-table
-case-study---toronto-homelessness
+kenyan-populations
+us-tax-rates
+uk-something
+australian-baby-names
+toronto-homelessness
 getting-started-1
 get-the-data-1
 make-a-graph-1
@@ -555,7 +557,6 @@ tutorial-20
 concludingremarks
 concluding-remarks
 next-steps-2
-open-problems
 oh-you-think-we-have-good-data-on-that
 shoulders-of-giants
 papers

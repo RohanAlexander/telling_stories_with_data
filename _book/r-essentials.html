@@ -6,20 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 R Essentials | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required reading Jennifer Bryan and Hester (2020), Chapters 1 to 5. Wickham and Grolemund (2017), Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18. Required viewing Kuriwaki, Shiro, 2020, ‘Defining...">
+<meta name="description" content="STATUS: Under construction. Required material Read What They Forgot to Teach You About R, Chapters 1-5, (Jennifer Bryan and Hester 2020). Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14,...">
 <meta name="generator" content="bookdown 0.22.17 with bs4_book()">
 <meta property="og:title" content="Chapter 3 R Essentials | Telling Stories With Data">
 <meta property="og:type" content="book">
-<meta property="og:url" content="tellingstorieswithdata.com/r-essentials.html">
-<meta property="og:image" content="tellingstorieswithdata.com/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required reading Jennifer Bryan and Hester (2020), Chapters 1 to 5. Wickham and Grolemund (2017), Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18. Required viewing Kuriwaki, Shiro, 2020, ‘Defining...">
+<meta property="og:image" content="/tellingstorieswithdatapainting.png">
+<meta property="og:description" content="STATUS: Under construction. Required material Read What They Forgot to Teach You About R, Chapters 1-5, (Jennifer Bryan and Hester 2020). Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 R Essentials | Telling Stories With Data">
-<meta name="twitter:description" content="Required reading Jennifer Bryan and Hester (2020), Chapters 1 to 5. Wickham and Grolemund (2017), Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18. Required viewing Kuriwaki, Shiro, 2020, ‘Defining...">
-<meta name="twitter:image" content="tellingstorieswithdata.com/tellingstorieswithdatapainting.png">
+<meta name="twitter:description" content="STATUS: Under construction. Required material Read What They Forgot to Teach You About R, Chapters 1-5, (Jennifer Bryan and Hester 2020). Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14,...">
+<meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
@@ -82,7 +83,6 @@
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-we-have-good-data-on-that.html"><span class="header-section-number">A</span> Oh, you think we have good data on that!</a></li>
 <li><a class="" href="shoulders-of-giants.html"><span class="header-section-number">B</span> Shoulders of giants</a></li>
-<li class="book-part">Assessment</li>
 <li><a class="" href="papers.html"><span class="header-section-number">C</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -96,41 +96,14 @@
 <h1>
 <span class="header-section-number">3</span> R Essentials<a class="anchor" aria-label="anchor" href="#r-essentials"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>Required reading</strong></p>
+<p><strong>STATUS: Under construction.</strong></p>
+<p><strong>Required material</strong></p>
 <ul>
-<li>
-<span class="citation"><a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester</a> (<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">2020</a>)</span>, Chapters 1 to 5.</li>
-<li>
-<span class="citation"><a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund</a> (<a href="references-1.html#ref-r4ds" role="doc-biblioref">2017</a>)</span>, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18.</li>
+<li>Read <em>What They Forgot to Teach You About R</em>, Chapters 1-5, <span class="citation">(<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester 2020</a>)</span>.</li>
+<li>Read <em>R for Data Science</em>, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18 <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>.</li>
+<li>Watch <em>Defining Custom Functions in R</em>, <span class="citation">(<a href="references-1.html#ref-shiroonfunctions" role="doc-biblioref">Kuriwaki 2020</a>)</span>.</li>
 </ul>
-<p><strong>Required viewing</strong></p>
-<ul>
-<li>Kuriwaki, Shiro, 2020, ‘Defining Custom Functions in R,’ <em>Vimeo</em>, 2 February, <a href="https://vimeo.com/388825332" class="uri">https://vimeo.com/388825332</a>.</li>
-</ul>
-<p><strong>Alternative reading</strong></p>
-<p>There are a lot of great alternative ‘getting started with R’ type materials. Depending on your background and interests you may find some of the following useful:</p>
-<ul>
-<li>Arnold, Taylor, and Lauren Tilton, 2015, <em>Humanities Data in R</em>, Springer, Chapters 1 to 5.</li>
-<li>Hall, Megan, 2019, ‘An Introduction to R With Hockey Data,’ <a href="https://hockey-graphs.com/2019/12/11/an-introduction-to-r-with-hockey-data/" class="uri">https://hockey-graphs.com/2019/12/11/an-introduction-to-r-with-hockey-data/</a>.</li>
-<li>Hanretty, Chris, 2020, ‘ConveRt,’ slides <a href="http://chrishanretty.co.uk/conveRt/#1" class="uri">http://chrishanretty.co.uk/conveRt/#1</a>.</li>
-<li>Phillips, Nathaniel D., 2018, <em>YaRrr! The Pirate’s Guide to R</em>, Chapter 2, <a href="https://bookdown.org/ndphillips/YaRrr/started.html" class="uri">https://bookdown.org/ndphillips/YaRrr/started.html</a>.</li>
-</ul>
-<p><strong>Recommended reading</strong></p>
-<ul>
-<li>Alexander, Monica, 2019, ‘The concentration and uniqueness of baby names in Australia and the US,’ <a href="https://www.monicaalexander.com/posts/2019-20-01-babynames/" class="uri">https://www.monicaalexander.com/posts/2019-20-01-babynames/</a>.</li>
-<li>Hvitfeldt, Emil, 2020, ‘Emoji in ggplot2,’ <a href="https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/" class="uri">https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/</a>.</li>
-<li>Pavlik, Kaylin, 2018, ‘Dairy Queen Deserts in Minnesota,’ <a href="https://www.kaylinpavlik.com/dairy-queen-deserts/" class="uri">https://www.kaylinpavlik.com/dairy-queen-deserts/</a>.</li>
-<li>‘R Studio Cloud Guide,’ <a href="https://rstudio.cloud/learn/guide" class="uri">https://rstudio.cloud/learn/guide</a>.</li>
-<li>Scherer, Cédric, 2019, ‘Best TidyTuesday 2019,’ <a href="https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/" class="uri">https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/</a>.</li>
-<li>Silge, Julia, 2019, ‘Reordering and facetting for ggplot2,’ <a href="https://juliasilge.com/blog/reorder-within/" class="uri">https://juliasilge.com/blog/reorder-within/</a>.</li>
-<li>Smale, David, 2019, ‘Happy Days,’ <a href="https://davidsmale.netlify.com/portfolio/happy-days/" class="uri">https://davidsmale.netlify.com/portfolio/happy-days/</a>.</li>
-</ul>
-<p><strong>Key libraries</strong></p>
-<ul>
-<li><code>ggplot2</code></li>
-<li><code>tidyverse</code></li>
-</ul>
-<p><strong>Key concepts/skills/etc</strong></p>
+<!-- **Recommended reading** --><!-- - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/.  --><!-- - Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/. --><!-- - Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/. --><!-- - 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide. --><!-- - Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/. --><!-- - Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/. --><!-- - Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/. --><p><strong>Key concepts and skills</strong></p>
 <ul>
 <li>Tibbles</li>
 <li>Importing data</li>
@@ -139,6 +112,11 @@
 <li>Factors</li>
 <li>Dates</li>
 <li>Pivot</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li><code>ggplot2</code></li>
+<li><code>tidyverse</code></li>
 </ul>
 <p><strong>Key functions</strong></p>
 <ul>
@@ -158,8 +136,7 @@
 <span class="header-section-number">3.1</span> R essentials<a class="anchor" aria-label="anchor" href="#r-essentials-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>This section is the basics of using R. Some of it may not make sense at first, but these are commands that we will come back to throughout these notes. You should initially just go through this chapter quickly, noting aspects that you don’t understand. Then start to play around with some of the initial case studies. Then maybe come back to this chapter. That way you will see how the various bits fit into context, and hopefully be more motivated to pick up various aspects. We will come back to everything in this chapter in more detail at some point in these notes.</p>
-<p>R is an open-source language that is useful for statistical programming</p>
-<p>You can download R for free here: <a href="http://cran.utstat.utoronto.ca/" class="uri">http://cran.utstat.utoronto.ca/</a>, and you can download R Studio Desktop for free here: <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.</p>
+<p>R is an open-source language that is useful for statistical programming. You can download R for free here: <a href="http://cran.utstat.utoronto.ca/" class="uri">http://cran.utstat.utoronto.ca/</a>, and you can download R Studio Desktop for free here: <a href="https://rstudio.com/products/rstudio/download/#download" class="uri">https://rstudio.com/products/rstudio/download/#download</a>.</p>
 <p>When you are using R you will run into trouble at some point. To work through that trouble:</p>
 <ol style="list-style-type: decimal">
 <li>Look at the help file for the function by putting ‘?’ before the function e.g. <code>?pivot_wider()</code>.</li>
@@ -171,7 +148,7 @@
 <li>Try to make a small example and see if you have the same issues.</li>
 <li>Restart your computer.</li>
 </ol>
-<p>The past ten years or so of R have been characterised by the rise of the tidyverse. This is ‘… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.’ <span class="citation"><a href="references-1.html#ref-tidyversewebsite" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-tidyversewebsite" role="doc-biblioref">2020b</a>)</span>. There are three distinctions here: the original R language, typically referred to as ‘base’; the ‘tidyverse’ which is a collection of packages that build on top of the R language; and other packages.</p>
+<p>The past ten years or so of R have been characterised by the rise of the tidyverse. This is ‘… an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures’ <span class="citation">(<a href="references-1.html#ref-tidyversewebsite" role="doc-biblioref">Wickham 2020b</a>)</span>. There are three distinctions here: the original R language, typically referred to as ‘base’; the ‘tidyverse’ which is a collection of packages that build on top of the R language; and other packages.</p>
 <p>Pretty much everything that you can do in the tidyverse, you can also do in base. However, as the tidyverse was built especially for modern data science it is usually easier to use the tidyverse, especially when you are setting out. Additionally, pretty much everything that you can do in the tidyverse, you can also do with other packages. However, as the tidyverse is a coherent collection of packages, it is often easier to use the tidyverse, especially when you are setting out. Eventually you will start to see cases where it makes sense to trade-off the convenience and coherence of the tidyverse for some features of base or other packages. Indeed, you’ll see that at various points in these notes. For instance, the tidyverse can be slow, and so if you need to import thousands of CSVs then it can make sense to switch away from <code>read_csv()</code>. That is great and the appropriate use of base and non-tidyverse packages, rather than dogmatic insistence on a solution, is a sign of your development as an applied statistician.</p>
 <p>Get started by loading the <code>tidyverse</code> package.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -1437,7 +1414,7 @@ Figure 3.4: After running an R Script
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on May 11, 2021.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 August, 2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

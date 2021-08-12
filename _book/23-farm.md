@@ -1,16 +1,7 @@
----
-date: May 17, 2021
-bibliography: bibliography.bib
-output:
-  pdf_document:
-    citation_package: natbib
-  bookdown::pdf_book:
-    citation_package: biblatex
----
 
 # Farm data
 
-*Last updated: 17 May 2021.*
+**STATUS: Under construction.**
 
 
 
