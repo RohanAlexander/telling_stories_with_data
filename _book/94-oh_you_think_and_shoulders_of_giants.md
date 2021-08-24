@@ -1,7 +1,7 @@
 
+# Oh you think and shoulders
 
-
-# Oh, you think we have good data on that!
+## Oh, you think we have good data on that!
 
 1. Maternal mortality
 2. The economy. https://www.nber.org/system/files/chapters/c4224/c4224.pdf.
@@ -14,7 +14,7 @@
 9. Timing
 
 
-# Shoulders of giants
+## Shoulders of giants
 
 - Andrew Gelman
 - Barbara Bailar

@@ -1,4 +1,5 @@
 fig:unnamed-chunk-1
+fig:iceberg
 fig:lumpthedog
 fig:unnamed-chunk-3
 fig:first
@@ -92,8 +93,8 @@ fig:topicsoverdocuments
 fig:topicsoverterms
 telling-stories-with-data
 on-telling-stories
-telling-stories-with-data-1
 workflow-components
+telling-stories-with-data-1
 how-do-our-worlds-become-data
 what-is-data-science-and-how-should-we-use-it-to-learn-about-the-world
 exercises-and-tutorial
@@ -274,6 +275,7 @@ sampling-and-survey-essentials
 introduction-13
 simple-random-sampling
 stratified-and-cluster-sampling
+snowball-sampling-and-confidant-methods
 case-study---the-oregon-health-insurance-experiment
 case-study---student-coaching-how-far-can-technology-go
 case-study---civic-honesty-around-the-globe
@@ -294,6 +296,7 @@ mechanical-turk
 prolific
 qualtrics
 other-2
+sensor-data
 next-steps-1
 exercises-and-tutorial-8
 exercises-8
@@ -557,6 +560,7 @@ tutorial-20
 concludingremarks
 concluding-remarks
 next-steps-2
+oh-you-think-and-shoulders
 oh-you-think-we-have-good-data-on-that
 shoulders-of-giants
 papers

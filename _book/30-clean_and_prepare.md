@@ -91,7 +91,7 @@ The approach that I recommend that you follow is:
 
 You will need to use all your skills to this point to be effective, but this is the very stuff of statistical sciences! Be dogged, but sensible. The best is the enemy of the good here. It's better to have 90 per cent of the data cleaned and prepared, and to start exploring that, before deciding whether it's worth the effort to clean and prepare the remaining 10 per cent because that remainder will likely take an awful lot of time and effort.
 
-As @van2005data say, all data regardless of whether they were obtained from hunting, gathering, or farming, will have issues and it is critical that you understand how to 'deal with errors from various sources' and understand 'their effects on study results'. To clean data is to analyze data. As @thatrandyauperson says 'The act of cleaning data is the act of preferentially transforming data so that your chosen analysis algorithm produces interpretable results. That is also the act of data analysis.'.
+As @van2005data say, all data regardless of whether they were obtained from hunting, gathering, or farming, will have issues and it is critical that you understand how to 'deal with errors from various sources' and understand 'their effects on study results'. To clean data is to analyze data. As @thatrandyauperson says 'The act of cleaning data is the act of preferentially transforming data so that your chosen analysis algorithm produces interpretable results. That is also the act of data analysis.'. We are attemping to triangulate the situation.
 
 
 ## Workflow
@@ -1173,6 +1173,13 @@ Another critical aspect is to check the dates. In particular we want to try to m
 
 ## Naming things
 
+> An improved scanning software we developed identified gene name errors in 30.9% (3,436/11,117) of articles with supplementary Excel gene lists; a figure significantly higher than previously estimated. This is due to gene names being converted not just to dates and floating-point numbers, but also to internal date format (five-digit numbers).
+>
+> @omggenes
+
+https://neverworkintheory.org/2021/08/09/abbreviated-vs-full-names.html
+
+
 Names matter. I wrote this book on land that is today named Toronto, which is within a country named Canada, but for a long time before was known as Turtle Island. While not common, these days people will sometimes still refer to themselves as being on Turtle Island. That tells us something about them, and our use of the name Canada tells them something about us. There is a big rock in the centre of the country that I'm from, Australia. For a long time, it was called Uluru, then it was known as Ayers Rock. Today it has a dual name the combines both, and the choice of which name you use tells someone something about you. Even the British Royal Family recognise the power of names. In 1917 they changed from the House of Saxe-Coburg and Gotha to the House of Windsor, due to a feeling that the former was too Germanic given World War I was ongoing. Names matter in everyday life. And they matter in data science too.
 
 The importance of names, and of ignoring existing claims through re-naming was clear in those cases, but we see it in data science as well. We need to be very careful when we name our datasets, our variables, and our functions. There is a tendency, these days, to call the variable 'gender' even though it may only have male and female, because we do not want to say the word 'sex'. [@tukey1962future] essentially defines what we today call data science, but it was popularised by folks in computer science in the 2010s who ignored, either deliberately or through ignorance, what came before them. The past ten years has been characteristic by the renaming of concepts that were well-established in the fields that computer science has recently expanded into. For instance, the use of binary variables in regression, sometimes called 'dummy variables', is called one-hot encoding in computer science. Like all fashions, this one will pass also. We most recently saw this through the 1980s through to early 2010s with economics. Economists described themselves as the 'queen of the social sciences' and self-described as imperialistic [@lazear2000economic]. We are now recognising the costs of this imperialism in social sciences, and in the future we will look back and count the cost of computer science imperialism in data science. The key here is that no area of study is ever *terra nullius*, or nobody's land. It is important to recognise, adopt, and use existing names, and practices.
@@ -1233,7 +1240,6 @@ never_use_partial_matching$my
 
 
 This behaviour is not possible within the `tidyverse` (for instance if `data.frame` were replaced with `tibble` in the above code) and I recommend never using this feature. It makes it more difficult to understand your code after a break, and for others to come to it fresh.
-
 
 
 

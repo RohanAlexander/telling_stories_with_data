@@ -2,16 +2,11 @@
 
 # Papers
 
-
-*Last updated: 11 May 2021.*
-
-
-
 ## 'Mandatory Minimums'
 
 ### Task
 
-- Working individually and in an entirely reproducible way, please find a dataset of interest on Open Data Toronto and write a short paper telling a story about the data.
+Working individually and in an entirely reproducible way, please find a dataset of interest on Open Data Toronto and write a short paper telling a story about the data.
 
 
 ### Guidance
@@ -49,7 +44,7 @@
 
 ### FAQ
 
-- Can I use a dataset from Kaggle instead? No, because too many people use Kaggle datasets so employers are sick of them.
+- Can I use a dataset from Kaggle instead? No, because they have done they hard work for you.
 - I can't use code to download my dataset, can I just manually download it? No, because your entire workflow needs to be reproducible. Please fix the download problem or pick a different dataset.
 - How much should I write? Most students submit something in the two-to-six-page range, but it's really up to you. Be precise and thorough.
 - My data is about apartment blocks/NBA/League of Legends so there's no ethical or bias aspect, what do I do? Please re-read the readings to better understand bias and ethics. If you really can't think of something, then it might be worth picking a different dataset.
