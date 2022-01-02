@@ -418,7 +418,7 @@ mrp_example_model %>%
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> -1414.630 </td>
+   <td style="text-align:center;"> −1414.630 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
@@ -1256,7 +1256,11 @@ alp_support %>%
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> -967.836 </td>
+   <td style="text-align:center;"> −967.836 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> F </td>
+   <td style="text-align:center;"> 28.555 </td>
   </tr>
 </tbody>
 </table>
@@ -1778,36 +1782,36 @@ There are a variety of options here that we've largely unthinkingly set, and exp
 
 ```r
 modelsummary::get_estimates(us_election_model)
-#>                                       term effect    estimate conf.level
-#> 1                              (Intercept)  fixed  0.27591651       0.95
-#> 2                               gendermale  fixed -0.54094841       0.95
-#> 3                  age_groupage_60_or_more  fixed  0.04886803       0.95
-#> 4                       age_groupage_18-29  fixed  0.87817445       0.95
-#> 5                       age_groupage_30-44  fixed  0.12455081       0.95
-#> 6       education_levelHigh school or less  fixed -0.35080948       0.95
-#> 7       education_levelSome post secondary  fixed -0.14970941       0.95
-#> 8           education_levelGraduate degree  fixed -0.21988079       0.95
-#> 60 Sigma[stateicp:(Intercept),(Intercept)] random  0.08002654       0.95
-#>       conf.low    conf.high      pd rope.percentage      rhat      ess
-#> 1   0.10322566  0.447878764 0.99850         0.14900 1.0002399 2262.704
-#> 2  -0.65227570 -0.430121742 1.00000         0.00000 0.9996776 5264.121
-#> 3  -0.10847716  0.200831286 0.72600         0.94775 0.9998468 3726.472
-#> 4   0.69830955  1.061899702 1.00000         0.00000 0.9997188 3931.709
-#> 5  -0.02530517  0.284994549 0.94125         0.76300 0.9995061 3567.152
-#> 6  -0.51262507 -0.204222132 1.00000         0.01675 0.9997706 3700.321
-#> 7  -0.29927232  0.006135831 0.96625         0.67125 1.0005471 4090.628
-#> 8  -0.38172115 -0.036764485 0.99100         0.32875 0.9999286 4589.040
-#> 60  0.02912381  0.160211514 1.00000         0.98300 1.0031942 1284.436
-#>    prior.distribution prior.location prior.scale
-#> 1              normal              0           1
-#> 2              normal              0           1
-#> 3              normal              0           1
-#> 4              normal              0           1
-#> 5              normal              0           1
-#> 6              normal              0           1
-#> 7              normal              0           1
-#> 8              normal              0           1
-#> 60               <NA>             NA          NA
+#>                                      term effect    estimate conf.level
+#> 1                             (Intercept)  fixed  0.27591651       0.95
+#> 2                              gendermale  fixed -0.54094841       0.95
+#> 3                 age_groupage_60_or_more  fixed  0.04886803       0.95
+#> 4                      age_groupage_18-29  fixed  0.87817445       0.95
+#> 5                      age_groupage_30-44  fixed  0.12455081       0.95
+#> 6      education_levelHigh school or less  fixed -0.35080948       0.95
+#> 7      education_levelSome post secondary  fixed -0.14970941       0.95
+#> 8          education_levelGraduate degree  fixed -0.21988079       0.95
+#> 9 Sigma[stateicp:(Intercept),(Intercept)] random  0.08002654       0.95
+#>      conf.low    conf.high      pd rope.percentage      rhat      ess
+#> 1  0.10322566  0.447878764 0.99850       0.1281242 1.0002399 2262.704
+#> 2 -0.65227570 -0.430121742 1.00000       0.0000000 0.9996776 5264.121
+#> 3 -0.10847716  0.200831286 0.72600       0.9765851 0.9998468 3726.472
+#> 4  0.69830955  1.061899702 1.00000       0.0000000 0.9997188 3931.709
+#> 5 -0.02530517  0.284994549 0.94125       0.7729545 0.9995061 3567.152
+#> 6 -0.51262507 -0.204222132 1.00000       0.0000000 0.9997706 3700.321
+#> 7 -0.29927232  0.006135831 0.96625       0.6771902 1.0005471 4090.628
+#> 8 -0.38172115 -0.036764485 0.99100       0.3249145 0.9999286 4589.040
+#> 9  0.02912381  0.160211514 1.00000       1.0000000 1.0031942 1284.436
+#>   prior.distribution prior.location prior.scale
+#> 1             normal              0           1
+#> 2             normal              0           1
+#> 3             normal              0           1
+#> 4             normal              0           1
+#> 5             normal              0           1
+#> 6             normal              0           1
+#> 7             normal              0           1
+#> 8             normal              0           1
+#> 9               <NA>             NA          NA
 # The default usage of modelsummary requires statistics that we don't have.
 # Uncomment the following line if you want to look at what is available and specify your own:
 # modelsummary::get_estimates(us_election_model)
@@ -1838,15 +1842,15 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;"> gendermale </td>
-   <td style="text-align:center;"> -0.541 </td>
+   <td style="text-align:center;"> −0.541 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.652) </td>
+   <td style="text-align:center;"> (−0.652) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.430) </td>
+   <td style="text-align:center;"> (−0.430) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> age_groupage_60_or_more </td>
@@ -1854,7 +1858,7 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.108) </td>
+   <td style="text-align:center;"> (−0.108) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -1878,7 +1882,7 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.025) </td>
+   <td style="text-align:center;"> (−0.025) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -1886,23 +1890,23 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;"> education_levelHigh school or less </td>
-   <td style="text-align:center;"> -0.351 </td>
+   <td style="text-align:center;"> −0.351 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.513) </td>
+   <td style="text-align:center;"> (−0.513) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.204) </td>
+   <td style="text-align:center;"> (−0.204) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> education_levelSome post secondary </td>
-   <td style="text-align:center;"> -0.150 </td>
+   <td style="text-align:center;"> −0.150 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.299) </td>
+   <td style="text-align:center;"> (−0.299) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -1910,15 +1914,15 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;"> education_levelGraduate degree </td>
-   <td style="text-align:center;"> -0.220 </td>
+   <td style="text-align:center;"> −0.220 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.382) </td>
+   <td style="text-align:center;"> (−0.382) </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (-0.037) </td>
+   <td style="text-align:center;"> (−0.037) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Sigma[stateicp × (Intercept),(Intercept)] </td>
@@ -1946,7 +1950,7 @@ modelsummary::modelsummary(us_election_model,
   </tr>
   <tr>
    <td style="text-align:left;"> ELPD </td>
-   <td style="text-align:center;"> -3468.0 </td>
+   <td style="text-align:center;"> −3468.0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ELPD s.e. </td>

@@ -277,8 +277,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-1dd0fa962fe523a2976a" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1dd0fa962fe523a2976a">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6cea60eb9b69c6fca635" style="width:75%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6cea60eb9b69c6fca635">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
@@ -308,8 +308,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-3695df04e11c44ea3c54" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3695df04e11c44ea3c54">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-27d030ffc66a974bb76d" style="width:75%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-27d030ffc66a974bb76d">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasconfounder)Carrot as a confounder</p>
@@ -348,8 +348,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-a4d72de685380e14edaf" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a4d72de685380e14edaf">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a4c610d476f7566a6098" style="width:75%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a4c610d476f7566a6098">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasmediator)Carrot as a mediator</p>
@@ -380,8 +380,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-be6835f6ceda2e39f0b2" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-be6835f6ceda2e39f0b2">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c36b0d7bb0cba62310db" style="width:75%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c36b0d7bb0cba62310db">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotascollider)Carrot as a collider</p>
@@ -598,12 +598,12 @@ diff_in_diff_example_regression <- lm(serve_speed ~ treatment_group*time,
 
 tidy(diff_in_diff_example_regression)
 #> # A tibble: 4 × 5
-#>   term                   estimate std.error statistic  p.value
-#>   <chr>                     <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 (Intercept)                4.97    0.0428     116.  0       
-#> 2 treatment_group1           3.03    0.0622      48.7 0       
-#> 3 time1                      1.01    0.0605      16.6 2.97e-58
-#> 4 treatment_group1:time1     5.06    0.0880      57.5 0
+#>   term                 estimate std.error statistic  p.value
+#>   <chr>                   <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 (Intercept)              4.97    0.0428     116.  0       
+#> 2 treatment_group1         3.03    0.0622      48.7 0       
+#> 3 time1                    1.01    0.0605      16.6 2.97e-58
+#> 4 treatment_group1:ti…     5.06    0.0880      57.5 0
 ```
 
 Fortunately, our estimates are the same!
@@ -747,14 +747,14 @@ table(amazon_purchase_data$free_shipping)
 
 head(amazon_purchase_data)
 #> # A tibble: 6 × 7
-#>   unique_person_id   age city     gender income free_shipping
-#>              <int> <dbl> <fct>    <fct>   <dbl> <fct>        
-#> 1                1  47.5 Calgary  Female  1.72  0            
-#> 2                2  27.8 Montreal Male    1.54  0            
-#> 3                3  57.7 Toronto  Female  3.16  0            
-#> 4                4  43.9 Toronto  Male    0.636 0            
-#> 5                5  21.1 Toronto  Female  1.43  0            
-#> 6                6  51.1 Calgary  Male    1.18  0            
+#>   unique_person_id   age city    gender income free_shipping
+#>              <int> <dbl> <fct>   <fct>   <dbl> <fct>        
+#> 1                1  47.5 Calgary Female  1.72  0            
+#> 2                2  27.8 Montre… Male    1.54  0            
+#> 3                3  57.7 Toronto Female  3.16  0            
+#> 4                4  43.9 Toronto Male    0.636 0            
+#> 5                5  21.1 Toronto Female  1.43  0            
+#> 6                6  51.1 Calgary Male    1.18  0            
 #> # … with 1 more variable: average_spend <dbl>
 ```
 

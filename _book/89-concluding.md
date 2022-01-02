@@ -1,5 +1,5 @@
 
-# Concluding remarks, next steps, and open problems {#concludingremarks}
+# Concluding remarks, open issues, next steps {#concludingremarks}
 
 **STATUS: Under construction.**
 
@@ -17,6 +17,33 @@ I'm just someone who likes to play with data using R. A decade ago I wouldn't ha
 
 
 Data science needs diversity. Data science needs your intelligence and enthusiasm. It needs you to be in the room, and able to make contributions. We live in interesting times and it's just such an exciting time to be enthusiastic about data. I can't wait to see what you build.
+
+
+
+## Some issues
+
+1. How do we write unit tests for data science?
+
+**UPDATE to add in functional tests and stuff**
+
+One thing that working with real computer scientists has taught me is the importance of unit tests. Basically this just means writing down the small checks that we do in our heads all the time. Like if we have a column that purports to the year, then it's unlikely that it's a character, and it's unlikely that it's an integer larger than 2500, and it's unlikely that it's a negative integer. We know all this, but writing unit tests has us write this all down.
+
+In this case it's obvious what the unit test looks like. But more generally, we often have little idea what our results should look like if they're running well. The approach that I've taken is to add simulation—so we simulate reasonable results, write unit tests based on that, and then bring the real data to bear and adjust as necessary. But I really think that we need extensive work in this area because the current state-of-the-art is lacking.
+
+2. What happened to the machine learning revolution?
+
+I don't understand what happened to the promised machine learning revolution in social sciences. Specifically, I'm yet to see any convincing application of machine learning methods that are designed for prediction to a social sciences problem where what we care about is understanding. I would like to either see evidence of them or a definitive thesis about why this can't happen. The current situation is untenable where folks, especially those in fields that have been historically female, are made to feel inferior even though their results are no worse.
+
+3. How do we think about power?
+
+As someone who learnt statistics from economists, but now is partly in a statistics department, I do think that everyone should learn statistics from statisticians. This isn't anything against economists, but the conversations that I have in the statistics department about what statistical methods are and how they should be used are very different to those that I've had in other departments.
+
+I think the problem is that people outside statistics, treat statistics as a recipe in which they follow various steps and then out comes a cake. With regard to ‘power'—it turns out that there were a bunch of instructions that no one bothered to check—they turned the oven on to some temperature without checking that it was 180C, and that's fine because whatever mess came out was accepted because the people evaluating the cake didn't know that they needed to check the temperature had been appropriately set. (I'm ditching this analogy right now).
+
+As you know, the issue with power is related to the broader discussion about p-values, which basically no one is taught properly, because it would require changing an awful lot about how we teach statistics i.e. moving away from the recipe approach.
+
+And so, my specific issue is that people think that statistics is a recipe to be followed. They think that because that's how they are trained especially in social sciences like political science and economics, and that's what is rewarded. But that's not what these methods are. Instead, statistics is a collection of different instruments that let us look at our data in a certain way. I think that we need a revolution here, not a metaphorical tucking in of one's shirt.
+
 
 
 ## Next steps
@@ -39,14 +66,7 @@ Writing go to...
 
 Thinking through production and SQL and things like, a next natural step is...
 
-
-
 We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. Never do anything in moderation, and if you can't do anything else then, be kind.
 
-
-<!-- ## Open problems -->
-
-<!-- - Optimal names -->
-<!-- -  -->
 
 

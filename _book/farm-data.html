@@ -7,7 +7,7 @@
 <title>Chapter 10 Farm data | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
 <meta name="description" content="STATUS: Under construction. Required reading Crawford (2021), Chapter 3. Statistics Canada (2017), Chapter 10 - Data quality assessment. Recommended reading Key concepts/skills/etc Key libraries...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 10 Farm data | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
@@ -16,13 +16,13 @@
 <meta name="twitter:title" content="Chapter 10 Farm data | Telling Stories With Data">
 <meta name="twitter:description" content="STATUS: Under construction. Required reading Crawford (2021), Chapter 3. Statistics Canada (2017), Chapter 10 - Data quality assessment. Recommended reading Key concepts/skills/etc Key libraries...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
-<script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
 <script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script><script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script><script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script><script src="libs/deckgl-8.1.6/deckgl.min.js"></script><script src="libs/legend-0.0.1/legend.js"></script><script src="libs/title-0.0.1/title.js"></script><script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script><script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script><script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script><link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 <li><a class="" href="using-the-cloud.html"><span class="header-section-number">19</span> Using the cloud</a></li>
 <li><a class="" href="deploying-models.html"><span class="header-section-number">20</span> Deploying models</a></li>
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
-<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, next steps, and open problems</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
@@ -145,32 +145,32 @@
 </h3>
 <p>The first census in Canada was conducted in 1666. There were 3,215 inhabitants that were counted and the census ‘recorded their age, sex, marital status and occupation’ <span class="citation">(<a href="references-1.html#ref-statcanhistory" role="doc-biblioref">Statistics Canada 2017</a>)</span>. In 1867 a decennial census was required to ‘determine representation by population in the new Parliament.’ Regular censuses have occurred since then, the most recent in 2021.</p>
 <p>In general, data from the Canadian census is not as easily available as in other countries. The ‘Individuals File, 2016 Census Public Use Microdata Files (PUMF)’ - <a href="https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X" class="uri">https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X</a> - is probably the best first step, although it does not provide much detail. It is a 2.7 per cent sample from the 2016 census. It is free, but must be requested, after which Statistics Canada will email access details.</p>
-<p>Another way to access data from the Canadian census is to use <code>cancensus</code>, which is an R package that provides access to the Canadian census <span class="citation">(<a href="references-1.html#ref-citecancensus" role="doc-biblioref">von Bergmann, Shkolnik, and Jacobs 2021</a>)</span>. The use of this package requires an API key, which can be requested by creating an account here: <a href="https://censusmapper.ca/users/sign_up" class="uri">https://censusmapper.ca/users/sign_up</a> and then clicking ‘edit profile.’ The package has a helper function <code><a href="https://mountainmath.github.io/cancensus/index.html/reference/set_api_key.html">cancensus::set_api_key("ADD_YOUR_API_KEY_HERE", install = TRUE)</a></code> that makes it easier to add the key to your ‘.Renviron’ file. Once that is done you can use the package to access the data.</p>
+<p>Another way to access data from the Canadian census is to use <code>cancensus</code>, which is an R package that provides access to the Canadian census <span class="citation">(<a href="references-1.html#ref-citecancensus" role="doc-biblioref">von Bergmann, Shkolnik, and Jacobs 2021</a>)</span>. The use of this package requires an API key, which can be requested by creating an account here: <a href="https://censusmapper.ca/users/sign_up" class="uri">https://censusmapper.ca/users/sign_up</a> and then clicking ‘edit profile.’ The package has a helper function <code>cancensus::set_api_key("ADD_YOUR_API_KEY_HERE", install = TRUE)</code> that makes it easier to add the key to your ‘.Renviron’ file. Once that is done you can use the package to access the data.</p>
 <p>The main function in the package is <code><a href="https://mountainmath.github.io/cancensus/index.html/reference/get_census.html">cancensus::get_census()</a></code>, and that requires an argument for the census of interest, and a variety of other factors. In this example we will use the 2016 census</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="farm-data.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb240-2"><a href="farm-data.html#cb240-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
-<span id="cb240-3"><a href="farm-data.html#cb240-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-4"><a href="farm-data.html#cb240-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
-<span id="cb240-5"><a href="farm-data.html#cb240-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
-<span id="cb240-6"><a href="farm-data.html#cb240-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
-<span id="cb240-7"><a href="farm-data.html#cb240-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
-<span id="cb240-8"><a href="farm-data.html#cb240-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
-<span id="cb240-9"><a href="farm-data.html#cb240-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb240-10"><a href="farm-data.html#cb240-10" aria-hidden="true" tabindex="-1"></a>             )</span>
-<span id="cb240-11"><a href="farm-data.html#cb240-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-12"><a href="farm-data.html#cb240-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb240-13"><a href="farm-data.html#cb240-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb240-14"><a href="farm-data.html#cb240-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb240-15"><a href="farm-data.html#cb240-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb240-16"><a href="farm-data.html#cb240-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb240-17"><a href="farm-data.html#cb240-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B</span>
-<span id="cb240-18"><a href="farm-data.html#cb240-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-19"><a href="farm-data.html#cb240-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ontario_population)</span>
-<span id="cb240-20"><a href="farm-data.html#cb240-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 9</span></span>
-<span id="cb240-21"><a href="farm-data.html#cb240-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households</span></span>
-<span id="cb240-22"><a href="farm-data.html#cb240-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt;                  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
-<span id="cb240-23"><a href="farm-data.html#cb240-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 35     PR    Ontario              986722.   13448494   5598391    5169174</span></span>
-<span id="cb240-24"><a href="farm-data.html#cb240-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: C_UID &lt;chr&gt;, v_CA16_1: Age Stats &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="farm-data.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb265-2"><a href="farm-data.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
+<span id="cb265-3"><a href="farm-data.html#cb265-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-4"><a href="farm-data.html#cb265-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
+<span id="cb265-5"><a href="farm-data.html#cb265-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
+<span id="cb265-6"><a href="farm-data.html#cb265-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
+<span id="cb265-7"><a href="farm-data.html#cb265-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
+<span id="cb265-8"><a href="farm-data.html#cb265-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
+<span id="cb265-9"><a href="farm-data.html#cb265-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
+<span id="cb265-10"><a href="farm-data.html#cb265-10" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb265-11"><a href="farm-data.html#cb265-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb265-12"><a href="farm-data.html#cb265-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb265-13"><a href="farm-data.html#cb265-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb265-14"><a href="farm-data.html#cb265-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb265-15"><a href="farm-data.html#cb265-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb265-16"><a href="farm-data.html#cb265-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb265-17"><a href="farm-data.html#cb265-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B</span>
+<span id="cb265-18"><a href="farm-data.html#cb265-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-19"><a href="farm-data.html#cb265-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ontario_population)</span>
+<span id="cb265-20"><a href="farm-data.html#cb265-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 9</span></span>
+<span id="cb265-21"><a href="farm-data.html#cb265-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households</span></span>
+<span id="cb265-22"><a href="farm-data.html#cb265-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt;                  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb265-23"><a href="farm-data.html#cb265-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 35     PR    Ontario              986722.   13448494   5598391    5169174</span></span>
+<span id="cb265-24"><a href="farm-data.html#cb265-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: C_UID &lt;chr&gt;, v_CA16_1: Age Stats &lt;dbl&gt;</span></span></code></pre></div>
 <p>The package is fiddly, however it is worthwhile to ensure a reproducible workflow if the data that you are interested in are included. The two helper functions— <code>list_census_regions()</code> and <code>list_census_vectors()</code> — may be useful identify the arguments of interest.</p>
 </div>
 <div id="usa" class="section level3" number="10.2.2">
@@ -340,7 +340,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 August, 2021.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 02 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

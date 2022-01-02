@@ -7,7 +7,7 @@
 <title>Chapter 9 Hunt data | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
 <meta name="description" content="STATUS: Under construction. Required reading Banerjee, Abhijit Vinayak, 2020, ‘Field Experiments and the Practice of Economics,’ American Economic Review, Vol. 110, No. 7, pp. 1937-1951. Berry,...">
-<meta name="generator" content="bookdown 0.22.17 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 9 Hunt data | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
@@ -16,13 +16,13 @@
 <meta name="twitter:title" content="Chapter 9 Hunt data | Telling Stories With Data">
 <meta name="twitter:description" content="STATUS: Under construction. Required reading Banerjee, Abhijit Vinayak, 2020, ‘Field Experiments and the Practice of Economics,’ American Economic Review, Vol. 110, No. 7, pp. 1937-1951. Berry,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
-<script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
 <script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
 <script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script><script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script><script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script><script src="libs/deckgl-8.1.6/deckgl.min.js"></script><script src="libs/legend-0.0.1/legend.js"></script><script src="libs/title-0.0.1/title.js"></script><script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script><script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script><script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script><link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 <li><a class="" href="using-the-cloud.html"><span class="header-section-number">19</span> Using the cloud</a></li>
 <li><a class="" href="deploying-models.html"><span class="header-section-number">20</span> Deploying models</a></li>
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
-<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, next steps, and open problems</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
@@ -207,12 +207,12 @@
 <p>When Monica and I moved to San Francisco, the Giants immediately won the baseball, and the Warriors began a historic streak. We moved to Chicago and the Cubs won the baseball for the first time in a hundred years. We then moved to Massachusetts, and the Patriots won the Super Bowl again and again and again. Finally, we moved to Toronto, and the Raptors won the basketball. Should a city pay us to live there or could their funds be better spent elsewhere?</p>
 <p>One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send us to live there for a year. If we had enough lifetimes, then we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. Experiments and randomised controlled trials are circumstances in which we try to randomly allocate some treatment, so as to have a belief that everything else was constant (or at least ignorable).</p>
 <p>In the words of <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 3</a>)</span> an action, <span class="math inline">\(A\)</span>, is also known ‘as an intervention, an exposure, or a treatment.’ I’ll typically use ‘treated/control’ language, reflecting whether an action was imposed or not. That treatment random variable will typically be binary, that is 0 or 1, ‘treated’ or ‘not treated/control/comparison.’ We’ll then typically have some outcome random variable, <span class="math inline">\(Y\)</span>, which will typically be binary, able to be made binary, or continuous, although we’ll touch on other options. An example of a binary outcome could be vote choice - ‘Conservative’ vs ‘Not Conservative’ - noticing there that I grouped all the other parties into simply ‘Not Conservative’ to force the binary outcome.</p>
-<p>Further following <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 4</a>)</span>, but in the notation of <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span> we describe a treatment as ‘causal’ when <span class="math inline">\((Y|a=0)\neq (Y|a=1)\)</span>. As discussed above, the fundamental problem of causal inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There’s a joke in statistics, okay, well, TBH, I have a joke about statistics, and it’s that at some point every professor is like ‘… and so X really just boils down to a missing data problem’ and it’s funny because, that’s kind of the fundamental issue of statistics, we’d not really need the science if we had all the data. In hindsight, this is not really a joke, but I’m a father now so I’ll just lean into it.&lt;/p&gt;"><sup>7</sup></a></p>
+<p>Further following <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 4</a>)</span>, but in the notation of <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span> we describe a treatment as ‘causal’ when <span class="math inline">\((Y|a=0)\neq (Y|a=1)\)</span>. As discussed above, the fundamental problem of causal inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There’s a joke in statistics, okay, well, TBH, I have a joke about statistics, and it’s that at some point every professor is like ‘… and so X really just boils down to a missing data problem’ and it’s funny because, that’s kind of the fundamental issue of statistics, we’d not really need the science if we had all the data. In hindsight, this is not really a joke, but I’m a father now so I’ll just lean into it.&lt;/p&gt;"><sup>5</sup></a></p>
 <p>To quote from <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span>, in the context of evaluating income in response to an intervention program:</p>
 <blockquote>
 <p>To put it another way, we would like to measure income at the same point in time for the same unit of observation (a person, in this case), but in two different states of the world. If it were possible to do this, we would be observing how much income the same individual would have had at the same point in time both with and without the program, so that the only possible explanation for any difference in that person’s income would be the program. By comparing the same individual with herself at the same moment, we would have managed to eliminate any outside factors that might also have explained the difference in outcomes. We could then be confident that the relationship between the vocational training program and the change in income is causal… [A] unit either participated in the program or did not participate. The unit cannot be observed simultaneously in two different states (in other words, with and without the program).</p>
 </blockquote>
-<p>As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups - all those treated and all those not. We are looking to estimate the counterfactual. We usually consider a default that there’s no effect and we require evidence for us to change our mind. As we’re interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we’ll make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average across the population, it’s probably not the case.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;As someone who oddly is somewhat superstitious, believes fully in the irony gods, and does have a pair of lucky, fun, socks, this example was not randomly chosen.&lt;/p&gt;"><sup>8</sup></a></p>
+<p>As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups - all those treated and all those not. We are looking to estimate the counterfactual. We usually consider a default that there’s no effect and we require evidence for us to change our mind. As we’re interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we’ll make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average across the population, it’s probably not the case.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;As someone who oddly is somewhat superstitious, believes fully in the irony gods, and does have a pair of lucky, fun, socks, this example was not randomly chosen.&lt;/p&gt;"><sup>6</sup></a></p>
 <p>It’s worth pointing out that we don’t just have to be interested in the average effect. We may consider the median, or variance, or whatever. Nonetheless, if we were interested in the average effect, then one way to proceed would be to divide the dataset into two - treated and not treated - have an effect column of 0s and 1s, sum the column and divide it by the length of the column, and then look at the ratio. This would be an estimator, which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. To give another example, following <span class="citation"><a href="references-1.html#ref-gelmanhillvehtari2020" role="doc-biblioref">Gelman, Hill, and Vehtari</a> (<a href="references-1.html#ref-gelmanhillvehtari2020" role="doc-biblioref">2020</a>)</span>:</p>
 <blockquote>
 <p>An estimand, or quantity of interest, is some summary of parameters or data that somebody is interested in estimating. For example, in the regression model, <span class="math inline">\(y = a + bx + \epsilon\)</span>, the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> might be of interest…. We use the data to construct estimates of parameters and other quantities of interest.</p>
@@ -236,7 +236,7 @@
 <li>take your analysis to the real dataset.</li>
 </ol>
 <p>The reason this is a good approach is that you know roughly what the outcomes should be in step 2, whereas if you go directly to the real dataset then you don’t know if unexpected outcomes are likely due to your own analysis errors, or actual results. The first time you generate a simulated dataset it will take a while, but after a bit of practice you’ll get good at it. There are also packages that can help, including <code>DeclareDesign</code> <span class="citation">(<a href="references-1.html#ref-citedeclaredesign" role="doc-biblioref">Blair et al. 2019</a>)</span> and <code>survey</code> <span class="citation">(<a href="references-1.html#ref-citesurvey" role="doc-biblioref">Lumley 2020</a>)</span>. Another good reason it’s useful to take this approach of simulation is that when you’re working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -252,21 +252,21 @@
                                   size  <span class="op">=</span> <span class="fl">10000</span>, 
                                   replace <span class="op">=</span> <span class="cn">TRUE</span>,
                                   prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.80</span>, <span class="fl">0.20</span><span class="op">)</span><span class="op">)</span>,
-         <span class="op">)</span> <span class="op">%&gt;%</span> 
+         <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>in_frame <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span>,
                         size  <span class="op">=</span> <span class="fl">10000</span>, 
-                        replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+                        replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,
                         size  <span class="op">=</span> <span class="fl">10000</span>, 
-                        replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+                        replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">group</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We’ll get more into this terminology later, but the sampling frame is subset of the population that can actually be sampled, for instance they are listed somewhere. For instance, <a href="https://jazzystats.com/">Lauren Kennedy</a> likes to use the analogy of a city’s population, and the phonebook - almost everyone is in there (or at least they used to be), so the population and the sampling frame are almost the same, but they are not.</p>
 <p>Now look at the mean for two groups drawn out of the sampling frame.</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">population</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">favourite_color</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">favourite_color</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 3</span>
 <span class="co">#&gt; # Groups:   group, favourite_color [4]</span>
@@ -277,11 +277,11 @@
 <span class="co">#&gt; 3     2 Blue              105</span>
 <span class="co">#&gt; 4     2 White             369</span></code></pre></div>
 <p>We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we can use a t-test.</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">population</span> <span class="op">&lt;-</span> 
-  <span class="va">population</span> <span class="op">%&gt;%</span> 
+  <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>color_as_integer <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
     <span class="va">favourite_color</span> <span class="op">==</span> <span class="st">"White"</span> <span class="op">~</span> <span class="fl">0</span>,
     <span class="va">favourite_color</span> <span class="op">==</span> <span class="st">"Blue"</span> <span class="op">~</span> <span class="fl">1</span>,
@@ -289,16 +289,16 @@
   <span class="op">)</span><span class="op">)</span>
 
 <span class="va">group_1</span> <span class="op">&lt;-</span> 
-  <span class="va">population</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">color_as_integer</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">color_as_integer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">group_2</span> <span class="op">&lt;-</span> 
-  <span class="va">population</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">color_as_integer</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">color_as_integer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">group_1</span>, <span class="va">group_2</span><span class="op">)</span>
@@ -322,11 +322,11 @@
 <span class="co">#&gt; 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431</span>
 <span class="co">#&gt; # … with 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</span></code></pre></div>
 <p>If properly done then not only will we get a ‘representative’ share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven’t randomised on these variables? Let’s start by looking at our dataset.</p>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">population</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">supports_the_leafs</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">supports_the_leafs</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4 × 3</span>
 <span class="co">#&gt; # Groups:   group, supports_the_leafs [4]</span>
@@ -353,13 +353,13 @@
 </blockquote>
 <p>We need to cover ANOVA because of its importance historically, but in general you probably shouldn’t actually use ANOVA day-to-day. There’s nothing wrong with it, in the right circumstances, it’s more just that it is a hundred years old and the number of modern use-case where it’s still your best-bet is pretty small. In any case, typically, the null is that all of the groups are from the same distribution.</p>
 <p>We can run ANOVA with the function built into R - <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>.</p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">just_two_groups</span> <span class="op">&lt;-</span> <span class="va">population</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">just_two_groups</span> <span class="op">&lt;-</span> <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">group</span> <span class="op">~</span> <span class="va">favourite_color</span>, 
-    data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 × 6</span>
 <span class="co">#&gt;   term               df    sumsq meansq statistic p.value</span>
@@ -367,9 +367,9 @@
 <span class="co">#&gt; 1 favourite_color     1   0.0238 0.0238    0.0952   0.758</span>
 <span class="co">#&gt; 2 Residuals        1006 251.     0.250    NA       NA</span></code></pre></div>
 <p>In this case, we fail to reject the null that the samples are the same. This all said, it’s just linear regression. So I’m not sure why it got a fancy name.</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">group</span> <span class="op">~</span> <span class="va">favourite_color</span>, 
-    data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 × 5</span>
 <span class="co">#&gt;   term                 estimate std.error statistic   p.value</span>
@@ -405,15 +405,15 @@
 <span class="math display">\[\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].\]</span></p>
 <p>That is, the difference between the treated group, <span class="math inline">\(d = 1\)</span>, and the control group, <span class="math inline">\(d = 0\)</span>, when measured by the expected value of some outcome variable, <span class="math inline">\(y\)</span>. So the mean causal effect is simply the difference between the two expectations!</p>
 <p>Let’s again get stuck into some code. First we need to generate some data.</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">example_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>,
                        treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, size  <span class="op">=</span> <span class="fl">1000</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
                        <span class="op">)</span>
 <span class="co"># We want to make the outcome slightly more likely if they were treated than if not.</span>
 <span class="va">example_data</span> <span class="op">&lt;-</span> 
-  <span class="va">example_data</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>outcome <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">treatment</span> <span class="op">==</span> <span class="fl">0</span>, 
                            <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
                            <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, mean <span class="op">=</span> <span class="fl">6</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
@@ -422,18 +422,18 @@
 
 <span class="va">example_data</span><span class="op">$</span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">example_data</span><span class="op">$</span><span class="va">treatment</span><span class="op">)</span>
 
-<span class="va">example_data</span> <span class="op">%&gt;%</span> 
-  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>, 
+<span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>, 
              fill <span class="op">=</span> <span class="va">treatment</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_histogram</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span>,
                  binwidth <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Outcome"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Outcome"</span>,
        y <span class="op">=</span> <span class="st">"Number of people"</span>,
        fill <span class="op">=</span> <span class="st">"Person was treated"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_brewer</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="21-hunt_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">example_regression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">example_data</span><span class="op">)</span>
 
@@ -470,7 +470,7 @@
 Figure 9.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from <a href="https://artvee.com/dl/afternoon-tea-party" class="uri">https://artvee.com/dl/afternoon-tea-party</a>.
 </p>
 </div>
-<p>Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I’m personally very attached to this example as this issue also matters a lot to my father&lt;/p&gt;"><sup>9</sup></a></p>
+<p>Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I’m personally very attached to this example as this issue also matters a lot to my father&lt;/p&gt;"><sup>7</sup></a></p>
 <p>From <span class="citation"><a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">Fisher</a> (<a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">1935, 13</a>)</span>:</p>
 <blockquote>
 <p>A lady declares that by tasting a cup of tea made with milk she can discriminate whether the milk or the tea infusion was first added to the cup. We will consider the problem of designing an experiment by means of which this assertion can be tested.</p>
@@ -487,8 +487,8 @@ Figure 9.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1
 <li>The person has to choose the four that are the same.</li>
 <li>The person knows it’s an experiment.</li>
 </ul>
-<p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;For posteriority, 2020 was quite a year.&lt;/p&gt;"><sup>10</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;For posteriority, 2020 was quite a year.&lt;/p&gt;"><sup>8</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3 7 6 4 1 8 2 5</span></code></pre></div>
 <p>Then have your friend guess which four you put milk in first and which four you put milk in last!</p>
@@ -765,26 +765,26 @@ Figure 9.5: Key finding as to wallet return rates.
 </h2>
 <p>The trouble with much of A/B testing is that because it’s done by firms we typically don’t have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to <span class="citation">(<a href="references-1.html#ref-upworthy" role="doc-biblioref">Matias et al. 2019</a>)</span>. You are able to request access to the dataset here: <a href="https://upworthy.natematias.com" class="uri">https://upworthy.natematias.com</a> (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by <span class="citation"><a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">Fitts</a> (<a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">2014</a>)</span>.</p>
 <p>Let’s have a quick look at the data.</p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">upworthy</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"</span><span class="op">)</span><span class="op">)</span>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">upworthy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">upworthy</span> <span class="op">%&gt;%</span> 
+<span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 17</span>
-<span class="co">#&gt;    ...1 created_at          updated_at          clickability_test… excerpt      </span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;              &lt;chr&gt;        </span>
-<span class="co">#&gt; 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2c… Things that …</span>
-<span class="co">#&gt; 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …</span>
-<span class="co">#&gt; 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …</span>
-<span class="co">#&gt; 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c4… Things that …</span>
-<span class="co">#&gt; 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c4… Things that …</span>
-<span class="co">#&gt; 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c4… Things that …</span>
+<span class="co">#&gt;    ...1 created_at          updated_at          clickability_test_id     excerpt</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;                    &lt;chr&gt;  </span>
+<span class="co">#&gt; 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2ce000024 Things…</span>
+<span class="co">#&gt; 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…</span>
+<span class="co">#&gt; 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…</span>
+<span class="co">#&gt; 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…</span>
+<span class="co">#&gt; 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c44000039 Things…</span>
+<span class="co">#&gt; 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…</span>
 <span class="co">#&gt; # … with 12 more variables: headline &lt;chr&gt;, lede &lt;chr&gt;, slug &lt;chr&gt;,</span>
 <span class="co">#&gt; #   eyecatcher_id &lt;chr&gt;, impressions &lt;dbl&gt;, clicks &lt;dbl&gt;, significance &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   first_place &lt;lgl&gt;, winner &lt;lgl&gt;, share_text &lt;chr&gt;, square &lt;chr&gt;,</span>
 <span class="co">#&gt; #   test_week &lt;dbl&gt;</span>
 
-<span class="va">upworthy</span> <span class="op">%&gt;%</span> 
+<span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "...1"                 "created_at"           "updated_at"          </span>
 <span class="co">#&gt;  [4] "clickability_test_id" "excerpt"              "headline"            </span>
@@ -794,54 +794,54 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; [16] "square"               "test_week"</span></code></pre></div>
 <p>From the documentation: ‘The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.’ So each row is a package and it should be part of a test ‘clickability_test_id.’</p>
 <p>We have a variety of variables. We’ll focus on ‘created_at,’ ‘clickability_test_id’ so that we can create comparison groups, ‘headline,’ ‘impressions’ which is the number of people that saw the package, and ‘clicks’ which is the number that clicked on that package. So within each batch of tests, we’re interested in the effect of varied headlines on impressions and clicks.</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
-  <span class="va">upworthy</span> <span class="op">%&gt;%</span> 
+  <span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">created_at</span>, <span class="va">clickability_test_id</span>, <span class="va">headline</span>, <span class="va">impressions</span>, <span class="va">clicks</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">upworthy_restricted</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 5</span>
-<span class="co">#&gt;   created_at          clickability_test… headline             impressions clicks</span>
-<span class="co">#&gt;   &lt;dttm&gt;              &lt;chr&gt;              &lt;chr&gt;                      &lt;dbl&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 2014-11-20 06:43:16 546d88fb84ad38b2c… They're Being Calle…        3052    150</span>
-<span class="co">#&gt; 2 2014-11-20 06:43:44 546d88fb84ad38b2c… They're Being Calle…        3033    122</span>
-<span class="co">#&gt; 3 2014-11-20 06:44:59 546d88fb84ad38b2c… They're Being Calle…        3092    110</span>
-<span class="co">#&gt; 4 2014-11-20 06:54:36 546d902c26714c6c4… This Is What Sexism…        3526     90</span>
-<span class="co">#&gt; 5 2014-11-20 06:54:57 546d902c26714c6c4… This Is What Sexism…        3506    120</span>
-<span class="co">#&gt; 6 2014-11-20 06:55:07 546d902c26714c6c4… This Is What Sexism…        3380     98</span></code></pre></div>
+<span class="co">#&gt;   created_at          clickability_test_id     headline       impressions clicks</span>
+<span class="co">#&gt;   &lt;dttm&gt;              &lt;chr&gt;                    &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 2014-11-20 06:43:16 546d88fb84ad38b2ce000024 They're Being…        3052    150</span>
+<span class="co">#&gt; 2 2014-11-20 06:43:44 546d88fb84ad38b2ce000024 They're Being…        3033    122</span>
+<span class="co">#&gt; 3 2014-11-20 06:44:59 546d88fb84ad38b2ce000024 They're Being…        3092    110</span>
+<span class="co">#&gt; 4 2014-11-20 06:54:36 546d902c26714c6c44000039 This Is What …        3526     90</span>
+<span class="co">#&gt; 5 2014-11-20 06:54:57 546d902c26714c6c44000039 This Is What …        3506    120</span>
+<span class="co">#&gt; 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What …        3380     98</span></code></pre></div>
 <p>We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I’m interested in whether headlines that asked a question got more clicks than those that didn’t.</p>
 <p>To identify whether a headline asks a question, I’m going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
-  <span class="va">upworthy_restricted</span> <span class="op">%&gt;%</span> 
+  <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>asks_question <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">headline</span>, pattern <span class="op">=</span> <span class="st">"\\?"</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">upworthy_restricted</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">asks_question</span><span class="op">)</span>
+<span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">asks_question</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 × 2</span>
 <span class="co">#&gt;   asks_question     n</span>
 <span class="co">#&gt;   &lt;lgl&gt;         &lt;int&gt;</span>
 <span class="co">#&gt; 1 FALSE         19130</span>
 <span class="co">#&gt; 2 TRUE           3536</span></code></pre></div>
 <p>Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">to_question_or_not_to_question</span> <span class="op">&lt;-</span> 
-  <span class="va">upworthy_restricted</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>ave_clicks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">clicks</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>ave_clicks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">clicks</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">look_at_differences</span> <span class="op">&lt;-</span> 
-  <span class="va">to_question_or_not_to_question</span> <span class="op">%&gt;%</span> 
-  <span class="fu">pivot_wider</span><span class="op">(</span>id_cols <span class="op">=</span> <span class="va">clickability_test_id</span>,
+  <span class="va">to_question_or_not_to_question</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="va">clickability_test_id</span>,
               names_from <span class="op">=</span> <span class="va">asks_question</span>,
-              values_from <span class="op">=</span> <span class="va">ave_clicks</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+              values_from <span class="op">=</span> <span class="va">ave_clicks</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>ave_clicks_not_question <span class="op">=</span> <span class="va">`FALSE`</span>,
-         ave_clicks_is_question <span class="op">=</span> <span class="va">`TRUE`</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ave_clicks_not_question</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ave_clicks_is_question</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+         ave_clicks_is_question <span class="op">=</span> <span class="va">`TRUE`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ave_clicks_not_question</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ave_clicks_is_question</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>difference_in_clicks <span class="op">=</span> <span class="va">ave_clicks_is_question</span> <span class="op">-</span> <span class="va">ave_clicks_not_question</span><span class="op">)</span>
 
-<span class="va">look_at_differences</span><span class="op">$</span><span class="va">difference_in_clicks</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">look_at_differences</span><span class="op">$</span><span class="va">difference_in_clicks</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] -4.890435</span></code></pre></div>
 <p>So we find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure <a href="hunt-data.html#fig:upworthy">9.6</a>).</p>
 <div class="figure">
@@ -935,7 +935,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </li>
 <li>If we have a dataset named ‘netflix_data,’ with the columns ‘person’ and ‘tv_show’ and ‘hours,’ (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
 </ol>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">netflix_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Rohan"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, 
@@ -1102,7 +1102,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 August, 2021.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 02 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

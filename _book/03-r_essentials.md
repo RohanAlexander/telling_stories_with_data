@@ -205,24 +205,17 @@ saveRDS(object = my_name, file = "my_first_file.rds")
 
 And you should see a new '.rds' file in your list of files.
 
+### R Studio cloud
 
-
-### R Studio Cloud
 
 While you can download R Studio to your own computer, initially we will us R Studio Cloud, which is an online version that is provided by R Studio. We will use this so that you can focus on getting comfortable with R and R Studio in an environment that is consistent. This way you don't have to worry about what computer you have or installation permissions while you are still getting used to the basics. 
 
 The R Studio Cloud - https://rstudio.cloud/ - is as easy as it gets in terms of moving to the cloud. The trade-off is that it is not very powerful, and it is sometimes slow, but for the purposes of the initial sections of these notes that will be fine.
 
-To get started, go to https://rstudio.cloud/ and create an account. If you are going to be a student for a while then it might be worthwhile using a university email account, because although they don't yet charge for it, they will probably start charging soon, but with some luck they will offer education discounts. 
 
-Once you have an account and log in, then it should look something like Figure \@ref(fig:second).
+## Getting started
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
-<p class="caption">(\#fig:second)Opening R Studio Cloud for the first time</p>
-</div>
-
-(You'll be in 'Your Workspace', and you won't have an 'Example Workspace'.) From here you should start a 'New Project'. You can give the project a name by clicking on 'Untitled Project' and replacing it. We can now use R Studio in the cloud. 
+Open a new file.
 
 While working line-by-line in the console is fine, it is easier to write out a whole script that can then be executed. We will do this by making an R Script. To do this go to: File -> New File -> R Script, or use the shortcut Command + Shift + N. The console pane will fall to the bottom left and an R Script will open in the top left. Let's write some code that will grab all of the Australian politicians and then construct a small table about the genders of the prime ministers.
 
@@ -240,21 +233,19 @@ install.packages("tidyverse")
 # Load the packages that we need to use this time
 library(devtools)
 library(tidyverse)
-
-# Grab the data on Australian politicians
-install_github("RohanAlexander/AustralianPoliticians")
+library(AustralianPoliticians)
 
 # Make a table of the counts of genders of the prime ministers
-AustralianPoliticians::all %>% 
+AustralianPoliticians::get_auspol('all') %>% 
   as_tibble() %>% 
   count(gender, wasPrimeMinister)
 #> # A tibble: 4 × 3
 #>   gender wasPrimeMinister     n
-#>   <chr>             <int> <int>
+#>   <chr>             <dbl> <int>
 #> 1 female                1     1
-#> 2 female               NA   235
+#> 2 female               NA   239
 #> 3 male                  1    29
-#> 4 male                 NA  1511
+#> 4 male                 NA  1514
 ```
 
 You can save your R Script as 'my_first_r_script.R' using File -> Save As (or the keyboard shortcut: Command + S). When you're done your workspace should look something like Figure \@ref(fig:third).
@@ -639,18 +630,18 @@ We can also use the `desc()` function to arrange in descending order.
 australian_politicians %>% 
   arrange(desc(surname))
 #> # A tibble: 1,776 × 20
-#>    uniqueID      surname   allOtherNames firstName commonName
-#>    <chr>         <chr>     <chr>         <chr>     <chr>     
-#>  1 Zimmerman1968 Zimmerman Trent Moir    Trent     <NA>      
-#>  2 Zeal1830      Zeal      William Aust… William   <NA>      
-#>  3 Zappia1952    Zappia    Antonio       Antonio   Tony      
-#>  4 Zammit1941    Zammit    Paul John     Paul      <NA>      
-#>  5 Zakharov1929  Zakharov  Alice Olive   Alice     Olive     
-#>  6 Zahra1973     Zahra     Christian Jo… Christian <NA>      
-#>  7 Young1923     Young     Harold Willi… Harold    <NA>      
-#>  8 Young1936     Young     Michael Jero… Michael   Mick      
-#>  9 Young1968     Young     Terry James   Terry     <NA>      
-#> 10 Yates1871     Yates     George Edwin  George    Gunner    
+#>    uniqueID      surname  allOtherNames firstName commonName
+#>    <chr>         <chr>    <chr>         <chr>     <chr>     
+#>  1 Zimmerman1968 Zimmerm… Trent Moir    Trent     <NA>      
+#>  2 Zeal1830      Zeal     William Aust… William   <NA>      
+#>  3 Zappia1952    Zappia   Antonio       Antonio   Tony      
+#>  4 Zammit1941    Zammit   Paul John     Paul      <NA>      
+#>  5 Zakharov1929  Zakharov Alice Olive   Alice     Olive     
+#>  6 Zahra1973     Zahra    Christian Jo… Christian <NA>      
+#>  7 Young1923     Young    Harold Willi… Harold    <NA>      
+#>  8 Young1936     Young    Michael Jero… Michael   Mick      
+#>  9 Young1968     Young    Terry James   Terry     <NA>      
+#> 10 Yates1871     Yates    George Edwin  George    Gunner    
 #> # … with 1,766 more rows, and 15 more variables:
 #> #   displayName <chr>, earlierOrLaterNames <chr>,
 #> #   title <chr>, gender <chr>, birthDate <date>,
@@ -667,18 +658,18 @@ We can also arrange based on more than one column.
 australian_politicians %>% 
   arrange(firstName, surname)
 #> # A tibble: 1,776 × 20
-#>    uniqueID      surname   allOtherNames firstName commonName
-#>    <chr>         <chr>     <chr>         <chr>     <chr>     
-#>  1 Blain1894     Blain     Adair Macali… Adair     <NA>      
-#>  2 Armstrong1909 Armstrong Adam Alexand… Adam      Bill      
-#>  3 Bandt1972     Bandt     Adam Paul     Adam      <NA>      
-#>  4 Dein1889      Dein      Adam Kemball  Adam      Dick      
-#>  5 Ridgeway1962  Ridgeway  Aden Derek    Aden      <NA>      
-#>  6 Bennett1933   Bennett   Adrian Frank  Adrian    <NA>      
-#>  7 Gibson1935    Gibson    Adrian        Adrian    <NA>      
-#>  8 Wynne1850     Wynne     Agar          Agar      <NA>      
-#>  9 Robertson1882 Robertson Agnes Robert… Agnes     <NA>      
-#> 10 Bird1906      Bird      Alan Charles  Alan      <NA>      
+#>    uniqueID      surname  allOtherNames firstName commonName
+#>    <chr>         <chr>    <chr>         <chr>     <chr>     
+#>  1 Blain1894     Blain    Adair Macali… Adair     <NA>      
+#>  2 Armstrong1909 Armstro… Adam Alexand… Adam      Bill      
+#>  3 Bandt1972     Bandt    Adam Paul     Adam      <NA>      
+#>  4 Dein1889      Dein     Adam Kemball  Adam      Dick      
+#>  5 Ridgeway1962  Ridgeway Aden Derek    Aden      <NA>      
+#>  6 Bennett1933   Bennett  Adrian Frank  Adrian    <NA>      
+#>  7 Gibson1935    Gibson   Adrian        Adrian    <NA>      
+#>  8 Wynne1850     Wynne    Agar          Agar      <NA>      
+#>  9 Robertson1882 Roberts… Agnes Robert… Agnes     <NA>      
+#> 10 Bird1906      Bird     Alan Charles  Alan      <NA>      
 #> # … with 1,766 more rows, and 15 more variables:
 #> #   displayName <chr>, earlierOrLaterNames <chr>,
 #> #   title <chr>, gender <chr>, birthDate <date>,
@@ -758,14 +749,14 @@ australian_politicians %>%
   slice(1:3)
 #> # A tibble: 6 × 20
 #> # Groups:   gender [2]
-#>   uniqueID       surname    allOtherNames firstName commonName
-#>   <chr>          <chr>      <chr>         <chr>     <chr>     
-#> 1 Robertson1882  Robertson  Agnes Robert… Agnes     <NA>      
-#> 2 MacTiernan1953 MacTiernan Alannah Joan… Alannah   <NA>      
-#> 3 Zakharov1929   Zakharov   Alice Olive   Alice     Olive     
-#> 4 Blain1894      Blain      Adair Macali… Adair     <NA>      
-#> 5 Armstrong1909  Armstrong  Adam Alexand… Adam      Bill      
-#> 6 Bandt1972      Bandt      Adam Paul     Adam      <NA>      
+#>   uniqueID       surname  allOtherNames firstName commonName
+#>   <chr>          <chr>    <chr>         <chr>     <chr>     
+#> 1 Robertson1882  Roberts… Agnes Robert… Agnes     <NA>      
+#> 2 MacTiernan1953 MacTier… Alannah Joan… Alannah   <NA>      
+#> 3 Zakharov1929   Zakharov Alice Olive   Alice     Olive     
+#> 4 Blain1894      Blain    Adair Macali… Adair     <NA>      
+#> 5 Armstrong1909  Armstro… Adam Alexand… Adam      Bill      
+#> 6 Bandt1972      Bandt    Adam Paul     Adam      <NA>      
 #> # … with 15 more variables: displayName <chr>,
 #> #   earlierOrLaterNames <chr>, title <chr>, gender <chr>,
 #> #   birthDate <date>, birthYear <dbl>, birthPlace <chr>,
@@ -1217,10 +1208,10 @@ people <-
 
 head(people)
 #> # A tibble: 2 × 6
-#>   names  website             fav_colour is_rohan make_howlett
-#>   <chr>  <chr>               <chr>      <lgl>    <chr>       
-#> 1 rohan  rohanalexander.com  "blue"     TRUE     rohanhowlet…
-#> 2 monica monicaalexander.com " white "  FALSE    monicahowle…
+#>   names  website         fav_colour is_rohan make_howlett   
+#>   <chr>  <chr>           <chr>      <lgl>    <chr>          
+#> 1 rohan  rohanalexander… "blue"     TRUE     rohanhowlett.c…
+#> 2 monica monicaalexande… " white "  FALSE    monicahowlett.…
 #> # … with 1 more variable: fav_colour_trim <chr>
 ```
 
@@ -1408,10 +1399,10 @@ We could accomplish this with a series of `if_else` statements, but `case_when` 
     d. `citation()`.
 3. What are three advantages of R? What are three disadvantages?
 4. What is R Studio?
-    a. An integrated development environment (IDE)
-    b. A closed source paid program
+    a. An integrated development environment (IDE).
+    b. A closed source paid program.
     c. A programming language created by Guido van Rossum
-    d. A statistical programming language
+    d. A statistical programming language.
 5. What is R?
     a. A open-source statistical programming language
     b. A programming language created by Guido van Rossum

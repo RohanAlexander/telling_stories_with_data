@@ -3,15 +3,23 @@
 
 ## Oh, you think we have good data on that!
 
-1. Maternal mortality
-2. The economy. https://www.nber.org/system/files/chapters/c4224/c4224.pdf.
-3. Migration.
-4. Weather stations 
-5. Olympics events. Who decides on the scoring?. Who does the timing?
-6. Personality scores. Myers Briggs and Big 5 more generally.
-7. Cause of death
-8. City boundaries. What constitues 'Atlanta'? Different definitions - metro, X, Y. (also an issue in countries with boundaries changing over time)
-9. Timing
+
+> **Oh, you think we have good data on that!** The economy. https://www.nber.org/system/files/chapters/c4224/c4224.pdf.
+
+> **Oh, you think we have good data on that!** Migration.
+
+> **Oh, you think we have good data on that!** Weather stations 
+
+> **Oh, you think we have good data on that!** Olympics events. Who decides on the scoring?. Who does the timing?
+
+> **Oh, you think we have good data on that!** Personality scores. Myers Briggs and Big 5 more generally.
+
+
+> **Oh, you think we have good data on that!** Cause of death
+
+> **Oh, you think we have good data on that!** City boundaries. What constitues 'Atlanta'? Different definitions - metro, X, Y. (also an issue in countries with boundaries changing over time)
+
+> **Oh, you think we have good data on that!** Timing
 
 
 ## Shoulders of giants
@@ -25,7 +33,6 @@
 - Gertrude Mary Cox
 - Hadley Wickham
 - John Tukey
-- Kate Crawford
 - Katherine Wallman
 - Michael Jordan
 - Nancy Reid
@@ -35,3 +42,12 @@
 - Stella Cunliffe
 - Rob Tibshirani
 - Timnit Gebru
+
+
+
+## Possible datasets
+
+https://som.yale.edu/faculty-research/our-centers/international-center-finance/data
+
+Alex cookson's
+

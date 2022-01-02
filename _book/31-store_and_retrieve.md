@@ -39,6 +39,11 @@ That said, the FAIR principles are especially useful to be more formal about dat
 3. Interoperable.
 4. Reusable.
 
+It's important to recognise that just because a dataset is FAIR, it is not necessarily an unbiased representation of the world. 
+
+> **Oh, you think we have good data on that!** One representation of reality that is commonplace is in chess. A chess board (see Figure X - add photo of a chess board) is a 8 x 8 board of alternating black and white squares. The squares are denonated by a unique combination of a letter (A-G) and a number (1-8). And each piece has a unique abbreviation, for instance pawns are X, and knights are Y. A game is recorded by each player noting the move. In this way the entire game can be recreated. The 2021 World Championship was contested by Magnus Carlsen and Ian Nepomniachtchi. Figure X shows a score sheet from Game 6. There were a variety of reasons this game was particularly noteworthy, but one the uncharactertic mistakes that both Carlsen and Nepomniachtchi made. For instance, at Move 32 Carlsen did not exploit an opportunity; and Move 36 a different move would have provided Nepomniachtchi with a promising endgame (CITATION). One reason for this may have been that both players at that point in the game had very little time remaining---they had to decide on their moves very quickly. But there is no sense of that in the representation provided by the game sheet. It is a 'correct' representation of what happened in the game, but not necessarily why it happened.
+
+
 
 
 ## Plan

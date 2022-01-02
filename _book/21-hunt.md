@@ -813,14 +813,14 @@ upworthy <- read_csv(here::here("dont_push/upworthy-archive-exploratory-packages
 upworthy %>% 
   head()
 #> # A tibble: 6 × 17
-#>    ...1 created_at          updated_at          clickability_test… excerpt      
-#>   <dbl> <dttm>              <dttm>              <chr>              <chr>        
-#> 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2c… Things that …
-#> 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …
-#> 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2c… Things that …
-#> 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c4… Things that …
-#> 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c4… Things that …
-#> 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c4… Things that …
+#>    ...1 created_at          updated_at          clickability_test_id     excerpt
+#>   <dbl> <dttm>              <dttm>              <chr>                    <chr>  
+#> 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2ce000024 Things…
+#> 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…
+#> 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…
+#> 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…
+#> 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c44000039 Things…
+#> 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…
 #> # … with 12 more variables: headline <chr>, lede <chr>, slug <chr>,
 #> #   eyecatcher_id <chr>, impressions <dbl>, clicks <dbl>, significance <dbl>,
 #> #   first_place <lgl>, winner <lgl>, share_text <chr>, square <chr>,
@@ -848,14 +848,14 @@ upworthy_restricted <-
 
 head(upworthy_restricted)
 #> # A tibble: 6 × 5
-#>   created_at          clickability_test… headline             impressions clicks
-#>   <dttm>              <chr>              <chr>                      <dbl>  <dbl>
-#> 1 2014-11-20 06:43:16 546d88fb84ad38b2c… They're Being Calle…        3052    150
-#> 2 2014-11-20 06:43:44 546d88fb84ad38b2c… They're Being Calle…        3033    122
-#> 3 2014-11-20 06:44:59 546d88fb84ad38b2c… They're Being Calle…        3092    110
-#> 4 2014-11-20 06:54:36 546d902c26714c6c4… This Is What Sexism…        3526     90
-#> 5 2014-11-20 06:54:57 546d902c26714c6c4… This Is What Sexism…        3506    120
-#> 6 2014-11-20 06:55:07 546d902c26714c6c4… This Is What Sexism…        3380     98
+#>   created_at          clickability_test_id     headline       impressions clicks
+#>   <dttm>              <chr>                    <chr>                <dbl>  <dbl>
+#> 1 2014-11-20 06:43:16 546d88fb84ad38b2ce000024 They're Being…        3052    150
+#> 2 2014-11-20 06:43:44 546d88fb84ad38b2ce000024 They're Being…        3033    122
+#> 3 2014-11-20 06:44:59 546d88fb84ad38b2ce000024 They're Being…        3092    110
+#> 4 2014-11-20 06:54:36 546d902c26714c6c44000039 This Is What …        3526     90
+#> 5 2014-11-20 06:54:57 546d902c26714c6c44000039 This Is What …        3506    120
+#> 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What …        3380     98
 ```
 
 We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I'm interested in whether headlines that asked a question got more clicks than those that didn't.

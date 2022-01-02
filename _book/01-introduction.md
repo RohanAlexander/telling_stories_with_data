@@ -11,10 +11,9 @@ output:
 # (PART) Foundations {-}
 
 
-
 # Telling Stories with Data
 
-**STATUS: Draft.**
+**STATUS: Comments welcome.**
 
 **Required material**
 
@@ -107,18 +106,17 @@ The key elements of telling convincing stories with data are:
 These elements are the foundation on which the workflow are built (Figure \@ref(fig:iceberg)).
 
 <div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/iceberg.jpeg" alt="The workflow builds on various elements" width="85%" />
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1820.png" alt="The workflow builds on various elements" width="85%" />
 <p class="caption">(\#fig:iceberg)The workflow builds on various elements</p>
 </div>
-
 
 This is a lot to master, but **communication** is the most important. Simple analysis, communicated well, is more valuable than complicated analysis communicated poorly. This is because the latter cannot be understood or trusted by others. A lack of clear communication sometimes reflects a failure by the researcher to understand what is going on, or even what they are doing. And so, while the level of the analysis should match the dataset, instruments, task, and skillset, when a trade-off is required between clarity and complication, it can be sensible to err on the side of clarity.
 
 Clear communication means writing in plain language, with the help of tables, graphs, and technical terms, in a way that brings the audience along with you. It means setting out what was done and why, as well as what was found. The minimum hurdle is doing this in a way that enables another person to independently do what you did and find what you found. One challenge is that as you immerse yourself in the data, it can be difficult to remember what it was like when you first came to it. But that is where most of your audience will be coming from. Learning to provide an appropriate level of nuance and detail is especially difficult but is made easier by trying to write for the audience's benefit.
 
-Active consideration of **ethics** is needed because the dataset likely concerns humans. And even if it does not, the story is likely being put together by humans! This means considering things like: who is in the dataset, who is missing, and why? To what extent will our story perpetuate the past? And is this something that ought to happen?
+Active consideration of **ethics** is needed because the dataset likely concerns humans. This means considering things like: who is in the dataset, who is missing, and why? To what extent will our story perpetuate the past? And is this something that ought to happen? Even if the dataset does not concern humans, the story is likely being put together by humans, and we affect almost everything else. This means we have a moral responsibility to use data ethically, with concern for environmental impact, and inequity.
 
-More generally, there are many definitions of ethics, but when it comes to telling stories with data, at a minimum it means considering the full context of the dataset [@datafeminism2020]. In jurisprudence, a textual approach to law means literally considering the words of the law as they are printed, while a purposive approach means laws are interpreted within a broader context. An ethical approach to telling stories with data means adopting the latter approach, and considering the social, cultural, historical, and political forces that shape our world, and hence our data [@crawford].
+There are many definitions of ethics, but when it comes to telling stories with data, at a minimum it means considering the full context of the dataset [@datafeminism2020]. In jurisprudence, a textual approach to law means literally considering the words of the law as they are printed, while a purposive approach means laws are interpreted within a broader context. An ethical approach to telling stories with data means adopting the latter approach, and considering the social, cultural, historical, and political forces that shape our world, and hence our data [@crawford].
 
 **Reproducibility** is required to create lasting knowledge about the world. It means that everything that was done---all of it, end-to-end---can be independently redone. Ideally, autonomous end-to-end reproducibility is possible; anyone can get the code, data, and environment, to verify everything that was done. Unfettered access to code is almost always possible. While that is the default for data also, it is not always reasonable. For instance, studies in psychology may have small, personally identifying, samples. One way forward is to openly share simulated data with similar properties, along with defining a process by which the real data could be accessed, given appropriate *bona fides*.
 
@@ -132,7 +130,7 @@ Most of the questions we are interested in will use data that are more complicat
 
 Pablo Picasso, the twentieth century Spanish painter, has a series of drawings where he depicts the outline of an animal using only one line (Figure \@ref(fig:lumpthedog)). Despite their simplicity, we recognise which animal is being depicted---the drawing is sufficient to tell the animal is a dog, not a cat.  Could this be used to determine whether the dog is sick? Probably not. We would likely want a more detailed drawing. The decision as to which features should be measured and collected, and which to ignore, turns on context and purpose.
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
 <p class="caption">(\#fig:lumpthedog)This drawing is clearly a dog, even though it is just one line</p>
 </div>
@@ -172,7 +170,7 @@ Much of statistics is focused on considering, thoroughly, the data that we have.
 
 The process of our world becoming data necessarily involves measurement. Paradoxically, often those that do the measurement and are deeply immersed in the details have less trust in the data than those that are removed from it. Even seemingly clear tasks, such as measuring distance, defining boundaries, and counting populations, are surprisingly difficult in practice. Turning our world into data requires many decisions and imposes much error. Among many other considerations, we need to decide what will be measured, how accurately we will do this, and who will be doing the measurement. 
 
-An important example of how something seemingly simple quickly becomes difficult is maternal mortality. That refers to the number of women who die while pregnant, or soon after a termination, from a cause related to the pregnancy or its management [@matmortality]. It is difficult but critical to turn the tragedy of such a death into cause-specific data because that helps mitigate future deaths. Some countries have well-developed civil registration and vital statistics (CRVS). These collect data about every death. But many countries do not have a CRVS and so not every death is recorded. Even if a death is recorded, defining a cause of death may be difficult, especially when there is a lack of qualified medical personal or equipment. Maternal mortality is especially difficult because there are typically many causes. Some CRVS have a checkbox on the form to specify whether the death should be counted as maternal mortality. But even some developed countries have only recently adopted this. For instance, it was only introduced in the US in 2003, and even in 2015 Alabama, California, and West Virginia had not adopted the standard question [@macdorman2018failure]. 
+> **Oh, you think we have good data on that!** An important example of how something seemingly simple quickly becomes difficult is maternal mortality. That refers to the number of women who die while pregnant, or soon after a termination, from a cause related to the pregnancy or its management [@matmortality]. It is difficult but critical to turn the tragedy of such a death into cause-specific data because that helps mitigate future deaths. Some countries have well-developed civil registration and vital statistics (CRVS). These collect data about every death. But many countries do not have a CRVS and so not every death is recorded. Even if a death is recorded, defining a cause of death may be difficult, especially when there is a lack of qualified medical personal or equipment. Maternal mortality is especially difficult because there are typically many causes. Some CRVS have a checkbox on the form to specify whether the death should be counted as maternal mortality. But even some developed countries have only recently adopted this. For instance, it was only introduced in the US in 2003, and even in 2015 Alabama, California, and West Virginia had not adopted the standard question [@macdorman2018failure].
 
 We typically use various instruments to turn the world into data. In astronomy, the development of better telescopes, and eventually satellites and probes, enabled new understanding of other worlds. Similarly, we have new instruments for turning our own world into data being developed each day. Where once a census was a generational-defining event, now we have regular surveys, transactions data available by the second, and almost all interactions on the internet become data of some kind. The development of such instruments has enabled exciting new stories.
 
@@ -187,7 +185,7 @@ In any case, alongside specific, technical, definitions, there is value in havin
 
 That may sound a touch cute, but Francis Edgeworth, the nineteenth century statistician and economist, considered statistics to be the science 'of those Means which are presented by social phenomena', so it is in good company [@edgeworth1885methods]. In any case, one feature of this definition is that it does not treat data as *terra nullius*, or nobody's land. Statisticians tend to see data as the result of some process that we can never know, but that we try to use data to come to understand. Many statisticians care deeply about data and measurement, but there are many cases in statistics where data kind of just appear; they belong to no one. But that is never actually the case.
 
-Data must be gathered, cleaned, and prepared, and these decisions matter. Every dataset is *sui generis*, or a class by itself, and so when you come to know one dataset well, you just know one dataset, not all datasets.
+Data is generated, and then must be gathered, cleaned, and prepared, and these decisions matter. Every dataset is *sui generis*, or a class by itself, and so when you come to know one dataset well, you just know one dataset, not all datasets.
 
 Much of data science focuses on the 'science', but it is important to also focus on 'data'. And that is another feature of that cutesy definition of data science. A lot of data scientists are generalists, who are interested in a broad range of problems. Often, the thing that unites these is the need to gather, clean, and prepare messy data. And often it is the specifics of those data that requires the most time, that updates most often, and that are worthy of our most full attention.
 

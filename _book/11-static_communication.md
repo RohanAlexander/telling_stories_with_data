@@ -1341,6 +1341,11 @@ One common reason for needing a table is to report regression results. You shoul
 
 ```r
 library(modelsummary)
+#> 
+#> Attaching package: 'modelsummary'
+#> The following object is masked from 'package:gt':
+#> 
+#>     escape_latex
 
 mod <- lm(y ~ x, datasaurus_dozen)
 modelsummary(mod)
@@ -1364,7 +1369,7 @@ modelsummary(mod)
   </tr>
   <tr>
    <td style="text-align:left;"> x </td>
-   <td style="text-align:center;"> -0.106 </td>
+   <td style="text-align:center;"> −0.106 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px">  </td>
@@ -1392,7 +1397,7 @@ modelsummary(mod)
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> -8688.506 </td>
+   <td style="text-align:center;"> −8688.506 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
@@ -1713,6 +1718,8 @@ some_locations <-
 tidygeocoder::geo(city = some_locations$city, 
                   country = some_locations$country, 
                   method = 'osm')
+#> Passing 2 addresses to the Nominatim single address geocoder
+#> Query completed in: 2 seconds
 #> # A tibble: 2 × 4
 #>   city     country     lat  long
 #>   <chr>    <chr>     <dbl> <dbl>
