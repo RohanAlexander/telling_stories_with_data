@@ -55,7 +55,7 @@
 <li class="book-part">Foundations</li>
 <li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
 <li><a class="active" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
-<li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R Essentials</a></li>
+<li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
 <li><a class="" href="workflow.html"><span class="header-section-number">4</span> Workflow</a></li>
 <li class="book-part">Communication</li>
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
@@ -135,7 +135,7 @@
 <li>
 <code>&lt;-</code> ‘assign’</li>
 <li>
-<code>%&gt;%</code> ‘pipe’</li>
+<code>|&gt;</code> ‘pipe’</li>
 <li>
 <code>+</code> ‘add’</li>
 <li><code><a href="https://rdrr.io/r/base/c.html">c()</a></code></li>
@@ -279,16 +279,16 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Other         </span>
-<span class="co">#&gt;  2      2 Conservative  </span>
-<span class="co">#&gt;  3      3 Green         </span>
-<span class="co">#&gt;  4      4 Other         </span>
-<span class="co">#&gt;  5      5 Bloc Québécois</span>
-<span class="co">#&gt;  6      6 New Democratic</span>
+<span class="co">#&gt;  1      1 Green         </span>
+<span class="co">#&gt;  2      2 New Democratic</span>
+<span class="co">#&gt;  3      3 Liberal       </span>
+<span class="co">#&gt;  4      4 New Democratic</span>
+<span class="co">#&gt;  5      5 Other         </span>
+<span class="co">#&gt;  6      6 Liberal       </span>
 <span class="co">#&gt;  7      7 Green         </span>
 <span class="co">#&gt;  8      8 Liberal       </span>
-<span class="co">#&gt;  9      9 Green         </span>
-<span class="co">#&gt; 10     10 New Democratic</span>
+<span class="co">#&gt;  9      9 Conservative  </span>
+<span class="co">#&gt; 10     10 Liberal       </span>
 <span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
 </div>
 <div id="acquire" class="section level3" number="2.2.3">
@@ -380,10 +380,10 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; #   percentage_of_rejected_ballots_pourcentage_des_bulletins_rejetes &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   total_ballots_cast_total_des_bulletins_deposes &lt;dbl&gt;, …</span></code></pre></div>
 <p>Even though the names are still quite long, the reason that they are faster to type is because R Studio will auto complete them. To do this, begin typing the name of a column and then use tab to auto complete it.</p>
-<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription,’ and ‘elected_candidate_candidat_elu.’ We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> (which we loaded as part of the <code>tidyverse</code>). Additionally, the pipe operator, <code>%&gt;%</code>, pushes the output from one line to be the first input of the function on the next line.</p>
+<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription,’ and ‘elected_candidate_candidat_elu.’ We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> (which we loaded as part of the <code>tidyverse</code>). Additionally, the pipe operator, <code>|&gt;</code>, pushes the output from one line to be the first input of the function on the next line.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
-  <span class="va">cleaned_elections_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="co"># Select only certain columns</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">electoral_district_name_nom_de_circonscription</span>,
          <span class="va">elected_candidate_candidat_elu</span>
@@ -407,7 +407,7 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; [2] "elected_candidate_candidat_elu"</span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
-  <span class="va">cleaned_elections_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
     electoral_district <span class="op">=</span> <span class="va">electoral_district_name_nom_de_circonscription</span>,
     elected_candidate <span class="op">=</span> <span class="va">elected_candidate_candidat_elu</span>
@@ -426,11 +426,11 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <p>Looking at this dataset, and the ‘elected_candidate’ column in particular, we can see that we have the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. We can break-up this column into its pieces using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
-  <span class="va">cleaned_elections_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="co"># Separate the column into two based on the slash</span>
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">elected_candidate</span>,
            into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'other'</span>, <span class="st">'party'</span><span class="op">)</span>,
-           sep <span class="op">=</span> <span class="st">'/'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+           sep <span class="op">=</span> <span class="st">'/'</span><span class="op">)</span> |&gt; 
   <span class="co"># Remove the 'other' column</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">other</span><span class="op">)</span>
 
@@ -487,14 +487,14 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
     <span class="op">)</span></code></pre></div>
 <p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that is involves building graphs by adding layers using the ‘+’ operator. In particular we will create a histogram use the function <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># aes abbreviates aesthetics and enables us </span>
   <span class="co"># to specify the x axis variable</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="02-drinking_from_a_fire_hose_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
 <p>This accomplishes what we set out to do. But we can make it look a bit nicer by modifying the default options (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.4</a>).</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Make the theme neater</span>
@@ -571,14 +571,14 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sharlagelfand.github.io/opendatatoronto/">opendatatoronto</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></code></pre></div>
-<p>To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the <code>tidyverse</code>. To use a package, we must first install it and then we need to load it. Di Cook, Professor of Business Analytics at Monash University, compares installing a package, say, <code>install.packages("tidyverse")</code>, with installing a lightbulb—you only need to do this once for each light socket; but then each time you want light you need to turn on the switch, analogous to say, <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>. So, the packages that we installed earlier do not need to be reinstalled here.</p>
+<p>To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the <code>tidyverse</code>. To use a package, we must first install it and then we need to load it. A package only needs to be installed once per computer, but must be loaded every time. So, the packages that we installed earlier do not need to be reinstalled here.</p>
 <p>Given that a lot of people freely gave up their time to make <code>R</code> and the packages that we use, it is important to cite them. To get the information that is needed, we can use the function <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>. When run without any arguments, that provides the citation information for <code>R</code> itself, and when run with an argument that is the name of a package, it provides the citation information for that package.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Get the citation information for R</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite R in publications use:</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;   R Core Team (2020). R: A language and environment</span>
+<span class="co">#&gt;   R Core Team (2021). R: A language and environment</span>
 <span class="co">#&gt;   for statistical computing. R Foundation for</span>
 <span class="co">#&gt;   Statistical Computing, Vienna, Austria. URL</span>
 <span class="co">#&gt;   https://www.R-project.org/.</span>
@@ -590,7 +590,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt;     author = {{R Core Team}},</span>
 <span class="co">#&gt;     organization = {R Foundation for Statistical Computing},</span>
 <span class="co">#&gt;     address = {Vienna, Austria},</span>
-<span class="co">#&gt;     year = {2020},</span>
+<span class="co">#&gt;     year = {2021},</span>
 <span class="co">#&gt;     url = {https://www.R-project.org/},</span>
 <span class="co">#&gt;   }</span>
 <span class="co">#&gt; </span>
@@ -654,8 +654,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co"># Based on code from: </span>
 <span class="co"># https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/</span>
 <span class="va">toronto_shelters</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/list_package_resources.html">list_package_resources</a></span><span class="op">(</span><span class="st">"21c83b32-d5a8-4106-a54f-010dbe49f6f2"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/list_package_resources.html">list_package_resources</a></span><span class="op">(</span><span class="st">"21c83b32-d5a8-4106-a54f-010dbe49f6f2"</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
@@ -667,13 +667,13 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <p>Not much needs to be done to this to make it similar to the dataset that we were interested in. We will need to change the names to make them easier to type, reduce the columns to only those that are relevant, and then add a month column.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">occupancy_date</span>, <span class="va">id</span>, <span class="va">occupied_beds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">occupancy_date</span>, <span class="va">id</span>, <span class="va">occupied_beds</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_date <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="va">occupancy_date</span><span class="op">)</span>,
          occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
                                  label <span class="op">=</span> <span class="cn">TRUE</span>, 
                                  abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-         <span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+         <span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">occupancy_date</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="st">"2021-07-01"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">toronto_shelters_clean</span><span class="op">)</span>
@@ -708,10 +708,10 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <p>The dataset is on a daily basis for each shelter. We are interested in understanding average monthly usage, so we need to create a summary statistic on the basis of monthly groups.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
-<span class="va">toronto_shelters_clean</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="co"># We only want rows that have data</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="co"># We want to know the occupancy by month</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+<span class="va">toronto_shelters_clean</span> |&gt;
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> |&gt; <span class="co"># We want to know the occupancy by month</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -748,10 +748,10 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <p>As with before, this looks fine, and achieves what we set out to do. But we can make some tweaks to the defaults to make it look even better (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>).</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
-<span class="va">toronto_shelters_clean</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="co"># We only want rows that have data</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="co"># We want to know the occupancy by month</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+<span class="va">toronto_shelters_clean</span> |&gt;
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> |&gt; <span class="co"># We want to know the occupancy by month</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Homeless shelter usage in Toronto in 2021"</span>, 
         col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Month"</span>, <span class="st">"Average daily number of occupied beds"</span><span class="op">)</span>,
         digits <span class="op">=</span> <span class="fl">1</span>,
@@ -941,25 +941,25 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <p>We can write a series of tests based on these features, that we expect that dataset to pass.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Tests for simulated data</span>
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1971</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">year</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1971</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2020</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">year</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2020</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">0</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">0</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">1000</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">1000</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Having passed these tests, we can have confidence in the simulated dataset. More importantly, we can apply these tests to the real dataset. This enables us to have greater confidence in that dataset and to share that confidence with others.</p>
 </div>
@@ -1049,12 +1049,12 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our planning, we are interested in rows where ‘Sex’ is ‘Total,’ ‘Series Name’ is ‘UN IGME estimate,’ ‘Geographic area’ is one of ‘Argentina,’ ‘Australia,’ ‘Canada,’ ‘China,’ and ‘Kenya,’ and the ‘Indicator’ is ‘Neonatal mortality rate.’ After this we are interested in just a few columns: ‘geographic_area,’ ‘time_period,’ and ‘obs_value.’</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">'Total'</span>,
          <span class="va">series_name</span> <span class="op">==</span> <span class="st">'UN IGME estimate'</span>,
          <span class="va">geographic_area</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> 
            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Argentina'</span>, <span class="st">'Australia'</span>, <span class="st">'Canada'</span>, <span class="st">'China'</span>, <span class="st">'Kenya'</span><span class="op">)</span>,
-         <span class="va">indicator</span> <span class="op">==</span> <span class="st">'Neonatal mortality rate'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+         <span class="va">indicator</span> <span class="op">==</span> <span class="st">'Neonatal mortality rate'</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">geographic_area</span>,
          <span class="va">time_period</span>,
          <span class="va">obs_value</span><span class="op">)</span>
@@ -1072,10 +1072,10 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <p>This is looking good, but we just need to fix two final things: the class of ‘time_period’ is character when we need it to be a date (it is actually a year) and the name of ‘obs_value’ should be ‘nmr’ so to be more informative.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
-  <span class="va">cleaned_igme_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+  <span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time_period <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="va">time_period</span>, <span class="st">"-06"</span><span class="op">)</span>,
-         time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">time_period</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">time_period</span> <span class="op">&gt;=</span> <span class="fl">1971</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+         time_period <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">time_period</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">time_period</span> <span class="op">&gt;=</span> <span class="fl">1971</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>nmr <span class="op">=</span> <span class="va">obs_value</span>,
          year <span class="op">=</span> <span class="va">time_period</span>,
          country <span class="op">=</span> <span class="va">geographic_area</span><span class="op">)</span>
@@ -1093,25 +1093,25 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <p>Finally, we can check that our dataset passes the tests that we developed based on the simulated dataset.</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Test the cleaned dataset</span>
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1971</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">year</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1971</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2020</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">year</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2020</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">0</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fl">0</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">1000</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fl">1000</span>
 <span class="co">#&gt; [1] TRUE</span>
 
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>All that remains is to save the nicely cleaned dataset.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
@@ -1134,7 +1134,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
     <span class="op">)</span></code></pre></div>
 <p>We can now make the graph that we are interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We are interested in showing how NMR has changed over time and the difference between countries.</p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">nmr</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1226,6 +1226,18 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <li>‘“e” “l”’ and ‘“p” “v”’</li>
 </ol>
 </li>
+<li>If I want to cite R then how do I find a recommended citation (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>
+<code>cite('R')</code>.</li>
+<li>
+<code><a href="https://rdrr.io/r/utils/cite.html">cite()</a></code>.</li>
+<li>
+<code>citation('R')</code>.</li>
+<li>
+<code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>.</li>
+</ol>
+</li>
 <li>How do we get the citation information for <code>opendatatoronto</code> (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>cite()</li>
@@ -1276,7 +1288,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></div>
-<div class="next"><a href="r-essentials.html"><span class="header-section-number">3</span> R Essentials</a></div>
+<div class="next"><a href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -1332,7 +1344,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 02 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 04 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

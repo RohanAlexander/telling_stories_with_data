@@ -48,13 +48,17 @@ And so, my specific issue is that people think that statistics is a recipe to be
 
 ## Next steps
 
-This book has covered a lot of ground. Chances are there are aspects that you want to explore further, building on the foundation that you have established. If so, then I've accomplished what I set out to do. 
+This book has covered much ground, and while we are toward the end of it, as the butler Stevens is told in the novel *The Remains of the Day* [@ishiguro]:
 
-For learning more about R in terms of data science, there is only one recommendation that is possible and that is @r4ds. To deepen your understanding of R itself, go next to @advancedr.
+> The evening's the best part of the day. You've done your day's work. Now you can put your feet up and enjoy it.
+
+Chances are there are aspects that you want to explore further, building on the foundation that you have established. If so, then I've accomplished what I set out to do. 
+
+If you were new to data science at the start of this book, then the next step would be to backfill that which I skipped over, and I would recommend @tiffanytimbers. After that, you should learn more about R in terms of data science by going through @r4ds. To deepen your understanding of R itself, go next to @advancedr.
 
 If you're interested in learning more about causality then start with @Cunningham2021 and @theeffect.
 
-If you're interested to learn more about statistics then begin with @bayesrules, @citemcelreath, and @bda. You should probably also backfill some of the fundamentals, starting with @wasserman.
+If you're interested to learn more about statistics then begin with @citemcelreath, and then backfill with @bayesrules and solidify the foundation with @bda. You should probably also backfill some of the fundamentals around probability, starting with @wasserman.
 
 There is only one next natural step if you're interested in learning more about statistical (what's come to be called machine) learning and that's @islr followed by @esl.
 
@@ -66,7 +70,7 @@ Writing go to...
 
 Thinking through production and SQL and things like, a next natural step is...
 
-We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. Never do anything in moderation, and if you can't do anything else then, be kind.
+We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. All that we can do is to acknowledge that we are the ones using data to tell stories, and strive and seek to make them worthy.
 
 
 

@@ -8,6 +8,9 @@
 
 **Required reading**
 
+- Read *What They Forgot to Teach You About R*, Chapters 1-5, [@whattheyforgot]
+
+
 - Alexander, Monica, 2019, 'Reproducibility in demographic research', https://www.monicaalexander.com/posts/2019-10-20-reproducibility/.
 - Bailey, Jack, 2020, 'UK Voting Intention Poll Tracker', https://github.com/jackobailey/poll_tracker.
 - Bryan, Jennifer and Jim Hester, 2020, 'What they Forgot to Teach You About R', Chapters 11, 12, and 13, https://rstats.wtf/debugging-r-code.html.

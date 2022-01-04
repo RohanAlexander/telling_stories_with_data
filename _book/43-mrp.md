@@ -1258,10 +1258,6 @@ alp_support %>%
    <td style="text-align:left;"> Log.Lik. </td>
    <td style="text-align:center;"> −967.836 </td>
   </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 28.555 </td>
-  </tr>
 </tbody>
 </table>
 

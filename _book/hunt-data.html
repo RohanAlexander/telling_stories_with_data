@@ -55,7 +55,7 @@
 <li class="book-part">Foundations</li>
 <li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
 <li><a class="" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
-<li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R Essentials</a></li>
+<li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
 <li><a class="" href="workflow.html"><span class="header-section-number">4</span> Workflow</a></li>
 <li class="book-part">Communication</li>
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
@@ -236,7 +236,7 @@
 <li>take your analysis to the real dataset.</li>
 </ol>
 <p>The reason this is a good approach is that you know roughly what the outcomes should be in step 2, whereas if you go directly to the real dataset then you don’t know if unexpected outcomes are likely due to your own analysis errors, or actual results. The first time you generate a simulated dataset it will take a while, but after a bit of practice you’ll get good at it. There are also packages that can help, including <code>DeclareDesign</code> <span class="citation">(<a href="references-1.html#ref-citedeclaredesign" role="doc-biblioref">Blair et al. 2019</a>)</span> and <code>survey</code> <span class="citation">(<a href="references-1.html#ref-citesurvey" role="doc-biblioref">Lumley 2020</a>)</span>. Another good reason it’s useful to take this approach of simulation is that when you’re working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -262,7 +262,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">group</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We’ll get more into this terminology later, but the sampling frame is subset of the population that can actually be sampled, for instance they are listed somewhere. For instance, <a href="https://jazzystats.com/">Lauren Kennedy</a> likes to use the analogy of a city’s population, and the phonebook - almost everyone is in there (or at least they used to be), so the population and the sampling frame are almost the same, but they are not.</p>
 <p>Now look at the mean for two groups drawn out of the sampling frame.</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -277,7 +277,7 @@
 <span class="co">#&gt; 3     2 Blue              105</span>
 <span class="co">#&gt; 4     2 White             369</span></code></pre></div>
 <p>We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we can use a t-test.</p>
-<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">population</span> <span class="op">&lt;-</span> 
@@ -322,7 +322,7 @@
 <span class="co">#&gt; 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431</span>
 <span class="co">#&gt; # … with 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</span></code></pre></div>
 <p>If properly done then not only will we get a ‘representative’ share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven’t randomised on these variables? Let’s start by looking at our dataset.</p>
-<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -353,7 +353,7 @@
 </blockquote>
 <p>We need to cover ANOVA because of its importance historically, but in general you probably shouldn’t actually use ANOVA day-to-day. There’s nothing wrong with it, in the right circumstances, it’s more just that it is a hundred years old and the number of modern use-case where it’s still your best-bet is pretty small. In any case, typically, the null is that all of the groups are from the same distribution.</p>
 <p>We can run ANOVA with the function built into R - <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>.</p>
-<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">just_two_groups</span> <span class="op">&lt;-</span> <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
@@ -367,7 +367,7 @@
 <span class="co">#&gt; 1 favourite_color     1   0.0238 0.0238    0.0952   0.758</span>
 <span class="co">#&gt; 2 Residuals        1006 251.     0.250    NA       NA</span></code></pre></div>
 <p>In this case, we fail to reject the null that the samples are the same. This all said, it’s just linear regression. So I’m not sure why it got a fancy name.</p>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">group</span> <span class="op">~</span> <span class="va">favourite_color</span>, 
     data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
@@ -405,7 +405,7 @@
 <span class="math display">\[\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].\]</span></p>
 <p>That is, the difference between the treated group, <span class="math inline">\(d = 1\)</span>, and the control group, <span class="math inline">\(d = 0\)</span>, when measured by the expected value of some outcome variable, <span class="math inline">\(y\)</span>. So the mean causal effect is simply the difference between the two expectations!</p>
 <p>Let’s again get stuck into some code. First we need to generate some data.</p>
-<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">example_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>,
                        treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, size  <span class="op">=</span> <span class="fl">1000</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -433,7 +433,7 @@
        fill <span class="op">=</span> <span class="st">"Person was treated"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="21-hunt_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
-<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">example_regression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">example_data</span><span class="op">)</span>
 
@@ -488,7 +488,7 @@ Figure 9.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1
 <li>The person knows it’s an experiment.</li>
 </ul>
 <p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;For posteriority, 2020 was quite a year.&lt;/p&gt;"><sup>8</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
-<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3 7 6 4 1 8 2 5</span></code></pre></div>
 <p>Then have your friend guess which four you put milk in first and which four you put milk in last!</p>
@@ -765,7 +765,7 @@ Figure 9.5: Key finding as to wallet return rates.
 </h2>
 <p>The trouble with much of A/B testing is that because it’s done by firms we typically don’t have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to <span class="citation">(<a href="references-1.html#ref-upworthy" role="doc-biblioref">Matias et al. 2019</a>)</span>. You are able to request access to the dataset here: <a href="https://upworthy.natematias.com" class="uri">https://upworthy.natematias.com</a> (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by <span class="citation"><a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">Fitts</a> (<a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">2014</a>)</span>.</p>
 <p>Let’s have a quick look at the data.</p>
-<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -794,7 +794,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; [16] "square"               "test_week"</span></code></pre></div>
 <p>From the documentation: ‘The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.’ So each row is a package and it should be part of a test ‘clickability_test_id.’</p>
 <p>We have a variety of variables. We’ll focus on ‘created_at,’ ‘clickability_test_id’ so that we can create comparison groups, ‘headline,’ ‘impressions’ which is the number of people that saw the package, and ‘clicks’ which is the number that clicked on that package. So within each batch of tests, we’re interested in the effect of varied headlines on impressions and clicks.</p>
-<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">created_at</span>, <span class="va">clickability_test_id</span>, <span class="va">headline</span>, <span class="va">impressions</span>, <span class="va">clicks</span><span class="op">)</span>
@@ -811,7 +811,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What …        3380     98</span></code></pre></div>
 <p>We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I’m interested in whether headlines that asked a question got more clicks than those that didn’t.</p>
 <p>To identify whether a headline asks a question, I’m going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.</p>
-<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>asks_question <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">headline</span>, pattern <span class="op">=</span> <span class="st">"\\?"</span><span class="op">)</span><span class="op">)</span>
@@ -823,7 +823,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; 1 FALSE         19130</span>
 <span class="co">#&gt; 2 TRUE           3536</span></code></pre></div>
 <p>Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.</p>
-<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">to_question_or_not_to_question</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -935,7 +935,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </li>
 <li>If we have a dataset named ‘netflix_data,’ with the columns ‘person’ and ‘tv_show’ and ‘hours,’ (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
 </ol>
-<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">netflix_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Rohan"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, 
@@ -1102,7 +1102,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 02 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 04 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -30,7 +30,7 @@
 **Key functions**
 
 - `<-` 'assign'
-- `%>%` 'pipe'
+- `|>` 'pipe'
 - `+` 'add'
 - `c()`
 - `citation()`
@@ -192,16 +192,16 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 Other         
-#>  2      2 Conservative  
-#>  3      3 Green         
-#>  4      4 Other         
-#>  5      5 Bloc Québécois
-#>  6      6 New Democratic
+#>  1      1 Green         
+#>  2      2 New Democratic
+#>  3      3 Liberal       
+#>  4      4 New Democratic
+#>  5      5 Other         
+#>  6      6 Liberal       
 #>  7      7 Green         
 #>  8      8 Liberal       
-#>  9      9 Green         
-#> 10     10 New Democratic
+#>  9      9 Conservative  
+#> 10     10 Liberal       
 #> # … with 328 more rows
 ```
 
@@ -316,12 +316,12 @@ head(cleaned_elections_data)
 
 Even though the names are still quite long, the reason that they are faster to type is because R Studio will auto complete them. To do this, begin typing the name of a column and then use tab to auto complete it.
 
-There are many columns in the dataset, and we are primarily interested in two: 'electoral_district_name_nom_de_circonscription', and 'elected_candidate_candidat_elu'. We can choose certain columns of interest using `select()` from `dplyr` [@citedplyr] (which we loaded as part of the `tidyverse`). Additionally, the pipe operator, `%>%`, pushes the output from one line to be the first input of the function on the next line. 
+There are many columns in the dataset, and we are primarily interested in two: 'electoral_district_name_nom_de_circonscription', and 'elected_candidate_candidat_elu'. We can choose certain columns of interest using `select()` from `dplyr` [@citedplyr] (which we loaded as part of the `tidyverse`). Additionally, the pipe operator, `|>`, pushes the output from one line to be the first input of the function on the next line. 
 
 
 ```r
 cleaned_elections_data <- 
-  cleaned_elections_data %>% 
+  cleaned_elections_data |> 
   # Select only certain columns
   select(electoral_district_name_nom_de_circonscription,
          elected_candidate_candidat_elu
@@ -352,7 +352,7 @@ names(cleaned_elections_data)
 
 ```r
 cleaned_elections_data <- 
-  cleaned_elections_data %>% 
+  cleaned_elections_data |> 
   rename(
     electoral_district = electoral_district_name_nom_de_circonscription,
     elected_candidate = elected_candidate_candidat_elu
@@ -375,11 +375,11 @@ Looking at this dataset, and the 'elected_candidate' column in particular, we ca
 
 ```r
 cleaned_elections_data <- 
-  cleaned_elections_data %>% 
+  cleaned_elections_data |> 
   # Separate the column into two based on the slash
   separate(col = elected_candidate,
            into = c('other', 'party'),
-           sep = '/') %>% 
+           sep = '/') |> 
   # Remove the 'other' column
   select(-other)
 
@@ -455,7 +455,7 @@ To build the graph that we are interested in, we will rely on the `ggplot2` pack
 
 
 ```r
-cleaned_elections_data %>% 
+cleaned_elections_data |> 
   ggplot(aes(x = party)) + # aes abbreviates aesthetics and enables us 
   # to specify the x axis variable
   geom_histogram(stat = "count")
@@ -467,7 +467,7 @@ This accomplishes what we set out to do. But we can make it look a bit nicer by 
 
 
 ```r
-cleaned_elections_data %>% 
+cleaned_elections_data |> 
   ggplot(aes(x = party)) +
   geom_histogram(stat = "count") +
   theme_minimal() + # Make the theme neater
@@ -550,7 +550,7 @@ library(tidyr)
 
 
 
-To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the `tidyverse`. To use a package, we must first install it and then we need to load it. Di Cook, Professor of Business Analytics at Monash University, compares installing a package, say, `install.packages("tidyverse")`, with installing a lightbulb---you only need to do this once for each light socket; but then each time you want light you need to turn on the switch, analogous to say, `library(tidyverse)`. So, the packages that we installed earlier do not need to be reinstalled here.
+To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the `tidyverse`. To use a package, we must first install it and then we need to load it. A package only needs to be installed once per computer, but must be loaded every time. So, the packages that we installed earlier do not need to be reinstalled here.
 
 Given that a lot of people freely gave up their time to make `R` and the packages that we use, it is important to cite them. To get the information that is needed, we can use the function `citation()`. When run without any arguments, that provides the citation information for `R` itself, and when run with an argument that is the name of a package, it provides the citation information for that package.
 
@@ -560,7 +560,7 @@ citation() # Get the citation information for R
 #> 
 #> To cite R in publications use:
 #> 
-#>   R Core Team (2020). R: A language and environment
+#>   R Core Team (2021). R: A language and environment
 #>   for statistical computing. R Foundation for
 #>   Statistical Computing, Vienna, Austria. URL
 #>   https://www.R-project.org/.
@@ -572,7 +572,7 @@ citation() # Get the citation information for R
 #>     author = {{R Core Team}},
 #>     organization = {R Foundation for Statistical Computing},
 #>     address = {Vienna, Austria},
-#>     year = {2020},
+#>     year = {2021},
 #>     url = {https://www.R-project.org/},
 #>   }
 #> 
@@ -642,8 +642,8 @@ We will use some data that has been made available about Toronto homeless shelte
 # Based on code from: 
 # https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/
 toronto_shelters <- 
-  list_package_resources("21c83b32-d5a8-4106-a54f-010dbe49f6f2") %>% 
-  filter(row_number()==1) %>% 
+  list_package_resources("21c83b32-d5a8-4106-a54f-010dbe49f6f2") |> 
+  filter(row_number()==1) |> 
   get_resource()
 
 write_csv(
@@ -661,13 +661,13 @@ Not much needs to be done to this to make it similar to the dataset that we were
 
 ```r
 toronto_shelters_clean <- 
-  clean_names(toronto_shelters) %>% 
-  select(occupancy_date, id, occupied_beds) %>% 
+  clean_names(toronto_shelters) |> 
+  select(occupancy_date, id, occupied_beds) |> 
   mutate(occupancy_date = as_date(occupancy_date),
          occupancy_month = month(occupancy_date, 
                                  label = TRUE, 
                                  abbr = FALSE)
-         ) %>% 
+         ) |> 
   filter(occupancy_date >= as_date("2021-07-01"))
 
 head(toronto_shelters_clean)
@@ -715,10 +715,10 @@ The dataset is on a daily basis for each shelter. We are interested in understan
 
 ```r
 # Code based on that of Florence Vallée-Dubois and Lisa Lendway
-toronto_shelters_clean %>%
-  drop_na(occupied_beds) %>% # We only want rows that have data
-  group_by(occupancy_month) %>% # We want to know the occupancy by month
-  summarise(number_occupied = mean(occupied_beds)) %>% 
+toronto_shelters_clean |>
+  drop_na(occupied_beds) |> # We only want rows that have data
+  group_by(occupancy_month) |> # We want to know the occupancy by month
+  summarise(number_occupied = mean(occupied_beds)) |> 
   kable()
 ```
 
@@ -738,10 +738,10 @@ As with before, this looks fine, and achieves what we set out to do. But we can 
 
 ```r
 # Code based on that of Florence Vallée-Dubois and Lisa Lendway
-toronto_shelters_clean %>%
-  drop_na(occupied_beds) %>% # We only want rows that have data
-  group_by(occupancy_month) %>% # We want to know the occupancy by month
-  summarise(number_occupied = mean(occupied_beds)) %>% 
+toronto_shelters_clean |>
+  drop_na(occupied_beds) |> # We only want rows that have data
+  group_by(occupancy_month) |> # We want to know the occupancy by month
+  summarise(number_occupied = mean(occupied_beds)) |> 
   kable(caption = "Homeless shelter usage in Toronto in 2021", 
         col.names = c("Month", "Average daily number of occupied beds"),
         digits = 1,
@@ -940,25 +940,25 @@ We can write a series of tests based on these features, that we expect that data
 
 ```r
 # Tests for simulated data
-simulated_nmr_data$country %>% unique() == c("Argentina", "Australia", "Canada", "China", "Kenya")
+simulated_nmr_data$country |> unique() == c("Argentina", "Australia", "Canada", "China", "Kenya")
 #> [1] TRUE TRUE TRUE TRUE TRUE
 
-simulated_nmr_data$country %>% unique() %>% length() == 5
+simulated_nmr_data$country |> unique() |> length() == 5
 #> [1] TRUE
 
-simulated_nmr_data$year %>% min() == 1971
+simulated_nmr_data$year |> min() == 1971
 #> [1] TRUE
 
-simulated_nmr_data$year %>% max() == 2020
+simulated_nmr_data$year |> max() == 2020
 #> [1] TRUE
 
-simulated_nmr_data$nmr %>% min() >= 0
+simulated_nmr_data$nmr |> min() >= 0
 #> [1] TRUE
 
-simulated_nmr_data$nmr %>% max() <= 1000
+simulated_nmr_data$nmr |> max() <= 1000
 #> [1] TRUE
 
-simulated_nmr_data$nmr %>% class() == "numeric"
+simulated_nmr_data$nmr |> class() == "numeric"
 #> [1] TRUE
 ```
 
@@ -1060,12 +1060,12 @@ We would like to clean up the names and only keep the rows and columns that we a
 
 ```r
 cleaned_igme_data <- 
-  clean_names(raw_igme_data) %>% 
+  clean_names(raw_igme_data) |> 
   filter(sex == 'Total',
          series_name == 'UN IGME estimate',
          geographic_area %in% 
            c('Argentina', 'Australia', 'Canada', 'China', 'Kenya'),
-         indicator == 'Neonatal mortality rate') %>% 
+         indicator == 'Neonatal mortality rate') |> 
   select(geographic_area,
          time_period,
          obs_value)
@@ -1087,10 +1087,10 @@ This is looking good, but we just need to fix two final things: the class of 'ti
 
 ```r
 cleaned_igme_data <- 
-  cleaned_igme_data %>% 
+  cleaned_igme_data |> 
   mutate(time_period = str_remove(time_period, "-06"),
-         time_period = as.integer(time_period)) %>% 
-  filter(time_period >= 1971) %>% 
+         time_period = as.integer(time_period)) |> 
+  filter(time_period >= 1971) |> 
   rename(nmr = obs_value,
          year = time_period,
          country = geographic_area)
@@ -1112,25 +1112,25 @@ Finally, we can check that our dataset passes the tests that we developed based 
 
 ```r
 # Test the cleaned dataset
-cleaned_igme_data$country %>% unique() == c("Argentina", "Australia", "Canada", "China", "Kenya")
+cleaned_igme_data$country |> unique() == c("Argentina", "Australia", "Canada", "China", "Kenya")
 #> [1] TRUE TRUE TRUE TRUE TRUE
 
-cleaned_igme_data$country %>% unique() %>% length() == 5
+cleaned_igme_data$country |> unique() |> length() == 5
 #> [1] TRUE
 
-cleaned_igme_data$year %>% min() == 1971
+cleaned_igme_data$year |> min() == 1971
 #> [1] TRUE
 
-cleaned_igme_data$year %>% max() == 2020
+cleaned_igme_data$year |> max() == 2020
 #> [1] TRUE
 
-cleaned_igme_data$nmr %>% min() >= 0
+cleaned_igme_data$nmr |> min() >= 0
 #> [1] TRUE
 
-cleaned_igme_data$nmr %>% max() <= 1000
+cleaned_igme_data$nmr |> max() <= 1000
 #> [1] TRUE
 
-cleaned_igme_data$nmr %>% class() == "numeric"
+cleaned_igme_data$nmr |> class() == "numeric"
 #> [1] TRUE
 ```
 
@@ -1166,7 +1166,7 @@ We can now make the graph that we are interested in (Figure \@ref(fig:nmrgraph))
 
 
 ```r
-cleaned_igme_data %>% 
+cleaned_igme_data |> 
   ggplot(aes(x = year, y = nmr, color = country)) +
   geom_point() +
   theme_minimal() +
@@ -1231,23 +1231,28 @@ To this point we have downloaded some data, cleaned it, wrote some tests, and ma
     b. '"e" "l"' and '"e" "r"'
     c. '"i" "q"' and '"e" "r"'
     d. '"e" "l"' and '"p" "v"'
-8. How do we get the citation information for `opendatatoronto` (pick one)?
+8. If I want to cite R then how do I find a recommended citation (pick one)? 
+    a. `cite('R')`. 
+    b. `cite()`.
+    c. `citation('R')`.
+    d. `citation()`.
+9. How do we get the citation information for `opendatatoronto` (pick one)?
     a. cite()
     b. citation()
     c. cite('opendatatoronto')
     d. citation('opendatatoronto')
-9. Which argument needs to be changed in order to change the column labels in `kable` (pick one)?
+10. Which argument needs to be changed in order to change the column labels in `kable` (pick one)?
     a. 'booktabs'
     b. 'col.names'
     c. 'digits'
     d. 'linesep'
     e. 'caption'
-10. Which function could be used to update packages (pick one)? 
+11. Which function could be used to update packages (pick one)? 
     a. `update.packages()`
     b. `upgrade.packages()`
     c. `revise.packages()`
     d. `renovate.packages()`
-11. What are some features that we might typically expect of a column that claimed to be a year (select all that apply)? 
+12. What are some features that we might typically expect of a column that claimed to be a year (select all that apply)? 
     a. The class is 'character'.
     b. There are no negative numbers.
     c. There are letters in the column.
