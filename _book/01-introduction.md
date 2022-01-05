@@ -13,8 +13,6 @@ output:
 
 # Telling Stories with Data
 
-**STATUS: Comments welcome.**
-
 **Required material**
 
 - Read *Counting the Countless*, [@keyes2019].

@@ -3,8 +3,6 @@
 
 # Drinking from a fire hose
 
-**STATUS: Comments welcome.**
-
 **Required material**
 
 - Read *Data science as an atomic habit*, [@citeBarrett]
@@ -192,16 +190,16 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 Green         
-#>  2      2 New Democratic
-#>  3      3 Liberal       
-#>  4      4 New Democratic
-#>  5      5 Other         
-#>  6      6 Liberal       
+#>  1      1 Bloc Québécois
+#>  2      2 Other         
+#>  3      3 New Democratic
+#>  4      4 Liberal       
+#>  5      5 Liberal       
+#>  6      6 Green         
 #>  7      7 Green         
 #>  8      8 Liberal       
 #>  9      9 Conservative  
-#> 10     10 Liberal       
+#> 10     10 New Democratic
 #> # … with 328 more rows
 ```
 

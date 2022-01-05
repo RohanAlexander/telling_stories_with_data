@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "04 January, 2022"
+date: "05 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -22,8 +22,6 @@ cover-image: tellingstorieswithdatapainting.png
 
 
 # Preface {-}
-
-**STATUS: Comments welcome.**
 
 <div class="figure">
 <img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />

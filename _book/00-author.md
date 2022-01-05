@@ -1,6 +1,6 @@
 # About the author {-}
 
-Rohan Alexander is an assistant professor at the University of Toronto in Information and Statistical Sciences. He is also a faculty affiliate at the Schwartz Reisman Institute for Technology and Society, a senior fellow at Massey College, and the assistant director of CANSSI Ontario. He holds a PhD in Economics from the Australian National University where he was supervised by John Tang (chair), Martine Mariotti, Tim Hatton, and Zach Ward.
+Rohan Alexander is an assistant professor at the University of Toronto in Information and Statistical Sciences. He is also the assistant director of CANSSI Ontario, a senior fellow at Massey College, a faculty affiliate at the Schwartz Reisman Institute for Technology and Society, and a co-lead of the Data Sciences Institute Thematic Program in Reproducibility. He holds a PhD in Economics from the Australian National University where he was supervised by John Tang (chair), Martine Mariotti, Tim Hatton, and Zach Ward.
 
 He is interested in using statistical models to try to understand the world. And particularly how we get the data that go into those models; whose data are systematically missing; how we clean, prepare, and tidy data before they are modelled; the effects of all this on the implications of our models; and how we can reproducibly share the totality of this process. He tries to develop students that are skilled not only in using statistical methods across various disciplines, but also appreciate their limitations, and think deeply about the broader contexts of their work. 
 

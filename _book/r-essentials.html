@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 R essentials | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="STATUS: Under construction. Required material Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18, (Wickham and Grolemund 2017) Watch Make a reprex… Please, (Gelfand 2021) Read...">
+<meta name="description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 R essentials | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="STATUS: Under construction. Required material Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18, (Wickham and Grolemund 2017) Watch Make a reprex… Please, (Gelfand 2021) Read...">
+<meta property="og:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 R essentials | Telling Stories With Data">
-<meta name="twitter:description" content="STATUS: Under construction. Required material Read R for Data Science, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18, (Wickham and Grolemund 2017) Watch Make a reprex… Please, (Gelfand 2021) Read...">
+<meta name="twitter:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -95,29 +95,26 @@
 <h1>
 <span class="header-section-number">3</span> R essentials<a class="anchor" aria-label="anchor" href="#r-essentials"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required material</strong></p>
 <ul>
-<li>Read <em>R for Data Science</em>, Chapters 3-6, 8, 10, 11, 13, 14, 15, and 18, <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
-</li>
-<li>Watch <em>Make a reprex… Please</em>, <span class="citation">(<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand 2021</a>)</span>
-</li>
 <li>Read <em>The Kitchen Counter Observatory</em>, <span class="citation">(<a href="references-1.html#ref-kieranskitchen" role="doc-biblioref">Healy 2020</a>)</span>
 </li>
 <li>Read <em>This is how AI bias really happens—and why it’s so hard to fix</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
+</li>
+<li>Watch <em>Make a reprex… Please</em>, <span class="citation">(<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand 2021</a>)</span>
 </li>
 <li>Watch <em>Object of type ‘closure’ is not subsettable</em>, <span class="citation">(<a href="references-1.html#ref-jennybryan" role="doc-biblioref">Jenny Bryan 2020b</a>)</span>
 </li>
 </ul>
 <!-- - Watch *Defining Custom Functions in R*, [@shiroonfunctions]. --><!-- **Recommended reading** --><!-- - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/.  --><!-- - Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/. --><!-- - Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/. --><!-- - 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide. --><!-- - Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/. --><!-- - Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/. --><!-- - Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/. --><p><strong>Key concepts and skills</strong></p>
 <ul>
-<li>Tibbles</li>
-<li>Importing data</li>
-<li>Joining data</li>
-<li>Strings</li>
-<li>Factors</li>
-<li>Dates</li>
-<li>Pivot</li>
+<li>Understanding foundational aspects of R and R Studio.</li>
+<li>Being able to use key <code>dplyr</code> verbs.</li>
+<li>Knowing fundamentals of class and how to manipulate it.</li>
+<li>Ability to simulate data.</li>
+<li>Can make graphs.</li>
+<li>Comfort with other aspects of the tidyverse including importing data, dataset manipulation, string manipulation, and factors.</li>
+<li>Develop strategies for when things do not work.</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
@@ -744,7 +741,7 @@ Figure 3.3: After running an R Script
 <p>A nice way to arrange by a variety of columns is to use <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>. This means that we can specify a variety of columns. It also enables us to use the ‘selection helpers’ such as ‘starts_with()’ that were mentioned in association with <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</p>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">firstName</span>, <span class="va">birthYear</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">firstName</span>, <span class="va">birthYear</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 10</span>
 <span class="co">#&gt;   uniqueID    surname  firstName gender birthDate  birthYear</span>
@@ -759,7 +756,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; #   senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;</span>
 
 <span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">'birth'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">'birth'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 10</span>
 <span class="co">#&gt;   uniqueID     surname firstName gender birthDate  birthYear</span>
@@ -805,7 +802,7 @@ Figure 3.3: After running an R Script
   <span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fl">2022</span> <span class="op">-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">birthDate</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">australian_politicians</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,783 × 2</span>
 <span class="co">#&gt;    uniqueID     age</span>
@@ -823,9 +820,9 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; # … with 1,773 more rows</span></code></pre></div>
 <p>There are a variety of functions that are especially useful when constructing new columns. These include <code><a href="https://rdrr.io/r/base/Log.html">log()</a></code> which will compute the natural logarithm, <code><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead()</a></code> which will bring values up by one row, <code><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag()</a></code> which will push values down by one row, and <code><a href="https://rdrr.io/r/base/cumsum.html">cumsum()</a></code> which creates a cumulative sum of the column.</p>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>log_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>log_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   uniqueID     age log_age</span>
@@ -837,9 +834,9 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 5 Abbott1891   131    4.88</span>
 <span class="co">#&gt; 6 Abbott1957    65    4.17</span>
 
-<span class="va">australian_politicians</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lead_age <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">australian_politicians</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lead_age <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lead</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   uniqueID     age lead_age</span>
@@ -851,9 +848,9 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 5 Abbott1891   131       65</span>
 <span class="co">#&gt; 6 Abbott1957    65       83</span>
 
-<span class="va">australian_politicians</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lag_age <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">australian_politicians</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lag_age <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   uniqueID     age lag_age</span>
@@ -865,10 +862,10 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 5 Abbott1891   131     136</span>
 <span class="co">#&gt; 6 Abbott1957    65     131</span>
 
-<span class="va">australian_politicians</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cumulative_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">australian_politicians</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">age</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cumulative_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   uniqueID     age cumulative_age</span>
@@ -879,10 +876,10 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 4 Abbott1891   131            565</span>
 <span class="co">#&gt; 5 Abbott1957    65            630</span>
 <span class="co">#&gt; 6 Abel1939      83            713</span></code></pre></div>
-<p>Finally, we can also use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> in combination with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>, as we have in earlier examples, including the potential use of the ‘selection helpers.’ For instance, we could count the number of characters in both the first and last names at the same time.</p>
+<p>As we have in earlier examples, we can also use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> in combination with <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>. This inlcudes the potential use of the ‘selection helpers.’ For instance, we could count the number of characters in both the first and last names at the same time.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">firstName</span>, <span class="va">surname</span><span class="op">)</span>, <span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/str_count.html">str_count</a></span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">firstName</span>, <span class="va">surname</span><span class="op">)</span>, <span class="va">str_count</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">firstName</span>, <span class="va">surname</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,783 × 3</span>
 <span class="co">#&gt;    uniqueID   firstName surname</span>
@@ -898,13 +895,45 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt;  9 Adams1943          6       5</span>
 <span class="co">#&gt; 10 Adams1951          4       5</span>
 <span class="co">#&gt; # … with 1,773 more rows</span></code></pre></div>
+<p>Finally, we use <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> when we need to make a new column on the basis of more than two conditional statements. For instance, we may have some years and want to group them into decades.</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year_of_birth <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">birthDate</span><span class="op">)</span>,
+         decade_of_birth <span class="op">=</span> 
+           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1929</span> <span class="op">~</span> <span class="st">"pre-1930"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1939</span> <span class="op">~</span> <span class="st">"1930s"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1949</span> <span class="op">~</span> <span class="st">"1940s"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1959</span> <span class="op">~</span> <span class="st">"1950s"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1969</span> <span class="op">~</span> <span class="st">"1960s"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1979</span> <span class="op">~</span> <span class="st">"1970s"</span>,
+             <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1989</span> <span class="op">~</span> <span class="st">"1980s"</span>,
+             <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Unknown or error"</span>
+             <span class="op">)</span>
+  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">year_of_birth</span>, <span class="va">decade_of_birth</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 1,783 × 3</span>
+<span class="co">#&gt;    uniqueID   year_of_birth decade_of_birth </span>
+<span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;           </span>
+<span class="co">#&gt;  1 Abbott1859            NA Unknown or error</span>
+<span class="co">#&gt;  2 Abbott1869          1869 pre-1930        </span>
+<span class="co">#&gt;  3 Abbott1877          1877 pre-1930        </span>
+<span class="co">#&gt;  4 Abbott1886          1886 pre-1930        </span>
+<span class="co">#&gt;  5 Abbott1891          1891 pre-1930        </span>
+<span class="co">#&gt;  6 Abbott1957          1957 1950s           </span>
+<span class="co">#&gt;  7 Abel1939            1939 1930s           </span>
+<span class="co">#&gt;  8 Abetz1958           1958 1950s           </span>
+<span class="co">#&gt;  9 Adams1943           1943 1940s           </span>
+<span class="co">#&gt; 10 Adams1951           1951 1950s           </span>
+<span class="co">#&gt; # … with 1,773 more rows</span></code></pre></div>
+<p>We could accomplish this with a series of <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> statements, but <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> is more clear. The cases are evaluated in order and as soon as there is a match <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> does not continue to the remainder of the cases. So it can be useful to have a catch-all at the end that will signal if there is a potential issue that we might like to know about.</p>
 </div>
 <div id="summarise" class="section level3" number="3.5.5">
 <h3>
 <span class="header-section-number">3.5.5</span> <code>summarise()</code><a class="anchor" aria-label="anchor" href="#summarise"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> when we would like to make new, condensed, summary variables. For instance, perhaps we would like to know what the minimum, average, or maximum of some column.</p>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>youngest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
             oldest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -914,7 +943,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt;      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1       28    193    101.</span></code></pre></div>
 <p>As an aside, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> are equivalent and we can use either and get the same result.</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>youngest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
             oldest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -924,7 +953,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt;      &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt; 1       28    193    101.</span></code></pre></div>
 <p>By default, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> will provide one row of output for a whole dataset. For instance, in the earlier example we found the youngest, oldest, and average across all politicians. However, we can create more groups in our dataset using the function <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>. And we can then apply another function within the context of those groups. We could use many functions on the basis of groups, but the <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> function is particularly powerful in conjunction with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>. For instance, we could <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> by gender, and then get our age-based summary statistics.</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>youngest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -936,7 +965,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 1 female       32    140    66.0</span>
 <span class="co">#&gt; 2 male         28    193   106.</span></code></pre></div>
 <p>Similarly, we could look at youngest, oldest, and mean age at death by gender.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -953,7 +982,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 2 male   12380 days 27376 days 36416 days</span></code></pre></div>
 <p>And so we learn that female members of parliament on average lived slightly longer than male members of parliament.</p>
 <p>We can use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> on the basis of more than one group. For instance, looking again at average number of days lived by gender, but also by house.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -972,7 +1001,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 3 male        0 13619 days 27133 days 36416 days</span>
 <span class="co">#&gt; 4 male        1 12380 days 27496 days 36328 days</span></code></pre></div>
 <p>We can use the function <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> to create counts by groups. For instance, the number of politicians by gender.</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span>
@@ -983,11 +1012,11 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 1 female   240</span>
 <span class="co">#&gt; 2 male    1543</span></code></pre></div>
 <p>In addition to the <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>, we could make a proportion if we wanted to.</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>proportion <span class="op">=</span> <span class="va">n</span><span class="op">/</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 × 3</span>
 <span class="co">#&gt;   gender     n proportion</span>
@@ -995,7 +1024,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 1 female   240      0.135</span>
 <span class="co">#&gt; 2 male    1543      0.865</span></code></pre></div>
 <p>The function <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> is essentially the same as using <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and then <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>. For instance, we can get the same result.</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -1005,10 +1034,10 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 1 female   240</span>
 <span class="co">#&gt; 2 male    1543</span></code></pre></div>
 <p>And there is a similarly helpful function for <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, which is <code><a href="https://dplyr.tidyverse.org/reference/count.html">add_count()</a></code>. The difference is that the number will be added in a column.</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">add_count</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">add_count</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">gender</span>, <span class="va">n</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,783 × 3</span>
 <span class="co">#&gt; # Groups:   gender [2]</span>
@@ -1031,250 +1060,484 @@ Figure 3.3: After running an R Script
 <h2>
 <span class="header-section-number">3.6</span> Base<a class="anchor" aria-label="anchor" href="#base"><i class="fas fa-link"></i></a>
 </h2>
+<p>While the <code>tidyverse</code> was put together recently to help with data science, R existed long before this. There is a host of functionality that is built into it especially around the core needs of programmers and statisticians.</p>
+<p>In particular, we will cover:</p>
+<ol style="list-style-type: decimal">
+<li><code><a href="https://rdrr.io/r/base/class.html">class()</a></code></li>
+<li>data simulation</li>
+<li><code>function()</code></li>
+</ol>
+<p>There is no need to install any additional packages, as this functionality comes with R.</p>
+<p>We will use the ‘ResumeNames’ dataset from the <code>AER</code> package <span class="citation">(<a href="references-1.html#ref-citeaer" role="doc-biblioref">Kleiber and Zeileis 2008</a>)</span>. This package can be installed in the same way as any other package from CRAN: <code>install.packages("AER")</code>. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by <span class="citation"><a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">Bertrand and Mullainathan</a> (<a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">2004</a>)</span> who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a ‘very African American sounding name or a very White sounding name.’ They found considerable discrimination whereby ‘White names receive 50 percent more callbacks for interviews.’</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ResumeNames"</span>, package <span class="op">=</span> <span class="st">"AER"</span><span class="op">)</span></code></pre></div>
 <div id="class" class="section level3" number="3.6.1">
 <h3>
 <span class="header-section-number">3.6.1</span> Class<a class="anchor" aria-label="anchor" href="#class"><i class="fas fa-link"></i></a>
 </h3>
-<p>A class is the broader type of object that something is. For instance, your class is probably ‘human,’ which is itself an ‘animal.’ Similarly, if we create a number in R we can use <code><a href="https://rdrr.io/r/base/class.html">class()</a></code> to work out its class, which in this case will be numeric.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_number</span><span class="op">)</span>
-<span class="co">#&gt; [1] "numeric"</span></code></pre></div>
-<p>Or we could make it a character.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_name</span> <span class="op">&lt;-</span> <span class="st">"rohan"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_name</span><span class="op">)</span>
-<span class="co">#&gt; [1] "character"</span></code></pre></div>
-<p>Finally, we can often coerce classes to be something else.</p>
+<p>In the same way that ‘a, b, c, …’ are letters and ‘1, 2, 3,…’ are numbers, R needs to have some way of distinguishing different classes of content. We use letters and numbers differently, for instance we cannot add letters. Similarly, R needs to formalise this to define the properties that each class has, ‘how it behaves, and how it relates to other types of objects’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>.</p>
+<p>Classes have a hierarchy. For instance, we are ‘human,’ which is itself ‘animal.’ All ‘humans’ are ‘animals,’ but not all ‘animals’ are ‘humans.’ Similarly, all integers are numbers, but not all numbers are integers. To find this out in R we use the function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>.</p>
 <div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_number_as_character</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">my_number</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_number_as_character</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+
+<span class="va">a_letter</span> <span class="op">&lt;-</span> <span class="st">"a"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_letter</span><span class="op">)</span>
 <span class="co">#&gt; [1] "character"</span></code></pre></div>
-<p>There are many ways for your code to not run but having an issue with the classes is the almost always the first thing to check.</p>
+<p>The classes that we cover here are ‘numeric,’ ‘character,’ ‘factor,’ ‘date,’ ‘data.frame.’</p>
+<p>The first thing to know is that we can sometimes change the class of an object. For instance, we could start with a ‘numeric,’ change it to a ‘character’ with <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>, and then a ‘factor’ with <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code>. But if we tried to make it into a date with <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> we would get an error because the number that we used does not have the properties that are needed to be a date.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
+<span class="va">a_number</span>
+<span class="co">#&gt; [1] 8</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+
+<span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="va">a_number</span>
+<span class="co">#&gt; [1] "8"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="co">#&gt; [1] "character"</span>
+
+<span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="va">a_number</span>
+<span class="co">#&gt; [1] 8</span>
+<span class="co">#&gt; Levels: 8</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span></code></pre></div>
+<p>Compared with ‘numeric’ and ‘character’ classes, the ‘factor’ class might be less familiar. A ‘factor’ is used for categorical data, which means there is no ranking, that can only take certain values <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. For instance, typical usage of a factor variable would be a binary, such as ‘day’ or ‘night.’ It is also often used for age-groups, such as ‘18-29,’ ‘30-44,’ ‘45-60,’ ‘60+’ (as opposed to age, which would often be a ‘numeric’); and sometimes for level of education: ‘less than high school,’ ‘high school,’ ‘college,’ ‘undergraduate degree,’ ‘postgraduate degree.’ We can find the allowed levels for a ‘factor’ using <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code>.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">age_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'18-29'</span>, <span class="st">'30-44'</span>, <span class="st">'45-60'</span>, <span class="st">'60+'</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="va">age_groups</span>
+<span class="co">#&gt; [1] 18-29 30-44 45-60 60+  </span>
+<span class="co">#&gt; Levels: 18-29 30-44 45-60 60+</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">age_groups</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">age_groups</span><span class="op">)</span>
+<span class="co">#&gt; [1] "18-29" "30-44" "45-60" "60+"</span></code></pre></div>
+<p>Dates are an especially tricky class as they quickly become complicated. Nonetheless, at a foundational level, we can use <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> to convert a character that looks like a date into a an actual date. This enables us to, say, calculate perform addition and subtraction, when we would not be able to do that with a character representation.</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">looks_like_a_date_but_is_not</span> <span class="op">&lt;-</span> <span class="st">"2022-01-01"</span>
+<span class="va">looks_like_a_date_but_is_not</span>
+<span class="co">#&gt; [1] "2022-01-01"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">looks_like_a_date_but_is_not</span><span class="op">)</span>
+<span class="co">#&gt; [1] "character"</span>
+<span class="va">is_a_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">looks_like_a_date_but_is_not</span><span class="op">)</span>
+<span class="va">is_a_date</span>
+<span class="co">#&gt; [1] "2022-01-01"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">is_a_date</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Date"</span>
+<span class="va">is_a_date</span> <span class="op">+</span> <span class="fl">3</span>
+<span class="co">#&gt; [1] "2022-01-04"</span></code></pre></div>
+<p>The final class that we discuss here is ‘data.frame.’ This looks like a spreadsheet and is commonly used to store the data that we will analyse. Formally, ‘a data frame is a list of equal-length vectors’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. It will have column and row names which we can see using <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> and <code><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames()</a></code>, although often the names of the rows are just numbers.</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ResumeNames</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;      name gender ethnicity quality call    city jobs</span>
+<span class="co">#&gt; 1 Allison female      cauc     low   no chicago    2</span>
+<span class="co">#&gt; 2 Kristen female      cauc    high   no chicago    3</span>
+<span class="co">#&gt; 3 Lakisha female      afam     low   no chicago    1</span>
+<span class="co">#&gt; 4 Latonya female      afam    high   no chicago    4</span>
+<span class="co">#&gt; 5  Carrie female      cauc    high   no chicago    3</span>
+<span class="co">#&gt; 6     Jay   male      cauc     low   no chicago    2</span>
+<span class="co">#&gt;   experience honors volunteer military holes school email</span>
+<span class="co">#&gt; 1          6     no        no       no   yes     no    no</span>
+<span class="co">#&gt; 2          6     no       yes      yes    no    yes   yes</span>
+<span class="co">#&gt; 3          6     no        no       no    no    yes    no</span>
+<span class="co">#&gt; 4          6     no       yes       no   yes     no   yes</span>
+<span class="co">#&gt; 5         22     no        no       no    no    yes   yes</span>
+<span class="co">#&gt; 6          6    yes        no       no    no     no    no</span>
+<span class="co">#&gt;   computer special college minimum equal     wanted</span>
+<span class="co">#&gt; 1      yes      no     yes       5   yes supervisor</span>
+<span class="co">#&gt; 2      yes      no      no       5   yes supervisor</span>
+<span class="co">#&gt; 3      yes      no     yes       5   yes supervisor</span>
+<span class="co">#&gt; 4      yes     yes      no       5   yes supervisor</span>
+<span class="co">#&gt; 5      yes      no      no    some   yes  secretary</span>
+<span class="co">#&gt; 6       no     yes     yes    none   yes      other</span>
+<span class="co">#&gt;   requirements reqexp reqcomm reqeduc reqcomp reqorg</span>
+<span class="co">#&gt; 1          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 2          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 3          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 4          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 5          yes    yes      no      no     yes    yes</span>
+<span class="co">#&gt; 6           no     no      no      no      no     no</span>
+<span class="co">#&gt;                           industry</span>
+<span class="co">#&gt; 1                    manufacturing</span>
+<span class="co">#&gt; 2                    manufacturing</span>
+<span class="co">#&gt; 3                    manufacturing</span>
+<span class="co">#&gt; 4                    manufacturing</span>
+<span class="co">#&gt; 5 health/education/social services</span>
+<span class="co">#&gt; 6                            trade</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">)</span>
+<span class="co">#&gt; [1] "data.frame"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">)</span>
+<span class="co">#&gt;  [1] "name"         "gender"       "ethnicity"   </span>
+<span class="co">#&gt;  [4] "quality"      "call"         "city"        </span>
+<span class="co">#&gt;  [7] "jobs"         "experience"   "honors"      </span>
+<span class="co">#&gt; [10] "volunteer"    "military"     "holes"       </span>
+<span class="co">#&gt; [13] "school"       "email"        "computer"    </span>
+<span class="co">#&gt; [16] "special"      "college"      "minimum"     </span>
+<span class="co">#&gt; [19] "equal"        "wanted"       "requirements"</span>
+<span class="co">#&gt; [22] "reqexp"       "reqcomm"      "reqeduc"     </span>
+<span class="co">#&gt; [25] "reqcomp"      "reqorg"       "industry"</span></code></pre></div>
+<p>We can examine the class of the vectors that make-up a data frame by specifying the column name.</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">name</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">jobs</span><span class="op">)</span>
+<span class="co">#&gt; [1] "integer"</span></code></pre></div>
+<p>Sometimes it is helpful to be able to change the classes of many columns at once. We can do this by using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>.</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ResumeNames</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">gender</span>, <span class="va">ethnicity</span><span class="op">)</span>, <span class="va">as.character</span><span class="op">)</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;      name gender ethnicity quality call    city jobs</span>
+<span class="co">#&gt; 1 Allison female      cauc     low   no chicago    2</span>
+<span class="co">#&gt; 2 Kristen female      cauc    high   no chicago    3</span>
+<span class="co">#&gt; 3 Lakisha female      afam     low   no chicago    1</span>
+<span class="co">#&gt; 4 Latonya female      afam    high   no chicago    4</span>
+<span class="co">#&gt; 5  Carrie female      cauc    high   no chicago    3</span>
+<span class="co">#&gt; 6     Jay   male      cauc     low   no chicago    2</span>
+<span class="co">#&gt;   experience honors volunteer military holes school email</span>
+<span class="co">#&gt; 1          6     no        no       no   yes     no    no</span>
+<span class="co">#&gt; 2          6     no       yes      yes    no    yes   yes</span>
+<span class="co">#&gt; 3          6     no        no       no    no    yes    no</span>
+<span class="co">#&gt; 4          6     no       yes       no   yes     no   yes</span>
+<span class="co">#&gt; 5         22     no        no       no    no    yes   yes</span>
+<span class="co">#&gt; 6          6    yes        no       no    no     no    no</span>
+<span class="co">#&gt;   computer special college minimum equal     wanted</span>
+<span class="co">#&gt; 1      yes      no     yes       5   yes supervisor</span>
+<span class="co">#&gt; 2      yes      no      no       5   yes supervisor</span>
+<span class="co">#&gt; 3      yes      no     yes       5   yes supervisor</span>
+<span class="co">#&gt; 4      yes     yes      no       5   yes supervisor</span>
+<span class="co">#&gt; 5      yes      no      no    some   yes  secretary</span>
+<span class="co">#&gt; 6       no     yes     yes    none   yes      other</span>
+<span class="co">#&gt;   requirements reqexp reqcomm reqeduc reqcomp reqorg</span>
+<span class="co">#&gt; 1          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 2          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 3          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 4          yes    yes      no      no     yes     no</span>
+<span class="co">#&gt; 5          yes    yes      no      no     yes    yes</span>
+<span class="co">#&gt; 6           no     no      no      no      no     no</span>
+<span class="co">#&gt;                           industry</span>
+<span class="co">#&gt; 1                    manufacturing</span>
+<span class="co">#&gt; 2                    manufacturing</span>
+<span class="co">#&gt; 3                    manufacturing</span>
+<span class="co">#&gt; 4                    manufacturing</span>
+<span class="co">#&gt; 5 health/education/social services</span>
+<span class="co">#&gt; 6                            trade</span></code></pre></div>
+<p>There are many ways for our code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be ‘character’ or ‘numeric,’ actually being a ‘factor.’ And variables that we think should be ‘numeric’ actually being a ‘character.’</p>
 </div>
 <div id="simulating-data" class="section level3" number="3.6.2">
 <h3>
 <span class="header-section-number">3.6.2</span> Simulating data<a class="anchor" aria-label="anchor" href="#simulating-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>Simulating data is a key skill for statistics. We will use the following functions all the time: <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, and <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>. Arguably the most important function is <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>, which we need because while we want our data to be random, we want it to be repeatable.</p>
-<p>Let’s get 10 observations from the standard normal.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<p>Simulating data is a key skill for telling believable stories with data. In order to simulate data, we need to be able to randomly draw from statistical distributions and other collections. R has a variety of functions to make this easier, including: the normal distribution, <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, the uniform distribution, <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>, the Poisson distribution, <code>rpois</code>, the binomial distribution, <code>rbinom</code>, and many others. To randomly sample from a vector, we can use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>.</p>
+<p>When dealing with randomness, the need for reproducibility makes it important, paradoxically, that the randomness is repeatable. That is to say that another person needs to be able to draw the random numbers that we draw. We do this by setting a seed for our random draws using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>.</p>
+<p>We could get observations from the standard normal distribution and put the those into a data frame.</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
-<span class="va">number_of_observations</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="va">number_of_observations</span> <span class="op">&lt;-</span> <span class="fl">5</span>
 
-<span class="va">simulated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">number_of_observations</span><span class="op">)</span>,
-                         observation <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">number_of_observations</span>, 
-                                             mean <span class="op">=</span> <span class="fl">0</span>, 
-                                             sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-                         <span class="op">)</span></code></pre></div>
-<p>Then let’s add 10 draws from the uniform distribution between 0 and 10.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">simulated_data</span><span class="op">$</span><span class="va">another_observation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="va">number_of_observations</span>, 
-                                            min <span class="op">=</span> <span class="fl">0</span>, 
-                                            max <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
-<p>Finally, let’s use sample, which allows use to pick from a list of items, to add a favourite colour to each observation.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">simulated_data</span><span class="op">$</span><span class="va">fav_colour</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">" white "</span><span class="op">)</span>, 
-                                    size <span class="op">=</span> <span class="va">number_of_observations</span>,
-                                    replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p>We set the option <code>replace</code> to <code>TRUE</code> because we are only choosing between two items, but we want ten outcomes. Depending on the simulation you should think about whether you need it <code>TRUE</code> or <code>FALSE</code>. Also, there is another useful option to adjust the probability with which each item is drawn. In particular, the default is that both options are equally likely, but perhaps we might like to have 10 per cent <code>blue</code> with 90 per cent <code>white</code>. The way to do this is to set the option <code>prob</code>. As always with functions, you can find more in the help with <code><a href="https://rdrr.io/r/base/sample.html">?sample</a></code>.</p>
+<span class="va">simulated_data</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+    person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">number_of_observations</span><span class="op">)</span>,
+    std_normal_observations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">number_of_observations</span>,
+                                    mean <span class="op">=</span> <span class="fl">0</span>,
+                                    sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+    <span class="op">)</span>
+
+<span class="va">simulated_data</span>
+<span class="co">#&gt;   person std_normal_observations</span>
+<span class="co">#&gt; 1      1             -0.35980342</span>
+<span class="co">#&gt; 2      2             -0.04064753</span>
+<span class="co">#&gt; 3      3             -1.78216227</span>
+<span class="co">#&gt; 4      4             -1.12242282</span>
+<span class="co">#&gt; 5      5             -1.00278400</span></code></pre></div>
+<p>We could then add draws from the uniform, Poisson, and binomial distributions, using <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> to bring the columns of the original dataset and the new one together.</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulated_data</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+    uniform_observations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">number_of_observations</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
+    poisson_observations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">number_of_observations</span>, lambda <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,
+    binomial_observations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">number_of_observations</span>, size <span class="op">=</span> <span class="fl">2</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>
+    <span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">simulated_data</span><span class="op">)</span>
+
+<span class="va">simulated_data</span>
+<span class="co">#&gt;   uniform_observations poisson_observations</span>
+<span class="co">#&gt; 1            9.6219155                   81</span>
+<span class="co">#&gt; 2            7.2269016                   91</span>
+<span class="co">#&gt; 3            0.8252921                   84</span>
+<span class="co">#&gt; 4            1.0379810                  100</span>
+<span class="co">#&gt; 5            3.0942004                   97</span>
+<span class="co">#&gt;   binomial_observations person std_normal_observations</span>
+<span class="co">#&gt; 1                     2      1             -0.35980342</span>
+<span class="co">#&gt; 2                     1      2             -0.04064753</span>
+<span class="co">#&gt; 3                     1      3             -1.78216227</span>
+<span class="co">#&gt; 4                     1      4             -1.12242282</span>
+<span class="co">#&gt; 5                     1      5             -1.00278400</span></code></pre></div>
+<p>Finally, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> enables we can draw from a vector of items. For instance, we could add a favourite colour to each observation.</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulated_data</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+    favourite_color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">" white "</span><span class="op">)</span>, 
+                             size <span class="op">=</span> <span class="va">number_of_observations</span>,
+                             replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+    <span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">simulated_data</span><span class="op">)</span>
+
+<span class="va">simulated_data</span>
+<span class="co">#&gt;   favourite_color uniform_observations poisson_observations</span>
+<span class="co">#&gt; 1            blue            9.6219155                   81</span>
+<span class="co">#&gt; 2            blue            7.2269016                   91</span>
+<span class="co">#&gt; 3            blue            0.8252921                   84</span>
+<span class="co">#&gt; 4          white             1.0379810                  100</span>
+<span class="co">#&gt; 5            blue            3.0942004                   97</span>
+<span class="co">#&gt;   binomial_observations person std_normal_observations</span>
+<span class="co">#&gt; 1                     2      1             -0.35980342</span>
+<span class="co">#&gt; 2                     1      2             -0.04064753</span>
+<span class="co">#&gt; 3                     1      3             -1.78216227</span>
+<span class="co">#&gt; 4                     1      4             -1.12242282</span>
+<span class="co">#&gt; 5                     1      5             -1.00278400</span></code></pre></div>
+<p>We set the option ‘replace’ to ‘TRUE’ because we are only choosing between two items, but each time we choose we want the option to pick between both colours. Depending on the simulation we may need to think about whether ‘replace’ should be ‘TRUE’ or ‘FALSE.’ Another useful optional argument in <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> is to adjust the probability with which each item is drawn. The default is that all options are equally likely, but we could specify particular probabilities if we wanted to with ‘prob.’ As always with functions, we can find more in the help file, for instance <code><a href="https://rdrr.io/r/base/sample.html">?sample</a></code>.</p>
 </div>
 <div id="functions" class="section level3" number="3.6.3">
 <h3>
 <span class="header-section-number">3.6.3</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
 </h3>
-<p>There are a lot of functions in R, and almost any common task that you might need to do is likely already done. But you will need to write your own functions. The way to do this is to define a function and give it a name. Your function will probably have some inputs (note that these inputs can have default values). Your function will then do something with these inputs and then return something.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">some_names</span><span class="op">)</span> <span class="op">{</span>
+<p>R ‘is a functional programming language’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. This means that we foundationally write, use, and compose functions, which are collections of code that accomplish something specific.</p>
+<p>There are a lot of functions in R that other people have written, and we can use. Almost any common statistical or data science task that we might need to accomplish likely already has a function that has been written by someone else and made available to us, either as part of the base R installation or a package. But we will need to write our own functions from time to time, especially for more-specific tasks.</p>
+<p>We can define a function using <code>function()</code> and assign it a name. We will likely need to include some inputs and outputs for the function. Inputs are specified between round brackets. The specific task that the function is to accomplish goes between braces.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">print_names</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">some_names</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">some_names</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu">my_function</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan"</span>, <span class="st">"monica"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">print_names</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan"</span>, <span class="st">"monica"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "rohan"  "monica"</span></code></pre></div>
+<p>We can specify defaults for the inputs in case the person using the function does not supply them.</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">print_names</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">some_names</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"edward"</span>, <span class="st">"hugo"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">some_names</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">print_names</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "edward" "hugo"</span></code></pre></div>
 </div>
 </div>
-<div id="ggplot" class="section level2" number="3.7">
+<div id="making-graphs-with-ggplot2" class="section level2" number="3.7">
 <h2>
-<span class="header-section-number">3.7</span> ggplot<a class="anchor" aria-label="anchor" href="#ggplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.7</span> Making graphs with <code>ggplot2</code><a class="anchor" aria-label="anchor" href="#making-graphs-with-ggplot2"><i class="fas fa-link"></i></a>
 </h2>
-<p>If the key package in the <code>tidyverse</code> in terms of manipulating data is <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>, then the key package in the <code>tidyverse</code> in terms of creating graphs is <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
-<p>The <code>ggplot</code> package is the plotting package that is part of the <code>tidyverse</code> collection of packages.</p>
-<p>In a similar way to piping, it works in layers. But instead of using the pipe (<code>|&gt;</code>) ggplot uses <code>+</code>.</p>
-<div id="main-features" class="section level3" number="3.7.1">
-<h3>
-<span class="header-section-number">3.7.1</span> Main features<a class="anchor" aria-label="anchor" href="#main-features"><i class="fas fa-link"></i></a>
-</h3>
-<p>There are three key aspects:</p>
+<p>If the key package in the <code>tidyverse</code> in terms of manipulating data is <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>, then the key package in the <code>tidyverse</code> in terms of creating graphs is <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. It is part of the <code>tidyverse</code> collection of packages and so does not need to be explicitly installed or loaded if the <code>tidyverse</code> has been loaded.</p>
+<p>In a similar way to the pipe operator, <code>ggplot2</code> works by passing outputs from one line as inputs to another line. More formally, these are defining layers for a graph, based around the ‘grammar of graphics’ (hence, the ‘gg’). Instead of the pipe operator (<code>|&gt;</code>) ggplot uses the add operator <code>+</code>.</p>
+<p>There are three key aspects that need to be specified to build a graph using <code>ggplot2</code>:</p>
 <ol style="list-style-type: decimal">
 <li>data;</li>
 <li>aesthetics / mapping; and</li>
 <li>type.</li>
 </ol>
-<p>For instances, let’s build up a histogram of age of death with increasing complexity.</p>
-<p>Starts with a grey box:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_lived</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-54-1.png" width="672"></div>
-<p>We need to tell it what we want to plot. This is where <code>geom</code> comes in</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">365</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-55-1.png" width="672"></div>
-<p>Now let’s color the bars by gender, which means adding an aesthetic.</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_lived</span>, fill <span class="op">=</span> <span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">365</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-56-1.png" width="672"></div>
-<p>We can add some labels, change the color, and background.</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_lived</span>, fill <span class="op">=</span> <span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">365</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Length of life of Australian politicians"</span>, 
-       x <span class="op">=</span> <span class="st">"Age of deaths (days)"</span>, 
-       y <span class="op">=</span> <span class="st">"Number"</span><span class="op">)</span> <span class="op">+</span>
+<p>To get started we will obtain some data on GDP for OECD countries <span class="citation">(<a href="references-1.html#ref-citeoecdgdp" role="doc-biblioref">OECD 2022</a>)</span>.</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="va">oecd_gdp</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://stats.oecd.org/sdmx-json/data/DP_LIVE/.QGDP.../OECD?contentType=csv&amp;detail=code&amp;separator=comma&amp;csv-lang=en"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">oecd_gdp</span>, <span class="st">'inputs/data/oecd_gdp.csv'</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; # A tibble: 6 × 8
+#&gt;   LOCATION INDICATOR SUBJECT MEASURE  FREQUENCY TIME  Value
+#&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;
+#&gt; 1 OECD     QGDP      TOT     PC_CHGPP A         1962   5.70
+#&gt; 2 OECD     QGDP      TOT     PC_CHGPP A         1963   5.20
+#&gt; 3 OECD     QGDP      TOT     PC_CHGPP A         1964   6.38
+#&gt; 4 OECD     QGDP      TOT     PC_CHGPP A         1965   5.35
+#&gt; 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
+#&gt; 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
+#&gt; # … with 1 more variable: Flag Codes &lt;chr&gt;</code></pre>
+<p>We are interested, firstly, in building up a histogram of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> <span class="op">&lt;-</span> 
+  <span class="va">oecd_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TIME</span> <span class="op">==</span> <span class="st">"2021-Q3"</span>,
+         <span class="va">SUBJECT</span> <span class="op">==</span> <span class="st">"TOT"</span>,
+         <span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"CAN"</span>, <span class="st">"CHL"</span>, <span class="st">"DEU"</span>,
+                         <span class="st">"GBR"</span>, <span class="st">"IDN"</span>, <span class="st">"IND"</span>, <span class="st">"ESP"</span>, 
+                         <span class="st">"JPN"</span>, <span class="st">"NZL"</span>, <span class="st">"USA"</span>, <span class="st">"ZAF"</span><span class="op">)</span>,
+         <span class="va">MEASURE</span> <span class="op">==</span> <span class="st">"PC_CHGPY"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>european <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span><span class="op">)</span>,
+                             <span class="st">"European"</span>,
+                             <span class="st">"Not european"</span><span class="op">)</span>,
+         hemisphere <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CAN"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span>, <span class="st">"JPN"</span>, <span class="st">"USA"</span><span class="op">)</span>,
+                             <span class="st">"Northern Hemisphere"</span>,
+                             <span class="st">"Southern Hemisphere"</span><span class="op">)</span>,
+         <span class="op">)</span></code></pre></div>
+<p>We start with the <code>ggplot</code> function, and specify a mapping, which in this case means specifying the x-axis and the y-axis.</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-64-1.png" width="672"></div>
+<p>Now we need to specify the type of graph that we are interested in. In this case we want a bar chart and we does this by adding <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code>.</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-65-1.png" width="672"></div>
+<p>Now we can color the bars by whether the country is European by adding another aesthetic, ‘fill.’</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-66-1.png" width="672"></div>
+<p>Finally, we could make it look nicer, by adding labels <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>, change the color <code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer()</a></code>, and background <code>theme_classic</code>.</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for twelve OECD countries in 2021Q3"</span>, 
+       x <span class="op">=</span> <span class="st">"Countries"</span>, 
+       y <span class="op">=</span> <span class="st">"Change (%)"</span>,
+       fill <span class="op">=</span> <span class="st">"Is European?"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-57-1.png" width="672"></div>
-<p>I forget who said this but, ‘<code>ggplot</code> makes it so easy to have nicely labelled axes, there’s no real excuse not to.’</p>
-</div>
-<div id="facets" class="section level3" number="3.7.2">
-<h3>
-<span class="header-section-number">3.7.2</span> Facets<a class="anchor" aria-label="anchor" href="#facets"><i class="fas fa-link"></i></a>
-</h3>
-<p>Facets are subplots and are invaluable because they allow you to add another variable to your plot without having to make a 3D plot.</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>days_lived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">deathDate</span> <span class="op">-</span> <span class="va">birthDate</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_lived</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">365</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Length of life of Australian politicians"</span>, 
-       x <span class="op">=</span> <span class="st">"Age of deaths (days)"</span>, 
-       y <span class="op">=</span> <span class="st">"Number"</span><span class="op">)</span> <span class="op">+</span>
+<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-67-1.png" width="672"></div>
+<p>Facets mean that we create subplots that focus on specific aspects of our data. They are invaluable because they allow us to add another variable to a graph without having to make a 3D graph. We use <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> to add a facet and specify the variable that we would like to facet by.</p>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for six OECD countries in 2021Q3"</span>, 
+       x <span class="op">=</span> <span class="st">"Countries"</span>, 
+       y <span class="op">=</span> <span class="st">"Change (%)"</span>,
+       fill <span class="op">=</span> <span class="st">"Is European?"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">gender</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-58-1.png" width="672"></div>
-</div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">hemisphere</span>, 
+              scales <span class="op">=</span> <span class="st">"free_x"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-68-1.png" width="672"></div>
 </div>
 <div id="exploring-the-tidyverse" class="section level2" number="3.8">
 <h2>
 <span class="header-section-number">3.8</span> Exploring the tidyverse<a class="anchor" aria-label="anchor" href="#exploring-the-tidyverse"><i class="fas fa-link"></i></a>
 </h2>
-<div id="tibbles" class="section level3" number="3.8.1">
+<p>We have focused on two aspects of the tidyverse: <code>dplyr</code>, and <code>ggplot2</code>. However the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:</p>
+<ul>
+<li>Importing data and <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code>
+</li>
+<li>Joining and pivoting datasets</li>
+<li>String manipulation and <code>stringr</code>
+</li>
+<li>Factor variables and <code>forcats</code>
+</li>
+</ul>
+<div id="importing-data-and-tibble" class="section level3" number="3.8.1">
 <h3>
-<span class="header-section-number">3.8.1</span> Tibbles<a class="anchor" aria-label="anchor" href="#tibbles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8.1</span> Importing data and <code>tibble()</code><a class="anchor" aria-label="anchor" href="#importing-data-and-tibble"><i class="fas fa-link"></i></a>
 </h3>
-<p>A tibble is a data frame, but it is a data frame with some particular changes that make it easier to work with. You should read Chapter 10 of <span class="citation"><a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund</a> (<a href="references-1.html#ref-r4ds" role="doc-biblioref">2017</a>)</span> for more detail. The main difference is that compared with a dataframe, a tibble doesn’t convert strings to factors, and it prints nicely, including letting you know the class of a column.</p>
-<p>You can make a tibble manually if you need, for instance this can be handy for simulating data, but usually we will just import data as a tibble.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">people</span> <span class="op">&lt;-</span> 
+<p>There are a variety of ways to get data into R so that we can use it. For CSV files, there is <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from <code>readr</code> <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>, and for dta files, there is <code>read_dta()</code> from <code>haven</code> <span class="citation">(<a href="references-1.html#ref-citehaven" role="doc-biblioref">Wickham and Miller 2020</a>)</span>.</p>
+<p>CSVs are a common format and have many advantages including the fact that they typically do not modify the data. Each field is separated by a comma, and each row is a record. We can provide <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> with a URL or a local file to read. There are a variety of different options that can be passed to the function including the ability to specify whether the dataset has column names, the types of the columns, and how many lines to skip. If we do not specify the types of the columns then <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> will make a guess by looking at the dataset.</p>
+<p>We use <code>read_dta()</code> to read .dta files, which are commonly produced by the statistical program Stata. This means that they are common in fields such as sociology, political science, and economics. This format separates the data from its labels and so we will typically need to reunite these using <code><a href="http://larmarange.github.io/labelled/reference/to_factor.html">labelled::to_factor()</a></code>. <code>haven</code> is part of the tidyverse, but is not automatically loaded by default, in contrast to a package such as <code>ggplot2</code>, and so we would need to run <code><a href="https://haven.tidyverse.org">library(haven)</a></code>.</p>
+<p>Typically a dataset enters R as a ‘data.frame.’ While this can be useful, another helpful class for a dataset is ‘tibble.’ These can be created using <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> from the <code>tibble</code> package which is part of the tidyverse. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.</p>
+<p>We can make a tibble manually if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">people_as_dataframe</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan"</span>, <span class="st">"monica"</span><span class="op">)</span>,
+             website <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohanalexander.com"</span>, <span class="st">"monicaalexander.com"</span><span class="op">)</span>,
+             fav_colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">" white "</span><span class="op">)</span>
+             <span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">people_as_dataframe</span><span class="op">)</span>
+<span class="co">#&gt; [1] "data.frame"</span>
+<span class="va">people_as_dataframe</span>
+<span class="co">#&gt;    names             website fav_colour</span>
+<span class="co">#&gt; 1  rohan  rohanalexander.com       blue</span>
+<span class="co">#&gt; 2 monica monicaalexander.com     white</span>
+
+<span class="va">people_as_tibble</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan"</span>, <span class="st">"monica"</span><span class="op">)</span>,
          website <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohanalexander.com"</span>, <span class="st">"monicaalexander.com"</span><span class="op">)</span>,
-         fav_colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">" white "</span><span class="op">)</span>,
+         fav_colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">" white "</span><span class="op">)</span>
          <span class="op">)</span>
-<span class="va">people</span>
-<span class="co">#&gt; # A tibble: 2 × 3</span>
-<span class="co">#&gt;   names  website             fav_colour</span>
-<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt;     </span>
-<span class="co">#&gt; 1 rohan  rohanalexander.com  "blue"    </span>
-<span class="co">#&gt; 2 monica monicaalexander.com " white "</span></code></pre></div>
-</div>
-<div id="importing-data" class="section level3" number="3.8.2">
-<h3>
-<span class="header-section-number">3.8.2</span> Importing data<a class="anchor" aria-label="anchor" href="#importing-data"><i class="fas fa-link"></i></a>
-</h3>
-<p>There are a variety of ways to import data. If you are dealing with CSV files then try <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> in the first instance. There were examples of that in earlier sections.</p>
-</div>
-<div id="joining-data" class="section level3" number="3.8.3">
-<h3>
-<span class="header-section-number">3.8.3</span> Joining data<a class="anchor" aria-label="anchor" href="#joining-data"><i class="fas fa-link"></i></a>
-</h3>
-<p>We can join two datasets together in a variety of ways. The most common join that I use is <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code>, where I have one main dataset and I want to join another to it based on some common column names. Here we’ll join two datasets based on favourite colour.</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">both</span> <span class="op">&lt;-</span> 
-  <span class="va">simulated_data</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">people</span>, by <span class="op">=</span> <span class="st">"fav_colour"</span><span class="op">)</span>
-
-<span class="va">both</span>
-<span class="co">#&gt; # A tibble: 10 × 6</span>
-<span class="co">#&gt;    person observation another_observation fav_colour names </span>
-<span class="co">#&gt;     &lt;int&gt;       &lt;dbl&gt;               &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; </span>
-<span class="co">#&gt;  1      1     -0.360                9.52  "blue"     rohan </span>
-<span class="co">#&gt;  2      2     -0.0406               0.586 " white "  monica</span>
-<span class="co">#&gt;  3      3     -1.78                 2.48  "blue"     rohan </span>
-<span class="co">#&gt;  4      4     -1.12                 5.80  " white "  monica</span>
-<span class="co">#&gt;  5      5     -1.00                 5.26  "blue"     rohan </span>
-<span class="co">#&gt;  6      6      1.78                 4.09  "blue"     rohan </span>
-<span class="co">#&gt;  7      7     -1.39                 3.97  "blue"     rohan </span>
-<span class="co">#&gt;  8      8     -0.497                2.52  " white "  monica</span>
-<span class="co">#&gt;  9      9     -0.558                6.29  "blue"     rohan </span>
-<span class="co">#&gt; 10     10     -0.824                8.57  "blue"     rohan </span>
-<span class="co">#&gt; # … with 1 more variable: website &lt;chr&gt;</span></code></pre></div>
-</div>
-<div id="strings" class="section level3" number="3.8.4">
-<h3>
-<span class="header-section-number">3.8.4</span> Strings<a class="anchor" aria-label="anchor" href="#strings"><i class="fas fa-link"></i></a>
-</h3>
-<p>We’ve seen a string earlier, but it is an object that is created with single or double quotes. String manipulation is an entire book in itself, but you should start with the stringr package <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>.</p>
-<p>I’ll just cover a few essentials: <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">stringr::str_detect()</a></code>, <code><a href="https://stringr.tidyverse.org/reference/str_replace.html">stringr::str_replace()</a></code>, <code><a href="https://stringr.tidyverse.org/reference/str_trim.html">stringr::str_squish()</a></code>.</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span>
+<span class="va">people_as_tibble</span>
 <span class="co">#&gt; # A tibble: 2 × 3</span>
 <span class="co">#&gt;   names  website             fav_colour</span>
 <span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;               &lt;chr&gt;     </span>
 <span class="co">#&gt; 1 rohan  rohanalexander.com  "blue"    </span>
 <span class="co">#&gt; 2 monica monicaalexander.com " white "</span>
-
-<span class="va">people</span> <span class="op">&lt;-</span> 
-  <span class="va">people</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>is_rohan <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">"rohan"</span><span class="op">)</span>,
-         make_howlett <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">website</span>, <span class="st">"alexander"</span>, <span class="st">"howlett"</span><span class="op">)</span>,
-         fav_colour_trim <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_trim.html">str_squish</a></span><span class="op">(</span><span class="va">fav_colour</span><span class="op">)</span>
-         <span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">people</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 6</span>
-<span class="co">#&gt;   names  website         fav_colour is_rohan make_howlett   </span>
-<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;      &lt;lgl&gt;    &lt;chr&gt;          </span>
-<span class="co">#&gt; 1 rohan  rohanalexander… "blue"     TRUE     rohanhowlett.c…</span>
-<span class="co">#&gt; 2 monica monicaalexande… " white "  FALSE    monicahowlett.…</span>
-<span class="co">#&gt; # … with 1 more variable: fav_colour_trim &lt;chr&gt;</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">people_as_tibble</span><span class="op">)</span>
+<span class="co">#&gt; [1] "tbl_df"     "tbl"        "data.frame"</span></code></pre></div>
 </div>
-<div id="pivot" class="section level3" number="3.8.5">
+<div id="dataset-manipulation-with-joins-and-pivots" class="section level3" number="3.8.2">
 <h3>
-<span class="header-section-number">3.8.5</span> Pivot<a class="anchor" aria-label="anchor" href="#pivot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8.2</span> Dataset manipulation with joins and pivots<a class="anchor" aria-label="anchor" href="#dataset-manipulation-with-joins-and-pivots"><i class="fas fa-link"></i></a>
 </h3>
-<p>Datasets tend to be either long or wide. Generally, in the tidyverse, and certainly for ggplot, we need long data. To go from one to the other you can use the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> functions.</p>
-<p>Let’s see an example with some data on whether red team or blue team won a competition in some year.</p>
-<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<p>There are two common types of dataset manipulations that are often needed: joins and pivots.</p>
+<p>We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> from <code>dplyr</code>. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datatsets.</p>
+<p>Here we will create two tibbles and then join them.</p>
+<p>I want to join another to it based on some common column names. Here we’ll join two datasets based on favourite colour.</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">main_dataset</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'rohan'</span>, <span class="st">'monica'</span>, <span class="st">'edward'</span>, <span class="st">'hugo'</span><span class="op">)</span>,
+    status <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'adult'</span>, <span class="st">'adult'</span>, <span class="st">'child'</span>, <span class="st">'infant'</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="va">main_dataset</span>
+<span class="co">#&gt; # A tibble: 4 × 2</span>
+<span class="co">#&gt;   names  status</span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt; </span>
+<span class="co">#&gt; 1 rohan  adult </span>
+<span class="co">#&gt; 2 monica adult </span>
+<span class="co">#&gt; 3 edward child </span>
+<span class="co">#&gt; 4 hugo   infant</span>
+
+<span class="va">supplementary_dataset</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'rohan'</span>, <span class="st">'monica'</span>, <span class="st">'edward'</span>, <span class="st">'hugo'</span><span class="op">)</span>,
+    favourite_food <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'pasta'</span>, <span class="st">'salmon'</span>, <span class="st">'pizza'</span>, <span class="st">'milk'</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="va">supplementary_dataset</span>
+<span class="co">#&gt; # A tibble: 4 × 2</span>
+<span class="co">#&gt;   names  favourite_food</span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;         </span>
+<span class="co">#&gt; 1 rohan  pasta         </span>
+<span class="co">#&gt; 2 monica salmon        </span>
+<span class="co">#&gt; 3 edward pizza         </span>
+<span class="co">#&gt; 4 hugo   milk</span>
+
+<span class="va">main_dataset</span> <span class="op">&lt;-</span> 
+  <span class="va">main_dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">supplementary_dataset</span>, by <span class="op">=</span> <span class="st">"names"</span><span class="op">)</span>
+
+<span class="va">main_dataset</span>
+<span class="co">#&gt; # A tibble: 4 × 3</span>
+<span class="co">#&gt;   names  status favourite_food</span>
+<span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;         </span>
+<span class="co">#&gt; 1 rohan  adult  pasta         </span>
+<span class="co">#&gt; 2 monica adult  salmon        </span>
+<span class="co">#&gt; 3 edward child  pizza         </span>
+<span class="co">#&gt; 4 hugo   infant milk</span></code></pre></div>
+<p>There are a variety of other options to join datasets, including <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join()</a></code>.</p>
+<p>Another common dataset manipulation task is the need to pivot them. Datasets tend to be either long or wide. Generally, in the <code>tidyverse</code>, and certainly for <code>ggplot2</code>, we need long data. To go from one to the other we <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>.</p>
+<p>We will create some wide data on whether the red team or the blue team won a competition in some year.</p>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pivot_example_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2019</span>, <span class="fl">2020</span>, <span class="fl">2021</span><span class="op">)</span>,
-         blue_team <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>,
-         red_team <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+         blue_team <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"first"</span><span class="op">)</span>,
+         red_team <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"second"</span>, <span class="st">"first"</span>, <span class="st">"second"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">pivot_example_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
 <span class="co">#&gt;    year blue_team red_team</span>
-<span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  2019         1        2</span>
-<span class="co">#&gt; 2  2020         2        1</span>
-<span class="co">#&gt; 3  2021         1        2</span></code></pre></div>
-<p>This dataset is in wide format at the moment. To get it into long format, what we’d like is to have a column that specifies the team, and then another that specifies the result. We’ll use <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">tidyr::pivot_longer</a></code>.</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   </span>
+<span class="co">#&gt; 1  2019 first     second  </span>
+<span class="co">#&gt; 2  2020 second    first   </span>
+<span class="co">#&gt; 3  2021 first     second</span></code></pre></div>
+<p>This dataset is in wide format at the moment. To get it into long format, we need a column that specifies the team, and then another that specifies the result. We will use <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> to achieve this.</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_pivoted_longer</span> <span class="op">&lt;-</span> 
   <span class="va">pivot_example_data</span> |&gt; 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"blue_team"</span>, <span class="st">"red_team"</span><span class="op">)</span>,
@@ -1284,15 +1547,15 @@ Figure 3.3: After running an R Script
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_pivoted_longer</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;    year team      position</span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  2019 blue_team        1</span>
-<span class="co">#&gt; 2  2019 red_team         2</span>
-<span class="co">#&gt; 3  2020 blue_team        2</span>
-<span class="co">#&gt; 4  2020 red_team         1</span>
-<span class="co">#&gt; 5  2021 blue_team        1</span>
-<span class="co">#&gt; 6  2021 red_team         2</span></code></pre></div>
-<p>Occasionally, you’ll need to go from long data to wide data. We accomplish this with <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">tidyr::pivot_wider</a></code>.</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   </span>
+<span class="co">#&gt; 1  2019 blue_team first   </span>
+<span class="co">#&gt; 2  2019 red_team  second  </span>
+<span class="co">#&gt; 3  2020 blue_team second  </span>
+<span class="co">#&gt; 4  2020 red_team  first   </span>
+<span class="co">#&gt; 5  2021 blue_team first   </span>
+<span class="co">#&gt; 6  2021 red_team  second</span></code></pre></div>
+<p>Occasionally, we need to go from long data to wide data. We can use <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> to do this.</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_pivoted_wider</span> <span class="op">&lt;-</span> 
   <span class="va">data_pivoted_longer</span> |&gt; 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"team"</span><span class="op">)</span>,
@@ -1302,91 +1565,116 @@ Figure 3.3: After running an R Script
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_pivoted_wider</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 3 × 3</span>
 <span class="co">#&gt;    year blue_team red_team</span>
-<span class="co">#&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt; 1  2019         1        2</span>
-<span class="co">#&gt; 2  2020         2        1</span>
-<span class="co">#&gt; 3  2021         1        2</span></code></pre></div>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   </span>
+<span class="co">#&gt; 1  2019 first     second  </span>
+<span class="co">#&gt; 2  2020 second    first   </span>
+<span class="co">#&gt; 3  2021 first     second</span></code></pre></div>
 </div>
-<div id="factors" class="section level3" number="3.8.6">
+<div id="string-manipulation-and-stringr" class="section level3" number="3.8.3">
 <h3>
-<span class="header-section-number">3.8.6</span> Factors<a class="anchor" aria-label="anchor" href="#factors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.8.3</span> String manipulation and <code>stringr</code><a class="anchor" aria-label="anchor" href="#string-manipulation-and-stringr"><i class="fas fa-link"></i></a>
 </h3>
-<p>A factor is a string that has an inherent ordering. For instance, the days of the week have an order - Monday, Tuesday, Wednesday,… - which is not alphabetical. Factors feature prominently in base, but they often add more complication than they are worth and so the tidyverse gives them a less prominent role. Nonetheless taking advantage of factors is useful in certain circumstances, for instance when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as characters. The package that we use to deal with factors is <code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>.</p>
-<p>Sometimes you will have a character vector and you will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but you may not want that, for instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!</p>
-<p>The way to change the ordering is to change the variable from a character to a factor. I would then use the <code>forcats</code> package to specify an ordering by hand. The help page is here: <a href="https://forcats.tidyverse.org/reference/fct_relevel.html" class="uri">https://forcats.tidyverse.org/reference/fct_relevel.html</a>.</p>
-<p>Let’s look at a concrete example.</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>all_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Monica"</span>, <span class="st">"Edward"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>If we plotted this then Edward would be first, because it would be alphabetical. But if instead I want to be first as I am the oldest then we could use <code>forcats</code> in the following way.</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org">forcats</a></span><span class="op">)</span> <span class="co"># (BTW you'll probably have to install that one)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-
-<span class="va">my_data</span> <span class="op">&lt;-</span>
-  <span class="va">my_data</span> |&gt;
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>all_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">all_names</span><span class="op">)</span>, <span class="co"># Change to factor</span>
-         all_names_releveled <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">all_names</span>, <span class="st">"Rohan"</span>, <span class="st">"Monica"</span><span class="op">)</span><span class="op">)</span> <span class="co"># Change the levels</span>
-
-<span class="co"># Then compare the two</span>
-<span class="va">my_data</span><span class="op">$</span><span class="va">all_names</span>
-<span class="co">#&gt; [1] Rohan  Monica Edward</span>
-<span class="co">#&gt; Levels: Edward Monica Rohan</span>
-<span class="va">my_data</span><span class="op">$</span><span class="va">all_names_releveled</span>
-<span class="co">#&gt; [1] Rohan  Monica Edward</span>
-<span class="co">#&gt; Levels: Rohan Monica Edward</span></code></pre></div>
-</div>
-<div id="cases" class="section level3" number="3.8.7">
-<h3>
-<span class="header-section-number">3.8.7</span> Cases<a class="anchor" aria-label="anchor" href="#cases"><i class="fas fa-link"></i></a>
-</h3>
-<p>If you need to write a few conditional statements, then <code>case_when</code> is the way to go.</p>
-<p>Let’s start with a tibble of dates and pretend that we want to group them into ‘pre-1950,’ ‘1950-2000,’ ‘2000-onwards’</p>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">case_when_example</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>some_dates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1909-12-31"</span>, <span class="st">"1919-12-31"</span>, <span class="st">"1929-12-31"</span>, <span class="st">"1939-12-31"</span>, 
-                        <span class="st">"1949-12-31"</span>, <span class="st">"1959-12-31"</span>, <span class="st">"1969-12-31"</span>, <span class="st">"1979-12-31"</span>, 
-                        <span class="st">"1989-12-31"</span>, <span class="st">"1999-12-31"</span>, <span class="st">"2009-12-31"</span><span class="op">)</span>
-         <span class="op">)</span>
-
-<span class="va">case_when_example</span> <span class="op">&lt;-</span> 
-  <span class="va">case_when_example</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>some_dates <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="va">some_dates</span><span class="op">)</span>
-         <span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">case_when_example</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 1</span>
-<span class="co">#&gt;   some_dates</span>
-<span class="co">#&gt;   &lt;date&gt;    </span>
-<span class="co">#&gt; 1 1909-12-31</span>
-<span class="co">#&gt; 2 1919-12-31</span>
-<span class="co">#&gt; 3 1929-12-31</span>
-<span class="co">#&gt; 4 1939-12-31</span>
-<span class="co">#&gt; 5 1949-12-31</span>
-<span class="co">#&gt; 6 1959-12-31</span></code></pre></div>
-<p>Now we’ll use <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">dplyr::case_when()</a></code> to group these.</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">case_when_example</span> <span class="op">&lt;-</span> 
-  <span class="va">case_when_example</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year_group <span class="op">=</span> 
-           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
-             <span class="va">some_dates</span> <span class="op">&lt;</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="st">"1950-01-01"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"pre-1950"</span>,
-             <span class="va">some_dates</span> <span class="op">&lt;</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"1950-2000"</span>,
-             <span class="va">some_dates</span> <span class="op">&gt;=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"2000-onwards"</span>,
-             <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"CHECK ME"</span>
-             <span class="op">)</span>
+<p>In R we often create a string with double quotes, although single quotes is fine too. For instance <code>c("a", "b")</code> consists of two strings ‘a’ and ‘b,’ and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the <code>stringr</code> package <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>. This is automatically loaded when we load the <code>tidyverse</code>.</p>
+<p>If we want to look for whether a string contains certain content, then we can use <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect()</a></code>. If we want to remove or change some particular content then we can use <code><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove()</a></code> or <code><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace()</a></code>.</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dataset_of_strings</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan alexander"</span>, 
+              <span class="st">"monica alexander"</span>, 
+              <span class="st">"edward alexander"</span>, 
+              <span class="st">"hugo alexander"</span><span class="op">)</span>
   <span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">case_when_example</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   some_dates year_group</span>
-<span class="co">#&gt;   &lt;date&gt;     &lt;chr&gt;     </span>
-<span class="co">#&gt; 1 1909-12-31 pre-1950  </span>
-<span class="co">#&gt; 2 1919-12-31 pre-1950  </span>
-<span class="co">#&gt; 3 1929-12-31 pre-1950  </span>
-<span class="co">#&gt; 4 1939-12-31 pre-1950  </span>
-<span class="co">#&gt; 5 1949-12-31 pre-1950  </span>
-<span class="co">#&gt; 6 1959-12-31 1950-2000</span></code></pre></div>
-<p>We could accomplish this with a series of <code>if_else</code> statements, but <code>case_when</code> is just a bit cleaner. The only thing to be aware of is that statements are evaluated in order. So as soon as something matches it doesn’t continue down the list of conditions. That’s why we have that catch-all at the end - if the date doesn’t fit any of the earlier conditions, then we’ve got a problem and want to know about it.</p>
+<span class="va">dataset_of_strings</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>is_rohan <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">"rohan"</span><span class="op">)</span>,
+         make_howlett <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">"alexander"</span>, <span class="st">"howlett"</span><span class="op">)</span>,
+         remove_rohan <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">"rohan"</span><span class="op">)</span>
+         <span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 × 4</span>
+<span class="co">#&gt;   names            is_rohan make_howlett   remove_rohan     </span>
+<span class="co">#&gt;   &lt;chr&gt;            &lt;lgl&gt;    &lt;chr&gt;          &lt;chr&gt;            </span>
+<span class="co">#&gt; 1 rohan alexander  TRUE     rohan howlett  " alexander"     </span>
+<span class="co">#&gt; 2 monica alexander FALSE    monica howlett "monica alexande…</span>
+<span class="co">#&gt; 3 edward alexander FALSE    edward howlett "edward alexande…</span>
+<span class="co">#&gt; 4 hugo alexander   FALSE    hugo howlett   "hugo alexander"</span></code></pre></div>
+<p>There are a variety of other functions that are often especially useful in data cleaning. For instance, we can use <code><a href="https://stringr.tidyverse.org/reference/str_length.html">str_length()</a></code> to find out how long a string is, and <code><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c()</a></code> to bring strings together.</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dataset_of_strings</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>length_is <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_length.html">str_length</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">names</span><span class="op">)</span>,
+         remove_rohan <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="va">names</span>, <span class="va">length_is</span>, sep <span class="op">=</span> <span class="st">" - "</span><span class="op">)</span>
+         <span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 × 3</span>
+<span class="co">#&gt;   names            length_is remove_rohan         </span>
+<span class="co">#&gt;   &lt;chr&gt;                &lt;int&gt; &lt;chr&gt;                </span>
+<span class="co">#&gt; 1 rohan alexander         15 rohan alexander - 15 </span>
+<span class="co">#&gt; 2 monica alexander        16 monica alexander - 16</span>
+<span class="co">#&gt; 3 edward alexander        16 edward alexander - 16</span>
+<span class="co">#&gt; 4 hugo alexander          14 hugo alexander - 14</span></code></pre></div>
+<p>Finally, <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code>, although not part of <code>stringr</code>, is an indespensible function for string manipulation. It turns one character column into many.</p>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dataset_of_strings</span> |&gt; 
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">names</span>,
+           into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"last"</span><span class="op">)</span>,
+           sep <span class="op">=</span> <span class="st">" "</span>,
+           remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 4 × 3</span>
+<span class="co">#&gt;   names            first  last     </span>
+<span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;    </span>
+<span class="co">#&gt; 1 rohan alexander  rohan  alexander</span>
+<span class="co">#&gt; 2 monica alexander monica alexander</span>
+<span class="co">#&gt; 3 edward alexander edward alexander</span>
+<span class="co">#&gt; 4 hugo alexander   hugo   alexander</span></code></pre></div>
+</div>
+<div id="factor-variables-and-forcats" class="section level3" number="3.8.4">
+<h3>
+<span class="header-section-number">3.8.4</span> Factor variables and <code>forcats</code><a class="anchor" aria-label="anchor" href="#factor-variables-and-forcats"><i class="fas fa-link"></i></a>
+</h3>
+<p>A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order—Monday, Tuesday, Wednesday, …—which is not alphabetical. But there is no inherent order for gender—female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance if ‘days_of_the_week’ was a factor variable then ‘January’ would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in <code>tidyverse</code>. Nonetheless taking advantage of factors is useful in certain circumstances. For instance when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one <code>tidyverse</code> package that is especially useful when using factors is <code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>.</p>
+<p>Sometimes we have a character vector and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!</p>
+<p>The way to change the ordering is to change the variable from a character to a factor. We can use <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code> from <code>forcats</code> to specify an ordering.</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
+
+<span class="va">days_data</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    days <span class="op">=</span>
+      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+        <span class="st">"Monday"</span>,
+        <span class="st">"Tuesday"</span>,
+        <span class="st">"Wednesday"</span>,
+        <span class="st">"Thursday"</span>,
+        <span class="st">"Friday"</span>,
+        <span class="st">"Saturday"</span>,
+        <span class="st">"Sunday"</span>
+      <span class="op">)</span>,
+    some_value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample.int</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>
+
+<span class="va">days_data</span> <span class="op">&lt;-</span>
+  <span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
+    days_as_factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span>,
+    days_as_factor <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span>
+      <span class="va">days</span>,
+      <span class="st">"Monday"</span>,
+      <span class="st">"Tuesday"</span>,
+      <span class="st">"Wednesday"</span>,
+      <span class="st">"Thursday"</span>,
+      <span class="st">"Friday"</span>,
+      <span class="st">"Saturday"</span>,
+      <span class="st">"Sunday"</span>
+    <span class="op">)</span>
+  <span class="op">)</span></code></pre></div>
+<p>And we can compare the results by graphing first with the original character vector on the x-axis, and then another graph with the factor vector on the x-axis.</p>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days</span>, y <span class="op">=</span> <span class="va">some_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_as_factor</span>, y <span class="op">=</span> <span class="va">some_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="03-r_essentials_files/figure-html/unnamed-chunk-78-1.png" width="50%"><img src="03-r_essentials_files/figure-html/unnamed-chunk-78-2.png" width="50%"></p>
 </div>
 </div>
 <div id="dealing-with-errors" class="section level2" number="3.9">
@@ -1408,7 +1696,6 @@ Figure 3.3: After running an R Script
 <li>Making a small, self-contained, reproducible example ‘reprex’ to see if the issue can be isolated and to enable others to help.</li>
 <li>Restarting your computer.</li>
 </ol>
-<p>Having established the need to have a thorough plan for when things go wrong, w</p>
 </div>
 <div id="exercises-and-tutorial-2" class="section level2" number="3.10">
 <h2>
@@ -1419,6 +1706,15 @@ Figure 3.3: After running an R Script
 <span class="header-section-number">3.10.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
+<li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation"><a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao</a> (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>Unknown unknowns.</li>
+<li>Imperfect processes.</li>
+<li>The definitions of fairness.</li>
+<li>Lack of social context.</li>
+<li>Disinterest given profit considerations.</li>
+</ol>
+</li>
 <li>What is R?
 <ol style="list-style-type: lower-alpha">
 <li>A open-source statistical programming language</li>
@@ -1454,14 +1750,10 @@ Figure 3.3: After running an R Script
 </li>
 <li>Say we had a dataset with two columns: ‘name,’ and ‘age.’ Which verb should we use to pick just ‘name’ (pick one)?
 <ol style="list-style-type: lower-alpha">
-<li>
-<code>tidyverse::select()</code>.</li>
-<li>
-<code>tidyverse::mutate()</code>.</li>
-<li>
-<code>tidyverse::filter()</code>.</li>
-<li>
-<code>tidyverse::rename()</code>.</li>
+<li><code>tidyverse::select()</code></li>
+<li><code>tidyverse::mutate()</code></li>
+<li><code>tidyverse::filter()</code></li>
+<li><code>tidyverse::rename()</code></li>
 </ol>
 </li>
 <li>Say we had loaded <code>AustralianPoliticians</code> and <code>tidyverse</code> and then run the following code: <code>australian_politicians &lt;- AustralianPoliticians::get_auspol('all')</code>. How could we select all of the columns that end with ‘Name’ (pick one)?
@@ -1472,7 +1764,42 @@ Figure 3.3: After running an R Script
 <li><code>australian_politicians |&gt; select(ends_with("Name"))</code></li>
 </ol>
 </li>
-<li>Under what circumstances, in terms of the names of the columns, would the use of ‘contains()’ potentially give different answers to using ‘ends_with()’ in the above question?<br>
+<li>Under what circumstances, in terms of the names of the columns, would the use of ‘contains()’ potentially give different answers to using ‘ends_with()’ in the above question?</li>
+<li>Which of the following are not tidyverse verbs (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code>visualize()</code></li>
+</ol>
+</li>
+<li>If I wanted to make a new column which verb should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code>visualize()</code></li>
+</ol>
+</li>
+<li>If I wanted to focus on particular rows which verb should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
+</ol>
+</li>
+<li>If I wanted a summary of the data that gave me the mean by sex, which two verbs should I use (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></li>
+<li><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code></li>
+</ol>
 </li>
 <li>Assume a variable called ‘age’ is an integer. Which line of code would create a column that is its exponential (pick one)?
 <ol style="list-style-type: lower-alpha">
@@ -1490,112 +1817,36 @@ Figure 3.3: After running an R Script
 <li><code>mutate(five_before = lead(age, n = 5))</code></li>
 </ol>
 </li>
-<li>Which of the following are not tidyverse verbs (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</li>
-<li>
-<code>visualize()</code>.</li>
-</ol>
-</li>
-<li>If I wanted to make a new column which verb should I use (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</li>
-<li>
-<code>visualize()</code>.</li>
-</ol>
-</li>
-<li>If I wanted to focus on particular rows which verb should I use (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</li>
-<li><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></li>
-</ol>
-</li>
-<li>If I wanted a summary of the data that gave me the mean by sex, which two verbs should I use (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</li>
-<li>
-<code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.</li>
-</ol>
-</li>
-<li>Assume a variable called age is an integer. Which line of code would create a column that is its exponential?
-<ol style="list-style-type: lower-alpha">
-<li>mutate(exp_age = exponential(age))</li>
-<li>mutate(exp_age = exponent(age))</li>
-<li>mutate(exp_age = exp(age))</li>
-<li>mutate(exp_age = expon(age))</li>
-</ol>
-</li>
-<li>Assume a column called age, and I want to create a column that contains the value from five rows above. Which line of code would create a column that is its exponential?
-<ol style="list-style-type: lower-alpha">
-<li>mutate(five_before = lag(age))</li>
-<li>mutate(five_before = lead(age))</li>
-<li>mutate(five_before = lag(age, n = 5))</li>
-<li>mutate(five_before = lead(age, n = 5))</li>
-</ol>
-</li>
-<li>What are the three key aspects of the grammar of graphics (select all)?
-<ol style="list-style-type: lower-alpha">
-<li>data.</li>
-<li>aesthetics.</li>
-<li>type.</li>
-<li>geom_histogram().</li>
-</ol>
-</li>
-<li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation"><a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao</a> (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
-<ol style="list-style-type: lower-alpha">
-<li>Unknown unknowns.</li>
-<li>Imperfect processes.</li>
-<li>The definitions of fairness.</li>
-<li>Lack of social context.</li>
-<li>Disinterest given profit considerations.</li>
-</ol>
-</li>
 <li>What would be the output of <code>class('edward')</code> (pick one)?
 <ol style="list-style-type: lower-alpha">
-<li>‘numeric.’</li>
-<li>‘character.’</li>
-<li>‘data.frame.’</li>
-<li>‘vector.’</li>
+<li>‘numeric’</li>
+<li>‘character’</li>
+<li>‘data.frame’</li>
+<li>‘vector’</li>
+</ol>
+</li>
+<li>Which function would enable us to draw once from three options ‘blue, white, red,’ with 10 per cent probability on ‘blue’ and ‘white,’ and the remainder on ‘red?’
+<ol style="list-style-type: lower-alpha">
+<li><code>sample(c('blue', 'white', 'red'), prob = c(0.1, 0.1, 0.8))</code></li>
+<li><code>sample(c('blue', 'white', 'red'), size = 1)</code></li>
+<li><code>sample(c('blue', 'white', 'red'), size = 1, prob = c(0.8, 0.1, 0.1))</code></li>
+<li><code>sample(c('blue', 'white', 'red'), size = 1, prob = c(0.1, 0.1, 0.8))</code></li>
 </ol>
 </li>
 <li>How can I simulate 10,000 draws from a normal distribution with a mean of 27 and a standard deviation of 3 (pick one)?
 <ol style="list-style-type: lower-alpha">
-<li>
-<code>rnorm(10000, mean = 27, sd = 3)</code>.</li>
-<li>
-<code>rnorm(27, mean = 10000, sd = 3)</code>.</li>
-<li>
-<code>rnorm(3, mean = 10000, sd = 27)</code>.</li>
-<li>
-<code>rnorm(27, mean = 3, sd = 1000)</code>.</li>
+<li><code>rnorm(10000, mean = 27, sd = 3)</code></li>
+<li><code>rnorm(27, mean = 10000, sd = 3)</code></li>
+<li><code>rnorm(3, mean = 10000, sd = 27)</code></li>
+<li><code>rnorm(27, mean = 3, sd = 1000)</code></li>
+</ol>
+</li>
+<li>What are the three key aspects of the grammar of graphics (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>data</li>
+<li>aesthetics</li>
+<li>type</li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code></li>
 </ol>
 </li>
 </ol>
@@ -1642,21 +1893,13 @@ Figure 3.3: After running an R Script
 <li><a class="nav-link" href="#functions"><span class="header-section-number">3.6.3</span> Functions</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#ggplot"><span class="header-section-number">3.7</span> ggplot</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#main-features"><span class="header-section-number">3.7.1</span> Main features</a></li>
-<li><a class="nav-link" href="#facets"><span class="header-section-number">3.7.2</span> Facets</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#making-graphs-with-ggplot2"><span class="header-section-number">3.7</span> Making graphs with ggplot2</a></li>
 <li>
 <a class="nav-link" href="#exploring-the-tidyverse"><span class="header-section-number">3.8</span> Exploring the tidyverse</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#tibbles"><span class="header-section-number">3.8.1</span> Tibbles</a></li>
-<li><a class="nav-link" href="#importing-data"><span class="header-section-number">3.8.2</span> Importing data</a></li>
-<li><a class="nav-link" href="#joining-data"><span class="header-section-number">3.8.3</span> Joining data</a></li>
-<li><a class="nav-link" href="#strings"><span class="header-section-number">3.8.4</span> Strings</a></li>
-<li><a class="nav-link" href="#pivot"><span class="header-section-number">3.8.5</span> Pivot</a></li>
-<li><a class="nav-link" href="#factors"><span class="header-section-number">3.8.6</span> Factors</a></li>
-<li><a class="nav-link" href="#cases"><span class="header-section-number">3.8.7</span> Cases</a></li>
+<li><a class="nav-link" href="#importing-data-and-tibble"><span class="header-section-number">3.8.1</span> Importing data and tibble()</a></li>
+<li><a class="nav-link" href="#dataset-manipulation-with-joins-and-pivots"><span class="header-section-number">3.8.2</span> Dataset manipulation with joins and pivots</a></li>
+<li><a class="nav-link" href="#string-manipulation-and-stringr"><span class="header-section-number">3.8.3</span> String manipulation and stringr</a></li>
+<li><a class="nav-link" href="#factor-variables-and-forcats"><span class="header-section-number">3.8.4</span> Factor variables and forcats</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#dealing-with-errors"><span class="header-section-number">3.9</span> Dealing with errors</a></li>
@@ -1683,7 +1926,7 @@ Figure 3.3: After running an R Script
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 04 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -14,6 +14,9 @@
 
 - 
 
+Random stuff: 
+https://psyarxiv.com/n32qw/
+
 **Required viewing**
 
 - 
@@ -154,7 +157,6 @@ A few other general tips that I have stolen from various people including the Re
 - Avoid jargon.
 
 You should break these rules when you need to. But the only way to know whether you need to break a rule is to know the rules in the first instance.
-
 
 
 
