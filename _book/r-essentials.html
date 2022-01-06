@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 R essentials | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
+<meta name="description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read R for Data Science, Chapters 4 and 5,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 R essentials | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
+<meta property="og:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read R for Data Science, Chapters 4 and 5,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 R essentials | Telling Stories With Data">
-<meta name="twitter:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Watch Make a reprex… Please, (Gelfand 2021)...">
+<meta name="twitter:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read R for Data Science, Chapters 4 and 5,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -101,9 +101,7 @@
 </li>
 <li>Read <em>This is how AI bias really happens—and why it’s so hard to fix</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
 </li>
-<li>Watch <em>Make a reprex… Please</em>, <span class="citation">(<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand 2021</a>)</span>
-</li>
-<li>Watch <em>Object of type ‘closure’ is not subsettable</em>, <span class="citation">(<a href="references-1.html#ref-jennybryan" role="doc-biblioref">Jenny Bryan 2020b</a>)</span>
+<li>Read <em>R for Data Science</em>, Chapters 4 and 5, <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
 </li>
 </ul>
 <!-- - Watch *Defining Custom Functions in R*, [@shiroonfunctions]. --><!-- **Recommended reading** --><!-- - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/.  --><!-- - Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/. --><!-- - Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/. --><!-- - 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide. --><!-- - Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/. --><!-- - Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/. --><!-- - Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/. --><p><strong>Key concepts and skills</strong></p>
@@ -910,7 +908,7 @@ Figure 3.3: After running an R Script
              <span class="va">year_of_birth</span> <span class="op">&lt;=</span> <span class="fl">1989</span> <span class="op">~</span> <span class="st">"1980s"</span>,
              <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"Unknown or error"</span>
              <span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">uniqueID</span>, <span class="va">year_of_birth</span>, <span class="va">decade_of_birth</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,783 × 3</span>
 <span class="co">#&gt;    uniqueID   year_of_birth decade_of_birth </span>
@@ -1068,17 +1066,13 @@ Figure 3.3: After running an R Script
 <li><code>function()</code></li>
 </ol>
 <p>There is no need to install any additional packages, as this functionality comes with R.</p>
-<p>We will use the ‘ResumeNames’ dataset from the <code>AER</code> package <span class="citation">(<a href="references-1.html#ref-citeaer" role="doc-biblioref">Kleiber and Zeileis 2008</a>)</span>. This package can be installed in the same way as any other package from CRAN: <code>install.packages("AER")</code>. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by <span class="citation"><a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">Bertrand and Mullainathan</a> (<a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">2004</a>)</span> who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a ‘very African American sounding name or a very White sounding name.’ They found considerable discrimination whereby ‘White names receive 50 percent more callbacks for interviews.’</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ResumeNames"</span>, package <span class="op">=</span> <span class="st">"AER"</span><span class="op">)</span></code></pre></div>
 <div id="class" class="section level3" number="3.6.1">
 <h3>
 <span class="header-section-number">3.6.1</span> Class<a class="anchor" aria-label="anchor" href="#class"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the same way that ‘a, b, c, …’ are letters and ‘1, 2, 3,…’ are numbers, R needs to have some way of distinguishing different classes of content. We use letters and numbers differently, for instance we cannot add letters. Similarly, R needs to formalise this to define the properties that each class has, ‘how it behaves, and how it relates to other types of objects’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>.</p>
 <p>Classes have a hierarchy. For instance, we are ‘human,’ which is itself ‘animal.’ All ‘humans’ are ‘animals,’ but not all ‘animals’ are ‘humans.’ Similarly, all integers are numbers, but not all numbers are integers. To find this out in R we use the function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
 <span class="co">#&gt; [1] "numeric"</span>
@@ -1088,7 +1082,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; [1] "character"</span></code></pre></div>
 <p>The classes that we cover here are ‘numeric,’ ‘character,’ ‘factor,’ ‘date,’ ‘data.frame.’</p>
 <p>The first thing to know is that we can sometimes change the class of an object. For instance, we could start with a ‘numeric,’ change it to a ‘character’ with <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>, and then a ‘factor’ with <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code>. But if we tried to make it into a date with <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> we would get an error because the number that we used does not have the properties that are needed to be a date.</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
 <span class="va">a_number</span>
 <span class="co">#&gt; [1] 8</span>
@@ -1108,7 +1102,7 @@ Figure 3.3: After running an R Script
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
 <span class="co">#&gt; [1] "factor"</span></code></pre></div>
 <p>Compared with ‘numeric’ and ‘character’ classes, the ‘factor’ class might be less familiar. A ‘factor’ is used for categorical data, which means there is no ranking, that can only take certain values <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. For instance, typical usage of a factor variable would be a binary, such as ‘day’ or ‘night.’ It is also often used for age-groups, such as ‘18-29,’ ‘30-44,’ ‘45-60,’ ‘60+’ (as opposed to age, which would often be a ‘numeric’); and sometimes for level of education: ‘less than high school,’ ‘high school,’ ‘college,’ ‘undergraduate degree,’ ‘postgraduate degree.’ We can find the allowed levels for a ‘factor’ using <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code>.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">age_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'18-29'</span>, <span class="st">'30-44'</span>, <span class="st">'45-60'</span>, <span class="st">'60+'</span><span class="op">)</span>
 <span class="op">)</span>
@@ -1120,13 +1114,13 @@ Figure 3.3: After running an R Script
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">age_groups</span><span class="op">)</span>
 <span class="co">#&gt; [1] "18-29" "30-44" "45-60" "60+"</span></code></pre></div>
 <p>Dates are an especially tricky class as they quickly become complicated. Nonetheless, at a foundational level, we can use <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> to convert a character that looks like a date into a an actual date. This enables us to, say, calculate perform addition and subtraction, when we would not be able to do that with a character representation.</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">looks_like_a_date_but_is_not</span> <span class="op">&lt;-</span> <span class="st">"2022-01-01"</span>
 <span class="va">looks_like_a_date_but_is_not</span>
 <span class="co">#&gt; [1] "2022-01-01"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">looks_like_a_date_but_is_not</span><span class="op">)</span>
 <span class="co">#&gt; [1] "character"</span>
-<span class="va">is_a_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">looks_like_a_date_but_is_not</span><span class="op">)</span>
+<span class="va">is_a_date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">looks_like_a_date_but_is_not</span><span class="op">)</span>
 <span class="va">is_a_date</span>
 <span class="co">#&gt; [1] "2022-01-01"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">is_a_date</span><span class="op">)</span>
@@ -1134,8 +1128,13 @@ Figure 3.3: After running an R Script
 <span class="va">is_a_date</span> <span class="op">+</span> <span class="fl">3</span>
 <span class="co">#&gt; [1] "2022-01-04"</span></code></pre></div>
 <p>The final class that we discuss here is ‘data.frame.’ This looks like a spreadsheet and is commonly used to store the data that we will analyse. Formally, ‘a data frame is a list of equal-length vectors’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. It will have column and row names which we can see using <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> and <code><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames()</a></code>, although often the names of the rows are just numbers.</p>
+<p>To illustrate this we use the ‘ResumeNames’ dataset from the <code>AER</code> package <span class="citation">(<a href="references-1.html#ref-citeaer" role="doc-biblioref">Kleiber and Zeileis 2008</a>)</span>. This package can be installed in the same way as any other package from CRAN: <code>install.packages("AER")</code>. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by <span class="citation"><a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">Bertrand and Mullainathan</a> (<a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">2004</a>)</span> who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a ‘very African American sounding name or a very White sounding name.’ They found considerable discrimination whereby ‘White names receive 50 percent more callbacks for interviews.’</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ResumeNames"</span>, package <span class="op">=</span> <span class="st">"AER"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ResumeNames</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">ResumeNames</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;      name gender ethnicity quality call    city jobs</span>
 <span class="co">#&gt; 1 Allison female      cauc     low   no chicago    2</span>
 <span class="co">#&gt; 2 Kristen female      cauc    high   no chicago    3</span>
@@ -1363,13 +1362,13 @@ Figure 3.3: After running an R Script
 <p>We are interested, firstly, in building up a histogram of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.</p>
 <div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> <span class="op">&lt;-</span> 
-  <span class="va">oecd_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="va">oecd_gdp</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TIME</span> <span class="op">==</span> <span class="st">"2021-Q3"</span>,
          <span class="va">SUBJECT</span> <span class="op">==</span> <span class="st">"TOT"</span>,
          <span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"CAN"</span>, <span class="st">"CHL"</span>, <span class="st">"DEU"</span>,
                          <span class="st">"GBR"</span>, <span class="st">"IDN"</span>, <span class="st">"IND"</span>, <span class="st">"ESP"</span>, 
                          <span class="st">"JPN"</span>, <span class="st">"NZL"</span>, <span class="st">"USA"</span>, <span class="st">"ZAF"</span><span class="op">)</span>,
-         <span class="va">MEASURE</span> <span class="op">==</span> <span class="st">"PC_CHGPY"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+         <span class="va">MEASURE</span> <span class="op">==</span> <span class="st">"PC_CHGPY"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>european <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span><span class="op">)</span>,
                              <span class="st">"European"</span>,
                              <span class="st">"Not european"</span><span class="op">)</span>,
@@ -1425,7 +1424,7 @@ Figure 3.3: After running an R Script
 <h2>
 <span class="header-section-number">3.8</span> Exploring the tidyverse<a class="anchor" aria-label="anchor" href="#exploring-the-tidyverse"><i class="fas fa-link"></i></a>
 </h2>
-<p>We have focused on two aspects of the tidyverse: <code>dplyr</code>, and <code>ggplot2</code>. However the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:</p>
+<p>We have focused on two aspects of the tidyverse: <code>dplyr</code>, and <code>ggplot2</code>. However, the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:</p>
 <ul>
 <li>Importing data and <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code>
 </li>
@@ -1443,7 +1442,7 @@ Figure 3.3: After running an R Script
 <p>CSVs are a common format and have many advantages including the fact that they typically do not modify the data. Each field is separated by a comma, and each row is a record. We can provide <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> with a URL or a local file to read. There are a variety of different options that can be passed to the function including the ability to specify whether the dataset has column names, the types of the columns, and how many lines to skip. If we do not specify the types of the columns then <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> will make a guess by looking at the dataset.</p>
 <p>We use <code>read_dta()</code> to read .dta files, which are commonly produced by the statistical program Stata. This means that they are common in fields such as sociology, political science, and economics. This format separates the data from its labels and so we will typically need to reunite these using <code><a href="http://larmarange.github.io/labelled/reference/to_factor.html">labelled::to_factor()</a></code>. <code>haven</code> is part of the tidyverse, but is not automatically loaded by default, in contrast to a package such as <code>ggplot2</code>, and so we would need to run <code><a href="https://haven.tidyverse.org">library(haven)</a></code>.</p>
 <p>Typically a dataset enters R as a ‘data.frame.’ While this can be useful, another helpful class for a dataset is ‘tibble.’ These can be created using <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> from the <code>tibble</code> package which is part of the tidyverse. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.</p>
-<p>We can make a tibble manually if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
+<p>We can make a tibble manually, if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
 <div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">people_as_dataframe</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rohan"</span>, <span class="st">"monica"</span><span class="op">)</span>,
@@ -1476,7 +1475,7 @@ Figure 3.3: After running an R Script
 <span class="header-section-number">3.8.2</span> Dataset manipulation with joins and pivots<a class="anchor" aria-label="anchor" href="#dataset-manipulation-with-joins-and-pivots"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are two common types of dataset manipulations that are often needed: joins and pivots.</p>
-<p>We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> from <code>dplyr</code>. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datatsets.</p>
+<p>We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> from <code>dplyr</code>. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datasets.</p>
 <p>Here we will create two tibbles and then join them.</p>
 <p>I want to join another to it based on some common column names. Here we’ll join two datasets based on favourite colour.</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
@@ -1509,7 +1508,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 4 hugo   milk</span>
 
 <span class="va">main_dataset</span> <span class="op">&lt;-</span> 
-  <span class="va">main_dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="va">main_dataset</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">supplementary_dataset</span>, by <span class="op">=</span> <span class="st">"names"</span><span class="op">)</span>
 
 <span class="va">main_dataset</span>
@@ -1574,7 +1573,7 @@ Figure 3.3: After running an R Script
 <h3>
 <span class="header-section-number">3.8.3</span> String manipulation and <code>stringr</code><a class="anchor" aria-label="anchor" href="#string-manipulation-and-stringr"><i class="fas fa-link"></i></a>
 </h3>
-<p>In R we often create a string with double quotes, although single quotes is fine too. For instance <code>c("a", "b")</code> consists of two strings ‘a’ and ‘b,’ and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the <code>stringr</code> package <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>. This is automatically loaded when we load the <code>tidyverse</code>.</p>
+<p>In R we often create a string with double quotes, although using single quotes is fine too. For instance <code>c("a", "b")</code> consists of two strings ‘a’ and ‘b,’ and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the <code>stringr</code> package <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>. This is automatically loaded when we load the <code>tidyverse</code>.</p>
 <p>If we want to look for whether a string contains certain content, then we can use <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect()</a></code>. If we want to remove or change some particular content then we can use <code><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove()</a></code> or <code><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace()</a></code>.</p>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataset_of_strings</span> <span class="op">&lt;-</span> 
@@ -1629,8 +1628,8 @@ Figure 3.3: After running an R Script
 <h3>
 <span class="header-section-number">3.8.4</span> Factor variables and <code>forcats</code><a class="anchor" aria-label="anchor" href="#factor-variables-and-forcats"><i class="fas fa-link"></i></a>
 </h3>
-<p>A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order—Monday, Tuesday, Wednesday, …—which is not alphabetical. But there is no inherent order for gender—female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance if ‘days_of_the_week’ was a factor variable then ‘January’ would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in <code>tidyverse</code>. Nonetheless taking advantage of factors is useful in certain circumstances. For instance when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one <code>tidyverse</code> package that is especially useful when using factors is <code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>.</p>
-<p>Sometimes we have a character vector and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!</p>
+<p>A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order—Monday, Tuesday, Wednesday, …—which is not alphabetical. But there is no inherent order for gender—female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance, if ‘days_of_the_week’ was a factor variable then ‘January’ would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in <code>tidyverse</code>. Nonetheless taking advantage of factors is useful in certain circumstances. For instance, when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one <code>tidyverse</code> package that is especially useful when using factors is <code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>.</p>
+<p>Sometimes we have a character vector, and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!</p>
 <p>The way to change the ordering is to change the variable from a character to a factor. We can use <code><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel()</a></code> from <code>forcats</code> to specify an ordering.</p>
 <div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -1651,7 +1650,7 @@ Figure 3.3: After running an R Script
   <span class="op">)</span>
 
 <span class="va">days_data</span> <span class="op">&lt;-</span>
-  <span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="va">days_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
     days_as_factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span>,
     days_as_factor <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span>
@@ -1667,43 +1666,23 @@ Figure 3.3: After running an R Script
   <span class="op">)</span></code></pre></div>
 <p>And we can compare the results by graphing first with the original character vector on the x-axis, and then another graph with the factor vector on the x-axis.</p>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">days_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days</span>, y <span class="op">=</span> <span class="va">some_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">days_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">days_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">days_as_factor</span>, y <span class="op">=</span> <span class="va">some_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="03-r_essentials_files/figure-html/unnamed-chunk-78-1.png" width="50%"><img src="03-r_essentials_files/figure-html/unnamed-chunk-78-2.png" width="50%"></p>
 </div>
 </div>
-<div id="dealing-with-errors" class="section level2" number="3.9">
+<div id="exercises-and-tutorial-2" class="section level2" number="3.9">
 <h2>
-<span class="header-section-number">3.9</span> Dealing with errors<a class="anchor" aria-label="anchor" href="#dealing-with-errors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.9</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-2"><i class="fas fa-link"></i></a>
 </h2>
-<blockquote>
-<p>When you are programming, eventually your code will break, when I say eventually, I mean like probably 10 or 20 times a day.</p>
-<p><span class="citation"><a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand</a> (<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">2021</a>)</span></p>
-</blockquote>
-<p>Everyone who uses R, or any programming language for that matter, has trouble find them at some point. This is normal. We must develop strategies to work through these, including:</p>
-<ol style="list-style-type: decimal">
-<li>Looking at the help file for the function, by putting ‘?’ before the function, for instance, <code>?pivot_wider()</code>.</li>
-<li>Checking the class and ensuring that it is what we expect, by using the function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, for instance, <code>class(data_set$data_column)</code>.</li>
-<li>Looking for typos.</li>
-<li>Searching for the error message, focusing especially on Stack Overflow answers.</li>
-<li>Searching for what we are trying to do, being sure to include ‘tidyverse’ or ‘in R’ in the search to help make the results more appropriate.</li>
-<li>Restarting R (‘Session’ -&gt; ‘Restart R and Clear Output’) and starting again.</li>
-<li>Making a small, self-contained, reproducible example ‘reprex’ to see if the issue can be isolated and to enable others to help.</li>
-<li>Restarting your computer.</li>
-</ol>
-</div>
-<div id="exercises-and-tutorial-2" class="section level2" number="3.10">
-<h2>
-<span class="header-section-number">3.10</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-2"><i class="fas fa-link"></i></a>
-</h2>
-<div id="exercises-2" class="section level3" number="3.10.1">
+<div id="exercises-2" class="section level3" number="3.9.1">
 <h3>
-<span class="header-section-number">3.10.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.9.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation"><a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao</a> (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
@@ -1851,9 +1830,9 @@ Figure 3.3: After running an R Script
 </li>
 </ol>
 </div>
-<div id="tutorial-2" class="section level3" number="3.10.2">
+<div id="tutorial-2" class="section level3" number="3.9.2">
 <h3>
-<span class="header-section-number">3.10.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.9.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Listen to Gladwell and then rank sports teams or other departments or something else of interest to you based on at least three variables and one of which is peer thoughts.</p>
 
@@ -1902,11 +1881,10 @@ Figure 3.3: After running an R Script
 <li><a class="nav-link" href="#factor-variables-and-forcats"><span class="header-section-number">3.8.4</span> Factor variables and forcats</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#dealing-with-errors"><span class="header-section-number">3.9</span> Dealing with errors</a></li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-2"><span class="header-section-number">3.10</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-2"><span class="header-section-number">3.10.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-2"><span class="header-section-number">3.10.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-2"><span class="header-section-number">3.9</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-2"><span class="header-section-number">3.9.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-2"><span class="header-section-number">3.9.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -1926,7 +1904,7 @@ Figure 3.3: After running an R Script
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

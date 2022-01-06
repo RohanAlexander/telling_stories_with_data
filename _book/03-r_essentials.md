@@ -8,9 +8,7 @@
 
 - Read *The Kitchen Counter Observatory*, [@kieranskitchen]
 - Read *This is how AI bias really happens---and why it's so hard to fix*, [@hao2019]
-- Watch *Make a reprex... Please*, [@sharlatalks]
-- Watch *Object of type 'closure' is not subsettable*, [@jennybryan]
-
+- Read *R for Data Science*, Chapters 4 and 5, [@r4ds]
 
 <!-- - Watch *Defining Custom Functions in R*, [@shiroonfunctions]. -->
 
@@ -993,7 +991,7 @@ australian_politicians |>
              year_of_birth <= 1989 ~ "1980s",
              TRUE ~ "Unknown or error"
              )
-  ) %>% 
+  ) |> 
   select(uniqueID, year_of_birth, decade_of_birth)
 #> # A tibble: 1,783 × 3
 #>    uniqueID   year_of_birth decade_of_birth 
@@ -1192,13 +1190,6 @@ In particular, we will cover:
 
 There is no need to install any additional packages, as this functionality comes with R.
 
-We will use the 'ResumeNames' dataset from the `AER` package [@citeaer]. This package can be installed in the same way as any other package from CRAN: `install.packages("AER")`. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. 
-
-
-```r
-library(AER)
-data("ResumeNames", package = "AER")
-```
 
 ### Class
 
@@ -1279,9 +1270,18 @@ is_a_date + 3
 
 The final class that we discuss here is 'data.frame'. This looks like a spreadsheet and is commonly used to store the data that we will analyse. Formally, 'a data frame is a list of equal-length vectors' [@advancedr]. It will have column and row names which we can see using `colnames()` and `rownames()`, although often the names of the rows are just numbers.
 
+To illustrate this we use the 'ResumeNames' dataset from the `AER` package [@citeaer]. This package can be installed in the same way as any other package from CRAN: `install.packages("AER")`. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. 
+
 
 ```r
-ResumeNames |> head()
+library(AER)
+data("ResumeNames", package = "AER")
+```
+
+
+```r
+ResumeNames |> 
+  head()
 #>      name gender ethnicity quality call    city jobs
 #> 1 Allison female      cauc     low   no chicago    2
 #> 2 Kristen female      cauc    high   no chicago    3
@@ -1560,13 +1560,13 @@ We are interested, firstly, in building up a histogram of GDP change in the thir
 
 ```r
 oecd_gdp_most_recent <- 
-  oecd_gdp %>% 
+  oecd_gdp |> 
   filter(TIME == "2021-Q3",
          SUBJECT == "TOT",
          LOCATION %in% c("AUS", "CAN", "CHL", "DEU",
                          "GBR", "IDN", "IND", "ESP", 
                          "JPN", "NZL", "USA", "ZAF"),
-         MEASURE == "PC_CHGPY") %>% 
+         MEASURE == "PC_CHGPY") |> 
   mutate(european = if_else(LOCATION %in% c("DEU", "GBR", "ESP"),
                              "European",
                              "Not european"),
@@ -1626,8 +1626,6 @@ oecd_gdp_most_recent |>
 <img src="03-r_essentials_files/figure-html/unnamed-chunk-67-1.png" width="672" />
 
 
-
-
 Facets mean that we create subplots that focus on specific aspects of our data. They are invaluable because they allow us to add another variable to a graph without having to make a 3D graph. We use `facet_wrap()` to add a facet and specify the variable that we would like to facet by.
 
 
@@ -1651,7 +1649,7 @@ oecd_gdp_most_recent |>
 
 ## Exploring the tidyverse
 
-We have focused on two aspects of the tidyverse: `dplyr`, and `ggplot2`. However the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:
+We have focused on two aspects of the tidyverse: `dplyr`, and `ggplot2`. However, the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:
 
 - Importing data and `tibble()`
 - Joining and pivoting datasets
@@ -1669,7 +1667,7 @@ We use `read_dta()` to read .dta files, which are commonly produced by the stati
 
 Typically a dataset enters R as a 'data.frame'. While this can be useful, another helpful class for a dataset is 'tibble'. These can be created using `tibble()` from the `tibble` package which is part of the tidyverse. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.
 
-We can make a tibble manually if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use `read_csv()`.
+We can make a tibble manually, if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use `read_csv()`.
 
 
 ```r
@@ -1705,7 +1703,7 @@ class(people_as_tibble)
 
 There are two common types of dataset manipulations that are often needed: joins and pivots.
 
-We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use `left_join()` from `dplyr`. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datatsets.
+We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use `left_join()` from `dplyr`. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datasets.
 
 Here we will create two tibbles and then join them.
 
@@ -1742,7 +1740,7 @@ supplementary_dataset
 #> 4 hugo   milk
 
 main_dataset <- 
-  main_dataset %>% 
+  main_dataset |> 
   left_join(supplementary_dataset, by = "names")
 
 main_dataset
@@ -1821,7 +1819,7 @@ head(data_pivoted_wider)
 
 ### String manipulation and `stringr`
 
-In R we often create a string with double quotes, although single quotes is fine too. For instance `c("a", "b")` consists of two strings 'a' and 'b', and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the `stringr` package [@citestringr]. This is automatically loaded when we load the `tidyverse`.
+In R we often create a string with double quotes, although using single quotes is fine too. For instance `c("a", "b")` consists of two strings 'a' and 'b', and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the `stringr` package [@citestringr]. This is automatically loaded when we load the `tidyverse`.
 
 If we want to look for whether a string contains certain content, then we can use `str_detect()`. If we want to remove or change some particular content then we can use `str_remove()` or `str_replace()`. 
 
@@ -1887,9 +1885,9 @@ dataset_of_strings |>
 
 ### Factor variables and `forcats`
 
-A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order---Monday, Tuesday, Wednesday, ...---which is not alphabetical. But there is no inherent order for gender---female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance if 'days_of_the_week' was a factor variable then 'January' would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in `tidyverse`. Nonetheless taking advantage of factors is useful in certain circumstances. For instance when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one `tidyverse` package that is especially useful when using factors is `forcats` [@citeforcats].
+A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order---Monday, Tuesday, Wednesday, ...---which is not alphabetical. But there is no inherent order for gender---female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance, if 'days_of_the_week' was a factor variable then 'January' would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in `tidyverse`. Nonetheless taking advantage of factors is useful in certain circumstances. For instance, when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one `tidyverse` package that is especially useful when using factors is `forcats` [@citeforcats].
 
-Sometimes we have a character vector and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!
+Sometimes we have a character vector, and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!
 
 The way to change the ordering is to change the variable from a character to a factor. We can use `fct_relevel()` from `forcats` to specify an ordering.
 
@@ -1913,7 +1911,7 @@ days_data <-
   )
 
 days_data <-
-  days_data %>%
+  days_data |>
   mutate(
     days_as_factor = factor(days),
     days_as_factor = fct_relevel(
@@ -1933,11 +1931,11 @@ And we can compare the results by graphing first with the original character vec
 
 
 ```r
-days_data %>% 
+days_data |> 
   ggplot(aes(x = days, y = some_value)) +
   geom_point()
 
-days_data %>% 
+days_data |> 
   ggplot(aes(x = days_as_factor, y = some_value)) +
   geom_point()
 ```
@@ -1947,22 +1945,6 @@ days_data %>%
 
 
 
-## Dealing with errors
-
-> When you are programming, eventually your code will break, when I say eventually, I mean like probably 10 or 20 times a day.
->
-> @sharlatalks
-
-Everyone who uses R, or any programming language for that matter, has trouble find them at some point. This is normal. We must develop strategies to work through these, including:
-
-1. Looking at the help file for the function, by putting '?' before the function, for instance, `?pivot_wider()`.
-2. Checking the class and ensuring that it is what we expect, by using the function `class()`, for instance, `class(data_set$data_column)`.
-3. Looking for typos.
-4. Searching for the error message, focusing especially on Stack Overflow answers.
-5. Searching for what we are trying to do, being sure to include 'tidyverse' or 'in R' in the search to help make the results more appropriate.
-6. Restarting R ('Session' -> 'Restart R and Clear Output') and starting again.
-7. Making a small, self-contained, reproducible example 'reprex' to see if the issue can be isolated and to enable others to help.
-8. Restarting your computer.
 
 
 

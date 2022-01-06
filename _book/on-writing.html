@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 5 On writing | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ Required viewing Recommended reading Examples of well-written papers Key concepts/skills/etc Key libraries Key functions/etc Quiz  5.1...">
+<meta name="description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 5 On writing | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ Required viewing Recommended reading Examples of well-written papers Key concepts/skills/etc Key libraries Key functions/etc Quiz  5.1...">
+<meta property="og:description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 5 On writing | Telling Stories With Data">
-<meta name="twitter:description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ Required viewing Recommended reading Examples of well-written papers Key concepts/skills/etc Key libraries Key functions/etc Quiz  5.1...">
+<meta name="twitter:description" content="Required reading Random stuff: https://psyarxiv.com/n32qw/ https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -99,8 +99,12 @@
 <ul>
 <li>
 </ul>
-<p>Random stuff:
-<a href="https://psyarxiv.com/n32qw/" class="uri">https://psyarxiv.com/n32qw/</a></p>
+<p>Random stuff:</p>
+<ul>
+<li><a href="https://psyarxiv.com/n32qw/" class="uri">https://psyarxiv.com/n32qw/</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Einstein%E2%80%93Szil%C3%A1rd_letter#/media/File:Einstein-Roosevelt-letter.png" class="uri">https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png</a></li>
+<li><a href="https://www.w3.org/History/1989/proposal.html" class="uri">https://www.w3.org/History/1989/proposal.html</a></li>
+</ul>
 <p><strong>Required viewing</strong></p>
 <ul>
 <li>
@@ -126,9 +130,9 @@
 <li>
 </ul>
 <p><strong>Quiz</strong></p>
-<div id="introduction-3" class="section level2" number="5.1">
+<div id="introduction-1" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">5.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
 </h2>
 </div>
 <div id="writing" class="section level2" number="5.2">
@@ -139,10 +143,69 @@
 <p>I had not indeed published anything before I commenced “The Professor,” but in many a crude effort, destroyed almost as soon as composed, I had got over any such taste as I might once have had for ornamented and redundant composition, and come to prefer what was plain and homely.</p>
 <p>Currer Bell (aka Charlotte Brontë), <em>The Professor</em>.</p>
 </blockquote>
-<p>It’s nto what you say, it’s what they hear.</p>
-<div id="title-abstract-and-introduction" class="section level3" number="5.2.1">
+<blockquote>
+<p>It’s not what you say, it’s what they hear.</p>
+<p>Frank Luntz</p>
+</blockquote>
+</div>
+<div id="developing-research-questions" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Developing research questions<a class="anchor" aria-label="anchor" href="#developing-research-questions"><i class="fas fa-link"></i></a>
+</h2>
+<p>Both qualitative and quantitative approaches have their place, but here we focus on quantitative approaches. Qualitative research is important as well, and often the most interesting work has a little of both—‘mixed methods.’ This means that we are subject to issues surrounding data quality, scales, measures, sources, etc. We are especially interested in trying to tease out causality.</p>
+<p>Broadly there are two ways to go about research:</p>
+<ol style="list-style-type: decimal">
+<li>data-first,</li>
+<li>question-first.</li>
+</ol>
+<p>If you get a job somewhere typically you will initially be data-first. This means that you will need to work out the questions that you can reasonably answer with the data available to you. After you show some promise, you may be given the latitude to explore specific questions, possibly even gathering data specifically for that purpose. Contrast this with the example of the Behavioural Insights Team, <span class="citation">(<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al. 2016, 23</a>)</span> who got to design and then carry out experiments given the remit of the entire British government (as they were spun out of the prime minister’s office).</p>
+<p>When deciding the questions that you can reasonably answer with the data that are available, you need to think about:</p>
+<ol style="list-style-type: decimal">
+<li>Theory: Do you have a reasonable expectation that there is something causal that could be determined? Charting the stock market - maybe, but might be better with haruspex because at least that way you have something you could eat. You need a reasonable theory of how <span class="math inline">\(x\)</span> may be affecting <span class="math inline">\(y\)</span>.</li>
+<li>Importance: There are plenty of trivial questions that you could ask, but it’s important to not waste your time. The importance of a question also helps with motivation when you are on your fourth straight week of cleaning data and de-bugging your code. It also (and this becomes important) makes it easier to get talented people to work with you, or similarly to convince people to fund you or allow you to work on this project.</li>
+<li>Availability: Can you reasonably expect get more data about this research question in the future or is this the extent of the data that could be gathered?</li>
+<li>Iteration: Is this something that you can come back to and run often or is this a once-off analysis?</li>
+</ol>
+<p>The ‘FINER framework’ as a mnemonic device used in medicine. This framework reminds us to ask questions that are <span class="citation">(<a href="references-1.html#ref-hulley2007designing" role="doc-biblioref">Hulley 2007</a>)</span>:</p>
+<blockquote>
+<ul>
+<li>Feasible: Adequate number of subjects; adequate technical expertise; affordable in time and money; manageable in scope.</li>
+<li>Interesting: Getting the answer intrigues investigator, peers and community.</li>
+<li>Novel: Confirms, refutes or extends previous findings</li>
+<li>Ethical: Amenable to a study that institutional review board will approve.</li>
+<li>Relevant: To scientific knowledge; to clinical and health policy; to future research.</li>
+</ul>
+</blockquote>
+<p><span class="citation"><a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">Farrugia et al.</a> (<a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">2010</a>)</span> build on this in terms of developing research questions and recommend ‘PICOT’:</p>
+<blockquote>
+<ul>
+<li>Population: What specific population are you interested in?</li>
+<li>Intervention: What is your investigational intervention?</li>
+<li>Comparison group: What is the main alternative to compare with the intervention?</li>
+<li>Outcome of interest: What do you intend to accomplish, measure, improve or affect?</li>
+<li>Time: What is the appropriate follow-up time to assess outcome</li>
+</ul>
+</blockquote>
+<p>Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump’s tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.</p>
+<p>Usually, the creation of a counterfactual is crucial. We’ll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the ‘if’ is false. Consider the example of Humpty Dumpty from Lewis Carroll’s Through the Looking-Glass:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:humpty"></span>
+<img src="figures/humpty.png" alt="Humpty Dumpty example" width="95%"><p class="caption">
+Figure 5.1: Humpty Dumpty example
+</p>
+</div>
+<p>Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won’t ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.</p>
+<p>Finally, we can often dodge ethics boards in data science, especially once you leave university. Typically, ethics guides from medicine and other fields are focused on ethics boards. But we often do not have those in data science applications. Even if your intentions are unimpeachable, I want to suggest one additional aspect to think about, and that is Bayes theorem:
+<span class="math display">\[P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}\]</span>
+(The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.)</p>
+<p>To see why this may be relevant, let’s go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let’s just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
+<span class="math display">\[\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2\]</span></p>
+<p>To see why this may be relevant, consider the example of Google’s AI cancer testing <span class="citation">(<a href="references-1.html#ref-citeGoogleAIbreastcancer" role="doc-biblioref">Shetty and Tse 2020</a>)</span>. Basically, what they have done is to train a model that can identify breast cancer. They claim ‘greater accuracy, fewer false positives, and fewer false negatives than experts.’</p>
+<p>I, and many others <span class="citation">(<a href="references-1.html#ref-citeWiredonGoogle" role="doc-biblioref">Aschwanden 2020</a>)</span>, would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are ‘wrong’ with them. The issue is that they’re perfectly healthy and that we’ve rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.</p>
+<p>Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary ‘treatment’ would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.</p>
+<div id="title-abstract-and-introduction" class="section level3" number="5.3.1">
 <h3>
-<span class="header-section-number">5.2.1</span> Title, abstract, and introduction<a class="anchor" aria-label="anchor" href="#title-abstract-and-introduction"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.1</span> Title, abstract, and introduction<a class="anchor" aria-label="anchor" href="#title-abstract-and-introduction"><i class="fas fa-link"></i></a>
 </h3>
 <p>A title is the first opportunity that you have to tell the reader your story. Ideally you will tell the reader exactly what you found. An effective title is critical in order to get your work read when there are other competing priorities. A title doesn’t have to be ‘cute’ to be great.</p>
 <ul>
@@ -162,9 +225,9 @@
 </blockquote>
 <p>The recommended readings provide some lovely examples of titles, abstracts, and introductions. Please take the time to briefly read these papers.</p>
 </div>
-<div id="figures-tables-equations-and-technical-terms" class="section level3" number="5.2.2">
+<div id="figures-tables-equations-and-technical-terms" class="section level3" number="5.3.2">
 <h3>
-<span class="header-section-number">5.2.2</span> Figures, tables, equations, and technical terms<a class="anchor" aria-label="anchor" href="#figures-tables-equations-and-technical-terms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.2</span> Figures, tables, equations, and technical terms<a class="anchor" aria-label="anchor" href="#figures-tables-equations-and-technical-terms"><i class="fas fa-link"></i></a>
 </h3>
 <p>Figure and tables are a critical aspect of convincing people of your story. In a graph you can show your data and then let people decide for themselves. And in a table, you can more easily summarise your data.</p>
 <p>Figures, tables, equations, etc, should be numbered and then referenced in the text e.g. “Figure 1 shows…” and then have Figure 1.</p>
@@ -174,14 +237,14 @@
 <p>To look at the concentration of baby names, let’s calculate the Gini coefficient for each country, sex and year. The Gini coefficient measures dispersion or inequality among values of a frequency distribution. It can take any value between 0 and 1. In the case of income distributions, a Gini coefficient of 1 would mean one person has all the income. In this case, a Gini coefficient of 1 would mean that all babies have the same name. In contrast, a Gini coefficient of 0 would mean names are evenly distributed across all babies.</p>
 </blockquote>
 </div>
-<div id="on-brevity" class="section level3" number="5.2.3">
+<div id="on-brevity" class="section level3" number="5.3.3">
 <h3>
-<span class="header-section-number">5.2.3</span> On brevity<a class="anchor" aria-label="anchor" href="#on-brevity"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.3</span> On brevity<a class="anchor" aria-label="anchor" href="#on-brevity"><i class="fas fa-link"></i></a>
 </h3>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="figures/johnson.png" alt="'No more than four pages, or he's never going to read it. Two pages is preferable.'" width="90%"><p class="caption">
-Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pages is preferable.’
+Figure 5.2: ‘No more than four pages, or he’s never going to read it. Two pages is preferable.’
 </p>
 </div>
 <p>Source: Shipman, Tim, 2020, "The prime minister’s vanishing briefs’, The Sunday Times, 23 February, available at: <a href="https://www.thetimes.co.uk/article/the-prime-ministers-vanishing-briefs-67mt0bg95" class="uri">https://www.thetimes.co.uk/article/the-prime-ministers-vanishing-briefs-67mt0bg95</a> via <a href="https://twitter.com/sarahjnickson">Sarah Nickson</a>.</p>
@@ -201,9 +264,9 @@ Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pa
 <p>Jeff Bezos, 9 June 2004.</p>
 </blockquote>
 </div>
-<div id="other" class="section level3" number="5.2.4">
+<div id="other" class="section level3" number="5.3.4">
 <h3>
-<span class="header-section-number">5.2.4</span> Other<a class="anchor" aria-label="anchor" href="#other"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.3.4</span> Other<a class="anchor" aria-label="anchor" href="#other"><i class="fas fa-link"></i></a>
 </h3>
 <p>Typos and other grammatical mistakes affect the credibility of your claims. If the reader can’t trust you to use a spell-checker, then why should they trust you to use logistic regression? Microsoft Word has a fantastic spell-checker that is much better than what is available for R Markdown: copy/paste your work into there, look for the red lines and fix them in your R Markdown. Then look for the green lines and think about if you need to fix them in your R Markdown. If you don’t have Word, then Google Docs is pretty good and so is Apple’s Pages.</p>
 <p>A few other general tips that I have stolen from various people including the Reserve Bank of Australia’s style guide:</p>
@@ -220,13 +283,13 @@ Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pa
 <p>You should break these rules when you need to. But the only way to know whether you need to break a rule is to know the rules in the first instance.</p>
 </div>
 </div>
-<div id="exercises-and-tutorial-4" class="section level2" number="5.3">
+<div id="exercises-and-tutorial-4" class="section level2" number="5.4">
 <h2>
-<span class="header-section-number">5.3</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-4"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-4" class="section level3" number="5.3.1">
+<div id="exercises-4" class="section level3" number="5.4.1">
 <h3>
-<span class="header-section-number">5.3.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Which of the following is the best title (pick one)?
@@ -247,9 +310,9 @@ Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pa
 </li>
 </ol>
 </div>
-<div id="tutorial-4" class="section level3" number="5.3.2">
+<div id="tutorial-4" class="section level3" number="5.4.2">
 <h3>
-<span class="header-section-number">5.3.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-4"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
@@ -262,19 +325,20 @@ Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pa
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#on-writing"><span class="header-section-number">5</span> On writing</a></li>
-<li><a class="nav-link" href="#introduction-3"><span class="header-section-number">5.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#introduction-1"><span class="header-section-number">5.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#writing"><span class="header-section-number">5.2</span> Writing</a></li>
 <li>
-<a class="nav-link" href="#writing"><span class="header-section-number">5.2</span> Writing</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#title-abstract-and-introduction"><span class="header-section-number">5.2.1</span> Title, abstract, and introduction</a></li>
-<li><a class="nav-link" href="#figures-tables-equations-and-technical-terms"><span class="header-section-number">5.2.2</span> Figures, tables, equations, and technical terms</a></li>
-<li><a class="nav-link" href="#on-brevity"><span class="header-section-number">5.2.3</span> On brevity</a></li>
-<li><a class="nav-link" href="#other"><span class="header-section-number">5.2.4</span> Other</a></li>
+<a class="nav-link" href="#developing-research-questions"><span class="header-section-number">5.3</span> Developing research questions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#title-abstract-and-introduction"><span class="header-section-number">5.3.1</span> Title, abstract, and introduction</a></li>
+<li><a class="nav-link" href="#figures-tables-equations-and-technical-terms"><span class="header-section-number">5.3.2</span> Figures, tables, equations, and technical terms</a></li>
+<li><a class="nav-link" href="#on-brevity"><span class="header-section-number">5.3.3</span> On brevity</a></li>
+<li><a class="nav-link" href="#other"><span class="header-section-number">5.3.4</span> Other</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-4"><span class="header-section-number">5.3</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-4"><span class="header-section-number">5.3.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-4"><span class="header-section-number">5.3.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-4"><span class="header-section-number">5.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-4"><span class="header-section-number">5.4.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-4"><span class="header-section-number">5.4.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -294,7 +358,7 @@ Figure 5.1: ‘No more than four pages, or he’s never going to read it. Two pa
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -15,7 +15,10 @@
 - 
 
 Random stuff: 
-https://psyarxiv.com/n32qw/
+
+- https://psyarxiv.com/n32qw/
+- https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png
+- https://www.w3.org/History/1989/proposal.html
 
 **Required viewing**
 
@@ -62,7 +65,72 @@ https://psyarxiv.com/n32qw/
 >
 > Currer Bell (aka Charlotte Brontë), *The Professor*.
 
-It's nto what you say, it's what they hear.
+> It's not what you say, it's what they hear.
+>
+> Frank Luntz
+
+
+
+
+## Developing research questions
+
+Both qualitative and quantitative approaches have their place, but here we focus on quantitative approaches. Qualitative research is important as well, and often the most interesting work has a little of both---'mixed methods'. This means that we are subject to issues surrounding data quality, scales, measures, sources, etc. We are especially interested in trying to tease out causality.
+
+Broadly there are two ways to go about research: 
+
+1) data-first, 
+2) question-first. 
+
+If you get a job somewhere typically you will initially be data-first. This means that you will need to work out the questions that you can reasonably answer with the data available to you. After you show some promise, you may be given the latitude to explore specific questions, possibly even gathering data specifically for that purpose. Contrast this with the example of the Behavioural Insights Team, [@gertler2016impact, p. 23] who got to design and then carry out experiments given the remit of the entire British government (as they were spun out of the prime minister's office).
+
+When deciding the questions that you can reasonably answer with the data that are available, you need to think about: 
+
+1) Theory: Do you have a reasonable expectation that there is something causal that could be determined? Charting the stock market - maybe, but might be better with haruspex because at least that way you have something you could eat. You need a reasonable theory of how $x$ may be affecting $y$.
+2) Importance: There are plenty of trivial questions that you could ask, but it's important to not waste your time. The importance of a question also helps with motivation when you are on your fourth straight week of cleaning data and de-bugging your code. It also (and this becomes important) makes it easier to get talented people to work with you, or similarly to convince people to fund you or allow you to work on this project.
+3) Availability: Can you reasonably expect get more data about this research question in the future or is this the extent of the data that could be gathered?
+4) Iteration: Is this something that you can come back to and run often or is this a once-off analysis?
+
+The 'FINER framework' as a mnemonic device used in medicine. This framework reminds us to ask questions that are [@hulley2007designing]:
+
+> - Feasible: Adequate number of subjects; adequate technical expertise; affordable in time and money; manageable in scope.
+> - Interesting: Getting the answer intrigues investigator, peers and community.
+> - Novel: Confirms, refutes or extends previous findings
+> - Ethical: Amenable to a study that institutional review board will approve.
+> - Relevant: To scientific knowledge; to clinical and health policy; to future research.
+
+@farrugia2010research build on this in terms of developing research questions and recommend 'PICOT':
+
+> - Population: What specific population are you interested in?
+> - Intervention: What is your investigational intervention?
+> - Comparison group: What is the main alternative to compare with the intervention?
+> - Outcome of interest: What do you intend to accomplish, measure, improve or affect?
+> - Time: What is the appropriate follow-up time to assess outcome
+
+Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
+
+Usually, the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
+
+<div class="figure" style="text-align: center">
+<img src="figures/humpty.png" alt="Humpty Dumpty example" width="95%" />
+<p class="caption">(\#fig:humpty)Humpty Dumpty example</p>
+</div>
+
+Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won't ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.
+
+Finally, we can often dodge ethics boards in data science, especially once you leave university. Typically, ethics guides from medicine and other fields are focused on ethics boards. But we often do not have those in data science applications. Even if your intentions are unimpeachable, I want to suggest one additional aspect to think about, and that is Bayes theorem: 
+$$P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}$$
+(The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.)
+
+To see why this may be relevant, let's go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let's just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
+$$\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2$$
+
+To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically, what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'. 
+
+I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not. 
+
+Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.
+
+
 
 ### Title, abstract, and introduction
 

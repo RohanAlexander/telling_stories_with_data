@@ -53,6 +53,14 @@ It is important to recognise that data are not neutral. Thinking clearly about w
 
 ## Censuses
 
+MEasuring homelessness?
+
+https://www.ncbi.nlm.nih.gov/books/NBK218229/
+
+"S-Night survey conducted by the US Census Bureau in 1990"
+
+"Street count surveys are used in many cities to count the number of homeless people in the streets at a point in time and gain a better understanding of the needs of homeless populations. In surveys such as the S-Night survey conducted by the US Census Bureau in 1990, enumerators are sent to pre-identified sites to enumerate homeless people while other survey personnel (“plants”) are planted among homeless people and indistinguishable from actual homeless. The ratio of plants seen by the enumerators to the number of plants deployed is used to inform the detection probability of homeless and provide an adjustment to the homeless undercount.  In practice, one cannot know for sure which plants were seen because enumerators cannot distinguish between plants and homeless people. We can only rely on the plants’ judgement of whether (yes, no or maybe) they think they were seen by an enumerator. The presence of “maybes” in the data leads to more unknown parameters than data points, which makes estimation of detection probabilities difficult. We propose to solve this problem by developing a Bayesian hierarchical model that uses hierarchical priors on detection probabilities across survey years and/or across cities. Such hierarchical modeling of the data is challenging because the data is available at various aggregated levels of the population (e.g., `seen` = plant AND seen + homeless AND seen, `maybes` = plant AND seen AND not interviewed AND maybe + plant AND not seen AND maybe.) The new methodology will be applied to a simulated reconstruction of the original S-night survey data and our estimates will be compared to those of the original analysis of the S-night data."
+
 ### Canada
 
 The first census in Canada was conducted in 1666. There were 3,215 inhabitants that were counted and the census 'recorded their age, sex, marital status and occupation' [@statcanhistory]. In 1867 a decennial census was required to 'determine representation by population in the new Parliament.' Regular censuses have occurred since then, the most recent in 2021.
