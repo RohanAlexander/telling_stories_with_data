@@ -4,29 +4,21 @@
 
 # Workflow
 
+**STATUS: Under construction.**
+
 **Required material**
 
 - Read *Good enough practices in scientific computing*, [@wilsongoodenough]
 - Read *What has happened down here is the winds have changed*, [@Gelman2016]
 - Watch *Overcoming barriers to sharing code*, [@monicatalks]
-- Read *Six steps to a better relationship with your future self*, [@bowers2011six]
-- Read *Happy Git and GitHub for the useR*, Chapters 4, 6, 7, 9, [@happygit]
-- Read *What They Forgot to Teach You About R*, Chapters 1-5, 11, 12, and 13 [@whattheyforgot]
 - Watch *Make a reprex... Please*, [@sharlatalks]
 - Watch *Object of type 'closure' is not subsettable*, [@jennybryan]
 
 
-
-<!-- - Gelfand, Sharla, 2020, 'do not repeat yourself, talk to yourself! Repeated reporting in the R universe', 30 January, talk given at rstudio::conf, San Francisco, https://resources.rstudio.com/rstudio-conf-2020/dont-repeat-yourself-talk-to-yourself-repeated-reporting-in-the-r-universe-sharla-gelfand.  -->
-
-
-
-<!-- - Alexander, Monica, 2019, 'Reproducibility in demographic research', https://www.monicaalexander.com/posts/2019-10-20-reproducibility/. -->
 <!-- - Bailey, Jack, 2020, 'UK Voting Intention Poll Tracker', https://github.com/jackobailey/poll_tracker. -->
 <!-- - Fan, Jean, 'R Style Guide', https://jef.works/R-style-guide/. -->
 <!-- - Hill, Alison, 2020, 'How I Teach R Markdown', 28 May, https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/. -->
 <!-- - Phillips, Nathaniel D., 2018, *YaRrr! The Pirate's Guide to R*, Chapter 4.3, https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html. -->
-<!-- - Taback, Nathan, 2019, 'R Markdown for Class Reports', https://scidesign.github.io/Rmarkdownforclassreports.html. -->
 <!-- - Tierney, Nicholas, 2020, *RMarkdown for Scientists*, 9 September, Chapters 7-10, 12-15, https://rmd4sci.njtierney.com. -->
 <!-- - Wickham, Hadley, *Advanced R*, Chapter on Style, http://adv-r.had.co.nz/Style.html. -->
 <!-- - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 27, https://r4ds.had.co.nz/. -->
@@ -59,13 +51,6 @@
 
 
 
-
-
-<!-- **Fun song** -->
-
-<!-- - The Magnetic Fields, 2016, ''86 How I Failed Ethics', 17 November, https://youtu.be/Hu5dEXZ7DOY (thanks to Paul Hodgetts). -->
-
-
 **Key concepts/skills/etc**
 
 - Restart R often (Session -> Restart R and Clear Output).
@@ -78,19 +63,14 @@
 - Cultivating a tenacious mentality may help.
 - Writing code that future-you can understand.
 - Developing important questions.
-- Reproducibility and replicability
-- The importance of data and code access
-- The importance of version control in a modern scientific workflow.
-- The basics of Git and GitHub, as a solo data scientist.
-
-
-**Key GitHub workflow with commands**
-
-- Get the latest changes: `git pull`.
-- Add your updates: `git add -A`.
-- Check on everything: `git status`.
-- Commit your changes: `git commit -m "Short description of changes"`.
-- Push your changes to GitHub: `git push`.
+- Reproducibility and replicability.
+- The importance of data and code access.
+- The importance of version control in a data science workflow, especially essentials of Git and GitHub:
+    - Get the latest changes: `git pull`.
+    - Add your updates: `git add -A`.
+    - Check on everything: `git status`.
+    - Commit your changes: `git commit -m "Short description of changes"`.
+    - Push your changes to GitHub: `git push`.
 
 
 
@@ -98,7 +78,7 @@
 
 > Suppose you have cancer and you have to choose between a black box AI surgeon that cannot explain how it works but has a 90% cure rate and a human surgeon with an 80% cure rate. Do you want the AI surgeon to be illegal?
 >
-> [Geoffrey Hinton](https://twitter.com/geoffreyhinton/status/1230592238490615816?s=21), 20 February 2020.
+> Geoffrey Hinton, 20 February 2020.
 
 > The number one thing to keep in mind about machine learning is that performance is evaluated on samples from one dataset, but the model is used in production on samples that may not necessarily follow the same characteristics... The finance industry has a saying for this: "past performance is no guarantee of future results". Your model scoring X on your test dataset doesn't mean it will perform at level X on the next N situations it encounters in the real world. The future may not be like the past.
 > 
@@ -106,30 +86,36 @@
 > 
 > If every possible situation is known and you want to prioritize scalability and cost-reduction, go with the model. Models exist to encode and operationalize human cognition in well-understood situations. ("well understood" meaning either that it can be explicitly described by a programmer, or that you can amass a dataset that densely samples the distribution of possible situations -- which must be static) 
 >
-> [François Chollet](https://twitter.com/fchollet/status/1230611916701229064?s=21), 20 February 2020.
+> François Chollet, 20 February 2020.
 
-If science is about systematically building and organising knowledge in terms of testable explanations and predictions, then data science takes this and focuses on data. This means that building, organising, and sharing knowledge is a critical aspect. Creating knowledge, once, in a way that only you can do it, does not meet this standard. Hence, we focus on reproducible workflows for data science.
+If science is about systematically building and organizing knowledge in terms of testable explanations and predictions, then data science takes this and focuses on data. This means that building, organizing, and sharing knowledge is a critical aspect. Creating knowledge, once, in a way that only you can do it, does not meet this standard. Hence, the need for reproducible workflows for data science.
 
-@Alexander2019 says '[r]esearch is reproducible if it can be reproduced exactly, given all the materials used in the study... [hence] materials need to be provided!... [M]aterials usually means data, code and software.' The minimum requirement is that another person is able to '[r]eproduce the data, methods and results (including figures, tables)'. Similarly, @Gelman2016 identifies how large an issue this is in various sciences, such as psychology. The problem with work that is not reproducible, is that it does not contribute to our stock of knowledge about the world. At around the time that @Gelman2016 was written, it got to the point that we no longer knew what the facts were in psychology. Since that time, a great deal of work has been done in psychology, and the situation has improved. But it remains an issue in many other fields, especially in the social sciences.
+@Alexander2019 says '[r]esearch is reproducible if it can be reproduced exactly, given all the materials used in the study... [hence] materials need to be provided!... [M]aterials usually means data, code and software.' The minimum requirement is that another person is able to '[r]eproduce the data, methods and results (including figures, tables)'. Similarly, @Gelman2016 identifies how large an issue this is in various sciences, such as psychology. The problem with work that is not reproducible, is that it does not contribute to our stock of knowledge about the world. Since @Gelman2016 a great deal of work has been done in many social sciences and the situation has improved a little, but much work remains.
 
-Some of the examples that @Gelman2016 talks about which turned out to be dodgy do not really matter. For instance, extrasensory perception (ESP), or the power pose. But at the same time, we saw similar approaches being used in areas with big impacts. For instance, many governments have created 'nudge' units that implement public policy. increasingly the same methods are being applied in areas where they do matter, for instance, 'nudge' units. This is a big problem through-out the data sciences.
+Some of the examples that @Gelman2016 talks about which turned out to not reproduce are not that important in the scheme of things, such as extrasensory perception (ESP), or the power pose. But at the same time, we saw, and continue to see, similar approaches being used in areas with big impacts. For instance, many governments have created 'nudge' units that implement public policy.
 
-At a minimum, all work must release their code and dataset, potentially with various restrictions on the dataset that would be governed by an external party not the authors. Without the data, we do not know what a finding speaks to as we cannot understand how representative the sample is. If the dataset is biased, then that could undermine claims. There is a reason that while initial medical trials are often done on mice and other animals, eventually human trials are required.
+At a minimum, and with few exceptions, we must release our code and datasets. Without the data, we do not know what a finding speaks to as we cannot understand how representative the sample is. More prosaically, we also do not know if there are mistakes or aspects that were mistakenly overlooked.
 
-To be more specific, we will consider @wang2018deep, where the authors used deep neural networks to train a model to distinguish between gay and heterosexual men (@murphy2017 provides a summary of the paper and the associated issues, along with comments from the authors). To do this, @wang2018deep [p. 248] needed a photos dataset that was 'adult, Caucasian, fully visible, and of a gender that matched the one reported on the user’s profile' and they verified this using Amazon Mechanical Turk, an online platform that pays workers a small amount of money to complete specific tasks. Figure \@ref(fig:instructionsexample) is from the @wang2018deep supplemental material, and shows the instructions provided to the Mechanical Turk workers for this task.
+To be more specific, consider @wang2018deep, where the authors used deep neural networks to train a model to distinguish between gay and heterosexual men. @murphy2017 provides a summary of the paper and the associated issues, along with comments from the authors. To do this, @wang2018deep [p. 248] needed a dataset of photos of folks that were 'adult, Caucasian, fully visible, and of a gender that matched the one reported on the user’s profile'. They verified this using Amazon Mechanical Turk, an online platform that pays workers a small amount of money to complete specific tasks. Figure \@ref(fig:instructionsexample), from @wang2018deep supplemental materials, shows the instructions provided to the Mechanical Turk workers for this task. Some of the issues with these instructions include that Obama had a white mother and a black father, but has been classified as 'Black'; and Latino is an ethnicity, rather than a race [@Mattson2017]. The classification task may seem objective, but it, perhaps unthinkingly, echoes the views of Americans with a certain class and background.
 
-<div class="figure" style="text-align: center">
-<img src="figures/mechanical_turk_instructions.png" alt="Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces, from @wang2018deep supplemental material" width="95%" />
-<p class="caption">(\#fig:instructionsexample)Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces, from @wang2018deep supplemental material</p>
-</div>
+\begin{figure}
 
-Some of the issues with these instructions include that Obama had a white mother and a black father, but has been classified as 'Black'; and Latino is an ethnicity, rather than a race [@Mattson2017]. 
+{\centering \includegraphics[width=0.95\linewidth]{figures/mechanical_turk_instructions} 
+
+}
+
+\caption{Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces}(\#fig:instructionsexample)
+\end{figure}
 
 We are discussing one specific concern about one part of the workflow of @wang2018deep. Broader concerns are raised by others including @Gelman_2018. The main issue is that statistical models are specific to the data on which they were trained. And the only reason that we are able to identify likely issues in the model trained by @wang2018deep is because, despite not releasing the specific dataset that they used, they were nonetheless open about their procedure. The fundamental issue is that in order for our work to be credible, it needs to be reproducible by others.
 
 Some of the steps that we can take to make our work more reproducible include:
 
-1. Ensure the entire workflow is documented. How was the raw dataset obtained and is access likely to be persistent and available to others? What specific steps are being taken to transform the raw data in the data that were analysed, and how can this be made available to others? What analysis has been done, and how clearly can this be shared? How has the final paper or report been built and to what extent can others follow that process themselves?
+1. Ensure the entire workflow is documented and this may involve addressing questions such as:
+    - How was the raw dataset obtained and is access likely to be persistent and available to others? 
+    - What specific steps are being taken to transform the raw data in the data that were analyzed, and how can this be made available to others? 
+    - What analysis has been done, and how clearly can this be shared? 
+    - How has the final paper or report been built and to what extent can others follow that process themselves?
 2. Not worrying about perfect reproducibility initially, but instead focusing on trying to improve with each successive project. For instance, each of the following requirements are increasingly more onerous and there is no need to be concerned about not being able to the last, until we can do the first:
     - Can you run your entire workflow again? 
     - Can 'another person' run your entire workflow again? 
@@ -137,25 +123,25 @@ Some of the steps that we can take to make our work more reproducible include:
     - Can a future 'another person' run your entire workflow again? 
 3. Including a detailed discussion about the limitations of the dataset and the approach in the final paper or report. 
 
-
+There are various tools that we can use that will improve our workflows, including the use of R Markdown, R Projects, Git and GitHub.
 
 
 ## R Markdown
 
 ### Getting started
 
-R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a 'What You See Is What You Get' (WYSIWYG) language, such as Microsoft Word. This means that all of the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear, and it is only when we build or compile the mark-up that we get to see what it looks like.
+R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a 'What You See Is What You Get' (WYSIWYG) language, such as Microsoft Word. This means that all of the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear. And it is only when we build the mark-up that we get to see what it looks like.
 
-R Markdown is a variant of Markdown that is specifically designed to allow R code chunks to be included. One advantage is that we can get a 'live' document in which code executes and is then printed to a document. Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections. One disadvantage is that it can take a while for a document to compile because all of the code needs to run.
+R Markdown is a variant of Markdown that is specifically designed to allow R code chunks to be included. One advantage is that we can get a 'live' document in which code executes and then forms part of the document. Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections. One disadvantage is that it can take a while for a document to compile because all of the code needs to run.
 
-We can create a new R Markdown document within R Studio (File -> New File -> R Markdown Document).
+We can create a new R Markdown document within R Studio ('File' -> 'New File' -> 'R Markdown Document').
 
-### Basic commands
+### Essential commands
 
-Basic command including emphasis, headers, lists, links, and images. A reminder of these is included in R Studio (Help -> Markdown Quick Reference). 
+Essential markdown commands include those for emphasis, headers, lists, links, and images. A reminder of these is included in R Studio ('Help' -> 'Markdown Quick Reference'). 
 
 - Emphasis: ```*italic*```, ```**bold**```
-- Headers (these need to go on their own line with a line before and after): ```# First level header```, ```## Second level header```, ```### Third level header```
+- Headers (these go on their own line with a blank line before and after): ```# First level header```, ```## Second level header```, ```### Third level header```
 - Unordered list, with sub-lists:
 ```
 * Item 1
@@ -171,7 +157,7 @@ Basic command including emphasis, headers, lists, links, and images. A reminder 
     + Item 3a
     + Item 3b
 ```
-- URLs can be added by just including an address as that will auto-link: https://www.tellingstorieswithdata.com, or by linking some text ```[the address of this book](https://www.tellingstorieswithdata.com)```.
+- URLs can be added by including an address as that will auto-link: https://www.tellingstorieswithdata.com, or by linking some text ```[the address of this book](https://www.tellingstorieswithdata.com)```.
 
 Once we have added some aspects, then we may want to see the actual document. To build the document click 'Knit'.
 
@@ -180,7 +166,7 @@ Once we have added some aspects, then we may want to see the actual document. To
 
 We can include code for R and many other languages in code chunks within an R Markdown document. Then when we knit the document, the code will run and be included in the document.
 
-To create an R chunk, we start with three backticks and then within curly braces we tell R Markdown that this is an R chunk. Anything inside this chunk will be considered R code and run as such. An example of a chunk that loads the `tidyverse` and `AER` and makes a graph of the number of times a survey respondent had visited the doctor in the past two weeks follows.
+To create an R chunk, we start with three backticks and then within curly braces we tell R Markdown that this is an R chunk. Anything inside this chunk will be considered R code and run as such. For instance, we could load the `tidyverse` and `AER` and make a graph of the number of times a survey respondent visited the doctor in the past two weeks.
 
 
 ````
@@ -198,10 +184,7 @@ DoctorVisits %>%
 
 The output of that code is Figure \@ref(fig:doctervisits). 
 
-<div class="figure">
-<img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
-<p class="caption">(\#fig:doctervisits)Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
-</div>
+![(\#fig:doctervisits)Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey](04-workflow_files/figure-latex/doctervisits-1.pdf) 
 
 There are various evaluation options that are available in chunks. We include these by putting a comma after ```r``` and then specifying any options before the closing curly brace. Helpful options include: 
 
@@ -211,7 +194,7 @@ There are various evaluation options that are available in chunks. We include th
 - ```warning = FALSE```: do not display warnings.
 - ```message = FALSE```: do not display messages.
 
-An example that would include the output, but not the code, and also suppress any warnings follows.
+For instance, we could include the output, but not the code, and also suppress any warnings.
 
 
 ````
@@ -324,10 +307,7 @@ DoctorVisits %>%
   geom_histogram(stat = "count")
 ```
 
-<div class="figure">
-<img src="04-workflow_files/figure-html/uniquename-1.png" alt="Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
-<p class="caption">(\#fig:uniquename)Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
-</div>
+![(\#fig:uniquename)Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey](04-workflow_files/figure-latex/uniquename-1.pdf) 
 
 We can do similar for tables. For instance, `(Table \@ref(tab:docvisittable))` will produce: (Table \@ref(tab:docvisittable)). In this case we specify 'tab' before the unique reference to the table, so that R Markdown knows that it is a table. For tables we need to include the caption in the main content, as a 'caption', rather than in a 'fig.cap' chunk option as is the case for figures.
 
@@ -338,22 +318,36 @@ DoctorVisits %>%
   knitr::kable(caption = "Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey")
 ```
 
+\begin{table}
 
-
-Table: (\#tab:docvisittable)Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey
-
-| visits|    n|
-|------:|----:|
-|      0| 4141|
-|      1|  782|
-|      2|  174|
-|      3|   30|
-|      4|   24|
-|      5|    9|
-|      6|   12|
-|      7|   12|
-|      8|    5|
-|      9|    1|
+\caption{(\#tab:docvisittable)Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey}
+\centering
+\begin{tabular}[t]{r|r}
+\hline
+visits & n\\
+\hline
+0 & 4141\\
+\hline
+1 & 782\\
+\hline
+2 & 174\\
+\hline
+3 & 30\\
+\hline
+4 & 24\\
+\hline
+5 & 9\\
+\hline
+6 & 12\\
+\hline
+7 & 12\\
+\hline
+8 & 5\\
+\hline
+9 & 1\\
+\hline
+\end{tabular}
+\end{table}
 
 Finally, we can also cross-reference equations. To that we need to add a tag `(\#eq:slope)` which we then reference. For instance, use `Equation \@ref(eq:slope).` to produce Equation \@ref(eq:slope).
 
@@ -367,16 +361,16 @@ Y = a + b X (\#eq:slope)
 Y = a + b X (\#eq:slope)
 \end{equation}
 
-When using cross-references, it is important that the R chunks have simple labels. In general, try to keep the names simple but unique, and if possible, avoid punctuation  and just stick to letters. Do not use underbars in the names because that will cause an error.
+When using cross-references, it is important that the R chunks have simple labels. In general, try to keep the names simple but unique, and if possible, avoid punctuation  and stick to letters. Do not use underbars in the labels because that will cause an error.
 
 
 ## R projects and file structure
 
-We can use R Studio to create an R project. This means that we can keep all of the files (data, analysis, report, etc) associated with a particular project together. To create a project, select 'Click File' -> 'New Project', then select 'empty project', name the project and decide where to save it. For instance, a project focused on maternal mortality, may be called 'maternalmortality', and might be saved within a folder of other projects.
+We can use R Studio to create an R project. This means that we can keep all of the files (data, analysis, report, etc) associated with a particular project together. To create a project, select 'Click File' -> 'New Project', then select 'empty project', name the project and decide where to save it. For instance, a project focused on maternal mortality, may be called 'maternalmortality', and might be saved within a folder of other projects. The use of R Projects is 'the only practical convention that creates reliable, polite behavior across different computers or users and over time.' [@whattheyforgot]. Further, projects are 'neither new, nor unique to R', but are a well-established part of software development.
 
 Once a project has been created, a new file with the extension '.RProj' will appear in that folder. As an example, of a folder with an R Project, an example R Markdown document, and an appropriate file structure is available: https://github.com/RohanAlexander/starter_folder. That can be downloaded with: 'Code' -> 'Download ZIP'.
 
-The main advantage of using an R Project is that we are more easily able to reference other files in a self-contained way. That means when others want to reproduce our work, they know that all the file references and structure should not need to be changed. It means that files are referenced in relation to where the '.Rproj' file is. For instance, instead of reading a csv from, say, `"~/Documents/projects/book/data/"` you can just read it in from `book/data/`. It may be that someone else does not have a 'projects' folder, and so the former would not work for them, while the latter would.
+The main advantage of using an R Project is that we are more easily able to reference other files in a self-contained way. That means when others want to reproduce our work, they know that all the file references and structure should not need to be changed. It means that files are referenced in relation to where the '.Rproj' file is. For instance, instead of reading a csv from, say, `"~/Documents/projects/book/data/"` you can read it in from `book/data/`. It may be that someone else does not have a 'projects' folder, and so the former would not work for them, while the latter would.
 
 The use of R projects is required to meet the minimal level of reproducibility. The use of functions such as `setwd()`, and computer-specific file paths, bind the work to your computer in a way that is not appropriate.
 
@@ -398,16 +392,20 @@ We use the combination of Git and GitHub to:
 
 Git is a version control system. One way one often starts doing version control is to have various versions of the one file: 'first_go.R', 'first_go-fixed.R', 'first_go-fixed-with-mons-edits.R'. But this soon becomes cumbersome. One often soon turns to dates, for instance: '2022-01-01-analysis.R', '2022-01-02-analysis.R', '2022-01-03-analysis.R', etc. While this keeps a record it can be difficult to search when we need to go back, because it can be difficult to remember the date some change was made. In any case, it quickly gets unwieldy for a project that is being regularly worked on.
 
-Instead of this, we use Git so that we can just have one version of the file, say, 'analysis.R' and then use Git to keep a record of the changes to that file, and a snapshot of that file at a given point in time. 
+Instead of this, we use Git so that we can have one version of the file, say, 'analysis.R' and then use Git to keep a record of the changes to that file, and a snapshot of that file at a given point in time. 
 
 We determine when Git takes that snapshot, and when we take that snapshot, we additionally include a message saying what changed between this snapshot and the last. In that way, there is only ever one version of the file, but the history can be more easily searched.
 
 The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure \@ref(fig:hackernews)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks." width="95%" />
-<p class="caption">(\#fig:hackernews)An infamous response to the launch of Dropbox in 2007, trivialising the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/hacker_news} 
+
+}
+
+\caption{An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks.}(\#fig:hackernews)
+\end{figure}
 
 Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. We will introduce GitHub here because it 'is by far the most dominant code-hosting platform' [@eghbal2020working, p. 21] and it is built into R Studio, but other options have advantages.
 
@@ -425,10 +423,14 @@ git --version
 
 If you get a version number, then you are done (Figure \@ref(fig:gitone)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/git_one.png" alt="How to access the Terminal within R Studio" width="95%" />
-<p class="caption">(\#fig:gitone)How to access the Terminal within R Studio</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/git_one} 
+
+}
+
+\caption{How to access the Terminal within R Studio}(\#fig:gitone)
+\end{figure}
 
 If you have a Mac then Git should come pre-installed, if you have Windows then there is a chance, and if you have Linux then you probably do not need this guide. If you do not get a version number, then you need to install it. To do that you should follow the instructions specific to your operating system in Chapter 5 of @happygit.
 
@@ -450,31 +452,47 @@ The details that you enter here will be public. There are various ways to hide y
 
 Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: https://github.com (Figure \@ref(fig:githubone)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/github_1.png" alt="GitHub sign-up screen" width="95%" />
-<p class="caption">(\#fig:githubone)GitHub sign-up screen</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_1} 
+
+}
+
+\caption{GitHub sign-up screen}(\#fig:githubone)
+\end{figure}
 
 GitHub does not have the most intuitive user experience in the world, but we are now going to make a new folder (which is called a 'repo' in Git). Look for a '+' in the top right, and then select 'New Repository' (Figure \@ref(fig:githubtwo)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/github_2.png" alt="Start process of creating a new repository" width="95%" />
-<p class="caption">(\#fig:githubtwo)Start process of creating a new repository</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_2} 
+
+}
+
+\caption{Start process of creating a new repository}(\#fig:githubtwo)
+\end{figure}
 
 At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to 'Initialize this repository with a README'. Leave 'Add .gitignore' set to 'None'. After that, click 'Create repository' (Figure \@ref(fig:githubthree)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/github_3.png" alt="Finish creating a new repository" width="95%" />
-<p class="caption">(\#fig:githubthree)Finish creating a new repository</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_3} 
+
+}
+
+\caption{Finish creating a new repository}(\#fig:githubthree)
+\end{figure}
 
 This will take us to a screen that is fairly empty, but the details that we need are in the green 'Clone or Download' button, which we can copy by clicking the clipboard (Figure \@ref(fig:githubfour)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/github_4.png" alt="Get the details of your new repository" width="95%" />
-<p class="caption">(\#fig:githubfour)Get the details of your new repository</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_4} 
+
+}
+
+\caption{Get the details of your new repository}(\#fig:githubfour)
+\end{figure}
 
 Now returning to R Studio, we open Terminal, and use `cd` to navigate to the directory where we want to create this folder. Then type the following, replacing repo details with your own, and enter/return.
 
@@ -497,7 +515,7 @@ To use GitHub for a project that we are actively working on we follow a procedur
     - Again, type `git status` and enter/return to check on everything.
     - Finally, type `git push` and enter/return to push everything to GitHub.
 
-To summarise the workflow (assuming we are already in the relevant folder):
+To summarize the workflow (assuming we are already in the relevant folder):
 
 
 ```bash
@@ -514,16 +532,20 @@ git push
 
 ### Using GitHub within R Studio with the Git pane
 
-The procedure that we just went through is useful to better understand what is happening when we use Git and GitHub but can be a bit cumbersome. Usefully, GitHub is built into R Studio and so we can use the Git pane to move away from the Terminal.
+The procedure that we went through is useful to better understand what is happening when we use Git and GitHub but can be a bit cumbersome. Usefully, GitHub is built into R Studio and so we can use the Git pane to move away from the Terminal.
 
-Get started by creating a new repo in GitHub, as before, and copy the repo information, as before. At this point, open R Studio, and create a new project using version control ('Files' -> 'New Project' -> 'Version Control' -> 'Git', and then paste the information for the repo). Follow through the rest of the set-up by naming the project something sensible, saving it somewhere sensible, and clicking 'Open in new session', before creating the project. This will then create a new folder with an R Project which will be Git-initialised and linked to the GitHub repo.
+Get started by creating a new repo in GitHub, as before, and copy the repo information, as before. At this point, open R Studio, and create a new project using version control ('Files' -> 'New Project' -> 'Version Control' -> 'Git', and then paste the information for the repo). Follow through the rest of the set-up by naming the project something sensible, saving it somewhere sensible, and clicking 'Open in new session', before creating the project. This will then create a new folder with an R Project which will be Git-initialized and linked to the GitHub repo.
 
 If we then open this R Project, we will have a 'Git' tab (Figure \@ref(fig:rstudiogit)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/RStudio_git.png" alt="The Git pane in R Studio" width="95%" />
-<p class="caption">(\#fig:rstudiogit)The Git pane in R Studio</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/RStudio_git} 
+
+}
+
+\caption{The Git pane in R Studio}(\#fig:rstudiogit)
+\end{figure}
 
 We can then use Git through that tab. As before, we first want to 'pull', but we can do this by clicking the blue down arrow. As before, we want to commit the files that have changes, and we do this by selecting the 'staged' checkbox against the files that we would like to commit. Then 'Commit'. Again, we want to include a message with our commit, and we do this by typing a message in the 'Commit message' box and then 'Commit'. Finally, we can 'Push'. Further details on this workflow are available in Chapter 12 of @happygit.
 
@@ -589,7 +611,7 @@ Asking for help is a skill like any other. We get better at it with practice. It
 
 Begin by creating a minimal REPRoducible EXample, a 'reprex'. This is code that contains what is needed to reproduce the error, but only what is needed. This means that the code it likely a smaller, simpler, version that nonetheless reproduces the error.
 
-Sometimes this process enables one to solve the problem. If it does not, then it gives someone else a fighting chance of being able to help. It is important to recognise that there is almost no chance that you have got a problem that someone has not addressed before. It is more likely that the main difficulty is in trying to communicate what you are trying to do and what is happening, in a way that allows others to recognise both. Developing tenacity is important.
+Sometimes this process enables one to solve the problem. If it does not, then it gives someone else a fighting chance of being able to help. It is important to recognize that there is almost no chance that you have got a problem that someone has not addressed before. It is more likely that the main difficulty is in trying to communicate what you are trying to do and what is happening, in a way that allows others to recognize both. Developing tenacity is important.
 
 To develop reproducible examples, the `reprex` package [@citereprex] is especially useful. To use it we:
 
@@ -616,41 +638,29 @@ If you need data to reproduce the error, then you should use data that is built 
 If you write code, then you are a programmer regardless of how you do it, what you are using it for, or who you are. But there are a few traits that one tends to notice great programmers have in common.
 
 - Focused: Often having an aim to 'learn R' or something similar tends to be problematic, because there is no real end point to that. It tends to be more efficient to have smaller, more specific goals, such as 'make a histogram about the 2019 Canadian Election with ggplot'. This is something that can be focused on and achieved in a few hours. The issue with goals that are more nebulous, such as 'I want to learn R', is that it becomes easy to get lost on tangents, much more difficult to get help. This can be demoralizing and lead to folks quitting too early.
-- Curious: It is almost always useful to just have a go. In general, the worst that happens is that you waste your time. You can rarely break something irreparably with code. If you want to know what happens if you pass a 'vector' instead of a 'dataframe' to `ggplot()` then just try it.
-- Pragmatic: At the same time, it can be useful to stick within reasonable bounds, and just make one small change each time. For instance, say you want to run some regressions, and are curious about the possibility of using the `tidymodels` package [@citeTidymodels] instead of `lm()`. A pragmatic way to proceed is to just use one aspect from the `tidymodels` package initially and then make another change next time. 
+- Curious: It is almost always useful to have a go. In general, the worst that happens is that you waste your time. You can rarely break something irreparably with code. If you want to know what happens if you pass a 'vector' instead of a 'dataframe' to `ggplot()` then try it.
+- Pragmatic: At the same time, it can be useful to stick within reasonable bounds, and make one small change each time. For instance, say you want to run some regressions, and are curious about the possibility of using the `tidymodels` package [@citeTidymodels] instead of `lm()`. A pragmatic way to proceed is to use one aspect from the `tidymodels` package initially and then make another change next time. 
 - Tenacious: Again, this is a balancing act. There are always unexpected problems and issues with every project. On the one hand, persevering despite these is a good tendency. But on the other hand, sometimes one does need to be prepared to give up on something if it does not seem like a break-through is possible. Here mentors can be useful as they tend to be a better judge of what is reasonable. It is also where appropriate planning is useful.
 - Planned: It is almost always useful to excessively plan what you are going to do. For instance, you may want to make a histogram of the 2019 Canadian Election. You should plan the steps that are needed and even to sketch out how each step might be implemented. For instance, the first step is to get the data. What packages might be useful? Where might the data be? What is the back-up plan if the data do not exist there?
-- Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but it can be useful to initially try to turn them off to a certain extent. In the first instance, just try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship. Ugly code that gets the job done, is better than beautiful code that is never finished.
+- Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but it can be useful to initially try to turn them off to a certain extent. In the first instance, try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship. Ugly code that gets the job done, is better than beautiful code that is never finished.
 
 
 
 ### Code comments
 
-Comment your code [@lee2018ten]. 
+Code must be commented. [@lee2018ten]. 
 
-There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you are just working on your own.
+There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you are just working on your own. It is important to recognize that most projects will evolve over time, and one purpose served by code comments are as '[m]essages left for your future self (or near-future others) [that] help retrace and justify your decisions' [@@bowers2011six].
 
-Comment your code.
-
-Comments in R can be added by including the # symbol. You do not have to put a comment at the start of the line, it can be midway through. In general, you do not need to comment what every aspect of your code is doing but you should comment parts that are not obvious. For instance, if you read in some value then you may like to comment where it is coming from. 
-
-Comment your code.
+Comments in R can be added by including the # symbol. We do not have to put a comment at the start of the line, it can be midway through. In general, we do not need to comment what every aspect of your code is doing but we should comment parts that are not obvious. For instance, if we read in some value then we may like to comment where it is coming from. 
 
 You should comment why you are doing something. What are you trying to achieve?
 
-Comment your code.
-
 You must comment to explain weird things. Like if you are removing some specific row, say row 27, then why are you removing that row? It may seem obvious in the moment, but future-you in six months won't remember.
 
-Comment your code.
-
-You should break your code into sections. For instance, setting up the workspace, reading in datasets, manipulating and cleaning the dataset, analysing the datasets, and finally producing tables and figures. Each of these should be separated with comments explaining what is going on, and sometimes into separate files, depending on the length.
-
-Comment your code. 
+You should break your code into sections. For instance, setting up the workspace, reading in datasets, manipulating and cleaning the dataset, analyzing the datasets, and finally producing tables and figures. Each of these should be separated with comments explaining what is going on, and sometimes into separate files, depending on the length.
 
 Additionally, at the top of each file it is important to basic information, such as the purpose of the file, and pre-requisites or dependencies, the date, the author and contact information, and finally and red-flags or todos.
-
-Comment your code. 
 
 At the very least every R script needs a preamble.
 
@@ -666,7 +676,7 @@ At the very least every R script needs a preamble.
 
 
 #### Workspace setup ####
-# do not keep the install.packages line - just comment out if need be
+# do not keep the install.packages line - comment out if need be
 # Load libraries
 library(tidyverse)
 

@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "06 January, 2022"
+date: "10 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -23,10 +23,9 @@ cover-image: tellingstorieswithdatapainting.png
 
 # Preface {-}
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
-<p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting} \caption{Telling stories with data}(\#fig:unnamed-chunk-1)
+\end{figure}
 
 This book will help you tell stories with data. It establishes a foundation on which you can build and share knowledge about an aspect of the world of interest to you based on data that you observe. Telling stories in small groups around a fire played a critical role in the development of humans and society [@wiessner2014embers]. Today our stories, based on data, can influence millions.
 
@@ -87,7 +86,7 @@ One of the defining aspects of this book is that ethics and inequity concerns ar
 
 This book is also designed to enable you to build a portfolio of work that you could show to a potential employer. If you want an industry job, then this is arguably the most important thing that you should be doing. @robinsonnolis2020 [p. 55] describe how a portfolio is a collection of projects that show what you can do and is something that can help be successful in a job search.
 
-In @helendewitt[p. 326], a character says:
+In the novel *The Last Samurai* [@helendewitt p. 326], a character says:
 
 > [A] scholar should be able to look at any word in a passage and instantly think of another passage where it occurred; ... [so a] text was like a pack of icebergs each word a snowy peak with a huge frozen mass of cross-references beneath the surface.
 
@@ -150,7 +149,9 @@ Finally, thank you to Monica Alexander. Without you I would not have written a b
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
-\BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
-Toronto, Canada</p>\EndKnitrBlock{flushright}
+\BeginKnitrBlock{flushright}
+Rohan Alexander  
+Toronto, Canada
+\EndKnitrBlock{flushright}
 
 

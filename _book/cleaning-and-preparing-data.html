@@ -185,7 +185,7 @@
 <h3>
 <span class="header-section-number">11.2.1</span> Save a copy of the raw data<a class="anchor" aria-label="anchor" href="#save-a-copy-of-the-raw-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>The first step is to save the raw data into a separate folder location. It is critical that you save the raw data to the extent that is possible <span class="citation">(<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">J. A. C. Wilson Greg AND Bryan 2017</a>)</span>. In an ideal situation, duplicate the folder that contains the raw data, and then rename the duplicated folder ‘cleaned’ and then only ever modify the data in that cleaned folder.</p>
+<p>The first step is to save the raw data into a separate folder location. It is critical that you save the raw data to the extent that is possible <span class="citation">(<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al. 2017</a>)</span>. In an ideal situation, duplicate the folder that contains the raw data, and then rename the duplicated folder ‘cleaned’ and then only ever modify the data in that cleaned folder.</p>
 </div>
 <div id="begin-with-an-end-in-mind-1" class="section level3" number="11.2.2">
 <h3>
@@ -201,7 +201,7 @@ Figure 11.1: Example of a dataset end plan
 <p>Notice that this process has made it clear that we want the full names of the states, rather than abbreviations. And that population should be in millions, rather than some other units. The process of sketching out an end-point forces us to make decisions and be clear about our desired end state.</p>
 <p>We then implement that using code to simulate data. Again, this process forces us to think about what reasonable values look like in our dataset because we are literally forced to decide which functions to use. Thinking carefully about the membership of each column here, for instance if the column is meant to be ‘gender’ then values such as ‘male,’ ‘female,’ ‘other,’ and ‘unknown’ may be expected, but a number such as ‘1,000’ would likely be unexpected. It also forces us to be explicit about variable names because we have to assign the outputs of those functions to a variable.</p>
 <p>Building on the example above, perhaps it might look something like this.</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">simulated_states_population</span> <span class="op">&lt;-</span> 
@@ -227,7 +227,7 @@ Figure 11.1: Example of a dataset end plan
 <li>Each observational unit is a table.</li>
 </ol>
 <p>The following is an example of data in a tidy format:</p>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alfred"</span>, <span class="st">"Ben"</span>, <span class="st">"Chris"</span>, <span class="st">"Daniela"</span>, <span class="st">"Emma"</span><span class="op">)</span>,
   age_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0-9"</span>, <span class="st">"10-19"</span>, <span class="st">"0-9"</span>, <span class="st">"0-9"</span>, <span class="st">"10-19"</span><span class="op">)</span>,
@@ -248,14 +248,14 @@ Figure 11.1: Example of a dataset end plan
 </h3>
 <p>At this point, we then have our first look at the data that we are dealing with. Regardless of what the raw data look like we want to try to get it into a rectangular dataset as quickly as possible because then we can use our familiar verbs. Let’s assume here that we’re starting with some <code>.txt</code> file.</p>
 <p>The first step is to look for regularities in the dataset. We are wanting to end up with tabular data, which means that we need some type of deliminator to distinguish different columns. Ideally this might be features such as a comma, a semicolon, a tab, a double space, or a line break.</p>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Alabama, 5 million.</span>
 <span class="co"># Alaska, 0.7 million.</span>
 <span class="co"># Arizona, 7 million.</span>
 <span class="co"># Arkansas, 3 million.</span>
 <span class="co"># California, 40 million.</span></code></pre></div>
 <p>In worse cases there may be a feature of the dataset that we can take advantage of. For instance, possibly the data look like the following:</p>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># State is Alabama and population is 5 million.</span>
 <span class="co"># State is Alaska and population is 0.7 million.</span>
 <span class="co"># State is Arizona and population is 7 million.</span>
@@ -263,11 +263,11 @@ Figure 11.1: Example of a dataset end plan
 <span class="co"># State is California and population is 40 million.</span></code></pre></div>
 <p>In this case, although we don’t have a traditional deliminator we can use the regularity of ‘State is’ and ’ and population is ’ to get what we need.</p>
 <p>A more difficult case is this following:</p>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Alabama 5 Alaska 0.7 Arizona 7 Arkansas 3 California 40</span></code></pre></div>
 <p>One way to approach this is to take advantage of the different classes and values that we’re looking for. For instance, in this case, we know that we’re after US states, so there are only 50 possible options and we could use the existence of these as a deliminator. We could also use the fact that population is a number here, and so split based on a space followed by a number.</p>
 <p>To move forward, I’ll assume that last example and move it into a rectangular dataset.</p>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Alabama 5 Alaska 0.7 Arizona 7 Arkansas 3 California 40'</span><span class="op">)</span>
 
 <span class="va">data</span> <span class="op">&lt;-</span> 
@@ -308,14 +308,14 @@ Figure 11.1: Example of a dataset end plan
 <li>Unexpected characters, especially in unicode, which may not display consistently.</li>
 </ul>
 <p>Typically, we want to fix anything immediately obvious. For instance, remove commas that have been used to group digits in currencies. However, the situation will typically quickly become dire. What we need to do is to look at the membership of each group, and then triage what we will fix. We should probably make the decision of how to triage based on what is likely to have the largest impact. That usually means starting with the counts, sorting in descending order, and then dealing with each as they come.</p>
-<p>When the tests of membership are passed, then finally change the class, and run all the tests again. We’re adapting this idea from the software development approach of unit testing. Tests are crucial because the enable us to understand whether software (or in this case data) is fit for purpose <span class="citation">(<a href="references-1.html#ref-buildingsoftwaretogether" role="doc-biblioref">G. Wilson 2021</a>)</span>, Chapter ‘Testing.’</p>
+<p>When the tests of membership are passed, then finally change the class, and run all the tests again. We’re adapting this idea from the software development approach of unit testing. Tests are crucial because the enable us to understand whether software (or in this case data) is fit for purpose <span class="citation">(<a href="references-1.html#ref-buildingsoftwaretogether" role="doc-biblioref">Wilson 2021</a>)</span>, Chapter ‘Testing.’</p>
 <p>Let’s run through an example with a collection of strings, some of which are slightly wrong. This type of output is typical of OCR, which often gets most of the way there, but not quite.</p>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_string</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Rohan, Rhan, ROhan, Roham, ROhan, Rohan, Rohan, R0han, Rohan , 5Ohan'</span><span class="op">)</span>
 <span class="va">messy_string</span>
 <span class="co">#&gt; [1] "Rohan, Rhan, ROhan, Roham, ROhan, Rohan, Rohan, R0han, Rohan , 5Ohan"</span></code></pre></div>
 <p>As before, we first want to get this into a rectangular dataset.</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>names <span class="op">=</span> <span class="va">messy_string</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">names</span>, sep <span class="op">=</span> <span class="st">", "</span><span class="op">)</span> 
@@ -334,7 +334,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt;  9 "Rohan "</span>
 <span class="co">#&gt; 10 "5Ohan"</span></code></pre></div>
 <p>We now need decide which of these errors we are going to fix. To help us decide which are most important, we’ll create a count.</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">names</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 7 × 2</span>
@@ -348,7 +348,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 6 "Roham"      1</span>
 <span class="co">#&gt; 7 "Rohan "     1</span></code></pre></div>
 <p>The most common element is the correct one, which is great. The next one - ‘ROhan’ - looks like the ‘o’ has been incorrectly capitalized, and the one after that - ‘5Ohan’ - is distinguished by the ‘5’ instead of an ‘R.’ Let’s quickly fix these issues and then redo the count.</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> 
   <span class="va">my_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'ROhan'</span>, <span class="st">'Rohan'</span><span class="op">)</span>,
@@ -366,7 +366,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 4 "Roham"      1</span>
 <span class="co">#&gt; 5 "Rohan "     1</span></code></pre></div>
 <p>Already this is much better and 60 per cent of the values are correct, compared with earlier where it was 30 per cent. There are two more obvious errors - ‘Rhan’ and ‘Roham’ - with the first missing an ‘o’ and the second having an ‘m’ where the ‘n’ should be. Again, we can quickly update and fix those.</p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> 
   <span class="va">my_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'Rhan'</span>, <span class="st">'Rohan'</span><span class="op">)</span>,
@@ -382,7 +382,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 2 "R0han"      1</span>
 <span class="co">#&gt; 3 "Rohan "     1</span></code></pre></div>
 <p>We have achieved an 80 per cent fix with not too much effort. The two remaining issues are more subtle. The first - ‘R0han’ - has occurred because the ‘o’ has been incorrectly coded as an ‘0.’ In some fonts this will show up, but in others it will be more difficult to see. This is a common issue, especially with OCR, and something to be aware of. The second - ‘Rohan’ - is similarly subtle and is occurring because there is a trailing space. Again, trailing and leading spaces are a common issue. After we fix these two remaining issues then we will have all entries corrected.</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> 
   <span class="va">my_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'R0han'</span>, <span class="st">'Rohan'</span><span class="op">)</span>,
@@ -396,7 +396,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt;   &lt;chr&gt; &lt;int&gt;</span>
 <span class="co">#&gt; 1 Rohan    10</span></code></pre></div>
 <p>I’ve been doing the tests in my head in this example - I know that we’re hoping for ‘Rohan.’ But we can start to document this test as well. One way is to look to see if values other than ‘Rohan’ exist in the dataset.</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">check_me</span> <span class="op">&lt;-</span> 
   <span class="va">my_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">names</span> <span class="op">!=</span> <span class="st">"Rohan"</span><span class="op">)</span>
@@ -425,18 +425,18 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.1</span> Set-up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
 </h3>
 <p>To get started I need to load the necessary packages.</p>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringi.gagolewski.com/">stringi</a></span><span class="op">)</span></code></pre></div>
 <p>And then I need to read in the PDF that I want to convert.</p>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Read in the PDF</span>
 <span class="va">all_content</span> <span class="op">&lt;-</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"inputs/pdfs/2019_Kenya_census.pdf"</span><span class="op">)</span></code></pre></div>
 <p>The <code>pdf_text</code> function from <code>pdftools</code> is useful when you have a PDF and you want to read the content into R. For many recently produced PDFs it’ll work pretty well, but there are alternatives. If the PDF is an image, then it won’t work, and you’ll need to turn to OCR.</p>
 <p>You can see a page of the PDF here:</p>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"figures/2020-04-10-screenshot-of-census.png"</span><span class="op">)</span> </code></pre></div>
 <div class="inline-figure"><img src="figures/2020-04-10-screenshot-of-census.png" width="85%"></div>
 </div>
@@ -445,7 +445,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.2</span> Extract<a class="anchor" aria-label="anchor" href="#extract"><i class="fas fa-link"></i></a>
 </h3>
 <p>The first challenge is to get the dataset into a format that we can more easily manipulate. The way that I am going to do this is to consider each page of the PDF and extract the relevant parts. To do this, I first write a function that I want to apply to each page.</p>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># The function is going to take an input of a page</span>
 <span class="va">get_data</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">{</span>
   <span class="co"># Just look at the page of interest</span>
@@ -510,7 +510,7 @@ Figure 11.1: Example of a dataset end plan
   <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">demography_data_long</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>At this point, I have a function that does what I need to each page of the PDF. I’m going to use the function <code>map_dfr</code> from the <code>purrr</code> package to apply that function to each page, and then combine all the outputs into one tibble.</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Run through each relevant page and get the data</span>
 <span class="va">pages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span><span class="op">:</span><span class="fl">513</span><span class="op">)</span>
 <span class="va">all_tables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">pages</span>, <span class="va">get_data</span><span class="op">)</span>
@@ -526,7 +526,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.3.1</span> Values<a class="anchor" aria-label="anchor" href="#values"><i class="fas fa-link"></i></a>
 </h4>
 <p>The first step is to make the numbers into actual numbers, rather than characters. Before I can convert the type I need to remove anything that is not a number otherwise it’ll be converted into an NA. I first identify any values that are not numbers so that I can remove them.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Need to convert male, female, and total to integers</span>
 <span class="co"># First find the characters that should not be in there</span>
 <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -557,7 +557,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="va">all_tables</span><span class="op">$</span><span class="va">male</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">male</span> <span class="op">==</span> <span class="st">"15-Aug"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">4611</span></code></pre></div>
 <p>While you could use the <code>janitor</code> package here, it is worthwhile at least first looking at what is going on because sometimes there is odd stuff that janitor (and other packages) will deal with, but not in a way that you want. In this case, they’ve used Excel or similar and this has converted a couple of their entries into dates. If we just took the numbers from the column then we’d have 23 and 15 here, but by inspecting the column we can use Excel to reverse the process and enter the correct values of 4,923 and 4,611, respectively.</p>
 <p>Having identified everything that needs to be removed, we can do the actual removal and convert our character column of numbers to integers.</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span> <span class="op">&lt;-</span>
   <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">male</span>, <span class="va">female</span>, <span class="va">total</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="va">.</span>, <span class="st">","</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="co"># First get rid of commas</span>
@@ -571,20 +571,20 @@ Figure 11.1: Example of a dataset end plan
 </h4>
 <p>The next thing to clean is the areas. We know that there are 47 counties in Kenya, and a whole bunch of sub-counties. They give us a list on pages 19 to 22 of the PDF (document pages 7 to 10). However, this list is not complete, and there are a few minor issues that we’ll deal with later.</p>
 <p>In any case, I first need to fix a few inconsistencies.</p>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Fix some area names</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Taita/ Taveta"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Taita/Taveta"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Elgeyo/ Marakwet"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Elgeyo/Marakwet"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Nairobi City"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Nairobi"</span></code></pre></div>
 <p>Kenya has 47 counties, each of which has sub-counties. The PDF has them arranged as the county data then the sub-counties, without designating which is which. We can use the names, to a certain extent, but in a handful of cases, there is a sub-county that has the same name as a county so we need to first fix that.</p>
 <p>The PDF is made-up of three tables.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span><span class="op">$</span><span class="va">table</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; .</span>
 <span class="co">#&gt;       </span>
 <span class="co">#&gt; 59185</span></code></pre></div>
 <p>So I can first get the names of the counties based on those first two tables and then reconcile them to get a list of the counties.</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Get a list of the counties </span>
 <span class="va">list_counties</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -594,7 +594,7 @@ Figure 11.1: Example of a dataset end plan
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">area</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>As I hoped, there are 47 of them. But before I can add a flag based on those names, I need to deal with the sub-counties that share their name. We will do this based on the page, then looking it up and deciding which is the county page and which is the sub-county page.</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># The following have the issue of the name being used for both a county and a sub-county:</span>
 <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -616,7 +616,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; # A tibble: 0 × 2</span>
 <span class="co">#&gt; # … with 2 variables: area &lt;chr&gt;, page &lt;int&gt;</span></code></pre></div>
 <p>Now we can add the flag for whether the area is a county and adjust for the ones that are troublesome,</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Add flag for whether it is a county or a sub-county</span>
 <span class="va">all_tables</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -649,7 +649,7 @@ Figure 11.1: Example of a dataset end plan
 </h4>
 <p>Now we can deal with the ages.</p>
 <p>First we need to fix some errors.</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Clean up ages</span>
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
@@ -664,12 +664,12 @@ Figure 11.1: Example of a dataset end plan
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"9-14"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"5-9"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"10-19"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"10-14"</span></code></pre></div>
 <p>The census has done some of the work of putting together age-groups for us, but we want to make it easy to just focus on the counts by single-year-age. As such I’ll add a flag as to the type of age it is: an age group, such as ages 0 to 5, or a single age, such as 1.</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Add a flag as to whether it's a summary or not</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"age-group"</span>, <span class="st">"single-year"</span><span class="op">)</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"age-group"</span>, <span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span><span class="op">)</span></code></pre></div>
 <p>At the moment, age is a character variable. We have a decision to make here, because we don’t want it to be a character variable (because it won’t graph properly), but we don’t want it to be a numeric, because there is <code>total</code> and also <code>100+</code> in there. For now, we’ll just make it into a factor, and at least that will be able to be nicely graphed.</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.4.1</span> Gender sum<a class="anchor" aria-label="anchor" href="#gender-sum"><i class="fas fa-link"></i></a>
 </h4>
 <p>Given the format of the data, at this point it is easy to check that <code>total</code> is the sum of <code>male</code> and <code>female</code>.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Check the parts and the sums</span>
 <span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -691,7 +691,7 @@ Figure 11.1: Example of a dataset end plan
          <span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">totals_match</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
 <p>There is just one that seems wrong.</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># There is just one that looks wrong</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">male</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"10"</span> <span class="op">&amp;</span> <span class="va">all_tables</span><span class="op">$</span><span class="va">page</span> <span class="op">==</span> <span class="fl">187</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
 
@@ -703,7 +703,7 @@ Figure 11.1: Example of a dataset end plan
 </h4>
 <p>The census provides different tables for the total of each county and sub-county; and then within each county, for the number in an urban area in that county, and the number in a urban area in that county. Some counties only have an urban count, but we’d like to make sure that the sum of rural and urban counts equals the total count. This requires reshaping the data from a long to wide format.</p>
 <p>First, construct different tables for each of the three. I just do it manually, but I could probably do this a nicer way.</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Table 2.3</span>
 <span class="va">table_2_3</span> <span class="op">&lt;-</span> <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County"</span><span class="op">)</span>
@@ -712,7 +712,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="va">table_2_4b</span> <span class="op">&lt;-</span> <span class="va">all_tables</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.4b: Distribution of Urban Population by Age, Sex* and County"</span><span class="op">)</span></code></pre></div>
 <p>Having constructed the constituent parts, I now join then based on age, area, and whether it is a county.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">both_2_4s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">table_2_4a</span>, <span class="va">table_2_4b</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span>, <span class="st">"area"</span>, <span class="st">"area_type"</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_rural"</span>, <span class="st">"_urban"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">table_2_3</span>, <span class="va">both_2_4s</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span>, <span class="st">"area"</span>, <span class="st">"area_type"</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"_all"</span>, <span class="st">"_"</span><span class="op">)</span><span class="op">)</span>
@@ -727,7 +727,7 @@ Figure 11.1: Example of a dataset end plan
 
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">both_2_4s</span>, <span class="va">table_2_3</span>, <span class="va">table_2_4a</span>, <span class="va">table_2_4b</span><span class="op">)</span></code></pre></div>
 <p>We can now check that the sum of rural and urban is the same as the total.</p>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Check that the urban + rural = total</span>
 <span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -751,7 +751,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.4.3</span> Ages sum to age-groups<a class="anchor" aria-label="anchor" href="#ages-sum-to-age-groups"><i class="fas fa-link"></i></a>
 </h4>
 <p>Finally, I want to check that the single age counts sum to the age-groups.</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># One last thing to check is that the ages sum to their age-groups.</span>
 <span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -802,7 +802,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.5</span> Tidy-up<a class="anchor" aria-label="anchor" href="#tidy-up"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now that we are confident that everything is looking good, we can just convert it to long-format so that it is easy to work with.</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>male_total <span class="op">=</span> <span class="va">male</span>,
@@ -827,7 +827,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="header-section-number">11.3.6</span> Make Monica’s dataset<a class="anchor" aria-label="anchor" href="#make-monicas-dataset"><i class="fas fa-link"></i></a>
 </h3>
 <p>The original purpose of all of this was to make a table for Monica. She needed single-year counts, by gender, for the counties.</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">monicas_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">area_type</span> <span class="op">==</span> <span class="st">"county"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -838,10 +838,10 @@ Figure 11.1: Example of a dataset end plan
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">monicas_dataset</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 0 × 4</span>
 <span class="co">#&gt; # … with 4 variables: area &lt;chr&gt;, age &lt;fct&gt;, gender &lt;chr&gt;, number &lt;int&gt;</span></code></pre></div>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">monicas_dataset</span>, <span class="st">"outputs/data/monicas_dataset.csv"</span><span class="op">)</span></code></pre></div>
 <p>I’ll leave the fancy stats to Monica, but I’ll just make a quick graph of Nairobi.</p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># monicas_dataset %&gt;% </span>
 <span class="co">#   filter(area == "Nairobi") %&gt;%</span>
 <span class="co">#   ggplot() +</span>
@@ -869,7 +869,7 @@ Figure 11.1: Example of a dataset end plan
 </h3>
 <p>Plots are an invaluable tool when cleaning data, because they show each point in the dataset, in relation to the other points. They are especially useful for identifying when a value doesn’t belong. For instance, if a value is expected to be numerical, but it is still a character then it will not plot and a warning will be displayed.</p>
 <p>Plots will be especially useful for numerical data, but are still useful for text and categorical data. Let’s pretend that we have a situation where we are interested in a person’s age, for some youth survey. We have the following data:</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">17</span>, <span class="fl">22</span>, <span class="fl">13</span>, <span class="fl">21</span>, <span class="fl">16</span>, <span class="fl">16</span>, <span class="fl">6</span>, <span class="fl">16</span>, <span class="fl">11</span>, <span class="fl">150</span><span class="op">)</span><span class="op">)</span>
 
@@ -886,7 +886,7 @@ Figure 11.1: Example of a dataset end plan
 </h3>
 <p>We want to focus on getting most of the data right. So we are interested in the counts of unique values. Hopefully a majority of the data are concentrated in the most common counts. But it can also be useful to invert it, and see what is especially uncommon. The extent to which we want to deal with these depends on what we need. Ultimately, each time we fix one we are getting very few additional observations, potentially even just one! Counts are especially useful with text or categorical data, but can be helpful with numerical as well.</p>
 <p>Let’s see an example.</p>
-<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Australie'</span>, <span class="st">'Austrelia'</span>, <span class="st">'Australie'</span>, <span class="st">'Australie'</span>, <span class="st">'Aeustralia'</span>, <span class="st">'Austraia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>
                   <span class="op">)</span>
@@ -914,10 +914,10 @@ Figure 11.1: Example of a dataset end plan
 <li>If doing cross-country analysis, then a list of country names that we know should be in our dataset would be useful. Our no-go conditions would then be if there were: 1) values not in that list in our dataset, or, vice versa; 2) countries that we expected to be in there that were not.</li>
 </ul>
 <p>To have a concrete example, let’s consider if we were doing some analysis about the five largest counties in Kenya: ‘Nairobi,’ ‘Kiambu,’ ‘Nakuru,’ ‘Kakamega,’ ‘Bungoma.’ Let’s create that array first:</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">correct_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Nairobi'</span>, <span class="st">'Kiambu'</span>, <span class="st">'Nakuru'</span>, <span class="st">'Kakamega'</span>, <span class="st">'Bungoma'</span><span class="op">)</span></code></pre></div>
 <p>We begin with the following dataset:</p>
-<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>county <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Nairobi'</span>, <span class="st">'Nairob1'</span>, <span class="st">'Nakuru'</span>, <span class="st">'Kakamega'</span>, <span class="st">'Nakuru'</span>, 
                       <span class="st">'Kiambu'</span>, <span class="st">'Kiambru'</span>, <span class="st">'Kabamega'</span>, <span class="st">'Bun8oma'</span>, <span class="st">'Bungoma'</span><span class="op">)</span>
@@ -938,7 +938,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 8 Nairob1      1</span>
 <span class="co">#&gt; 9 Nairobi      1</span></code></pre></div>
 <p>Based on the count we know that we have to fix some of them and there are two with numbers that are obvious fixes:</p>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span> <span class="op">&lt;-</span> 
   <span class="va">top_five_kenya</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>county <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">county</span>, <span class="st">'Nairob1'</span>, <span class="st">'Nairobi'</span><span class="op">)</span>,
@@ -958,7 +958,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 6 Kiambru      1</span>
 <span class="co">#&gt; 7 Kiambu       1</span></code></pre></div>
 <p>At this point we can use our go/no-go conditions to decide whether we are finished or not.</p>
-<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span><span class="op">$</span><span class="va">county</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Nairobi"  "Nakuru"   "Kakamega" "Kiambu"   "Kiambru"  "Kabamega" "Bungoma"</span>
 
@@ -990,12 +990,12 @@ Figure 11.1: Example of a dataset end plan
 <li>check that dates are correctly formatted.</li>
 </ul>
 <p>To understand why it is important to be clear about whether a value is a number or a factor, consider the following situation:</p>
-<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
          group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Let’s start with <code>group</code> as an integer and look at a logistic regression.</p>
-<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">response</span><span class="op">~</span><span class="va">group</span>, data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -1017,7 +1017,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; Multiple R-squared:  0.064,  Adjusted R-squared:  -0.06971 </span>
 <span class="co">#&gt; F-statistic: 0.4786 on 1 and 7 DF,  p-value: 0.5113</span></code></pre></div>
 <p>Now we can try it as a factor. The intepretation of the variable is completely different.</p>
-<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_data</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">response</span><span class="op">~</span><span class="va">group</span>, data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -1059,7 +1059,7 @@ Figure 11.1: Example of a dataset end plan
 <p>In addition to respecting the nature of the data, names need to satisfy two additional considerations: 1) they need to be machine readable, and 2) they need to be human readable.</p>
 <p>Machine readable names is an easier standard to meet, but usually means avoiding spaces and special characters. A space can be replaced with a underbar. Usually, special characters should just be removed because they can be inconsistent between different computers and languages. The names should also be unique within a dataset, and unique within a collection of datasets unless that particular column is being deliberately used as a key to join different datasets.</p>
 <p>An especially useful function to use to get closer to machine readable names is <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> which is from the <code>janitor</code> package <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. This deals with those issues mentioned above as well as a few others. We can see an example.</p>
-<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bad_names_good_names</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
     <span class="st">'First'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,
@@ -1085,7 +1085,7 @@ Figure 11.1: Example of a dataset end plan
 <span class="co">#&gt; 1     1                      1                   1                       1</span></code></pre></div>
 <p>Human readable names require an additional layer! You need to consider other cultures and how they may interpret some of the names that you’re using. You also need to consider different experience levels that subsequent users of your dataset may have. This is both in terms of experience with programming and statistics, but also experience with similar datasets. For instance, a column of ‘flag’ is often used to signal that a column contains data that needs to be followed up with or treated carefully in some way. An experienced analyst will know this, but a beginner will not. Try to use meaningful names wherever possible <span class="citation">(<a href="references-1.html#ref-lin2020ten" role="doc-biblioref">Lin, Ali, and Wilson 2020</a>)</span>.</p>
 <p>One interesting feature of R is that in certain cases partial matching on names is possible. For instance:</p>
-<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">never_use_partial_matching</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
     my_first_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,
@@ -1111,7 +1111,7 @@ Figure 11.1: Example of a dataset end plan
 <ol style="list-style-type: decimal">
 <li>Is the following an example of tidy data?</li>
 </ol>
-<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Anne'</span>, <span class="st">'Bethany'</span>, <span class="st">'Stephen'</span>, <span class="st">'William'</span><span class="op">)</span>,
        age_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'18-29'</span>, <span class="st">'30-44'</span>, <span class="st">'45-60'</span>, <span class="st">'60+'</span><span class="op">)</span>,
        <span class="op">)</span>
@@ -1201,7 +1201,7 @@ Figure 11.1: Example of a dataset end plan
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

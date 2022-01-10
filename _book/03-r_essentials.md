@@ -7,34 +7,28 @@
 **Required material**
 
 - Read *The Kitchen Counter Observatory*, [@kieranskitchen]
-- Read *This is how AI bias really happens---and why it's so hard to fix*, [@hao2019]
 - Read *R for Data Science*, Chapters 4 and 5, [@r4ds]
+- Read *Counting the countless*, [@keyes2019]
+- Read *Data Feminism*, Chapter 6, [@datafeminism2020]
 
-<!-- - Watch *Defining Custom Functions in R*, [@shiroonfunctions]. -->
-
-<!-- **Recommended reading** -->
-
-<!-- - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/.  -->
-<!-- - Hvitfeldt, Emil, 2020, 'Emoji in ggplot2', https://www.hvitfeldt.me/blog/real-emojis-in-ggplot2/. -->
-<!-- - Pavlik, Kaylin, 2018, 'Dairy Queen Deserts in Minnesota', https://www.kaylinpavlik.com/dairy-queen-deserts/. -->
-<!-- - 'R Studio Cloud Guide', https://rstudio.cloud/learn/guide. -->
-<!-- - Scherer, Cédric, 2019, 'Best TidyTuesday 2019', https://cedricscherer.netlify.com/2019/12/30/best-tidytuesday-2019/. -->
-<!-- - Silge, Julia, 2019, 'Reordering and facetting for ggplot2', https://juliasilge.com/blog/reorder-within/. -->
-<!-- - Smale, David, 2019, 'Happy Days', https://davidsmale.netlify.com/portfolio/happy-days/. -->
 
 **Key concepts and skills**
 
 - Understanding foundational aspects of R and R Studio.
 - Being able to use key `dplyr` verbs.
-- Knowing fundamentals of class and how to manipulate it.
+- Know fundamentals of class and how to manipulate it.
 - Ability to simulate data.
-- Can make graphs.
-- Comfort with other aspects of the tidyverse including importing data, dataset manipulation, string manipulation, and factors.
+- Ability to make graphs in `ggplot2`.
+- Comfort with other aspects of the `tidyverse` including importing data, dataset manipulation, string manipulation, and factors.
 - Develop strategies for when things do not work.
 
 **Key libraries**
 
+- `forcats`
 - `ggplot2`
+- `haven`
+- `stringr`
+- `tidyr`
 - `tidyverse`
 
 **Key functions**
@@ -94,15 +88,15 @@
 
 ## Background
 
-In this chapter we focus on foundational skills needed to use the statistical programming language R [@citeR] to tell stories with data. Some of it may not make sense at first, but these are skills and approaches that we will come back to throughout these notes. You should initially just go through this chapter quickly, noting aspects that you do not understand. And then come back to this chapter from time to time as you continue through the rest of the book. That way you will see how the various bits fit into context.
+In this chapter we focus on foundational skills needed to use the statistical programming language R [@citeR] to tell stories with data. Some of it may not make sense at first, but these are skills and approaches that we will often use. You should initially just go through this chapter quickly, noting aspects that you do not understand. And then come back to this chapter from time to time as you continue through the rest of the book. That way you will see how the various bits fit into context.
 
-R is an open-source language that is useful for statistical programming. You can download R for free from the Comprehensive R Archive Network (CRAN): https://cran.r-project.org. R Studio is an Integrated Development Environment (IDE) for R which makes the language easier to use and can be downloaded for free: https://www.rstudio.com/products/rstudio/.
+R is an open-source language for statistical programming. You can download R for free from the Comprehensive R Archive Network (CRAN): https://cran.r-project.org. R Studio is an Integrated Development Environment (IDE) for R which makes the language easier to use and can be downloaded for free: https://www.rstudio.com/products/rstudio/.
 
-The past ten years or so, have been characterised by the increased use of the tidyverse. This is '...an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures' [@tidyversewebsite]. There are three distinctions here: the original R language, typically referred to as 'base'; the 'tidyverse' which is a collection of packages that build on top of the R language; and other packages. 
+The past ten years or so, have been characterized by the increased use of the `tidyverse`. This is '...an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures' [@tidyversewebsite]. There are three distinctions to be clear about: the original R language, typically referred to as 'base'; the 'tidyverse' which is a coherent collection of packages that build on top of base, and other packages. 
 
-Essentially everything that we can do in the tidyverse, we can also do in base. But, as the tidyverse was built especially for modern data science it is often easier to use the tidyverse, especially when you are learning. Additionally, often everything that we can do in the tidyverse, we can also do with other packages. But, as the tidyverse is a coherent collection of packages, it is often easier to use the tidyverse, again, especially when you are learning. Eventually one begins to see cases where it makes sense to trade-off the convenience and coherence of the tidyverse for some features of base or other packages. Indeed, we will see that at various points later in this book. For instance, the tidyverse can be slow, and so if one needs to import thousands of CSVs then it can make sense to switch away from `readr::read_csv()`. The appropriate use of base and non-tidyverse packages, rather than dogmatic insistence on a particular solution, is a sign of one's development.
+Essentially everything that we can do in the tidyverse, we can also do in base. But, as the `tidyverse` was built especially for data science it is often easier to use the tidyverse, especially when learning. Additionally, often everything that we can do in the tidyverse, we can also do with other packages. But, as the `tidyverse` is a coherent collection of packages, it is often easier to use the tidyverse, again, especially when learning. Eventually there are cases where it makes sense to trade-off the convenience and coherence of the `tidyverse` for some features of base or other packages. Indeed, we will see that at various points later in this book. For instance, the `tidyverse` can be slow, and so if one needs to import thousands of CSVs then it can make sense to switch away from `read_csv()`. The appropriate use of base and non-tidyverse packages, or even other languages, rather than dogmatic insistence on a particular solution, is a sign of intellectual maturity.
 
-Central to our use of the statistical programming language R is data, and most of the data that we use will have humans at the heart of it. Sometimes it is easy to forget that, but other times it has the opposite effect.
+Central to our use of the statistical programming language R is data, and most of the data that we use will have humans at the heart of it. Sometimes, dealing with human-centered data in this way can have a numbing effect, results in over-generalization, and potentially problematic work. Another sign of intellectual maturity is when it has the opposite effect.
 
 > In practice, I find that far from distancing you from questions of meaning, quantitative data forces you to confront them. The numbers draw you in. Working with data like this is an unending exercise in humility, a constant compulsion to think through what you can and cannot see, and a standing invitation to understand what the measures really capture---what they mean, and for whom. 
 >
@@ -110,110 +104,88 @@ Central to our use of the statistical programming language R is data, and most o
 
 
 
-<!-- Get started by loading the `tidyverse` package. -->
-
-<!-- ```{r, warning = FALSE, message = FALSE} -->
-<!-- library(tidyverse) -->
-<!-- ``` -->
 
 
+## Broader impacts
 
-<!-- The general workflow that we will use involves: -->
-
-<!-- 1. Import -->
-<!-- 2. Tidy -->
-<!-- 3. Transforming, descriptive -->
-<!-- 4. Plot -->
-<!-- 5. Model -->
-<!-- 6. Repeat 3/4 -->
-
-
-
-
-
-## Broader impact
-
-> "We shouldn't have to think about the societal impact of our work because it's hard and other people can do it for us" is a really bad argument. I stopped doing CV research because I saw the impact my work was having. I loved the work but the military applications and privacy concerns eventually became impossible to ignore. But basically all facial recognition work would not get published if we took Broader Impacts sections seriously. There is almost no upside and enormous downside risk. To be fair though i should have a lot of humility here. For most of grad school I bought in to the myth that science is apolitical and research is objectively moral and good no matter what the subject is.
+> "We shouldn't have to think about the societal impact of our work because it's hard and other people can do it for us" is a really bad argument. I stopped doing CV [computer vision] research because I saw the impact my work was having. I loved the work but the military applications and privacy concerns eventually became impossible to ignore. But basically all facial recognition work would not get published if we took Broader Impacts sections seriously. There is almost no upside and enormous downside risk. To be fair though i should have a lot of humility here. For most of grad school I bought in to the myth that science is apolitical and research is objectively moral and good no matter what the subject is.
 > 
-> Joe Redmon, [20 February 2020](https://twitter.com/pjreddie/status/1230524770350817280).
+> Joe Redmon, 20 February 2020
 
 
-Although the term 'data science' is ubiquitous in academia, industry, and even more generally, it is difficult to define. One deliberately antagonistic definition of data science is '[t]he inhumane reduction of humanity down to what can be counted' [@keyes2019]. While purposefully controversial, this definition highlights one reason for the increased demand for data science and quantitative methods over the past decade---individuals and their behaviour are now at the heart of it. Many of the techniques have been around for many decades, but what makes them popular now is this human focus. 
+Although the term 'data science' is ubiquitous in academia, industry, and even more generally, it is difficult to define. One deliberately antagonistic definition of data science is '[t]he inhumane reduction of humanity down to what can be counted' [@keyes2019]. While purposefully controversial, this definition highlights one reason for the increased demand for data science and quantitative methods over the past decade---individuals and their behavior are now at the heart of it. Many of the techniques have been around for many decades, but what makes them popular now is this human focus. 
 
-Unfortunately, even though much of the work may be focused on individuals, issues of privacy and consent, and ethical concerns more broadly, rarely seem front of mind. While there are some exceptions, in general, even at the same time as claiming that AI, machine learning, and data science are going to revolutionise society, consideration of these types of issues appears to have been largely treated as something that would be nice to have, rather than something that we may like to think of before we embrace the revolution.
+Unfortunately, even though much of the work may be focused on individuals, issues of privacy and consent, and ethical concerns more broadly, rarely seem front of mind. While there are some exceptions, in general, even at the same time as claiming that AI, machine learning, and data science are going to revolutionize society, consideration of these types of issues appears to have been largely treated as something that would be nice to have, rather than something that we may like to think of before we embrace the revolution.
 
-For the most part, these are not new issues. In the sciences, there has been considerable recent ethical consideration around CRISPR technology and gene editing, but in an earlier time similar conversations were had, for instance, about Wernher von Braun being allowed to building rockets for the US. In medicine, of course, these concerns have been front-of-mind for some time. Data science seems determined to have its own Tuskegee-moment rather than think about, and deal appropriately with, these issues, based on the experiences of other fields before they occur in data science.
+For the most part, these types of issues are not new. In the sciences, there has been considerable recent ethical consideration around CRISPR technology and gene editing [@brokowski2019crispr], but in an earlier time similar conversations were had, for instance, about Wernher von Braun being allowed to building rockets for the US [@neufeld2002wernher]. In medicine, of course, these concerns have been front-of-mind for some time [@american1848code]. Data science seems determined to have its own Tuskegee-moment rather than think about, and proactively deal appropriately with, these issues, based on the experiences of other fields.
 
-That said, there is some evidence that data scientists are beginning to be more concerned about the ethics surrounding the practice. For instance, NeurIPS, a prestigious machine learning conference, now requires a statement on ethics to accompany all submissions.
+That said, there is some evidence that data scientists are beginning to be more concerned about the ethics surrounding the practice. For instance, NeurIPS, a prestigious machine learning conference, has required a statement on ethics to accompany all submissions since 2020.
 
 > In order to provide a balanced perspective, authors are required to include a statement of the potential broader impact of their work, including its ethical aspects and future societal consequences. Authors should take care to discuss both positive and negative outcomes.
 >
-> [NeurIPS 2020 Conference Call For Papers](https://neurips.cc/Conferences/2020/CallForPapers)
+> NeurIPS 2020 Conference Call For Papers
 
-The purpose of ethical consideration and concern for the broader impact of our work is not to prescriptively rule things in or out, but to provide an opportunity to raise some issues that should be front of mind. The variety of data science applications, the relative youth of the field, and the speed of change, mean that such considerations are sometimes knowingly set aside, and this is acceptable to the rest of the field. This contrasts with fields such as science, medicine, engineering, and accounting. Possibly those fields are more self-aware (Figure \@ref(fig:personalprobability)).
+The purpose of ethical consideration and concern for the broader impact of data science is not to prescriptively rule things in or out, but to provide an opportunity to raise some issues that should be paramount. The variety of data science applications, the relative youth of the field, and the speed of change, mean that such considerations are sometimes knowingly set aside, and this is acceptable to the rest of the field. This contrasts with fields such as science, medicine, engineering, and accounting. Possibly those fields are more self-aware (Figure \@ref(fig:personalprobability)).
 
-<div class="figure">
-<img src="figures/probability.png" alt="Probability, from https://xkcd.com/881/." width="90%" />
-<p class="caption">(\#fig:personalprobability)Probability, from https://xkcd.com/881/.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/probability} 
+
+}
+
+\caption{Probability, from XKCD}(\#fig:personalprobability)
+\end{figure}
 
 
 
 
 ## R, R Studio, and R Studio Cloud
 
-R and R Studio are complementary, but they are not the same thing. Liza Bolton, Assistant Professor, Teaching Stream, Department of Statistical Sciences at the University of Toronto explains their relationship by analogy where R is like the engine and R Studio is like the car. Although some of us can use a car engine directly, most of us use a car to interact with the engine.
+R and R Studio are complementary, but they are not the same thing. Liza Bolton, Assistant Professor, Teaching Stream, University of Toronto explains their relationship by analogy where R is like the engine and R Studio is like the car. Although some of us use a car engine directly, most of us use a car to interact with the engine.
 
 ### R
 
-R---https://www.r-project.org/---is an open-source and free programming language that is focused on general statistics. Free in this context does not refer to a price of zero, but instead to 'freedom', but it also does have a price of zero. This is in contrast with an open-source programming language that is designed for general purpose, such as Python, or an open-source programming language that is focused on probability, such as Stan. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland. It is maintained by the R Core Team and changes to this 'base' of code occur methodically and with concern given to a variety of different priorities.
+R -- https://www.r-project.org/ -- is an open-source and free programming language that is focused on general statistics. Free in this context does not refer to a price of zero, but instead to the freedom that the creators give users to largely do what they want with it, although it also does have a price of zero. This is in contrast with an open-source programming language that is designed for general purpose, such as Python, or an open-source programming language that is focused on probability, such as Stan. It was created by Ross Ihaka and Robert Gentleman at the University of Auckland in the 1990s, and traces its provenance to S, which was developed at Bell Labs in the 1970s. It is maintained by the R Core Team and changes to this 'base' of code occur methodically and with concern given to a variety of different priorities.
 
-<!-- If you are in Canada then you can download R here: http://cran.utstat.utoronto.ca/, if you are in Australia then you can download R here: https://cran.csiro.au/, otherwise you should go here - https://cran.r-project.org/mirrors.html - and find a location that suits you. (It doesn't really matter where you get it from, it's just that it may be slightly faster to use a closer option.) -->
+Many people build on this stable base, to extend the capabilities of R to better and more quickly suit their needs. They do this by creating packages. Typically, although not always, a package is a collection of R code, mostly functions, and this allows us to more easily do things that we want to do. These packages are managed by repositories such as CRAN and Bioconductor. 
 
-Many people build on this stable base, to extend the capabilities of R to better and more quickly suit their needs. They do this by creating packages. Typically, although not always, a package is a collection of R code, mostly functions, and this allows us to more easily do things that we want to do. These packages are managed by CRAN, and other repositories such as Bioconductor. CRAN is built into the download of R that you just got, so you can use it straight away.
+If you want to use a package then you first need to install it on your computer, and then you need to load it when you want to use it. Di Cook, Professor of Business Analytics at Monash University, describes this as analogous to a lightbulb. If you want light in your house, first you need to fit a lightbulb, and then you need to turn the switch on. Installing a package, say, `install.packages("tidyverse")`, is akin to fitting a lightbulb into a socket---you only need to do this once for each lightbulb. But then each time you want light you need to turn on the switch to the lightbulb, which in the R packages case, means calling the library, say, `library(tidyverse)`. 
 
-If you want to use a package then you need to firstly install it in your computer, and then you need to load it when you want to use it. 
-
-Di Cook, Professor of Business Analytics at Monash University, describes this as analogous to a lightbulb. If you want light in your house, first you need to fit a lightbulb, and then you need to turn the switch on. Installing a package, say, `install.packages("tidyverse")`, is akin to fitting a lightbulb into a socket---you only need to do this once for each lightbulb. But then each time you want light you need to turn on the switch to the lightbulb, which in the R packages case, means calling the library, say, `library(tidyverse)`. 
-
-To install a package on your computer (again, we will need to do this only once per computer) we use the function `install.packages()`.
+To install a package on your computer (again, we will need to do this only once per computer) we use `install.packages()`.
 
 
 ```r
 install.packages("tidyverse")
 ```
 
-And then when we want to use the package, we need to use the function `library()`.
+And then when we want to use the package, we use `library()`.
 
 
 ```r
 library(tidyverse)
 ```
 
-Having downloaded it, we can open R and use it directly. It is primarily designed to be interacted with through the command line. While this is functional, it can be useful to have a richer environment than the command line provides. In particular, it can be useful to install an Integrated Development Environment (IDE), which is an application that brings together various bits and pieces that will be used often. One common IDE for R is R Studio.
+Having downloaded it, we can open R and use it directly. It is primarily designed to be interacted with through the command line. While this is functional, it can be useful to have a richer environment than the command line provides. In particular, it can be useful to install an Integrated Development Environment (IDE), which is an application that brings together various bits and pieces that will be used often. One common IDE for R is R Studio, although others such as Visual Studio are also used.
 
 ### R Studio
 
 R Studio is distinct to R, and they are different entities. R Studio builds on top of R to make it easier to use R. This is in the same way that one could use the internet from the command line, but most folks use a browser such as Chrome, Firefox, or Safari.
 
-R Studio is free in the sense that we do not pay for it. It is also free in the sense of being able to take the code, modify it, and distribute that code. But it is important to recognise that R Studio is a company and so it is possible that the current situation could change. It can be downloaded: https://www.rstudio.com/products/rstudio/.
+R Studio is free in the sense that we do not pay for it. It is also free in the sense of being able to take the code, modify it, and distribute that code. But it is important to recognize that R Studio is a company and so it is possible that the current situation could change. It can be downloaded: https://www.rstudio.com/products/rstudio/.
 
 When we open R Studio it will look like Figure \@ref(fig:first).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/01.png" alt="Opening R Studio for the first time" width="100%" />
-<p class="caption">(\#fig:first)Opening R Studio for the first time</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/01} \caption{Opening R Studio for the first time}(\#fig:first)
+\end{figure}
 
-The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt '>' and typing that out then pressing enter. The code that you type should be:
+The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt '>', typing '2+2', and then pressing 'return/enter'.
 
 
 ```r
 2 + 2
 #> [1] 4
 ```
-
-And hopefully you get the same answer printed in the console.
 
 The pane on the top right has information about your environment. For instance, when we create variables a list of their names and some properties will appear there. Try to type the following code, replacing my name with your name, next to the prompt, and again press enter:
 
@@ -226,14 +198,12 @@ You should notice a new value in the environment pane with the variable name and
 
 The pane in the bottom right is a file manager. At the moment it should just have two files: an R History file and a R Project file. We will get to what these are later, but for now we will create and save a file.
 
-Type out the following code (do not worry too much about the details for now):
+Run the following code, without worrying too much about the details for now. And you should see a new '.rds' file in your list of files.
 
 
 ```r
 saveRDS(object = my_name, file = "my_first_file.rds")
 ```
-
-And you should see a new '.rds' file in your list of files.
 
 ### R Studio Cloud
 
@@ -244,11 +214,9 @@ The free version of R Studio Cloud is free as is 'no financial cost'. The trade-
 
 ## Getting started
 
-We will now start going through some code. It is important that you actively write this all out yourself.
+We will now start going through some code. It is important to actively write this all out yourself.
 
-While working line-by-line in the console is fine, it is easier to write out a whole script that can then be executed. We will do this by making an R Script. To do this go to: File -> New File -> R Script. The console pane will fall to the bottom left and an R Script will open in the top left. We will write some code that will get all of the Australian federal politicians and then construct a small table about the genders of the prime ministers.
-
-(Some of this code will not make sense at this stage, but just type it all out to get in the habit and then run it. To run the whole script, we can click 'Run' or we can highlight certain lines and then click 'Run' to just run those lines.
+While working line-by-line in the console is fine, it is easier to write out a whole script that can then be run. We will do this by making an R Script ('File' -> 'New File' -> 'R Script'). The console pane will fall to the bottom left and an R Script will open in the top left. We will write some code that will get all of the Australian federal politicians and then construct a small table about the genders of the prime ministers. Some of this code will not make sense at this stage, but just type it all out to get in the habit and then run it. To run the whole script, we can click 'Run' or we can highlight certain lines and then click 'Run' to just run those lines.
 
 
 ```r
@@ -268,7 +236,7 @@ AustralianPoliticians::get_auspol('all') |>
   as_tibble() |> 
   filter(wasPrimeMinister == 1) |> 
   count(gender)
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   gender     n
 #>   <chr>  <int>
 #> 1 female     1
@@ -279,22 +247,22 @@ We can see that, as at the end of 2021, one female has been prime minister (Juli
 
 One critical operator when programming is the 'pipe': `|>`. We read this as 'and then'. This takes the output of a line of code and uses it as the first input to the next line of code. It makes code easier to read.
 
-The idea of the pipe is that we take a dataset, and then, do something to it. We used this in the earlier example. Another example follows where we will look at the first six lines of a dataset by piping it to `head()`. Notice that `head()` does not explicitly take any arguments in this example. It knows which data to display because the pipe does it implicitly.
+The idea of the pipe is that we take a dataset, and then do something to it. We used this in the earlier example. Another example follows where we will look at the first six lines of a dataset by piping it to `head()`. Notice that `head()` does not explicitly take any arguments in this example. It knows which data to display because the pipe does it implicitly.
 
 
 ```r
 AustralianPoliticians::get_auspol('all') |> 
   head()
-#> # A tibble: 6 × 20
+#> # A tibble: 6 x 20
 #>   uniqueID   surname allOtherNames      firstName commonName
 #>   <chr>      <chr>   <chr>              <chr>     <chr>     
-#> 1 Abbott1859 Abbott  Richard Hartley S… Richard   <NA>      
+#> 1 Abbott1859 Abbott  Richard Hartley S~ Richard   <NA>      
 #> 2 Abbott1869 Abbott  Percy Phipps       Percy     <NA>      
 #> 3 Abbott1877 Abbott  Macartney          Macartney Mac       
-#> 4 Abbott1886 Abbott  Charles Lydiard A… Charles   Aubrey    
+#> 4 Abbott1886 Abbott  Charles Lydiard A~ Charles   Aubrey    
 #> 5 Abbott1891 Abbott  Joseph Palmer      Joseph    <NA>      
 #> 6 Abbott1957 Abbott  Anthony John       Anthony   Tony      
-#> # … with 15 more variables: displayName <chr>,
+#> # ... with 15 more variables: displayName <chr>,
 #> #   earlierOrLaterNames <chr>, title <chr>, gender <chr>,
 #> #   birthDate <date>, birthYear <dbl>, birthPlace <chr>,
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
@@ -302,23 +270,19 @@ AustralianPoliticians::get_auspol('all') |>
 #> #   wikipedia <chr>, adb <chr>, comments <chr>
 ```
 
-We can save this R Script as 'my_first_r_script.R' using File -> Save As. At this point, our workspace should look something like Figure \@ref(fig:third).
+We can save this R Script as 'my_first_r_script.R' ('File' -> 'Save As'). At this point, our workspace should look something like Figure \@ref(fig:third).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/03.png" alt="After running an R Script" width="100%" />
-<p class="caption">(\#fig:third)After running an R Script</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/03} \caption{After running an R Script}(\#fig:third)
+\end{figure}
 
-One thing to be aware of is that each R Studio Cloud workspace is essentially a new computer. Because of this, we need to install any package that we want to use for each workspace. For instance, before we can use the `tidyverse`, we need to install it with the function `install.packages("tidyverse")`. This contrasts with when you use your own computer.
+One thing to be aware of is that each R Studio Cloud workspace is essentially a new computer. Because of this, we need to install any package that we want to use for each workspace. For instance, before we can use the `tidyverse`, we need to install it with `install.packages("tidyverse")`. This contrasts with using one's own computer.
 
 A few final notes on R Studio Cloud:
 
 1. In the Australian politician's example, we got our data from the website GitHub using an R package, but we can get data into a workspace from a local computer in a variety of ways. One way is to use the 'upload' button in the 'Files' panel.
-2. R Studio Cloud allows some degree of collaboration. For instance, you can give someone else access to a workspace that you create. This could be useful for collaborating on an assignment, although it is not quite full featured yet and you cannot both be in the workspace at the same time (in contrast to, say, Google Docs).
-3. There are a variety of weaknesses of R Studio Cloud, in particular the RAM limits. Additionally, things break from time to time. The R Studio Community page that is focused on R Studio Cloud is sometimes helpful: https://community.rstudio.com/c/rstudio-cloud.
-
-
-
+2. R Studio Cloud allows some degree of collaboration. For instance, you can give someone else access to a workspace that you create. This could be useful for collaborating on an assignment, although it is not quite full featured yet and you cannot both be in the workspace at the same time, in contrast to, say, Google Docs.
+3. There are a variety of weaknesses of R Studio Cloud, in particular the RAM limits. Additionally, like any web application, things break from time to time or go down.
 
 
 ## The `dplyr` verbs
@@ -333,9 +297,9 @@ There are five `dplyr` functions that are regularly used, and we will now go thr
 4. `mutate()`
 5. `summarise()` or equally `summarize()`
 
-Two additional functions that we will cover here as they are closely related are `group_by()`, and `count()`.
+We will also cover `group_by()`, and `count()` here as they are closely related.
 
-As we have already installed the `tidyverse` we need to load it.
+As we have already installed the `tidyverse`, we just need to load it.
 
 
 ```r
@@ -352,16 +316,16 @@ australian_politicians <-
   get_auspol('all')
 
 head(australian_politicians)
-#> # A tibble: 6 × 20
+#> # A tibble: 6 x 20
 #>   uniqueID   surname allOtherNames      firstName commonName
 #>   <chr>      <chr>   <chr>              <chr>     <chr>     
-#> 1 Abbott1859 Abbott  Richard Hartley S… Richard   <NA>      
+#> 1 Abbott1859 Abbott  Richard Hartley S~ Richard   <NA>      
 #> 2 Abbott1869 Abbott  Percy Phipps       Percy     <NA>      
 #> 3 Abbott1877 Abbott  Macartney          Macartney Mac       
-#> 4 Abbott1886 Abbott  Charles Lydiard A… Charles   Aubrey    
+#> 4 Abbott1886 Abbott  Charles Lydiard A~ Charles   Aubrey    
 #> 5 Abbott1891 Abbott  Joseph Palmer      Joseph    <NA>      
 #> 6 Abbott1957 Abbott  Anthony John       Anthony   Tony      
-#> # … with 15 more variables: displayName <chr>,
+#> # ... with 15 more variables: displayName <chr>,
 #> #   earlierOrLaterNames <chr>, title <chr>, gender <chr>,
 #> #   birthDate <date>, birthYear <dbl>, birthPlace <chr>,
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
@@ -378,7 +342,7 @@ We use `select()` to pick particular columns of a dataset. For instance, we migh
 australian_politicians |> 
   select(firstName) |> 
   head()
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   firstName
 #>   <chr>    
 #> 1 Richard  
@@ -389,7 +353,7 @@ australian_politicians |>
 #> 6 Anthony
 ```
 
-In R, there are many ways to do things. Sometimes they are different ways to do the same thing, and other times they are different ways to do almost the same thing. For instance, another way to pick a particular column of a dataset is to use the extract operator '$'. This is from base, as opposed to `select()` which is from the `tidyverse`.
+In R, there are many ways to do things. Sometimes these are different ways to do the same thing, and other times they are different ways to do almost the same thing. For instance, another way to pick a particular column of a dataset is to use the 'extract' operator '$'. This is from base, as opposed to `select()` which is from the `tidyverse`.
 
 
 ```r
@@ -399,7 +363,7 @@ australian_politicians$firstName |>
 #> [5] "Joseph"    "Anthony"
 ```
 
-The two appear similar---both pick the 'firstName' column---but they different in the class of what they return. For the sake of completeness, if we combine `select()` with `pull()` then we get the same class of output as if we had used the extract operator.
+The two appear similar---both pick the 'firstName' column---but they differ in the class of what they return. For the sake of completeness, if we combine `select()` with `pull()` then we get the same class of output as if we had used the extract operator.
 
 
 ```r
@@ -411,23 +375,23 @@ australian_politicians |>
 #> [5] "Joseph"    "Anthony"
 ```
 
-We can also use `select()` to remove columns. To do this, we `select()` in a negative sense.
+We can also use `select()` to remove columns, by negating the column name.
 
 
 ```r
 australian_politicians |> 
   select(-firstName) |> 
   head()
-#> # A tibble: 6 × 19
+#> # A tibble: 6 x 19
 #>   uniqueID   surname allOtherNames    commonName displayName
 #>   <chr>      <chr>   <chr>            <chr>      <chr>      
-#> 1 Abbott1859 Abbott  Richard Hartley… <NA>       Abbott, Ri…
-#> 2 Abbott1869 Abbott  Percy Phipps     <NA>       Abbott, Pe…
+#> 1 Abbott1859 Abbott  Richard Hartley~ <NA>       Abbott, Ri~
+#> 2 Abbott1869 Abbott  Percy Phipps     <NA>       Abbott, Pe~
 #> 3 Abbott1877 Abbott  Macartney        Mac        Abbott, Mac
-#> 4 Abbott1886 Abbott  Charles Lydiard… Aubrey     Abbott, Au…
-#> 5 Abbott1891 Abbott  Joseph Palmer    <NA>       Abbott, Jo…
-#> 6 Abbott1957 Abbott  Anthony John     Tony       Abbott, To…
-#> # … with 14 more variables: earlierOrLaterNames <chr>,
+#> 4 Abbott1886 Abbott  Charles Lydiard~ Aubrey     Abbott, Au~
+#> 5 Abbott1891 Abbott  Joseph Palmer    <NA>       Abbott, Jo~
+#> 6 Abbott1957 Abbott  Anthony John     Tony       Abbott, To~
+#> # ... with 14 more variables: earlierOrLaterNames <chr>,
 #> #   title <chr>, gender <chr>, birthDate <date>,
 #> #   birthYear <dbl>, birthPlace <chr>, deathDate <date>,
 #> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>,
@@ -435,14 +399,14 @@ australian_politicians |>
 #> #   comments <chr>
 ```
 
-Finally, we can use `select()` based on conditions. For instance, we can `select()` all of the columns that start with, say, 'birth'.
+Finally, we can `select()` based on conditions. For instance, we can `select()` all of the columns that start with, say, 'birth'.
 
 
 ```r
 australian_politicians |> 
   select(starts_with("birth")) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   birthDate  birthYear birthPlace  
 #>   <date>         <dbl> <chr>       
 #> 1 NA              1859 Bendigo     
@@ -453,7 +417,7 @@ australian_politicians |>
 #> 6 1957-11-04        NA London
 ```
 
-There are a variety of similar 'selection helpers' including 'starts_with()', 'ends_with()', and 'contains()'. More information about these is available in the help page for `select()` which can be accessed with `?select()`.
+There are a variety of similar 'selection helpers' including `starts_with()`, `ends_with()`, and `contains()`. More information about these is available in the help page for `select()` which can be accessed by running `?select()`.
 
 At this point, we will use `select()` to reduce the width of our dataset.
 
@@ -472,34 +436,29 @@ australian_politicians <-
          senator,
          wasPrimeMinister)
 
-australian_politicians
-#> # A tibble: 1,783 × 10
-#>    uniqueID   surname firstName gender birthDate  birthYear
-#>    <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
-#>  1 Abbott1859 Abbott  Richard   male   NA              1859
-#>  2 Abbott1869 Abbott  Percy     male   1869-05-14        NA
-#>  3 Abbott1877 Abbott  Macartney male   1877-07-03        NA
-#>  4 Abbott1886 Abbott  Charles   male   1886-01-04        NA
-#>  5 Abbott1891 Abbott  Joseph    male   1891-10-18        NA
-#>  6 Abbott1957 Abbott  Anthony   male   1957-11-04        NA
-#>  7 Abel1939   Abel    John      male   1939-06-25        NA
-#>  8 Abetz1958  Abetz   Eric      male   1958-01-25        NA
-#>  9 Adams1943  Adams   Judith    female 1943-04-11        NA
-#> 10 Adams1951  Adams   Dick      male   1951-04-29        NA
-#> # … with 1,773 more rows, and 4 more variables:
-#> #   deathDate <date>, member <dbl>, senator <dbl>,
-#> #   wasPrimeMinister <dbl>
+australian_politicians |> head()
+#> # A tibble: 6 x 10
+#>   uniqueID   surname firstName gender birthDate  birthYear
+#>   <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
+#> 1 Abbott1859 Abbott  Richard   male   NA              1859
+#> 2 Abbott1869 Abbott  Percy     male   1869-05-14        NA
+#> 3 Abbott1877 Abbott  Macartney male   1877-07-03        NA
+#> 4 Abbott1886 Abbott  Charles   male   1886-01-04        NA
+#> 5 Abbott1891 Abbott  Joseph    male   1891-10-18        NA
+#> 6 Abbott1957 Abbott  Anthony   male   1957-11-04        NA
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 ### `filter()`
 
-We use `filter()` to pick particular rows of a dataset. For instance, we might like to filter to only politicians that became prime minister.
+We use `filter()` to pick particular rows of a dataset. For instance, we might be only interested in politicians that became prime minister.
 
 
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1)
-#> # A tibble: 30 × 10
+#> # A tibble: 30 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1957  Abbott  Anthony   male   1957-11-04        NA
@@ -512,57 +471,57 @@ australian_politicians |>
 #>  8 Fadden1894  Fadden  Arthur    male   1894-04-13        NA
 #>  9 Fisher1862  Fisher  Andrew    male   1862-08-29        NA
 #> 10 Forde1890   Forde   Francis   male   1890-07-18        NA
-#> # … with 20 more rows, and 4 more variables:
+#> # ... with 20 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
 
-We could also pass `filter()` two conditions. For instance, we could look at politicians that become prime minister and were named Joseph, using the 'and' operator '&'.
+We could also give `filter()` two conditions. For instance, we could look at politicians that become prime minister and were named Joseph, using the 'and' operator '&'.
 
 
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1 & firstName == "Joseph")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID    surname firstName gender birthDate  birthYear
 #>   <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Chifley1885 Chifley Joseph    male   1885-09-22        NA
 #> 2 Cook1860    Cook    Joseph    male   1860-12-07        NA
 #> 3 Lyons1879   Lyons   Joseph    male   1879-09-15        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
-We would get the same result if we use a comma instead of an ampersand.
+We get the same result if we use a comma instead of an ampersand.
 
 
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1, firstName == "Joseph")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID    surname firstName gender birthDate  birthYear
 #>   <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Chifley1885 Chifley Joseph    male   1885-09-22        NA
 #> 2 Cook1860    Cook    Joseph    male   1860-12-07        NA
 #> 3 Lyons1879   Lyons   Joseph    male   1879-09-15        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
-Similarly, we could look at politicians who were named Myles or Ruth using the 'or' operator '|'
+Similarly, we could look at politicians who were named, say, Myles or Ruth using the 'or' operator '|'
 
 
 ```r
 australian_politicians |> 
   filter(firstName == "Myles" | firstName == "Ruth")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Coleman1931  Coleman Ruth      female 1931-09-27        NA
-#> 2 Ferricks1875 Ferric… Myles     male   1875-11-12        NA
+#> 2 Ferricks1875 Ferric~ Myles     male   1875-11-12        NA
 #> 3 Webber1965   Webber  Ruth      female 1965-03-24        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 We could also pipe the result. For instance we could pipe from `filter()` to `select()`.
@@ -572,7 +531,7 @@ We could also pipe the result. For instance we could pipe from `filter()` to `se
 australian_politicians |> 
   filter(firstName == "Ruth" | firstName == "Myles") |> 
   select(firstName, surname)
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>   firstName surname 
 #>   <chr>     <chr>   
 #> 1 Ruth      Coleman 
@@ -586,26 +545,26 @@ If we happen to know the particular row number that is of interest then we could
 ```r
 australian_politicians |> 
   filter(row_number() == 853)
-#> # A tibble: 1 × 10
+#> # A tibble: 1 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
-#> 1 Jakobsen1947 Jakobs… Carolyn   female 1947-09-11        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> 1 Jakobsen1947 Jakobs~ Carolyn   female 1947-09-11        NA
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
-There is also a dedicated function to do this, which is `slice()`
+There is also a dedicated function to do this, which is `slice()`.
 
 
 ```r
 australian_politicians |> 
   slice(853)
-#> # A tibble: 1 × 10
+#> # A tibble: 1 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
-#> 1 Jakobsen1947 Jakobs… Carolyn   female 1947-09-11        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> 1 Jakobsen1947 Jakobs~ Carolyn   female 1947-09-11        NA
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 While this may seem somewhat esoteric, it is especially useful if we would like to remove a particular row using negation, or duplicate specific rows. For instance, we could remove the first row.
@@ -614,7 +573,7 @@ While this may seem somewhat esoteric, it is especially useful if we would like 
 ```r
 australian_politicians |> 
   slice(-1)
-#> # A tibble: 1,782 × 10
+#> # A tibble: 1,782 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1869  Abbott  Percy     male   1869-05-14        NA
@@ -627,7 +586,7 @@ australian_politicians |>
 #>  8 Adams1943   Adams   Judith    female 1943-04-11        NA
 #>  9 Adams1951   Adams   Dick      male   1951-04-29        NA
 #> 10 Adamson1857 Adamson John      male   1857-02-18        NA
-#> # … with 1,772 more rows, and 4 more variables:
+#> # ... with 1,772 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -638,14 +597,14 @@ We could also only, say, only keep the first three rows.
 ```r
 australian_politicians |> 
   slice(1:3)
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID   surname firstName gender birthDate  birthYear
 #>   <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Abbott1859 Abbott  Richard   male   NA              1859
 #> 2 Abbott1869 Abbott  Percy     male   1869-05-14        NA
 #> 3 Abbott1877 Abbott  Macartney male   1877-07-03        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 Finally, we could duplicate the first two rows.
@@ -654,7 +613,7 @@ Finally, we could duplicate the first two rows.
 ```r
 australian_politicians |> 
   slice(1:2, 1:n())
-#> # A tibble: 1,785 × 10
+#> # A tibble: 1,785 x 10
 #>    uniqueID   surname firstName gender birthDate  birthYear
 #>    <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1859 Abbott  Richard   male   NA              1859
@@ -667,7 +626,7 @@ australian_politicians |>
 #>  8 Abbott1957 Abbott  Anthony   male   1957-11-04        NA
 #>  9 Abel1939   Abel    John      male   1939-06-25        NA
 #> 10 Abetz1958  Abetz   Eric      male   1958-01-25        NA
-#> # … with 1,775 more rows, and 4 more variables:
+#> # ... with 1,775 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -677,26 +636,26 @@ australian_politicians |>
 
 ### `arrange()`
 
-We use `arrange()` to change the order of the dataset based on the values of particular columns. For instance, could arrange 'australian_politicians' by their birthday.
+We use `arrange()` to change the order of the dataset based on the values of particular columns. For instance, we could arrange the politicians by their birthday.
 
 
 ```r
 australian_politicians |> 
   arrange(birthDate)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Braddon1829 Braddon Edward    male   1829-06-11        NA
-#>  2 Ferguson18… Fergus… John      male   1830-03-15        NA
+#>  2 Ferguson18~ Fergus~ John      male   1830-03-15        NA
 #>  3 Zeal1830    Zeal    William   male   1830-12-05        NA
 #>  4 Fraser1832  Fraser  Simon     male   1832-08-21        NA
 #>  5 Groom1833   Groom   William   male   1833-03-09        NA
 #>  6 Sargood1834 Sargood Frederick male   1834-05-30        NA
 #>  7 Fysh1835    Fysh    Philip    male   1835-03-01        NA
-#>  8 Playford18… Playfo… Thomas    male   1837-11-26        NA
+#>  8 Playford18~ Playfo~ Thomas    male   1837-11-26        NA
 #>  9 Solomon1839 Solomon Elias     male   1839-09-02        NA
 #> 10 McLean1840  McLean  Allan     male   1840-02-03        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -707,20 +666,20 @@ We could modify `arrange()` with `desc()` to change from ascending to descending
 ```r
 australian_politicians |> 
   arrange(desc(birthDate))
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID   surname  firstName gender birthDate  birthYear
 #>    <chr>      <chr>    <chr>     <chr>  <date>         <dbl>
-#>  1 SteeleJoh… Steele-… Jordon    male   1994-10-14        NA
-#>  2 Chandler1… Chandler Claire    female 1990-06-01        NA
+#>  1 SteeleJoh~ Steele-~ Jordon    male   1994-10-14        NA
+#>  2 Chandler1~ Chandler Claire    female 1990-06-01        NA
 #>  3 Roy1990    Roy      Wyatt     male   1990-05-22        NA
-#>  4 Thompson1… Thompson Phillip   male   1988-05-07        NA
-#>  5 Paterson1… Paterson James     male   1987-11-21        NA
+#>  4 Thompson1~ Thompson Phillip   male   1988-05-07        NA
+#>  5 Paterson1~ Paterson James     male   1987-11-21        NA
 #>  6 Burns1987  Burns    Joshua    male   1987-02-06        NA
 #>  7 Smith1986  Smith    Marielle  female 1986-12-30        NA
-#>  8 Kakoschke… Kakosch… Skye      female 1985-12-19        NA
-#>  9 Simmonds1… Simmonds Julian    male   1985-08-29        NA
+#>  8 Kakoschke~ Kakosch~ Skye      female 1985-12-19        NA
+#>  9 Simmonds1~ Simmonds Julian    male   1985-08-29        NA
 #> 10 Gorman1984 Gorman   Patrick   male   1984-12-12        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -731,45 +690,45 @@ And we could arrange based on more than one column. For instance, if two politic
 ```r
 australian_politicians |> 
   arrange(firstName, birthDate)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Blain1894   Blain   Adair     male   1894-11-21        NA
 #>  2 Dein1889    Dein    Adam      male   1889-03-04        NA
-#>  3 Armstrong1… Armstr… Adam      male   1909-07-01        NA
+#>  3 Armstrong1~ Armstr~ Adam      male   1909-07-01        NA
 #>  4 Bandt1972   Bandt   Adam      male   1972-03-11        NA
-#>  5 Ridgeway19… Ridgew… Aden      male   1962-09-18        NA
+#>  5 Ridgeway19~ Ridgew~ Aden      male   1962-09-18        NA
 #>  6 Bennett1933 Bennett Adrian    male   1933-01-21        NA
 #>  7 Gibson1935  Gibson  Adrian    male   1935-11-03        NA
 #>  8 Wynne1850   Wynne   Agar      male   1850-01-15        NA
-#>  9 Robertson1… Robert… Agnes     female 1882-07-31        NA
+#>  9 Robertson1~ Robert~ Agnes     female 1882-07-31        NA
 #> 10 Pittard1902 Pittard Alan      male   1902-11-15        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
 
-We could achieve the same result with by using a pipe between two instances of `arrange()`.
+We could achieve the same result by piping between two instances of `arrange()`.
 
 
 ```r
 australian_politicians |> 
   arrange(birthDate) |> 
   arrange(firstName)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Blain1894   Blain   Adair     male   1894-11-21        NA
 #>  2 Dein1889    Dein    Adam      male   1889-03-04        NA
-#>  3 Armstrong1… Armstr… Adam      male   1909-07-01        NA
+#>  3 Armstrong1~ Armstr~ Adam      male   1909-07-01        NA
 #>  4 Bandt1972   Bandt   Adam      male   1972-03-11        NA
-#>  5 Ridgeway19… Ridgew… Aden      male   1962-09-18        NA
+#>  5 Ridgeway19~ Ridgew~ Aden      male   1962-09-18        NA
 #>  6 Bennett1933 Bennett Adrian    male   1933-01-21        NA
 #>  7 Gibson1935  Gibson  Adrian    male   1935-11-03        NA
 #>  8 Wynne1850   Wynne   Agar      male   1850-01-15        NA
-#>  9 Robertson1… Robert… Agnes     female 1882-07-31        NA
+#>  9 Robertson1~ Robert~ Agnes     female 1882-07-31        NA
 #> 10 Pittard1902 Pittard Alan      male   1902-11-15        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -780,7 +739,7 @@ When we use `arrange()` it is important to be clear about precedence. For instan
 ```r
 australian_politicians |> 
   arrange(birthYear, firstName)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>        <dbl>
 #>  1 Edwards1842 Edwards Richard   male   NA             1842
@@ -793,50 +752,50 @@ australian_politicians |>
 #>  8 Riley1859   Riley   Edward    male   NA             1859
 #>  9 Abbott1859  Abbott  Richard   male   NA             1859
 #> 10 Kennedy1860 Kennedy Thomas    male   NA             1860
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
 
-A nice way to arrange by a variety of columns is to use `across()`. This means that we can specify a variety of columns. It also enables us to use the 'selection helpers' such as 'starts_with()' that were mentioned in association with `select()`.
+A nice way to arrange by a variety of columns is to use `across()`. It enables us to use the 'selection helpers' such as `starts_with()` that were mentioned in association with `select()`.
 
 
 ```r
 australian_politicians |> 
   arrange(across(c(firstName, birthYear))) |> 
   head()
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   uniqueID    surname  firstName gender birthDate  birthYear
 #>   <chr>       <chr>    <chr>     <chr>  <date>         <dbl>
 #> 1 Blain1894   Blain    Adair     male   1894-11-21        NA
-#> 2 Armstrong1… Armstro… Adam      male   1909-07-01        NA
+#> 2 Armstrong1~ Armstro~ Adam      male   1909-07-01        NA
 #> 3 Bandt1972   Bandt    Adam      male   1972-03-11        NA
 #> 4 Dein1889    Dein     Adam      male   1889-03-04        NA
-#> 5 Ridgeway19… Ridgeway Aden      male   1962-09-18        NA
+#> 5 Ridgeway19~ Ridgeway Aden      male   1962-09-18        NA
 #> 6 Bennett1933 Bennett  Adrian    male   1933-01-21        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 
 australian_politicians |> 
   arrange(across(starts_with('birth'))) |> 
   head()
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Braddon1829  Braddon Edward    male   1829-06-11        NA
-#> 2 Ferguson1830 Fergus… John      male   1830-03-15        NA
+#> 2 Ferguson1830 Fergus~ John      male   1830-03-15        NA
 #> 3 Zeal1830     Zeal    William   male   1830-12-05        NA
 #> 4 Fraser1832   Fraser  Simon     male   1832-08-21        NA
 #> 5 Groom1833    Groom   William   male   1833-03-09        NA
 #> 6 Sargood1834  Sargood Frederick male   1834-05-30        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 
 ### `mutate()`
 
-We use `mutate()` when we want to make a new column. For instance, perhaps we want to make a new column that is 1 if a person was a member and a senator and 0 otherwise. That is to say that our new column would denote politicians that served in both the upper and the lower house.
+We use `mutate()` when we want to make a new column. For instance, perhaps we want to make a new column that is 1 if a person was both a member and a senator and 0 otherwise. That is to say that our new column would denote politicians that served in both the upper and the lower house.
 
 
 ```r
@@ -846,7 +805,7 @@ australian_politicians <-
 
 australian_politicians |> 
   select(member, senator, was_both)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    member senator was_both
 #>     <dbl>   <dbl>    <dbl>
 #>  1      0       1        0
@@ -859,10 +818,10 @@ australian_politicians |>
 #>  8      0       1        0
 #>  9      0       1        0
 #> 10      1       0        0
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
-We can use `mutate()` for math, such as addition and subtraction. For instance, we could calculate the age that the politicians are (or would have been) in 2022.
+We could use `mutate()` with math, such as addition and subtraction. For instance, we could calculate the age that the politicians are (or would have been) in 2022.
 
 
 ```r
@@ -872,7 +831,7 @@ australian_politicians <-
 
 australian_politicians |> 
   select(uniqueID, age)
-#> # A tibble: 1,783 × 2
+#> # A tibble: 1,783 x 2
 #>    uniqueID     age
 #>    <chr>      <dbl>
 #>  1 Abbott1859    NA
@@ -885,7 +844,7 @@ australian_politicians |>
 #>  8 Abetz1958     64
 #>  9 Adams1943     79
 #> 10 Adams1951     71
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 There are a variety of functions that are especially useful when constructing new columns. These include `log()` which will compute the natural logarithm, `lead()` which will bring values up by one row, `lag()` which will push values down by one row, and `cumsum()` which creates a cumulative sum of the column.
@@ -896,7 +855,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(log_age = log(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age log_age
 #>   <chr>      <dbl>   <dbl>
 #> 1 Abbott1859    NA   NA   
@@ -910,7 +869,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(lead_age = lead(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age lead_age
 #>   <chr>      <dbl>    <dbl>
 #> 1 Abbott1859    NA      153
@@ -924,7 +883,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(lag_age = lag(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age lag_age
 #>   <chr>      <dbl>   <dbl>
 #> 1 Abbott1859    NA      NA
@@ -939,7 +898,7 @@ australian_politicians |>
   filter(!is.na(age)) |> 
   mutate(cumulative_age = cumsum(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age cumulative_age
 #>   <chr>      <dbl>          <dbl>
 #> 1 Abbott1869   153            153
@@ -950,14 +909,14 @@ australian_politicians |>
 #> 6 Abel1939      83            713
 ```
 
-As we have in earlier examples, we can also use `mutate()` in combination with `across()`. This inlcudes the potential use of the 'selection helpers'. For instance, we could count the number of characters in both the first and last names at the same time.
+As we have in earlier examples, we can also use `mutate()` in combination with `across()`. This includes the potential use of the selection helpers. For instance, we could count the number of characters in both the first and last names at the same time.
 
 
 ```r
 australian_politicians |> 
   mutate(across(c(firstName, surname), str_count)) |> 
   select(uniqueID, firstName, surname)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    uniqueID   firstName surname
 #>    <chr>          <int>   <int>
 #>  1 Abbott1859         7       6
@@ -970,7 +929,7 @@ australian_politicians |>
 #>  8 Abetz1958          4       5
 #>  9 Adams1943          6       5
 #> 10 Adams1951          4       5
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 
@@ -993,7 +952,7 @@ australian_politicians |>
              )
   ) |> 
   select(uniqueID, year_of_birth, decade_of_birth)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    uniqueID   year_of_birth decade_of_birth 
 #>    <chr>              <dbl> <chr>           
 #>  1 Abbott1859            NA Unknown or error
@@ -1006,7 +965,7 @@ australian_politicians |>
 #>  8 Abetz1958           1958 1950s           
 #>  9 Adams1943           1943 1940s           
 #> 10 Adams1951           1951 1950s           
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 We could accomplish this with a series of `if_else()` statements, but `case_when()` is more clear. The cases are evaluated in order and as soon as there is a match `case_when()` does not continue to the remainder of the cases. So it can be useful to have a catch-all at the end that will signal if there is a potential issue that we might like to know about.
@@ -1016,7 +975,7 @@ We could accomplish this with a series of `if_else()` statements, but `case_when
 
 ### `summarise()`
 
-We use `summarise()` when we would like to make new, condensed, summary variables. For instance, perhaps we would like to know what the minimum, average, or maximum of some column. 
+We use `summarise()` when we would like to make new, condensed, summary variables. For instance, perhaps we would like to know the minimum, average, and maximum of some column. 
 
 
 ```r
@@ -1024,13 +983,13 @@ australian_politicians |>
   summarise(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   youngest oldest average
 #>      <dbl>  <dbl>   <dbl>
 #> 1       28    193    101.
 ```
 
-As an aside, `summarise()` and `summarize()` are equivalent and we can use either and get the same result.
+As an aside, `summarise()` and `summarize()` are equivalent and we can use either.
 
 
 ```r
@@ -1038,13 +997,13 @@ australian_politicians |>
   summarize(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   youngest oldest average
 #>      <dbl>  <dbl>   <dbl>
 #> 1       28    193    101.
 ```
 
-By default, `summarise()` will provide one row of output for a whole dataset. For instance, in the earlier example we found the youngest, oldest, and average across all politicians. However, we can create more groups in our dataset using the function `group_by()`. And we can then apply another function within the context of those groups. We could use many functions on the basis of groups, but the `summarise()` function is particularly powerful in conjunction with `group_by()`. For instance, we could `summarise()` by gender, and then get our age-based summary statistics.
+By default, `summarise()` will provide one row of output for a whole dataset. For instance, in the earlier example we found the youngest, oldest, and average across all politicians. However, we can create more groups in our dataset using `group_by()`. And we can then apply another function within the context of those groups. We could use many functions on the basis of groups, but the `summarise()` function is particularly powerful in conjunction with `group_by()`. For instance, we could group by gender, and then get age-based summary statistics.
 
 
 ```r
@@ -1053,7 +1012,7 @@ australian_politicians |>
   summarise(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 2 × 4
+#> # A tibble: 2 x 4
 #>   gender youngest oldest average
 #>   <chr>     <dbl>  <dbl>   <dbl>
 #> 1 female       32    140    66.0
@@ -1073,7 +1032,7 @@ australian_politicians |>
     mean_days = mean(days_lived) |> round(),
     max_days = max(days_lived)
     )
-#> # A tibble: 2 × 4
+#> # A tibble: 2 x 4
 #>   gender min_days   mean_days  max_days  
 #>   <chr>  <drtn>     <drtn>     <drtn>    
 #> 1 female 14856 days 28857 days 35560 days
@@ -1082,7 +1041,7 @@ australian_politicians |>
 
 And so we learn that female members of parliament on average lived slightly longer than male members of parliament.
 
-We can use `group_by()` on the basis of more than one group. For instance, looking again at average number of days lived by gender, but also by house.
+We can use `group_by()` on the basis of more than one group. For instance, we could look at the average number of days lived by gender and by house.
 
 
 ```r
@@ -1095,7 +1054,7 @@ australian_politicians |>
     mean_days = mean(days_lived) |> round(),
     max_days = max(days_lived)
     )
-#> # A tibble: 4 × 5
+#> # A tibble: 4 x 5
 #> # Groups:   gender [2]
 #>   gender member min_days   mean_days  max_days  
 #>   <chr>   <dbl> <drtn>     <drtn>     <drtn>    
@@ -1105,14 +1064,14 @@ australian_politicians |>
 #> 4 male        1 12380 days 27496 days 36328 days
 ```
 
-We can use the function `count()` to create counts by groups. For instance, the number of politicians by gender.
+We can use `count()` to create counts by groups. For instance, the number of politicians by gender.
 
 
 ```r
 australian_politicians |> 
   group_by(gender) |> 
   count()
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #> # Groups:   gender [2]
 #>   gender     n
 #>   <chr>  <int>
@@ -1120,7 +1079,7 @@ australian_politicians |>
 #> 2 male    1543
 ```
 
-In addition to the `count()`, we could make a proportion if we wanted to.
+In addition to the `count()`, we could make a proportion.
 
 
 ```r
@@ -1129,21 +1088,21 @@ australian_politicians |>
   count() |> 
   ungroup() |> 
   mutate(proportion = n/(sum(n)))
-#> # A tibble: 2 × 3
+#> # A tibble: 2 x 3
 #>   gender     n proportion
 #>   <chr>  <int>      <dbl>
 #> 1 female   240      0.135
 #> 2 male    1543      0.865
 ```
 
-The function `count()` is essentially the same as using `group_by()` and then `summarise()`. For instance, we can get the same result.
+Using `count()` is essentially the same as using `group_by()` and then `summarise()`, and we get the same result in that way.
 
 
 ```r
 australian_politicians |> 
   group_by(gender) |> 
   summarise(n = n())
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   gender     n
 #>   <chr>  <int>
 #> 1 female   240
@@ -1158,7 +1117,7 @@ australian_politicians |>
   group_by(gender) |> 
   add_count() |> 
   select(uniqueID, gender, n)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #> # Groups:   gender [2]
 #>    uniqueID   gender     n
 #>    <chr>      <chr>  <int>
@@ -1172,7 +1131,7 @@ australian_politicians |>
 #>  8 Abetz1958  male    1543
 #>  9 Adams1943  female   240
 #> 10 Adams1951  male    1543
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 
@@ -1180,7 +1139,7 @@ australian_politicians |>
 
 ## Base
 
-While the `tidyverse` was put together recently to help with data science, R existed long before this. There is a host of functionality that is built into it especially around the core needs of programmers and statisticians.
+While the `tidyverse` was established relatively recently to help with data science, R existed long before this. There is a host of functionality that is built into R especially around the core needs of programming and statisticians.
 
 In particular, we will cover:
 
@@ -1193,9 +1152,9 @@ There is no need to install any additional packages, as this functionality comes
 
 ### Class
 
-In the same way that 'a, b, c, ...' are letters and '1, 2, 3,...' are numbers, R needs to have some way of distinguishing different classes of content. We use letters and numbers differently, for instance we cannot add letters. Similarly, R needs to formalise this to define the properties that each class has, 'how it behaves, and how it relates to other types of objects' [@advancedr].
+In everyday usage 'a, b, c, ...' are letters and '1, 2, 3,...' are numbers. And we use letters and numbers differently, for instance we do not add letters. Similarly, R needs to have some way of distinguishing different classes of content. And to define the properties that each class has, 'how it behaves, and how it relates to other types of objects' [@advancedr].
 
-Classes have a hierarchy. For instance, we are 'human', which is itself 'animal'. All 'humans' are 'animals', but not all 'animals' are 'humans'. Similarly, all integers are numbers, but not all numbers are integers. To find this out in R we use the function `class()`. 
+Classes have a hierarchy. For instance, we are 'human', which is itself 'animal'. All 'humans' are 'animals', but not all 'animals' are 'humans'. Similarly, all integers are numbers, but not all numbers are integers. We can find out the class of an object in R with `class()`. 
 
 
 ```r
@@ -1208,9 +1167,9 @@ class(a_letter)
 #> [1] "character"
 ```
 
-The classes that we cover here are 'numeric', 'character', 'factor', 'date', 'data.frame'.
+The classes that we cover here are 'numeric', 'character', 'factor', 'date', and 'data.frame'.
 
-The first thing to know is that we can sometimes change the class of an object. For instance, we could start with a 'numeric', change it to a 'character' with `as.character()`, and then a 'factor' with `as.factor()`. But if we tried to make it into a date with `as.Date()` we would get an error because the number that we used does not have the properties that are needed to be a date.
+The first thing to know is that, in the same way that a frog can become a prince, we can sometimes change the class of an object in R. For instance, we could start with a 'numeric', change it to a 'character' with `as.character()`, and then a 'factor' with `as.factor()`. But if we tried to make it into a date with `as.Date()` we would get an error because no all numbers have the properties that are needed to be a date.
 
 
 ```r
@@ -1234,7 +1193,7 @@ class(a_number)
 #> [1] "factor"
 ```
 
-Compared with 'numeric' and 'character' classes, the 'factor' class might be less familiar. A 'factor' is used for categorical data, which means there is no ranking, that can only take certain values  [@advancedr]. For instance, typical usage of a factor variable would be a binary, such as 'day' or 'night'. It is also often used for age-groups, such as '18-29', '30-44', '45-60', '60+' (as opposed to age, which would often be a 'numeric'); and sometimes for level of education: 'less than high school', 'high school', 'college', 'undergraduate degree', 'postgraduate degree'. We can find the allowed levels for a 'factor' using `levels()`.
+Compared with 'numeric' and 'character' classes, the 'factor' class might be less familiar. A 'factor' is used for categorical data that can only take certain values  [@advancedr]. For instance, typical usage of a factor variable would be a binary, such as 'day' or 'night'. It is also often used for age-groups, such as '18-29', '30-44', '45-60', '60+' (as opposed to age, which would often be a 'numeric'); and sometimes for level of education: 'less than high school', 'high school', 'college', 'undergraduate degree', 'postgraduate degree'. We can find the allowed levels for a 'factor' using `levels()`.
 
 
 ```r
@@ -1250,7 +1209,7 @@ levels(age_groups)
 #> [1] "18-29" "30-44" "45-60" "60+"
 ```
 
-Dates are an especially tricky class as they quickly become complicated. Nonetheless, at a foundational level, we can use `as.Date()` to convert a character that looks like a date into a an actual date. This enables us to, say, calculate perform addition and subtraction, when we would not be able to do that with a character representation.
+Dates are an especially tricky class and quickly become complicated. Nonetheless, at a foundational level, we can use `as.Date()` to convert a character that looks like a date into an actual date. This enables us to, say, perform addition and subtraction, when we would not be able to do that with a character.
 
 
 ```r
@@ -1268,9 +1227,14 @@ is_a_date + 3
 #> [1] "2022-01-04"
 ```
 
-The final class that we discuss here is 'data.frame'. This looks like a spreadsheet and is commonly used to store the data that we will analyse. Formally, 'a data frame is a list of equal-length vectors' [@advancedr]. It will have column and row names which we can see using `colnames()` and `rownames()`, although often the names of the rows are just numbers.
+The final class that we discuss here is 'data.frame'. This looks like a spreadsheet and is commonly used to store the data that we will analyze. Formally, 'a data frame is a list of equal-length vectors' [@advancedr]. It will have column and row names which we can see using `colnames()` and `rownames()`, although often the names of the rows are just numbers.
 
-To illustrate this we use the 'ResumeNames' dataset from the `AER` package [@citeaer]. This package can be installed in the same way as any other package from CRAN: `install.packages("AER")`. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. 
+To illustrate this, we use the 'ResumeNames' dataset from `AER` [@citeaer]. This package can be installed in the same way as any other package from CRAN. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. 
+
+
+```r
+install.packages("AER")
+```
 
 
 ```r
@@ -1331,7 +1295,7 @@ colnames(ResumeNames)
 #> [25] "reqcomp"      "reqorg"       "industry"
 ```
 
-We can examine the class of the vectors that make-up a data frame by specifying the column name.
+We can examine the class of the vectors, i.e. the columns, that make-up a data frame by specifying the column name.
 
 
 ```r
@@ -1385,13 +1349,13 @@ ResumeNames |>
 #> 6                            trade
 ```
 
-There are many ways for our code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be 'character' or 'numeric', actually being a 'factor'. And variables that we think should be 'numeric' actually being a 'character'.
+There are many ways for code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be 'character' or 'numeric', actually being 'factor'. And variables that we think should be 'numeric' actually being 'character'.
 
 ### Simulating data
 
-Simulating data is a key skill for telling believable stories with data. In order to simulate data, we need to be able to randomly draw from statistical distributions and other collections. R has a variety of functions to make this easier, including: the normal distribution, `rnorm()`, the uniform distribution, `runif()`, the Poisson distribution, `rpois`, the binomial distribution, `rbinom`, and many others. To randomly sample from a vector, we can use `sample()`. 
+Simulating data is a key skill for telling believable stories with data. In order to simulate data, we need to be able to randomly draw from statistical distributions and other collections. R has a variety of functions to make this easier, including: the normal distribution, `rnorm()`; the uniform distribution, `runif()`; the Poisson distribution, `rpois`; the binomial distribution, `rbinom`; and many others. To randomly sample from a collection of items, we can use `sample()`. 
 
-When dealing with randomness, the need for reproducibility makes it important, paradoxically, that the randomness is repeatable. That is to say that another person needs to be able to draw the random numbers that we draw. We do this by setting a seed for our random draws using `set.seed()`.
+When dealing with randomness, the need for reproducibility makes it important, paradoxically, that the randomness is repeatable. That is to say, another person needs to be able to draw the random numbers that we draw. We do this by setting a seed for our random draws using `set.seed()`.
 
 We could get observations from the standard normal distribution and put the those into a data frame.
 
@@ -1422,12 +1386,15 @@ We could then add draws from the uniform, Poisson, and binomial distributions, u
 
 
 ```r
-simulated_data <- 
+simulated_data <-
   data.frame(
-    uniform_observations = runif(n = number_of_observations, min = 0, max = 10),
-    poisson_observations = rpois(n = number_of_observations, lambda = 100),
-    binomial_observations = rbinom(n = number_of_observations, size = 2, prob = 0.5)
-    ) |>
+    uniform_observations = 
+      runif(n = number_of_observations, min = 0, max = 10),
+    poisson_observations = 
+      rpois(n = number_of_observations, lambda = 100),
+    binomial_observations = 
+      rbinom(n = number_of_observations, size = 2, prob = 0.5)
+  ) |>
   cbind(simulated_data)
 
 simulated_data
@@ -1445,25 +1412,25 @@ simulated_data
 #> 5                     1      5             -1.00278400
 ```
 
-Finally, `sample()` enables we can draw from a vector of items. For instance, we could add a favourite colour to each observation.
+Finally, we will add a favorite color to each observation with `sample()`.
 
 
 ```r
 simulated_data <- 
   data.frame(
-    favourite_color = sample(x = c("blue", " white "), 
+    favorite_color = sample(x = c("blue", " white "), 
                              size = number_of_observations,
                              replace = TRUE)
     ) |>
   cbind(simulated_data)
 
 simulated_data
-#>   favourite_color uniform_observations poisson_observations
-#> 1            blue            9.6219155                   81
-#> 2            blue            7.2269016                   91
-#> 3            blue            0.8252921                   84
-#> 4          white             1.0379810                  100
-#> 5            blue            3.0942004                   97
+#>   favorite_color uniform_observations poisson_observations
+#> 1           blue            9.6219155                   81
+#> 2           blue            7.2269016                   91
+#> 3           blue            0.8252921                   84
+#> 4         white             1.0379810                  100
+#> 5           blue            3.0942004                   97
 #>   binomial_observations person std_normal_observations
 #> 1                     2      1             -0.35980342
 #> 2                     1      2             -0.04064753
@@ -1472,7 +1439,7 @@ simulated_data
 #> 5                     1      5             -1.00278400
 ```
 
-We set the option 'replace' to 'TRUE' because we are only choosing between two items, but each time we choose we want the option to pick between both colours. Depending on the simulation we may need to think about whether 'replace' should be 'TRUE' or 'FALSE'. Another useful optional argument in `sample()` is to adjust the probability with which each item is drawn. The default is that all options are equally likely, but we could specify particular probabilities if we wanted to with 'prob'. As always with functions, we can find more in the help file, for instance `?sample`.
+We set the option 'replace' to 'TRUE' because we are only choosing between two items, but each time we choose we want the possibility that either are chosen. Depending on the simulation we may need to think about whether 'replace' should be 'TRUE' or 'FALSE'. Another useful optional argument in `sample()` is to adjust the probability with which each item is drawn. The default is that all options are equally likely, but we could specify particular probabilities if we wanted to with 'prob'. As always with functions, we can find more in the help file, for instance `?sample`.
 
 
 
@@ -1485,7 +1452,7 @@ R 'is a functional programming language' [@advancedr]. This means that we founda
 
 There are a lot of functions in R that other people have written, and we can use. Almost any common statistical or data science task that we might need to accomplish likely already has a function that has been written by someone else and made available to us, either as part of the base R installation or a package. But we will need to write our own functions from time to time, especially for more-specific tasks. 
 
-We can define a function using `function()` and assign it a name. We will likely need to include some inputs and outputs for the function. Inputs are specified between round brackets. The specific task that the function is to accomplish goes between braces.
+We define a function using `function()`, and then assign a name. We will likely need to include some inputs and outputs for the function. Inputs are specified between round brackets. The specific task that the function is to accomplish goes between braces.
 
 
 ```r
@@ -1521,15 +1488,15 @@ print_names()
 
 If the key package in the `tidyverse` in terms of manipulating data is `dplyr` [@citedplyr], then the key package in the `tidyverse` in terms of creating graphs is `ggplot2` [@citeggplot]. It is part of the `tidyverse` collection of packages and so does not need to be explicitly installed or loaded if the `tidyverse` has been loaded. 
 
-In a similar way to the pipe operator, `ggplot2` works by passing outputs from one line as inputs to another line. More formally, these are defining layers for a graph, based around the 'grammar of graphics' (hence, the 'gg'). Instead of the pipe operator (`|>`) ggplot uses the add operator `+`. 
+More formally, `ggplot2` works by defining layers which build to form a graph, based around the 'grammar of graphics' (hence, the 'gg'). Instead of the pipe operator (`|>`) ggplot uses the add operator `+`. 
 
-There are three key aspects that need to be specified to build a graph using `ggplot2`: 
+There are three key aspects that need to be specified to build a graph with `ggplot2`: 
 
 1. data;
 2. aesthetics / mapping; and
 3. type.
 
-To get started we will obtain some data on GDP for OECD countries [@citeoecdgdp].
+To get started we will obtain some GDP data for OECD countries [@citeoecdgdp].
 
 
 ```r
@@ -1543,7 +1510,7 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 
 
 ```
-#> # A tibble: 6 × 8
+#> # A tibble: 6 x 8
 #>   LOCATION INDICATOR SUBJECT MEASURE  FREQUENCY TIME  Value
 #>   <chr>    <chr>     <chr>   <chr>    <chr>     <chr> <dbl>
 #> 1 OECD     QGDP      TOT     PC_CHGPP A         1962   5.70
@@ -1552,10 +1519,10 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 #> 4 OECD     QGDP      TOT     PC_CHGPP A         1965   5.35
 #> 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
 #> 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
-#> # … with 1 more variable: Flag Codes <chr>
+#> # ... with 1 more variable: Flag Codes <chr>
 ```
 
-We are interested, firstly, in building up a histogram of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.
+We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.
 
 
 ```r
@@ -1576,7 +1543,7 @@ oecd_gdp_most_recent <-
          )
 ```
 
-We start with the `ggplot` function, and specify a mapping, which in this case means specifying the x-axis and the y-axis.
+We start with `ggplot` and specify a mapping/aesthetic, which in this case means specifying the x-axis and the y-axis.
 
 
 ```r
@@ -1584,9 +1551,9 @@ oecd_gdp_most_recent |>
   ggplot(mapping = aes(x = LOCATION, y = Value))
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-64-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-65-1.pdf)<!-- --> 
 
-Now we need to specify the type of graph that we are interested in. In this case we want a bar chart and we does this by adding `geom_bar()`.
+Now we need to specify the type of graph that we are interested in. In this case we want a bar chart and we do this by adding `geom_bar()`.
 
 
 ```r
@@ -1595,9 +1562,9 @@ oecd_gdp_most_recent |>
   geom_bar(stat="identity")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-65-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-66-1.pdf)<!-- --> 
 
-Now we can color the bars by whether the country is European by adding another aesthetic, 'fill'.
+We can color the bars by whether the country is European by adding another aesthetic, 'fill'.
 
 
 ```r
@@ -1606,9 +1573,9 @@ oecd_gdp_most_recent |>
   geom_bar(stat="identity")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-66-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-67-1.pdf)<!-- --> 
 
-Finally, we could make it look nicer, by adding labels `labs()`, change the color `scale_fill_brewer()`, and background `theme_classic`. 
+Finally, we could make it look nicer by: adding labels, `labs()`; changing the color, `scale_fill_brewer()`; and the background, `theme_classic()`. 
 
 
 ```r
@@ -1623,10 +1590,10 @@ oecd_gdp_most_recent |>
   scale_fill_brewer(palette = "Set1")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-67-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-68-1.pdf)<!-- --> 
 
 
-Facets mean that we create subplots that focus on specific aspects of our data. They are invaluable because they allow us to add another variable to a graph without having to make a 3D graph. We use `facet_wrap()` to add a facet and specify the variable that we would like to facet by.
+Facets enable us to that we create subplots that focus on specific aspects of our data. They are invaluable because they allow us to add another variable to a graph without having to make a 3D graph. We use `facet_wrap()` to add a facet and specify the variable that we would like to facet by. In this case, we facet by hemisphere.
 
 
 ```r
@@ -1643,13 +1610,13 @@ oecd_gdp_most_recent |>
               scales = "free_x")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-68-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-69-1.pdf)<!-- --> 
 
 
 
-## Exploring the tidyverse
+## Exploring the `tidyverse`
 
-We have focused on two aspects of the tidyverse: `dplyr`, and `ggplot2`. However, the tidyverse comprises a variety of different packages and functions. We will now go through four common aspects:
+We have focused on two aspects of the `tidyverse`: `dplyr`, and `ggplot2`. However, the `tidyverse` comprises a variety of different packages and functions. We will now go through four common aspects:
 
 - Importing data and `tibble()`
 - Joining and pivoting datasets
@@ -1661,11 +1628,11 @@ We have focused on two aspects of the tidyverse: `dplyr`, and `ggplot2`. However
 
 There are a variety of ways to get data into R so that we can use it. For CSV files, there is `read_csv()` from `readr` [@citereadr], and for dta files, there is `read_dta()` from `haven` [@citehaven].
 
-CSVs are a common format and have many advantages including the fact that they typically do not modify the data. Each field is separated by a comma, and each row is a record. We can provide `read_csv()` with a URL or a local file to read. There are a variety of different options that can be passed to the function including the ability to specify whether the dataset has column names, the types of the columns, and how many lines to skip. If we do not specify the types of the columns then `read_csv()` will make a guess by looking at the dataset. 
+CSVs are a common format and have many advantages including the fact that they typically do not modify the data. Each column is separated by a comma, and each row is a record. We can provide `read_csv()` with a URL or a local file to read. There are a variety of different options that can be passed to `read_csv()` including the ability to specify whether the dataset has column names, the types of the columns, and how many lines to skip. If we do not specify the types of the columns then `read_csv()` will make a guess by looking at the dataset. 
 
-We use `read_dta()` to read .dta files, which are commonly produced by the statistical program Stata. This means that they are common in fields such as sociology, political science, and economics. This format separates the data from its labels and so we will typically need to reunite these using `labelled::to_factor()`. `haven` is part of the tidyverse, but is not automatically loaded by default, in contrast to a package such as `ggplot2`, and so we would need to run `library(haven)`.
+We use `read_dta()` to read .dta files, which are commonly produced by the statistical program Stata. This means that they are common in fields such as sociology, political science, and economics. This format separates the data from its labels and so we typically reunite these using `to_factor()` from `labelled` [@citelabelled]. `haven` is part of the `tidyverse`, but is not automatically loaded by default, in contrast to a package such as `ggplot2`, and so we would need to run `library(haven)`.
 
-Typically a dataset enters R as a 'data.frame'. While this can be useful, another helpful class for a dataset is 'tibble'. These can be created using `tibble()` from the `tibble` package which is part of the tidyverse. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.
+Typically a dataset enters R as a 'data.frame'. While this can be useful, another helpful class for a dataset is 'tibble'. These can be created using `tibble()` from the `tibble` package which is part of the `tidyverse`. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.
 
 We can make a tibble manually, if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use `read_csv()`.
 
@@ -1674,25 +1641,25 @@ We can make a tibble manually, if need be, for instance, when we simulate data. 
 people_as_dataframe <- 
   data.frame(names = c("rohan", "monica"),
              website = c("rohanalexander.com", "monicaalexander.com"),
-             fav_colour = c("blue", " white ")
+             fav_color = c("blue", " white ")
              )
 class(people_as_dataframe)
 #> [1] "data.frame"
 people_as_dataframe
-#>    names             website fav_colour
-#> 1  rohan  rohanalexander.com       blue
-#> 2 monica monicaalexander.com     white
+#>    names             website fav_color
+#> 1  rohan  rohanalexander.com      blue
+#> 2 monica monicaalexander.com    white
 
 people_as_tibble <- 
   tibble(names = c("rohan", "monica"),
          website = c("rohanalexander.com", "monicaalexander.com"),
-         fav_colour = c("blue", " white ")
+         fav_color = c("blue", " white ")
          )
 people_as_tibble
-#> # A tibble: 2 × 3
-#>   names  website             fav_colour
-#>   <chr>  <chr>               <chr>     
-#> 1 rohan  rohanalexander.com  "blue"    
+#> # A tibble: 2 x 3
+#>   names  website             fav_color
+#>   <chr>  <chr>               <chr>    
+#> 1 rohan  rohanalexander.com  "blue"   
 #> 2 monica monicaalexander.com " white "
 class(people_as_tibble)
 #> [1] "tbl_df"     "tbl"        "data.frame"
@@ -1701,13 +1668,9 @@ class(people_as_tibble)
 
 ### Dataset manipulation with joins and pivots
 
-There are two common types of dataset manipulations that are often needed: joins and pivots.
+There are two dataset manipulations that are often needed: joins and pivots.
 
-We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use `left_join()` from `dplyr`. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have a common column, or potentially columns, that we can use to link the two datasets.
-
-Here we will create two tibbles and then join them.
-
-I want to join another to it based on some common column names. Here we'll join two datasets based on favourite colour.
+We often have a situation where we have two, or more, datasets and we are interested in combining them. We can join datasets together in a variety of ways. A common way is to use `left_join()` from `dplyr` [@citedplyr]. This is most useful where there is one main dataset that we are using and there is another dataset with some useful variables that we want to add to that. The critical aspect is that we have column/s that we can use to link the two datasets. Here we will create two tibbles and then join them on the basis of names.
 
 
 ```r
@@ -1717,7 +1680,7 @@ main_dataset <-
     status = c('adult', 'adult', 'child', 'infant')
   )
 main_dataset
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   names  status
 #>   <chr>  <chr> 
 #> 1 rohan  adult 
@@ -1728,15 +1691,15 @@ main_dataset
 supplementary_dataset <- 
   tibble(
     names = c('rohan', 'monica', 'edward', 'hugo'),
-    favourite_food = c('pasta', 'salmon', 'pizza', 'milk')
+    favorite_food = c('pasta', 'salmon', 'pizza', 'milk')
   )
 supplementary_dataset
-#> # A tibble: 4 × 2
-#>   names  favourite_food
-#>   <chr>  <chr>         
-#> 1 rohan  pasta         
-#> 2 monica salmon        
-#> 3 edward pizza         
+#> # A tibble: 4 x 2
+#>   names  favorite_food
+#>   <chr>  <chr>        
+#> 1 rohan  pasta        
+#> 2 monica salmon       
+#> 3 edward pizza        
 #> 4 hugo   milk
 
 main_dataset <- 
@@ -1744,84 +1707,84 @@ main_dataset <-
   left_join(supplementary_dataset, by = "names")
 
 main_dataset
-#> # A tibble: 4 × 3
-#>   names  status favourite_food
-#>   <chr>  <chr>  <chr>         
-#> 1 rohan  adult  pasta         
-#> 2 monica adult  salmon        
-#> 3 edward child  pizza         
+#> # A tibble: 4 x 3
+#>   names  status favorite_food
+#>   <chr>  <chr>  <chr>        
+#> 1 rohan  adult  pasta        
+#> 2 monica adult  salmon       
+#> 3 edward child  pizza        
 #> 4 hugo   infant milk
 ```
 
-There are a variety of other options to join datasets, including `inner_join()`, `right_join()` and `full_join()`.
+There are a variety of other options to join datasets, including `inner_join()`, `right_join()`, and `full_join()`.
 
-Another common dataset manipulation task is the need to pivot them. Datasets tend to be either long or wide. Generally, in the `tidyverse`, and certainly for `ggplot2`, we need long data. To go from one to the other we `pivot_longer()` and `pivot_wider()` from `tidyr` [@citetidyr].
+Another common dataset manipulation task is pivoting them. Datasets tend to be either long or wide. Generally, in the `tidyverse`, and certainly for `ggplot2`, we need long data. To go from one to the other we use `pivot_longer()` and `pivot_wider()` from `tidyr` [@citetidyr].
 
-We will create some wide data on whether the red team or the blue team won a competition in some year.
+We will create some wide data on whether 'mark' or 'lauren' won a running race in each of three years.
 
 
 ```r
 pivot_example_data <- 
   tibble(year = c(2019, 2020, 2021),
-         blue_team = c("first", "second", "first"),
-         red_team = c("second", "first", "second"))
+         mark = c("first", "second", "first"),
+         lauren = c("second", "first", "second"))
 
-head(pivot_example_data)
-#> # A tibble: 3 × 3
-#>    year blue_team red_team
-#>   <dbl> <chr>     <chr>   
-#> 1  2019 first     second  
-#> 2  2020 second    first   
-#> 3  2021 first     second
+pivot_example_data
+#> # A tibble: 3 x 3
+#>    year mark   lauren
+#>   <dbl> <chr>  <chr> 
+#> 1  2019 first  second
+#> 2  2020 second first 
+#> 3  2021 first  second
 ```
 
-This dataset is in wide format at the moment. To get it into long format, we need a column that specifies the team, and then another that specifies the result. We will use `pivot_longer()` to achieve this.
+This dataset is in wide format at the moment. To get it into long format, we need a column that specifies the person, and another that specifies the result. We use `pivot_longer()` to achieve this.
 
 
 ```r
 data_pivoted_longer <- 
   pivot_example_data |> 
-  tidyr::pivot_longer(cols = c("blue_team", "red_team"),
-              names_to = "team",
+  tidyr::pivot_longer(cols = c("mark", "lauren"),
+              names_to = "person",
                values_to = "position")
 
 head(data_pivoted_longer)
-#> # A tibble: 6 × 3
-#>    year team      position
-#>   <dbl> <chr>     <chr>   
-#> 1  2019 blue_team first   
-#> 2  2019 red_team  second  
-#> 3  2020 blue_team second  
-#> 4  2020 red_team  first   
-#> 5  2021 blue_team first   
-#> 6  2021 red_team  second
+#> # A tibble: 6 x 3
+#>    year person position
+#>   <dbl> <chr>  <chr>   
+#> 1  2019 mark   first   
+#> 2  2019 lauren second  
+#> 3  2020 mark   second  
+#> 4  2020 lauren first   
+#> 5  2021 mark   first   
+#> 6  2021 lauren second
 ```
 
-Occasionally, we need to go from long data to wide data. We can use `pivot_wider()` to do this.
+Occasionally, we need to go from long data to wide data. We use `pivot_wider()` to do this.
 
 
 ```r
 data_pivoted_wider <- 
   data_pivoted_longer |> 
-  tidyr::pivot_wider(id_cols = c("year", "team"),
-                     names_from = "team",
+  tidyr::pivot_wider(id_cols = c("year", "person"),
+                     names_from = "person",
                      values_from = "position")
 
 head(data_pivoted_wider)
-#> # A tibble: 3 × 3
-#>    year blue_team red_team
-#>   <dbl> <chr>     <chr>   
-#> 1  2019 first     second  
-#> 2  2020 second    first   
-#> 3  2021 first     second
+#> # A tibble: 3 x 3
+#>    year mark   lauren
+#>   <dbl> <chr>  <chr> 
+#> 1  2019 first  second
+#> 2  2020 second first 
+#> 3  2021 first  second
 ```
 
 
 ### String manipulation and `stringr`
 
-In R we often create a string with double quotes, although using single quotes is fine too. For instance `c("a", "b")` consists of two strings 'a' and 'b', and these are contained in a character vector. There are a variety of ways to manipulate strings in R and we will focus on the `stringr` package [@citestringr]. This is automatically loaded when we load the `tidyverse`.
+In R we often create a string with double quotes, although using single quotes works too. For instance `c("a", "b")` consists of two strings 'a' and 'b', that are contained in a character vector. There are a variety of ways to manipulate strings in R and we focus on `stringr` [@citestringr]. This is automatically loaded when we load the `tidyverse`.
 
-If we want to look for whether a string contains certain content, then we can use `str_detect()`. If we want to remove or change some particular content then we can use `str_remove()` or `str_replace()`. 
+If we want to look for whether a string contains certain content, then we can use `str_detect()`. And if we want to remove or change some particular content then we can use `str_remove()` or `str_replace()`. 
 
 
 ```r
@@ -1838,12 +1801,12 @@ dataset_of_strings |>
          make_howlett = str_replace(names, "alexander", "howlett"),
          remove_rohan = str_remove(names, "rohan")
          )
-#> # A tibble: 4 × 4
+#> # A tibble: 4 x 4
 #>   names            is_rohan make_howlett   remove_rohan     
 #>   <chr>            <lgl>    <chr>          <chr>            
 #> 1 rohan alexander  TRUE     rohan howlett  " alexander"     
-#> 2 monica alexander FALSE    monica howlett "monica alexande…
-#> 3 edward alexander FALSE    edward howlett "edward alexande…
+#> 2 monica alexander FALSE    monica howlett "monica alexande~
+#> 3 edward alexander FALSE    edward howlett "edward alexande~
 #> 4 hugo alexander   FALSE    hugo howlett   "hugo alexander"
 ```
 
@@ -1853,10 +1816,10 @@ There are a variety of other functions that are often especially useful in data 
 ```r
 dataset_of_strings |> 
   mutate(length_is = str_length(string = names),
-         remove_rohan = str_c(names, length_is, sep = " - ")
+         name_and_length = str_c(names, length_is, sep = " - ")
          )
-#> # A tibble: 4 × 3
-#>   names            length_is remove_rohan         
+#> # A tibble: 4 x 3
+#>   names            length_is name_and_length      
 #>   <chr>                <int> <chr>                
 #> 1 rohan alexander         15 rohan alexander - 15 
 #> 2 monica alexander        16 monica alexander - 16
@@ -1864,7 +1827,7 @@ dataset_of_strings |>
 #> 4 hugo alexander          14 hugo alexander - 14
 ```
 
-Finally, `separate()` from `tidyr`, although not part of `stringr`, is an indespensible function for string manipulation. It turns one character column into many.
+Finally, `separate()` from `tidyr`, although not part of `stringr`, is indispensable for string manipulation. It turns one character column into many.
 
 
 ```r
@@ -1873,7 +1836,7 @@ dataset_of_strings |>
            into = c("first", "last"),
            sep = " ",
            remove = FALSE)
-#> # A tibble: 4 × 3
+#> # A tibble: 4 x 3
 #>   names            first  last     
 #>   <chr>            <chr>  <chr>    
 #> 1 rohan alexander  rohan  alexander
@@ -1885,11 +1848,11 @@ dataset_of_strings |>
 
 ### Factor variables and `forcats`
 
-A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order---Monday, Tuesday, Wednesday, ...---which is not alphabetical. But there is no inherent order for gender---female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance, if 'days_of_the_week' was a factor variable then 'January' would not be allowed in there. But they can add a great deal of complication, and so they have a less prominent role in `tidyverse`. Nonetheless taking advantage of factors is useful in certain circumstances. For instance, when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one `tidyverse` package that is especially useful when using factors is `forcats` [@citeforcats].
+A factor is a collection of strings that are categories. Sometimes there will be an inherent ordering. For instance, the days of the week have an order -- Monday, Tuesday, Wednesday, ... -- which is not alphabetical. But there is no requirement for that to be the case, for instance gender: female, male, and other. Factors feature prominently in base R. They can be useful because they ensure that only appropriate strings are allowed. For instance, if 'days_of_the_week' was a factor variable then 'January' would not be allowed. But they can add a great deal of complication, and so they have a less prominent role in `tidyverse`. Nonetheless taking advantage of factors is useful in certain circumstances. For instance, when plotting the days of the week we probably want them in the usual ordering than in the alphabetical ordering that would result if we had them as a character variable. While factors are built into base R, one `tidyverse` package that is especially useful when using factors is `forcats` [@citeforcats].
 
-Sometimes we have a character vector, and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, Wednesday!
+Sometimes we have a character vector, and we will want it ordered in a particular way. The default is that a character vector is ordered alphabetically, but we may not want that. For instance, the days of the week would look strange on a graph if they were alphabetically ordered: Friday, Monday, Saturday, Sunday, Thursday, Tuesday, and Wednesday!
 
-The way to change the ordering is to change the variable from a character to a factor. We can use `fct_relevel()` from `forcats` to specify an ordering.
+The way to change the ordering is to change the variable from a character to a factor. We can use `fct_relevel()` from `forcats` [@citeforcats] to specify an ordering.
 
 
 ```r
@@ -1940,7 +1903,8 @@ days_data |>
   geom_point()
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-78-1.png" width="50%" /><img src="03-r_essentials_files/figure-html/unnamed-chunk-78-2.png" width="50%" />
+
+\includegraphics[width=0.5\linewidth]{03-r_essentials_files/figure-latex/unnamed-chunk-79-1} \includegraphics[width=0.5\linewidth]{03-r_essentials_files/figure-latex/unnamed-chunk-79-2} 
 
 
 
@@ -1953,94 +1917,88 @@ days_data |>
 
 ### Exercises
 
-1. What is not one of the four challenges for mitigating bias mentioned in @hao2019 (pick one)? 
-    a. Unknown unknowns. 
-    b. Imperfect processes. 
-    c. The definitions of fairness. 
-    d. Lack of social context. 
-    e. Disinterest given profit considerations.
-2. What is R?
+1. What is R?
     a. A open-source statistical programming language
     b. A programming language created by Guido van Rossum
     c. A closed source statistical programming language
     d. An integrated development environment (IDE)
-3. What are three advantages of R? What are three disadvantages?
-4. What is R Studio?
+2. What are three advantages of R? What are three disadvantages?
+3. What is R Studio?
     a. An integrated development environment (IDE).
     b. A closed source paid program.
     c. A programming language created by Guido van Rossum
     d. A statistical programming language.
-5. What is the class of the output of '2 + 2' (pick one)?
+4. What is the class of the output of '2 + 2' (pick one)?
     a. character
     b. factor
     c. numeric
     d. date
-6. Say we had run: `my_name <- 'Rohan'`. What would be the result of running `print(my_name)` (pick one)?
+5. Say we had run: `my_name <- 'Rohan'`. What would be the result of running `print(my_name)` (pick one)?
     a. 'Edward'
     b. 'Monica'
     c. 'Hugo'
     d. 'Rohan'
-7. Say we had a dataset with two columns: 'name', and 'age'. Which verb should we use to pick just 'name' (pick one)?
+6. Say we had a dataset with two columns: 'name', and 'age'. Which verb should we use to pick just 'name' (pick one)?
     a. `tidyverse::select()`
     b. `tidyverse::mutate()`
     c. `tidyverse::filter()`
     d. `tidyverse::rename()`
-8. Say we had loaded `AustralianPoliticians` and `tidyverse` and then run the following code: `australian_politicians <- AustralianPoliticians::get_auspol('all')`. How could we select all of the columns that end with 'Name' (pick one)? 
+7. Say we had loaded `AustralianPoliticians` and `tidyverse` and then run the following code: `australian_politicians <- AustralianPoliticians::get_auspol('all')`. How could we select all of the columns that end with 'Name' (pick one)? 
     a. `australian_politicians |> select(contains("Name"))`
     b. `australian_politicians |> select(starts_with("Name"))`
     c. `australian_politicians |> select(matches("Name"))`
     d. `australian_politicians |> select(ends_with("Name"))`
-9. Under what circumstances, in terms of the names of the columns, would the use of 'contains()' potentially give different answers to using 'ends_with()' in the above question?
-10. Which of the following are not tidyverse verbs (pick one)? 
+8. Under what circumstances, in terms of the names of the columns, would the use of 'contains()' potentially give different answers to using 'ends_with()' in the above question?
+9. Which of the following are not `tidyverse` verbs (pick one)? 
     a. `select()`
     b. `filter()`
     c. `arrange()`
     d. `mutate()`
     e. `visualize()`
-11. If I wanted to make a new column which verb should I use (pick one)? 
+10. Which function would make a new column (pick one)? 
     a. `select()`
     b. `filter()`
     c. `arrange()`
     d. `mutate()`
     e. `visualize()`
-12. If I wanted to focus on particular rows which verb should I use (pick one)? 
+11. Which function would focus on particular rows (pick one)? 
     a. `select()`
     b. `filter()`
     c. `arrange()`
     d. `mutate()`
     e. `summarise()`
-13. If I wanted a summary of the data that gave me the mean by sex, which two verbs should I use (pick one)? 
+12. Which combination of two functions could provide a mean of a dataset, by sex (pick two)? 
     a. `summarise()`
     b. `filter()`
     c. `arrange()`
     d. `mutate()`
     e. `group_by()`
-14. Assume a variable called 'age' is an integer. Which line of code would create a column that is its exponential (pick one)? 
+13. Assume a variable called 'age' is an integer. Which line of code would create a column that is its exponential (pick one)? 
     a. `mutate(exp_age = exponential(age))`
     b. `mutate(exp_age = exponent(age))`
     c. `mutate(exp_age = exp(age))`
     d. `mutate(exp_age = expon(age))`
-15. Assume a column called 'age'. Which line of code could create a column that contains the value from five rows above?
+14. Assume a column called 'age'. Which line of code could create a column that contains the value from five rows above?
     a. `mutate(five_before = lag(age))`
     b. `mutate(five_before = lead(age))`
     c. `mutate(five_before = lag(age, n = 5))`
     d. `mutate(five_before = lead(age, n = 5))`
-16. What would be the output of `class('edward')` (pick one)? 
+15. What would be the output of `class('edward')` (pick one)? 
     a. 'numeric'
     b. 'character'
     c. 'data.frame'
     d. 'vector'
-17. Which function would enable us to draw once from three options 'blue, white, red', with 10 per cent probability on 'blue' and 'white', and the remainder on 'red'?
+16. Which function would enable us to draw once from three options 'blue, white, red', with 10 per cent probability on 'blue' and 'white', and the remainder on 'red'?
     a. `sample(c('blue', 'white', 'red'), prob = c(0.1, 0.1, 0.8))`
     b. `sample(c('blue', 'white', 'red'), size = 1)`
     c. `sample(c('blue', 'white', 'red'), size = 1, prob = c(0.8, 0.1, 0.1))`
     d. `sample(c('blue', 'white', 'red'), size = 1, prob = c(0.1, 0.1, 0.8))`
-18. How can I simulate 10,000 draws from a normal distribution with a mean of 27 and a standard deviation of 3 (pick one)? 
+17. Which code simulates 10,000 draws from a normal distribution with a mean of 27 and a standard deviation of 3 (pick one)? 
     a. `rnorm(10000, mean = 27, sd = 3)`
     b. `rnorm(27, mean = 10000, sd = 3)`
     c. `rnorm(3, mean = 10000, sd = 27)`
     d. `rnorm(27, mean = 3, sd = 1000)`
-19. What are the three key aspects of the grammar of graphics (select all)? 
+18. What are the three key aspects of the grammar of graphics (select all)? 
     a. data
     b. aesthetics
     c. type
@@ -2049,4 +2007,10 @@ days_data |>
 
 ### Tutorial
 
-Listen to Gladwell and then rank sports teams or other departments or something else of interest to you based on at least three variables and one of which is peer thoughts. 
+> I think we should be suspicious when we find ourselves attracted to data---very, very thin and weak data---that seem to justify beliefs that have held great currency in lots of societies throughout history, in a way that is conducive to the oppression of large segments of the population
+> 
+> Amia Srinivasan, 22 September 2021
+
+Reflect on the quote from Amia Srinivasan, Chichele Professor of Social and Political Theory, All Souls College, Oxford, and @datafeminism2020, especially Chapter 6, and in two pages discuss a dataset that you are familiar with.
+
+

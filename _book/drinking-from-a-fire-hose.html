@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Drinking from a fire hose | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Read The mundanity of excellence: An ethnographic report on...">
+<meta name="description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read The mundanity of excellence: An...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Drinking from a fire hose | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Read The mundanity of excellence: An ethnographic report on...">
+<meta property="og:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read The mundanity of excellence: An...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Drinking from a fire hose | Telling Stories With Data">
-<meta name="twitter:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens, (Hao 2019) Read The mundanity of excellence: An ethnographic report on...">
+<meta name="twitter:description" content="Required material Read Data science as an atomic habit, (Barrett 2021a) Read This is how AI bias really happens—and why it’s so hard to fix, (Hao 2019) Read The mundanity of excellence: An...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -99,17 +99,17 @@
 <ul>
 <li>Read <em>Data science as an atomic habit</em>, <span class="citation">(<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett 2021a</a>)</span>
 </li>
-<li>Read <em>This is how AI bias really happens</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
+<li>Read <em>This is how AI bias really happens—and why it’s so hard to fix</em>, <span class="citation">(<a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao 2019</a>)</span>
 </li>
 <li>Read <em>The mundanity of excellence: An ethnographic report on stratification and Olympic swimmers</em>, <span class="citation">(<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss 1989</a>)</span>
 </li>
 </ul>
 <p><strong>Key concepts and skills</strong></p>
 <ul>
-<li>The statistical programming language R enables us to tell interesting stories using data.</li>
-<li>It is a language like any other, and there is a slow path to mastery.</li>
-<li>The way to learn is to start with a small project and break down what is required to achieve it into tiny steps. Then look at other people’s code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Don’t worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you’ll get a little better.</li>
-<li>The key is to just start.</li>
+<li>The statistical programming language R enables us to tell interesting stories using data. It is a language like any other, and there is a slow path to mastery.</li>
+<li>The way to learn is to start with a small project and break down what is required to achieve it into tiny steps. Then look at other people’s code to work out how you might deal with the steps. Copy, paste, and modify their code to achieve each step. Do not worry about perfection, just worry about achieving each step. Complete that project and move onto the next project. Rinse and repeat. Each project you’ll get a little better.</li>
+<li>The key is to just start actively working each day.</li>
+<li>The framework that we use is: plan, simulate, gather, explore, and share. This provides a foundation that you should use to approach projects.</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
@@ -170,44 +170,45 @@
 <h2>
 <span class="header-section-number">2.1</span> Hello, World!<a class="anchor" aria-label="anchor" href="#hello-world"><i class="fas fa-link"></i></a>
 </h2>
-<p>The way to start, is to start. In this chapter we go through three complete examples of the workflow advocated in this book. This means we will: plan, simulate, acquire, explore, and share. If you are new to R, then some of the code may be a bit unfamiliar to you. If you are new to statistical modelling, then some of the concepts may be unfamiliar. Do not worry. It will all soon be familiar.</p>
-<p>The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (using R Studio Cloud if you are new to R and do not have it installed on your own computer), and execute it all. It is important, and normal, to realise that you are going to be bad at it for a while.</p>
+<p>The way to start, is to start. In this chapter we go through three complete examples of the workflow advocated in this book. This means we will: plan, simulate, acquire, explore, and share. If you are new to R, then some of the code may be a bit unfamiliar to you. If you are new to statistics, then some of the concepts may be unfamiliar. Do not worry. It will all soon become familiar.
+The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (using R Studio Cloud if you are new to R and do not have it installed on your own computer), and execute it all. It is important, and normal, to realize that you are going to be bad at it for a while.</p>
 <blockquote>
 <p>Whenever you’re learning a new tool, for a long time, you’re going to suck… But the good news is that is typical; that’s something that happens to everyone, and it’s only temporary.</p>
 <p>Hadley Wickham as quoted by <span class="citation"><a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett</a> (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>.</p>
 </blockquote>
-<p>Although you will be guided thoroughly to achieve this, hopefully by seeing the power of telling stories with data here, you will feel empowered to stick with it when you run into difficulties later.</p>
-<p>To get started, go to <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> and create an account. As we are just getting started the free version will be fine for now. Once you have an account and log in, then it should look something like Figure <a href="drinking-from-a-fire-hose.html#fig:second">2.1</a>.</p>
+<p>You will be guided thoroughly here. Hopefully by experiencing the power of telling stories with data, you will feel empowered to stick with it.</p>
+<p>To get started, go to R Studio Cloud – <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> – and create an account. As we are not doing anything too involved the free version will be fine for now. Once you have an account and log in, then it should look something like Figure <a href="drinking-from-a-fire-hose.html#fig:second">2.1</a>.</p>
 <div class="figure">
 <span style="display:block;" id="fig:second"></span>
 <img src="figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%"><p class="caption">
 Figure 2.1: Opening R Studio Cloud for the first time
 </p>
 </div>
-<p>(You’ll be in ‘Your Workspace,’ and you won’t have an ‘Example Workspace.’) From here you should start a ‘New Project.’ You can give the project a name by clicking on ‘Untitled Project’ and replacing it.</p>
+<p>(You will be in ‘Your Workspace,’ and you will not have an ‘Example Workspace.’) From here you should start a ‘New Project.’ You can give the project a name by clicking on ‘Untitled Project’ and replacing it.</p>
+<p>We will now go through three worked examples: Canadian elections, Toronto homelessness, and neonatal mortality. These examples build increasing complexity, but from the first one, we will be telling a story with data.</p>
 </div>
 <div id="canadian-elections" class="section level2" number="2.2">
 <h2>
 <span class="header-section-number">2.2</span> Canadian elections<a class="anchor" aria-label="anchor" href="#canadian-elections"><i class="fas fa-link"></i></a>
 </h2>
-<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house, and that from which government is formed. There are two major parties—‘Liberal’ and ‘Conservative’—three minor parties—‘Bloc Québécois,’ ‘New Democratic,’ and ‘Green’—as well as many smaller parties. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
+<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Conservative’ – three minor parties – ‘Bloc Québécois,’ ‘New Democratic,’ and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
 <div id="plan" class="section level3" number="2.2.1">
 <h3>
 <span class="header-section-number">2.2.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan"><i class="fas fa-link"></i></a>
 </h3>
 <p>For this example, we need to plan two aspects. The first is what the dataset that we need will look like, and the second is what the final graph will look like.</p>
-<p>The basic requirement for the dataset is that it has the name of the seat (typically called a ‘riding’ in Canada) and the party of the person that represents it. So, a quick sketch of the dataset that we would need could look something like Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>.</p>
+<p>The basic requirement for the dataset is that it has the name of the seat (sometimes called a ‘riding’ in Canada) and the party of the person elected. So, a quick sketch of the dataset that we would need could look something like Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:canadaexampledata"></span>
-<img src="figures/IMG_1815.png" alt="Quick sketch of a dataset that could be useful for analysing Canadian elections" width="50%"><p class="caption">
+<img src="figures/IMG_1815.png" alt="Quick sketch of a dataset that could be useful for analysing Canadian elections" width="40%"><p class="caption">
 Figure 2.2: Quick sketch of a dataset that could be useful for analysing Canadian elections
 </p>
 </div>
-<p>We will also need to make the graph that we are interested in. Given we want to display the number of seats that each party won, a quick sketch of what we are probably aiming for is something like Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampletable">2.3</a>.</p>
+<p>We also need to plan the graph that we are interested in. Given we want to display the number of seats that each party won, a quick sketch of what we might aim for is Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampletable">2.3</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:canadaexampletable"></span>
-<img src="figures/IMG_1814.png" alt="Quick sketch of a graph of the number of ridings won by each party" width="90%"><p class="caption">
-Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
+<img src="figures/IMG_1814.png" alt="Quick sketch of a possible graph of the number of ridings won by each party" width="75%"><p class="caption">
+Figure 2.3: Quick sketch of a possible graph of the number of ridings won by each party
 </p>
 </div>
 </div>
@@ -215,33 +216,32 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <h3>
 <span class="header-section-number">2.2.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate"><i class="fas fa-link"></i></a>
 </h3>
-<p>We will now simulate some data, to bring some specificity to our sketches.</p>
-<p>To get started, within R Studio Cloud, make a new R Markdown file (File -&gt; New File -&gt; R Markdown). For this first example, we will just put everything into this one R Markdown document.</p>
-<p>In that R Markdown document create a new R code chunk (Code -&gt; Insert Chunk) and add preamble documentation that explains:</p>
+<p>We now simulate some data, to bring some specificity to our sketches.</p>
+<p>To get started, within R Studio Cloud, make a new R Markdown file (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown’). For this example, we will just put everything into this one R Markdown document. You should save it as ‘canadian_elections.Rmd’ (‘File’ -&gt; ‘Save As…’)</p>
+<p>In the R Markdown document create a new R code chunk (‘Code’ -&gt; ‘Insert Chunk’) and add preamble documentation that explains:</p>
 <ul>
 <li>the purpose of the document;</li>
-<li>the author and their contact details;</li>
+<li>the author and contact details;</li>
 <li>when the file was written or last updated; and</li>
 <li>pre-requisites that the file relies on.</li>
 </ul>
-<p>In R, lines that start with ‘#’ are comments, which means that they will not be run as code, and instead are designed to be read by humans. Each line of this preamble should start with a ‘#.’ Also make it clear that this is the preamble section by surrounding that with ‘####.’</p>
-<p>An example follows.</p>
+<p>In R, lines that start with ‘#’ are comments. This means that they are not run as code by R, but are instead designed to be read by humans. Each line of this preamble should start with a ‘#.’ Also make it clear that this is the preamble section by surrounding that with ‘####.’</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
-<span class="co"># Purpose: Read in data from the 2019 Canadian Election and make a graph</span>
-<span class="co"># of the number of ridings each party won.</span>
+<span class="co"># Purpose: Read in data from the 2019 Canadian Election and make a</span>
+<span class="co"># graph of the number of ridings each party won.</span>
 <span class="co"># Author: Rohan Alexander</span>
 <span class="co"># Email: rohan.alexander@utoronto.ca</span>
 <span class="co"># Date: 1 January 2022</span>
-<span class="co"># Prerequisites: Need to know where to get Canadian elections data from.</span></code></pre></div>
-<p>After this, set up the workspace. This involves installing and/or loading any packages that are needed, and possibly updating them. A package only needs to be installed once for each computer, but needs to be loaded each time it is to be used. In this case we are going to use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. They will need to be installed because this is the first time they are being used, and then each will need to be loaded.</p>
-<p>An example of installing the packages follows (excessive comments have been added to be clear about what is going on; in general, this level of commenting is unnecessary). You run this code by clicking the small green arrow associated with that R code chunk.</p>
+<span class="co"># Prerequisites: Need to know where to get Canadian elections data.</span></code></pre></div>
+<p>After this we need to set-up the workspace. This involves installing and loading any packages that will be needed. A package only needs to be installed once for each computer, but needs to be loaded each time it is to be used. In this case we are going to use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. They will need to be installed because this is the first time they are being used, and then each will need to be loaded.</p>
+<p>An example of installing the packages follows (excessive comments have been added to be clear about what is going on; in general, this level of commenting is unnecessary). Run this code by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Workspace set-up ####</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span> <span class="co"># Only need to do this once per computer</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"janitor"</span><span class="op">)</span> <span class="co"># Only need to do this once per computer</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyr"</span><span class="op">)</span> <span class="co"># Only need to do this once per computer</span></code></pre></div>
-<p>Now that the packages are installed, they need to be loaded. As that installation step only needs to be done once per computer, that code can be commented out so that it is not accidentally run. So, the example would become as follows.</p>
+<p>Now that the packages are installed, they need to be loaded. As that installation step only needs to be done once per computer, that code can be commented out so that it is not accidentally run.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Workspace set-up ####</span>
 <span class="co"># install.packages("tidyverse") # Only need to do this once per computer</span>
@@ -252,14 +252,13 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span> <span class="co"># Helps clean datasets</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co"># Helps make tidy datasets</span></code></pre></div>
 <p>All packages contain a help file that provides information about them and their functions. It can be accessed by appending a question mark before the package name and then running that code. For instance <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse-package.html">?tidyverse</a></code>.</p>
-<p>To simulate our data, we need to create a dataset with two columns: ‘Riding’ and ‘Party,’ and some values for each. In the case of ‘Riding’ reasonable values would be a name of one of the 338 Canadian ridings. In the case of ‘Party’ reasonable values would be one of the following six: ‘Liberal,’ ‘Conservative,’ ‘Bloc Québécois,’ ‘New Democratic,’ ‘Green,’ ‘Other.’</p>
-<p>An example of a simulated dataset follows.</p>
+<p>To simulate our data, we need to create a dataset with two columns: ‘Riding’ and ‘Party,’ and some values for each. In the case of ‘Riding’ reasonable values would be a name of one of the 338 Canadian ridings. In the case of ‘Party’ reasonable values would be one of the following six: ‘Liberal,’ ‘Conservative,’ ‘Bloc Québécois,’ ‘New Democratic,’ ‘Green,’ ‘Other.’ Again, this code can be run by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-    <span class="co"># We use the number 1 through to 338 to represent each riding</span>
+    <span class="co"># Use 1 through to 338 to represent each riding</span>
     <span class="st">'Riding'</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">338</span>,
-    <span class="co"># We randomly choose one of six options, with replacement, 338 times</span>
+    <span class="co"># Randomly choose one of six options, with replacement, 338 times</span>
     <span class="st">'Party'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
       x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
         <span class="st">'Liberal'</span>,
@@ -268,23 +267,22 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
         <span class="st">'New Democratic'</span>,
         <span class="st">'Green'</span>,
         <span class="st">'Other'</span>
-        <span class="op">)</span>,
+      <span class="op">)</span>,
       size <span class="op">=</span> <span class="fl">338</span>,
       replace <span class="op">=</span> <span class="cn">TRUE</span>
-      <span class="op">)</span>
-    <span class="op">)</span>
+    <span class="op">)</span><span class="op">)</span>
 
 <span class="va">simulated_data</span>
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Other         </span>
-<span class="co">#&gt;  2      2 Liberal       </span>
-<span class="co">#&gt;  3      3 Green         </span>
-<span class="co">#&gt;  4      4 New Democratic</span>
-<span class="co">#&gt;  5      5 Other         </span>
-<span class="co">#&gt;  6      6 Bloc Québécois</span>
-<span class="co">#&gt;  7      7 Liberal       </span>
+<span class="co">#&gt;  1      1 Bloc Québécois</span>
+<span class="co">#&gt;  2      2 Other         </span>
+<span class="co">#&gt;  3      3 New Democratic</span>
+<span class="co">#&gt;  4      4 Bloc Québécois</span>
+<span class="co">#&gt;  5      5 New Democratic</span>
+<span class="co">#&gt;  6      6 New Democratic</span>
+<span class="co">#&gt;  7      7 New Democratic</span>
 <span class="co">#&gt;  8      8 Other         </span>
 <span class="co">#&gt;  9      9 Conservative  </span>
 <span class="co">#&gt; 10     10 New Democratic</span>
@@ -294,11 +292,9 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <h3>
 <span class="header-section-number">2.2.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now we want to get the actual data. We will read in a dataset from Elections Canada, which is the non-partisan agency that organizes Canadian federal elections. We can pass a website to the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>, which saves a lot of time. (We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>.)</p>
+<p>Now we want to get the actual data. The data we need is from Elections Canada, which is the non-partisan agency that organizes Canadian federal elections. We can pass a website to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>. We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>. The ‘&lt;-’ or ‘assignment operator’ is allocating the output of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to an object called ‘raw_elections_data.’</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Read in the data ####</span>
-<span class="co"># The '&lt;-' or 'assignment operator' is allocating the output of read_csv() to a</span>
-<span class="co"># object called raw_elections_data. </span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
     file <span class="op">=</span>
@@ -306,13 +302,13 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span> 
 
-<span class="co"># We have read the data from the Elections Canada website. We may like to save </span>
-<span class="co"># it just in case something happens and they move it. </span>
+<span class="co"># We have read the data from the Elections Canada website. We may like</span>
+<span class="co"># to save it in case something happens or they move it. </span>
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">raw_elections_data</span>, 
   file <span class="op">=</span> <span class="st">"canadian_voting.csv"</span>
   <span class="op">)</span></code></pre></div>
-<p>We can take a quick look at it using the function <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> which will show the first six rows, and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> which will show the last six rows.</p>
+<p>We can take a quick look at the dataset using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> which will show the first six rows, and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> which will show the last six rows.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 13</span>
@@ -348,7 +344,7 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; #   Rejected Ballots/Bulletins rejetés &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   Total Ballots Cast/Total des bulletins déposés &lt;dbl&gt;, …</span></code></pre></div>
-<p>We need to clean the data so that we can use it. In particular, we are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. We will do this using the function <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>.</p>
+<p>We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. We will do this using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Basic cleaning ####</span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
@@ -378,8 +374,8 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; #   rejected_ballots_bulletins_rejetes &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   percentage_of_rejected_ballots_pourcentage_des_bulletins_rejetes &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   total_ballots_cast_total_des_bulletins_deposes &lt;dbl&gt;, …</span></code></pre></div>
-<p>Even though the names are still quite long, the reason that they are faster to type is because R Studio will auto complete them. To do this, begin typing the name of a column and then use tab to auto complete it.</p>
-<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription,’ and ‘elected_candidate_candidat_elu.’ We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> (which we loaded as part of the <code>tidyverse</code>). Additionally, the pipe operator, <code>|&gt;</code>, pushes the output from one line to be the first input of the function on the next line.</p>
+<p>The names are faster to type because R Studio will auto-complete them. To do this, we begin typing the name of a column and then use ‘tab’ to auto-complete it.</p>
+<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription,’ and ‘elected_candidate_candidat_elu.’ We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> which we loaded as part of the <code>tidyverse</code>. The ‘pipe operator,’ <code>|&gt;</code>, pushes the output of one line to be the first input of the function on the next line.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
@@ -408,13 +404,13 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
-    electoral_district <span class="op">=</span> <span class="va">electoral_district_name_nom_de_circonscription</span>,
+    riding <span class="op">=</span> <span class="va">electoral_district_name_nom_de_circonscription</span>,
     elected_candidate <span class="op">=</span> <span class="va">elected_candidate_candidat_elu</span>
     <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   electoral_district                 elected_candidate      </span>
+<span class="co">#&gt;   riding                             elected_candidate      </span>
 <span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;                  </span>
 <span class="co">#&gt; 1 Avalon                             McDonald, Kenneth Libe…</span>
 <span class="co">#&gt; 2 Bonavista--Burin--Trinity          Rogers, Churence Liber…</span>
@@ -435,7 +431,7 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   electoral_district                 party                  </span>
+<span class="co">#&gt;   riding                             party                  </span>
 <span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;                  </span>
 <span class="co">#&gt; 1 Avalon                             Libéral                </span>
 <span class="co">#&gt; 2 Bonavista--Burin--Trinity          Libéral                </span>
@@ -443,7 +439,7 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="co">#&gt; 4 Labrador                           Libéral                </span>
 <span class="co">#&gt; 5 Long Range Mountains               Libéral                </span>
 <span class="co">#&gt; 6 St. John's East/St. John's-Est     NPD-Nouveau Parti démo…</span></code></pre></div>
-<p>Finally we want to change the party names from French to English to match what we simulated using <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
+<p>Finally we want to change the party names from French to English to match what we simulated, using <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span><span class="op">$</span><span class="va">party</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">$</span><span class="va">party</span>,
@@ -455,7 +451,7 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   electoral_district                 party         </span>
+<span class="co">#&gt;   riding                             party         </span>
 <span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;         </span>
 <span class="co">#&gt; 1 Avalon                             Liberal       </span>
 <span class="co">#&gt; 2 Bonavista--Burin--Trinity          Liberal       </span>
@@ -476,15 +472,15 @@ Figure 2.3: Quick sketch of a graph of the number of ridings won by each party
 <span class="header-section-number">2.2.4</span> Explore<a class="anchor" aria-label="anchor" href="#explore"><i class="fas fa-link"></i></a>
 </h3>
 <p>At this point we would like to explore the dataset that we created. One way to better understand a dataset is to make a graph. In particular, here we would like to build the graph that we planned in Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampletable">2.3</a>.</p>
-<p>First, we need to read in the dataset that we just created.</p>
+<p>First, we read in the dataset that we just created.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Read in the data ####</span>
 <span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
-    <span class="st">"cleaned_elections_data.csv"</span>,
+    file <span class="op">=</span> <span class="st">"cleaned_elections_data.csv"</span>,
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
-<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that is involves building graphs by adding layers using the ‘+’ operator. In particular we will create a histogram use the function <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
+<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that we build graphs by adding layers using ‘+,’ which we call the ‘add operator.’ In particular we will create a histogram using <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># aes abbreviates aesthetics and enables us </span>
@@ -516,7 +512,7 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 <p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the house that forms government. There are two major parties—‘Liberal’ and ‘Conservative’—three minor parties—‘Bloc Québécois,’ ‘New Democratic,’ and ‘Green’—and many smaller parties. The 2019 Federal Election occurred on 21 October, and more than 17 million votes were cast.</p>
 <p>We downloaded the results, on a seat-specific basis, from the Elections Canada website. We were interested in the number of seats that were won by each party. We cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span> and <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. We then created a graph of the number of seats that each political party won (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.4</a>).</p>
 <p>We found that the Liberal Party won 157 seats, followed by the Conservative Party with 121 seats. The minor parties won the following number of seats: Bloc Québécois, 32 seats, New Democratic Party, 24 seats, and the Green Party, 3 seats. Finally, one independent candidate won a seat.</p>
-<p>The distribution of seats is skewed toward the two major parties which could reflect relatively stable preferences on the part of Canadian voters, or possibly inertia due to the benefits of already being a major party such a national network and funding, or some other reason. A better understanding the reasons for this distribution are of interest in future work. While the dataset consists of everyone who voted, it worth noting that some are systematically excluded from voting; and it is much difficult for some to vote than others.</p>
+<p>The distribution of seats is skewed toward the two major parties which could reflect relatively stable preferences on the part of Canadian voters, or possibly inertia due to the benefits of already being a major party such a national network and funding, or some other reason. A better understanding the reasons for this distribution are of interest in future work. While the dataset consists of everyone who voted, it worth noting that in Canada some are systematically excluded from voting; and it is much difficult for some to vote than others.</p>
 </blockquote>
 </div>
 </div>
@@ -524,7 +520,7 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 <h2>
 <span class="header-section-number">2.3</span> Toronto homelessness<a class="anchor" aria-label="anchor" href="#toronto-homelessness"><i class="fas fa-link"></i></a>
 </h2>
-<p>Toronto has a large homeless population. Freezing winters mean it is critical there are enough places in shelters. In this example we will make a table of shelter usage in the second half of 2021 that compares average use in each month. Our expectation is that there is greater usage in the colder months, for instance, December, compared with warmer months, for instance, July.</p>
+<p>Toronto has a large homeless population. Freezing winters mean it is important there are enough places in shelters. In this example we will make a table of shelter usage in the second half of 2021 that compares average use in each month. Our expectation is that there is greater usage in the colder months, for instance, December, compared with warmer months, for instance, July.</p>
 <div id="plan-1" class="section level3" number="2.3.1">
 <h3>
 <span class="header-section-number">2.3.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan-1"><i class="fas fa-link"></i></a>
@@ -532,14 +528,14 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 <p>The dataset that we are interested in would need to have date, the shelter, and the number of beds that were occupied that night. A quick sketch of a dataset that would work is Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:torontohomelessdataplan"></span>
-<img src="figures/IMG_1817.png" alt="Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto" width="65%"><p class="caption">
+<img src="figures/IMG_1817.png" alt="Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto" width="50%"><p class="caption">
 Figure 2.5: Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto
 </p>
 </div>
-<p>We are interested in creating a table that has the average number of beds occupied each month. The table would probably look something like Figure <a href="drinking-from-a-fire-hose.html#fig:houselessexampletable">2.6</a>.</p>
+<p>We are interested in creating a table that has the monthly average number of beds occupied each night. The table would probably look something like Figure <a href="drinking-from-a-fire-hose.html#fig:houselessexampletable">2.6</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:houselessexampletable"></span>
-<img src="figures/IMG_1818.png" alt="Quick sketch of a table of the average number of beds occupied each month" width="65%"><p class="caption">
+<img src="figures/IMG_1818.png" alt="Quick sketch of a table of the average number of beds occupied each month" width="50%"><p class="caption">
 Figure 2.6: Quick sketch of a table of the average number of beds occupied each month
 </p>
 </div>
@@ -549,11 +545,10 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="header-section-number">2.3.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The next step is to simulate some data that could resemble our dataset.</p>
-<p>Again within R Studio Cloud make a new R Markdown file, and make a new R code chunk and add preamble documentation. Then install and/or load the libraries that are needed. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. As those were installed earlier, they do not need to be installed again. In this example we will additionally use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> and these will need to be installed.</p>
-<p>An example follows.</p>
+<p>Within R Studio Cloud make a new R Markdown file, save it, and make a new R code chunk and add preamble documentation. Then install and/or load the libraries that are needed. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. As those were installed earlier, they do not need to be installed again. In this example we will also use <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, which is part of the <code>tidyverse</code> and so it does not need to be installed independently. We will also use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> and these will need to be installed.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
-<span class="co"># Purpose: Read in data about 2021 houseless shelter usage and make a table</span>
+<span class="co"># Purpose: Get data about 2021 houseless shelter usage and make a table</span>
 <span class="co"># Author: Rohan Alexander</span>
 <span class="co"># Email: rohan.alexander@utoronto.ca</span>
 <span class="co"># Date: 1 January 2022</span>
@@ -570,8 +565,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sharlagelfand.github.io/opendatatoronto/">opendatatoronto</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></code></pre></div>
-<p>To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the <code>tidyverse</code>. To use a package, we must first install it and then we need to load it. A package only needs to be installed once per computer, but must be loaded every time. So, the packages that we installed earlier do not need to be reinstalled here.</p>
-<p>Given that a lot of people freely gave up their time to make <code>R</code> and the packages that we use, it is important to cite them. To get the information that is needed, we can use the function <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>. When run without any arguments, that provides the citation information for <code>R</code> itself, and when run with an argument that is the name of a package, it provides the citation information for that package.</p>
+<p>To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the <code>tidyverse</code>. To use a package, we must first install it and then we need to load it. A package only needs to be installed once per computer but must be loaded every time. So, the packages that we installed earlier do not need to be reinstalled here.</p>
+<p>Given that folks freely gave up their time to make <code>R</code> and the packages that we use, it is important to cite them. To get the information that is needed, we can use <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>. When run without any arguments, that provides the citation information for <code>R</code> itself, and when run with an argument that is the name of a package, it provides the citation information for that package.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Get the citation information for R</span>
 <span class="co">#&gt; </span>
@@ -614,18 +609,18 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt;     pages = {1686},</span>
 <span class="co">#&gt;     doi = {10.21105/joss.01686},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
-<p>Turning to the simulation, we need three columns: ‘date,’ ‘shelter,’ and ‘occupancy.’ This example will build on the earlier one by adding a ‘seed.’ This enables us to always generate the same random data. Any integer can be used as the seed. In this case the seed is 853. If you use that as the seed, then you should get the same random numbers as in the example. If you use a different seed, then you should get different random numbers.</p>
+<p>Turning to the simulation, we need three columns: ‘date,’ ‘shelter,’ and ‘occupancy.’ This example will build on the earlier one by adding a seed using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>. A seed enables us to always generate the same random data. Any integer can be used as the seed. In this case the seed will be 853. If you use that as your seed, then you should get the same random numbers as in this example. If you use a different seed, then you should expect different random numbers. Finally, we use <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> to repeat something a certain number of times. For instance, we repeat ‘Shelter 1,’ 184 times.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#### Simulate data ####</span>
+<code class="sourceCode R"><span class="co">#### Simulate ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>   
 
 <span class="va">simulated_occupancy_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-    date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-07-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">183</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="co"># Based on Dirk</span>
-    <span class="co"># Eddelbuettel: https://stackoverflow.com/a/21502386</span>
-    shelter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Shelter 1"</span>, <span class="fl">184</span><span class="op">)</span>, 
-                <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Shelter 2"</span>, <span class="fl">184</span><span class="op">)</span>,
-                <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Shelter 3"</span>, <span class="fl">184</span><span class="op">)</span><span class="op">)</span>,
+    date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-07-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">183</span><span class="op">)</span>, times <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, 
+    <span class="co"># Based on Dirk Eddelbuettel: https://stackoverflow.com/a/21502386</span>
+    shelter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Shelter 1"</span>, times <span class="op">=</span> <span class="fl">184</span><span class="op">)</span>, 
+                <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Shelter 2"</span>, times <span class="op">=</span> <span class="fl">184</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Shelter 3"</span>, times <span class="op">=</span> <span class="fl">184</span><span class="op">)</span><span class="op">)</span>,
     number_occupied <span class="op">=</span> 
       <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">184</span><span class="op">*</span><span class="fl">3</span>,
             lambda <span class="op">=</span> <span class="fl">150</span><span class="op">)</span> <span class="co"># Draw 552 times from the Poisson distribution</span>
@@ -647,9 +642,9 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <h3>
 <span class="header-section-number">2.3.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>We will use some data that has been made available about Toronto homeless shelters by the City of Toronto. The premise of the data is that each night at 4am a count is made of all the occupied beds. To access the data, we will use the R package <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>.</p>
+<p>We use data made available about Toronto homeless shelters by the City of Toronto. The premise of the data is that each night at 4am a count is made of the occupied beds. To access the data, we use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span> and then save our own copy.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#### Acquire data ####</span>
+<code class="sourceCode R"><span class="co">#### Acquire ####</span>
 <span class="co"># Based on code from: </span>
 <span class="co"># https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/</span>
 <span class="va">toronto_shelters</span> <span class="op">&lt;-</span> 
@@ -663,8 +658,24 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
   <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span></code></pre></div>
-<p>Not much needs to be done to this to make it similar to the dataset that we were interested in. We will need to change the names to make them easier to type, reduce the columns to only those that are relevant, and then add a month column.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<pre><code>#&gt; # A tibble: 6 × 32
+#&gt;     `_id` OCCUPANCY_DATE ORGANIZATION_ID ORGANIZATION_NAME  
+#&gt;     &lt;dbl&gt; &lt;date&gt;                   &lt;dbl&gt; &lt;chr&gt;              
+#&gt; 1 7272806 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; 2 7272807 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; 3 7272808 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; 4 7272809 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; 5 7272810 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; 6 7272811 2021-01-01                  24 COSTI Immigrant Se…
+#&gt; # … with 28 more variables: SHELTER_ID &lt;dbl&gt;,
+#&gt; #   SHELTER_GROUP &lt;chr&gt;, LOCATION_ID &lt;dbl&gt;,
+#&gt; #   LOCATION_NAME &lt;chr&gt;, LOCATION_ADDRESS &lt;chr&gt;,
+#&gt; #   LOCATION_POSTAL_CODE &lt;chr&gt;, LOCATION_CITY &lt;chr&gt;,
+#&gt; #   LOCATION_PROVINCE &lt;chr&gt;, PROGRAM_ID &lt;dbl&gt;,
+#&gt; #   PROGRAM_NAME &lt;chr&gt;, SECTOR &lt;chr&gt;, PROGRAM_MODEL &lt;chr&gt;,
+#&gt; #   OVERNIGHT_SERVICE_TYPE &lt;chr&gt;, PROGRAM_AREA &lt;chr&gt;, …</code></pre>
+<p>Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>). We need to change the names to make them easier to type, reduce the columns to only those that are relevant, and add a month column, which we do using <code>as_date() and</code>month()<code>from</code>lubridate` <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>.</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">occupancy_date</span>, <span class="va">id</span>, <span class="va">occupied_beds</span><span class="op">)</span> |&gt; 
@@ -685,8 +696,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt; 4 2021-12-27     7323154            50 December       </span>
 <span class="co">#&gt; 5 2021-12-27     7323155            NA December       </span>
 <span class="co">#&gt; 6 2021-12-27     7323156            NA December</span></code></pre></div>
-<p>All that remains is to save the nicely cleaned dataset.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<p>All that remains is to save the cleaned dataset.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">toronto_shelters_clean</span>, 
   file <span class="op">=</span> <span class="st">"cleaned_toronto_shelters.csv"</span>
@@ -696,21 +707,21 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <h3>
 <span class="header-section-number">2.3.4</span> Explore<a class="anchor" aria-label="anchor" href="#explore-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>First, we need to read in the dataset that we just created.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<p>First, we load the dataset that we just created.</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Explore ####</span>
 <span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
     <span class="st">"cleaned_toronto_shelters.csv"</span>,
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
-<p>The dataset is on a daily basis for each shelter. We are interested in understanding average monthly usage, so we need to create a summary statistic on the basis of monthly groups.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<p>The dataset is on a daily basis for each shelter. We are interested in understanding average usage for each month. To do this, we need to create a summary statistic on the basis of monthly groups, using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>. We use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> to create a table.</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
 <span class="va">toronto_shelters_clean</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> |&gt; <span class="co"># We want to know the occupancy by month</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -744,8 +755,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 </tr>
 </tbody>
 </table></div>
-<p>As with before, this looks fine, and achieves what we set out to do. But we can make some tweaks to the defaults to make it look even better (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>).</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<p>As with before, this looks fine, and achieves what we set out to do. But we can make some tweaks to the defaults to make it look even better (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>). We can add a caption, make the column names easier to read, only show an appropriate level of decimal places, and improve the formatting.</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
 <span class="va">toronto_shelters_clean</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
@@ -796,37 +807,37 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <h3>
 <span class="header-section-number">2.3.5</span> Communicate<a class="anchor" aria-label="anchor" href="#communicate-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>Again, we will write a few brief paragraphs about what we did, why we did it, and what we found. An example follows.</p>
+<p>We need to write a few brief paragraphs about what we did, why we did it, and what we found. An example follows.</p>
 <blockquote>
 <p>Toronto has a large homeless population. Freezing winters mean it is critical there are enough places in shelters. We are interested to understand how usage of shelters changes in colder months, compared with warmer months.</p>
 <p>We use data provided by the City of Toronto about Toronto homeless shelter bed occupancy. Specifically, at 4am each night a count is made of the occupied beds. We are interested in averaging this over the month. We cleaned, tidied, and analyzed the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>, <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span>. We then made a table of the average number of occupied beds each night for each month (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>).</p>
 <p>We found that the daily average number of occupied beds was higher in December 2021 than July 2021, with 34 occupied beds in December, compared with 30 in July. More generally, there was a steady increase in the daily average number of occupied beds between July and December, with a slight increase each month.</p>
 <p>The dataset is on the basis of shelters, and so our results may be skewed by changes that are specific to especially large or especially small shelters. It may be that particular shelters are especially attractive in colder months, leading to a substitution, which would have policy implications but not be reflected in Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>.</p>
 </blockquote>
-<p>Although this example is only a few paragraphs, it could be reduced to form an abstract, or increased to form a full report. The first paragraph is general and motivational; the second focuses on the data; the third on the results; and the fourth is a more general discussion. Each of these could be expanded to form sections of a short report.</p>
+<p>Although this example is only a few paragraphs, it could be reduced to form an abstract, or increased to form a full report. The first paragraph is a general overview, the second focuses on the data, the third on the results, and the fourth is a discussion. Each of these could be expanded to form sections of a short report.</p>
 </div>
 </div>
 <div id="neonatal-mortality" class="section level2" number="2.4">
 <h2>
 <span class="header-section-number">2.4</span> Neonatal mortality<a class="anchor" aria-label="anchor" href="#neonatal-mortality"><i class="fas fa-link"></i></a>
 </h2>
-<p>Neonatal mortality refers to a death that occurs within the first month of life, and in particular, the neonatal mortality rate (NMR) is the number of neonatal deaths per 1,000 live births <span class="citation">(<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema 2018</a>)</span>. In this example we will create a graph of the NMR for the past fifty years for: Argentina, Australia, Canada, China, and Kenya.</p>
+<p>Neonatal mortality refers to a death that occurs within the first month of life, and in particular, the neonatal mortality rate (NMR) is the number of neonatal deaths per 1,000 live births <span class="citation">(<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema 2018</a>)</span>. In this example we will create a graph of the estimated NMR for the past fifty years for: Argentina, Australia, Canada, China, and Kenya.</p>
 <div id="plan-2" class="section level3" number="2.4.1">
 <h3>
 <span class="header-section-number">2.4.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan-2"><i class="fas fa-link"></i></a>
 </h3>
-<p>For this example, we need to think about what our dataset should look like, and also what the graph should look like.</p>
-<p>The dataset needs to have a column that specifies the country, and another that specifies the year. It also needs to have a column with the NMR estimate for that year for that country. Roughly, it should look like Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexampledata">2.7</a>.</p>
+<p>For this example, we need to think about what our dataset should look like, and what the graph should look like.</p>
+<p>The dataset needs to have columns that specify the country, and the year. It also needs to have a column with the NMR estimate for that year for that country. Roughly, it should look like Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexampledata">2.7</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:nmrexampledata"></span>
-<img src="figures/IMG_1812.png" alt="Quick sketch of a potentially useful NMR dataset" width="50%"><p class="caption">
+<img src="figures/IMG_1812.png" alt="Quick sketch of a potentially useful NMR dataset" width="40%"><p class="caption">
 Figure 2.7: Quick sketch of a potentially useful NMR dataset
 </p>
 </div>
-<p>We are interested to make a graph with year on the x-axis and NMR on the y-axis. Each country should have its own line. Roughly similar to Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexamplegraph">2.8</a>.</p>
+<p>We are interested to make a graph with year on the x-axis and estimated NMR on the y-axis. Each country should have its own line. Roughly similar to Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexamplegraph">2.8</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:nmrexamplegraph"></span>
-<img src="figures/IMG_1813.png" alt="Quick sketch of a graph of NMR by country over time" width="90%"><p class="caption">
+<img src="figures/IMG_1813.png" alt="Quick sketch of a graph of NMR by country over time" width="75%"><p class="caption">
 Figure 2.8: Quick sketch of a graph of NMR by country over time
 </p>
 </div>
@@ -836,12 +847,11 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="header-section-number">2.4.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>We would like to simulate some data that aligns with our plan. In this case we will need three columns: country, year, and NMR.</p>
-<p>Again within R Studio Cloud make a new R Markdown file. Add preamble documentation and load the workspace. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, .</p>
-<p>An example follows.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<p>Within R Studio Cloud make a new R Markdown file and save it. Add preamble documentation and set-up the workspace. We will use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
-<span class="co"># Purpose: Obtain and prepare data about neonatal mortality for five countries</span>
-<span class="co"># for the past fifty years and create a graph.</span>
+<span class="co"># Purpose: Obtain and prepare data about neonatal mortality for five</span>
+<span class="co"># countries for the past fifty years and create a graph.</span>
 <span class="co"># Author: Rohan Alexander</span>
 <span class="co"># Email: rohan.alexander@utoronto.ca</span>
 <span class="co"># Date: 1 January 2022</span>
@@ -851,18 +861,18 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
-<p>Libraries contain code that other people have written, and that code can update from time to time. We can see which version of a package we are using by <code><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion()</a></code>. For instance, we are using version 1.3.1 of the <code>tidyverse</code> and version 2.1.0 of <code>janitor</code>.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<p>The code contained in libraries can change from time to time as the authors update it and release new versions. We can see which version of a package we are using with <code><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion()</a></code>. For instance, we are using version 1.3.1 of the <code>tidyverse</code> and version 2.1.0 of <code>janitor</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span>
 <span class="co">#&gt; [1] '1.3.1'</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">'janitor'</span><span class="op">)</span>
 <span class="co">#&gt; [1] '2.1.0'</span></code></pre></div>
 <p>To update the version of the package, we use <code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code>.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This does not need to be run, say, every day, but from time-to-time it is worth updating packages. While many packages take care to ensure backward compatibility, at a certain point this does not become reasonable, and so it is important to be aware the updating packages can result in old code needing to be updated.</p>
-<p>Returning to the simulation, we repeat the name of each country 50 times, and then use the numbers from 1 to 50 to stand in for the passing of the years and then adding 1970 for them. Finally, we draw from the uniform distribution using <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> as a simulation of a NMR value for that year for that country.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<p>Returning to the simulation, we repeat the name of each country 50 times with <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>, and enable the passing of 50 years. Finally, we draw from the uniform distribution with <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> to simulate an estimated NMR value for that year for that country.</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate data ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -877,7 +887,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
         <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'Kenya'</span>, <span class="fl">50</span><span class="op">)</span>
         <span class="op">)</span>,
     year <span class="op">=</span> 
-      <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span> <span class="op">+</span> <span class="fl">1970</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1971</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span>,
     nmr <span class="op">=</span> 
       <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">250</span>,
             min <span class="op">=</span> <span class="fl">0</span>, 
@@ -887,7 +897,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulated_nmr_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   country    year   nmr</span>
-<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1 Argentina  1971 35.9 </span>
 <span class="co">#&gt; 2 Argentina  1972 12.0 </span>
 <span class="co">#&gt; 3 Argentina  1973 48.4 </span>
@@ -895,7 +905,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 5 Argentina  1975  3.74</span>
 <span class="co">#&gt; 6 Argentina  1976 40.4</span></code></pre></div>
 <p>While this simulation works, it would be time-consuming and error-prone if we decided that instead of fifty years, we were interested in simulating, say, sixty years. One way to make this easier is to replace all instances of 50 with a variable. An example follows.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate data ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -929,18 +939,23 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 4 Argentina  1974 31.6 </span>
 <span class="co">#&gt; 5 Argentina  1975  3.74</span>
 <span class="co">#&gt; 6 Argentina  1976 40.4</span></code></pre></div>
-<p>The result will be the same, but now all we have to do to change from fifty to sixty years is to change it in one place.</p>
-<p>We can have confidence in this simulated dataset because it is relatively straight-forward, and we wrote the code for it. But when we turn to the real dataset, it is more difficult to be sure that it is what it claims to be. Even if we trust the data, it is important that we are able to share that confidence with others. One way forward is to establish some checks that our data are as they should be. For instance, we expect:</p>
+<p>The result will be the same, but now if we want to change from fifty to sixty years is to make the change in one place.</p>
+<p>We can have confidence in this simulated dataset because it is relatively straight-forward, and we wrote the code for it. But when we turn to the real dataset, it is more difficult to be sure that it is what it claims to be. Even if we trust the data, it is important that we can share that confidence with others. One way forward is to establish some checks that prove our data are as they should be. For instance, we expect:</p>
 <ol style="list-style-type: decimal">
 <li>That ‘country’ is, and only is, one of these five: ‘Argentina,’ ‘Australia,’ ‘Canada,’ ‘China,’ or ‘Kenya.’</li>
 <li>Conversely, that ‘country’ contains all those five countries.</li>
-<li>That ‘year’ is no smaller than 1971 and no larger than 2020 and is an integer.</li>
-<li>That ‘nmr’ is a value somewhere between 0 and 1,000 and is a number.</li>
+<li>That ‘year’ is no smaller than 1971 and no larger than 2020, and is a number, not a letter.</li>
+<li>That ‘nmr’ is a value somewhere between 0 and 1,000, and is a number.</li>
 </ol>
 <p>We can write a series of tests based on these features, that we expect that dataset to pass.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Tests for simulated data</span>
-<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
+<span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, 
+                <span class="st">"Australia"</span>, 
+                <span class="st">"Canada"</span>, 
+                <span class="st">"China"</span>, 
+                <span class="st">"Kenya"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE</span>
 
 <span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
@@ -966,8 +981,8 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <h3>
 <span class="header-section-number">2.4.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire-2"><i class="fas fa-link"></i></a>
 </h3>
-<p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR at the website: <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a>.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR – <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a> – that we can download and save.</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Acquire data ####</span>
 <span class="va">raw_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -976,11 +991,11 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> 
 
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
-  <span class="va">raw_igme_data</span>, 
-  <span class="fu">here</span><span class="op">(</span><span class="st">"igme.csv"</span><span class="op">)</span>
+  x <span class="op">=</span> <span class="va">raw_igme_data</span>, 
+  file <span class="op">=</span> <span class="st">"igme.csv"</span>
   <span class="op">)</span></code></pre></div>
-<p>We can take a quick look at it, especially being interested in what the dataset seems to look like (using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code>), what the names of the columns are (using <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>), and what type each column is (using <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>).</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<p>We can take a quick look to get a better sense of it. We might be interested in what the dataset seems to look like (using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code>), what the names of the columns are (using <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>), and what type each column is (using <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>).</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 29</span>
 <span class="co">#&gt;   `Geographic area` Indicator         Sex   `Wealth Quintil…</span>
@@ -1045,8 +1060,8 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt;            "character"            "character" </span>
 <span class="co">#&gt;             Model Used </span>
 <span class="co">#&gt;            "character"</span></code></pre></div>
-<p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our planning, we are interested in rows where ‘Sex’ is ‘Total,’ ‘Series Name’ is ‘UN IGME estimate,’ ‘Geographic area’ is one of ‘Argentina,’ ‘Australia,’ ‘Canada,’ ‘China,’ and ‘Kenya,’ and the ‘Indicator’ is ‘Neonatal mortality rate.’ After this we are interested in just a few columns: ‘geographic_area,’ ‘time_period,’ and ‘obs_value.’</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our plan, we are interested in rows where ‘Sex’ is ‘Total,’ ‘Series Name’ is ‘UN IGME estimate,’ ‘Geographic area’ is one of ‘Argentina,’ ‘Australia,’ ‘Canada,’ ‘China,’ and ‘Kenya,’ and the ‘Indicator’ is ‘Neonatal mortality rate.’ After this we are interested in just a few columns: ‘geographic_area,’ ‘time_period,’ and ‘obs_value.’</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">'Total'</span>,
@@ -1068,8 +1083,8 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 4 Argentina       1973-06          24.6</span>
 <span class="co">#&gt; 5 Argentina       1974-06          24.5</span>
 <span class="co">#&gt; 6 Argentina       1975-06          24.1</span></code></pre></div>
-<p>This is looking good, but we just need to fix two final things: the class of ‘time_period’ is character when we need it to be a date (it is actually a year) and the name of ‘obs_value’ should be ‘nmr’ so to be more informative.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<p>Finally, we just need to fix two final aspects: the class of ‘time_period’ is character when we need it to be a year, and the name of ‘obs_value’ should be ‘nmr’ to be more informative.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time_period <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="va">time_period</span>, <span class="st">"-06"</span><span class="op">)</span>,
@@ -1090,9 +1105,14 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 5 Argentina  1975  24.1</span>
 <span class="co">#&gt; 6 Argentina  1976  23.3</span></code></pre></div>
 <p>Finally, we can check that our dataset passes the tests that we developed based on the simulated dataset.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Test the cleaned dataset</span>
-<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, <span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"China"</span>, <span class="st">"Kenya"</span><span class="op">)</span>
+<span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, 
+                <span class="st">"Australia"</span>, 
+                <span class="st">"Canada"</span>, 
+                <span class="st">"China"</span>, 
+                <span class="st">"Kenya"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE</span>
 
 <span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">5</span>
@@ -1113,7 +1133,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>All that remains is to save the nicely cleaned dataset.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">cleaned_igme_data</span>, 
   file <span class="op">=</span> <span class="st">"cleaned_igme_data.csv"</span>
@@ -1123,16 +1143,16 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <h3>
 <span class="header-section-number">2.4.4</span> Explore<a class="anchor" aria-label="anchor" href="#explore-2"><i class="fas fa-link"></i></a>
 </h3>
-<p>First, we need to read in the dataset that we just created.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<p>We would like to make a graph of estimated NMR using the cleaned dataset. First, we read in the dataset.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Explore ####</span>
 <span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
-    <span class="st">"cleaned_igme_data.csv"</span>,
+    file <span class="op">=</span> <span class="st">"cleaned_igme_data.csv"</span>,
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
 <p>We can now make the graph that we are interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We are interested in showing how NMR has changed over time and the difference between countries.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">nmr</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1152,12 +1172,12 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <h3>
 <span class="header-section-number">2.4.5</span> Communicate<a class="anchor" aria-label="anchor" href="#communicate-2"><i class="fas fa-link"></i></a>
 </h3>
-<p>To this point we have downloaded some data, cleaned it, wrote some tests, and made a graph. We would typically need to communicate what we have done at some length. In this case, we will write a few paragraphs about what we did, why we did it, and what we found.</p>
+<p>To this point we downloaded some data, cleaned it, wrote some tests, and made a graph. We would typically need to communicate what we have done at some length. In this case, we will write a few paragraphs about what we did, why we did it, and what we found.</p>
 <blockquote>
 <p>Neonatal mortality refers to a death that occurs within the first month of life. In particular, the neonatal mortality rate (NMR) is the number of neonatal deaths per 1,000 live births <span class="citation">(<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema 2018</a>)</span>. We obtain estimates for NMR for five countries—Argentina, Australia, Canada, China, and Kenya—over the past fifty years. We find substantial reductions over time in the NMR across all countries.</p>
 <p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR at the website: <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a>. We downloaded their estimates then cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span>.</p>
-<p>We found considerable change in the estimated NMR over time and between the five countries of interest (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). In particular, we found that the 1970s tended to be associated with reductions in the estimated NMR. Australia and Canada were estimated to have a low NMR at that point and remained there through 2020, with slight improvements. The estimates for Argentina and Kenya continued to have substantial reductions through 2020. Data were only available from 1990 for China and the estimates show a substantial reduction in the NMR, especially in the 1990s and 2000s.</p>
-<p>Our results suggest considerable improvements in estimated NMR over time. But it is worth emphasising that estimates of the NMR are based on a statistical model and underlying data. The paradox of data availability is that often high-quality data are less easily available for countries with worse outcomes. For instance, <span class="citation"><a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema</a> (<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">2018</a>)</span> say ‘[t]here is large variability in the availability of data on neonatal mortality.’ Our conclusions are subject to the model that underpins the estimates, and the quality of the underlying data and we did not independently verify either of these. Additionally, there is often particular concern about the validity of Chinese government data <span class="citation">(<a href="references-1.html#ref-lyu2018gdp" role="doc-biblioref">Lyu et al. 2018</a>)</span>.</p>
+<p>We found considerable change in the estimated NMR over time and between the five countries of interest (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We found that the 1970s tended to be associated with reductions in the estimated NMR. Australia and Canada were estimated to have a low NMR at that point and remained there through 2020, with slight improvements. The estimates for Argentina and Kenya continued to have substantial reductions through 2020. Data were only available from 1990 for China and the estimates show a substantial reduction in the NMR, especially in the 1990s and 2000s.</p>
+<p>Our results suggest considerable improvements in estimated NMR over time. But it is worth emphasizing that estimates of the NMR are based on a statistical model and underlying data. The paradox of data availability is that often high-quality data are less easily available for countries with worse outcomes. For instance, <span class="citation"><a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema</a> (<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">2018</a>)</span> say ‘[t]here is large variability in the availability of data on neonatal mortality.’ Our conclusions are subject to the model that underpins the estimates, and the quality of the underlying data and we did not independently verify either of these. Additionally, there is often particular concern about the validity of Chinese government data <span class="citation">(<a href="references-1.html#ref-lyu2018gdp" role="doc-biblioref">Lyu et al. 2018</a>)</span>.</p>
 </blockquote>
 </div>
 </div>
@@ -1170,6 +1190,16 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <span class="header-section-number">2.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
+<li>Following <span class="citation"><a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett</a> (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>, please write a stack of four or five atomic habits that you could implement this week.</li>
+<li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation"><a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao</a> (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>Unknown unknowns.</li>
+<li>Imperfect processes.</li>
+<li>The definitions of fairness.</li>
+<li>Lack of social context.</li>
+<li>Disinterest given profit considerations.</li>
+</ol>
+</li>
 <li>When was the dataset that underpins <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> collected (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>August 1983 to August 1984</li>
@@ -1192,8 +1222,8 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <blockquote>
 <p>Excellence is mundane. Superlative performance is really a confluence of dozens of small skills or activities, each one learned or stumbled upon, which have been carefully drilled into habit and then are fitted together in a synthesized whole. There is nothing extraordinary or super-human in any one of those actions; only the fact that they are done consistently and correctly, and all together, produce excellence.</p>
 </blockquote>
-<ol start="5" style="list-style-type: decimal">
-<li>Which of the following are arguments for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> (select all that apply)? (Hint: You can access the help for the function with <code>?readr::read_csv()</code>.)
+<ol start="7" style="list-style-type: decimal">
+<li>Which of the following are arguments for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from <code>readr</code> <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span> (select all that apply)? (Hint: You can access the help for the function with <code>?readr::read_csv()</code>.)
 <ol style="list-style-type: lower-alpha">
 <li>‘all_cols’</li>
 <li>‘file’</li>
@@ -1225,7 +1255,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <li>‘“e” “l”’ and ‘“p” “v”’</li>
 </ol>
 </li>
-<li>If I want to cite R then how do I find a recommended citation (pick one)?
+<li>Which function provides the recommended citation to cite R (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>
 <code>cite('R')</code>.</li>
@@ -1245,7 +1275,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <li>citation(‘opendatatoronto’)</li>
 </ol>
 </li>
-<li>Which argument needs to be changed in order to change the column labels in <code>kable</code> (pick one)?
+<li>Which argument needs to be changed to change the headings in <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>‘booktabs’</li>
 <li>‘col.names’</li>
@@ -1254,7 +1284,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <li>‘caption’</li>
 </ol>
 </li>
-<li>Which function could be used to update packages (pick one)?
+<li>Which function is used to update packages (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li><code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code></li>
 <li><code>upgrade.packages()</code></li>
@@ -1276,11 +1306,10 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <h3>
 <span class="header-section-number">2.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>The purpose of this tutorial is to encourage greater comfort with data simulation and communication, and to engender a broader understanding of the practice of data science.</p>
 <ol style="list-style-type: decimal">
-<li>Please pick either the seed-growing, or hair-length, example from Chapter <a href="telling-stories-with-data.html#telling-stories-with-data">1</a>. You should have already started to record some data, but you probably do not have much of it. Please use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to create a tibble that has twelve weeks’ worth of data.</li>
-<li>Pretend that the dataset that you just generated is the actual data that you end up with. Please write three paragraphs (i.e. about a page or so) to communicate what you did, why, and what you found.</li>
-<li>Reflecting on <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span>, please write a one-page paper about stratification and excellence as it relates to using programming languages, such as R or Python, for data science.</li>
+<li>Please pick either the seed-growing, or hair-length, example from Chapter <a href="telling-stories-with-data.html#telling-stories-with-data">1</a>. You should have already started to record some data, but you probably do not have much of it. First sketch an example of what the dataset could look like. Please use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to create a tibble that has twelve weeks’ worth of simulated data.</li>
+<li>Pretend that the dataset that you just generated is the actual data that you end up with. Please write a page or so to communicate what you did, why, and what you found.</li>
+<li>Reflecting on <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span>, please write a page or so about stratification and excellence as it relates to using programming languages, such as R or Python, for data science.</li>
 </ol>
 </div>
 </div>
@@ -1343,7 +1372,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

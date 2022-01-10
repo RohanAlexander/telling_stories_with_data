@@ -110,10 +110,14 @@ Often time will be constrained, possibly in interesting ways and these can guide
 
 Usually, the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
 
-<div class="figure" style="text-align: center">
-<img src="figures/humpty.png" alt="Humpty Dumpty example" width="95%" />
-<p class="caption">(\#fig:humpty)Humpty Dumpty example</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{figures/humpty} 
+
+}
+
+\caption{Humpty Dumpty example}(\#fig:humpty)
+\end{figure}
 
 Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won't ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.
 
@@ -175,10 +179,9 @@ If you use a technical term, then it should be briefly explained in plain langua
 ### On brevity
 
 
-<div class="figure">
-<img src="figures/johnson.png" alt="'No more than four pages, or he's never going to read it. Two pages is preferable.'" width="90%" />
-<p class="caption">(\#fig:unnamed-chunk-2)'No more than four pages, or he's never going to read it. Two pages is preferable.'</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{figures/johnson} \caption{'No more than four pages, or he's never going to read it. Two pages is preferable.'}(\#fig:unnamed-chunk-2)
+\end{figure}
 Source: Shipman, Tim, 2020, "The prime minister's vanishing briefs', The Sunday Times, 23 February, available at: https://www.thetimes.co.uk/article/the-prime-ministers-vanishing-briefs-67mt0bg95 via [Sarah Nickson](https://twitter.com/sarahjnickson).
 
 
