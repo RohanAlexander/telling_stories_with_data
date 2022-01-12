@@ -160,20 +160,20 @@ To begin with, use `opendatatoronto::list_packages()` to look at some of the dat
 ```r
 all_data <- opendatatoronto::list_packages(limit = 500)
 all_data
-#> # A tibble: 425 x 11
-#>    title    id     topics   civic_issues publisher excerpt  
-#>    <chr>    <chr>  <chr>    <chr>        <chr>     <chr>    
-#>  1 Polls c~ 7bce9~ City go~ <NA>         City Cle~ "Polls a~
-#>  2 COVID-1~ d3f21~ Health   <NA>         Toronto ~ "This da~
-#>  3 COVID-1~ cd616~ Health   <NA>         Toronto ~ "This da~
-#>  4 Rain Ga~ f2933~ Locatio~ Climate cha~ Toronto ~ "This da~
-#>  5 Street ~ 99b1f~ City go~ <NA>         Transpor~ "Informa~
-#>  6 Automat~ a1547~ Transpo~ Mobility     Transpor~ "This da~
-#>  7 BodySafe c4052~ City go~ <NA>         Toronto ~ "This da~
-#>  8 Street ~ 1db34~ City go~ Mobility     Transpor~ "Transit~
-#>  9 Street ~ 74f63~ City go~ <NA>         Transpor~ "Publica~
-#> 10 Street ~ 821fe~ City go~ <NA>         Transpor~ "Public ~
-#> # ... with 415 more rows, and 5 more variables:
+#> # A tibble: 425 × 11
+#>    title   id      topics   civic_issues  publisher excerpt 
+#>    <chr>   <chr>   <chr>    <chr>         <chr>     <chr>   
+#>  1 EarlyO… 261962… Communi… Poverty redu… Children… "EarlyO…
+#>  2 Licens… 059d37… Communi… <NA>          Children… "Licens…
+#>  3 Short … 2ab20f… Permits… Affordable h… Municipa… "This d…
+#>  4 Polls … 7bce9b… City go… <NA>          City Cle… "Polls …
+#>  5 COVID-… 64b545… Health   <NA>          Toronto … "Line-l…
+#>  6 COVID-… cd616c… Health   <NA>          Toronto … "This d…
+#>  7 COVID-… d3f21f… Health   <NA>          Toronto … "This d…
+#>  8 Rain G… f29335… Locatio… Climate chan… Toronto … "This d…
+#>  9 Street… 99b1f3… City go… <NA>          Transpor… "Inform…
+#> 10 Automa… a15479… Transpo… Mobility      Transpor… "This d…
+#> # … with 415 more rows, and 5 more variables:
 #> #   dataset_category <chr>, num_resources <int>,
 #> #   formats <chr>, refresh_rate <chr>,
 #> #   last_refreshed <date>
@@ -227,16 +227,16 @@ This dataset has a bunch of interesting variables. You can refer to the readme f
 
 ```r
 head(delay_2019)
-#> # A tibble: 6 x 10
+#> # A tibble: 6 × 10
 #>   date                time  day     station  code  min_delay
 #>   <dttm>              <chr> <chr>   <chr>    <chr>     <dbl>
-#> 1 2019-01-01 00:00:00 01:08 Tuesday YORK MI~ PUSI          0
-#> 2 2019-01-01 00:00:00 02:14 Tuesday ST ANDR~ PUMST         0
-#> 3 2019-01-01 00:00:00 02:16 Tuesday JANE ST~ TUSC          0
-#> 4 2019-01-01 00:00:00 02:27 Tuesday BLOOR S~ SUO           0
-#> 5 2019-01-01 00:00:00 03:03 Tuesday DUPONT ~ MUATC        11
-#> 6 2019-01-01 00:00:00 03:08 Tuesday EGLINTO~ EUATC        11
-#> # ... with 4 more variables: min_gap <dbl>, bound <chr>,
+#> 1 2019-01-01 00:00:00 01:08 Tuesday YORK MI… PUSI          0
+#> 2 2019-01-01 00:00:00 02:14 Tuesday ST ANDR… PUMST         0
+#> 3 2019-01-01 00:00:00 02:16 Tuesday JANE ST… TUSC          0
+#> 4 2019-01-01 00:00:00 02:27 Tuesday BLOOR S… SUO           0
+#> 5 2019-01-01 00:00:00 03:03 Tuesday DUPONT … MUATC        11
+#> 6 2019-01-01 00:00:00 03:08 Tuesday EGLINTO… EUATC        11
+#> # … with 4 more variables: min_gap <dbl>, bound <chr>,
 #> #   line <chr>, vehicle <dbl>
 ```
 
@@ -313,11 +313,11 @@ To get started look at known-unknowns, which are the NAs for each variable.
 ```r
 delay_2019 %>% 
   summarise_all(list(~sum(is.na(.))))
-#> # A tibble: 1 x 10
+#> # A tibble: 1 × 10
 #>    date  time   day station  code min_delay min_gap bound
 #>   <int> <int> <int>   <int> <int>     <int>   <int> <int>
 #> 1     0     0     0       0     0         0       0  4380
-#> # ... with 2 more variables: line <int>, vehicle <int>
+#> # … with 2 more variables: line <int>, vehicle <int>
 ```
 
 The `visdat` package [@citevisdat] is also useful here, particularly to see how missing values are distributed. 
@@ -327,13 +327,13 @@ The `visdat` package [@citevisdat] is also useful here, particularly to see how 
 vis_dat(delay_2019)
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```r
 vis_miss(delay_2019)
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-10-2.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-10-2.png" width="672" />
 
 For these known-unknowns, what we are interested in is whether the they are missing at random. We want to, ideally, show that data happened to just drop out. Of course, this is unlikely the case, and so we are looking to see what is systematic about how our data are missing.
 
@@ -346,20 +346,20 @@ Sometime data happen to be duplicated. If we didn't notice this then our analysi
 ```r
 janitor::get_dupes(delay_2019)
 #> No variable names specified - using all columns.
-#> # A tibble: 158 x 11
+#> # A tibble: 158 × 11
 #>    date                time  day     station code  min_delay
 #>    <dttm>              <chr> <chr>   <chr>   <chr>     <dbl>
-#>  1 2019-01-01 00:00:00 08:18 Tuesday DONLAN~ MUESA         5
-#>  2 2019-01-01 00:00:00 08:18 Tuesday DONLAN~ MUESA         5
-#>  3 2019-02-01 00:00:00 05:51 Friday  SCARB ~ MRTO         10
-#>  4 2019-02-01 00:00:00 05:51 Friday  SCARB ~ MRTO         10
-#>  5 2019-02-01 00:00:00 06:45 Friday  MIDLAN~ MRWEA         3
-#>  6 2019-02-01 00:00:00 06:45 Friday  MIDLAN~ MRWEA         3
-#>  7 2019-02-01 00:00:00 06:55 Friday  LAWREN~ ERDO          0
-#>  8 2019-02-01 00:00:00 06:55 Friday  LAWREN~ ERDO          0
-#>  9 2019-02-01 00:00:00 07:16 Friday  MCCOWA~ MRWEA         5
-#> 10 2019-02-01 00:00:00 07:16 Friday  MCCOWA~ MRWEA         5
-#> # ... with 148 more rows, and 5 more variables:
+#>  1 2019-01-01 00:00:00 08:18 Tuesday DONLAN… MUESA         5
+#>  2 2019-01-01 00:00:00 08:18 Tuesday DONLAN… MUESA         5
+#>  3 2019-02-01 00:00:00 05:51 Friday  SCARB … MRTO         10
+#>  4 2019-02-01 00:00:00 05:51 Friday  SCARB … MRTO         10
+#>  5 2019-02-01 00:00:00 06:45 Friday  MIDLAN… MRWEA         3
+#>  6 2019-02-01 00:00:00 06:45 Friday  MIDLAN… MRWEA         3
+#>  7 2019-02-01 00:00:00 06:55 Friday  LAWREN… ERDO          0
+#>  8 2019-02-01 00:00:00 06:55 Friday  LAWREN… ERDO          0
+#>  9 2019-02-01 00:00:00 07:16 Friday  MCCOWA… MRWEA         5
+#> 10 2019-02-01 00:00:00 07:16 Friday  MCCOWA… MRWEA         5
+#> # … with 148 more rows, and 5 more variables:
 #> #   min_gap <dbl>, bound <chr>, line <chr>, vehicle <dbl>,
 #> #   dupe_count <int>
 ```
@@ -394,7 +394,7 @@ ggplot(data = delay_2019) +
 #> `binwidth`.
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 Somewhat concerningly we have some evidence of outliers (given the large x-axis). There are a variety of ways to focus on what is going on, but a quick way is to plot it on a logged scale (remembering that we'd expect any values of 0 to drop away).
 
@@ -411,7 +411,7 @@ ggplot(data = delay_2019) +
 #> (stat_bin).
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 This initial exploration is further hinting at an outlying delay time, so let's take a look at the largest delays. We need to join this dataset with the 'delay_codes' dataset to see what the delay is, and this requires some wrangling because of slightly different codes.
 
@@ -448,20 +448,20 @@ delay_2019 %>%
   arrange(-min_delay) %>% 
   select(date, time, station, line, min_delay, code, code_desc)
 #> Joining, by = c("code", "code_desc")
-#> # A tibble: 18,697 x 7
+#> # A tibble: 18,697 × 7
 #>    date                time  station   line  min_delay code 
 #>    <dttm>              <chr> <chr>     <chr>     <dbl> <chr>
-#>  1 2019-06-25 00:00:00 18:48 WILSON T~ YU          455 PUTR 
-#>  2 2019-02-12 00:00:00 20:28 LAWRENCE~ SRT         284 MRWEA
-#>  3 2019-06-05 00:00:00 12:42 UNION TO~ YU          250 MUPLA
-#>  4 2019-10-22 00:00:00 14:22 LAWRENCE~ YU          228 PUTS 
-#>  5 2019-09-26 00:00:00 11:38 YORK MIL~ YU          193 MUPR1
-#>  6 2019-06-08 00:00:00 08:51 SPADINA ~ BD          180 MUPLB
-#>  7 2019-12-02 00:00:00 06:59 DUNDAS W~ BD          176 MUPLB
-#>  8 2019-01-29 00:00:00 05:46 VICTORIA~ BD          174 MUWEA
-#>  9 2019-02-22 00:00:00 17:32 ELLESMER~ SRT         168 PRW  
-#> 10 2019-02-10 00:00:00 07:53 BAYVIEW ~ SHP         165 PUSI 
-#> # ... with 18,687 more rows, and 1 more variable:
+#>  1 2019-06-25 00:00:00 18:48 WILSON T… YU          455 PUTR 
+#>  2 2019-02-12 00:00:00 20:28 LAWRENCE… SRT         284 MRWEA
+#>  3 2019-06-05 00:00:00 12:42 UNION TO… YU          250 MUPLA
+#>  4 2019-10-22 00:00:00 14:22 LAWRENCE… YU          228 PUTS 
+#>  5 2019-09-26 00:00:00 11:38 YORK MIL… YU          193 MUPR1
+#>  6 2019-06-08 00:00:00 08:51 SPADINA … BD          180 MUPLB
+#>  7 2019-12-02 00:00:00 06:59 DUNDAS W… BD          176 MUPLB
+#>  8 2019-01-29 00:00:00 05:46 VICTORIA… BD          174 MUWEA
+#>  9 2019-02-22 00:00:00 17:32 ELLESMER… SRT         168 PRW  
+#> 10 2019-02-10 00:00:00 07:53 BAYVIEW … SHP         165 PUSI 
+#> # … with 18,687 more rows, and 1 more variable:
 #> #   code_desc <chr>
 ```
 
@@ -482,7 +482,7 @@ ggplot(data = delay_2019) +
 #> (stat_bin).
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 
 That plot uses density so that we can look at the the distributions more comparably, but we should also be aware of differences in frequency. In this case, we'll see that SHP and SRT have much smaller counts.
 
@@ -499,7 +499,7 @@ ggplot(data = delay_2019) +
 #> (stat_bin).
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 To group by a second variable it can be useful to use facets. They're a little fiddly initially, but once you get used to them, they're both quick and powerful.
 
@@ -516,7 +516,7 @@ ggplot(data = delay_2019) +
 #> (stat_density).
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-19-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 As an aside, the station names are a mess. We could try to quickly bring a little order to the chaos by just taking just the first word (or, the first two if it starts with 'ST').
 
@@ -544,7 +544,7 @@ delay_2019 %>%
 #> `summarise()` has grouped output by 'line'. You can override using the `.groups` argument.
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 ### Visualizing time series
 
@@ -568,7 +568,7 @@ delay_2019 %>%
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 Now let's look at the proportion of delays that were greater than 10 minutes.
 
@@ -586,7 +586,7 @@ delay_2019 %>%
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 Again, and it's important to be clear here. These charts and tables and analyse have no place in a final report, but what they are doing is allowing you to become comfortable with the data. If you were doing this yourself, you should additionally be making notes about each plot and table as you go, noting the warnings and any implications or aspects to return to.
 
@@ -607,7 +607,7 @@ delay_2019 %>%
 #> continuous y-axis
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 The relationship between categorical variables takes more work, but we could also, for instance, look at the top five reasons for delay by station. In particular, we may be interested in whether they differ, and how any difference could be modelled. 
 
@@ -628,7 +628,7 @@ delay_2019 %>%
 #> `summarise()` has grouped output by 'line'. You can override using the `.groups` argument.
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 ### Principal components analysis
 
@@ -691,7 +691,7 @@ delay_pca <- prcomp(dwide[,3:ncol(dwide)])
 df_out <- as_tibble(delay_pca$x)
 df_out <- bind_cols(dwide %>% select(line, station_clean), df_out)
 head(df_out)
-#> # A tibble: 6 x 40
+#> # A tibble: 6 × 40
 #> # Groups:   line, station_clean [6]
 #>   line  station_clean    PC1     PC2    PC3    PC4    PC5
 #>   <chr> <chr>          <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
@@ -701,13 +701,13 @@ head(df_out)
 #> 4 BD    BROADVIEW      -6.60   28.1   -1.06 -14.0  -6.49 
 #> 5 BD    CASTLE         23.8    11.8   -1.31  -7.93 -3.62 
 #> 6 BD    CHESTER        24.6    -1.87 -18.6    2.75  1.85 
-#> # ... with 33 more variables: PC6 <dbl>, PC7 <dbl>,
+#> # … with 33 more variables: PC6 <dbl>, PC7 <dbl>,
 #> #   PC8 <dbl>, PC9 <dbl>, PC10 <dbl>, PC11 <dbl>,
 #> #   PC12 <dbl>, PC13 <dbl>, PC14 <dbl>, PC15 <dbl>,
 #> #   PC16 <dbl>, PC17 <dbl>, PC18 <dbl>, PC19 <dbl>,
 #> #   PC20 <dbl>, PC21 <dbl>, PC22 <dbl>, PC23 <dbl>,
 #> #   PC24 <dbl>, PC25 <dbl>, PC26 <dbl>, PC27 <dbl>,
-#> #   PC28 <dbl>, PC29 <dbl>, PC30 <dbl>, PC31 <dbl>, ...
+#> #   PC28 <dbl>, PC29 <dbl>, PC30 <dbl>, PC31 <dbl>, …
 ```
 
 
@@ -722,7 +722,7 @@ ggplot(df_out,aes(x=PC1,y=PC2,color=line )) +
                   )
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-29-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 We could also plot the factor loadings. We se some evidence that perhaps one is to do with the public, compared with another to do with the operator.
 
@@ -732,7 +732,7 @@ df_out_r <- as_tibble(delay_pca$rotation)
 df_out_r$feature <- colnames(dwide[,3:ncol(dwide)])
 
 df_out_r
-#> # A tibble: 38 x 39
+#> # A tibble: 38 × 39
 #>         PC1      PC2        PC3       PC4      PC5      PC6
 #>       <dbl>    <dbl>      <dbl>     <dbl>    <dbl>    <dbl>
 #>  1 -0.0412   0.0638   0.0133    -0.0467    0.0246   0.0184 
@@ -745,20 +745,20 @@ df_out_r
 #>  8 -0.0117   0.0135   0.00548   -0.0294    0.0125   0.0377 
 #>  9 -0.516    0.655   -0.0177    -0.162    -0.221   -0.287  
 #> 10 -0.151    0.0826   0.0548     0.352    -0.397    0.281  
-#> # ... with 28 more rows, and 33 more variables: PC7 <dbl>,
+#> # … with 28 more rows, and 33 more variables: PC7 <dbl>,
 #> #   PC8 <dbl>, PC9 <dbl>, PC10 <dbl>, PC11 <dbl>,
 #> #   PC12 <dbl>, PC13 <dbl>, PC14 <dbl>, PC15 <dbl>,
 #> #   PC16 <dbl>, PC17 <dbl>, PC18 <dbl>, PC19 <dbl>,
 #> #   PC20 <dbl>, PC21 <dbl>, PC22 <dbl>, PC23 <dbl>,
 #> #   PC24 <dbl>, PC25 <dbl>, PC26 <dbl>, PC27 <dbl>,
-#> #   PC28 <dbl>, PC29 <dbl>, PC30 <dbl>, PC31 <dbl>, ...
+#> #   PC28 <dbl>, PC29 <dbl>, PC30 <dbl>, PC31 <dbl>, …
 
 ggplot(df_out_r,aes(x=PC1,y=PC2,label=feature )) + geom_text_repel()
-#> Warning: ggrepel: 31 unlabeled data points (too many
+#> Warning: ggrepel: 29 unlabeled data points (too many
 #> overlaps). Consider increasing max.overlaps
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-30-1.png" width="672" />
 
 
 
@@ -795,29 +795,29 @@ casino_resource <-
 #> * `` -> ...94
 head(casino_resource)
 #> $tblSurvey
-#> # A tibble: 17,766 x 94
+#> # A tibble: 17,766 × 94
 #>    SurveyID Q1_A   Q1_B1 Q1_B2 Q1_B3 Q2_A  Q2_B  Q3_A  Q3_B 
 #>       <dbl> <chr>  <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-#>  1        1 Stron~ Do n~ Do n~ Do n~ Does~ "As ~ Not ~ Very~
-#>  2        2 Stron~ Econ~ Jobs  Arts~ Fits~ "Cos~ Very~ Very~
-#>  3        3 Stron~ Ther~ If t~ <NA>  Fits~ "Big~ Very~ Very~
-#>  4        4 Somew~ beli~ mone~ evid~ Does~ "My ~ Very~ Very~
-#>  5        5 Neutr~ Like~ Conc~ <NA>  Neut~ "Aga~ Very~ Very~
-#>  6        6 Stron~ have~ <NA>  <NA>  Does~ "Tor~ Not ~ Not ~
-#>  7        7 Stron~ The ~ Peop~ We s~ Does~ "#3 ~ Not ~ Not ~
-#>  8        8 Stron~ It w~ Mora~ <NA>  Does~ "Cas~ Very~ Very~
-#>  9        9 Stron~ It's~ traf~ heal~ Does~ "No ~ Not ~ Very~
-#> 10       10 Stron~ Toro~ Avoi~ Prov~ Fits~ "Tor~ Very~ Very~
-#> # ... with 17,756 more rows, and 85 more variables:
+#>  1        1 Stron… Do n… Do n… Do n… Does… "As … Not … Very…
+#>  2        2 Stron… Econ… Jobs  Arts… Fits… "Cos… Very… Very…
+#>  3        3 Stron… Ther… If t… <NA>  Fits… "Big… Very… Very…
+#>  4        4 Somew… beli… mone… evid… Does… "My … Very… Very…
+#>  5        5 Neutr… Like… Conc… <NA>  Neut… "Aga… Very… Very…
+#>  6        6 Stron… have… <NA>  <NA>  Does… "Tor… Not … Not …
+#>  7        7 Stron… The … Peop… We s… Does… "#3 … Not … Not …
+#>  8        8 Stron… It w… Mora… <NA>  Does… "Cas… Very… Very…
+#>  9        9 Stron… It's… traf… heal… Does… "No … Not … Very…
+#> 10       10 Stron… Toro… Avoi… Prov… Fits… "Tor… Very… Very…
+#> # … with 17,756 more rows, and 85 more variables:
 #> #   Q3_C <chr>, Q3_D <chr>, Q3_E <chr>, Q3_F <chr>,
 #> #   Q3_G <chr>, Q3_H <chr>, Q3_I <chr>, Q3_J <chr>,
 #> #   Q3_K <chr>, Q3_L <chr>, Q3_M <chr>, Q3_N <chr>,
 #> #   Q3_O <chr>, Q3_P <chr>, Q3_Q <chr>, Q3_Q_Other <chr>,
 #> #   Q3_Comments <chr>, Q4_A <chr>, Q5 <chr>, Q6 <chr>,
-#> #   Q6_Comments <chr>, Q7_A_StandAlone <chr>, ...
+#> #   Q6_Comments <chr>, Q7_A_StandAlone <chr>, …
 #> 
 #> $Sheet1
-#> # A tibble: 0 x 0
+#> # A tibble: 0 × 0
 ```
 
 The object `casino_resource` isn't quite useable yet, because it's (inconveniently) stored as a `list` of 2 data frames:
@@ -835,29 +835,29 @@ If we just return the object, we can see that the second list item is empty, and
 ```r
 casino_resource
 #> $tblSurvey
-#> # A tibble: 17,766 x 94
+#> # A tibble: 17,766 × 94
 #>    SurveyID Q1_A   Q1_B1 Q1_B2 Q1_B3 Q2_A  Q2_B  Q3_A  Q3_B 
 #>       <dbl> <chr>  <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-#>  1        1 Stron~ Do n~ Do n~ Do n~ Does~ "As ~ Not ~ Very~
-#>  2        2 Stron~ Econ~ Jobs  Arts~ Fits~ "Cos~ Very~ Very~
-#>  3        3 Stron~ Ther~ If t~ <NA>  Fits~ "Big~ Very~ Very~
-#>  4        4 Somew~ beli~ mone~ evid~ Does~ "My ~ Very~ Very~
-#>  5        5 Neutr~ Like~ Conc~ <NA>  Neut~ "Aga~ Very~ Very~
-#>  6        6 Stron~ have~ <NA>  <NA>  Does~ "Tor~ Not ~ Not ~
-#>  7        7 Stron~ The ~ Peop~ We s~ Does~ "#3 ~ Not ~ Not ~
-#>  8        8 Stron~ It w~ Mora~ <NA>  Does~ "Cas~ Very~ Very~
-#>  9        9 Stron~ It's~ traf~ heal~ Does~ "No ~ Not ~ Very~
-#> 10       10 Stron~ Toro~ Avoi~ Prov~ Fits~ "Tor~ Very~ Very~
-#> # ... with 17,756 more rows, and 85 more variables:
+#>  1        1 Stron… Do n… Do n… Do n… Does… "As … Not … Very…
+#>  2        2 Stron… Econ… Jobs  Arts… Fits… "Cos… Very… Very…
+#>  3        3 Stron… Ther… If t… <NA>  Fits… "Big… Very… Very…
+#>  4        4 Somew… beli… mone… evid… Does… "My … Very… Very…
+#>  5        5 Neutr… Like… Conc… <NA>  Neut… "Aga… Very… Very…
+#>  6        6 Stron… have… <NA>  <NA>  Does… "Tor… Not … Not …
+#>  7        7 Stron… The … Peop… We s… Does… "#3 … Not … Not …
+#>  8        8 Stron… It w… Mora… <NA>  Does… "Cas… Very… Very…
+#>  9        9 Stron… It's… traf… heal… Does… "No … Not … Very…
+#> 10       10 Stron… Toro… Avoi… Prov… Fits… "Tor… Very… Very…
+#> # … with 17,756 more rows, and 85 more variables:
 #> #   Q3_C <chr>, Q3_D <chr>, Q3_E <chr>, Q3_F <chr>,
 #> #   Q3_G <chr>, Q3_H <chr>, Q3_I <chr>, Q3_J <chr>,
 #> #   Q3_K <chr>, Q3_L <chr>, Q3_M <chr>, Q3_N <chr>,
 #> #   Q3_O <chr>, Q3_P <chr>, Q3_Q <chr>, Q3_Q_Other <chr>,
 #> #   Q3_Comments <chr>, Q4_A <chr>, Q5 <chr>, Q6 <chr>,
-#> #   Q6_Comments <chr>, Q7_A_StandAlone <chr>, ...
+#> #   Q6_Comments <chr>, Q7_A_StandAlone <chr>, …
 #> 
 #> $Sheet1
-#> # A tibble: 0 x 0
+#> # A tibble: 0 × 0
 ```
 
 So, let's only keep the first item by indexing the list with double square brackets:
@@ -872,22 +872,22 @@ Let's check out what the first couple rows of the dataframe looks like. By defau
 
 ```r
 head(casino_data) 
-#> # A tibble: 6 x 94
+#> # A tibble: 6 × 94
 #>   SurveyID Q1_A   Q1_B1  Q1_B2 Q1_B3 Q2_A  Q2_B  Q3_A  Q3_B 
 #>      <dbl> <chr>  <chr>  <chr> <chr> <chr> <chr> <chr> <chr>
-#> 1        1 Stron~ Do no~ Do n~ Do n~ Does~ "As ~ Not ~ Very~
-#> 2        2 Stron~ Econo~ Jobs  Arts~ Fits~ "Cos~ Very~ Very~
-#> 3        3 Stron~ There~ If t~ <NA>  Fits~ "Big~ Very~ Very~
-#> 4        4 Somew~ belie~ mone~ evid~ Does~ "My ~ Very~ Very~
-#> 5        5 Neutr~ Like ~ Conc~ <NA>  Neut~ "Aga~ Very~ Very~
-#> 6        6 Stron~ have ~ <NA>  <NA>  Does~ "Tor~ Not ~ Not ~
-#> # ... with 85 more variables: Q3_C <chr>, Q3_D <chr>,
+#> 1        1 Stron… Do no… Do n… Do n… Does… "As … Not … Very…
+#> 2        2 Stron… Econo… Jobs  Arts… Fits… "Cos… Very… Very…
+#> 3        3 Stron… There… If t… <NA>  Fits… "Big… Very… Very…
+#> 4        4 Somew… belie… mone… evid… Does… "My … Very… Very…
+#> 5        5 Neutr… Like … Conc… <NA>  Neut… "Aga… Very… Very…
+#> 6        6 Stron… have … <NA>  <NA>  Does… "Tor… Not … Not …
+#> # … with 85 more variables: Q3_C <chr>, Q3_D <chr>,
 #> #   Q3_E <chr>, Q3_F <chr>, Q3_G <chr>, Q3_H <chr>,
 #> #   Q3_I <chr>, Q3_J <chr>, Q3_K <chr>, Q3_L <chr>,
 #> #   Q3_M <chr>, Q3_N <chr>, Q3_O <chr>, Q3_P <chr>,
 #> #   Q3_Q <chr>, Q3_Q_Other <chr>, Q3_Comments <chr>,
 #> #   Q4_A <chr>, Q5 <chr>, Q6 <chr>, Q6_Comments <chr>,
-#> #   Q7_A_StandAlone <chr>, Q7_A_Integrated <chr>, ...
+#> #   Q7_A_StandAlone <chr>, Q7_A_Integrated <chr>, …
 ```
 
 Unfortunately the column names aren't very informative. For simplicity, we'll use the '.pdf' questionnaire that accompanies this dataset from the Toronto Open Data website. Alternatively, we could get and parse the 'readme' through the R package. [Here's a link to the questionnaire](https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/427ca4cd-168a-4a37-883d-4a574277caf5/resource/ae135d6a-6921-4905-bc79-516fcd428b7b/download/toronto-casino-survey-feedback-form.pdf). 
@@ -908,7 +908,7 @@ casino_data <-
 
 # Look at first couple rows:
 head(casino_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   opinion                   age   gender
 #>   <chr>                     <chr> <chr> 
 #> 1 Strongly Opposed          25-34 Male  
@@ -947,7 +947,7 @@ ggplot(casino_summary) +
   theme(axis.text.x = element_text(angle = 90)) # Rotate the x-axis labels to be readable
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-38-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-38-1.png" width="672" />
 
 Some things to note:
 
@@ -1048,7 +1048,7 @@ ggplot(casino_summary2) +
   geom_col(aes(x = supportive, y = prop)) 
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-44-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-44-1.png" width="672" />
 
 We can sort of see some difference in the distribution between different panels. To formalize this, we can run a logistic regression.
 
@@ -1442,7 +1442,7 @@ airbnb_data_selected$price %>% str_split("") %>% unlist() %>% unique()
 airbnb_data_selected %>% 
   select(price) %>% 
   filter(str_detect(price, ","))
-#> # A tibble: 145 x 1
+#> # A tibble: 145 × 1
 #>    price    
 #>    <chr>    
 #>  1 $1,724.00
@@ -1455,7 +1455,7 @@ airbnb_data_selected %>%
 #>  8 $2,142.00
 #>  9 $2,000.00
 #> 10 $1,200.00
-#> # ... with 135 more rows
+#> # … with 135 more rows
 # It's clear that the data is just nicely formatted, but we need to remove the comma:
 airbnb_data_selected <- 
   airbnb_data_selected %>% 
@@ -1478,7 +1478,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-60-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-60-1.png" width="672" />
 
 ```r
 #  We use bins with a width of 10, so that's going to aggregate prices into 10s so that we don't get overwhelmed with bars.
@@ -1498,7 +1498,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-61-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-61-1.png" width="672" />
 
 
 Let's look in more detail at those with a price more than $4,999.
@@ -1507,7 +1507,7 @@ Let's look in more detail at those with a price more than $4,999.
 ```r
 airbnb_data_selected %>%
   filter(price > 4999)
-#> # A tibble: 11 x 21
+#> # A tibble: 11 × 21
 #>      host_id host_since host_response_time host_is_superhost
 #>        <dbl> <date>     <chr>              <lgl>            
 #>  1   9310264 2013-10-08 N/A                FALSE            
@@ -1521,13 +1521,13 @@ airbnb_data_selected %>%
 #>  9 116137780 2017-02-12 N/A                FALSE            
 #> 10 113826425 2017-01-29 within a few hours FALSE            
 #> 11 184607983 2018-04-16 a few days or more FALSE            
-#> # ... with 17 more variables: host_listings_count <dbl>,
+#> # … with 17 more variables: host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
 #> #   has_availability <lgl>, review_scores_rating <dbl>,
-#> #   review_scores_accuracy <dbl>, ...
+#> #   review_scores_accuracy <dbl>, …
 # It's pretty clear that there is something odd going on with some of these, but some of them seem legit.
 ```
 
@@ -1544,7 +1544,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-63-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-63-1.png" width="672" />
 
 Interestingly it looks like there is some bunching of prices, possible around numbers ending in zero or nine? Let's just zoom in on prices between \$90 and \$210, out of interest, but change the bins to be smaller.
 
@@ -1561,7 +1561,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-64-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-64-1.png" width="672" />
 
 
 
@@ -1581,7 +1581,7 @@ First we'll look at the NAs in `host_is_superhost`.
 ```r
 airbnb_data_selected %>%
   filter(is.na(host_is_superhost))
-#> # A tibble: 11 x 21
+#> # A tibble: 11 × 21
 #>      host_id host_since host_response_time host_is_superhost
 #>        <dbl> <date>     <chr>              <lgl>            
 #>  1  23472830 NA         <NA>               NA               
@@ -1595,13 +1595,13 @@ airbnb_data_selected %>%
 #>  9  23472830 NA         <NA>               NA               
 #> 10 266594170 NA         <NA>               NA               
 #> 11 118516038 NA         <NA>               NA               
-#> # ... with 17 more variables: host_listings_count <dbl>,
+#> # … with 17 more variables: host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
 #> #   has_availability <lgl>, review_scores_rating <dbl>,
-#> #   review_scores_accuracy <dbl>, ...
+#> #   review_scores_accuracy <dbl>, …
 ```
 
 There are 285 of these and it's clear that there is something odd going on - maybe the host removed the listing or similar?
@@ -1655,7 +1655,7 @@ Now we'll deal with the NAs in `review_scores_rating`. This one is more complica
 ```r
 airbnb_data_selected %>%
   filter(is.na(review_scores_rating))
-#> # A tibble: 4,368 x 22
+#> # A tibble: 4,368 × 22
 #>    host_id host_since host_response_time host_is_superhost
 #>      <dbl> <date>     <chr>              <lgl>            
 #>  1   48239 2009-10-25 N/A                FALSE            
@@ -1668,13 +1668,13 @@ airbnb_data_selected %>%
 #>  8 1411076 2011-11-15 N/A                FALSE            
 #>  9 1409872 2011-11-15 N/A                FALSE            
 #> 10 1664812 2012-01-28 N/A                FALSE            
-#> # ... with 4,358 more rows, and 18 more variables:
+#> # … with 4,358 more rows, and 18 more variables:
 #> #   host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
-#> #   has_availability <lgl>, review_scores_rating <dbl>, ...
+#> #   has_availability <lgl>, review_scores_rating <dbl>, …
 ```
 
 Now see if it's just because they don't have any reviews.
@@ -1707,7 +1707,7 @@ airbnb_data_selected %>%
   vis_miss()
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-69-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-69-1.png" width="672" />
 
 It looks pretty convincing that in almost all cases, all the different variants of reviews are missing. So let's just focus on the main review.
 
@@ -1722,7 +1722,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-70-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-70-1.png" width="672" />
 
 It's pretty clear that almost all the reviews are more than 80. Let's just zoom in on that 60 to 80 range to check what the distribution looks like in that range.
 
@@ -1739,7 +1739,7 @@ airbnb_data_selected %>%
        y = "Number of properties")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-71-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-71-1.png" width="672" />
 
 
 #### Response time
@@ -1784,7 +1784,7 @@ airbnb_data_selected %>%
 #> (stat_bin).
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-74-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-74-1.png" width="672" />
 
 There seem to be an awful lot that have an overall review of 100. There are also an awful lot that have a review score of NA.
 
@@ -1793,7 +1793,7 @@ There seem to be an awful lot that have an overall review of 100. There are also
 airbnb_data_selected %>% 
   filter(is.na(host_response_time)) %>%
   filter(is.na(review_scores_rating))
-#> # A tibble: 2,590 x 22
+#> # A tibble: 2,590 × 22
 #>    host_id host_since host_response_time host_is_superhost
 #>      <dbl> <date>     <chr>              <lgl>            
 #>  1   48239 2009-10-25 <NA>               FALSE            
@@ -1806,13 +1806,13 @@ airbnb_data_selected %>%
 #>  8 1923052 2012-03-14 <NA>               FALSE            
 #>  9 2432916 2012-05-22 <NA>               FALSE            
 #> 10 2577688 2012-06-07 <NA>               FALSE            
-#> # ... with 2,580 more rows, and 18 more variables:
+#> # … with 2,580 more rows, and 18 more variables:
 #> #   host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
-#> #   has_availability <lgl>, review_scores_rating <dbl>, ...
+#> #   has_availability <lgl>, review_scores_rating <dbl>, …
 ```
 
 
@@ -1825,14 +1825,14 @@ There are two versions of a variable telling you how many properties a host has 
 airbnb_data_selected %>% 
   mutate(listings_count_is_same = if_else(host_listings_count == host_total_listings_count, 1, 0)) %>% 
   filter(listings_count_is_same == 0)
-#> # A tibble: 0 x 23
-#> # ... with 23 variables: host_id <dbl>, host_since <date>,
+#> # A tibble: 0 × 23
+#> # … with 23 variables: host_id <dbl>, host_since <date>,
 #> #   host_response_time <chr>, host_is_superhost <lgl>,
 #> #   host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
-#> #   price <int>, number_of_reviews <dbl>, ...
+#> #   price <int>, number_of_reviews <dbl>, …
 ```
 
 There are none in this dataset so we can just remove one column for now and have a quick look at the other one.
@@ -1846,7 +1846,7 @@ airbnb_data_selected <-
 
 airbnb_data_selected %>% 
   count(host_total_listings_count)
-#> # A tibble: 49 x 2
+#> # A tibble: 49 × 2
 #>    host_total_listings_count     n
 #>                        <dbl> <int>
 #>  1                         0  2128
@@ -1859,7 +1859,7 @@ airbnb_data_selected %>%
 #>  8                         7   270
 #>  9                         8   291
 #> 10                         9   170
-#> # ... with 39 more rows
+#> # … with 39 more rows
 ```
 
 So there are a large number who have somewhere in the 2-10 properties range, but the usual long tail. The number with 0 listings is unexpected and worth following up on. And there are a bunch with NA that we'll need to deal with.
@@ -1869,7 +1869,7 @@ So there are a large number who have somewhere in the 2-10 properties range, but
 airbnb_data_selected %>% 
   filter(host_total_listings_count == 0) %>% 
   head()
-#> # A tibble: 6 x 21
+#> # A tibble: 6 × 21
 #>   host_id host_since host_response_time host_is_superhost
 #>     <dbl> <date>     <chr>              <lgl>            
 #> 1  140602 2010-06-08 <NA>               FALSE            
@@ -1878,13 +1878,13 @@ airbnb_data_selected %>%
 #> 4 3783106 2012-10-06 within an hour     FALSE            
 #> 5 3814089 2012-10-09 within an hour     FALSE            
 #> 6 3827668 2012-10-10 within a day       FALSE            
-#> # ... with 17 more variables:
+#> # … with 17 more variables:
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
 #> #   has_availability <lgl>, review_scores_rating <dbl>,
-#> #   review_scores_accuracy <dbl>, ...
+#> #   review_scores_accuracy <dbl>, …
 ```
 
 There's nothing that immediately jumps out as odd about the people with zero listings, but there must be something going on.
@@ -1897,7 +1897,7 @@ airbnb_data_selected %>%
   count(host_id) %>% 
   arrange(-n) %>% 
   head()
-#> # A tibble: 6 x 2
+#> # A tibble: 6 × 2
 #>     host_id     n
 #>       <dbl> <int>
 #> 1  10202618    74
@@ -2032,7 +2032,7 @@ airbnb_data_filtered %>%
   scale_color_brewer(palette = "Set1")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-88-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-88-1.png" width="672" />
 
 
 #### Superhost and response-time
@@ -2057,14 +2057,14 @@ Fortunately, it looks like when we removed the reviews rows we removed any NAs f
 ```r
 airbnb_data_filtered %>% 
   filter(is.na(host_is_superhost))
-#> # A tibble: 0 x 21
-#> # ... with 21 variables: host_id <dbl>, host_since <date>,
+#> # A tibble: 0 × 21
+#> # … with 21 variables: host_id <dbl>, host_since <date>,
 #> #   host_response_time <chr>, host_is_superhost <lgl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
-#> #   has_availability <lgl>, review_scores_rating <dbl>, ...
+#> #   has_availability <lgl>, review_scores_rating <dbl>, …
 ```
 
 Now let's look at the response time.
@@ -2267,20 +2267,20 @@ summary(logistic_reg_superhost_response_review)
 #> 
 #> Number of Fisher Scoring iterations: 6
 tidy(logistic_reg_superhost_response_review)
-#> # A tibble: 5 x 5
+#> # A tibble: 5 × 5
 #>   term                 estimate std.error statistic  p.value
 #>   <chr>                   <dbl>     <dbl>     <dbl>    <dbl>
 #> 1 (Intercept)           -40.6      2.42      -16.8  5.31e-63
-#> 2 host_response_timew~    1.54     0.347       4.43 9.46e- 6
-#> 3 host_response_timew~    1.95     0.336       5.81 6.28e- 9
-#> 4 host_response_timew~    2.29     0.324       7.06 1.65e-12
+#> 2 host_response_timew…    1.54     0.347       4.43 9.46e- 6
+#> 3 host_response_timew…    1.95     0.336       5.81 6.28e- 9
+#> 4 host_response_timew…    2.29     0.324       7.06 1.65e-12
 #> 5 review_scores_rating    0.404    0.0248     16.3  1.45e-59
 glance(logistic_reg_superhost_response_review)
-#> # A tibble: 1 x 8
+#> # A tibble: 1 × 8
 #>   null.deviance df.null logLik   AIC   BIC deviance
 #>           <dbl>   <int>  <dbl> <dbl> <dbl>    <dbl>
 #> 1         2392.    1727  -875. 1760. 1787.    1750.
-#> # ... with 2 more variables: df.residual <int>, nobs <int>
+#> # … with 2 more variables: df.residual <int>, nobs <int>
 ```
 
 We might like to look at what our model predicts, compared with whether the person was actually a super host. We can do that in a variety of ways, but one way is to use `augment` from the `broom` package [@citebroom]. This will add the prediction and associated uncertainty to the data. For every row we will then have the probability that our model is estimating that they are a superhost. But ultimately, we need a binary forecast. There are a bunch of different options, but one is to just say that if the model estimates a probability of more than 0.5 then we bin it into a superhost, and other not.
@@ -2316,7 +2316,7 @@ airbnb_data_filtered_logistic_fit_train %>%
   scale_fill_brewer(palette = "Set1")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-99-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-99-1.png" width="672" />
 
 
 We can look at how the model probabilities change based on average review score, and their average time to respond.
@@ -2336,7 +2336,7 @@ ggplot(airbnb_data_filtered_logistic_fit_train,
   scale_color_brewer(palette = "Set1")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-100-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-100-1.png" width="672" />
 
 This nice thing about this graph is that it illustrates nicely the effect of a host having an average response time of, say, 'within an hour' compared with 'within a few hours'. 
 
@@ -2463,7 +2463,7 @@ both %>%
              scales = "free_y")
 ```
 
-![](40-eda_files/figure-latex/unnamed-chunk-104-1.pdf)<!-- --> 
+<img src="40-eda_files/figure-html/unnamed-chunk-104-1.png" width="672" />
 
 
 

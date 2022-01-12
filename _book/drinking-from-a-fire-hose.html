@@ -56,7 +56,7 @@
 <li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
 <li><a class="active" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
 <li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
-<li><a class="" href="workflow.html"><span class="header-section-number">4</span> Workflow</a></li>
+<li><a class="" href="reproducible-workflows.html"><span class="header-section-number">4</span> Reproducible workflows</a></li>
 <li class="book-part">Communication</li>
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
@@ -123,7 +123,7 @@
 <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>
 </li>
 <li>
-<code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>
+<code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>
 </li>
 <li>
 <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>
@@ -217,7 +217,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="header-section-number">2.2.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate"><i class="fas fa-link"></i></a>
 </h3>
 <p>We now simulate some data, to bring some specificity to our sketches.</p>
-<p>To get started, within R Studio Cloud, make a new R Markdown file (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown’). For this example, we will just put everything into this one R Markdown document. You should save it as ‘canadian_elections.Rmd’ (‘File’ -&gt; ‘Save As…’)</p>
+<p>To get started, within R Studio Cloud, make a new R Markdown file (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown’). When you do this, you will be asked to install some packages, which you should agree to. For this example, we will just put everything into this one R Markdown document. You should save it as ‘canadian_elections.Rmd’ (‘File’ -&gt; ‘Save As…’)</p>
 <p>In the R Markdown document create a new R code chunk (‘Code’ -&gt; ‘Insert Chunk’) and add preamble documentation that explains:</p>
 <ul>
 <li>the purpose of the document;</li>
@@ -234,7 +234,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co"># Email: rohan.alexander@utoronto.ca</span>
 <span class="co"># Date: 1 January 2022</span>
 <span class="co"># Prerequisites: Need to know where to get Canadian elections data.</span></code></pre></div>
-<p>After this we need to set-up the workspace. This involves installing and loading any packages that will be needed. A package only needs to be installed once for each computer, but needs to be loaded each time it is to be used. In this case we are going to use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. They will need to be installed because this is the first time they are being used, and then each will need to be loaded.</p>
+<p>After this we need to set-up the workspace. This involves installing and loading any packages that will be needed. A package only needs to be installed once for each computer, but needs to be loaded each time it is to be used. In this case we are going to use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>. They will need to be installed because this is the first time they are being used, and then each will need to be loaded.</p>
 <p>An example of installing the packages follows (excessive comments have been added to be clear about what is going on; in general, this level of commenting is unnecessary). Run this code by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Workspace set-up ####</span>
@@ -276,16 +276,16 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Bloc Québécois</span>
-<span class="co">#&gt;  2      2 Other         </span>
-<span class="co">#&gt;  3      3 New Democratic</span>
-<span class="co">#&gt;  4      4 Bloc Québécois</span>
-<span class="co">#&gt;  5      5 New Democratic</span>
-<span class="co">#&gt;  6      6 New Democratic</span>
+<span class="co">#&gt;  1      1 New Democratic</span>
+<span class="co">#&gt;  2      2 Liberal       </span>
+<span class="co">#&gt;  3      3 Conservative  </span>
+<span class="co">#&gt;  4      4 New Democratic</span>
+<span class="co">#&gt;  5      5 Other         </span>
+<span class="co">#&gt;  6      6 Other         </span>
 <span class="co">#&gt;  7      7 New Democratic</span>
-<span class="co">#&gt;  8      8 Other         </span>
-<span class="co">#&gt;  9      9 Conservative  </span>
-<span class="co">#&gt; 10     10 New Democratic</span>
+<span class="co">#&gt;  8      8 Green         </span>
+<span class="co">#&gt;  9      9 Bloc Québécois</span>
+<span class="co">#&gt; 10     10 Conservative  </span>
 <span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
 </div>
 <div id="acquire" class="section level3" number="2.2.3">
@@ -418,7 +418,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; 4 Labrador                           Jones, Yvonne Liberal/…</span>
 <span class="co">#&gt; 5 Long Range Mountains               Hutchings, Gudie Liber…</span>
 <span class="co">#&gt; 6 St. John's East/St. John's-Est     Harris, Jack NDP-New D…</span></code></pre></div>
-<p>Looking at this dataset, and the ‘elected_candidate’ column in particular, we can see that we have the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. We can break-up this column into its pieces using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>.</p>
+<p>Looking at this dataset, and the ‘elected_candidate’ column in particular, we can see that we have the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. We can break-up this column into its pieces using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
@@ -545,7 +545,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="header-section-number">2.3.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The next step is to simulate some data that could resemble our dataset.</p>
-<p>Within R Studio Cloud make a new R Markdown file, save it, and make a new R code chunk and add preamble documentation. Then install and/or load the libraries that are needed. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>. As those were installed earlier, they do not need to be installed again. In this example we will also use <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, which is part of the <code>tidyverse</code> and so it does not need to be installed independently. We will also use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> and these will need to be installed.</p>
+<p>Within R Studio Cloud make a new R Markdown file, save it, and make a new R code chunk and add preamble documentation. Then install and/or load the libraries that are needed. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>. As those were installed earlier, they do not need to be installed again. In this example we will also use <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, which is part of the <code>tidyverse</code> and so it does not need to be installed independently. We will also use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> and these will need to be installed.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
 <span class="co"># Purpose: Get data about 2021 houseless shelter usage and make a table</span>
@@ -647,9 +647,12 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <code class="sourceCode R"><span class="co">#### Acquire ####</span>
 <span class="co"># Based on code from: </span>
 <span class="co"># https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/</span>
+<span class="co"># Thank you to Heath Priston for assistance</span>
 <span class="va">toronto_shelters</span> <span class="op">&lt;-</span> 
+  <span class="co"># Each package is associated with a unique id which can be found in 'For Developers':</span>
+  <span class="co"># https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/</span>
   <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/list_package_resources.html">list_package_resources</a></span><span class="op">(</span><span class="st">"21c83b32-d5a8-4106-a54f-010dbe49f6f2"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">name</span> <span class="op">==</span> <span class="st">"daily-shelter-overnight-service-occupancy-capacity-2021"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
@@ -674,28 +677,24 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 #&gt; #   LOCATION_PROVINCE &lt;chr&gt;, PROGRAM_ID &lt;dbl&gt;,
 #&gt; #   PROGRAM_NAME &lt;chr&gt;, SECTOR &lt;chr&gt;, PROGRAM_MODEL &lt;chr&gt;,
 #&gt; #   OVERNIGHT_SERVICE_TYPE &lt;chr&gt;, PROGRAM_AREA &lt;chr&gt;, …</code></pre>
-<p>Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>). We need to change the names to make them easier to type, reduce the columns to only those that are relevant, and add a month column, which we do using <code>as_date() and</code>month()<code>from</code>lubridate` <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>.</p>
+<p>Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>). We need to change the names to make them easier to type, reduce the columns to only those that are relevant.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">occupancy_date</span>, <span class="va">id</span>, <span class="va">occupied_beds</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_date <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="va">occupancy_date</span><span class="op">)</span>,
-         occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
-                                 label <span class="op">=</span> <span class="cn">TRUE</span>, 
-                                 abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-         <span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_date <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="va">occupancy_date</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">occupancy_date</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="st">"2021-07-01"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">toronto_shelters_clean</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;   occupancy_date      id occupied_beds occupancy_month</span>
-<span class="co">#&gt;   &lt;date&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;ord&gt;          </span>
-<span class="co">#&gt; 1 2021-12-27     7323151            50 December       </span>
-<span class="co">#&gt; 2 2021-12-27     7323152            18 December       </span>
-<span class="co">#&gt; 3 2021-12-27     7323153            28 December       </span>
-<span class="co">#&gt; 4 2021-12-27     7323154            50 December       </span>
-<span class="co">#&gt; 5 2021-12-27     7323155            NA December       </span>
-<span class="co">#&gt; 6 2021-12-27     7323156            NA December</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 6 × 3</span>
+<span class="co">#&gt;   occupancy_date      id occupied_beds</span>
+<span class="co">#&gt;   &lt;date&gt;           &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 2021-12-27     7323151            50</span>
+<span class="co">#&gt; 2 2021-12-27     7323152            18</span>
+<span class="co">#&gt; 3 2021-12-27     7323153            28</span>
+<span class="co">#&gt; 4 2021-12-27     7323154            50</span>
+<span class="co">#&gt; 5 2021-12-27     7323155            NA</span>
+<span class="co">#&gt; 6 2021-12-27     7323156            NA</span></code></pre></div>
 <p>All that remains is to save the cleaned dataset.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
@@ -713,12 +712,16 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
     <span class="st">"cleaned_toronto_shelters.csv"</span>,
+    col_types <span class="op">=</span> ,
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
-<p>The dataset is on a daily basis for each shelter. We are interested in understanding average usage for each month. To do this, we need to create a summary statistic on the basis of monthly groups, using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>. We use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> to create a table.</p>
+<p>The dataset is on a daily basis for each shelter. We are interested in understanding average usage for each month. To do this, we need to and add a month column, which we do using <code><a href="https://lubridate.tidyverse.org/reference/month.html">month()</a></code> from <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>. We then create a summary statistic on the basis of monthly groups, using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>. We use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> to create a table.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
 <span class="va">toronto_shelters_clean</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
+                                 label <span class="op">=</span> <span class="cn">TRUE</span>, 
+                                 abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> |&gt; <span class="co"># We want to know the occupancy by month</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -730,28 +733,28 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">August</td>
-<td align="right">30.83975</td>
-</tr>
-<tr class="even">
-<td align="left">December</td>
-<td align="right">33.57806</td>
-</tr>
-<tr class="odd">
 <td align="left">July</td>
 <td align="right">29.67137</td>
 </tr>
 <tr class="even">
-<td align="left">November</td>
-<td align="right">33.26980</td>
+<td align="left">August</td>
+<td align="right">30.83975</td>
 </tr>
 <tr class="odd">
+<td align="left">September</td>
+<td align="right">31.65405</td>
+</tr>
+<tr class="even">
 <td align="left">October</td>
 <td align="right">32.32991</td>
 </tr>
+<tr class="odd">
+<td align="left">November</td>
+<td align="right">33.26980</td>
+</tr>
 <tr class="even">
-<td align="left">September</td>
-<td align="right">31.65405</td>
+<td align="left">December</td>
+<td align="right">33.57806</td>
 </tr>
 </tbody>
 </table></div>
@@ -759,6 +762,9 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Code based on that of Florence Vallée-Dubois and Lisa Lendway</span>
 <span class="va">toronto_shelters_clean</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
+                                 label <span class="op">=</span> <span class="cn">TRUE</span>, 
+                                 abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span> |&gt; <span class="co"># We only want rows that have data</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">occupancy_month</span><span class="op">)</span> |&gt; <span class="co"># We want to know the occupancy by month</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>number_occupied <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">occupied_beds</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -777,28 +783,28 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">August</td>
-<td align="right">30.8</td>
-</tr>
-<tr class="even">
-<td align="left">December</td>
-<td align="right">33.6</td>
-</tr>
-<tr class="odd">
 <td align="left">July</td>
 <td align="right">29.7</td>
 </tr>
 <tr class="even">
-<td align="left">November</td>
-<td align="right">33.3</td>
+<td align="left">August</td>
+<td align="right">30.8</td>
 </tr>
 <tr class="odd">
+<td align="left">September</td>
+<td align="right">31.7</td>
+</tr>
+<tr class="even">
 <td align="left">October</td>
 <td align="right">32.3</td>
 </tr>
+<tr class="odd">
+<td align="left">November</td>
+<td align="right">33.3</td>
+</tr>
 <tr class="even">
-<td align="left">September</td>
-<td align="right">31.7</td>
+<td align="left">December</td>
+<td align="right">33.6</td>
 </tr>
 </tbody>
 </table></div>
@@ -810,7 +816,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <p>We need to write a few brief paragraphs about what we did, why we did it, and what we found. An example follows.</p>
 <blockquote>
 <p>Toronto has a large homeless population. Freezing winters mean it is critical there are enough places in shelters. We are interested to understand how usage of shelters changes in colder months, compared with warmer months.</p>
-<p>We use data provided by the City of Toronto about Toronto homeless shelter bed occupancy. Specifically, at 4am each night a count is made of the occupied beds. We are interested in averaging this over the month. We cleaned, tidied, and analyzed the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021</a>)</span>, <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span>. We then made a table of the average number of occupied beds each night for each month (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>).</p>
+<p>We use data provided by the City of Toronto about Toronto homeless shelter bed occupancy. Specifically, at 4am each night a count is made of the occupied beds. We are interested in averaging this over the month. We cleaned, tidied, and analyzed the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>, <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span>. We then made a table of the average number of occupied beds each night for each month (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>).</p>
 <p>We found that the daily average number of occupied beds was higher in December 2021 than July 2021, with 34 occupied beds in December, compared with 30 in July. More generally, there was a steady increase in the daily average number of occupied beds between July and December, with a slight increase each month.</p>
 <p>The dataset is on the basis of shelters, and so our results may be skewed by changes that are specific to especially large or especially small shelters. It may be that particular shelters are especially attractive in colder months, leading to a substitution, which would have policy implications but not be reflected in Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>.</p>
 </blockquote>
@@ -1372,7 +1378,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, Chi
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Workflow | Telling Stories With Data</title>
+<title>Chapter 4 Reproducible workflows | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="STATUS: Under construction. Required material Read Good enough practices in scientific computing, (Wilson et al. 2017) Read What has happened down here is the winds have changed, (Gelman 2016)...">
+<meta name="description" content="Required material Read What has happened down here is the winds have changed, (Gelman 2016) Read Good enough practices in scientific computing, (Wilson et al. 2017) Watch Overcoming barriers to...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Workflow | Telling Stories With Data">
+<meta property="og:title" content="Chapter 4 Reproducible workflows | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="STATUS: Under construction. Required material Read Good enough practices in scientific computing, (Wilson et al. 2017) Read What has happened down here is the winds have changed, (Gelman 2016)...">
+<meta property="og:description" content="Required material Read What has happened down here is the winds have changed, (Gelman 2016) Read Good enough practices in scientific computing, (Wilson et al. 2017) Watch Overcoming barriers to...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Workflow | Telling Stories With Data">
-<meta name="twitter:description" content="STATUS: Under construction. Required material Read Good enough practices in scientific computing, (Wilson et al. 2017) Read What has happened down here is the winds have changed, (Gelman 2016)...">
+<meta name="twitter:title" content="Chapter 4 Reproducible workflows | Telling Stories With Data">
+<meta name="twitter:description" content="Required material Read What has happened down here is the winds have changed, (Gelman 2016) Read Good enough practices in scientific computing, (Wilson et al. 2017) Watch Overcoming barriers to...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
 <li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
 <li><a class="" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
 <li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
-<li><a class="active" href="workflow.html"><span class="header-section-number">4</span> Workflow</a></li>
+<li><a class="active" href="reproducible-workflows.html"><span class="header-section-number">4</span> Reproducible workflows</a></li>
 <li class="book-part">Communication</li>
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
@@ -91,39 +91,30 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="workflow" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="reproducible-workflows" class="section level1" number="4">
 <h1>
-<span class="header-section-number">4</span> Workflow<a class="anchor" aria-label="anchor" href="#workflow"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4</span> Reproducible workflows<a class="anchor" aria-label="anchor" href="#reproducible-workflows"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required material</strong></p>
 <ul>
-<li>Read <em>Good enough practices in scientific computing</em>, <span class="citation">(<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al. 2017</a>)</span>
-</li>
 <li>Read <em>What has happened down here is the winds have changed</em>, <span class="citation">(<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman 2016</a>)</span>
+</li>
+<li>Read <em>Good enough practices in scientific computing</em>, <span class="citation">(<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al. 2017</a>)</span>
 </li>
 <li>Watch <em>Overcoming barriers to sharing code</em>, <span class="citation">(<a href="references-1.html#ref-monicatalks" role="doc-biblioref">M. Alexander 2021</a>)</span>
 </li>
 <li>Watch <em>Make a reprex… Please</em>, <span class="citation">(<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand 2021</a>)</span>
 </li>
-<li>Watch <em>Object of type ‘closure’ is not subsettable</em>, <span class="citation">(<a href="references-1.html#ref-jennybryan" role="doc-biblioref">Jenny Bryan 2020b</a>)</span>
+<li>Read <em>The tidyverse style guide</em>, ‘Part: Analyses,’ <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021a</a>)</span>
 </li>
 </ul>
-<!-- - Bailey, Jack, 2020, 'UK Voting Intention Poll Tracker', https://github.com/jackobailey/poll_tracker. --><!-- - Fan, Jean, 'R Style Guide', https://jef.works/R-style-guide/. --><!-- - Hill, Alison, 2020, 'How I Teach R Markdown', 28 May, https://alison.rbind.io/post/2020-05-28-how-i-teach-r-markdown/. --><!-- - Phillips, Nathaniel D., 2018, *YaRrr! The Pirate's Guide to R*, Chapter 4.3, https://bookdown.org/ndphillips/YaRrr/a-brief-style-guide-commenting-and-spacing.html. --><!-- - Tierney, Nicholas, 2020, *RMarkdown for Scientists*, 9 September, Chapters 7-10, 12-15, https://rmd4sci.njtierney.com. --><!-- - Wickham, Hadley, *Advanced R*, Chapter on Style, http://adv-r.had.co.nz/Style.html. --><!-- - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 27, https://r4ds.had.co.nz/. --><!-- **Recommended reading** --><!-- - AirbnbEng, 2016, 'Scaling Knowledge at Airbnb', 25 February, https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091. --><!-- - Bik, Elisabeth, 2020, 'The Tadpole Paper Mill', *Science Integrity Digest*, 21 February, https://scienceintegritydigest.com/2020/02/21/the-tadpole-paper-mill/. --><!-- - Chan, Martin, 2020, 'RStudio Projects and Working Directories: A Beginner's Guide', https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/. --><!-- - Daly, Darren, 2020, 'A brief history of medical statistics and its impact on reproducibility', 2 February, https://medium.com/@darren_dahly/a-brief-history-of-medical-statistics-and-its-role-in-reproducibility-23e31082f024. --><!-- - Ebert, Philip A. "Bayesian reasoning in avalanche terrain: a theoretical investigation." Journal of Adventure Education and Outdoor Learning 19, no. 1 (2019): 84-95. --><!-- - Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapters 1, 2. --><!-- - Guzey, Alexey, 2020, 'How Life Sciences Actually Work: Findings of a Year-Long Investigation', https://guzey.com/how-life-sciences-actually-work/. --><!-- - King, Gary, 'How to Write a Publishable Paper as a Class Project', https://gking.harvard.edu/papers. --><!-- - King, Gary, 2006, 'Publication, publication', *PS: Political Science & Politics*, vol. 39, pp. 119-125, https://gking.harvard.edu/files/gking/files/paperspub.pdf. --><!-- - Lowndes, Julia S. Stewart, Benjamin D. Best, Courtney Scarborough, Jamie C. Afflerbach, Melanie R. Frazier, Casey C. O'Hara, Ning Jiang, and Benjamin S. Halpern, 2017, 'Our path to better science in less time using open data science tools', Nature ecology & evolution, 1(6). --><!-- - Miyakawa, Tsuyoshi, 2020, 'No raw data, no science: another possible source of the reproducibility crisis', *Molecular Brain*, 13, 24. https://doi.org/10.1186/s13041-020-0552-2 --><!-- - Peek, Ryan, 2020, '10 tips to souping up rmarkdown', 20 February, https://ryanpeek.github.io/2020-02-20-10-tips-to-souping-up-rmarkdown/#S8. --><!-- - Riederer, Emily, 2019, 'Resource Round-Up: Reproducible Research Edition', 29 August, https://emilyriederer.netlify.com/post/resource-round-up-reproducible-research-edition/. --><!-- - Riederer, Emily, 2019, 'RMarkdown Driven Development (RmdDD)', 4 May, https://emilyriederer.netlify.com/post/rmarkdown-driven-development/. --><!-- - Silver, Nate, 2020, 'We Fixed An Issue With How Our Primary Forecast Was Calculating Candidates' Demographic Strengths', 19 February, https://fivethirtyeight.com/features/we-fixed-a-mistake-in-how-our-primary-forecast-was-calculating-candidates-demographic-strengths/. --><!-- - Soetewey, Antoine, 2020, 'Getting started in R markdown', 18 February, https://www.statsandr.com/blog/getting-started-in-r-markdown/. --><!-- - Varian, Hal, 'How to Build an Economic Model in Your Spare Time', http://people.ischool.berkeley.edu/~hal/Papers/how.pdf. (This paper was written a while ago for economists, please just ignore the economics specific parts.) --><!-- - Wayne, Hillel, 2017, 'How do we trust our science code?', 14 August, https://www.hillelwayne.com/post/how-do-we-trust-science-code/. --><!-- - Wayne, Hillel, 2020, 'This is how science happens', 9 March, https://www.hillelwayne.com/post/this-is-how-science-happens/.  --><!-- https://www.chronicle.com/article/The-Scientific-Paper-Is/248045 --><p><strong>Key concepts/skills/etc</strong></p>
+<!-- - Watch *Object of type 'closure' is not subsettable*, [@jennybryan] --><!-- **Recommended reading** --><!-- - Chan, Martin, 2020, 'RStudio Projects and Working Directories: A Beginner's Guide', https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/. --><!-- - Daly, Darren, 2020, 'A brief history of medical statistics and its impact on reproducibility', 2 February, https://medium.com/@darren_dahly/a-brief-history-of-medical-statistics-and-its-role-in-reproducibility-23e31082f024. --><!-- - Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapters 1, 2. --><!-- - Guzey, Alexey, 2020, 'How Life Sciences Actually Work: Findings of a Year-Long Investigation', https://guzey.com/how-life-sciences-actually-work/. --><!-- - King, Gary, 'How to Write a Publishable Paper as a Class Project', https://gking.harvard.edu/papers. --><!-- - King, Gary, 2006, 'Publication, publication', *PS: Political Science & Politics*, vol. 39, pp. 119-125, https://gking.harvard.edu/files/gking/files/paperspub.pdf. --><!-- - Lowndes, Julia S. Stewart, Benjamin D. Best, Courtney Scarborough, Jamie C. Afflerbach, Melanie R. Frazier, Casey C. O'Hara, Ning Jiang, and Benjamin S. Halpern, 2017, 'Our path to better science in less time using open data science tools', Nature ecology & evolution, 1(6). --><!-- - Riederer, Emily, 2019, 'Resource Round-Up: Reproducible Research Edition', 29 August, https://emilyriederer.netlify.com/post/resource-round-up-reproducible-research-edition/. --><!-- - Riederer, Emily, 2019, 'RMarkdown Driven Development (RmdDD)', 4 May, https://emilyriederer.netlify.com/post/rmarkdown-driven-development/. --><!-- - Varian, Hal, 'How to Build an Economic Model in Your Spare Time', http://people.ischool.berkeley.edu/~hal/Papers/how.pdf. (This paper was written a while ago for economists, please just ignore the economics specific parts.) --><!-- - Wayne, Hillel, 2020, 'This is how science happens', 9 March, https://www.hillelwayne.com/post/this-is-how-science-happens/.  --><p><strong>Key concepts and skills</strong></p>
 <ul>
-<li>Restart R often (Session -&gt; Restart R and Clear Output).</li>
-<li>Debugging is a skill, and you will get better at it with time and practice.</li>
-<li>Start with reading the error message.</li>
-<li>Check the class.</li>
-<li>You may get frustrated at times, this is normal.</li>
-<li>There are various tools that can help. Google is your friend.</li>
-<li>Make a small example and try to get the code running on that.</li>
-<li>Cultivating a tenacious mentality may help.</li>
-<li>Writing code that future-you can understand.</li>
-<li>Developing important questions.</li>
-<li>Reproducibility and replicability.</li>
-<li>The importance of data and code access.</li>
-<li>The importance of version control in a data science workflow, especially essentials of Git and GitHub:
+<li>Reproducibility is a requirement, and this implies sharing data, code, and environment.</li>
+<li>Reproducibility is enhanced by using R Markdown, R Projects, and Git and GitHub.</li>
+<li>R Markdown involves marking text as certain types and then building the document.</li>
+<li>R Projects enable a file structure that is not dependent on a specific directory set-up.</li>
+<li>Git and GitHub make it easier to share code and data.
 <ul>
 <li>Get the latest changes: <code>git pull</code>.</li>
 <li>Add your updates: <code>git add -A</code>.</li>
@@ -132,6 +123,10 @@
 <li>Push your changes to GitHub: <code>git push</code>.</li>
 </ul>
 </li>
+<li>Restart R often (‘Session’ -&gt; ‘Restart R and Clear Output’).</li>
+<li>Debugging is a skill, that improves with practice.</li>
+<li>One key debugging skill is being able to make a reproducible example that reproduces the issue for others.</li>
+<li>Appropriate code structure and comments are a critical aspect of reproducibility because they help others understand.</li>
 </ul>
 <div id="introduction" class="section level2" number="4.1">
 <h2>
@@ -147,18 +142,18 @@
 <p>If every possible situation is known and you want to prioritize scalability and cost-reduction, go with the model. Models exist to encode and operationalize human cognition in well-understood situations. (“well understood” meaning either that it can be explicitly described by a programmer, or that you can amass a dataset that densely samples the distribution of possible situations – which must be static)</p>
 <p>François Chollet, 20 February 2020.</p>
 </blockquote>
-<p>If science is about systematically building and organizing knowledge in terms of testable explanations and predictions, then data science takes this and focuses on data. This means that building, organizing, and sharing knowledge is a critical aspect. Creating knowledge, once, in a way that only you can do it, does not meet this standard. Hence, the need for reproducible workflows for data science.</p>
-<p><span class="citation"><a href="references-1.html#ref-Alexander2019" role="doc-biblioref">M. Alexander</a> (<a href="references-1.html#ref-Alexander2019" role="doc-biblioref">2019a</a>)</span> says ‘<a href="r-essentials.html#r">r</a>esearch is reproducible if it can be reproduced exactly, given all the materials used in the study… [hence] materials need to be provided!… [M]aterials usually means data, code and software.’ The minimum requirement is that another person is able to ‘<a href="r-essentials.html#r">r</a>eproduce the data, methods and results (including figures, tables).’ Similarly, <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> identifies how large an issue this is in various sciences, such as psychology. The problem with work that is not reproducible, is that it does not contribute to our stock of knowledge about the world. Since <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> a great deal of work has been done in many social sciences and the situation has improved a little, but much work remains.</p>
-<p>Some of the examples that <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> talks about which turned out to not reproduce are not that important in the scheme of things, such as extrasensory perception (ESP), or the power pose. But at the same time, we saw, and continue to see, similar approaches being used in areas with big impacts. For instance, many governments have created ‘nudge’ units that implement public policy.</p>
-<p>At a minimum, and with few exceptions, we must release our code and datasets. Without the data, we do not know what a finding speaks to as we cannot understand how representative the sample is. More prosaically, we also do not know if there are mistakes or aspects that were mistakenly overlooked.</p>
-<p>To be more specific, consider <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span>, where the authors used deep neural networks to train a model to distinguish between gay and heterosexual men. <span class="citation"><a href="references-1.html#ref-murphy2017" role="doc-biblioref">Murphy</a> (<a href="references-1.html#ref-murphy2017" role="doc-biblioref">2017</a>)</span> provides a summary of the paper and the associated issues, along with comments from the authors. To do this, <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018, 248</a>)</span> needed a dataset of photos of folks that were ‘adult, Caucasian, fully visible, and of a gender that matched the one reported on the user’s profile.’ They verified this using Amazon Mechanical Turk, an online platform that pays workers a small amount of money to complete specific tasks. Figure <a href="workflow.html#fig:instructionsexample">4.1</a>, from <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> supplemental materials, shows the instructions provided to the Mechanical Turk workers for this task. Some of the issues with these instructions include that Obama had a white mother and a black father, but has been classified as ‘Black’; and Latino is an ethnicity, rather than a race <span class="citation">(<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson 2017</a>)</span>. The classification task may seem objective, but it, perhaps unthinkingly, echoes the views of Americans with a certain class and background.</p>
+<p>If science is about systematically building and organizing knowledge in terms of testable explanations and predictions, then data science takes this and focuses on data. This means that building, organizing, and sharing knowledge is the critical aspect. Creating knowledge, once, in a way that only you can do it, does not meet this standard. Hence, the need for reproducible workflows for data science.</p>
+<p><span class="citation"><a href="references-1.html#ref-Alexander2019" role="doc-biblioref">M. Alexander</a> (<a href="references-1.html#ref-Alexander2019" role="doc-biblioref">2019a</a>)</span> says ‘<a href="r-essentials.html#r">r</a>esearch is reproducible if it can be reproduced exactly, given all the materials used in the study… [hence] materials need to be provided!… [M]aterials usually means data, code and software.’ The minimum requirement is that another person is able to ‘<a href="r-essentials.html#r">r</a>eproduce the data, methods and results (including figures, tables).’ Similarly, <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> identifies how large an issue this is in various social sciences. The problem with work that is not reproducible, is that it does not contribute to our stock of knowledge about the world. Since <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span>, a great deal of work has been done in many social sciences and the situation has improved a little, but much work remains. And the situation is similar in the life sciences <span class="citation">(<a href="references-1.html#ref-heil2021reproducibility" role="doc-biblioref">Heil et al. 2021</a>)</span> and computer science <span class="citation">(<a href="references-1.html#ref-pineau2021improving" role="doc-biblioref">Pineau et al. 2021</a>)</span>.</p>
+<p>Some of the examples that <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span> talks about, which turned out to not reproduce are not that important in the scheme of things. But at the same time, we saw, and continue to see, similar approaches being used in areas with big impacts. For instance, many governments have created ‘nudge’ units that implement public policy <span class="citation">(<a href="references-1.html#ref-sunstein2017economics" role="doc-biblioref">Sunstein and Reisch 2017</a>)</span> and they are increasingly using algorithms that they do not make open <span class="citation">(<a href="references-1.html#ref-chouldechova18a" role="doc-biblioref">Chouldechova et al. 2018</a>)</span>. Similarly, businesses are increasingly implementing machine learning methods.</p>
+<p>At a minimum, and with few exceptions, we must release our code, datasets, and environment. Without the data, we do not know what a finding speaks to <span class="citation">(<a href="references-1.html#ref-miyakawa2020no" role="doc-biblioref">Miyakawa 2020</a>)</span>. More banally, we also do not know if there are mistakes or aspects that were inadvertently overlooked <span class="citation">(<a href="references-1.html#ref-merali2010computational" role="doc-biblioref">Merali 2010</a>)</span> <span class="citation">(<a href="references-1.html#ref-hillelwayne" role="doc-biblioref">Hillel 2017</a>)</span> <span class="citation">(<a href="references-1.html#ref-natefixesmistake" role="doc-biblioref">Silver 2020</a>)</span>.</p>
+<p>To be more specific, consider <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> who use deep neural networks to train a model to distinguish between gay and heterosexual men. (<span class="citation"><a href="references-1.html#ref-murphy2017" role="doc-biblioref">Murphy</a> (<a href="references-1.html#ref-murphy2017" role="doc-biblioref">2017</a>)</span> provides a summary of the paper and the associated issues, along with comments from the authors.) To do this, <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018, 248</a>)</span> needed a dataset of photos of folks that were ‘adult, Caucasian, fully visible, and of a gender that matched the one reported on the user’s profile.’ They verified this using Amazon Mechanical Turk, an online platform that pays workers a small amount of money to complete specific tasks. Figure <a href="reproducible-workflows.html#fig:instructionsexample">4.1</a>, from <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> supplemental materials, shows the instructions provided to the Mechanical Turk workers for this task. Some of the issues with these instructions include that Obama had a white mother and a black father but has been classified as ‘Black’; and Latino is an ethnicity, rather than a race <span class="citation">(<a href="references-1.html#ref-Mattson2017" role="doc-biblioref">Mattson 2017</a>)</span>. The classification task may seem objective, but, perhaps unthinkingly, echoes the views of Americans with a certain class and background.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:instructionsexample"></span>
 <img src="figures/mechanical_turk_instructions.png" alt="Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces" width="95%"><p class="caption">
 Figure 4.1: Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces
 </p>
 </div>
-<p>We are discussing one specific concern about one part of the workflow of <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span>. Broader concerns are raised by others including <span class="citation"><a href="references-1.html#ref-Gelman_2018" role="doc-biblioref">Gelman, Mattson, and Simpson</a> (<a href="references-1.html#ref-Gelman_2018" role="doc-biblioref">2018</a>)</span>. The main issue is that statistical models are specific to the data on which they were trained. And the only reason that we are able to identify likely issues in the model trained by <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> is because, despite not releasing the specific dataset that they used, they were nonetheless open about their procedure. The fundamental issue is that in order for our work to be credible, it needs to be reproducible by others.</p>
+<p>This is just one specific concern about one part of the <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> workflow. Broader concerns are raised by others including <span class="citation"><a href="references-1.html#ref-Gelman_2018" role="doc-biblioref">Gelman, Mattson, and Simpson</a> (<a href="references-1.html#ref-Gelman_2018" role="doc-biblioref">2018</a>)</span>. The main issue is that statistical models are specific to the data on which they were trained. And the only reason that we can identify likely issues in the model of <span class="citation"><a href="references-1.html#ref-wang2018deep" role="doc-biblioref">Y. Wang and Kosinski</a> (<a href="references-1.html#ref-wang2018deep" role="doc-biblioref">2018</a>)</span> is because, despite not releasing the specific dataset that they used, they were nonetheless open about their procedure. For our work to be credible, it needs to be reproducible by others.</p>
 <p>Some of the steps that we can take to make our work more reproducible include:</p>
 <ol style="list-style-type: decimal">
 <li>Ensure the entire workflow is documented and this may involve addressing questions such as:
@@ -173,13 +168,13 @@ Figure 4.1: Instructions given to Mechanical Turk workers for removing incomplet
 <ul>
 <li>Can you run your entire workflow again?</li>
 <li>Can ‘another person’ run your entire workflow again?</li>
-<li>Can a future you run your entire workflow again?</li>
-<li>Can a future ‘another person’ run your entire workflow again?</li>
+<li>Can ‘future’ you run your entire workflow again?</li>
+<li>Can ‘future’ ‘another person’ run your entire workflow again?</li>
 </ul>
 </li>
 <li>Including a detailed discussion about the limitations of the dataset and the approach in the final paper or report.</li>
 </ol>
-<p>There are various tools that we can use that will improve our workflows, including the use of R Markdown, R Projects, Git and GitHub.</p>
+<p>There are various tools that we can use that will improve our workflow, including the use of R Markdown, R Projects, Git and GitHub.</p>
 </div>
 <div id="r-markdown" class="section level2" number="4.2">
 <h2>
@@ -189,8 +184,8 @@ Figure 4.1: Instructions given to Mechanical Turk workers for removing incomplet
 <h3>
 <span class="header-section-number">4.2.1</span> Getting started<a class="anchor" aria-label="anchor" href="#getting-started-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a ‘What You See Is What You Get’ (WYSIWYG) language, such as Microsoft Word. This means that all of the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear. And it is only when we build the mark-up that we get to see what it looks like.</p>
-<p>R Markdown is a variant of Markdown that is specifically designed to allow R code chunks to be included. One advantage is that we can get a ‘live’ document in which code executes and then forms part of the document. Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections. One disadvantage is that it can take a while for a document to compile because all of the code needs to run.</p>
+<p>R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a ‘What You See Is What You Get’ (WYSIWYG) language, such as Microsoft Word. This means that all the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear. And it is only when we build the mark-up that we get to see what it looks like.</p>
+<p>R Markdown is a variant of Markdown that is specifically designed to allow R code chunks to be included. One advantage is that we can get a ‘live’ document in which code executes and then forms part of the document. Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections. One disadvantage is that it can take a while for a document to compile because all the code needs to run. <span class="citation"><a href="references-1.html#ref-rmarkdownforscientists" role="doc-biblioref">Tierney</a> (<a href="references-1.html#ref-rmarkdownforscientists" role="doc-biblioref">2020</a>)</span> is especially useful for instructions on how to achieve specific outcomes with R Markdown.</p>
 <p>We can create a new R Markdown document within R Studio (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown Document’).</p>
 </div>
 <div id="essential-commands" class="section level3" number="4.2.2">
@@ -218,7 +213,7 @@ Figure 4.1: Instructions given to Mechanical Turk workers for removing incomplet
     + Item 3a
     + Item 3b</code></pre>
 <ul>
-<li>URLs can be added by including an address as that will auto-link: <a href="https://www.tellingstorieswithdata.com" class="uri">https://www.tellingstorieswithdata.com</a>, or by linking some text <code>[the address of this book](https://www.tellingstorieswithdata.com)</code>.</li>
+<li>URLs can be added by including an address because it will auto-link: <a href="https://www.tellingstorieswithdata.com" class="uri">https://www.tellingstorieswithdata.com</a>, or by linking some text <code>[the address of this book](https://www.tellingstorieswithdata.com)</code> results in <a href="https://www.tellingstorieswithdata.com">the address of this book</a>.</li>
 </ul>
 <p>Once we have added some aspects, then we may want to see the actual document. To build the document click ‘Knit.’</p>
 </div>
@@ -238,7 +233,7 @@ DoctorVisits %&gt;%
   ggplot(aes(x = visits)) +
   geom_histogram(stat = "count")
 ```</code></pre>
-<p>The output of that code is Figure <a href="workflow.html#fig:doctervisits">4.2</a>.</p>
+<p>The output of that code is Figure <a href="reproducible-workflows.html#fig:doctervisits">4.2</a>.</p>
 <div class="figure">
 <span style="display:block;" id="fig:doctervisits"></span>
 <img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672"><p class="caption">
@@ -258,7 +253,7 @@ Figure 4.2: Number of doctor visits in the past two weeks, based on the 1977–1
 <li>
 <code>message = FALSE</code>: do not display messages.</li>
 </ul>
-<p>For instance, we could include the output, but not the code, and also suppress any warnings.</p>
+<p>For instance, we could include the output, but not the code, and suppress any warnings.</p>
 <pre><code>```{r, echo = FALSE, warning = FALSE}
 library(tidyverse)
 library(AER)
@@ -296,7 +291,7 @@ output: pdf_document
 abstract: "This is my abstract."
 bibliography: bibliography.bib
 ---</code></pre>
-<p>We would need to make a separate file called ‘bibliography.bib.’ In that we need an entry for the item that is to be referenced. The citation for R can be obtained with <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> and this can be added to the ‘bibliography.bib’ file, and similarly the citation for a package can be found by including the package name, for instance <code>citation('tidyverse')</code>.</p>
+<p>We would need to make a separate file called ‘bibliography.bib’ and save it next to the R Markdown file. In the bib file we need an entry for the item that is to be referenced. For instance, the citation for R can be obtained with <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> and this can be added to the ‘bibliography.bib’ file. Similarly, the citation for a package can be found by including the package name, for instance <code>citation('tidyverse')</code>. It can be helpful to use Google Scholar, or doi2bib, to get citations for books or articles.</p>
 <pre><code>@Manual{,
     title = {R: A Language and Environment for Statistical Computing},
     author = {{R Core Team}},
@@ -340,15 +335,15 @@ bibliography: bibliography.bib
 <h3>
 <span class="header-section-number">4.2.6</span> Cross-references<a class="anchor" aria-label="anchor" href="#cross-references"><i class="fas fa-link"></i></a>
 </h3>
-<p>It can be useful to cross-reference figures, tables, and equations. This makes it easier to refer to them in the text. To do this for a figure we refer to the name of the R chunk that creates or contains the figure. For instance, <code>(Figure \@ref(fig:uniquename))</code> will produce: (Figure <a href="workflow.html#fig:uniquename">4.3</a>) as the name of the R chunk is <code>uniquename</code>. We also need to add ‘fig’ in front of the chunk name so that R Markdown knows that it is a figure. We then include a ‘fig.cap’ in the R chunk that specifies a caption.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb128-1"><a href="workflow.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r uniquename, fig.cap = "Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey", echo = TRUE}</span></span></code></pre></div>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<p>It can be useful to cross-reference figures, tables, and equations. This makes it easier to refer to them in the text. To do this for a figure we refer to the name of the R chunk that creates or contains the figure. For instance, <code>(Figure \@ref(fig:uniquename))</code> will produce: (Figure <a href="reproducible-workflows.html#fig:uniquename">4.3</a>) as the name of the R chunk is <code>uniquename</code>. We also need to add ‘fig’ in front of the chunk name so that R Markdown knows that this is a figure. We then include a ‘fig.cap’ in the R chunk that specifies a caption.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb131-1"><a href="reproducible-workflows.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r uniquename, fig.cap = "Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey", echo = TRUE}</span></span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"DoctorVisits"</span>, package <span class="op">=</span> <span class="st">"AER"</span><span class="op">)</span>
 
-<span class="va">DoctorVisits</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">DoctorVisits</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">illness</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
@@ -357,10 +352,10 @@ bibliography: bibliography.bib
 Figure 4.3: Number of illnesses in the past two weeks, based on the 1977–1978 Australian Health Survey
 </p>
 </div>
-<p>We can do similar for tables. For instance, <code>(Table \@ref(tab:docvisittable))</code> will produce: (Table <a href="workflow.html#tab:docvisittable">4.1</a>). In this case we specify ‘tab’ before the unique reference to the table, so that R Markdown knows that it is a table. For tables we need to include the caption in the main content, as a ‘caption,’ rather than in a ‘fig.cap’ chunk option as is the case for figures.</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">DoctorVisits</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">visits</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<p>We can take a similar, but slightly different, approach to cross-reference tables. For instance, <code>(Table \@ref(tab:docvisittable))</code> will produce: (Table <a href="reproducible-workflows.html#tab:docvisittable">4.1</a>). In this case we specify ‘tab’ before the unique reference to the table, so that R Markdown knows that it is a table. For tables we need to include the caption in the main content, as a ‘caption,’ rather than in a ‘fig.cap’ chunk option as is the case for figures.</p>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">DoctorVisits</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">visits</span><span class="op">)</span> |&gt; 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
@@ -412,12 +407,12 @@ Figure 4.3: Number of illnesses in the past two weeks, based on the 1977–1978 
 </tr>
 </tbody>
 </table></div>
-<p>Finally, we can also cross-reference equations. To that we need to add a tag <code>(\#eq:slope)</code> which we then reference. For instance, use <code>Equation \@ref(eq:slope).</code> to produce Equation <a href="workflow.html#eq:slope">(4.1)</a>.</p>
+<p>Finally, we can also cross-reference equations. To that we need to add a tag <code>(\#eq:macroidentity)</code> which we then reference. For instance, use <code>Equation \@ref(eq:macroidentity).</code> to produce Equation <a href="reproducible-workflows.html#eq:macroidentity">(4.1)</a>.</p>
 <pre><code>\begin{equation}
-Y = a + b X (\#eq:slope)
+Y = C + I + G + (X - M) (\#eq:macroidentity)
 \end{equation}</code></pre>
-<p><span class="math display" id="eq:slope">\[\begin{equation}
-Y = a + b X \tag{4.1}
+<p><span class="math display" id="eq:macroidentity">\[\begin{equation}
+Y = C + I + G + (X - M) \tag{4.1}
 \end{equation}\]</span></p>
 <p>When using cross-references, it is important that the R chunks have simple labels. In general, try to keep the names simple but unique, and if possible, avoid punctuation and stick to letters. Do not use underbars in the labels because that will cause an error.</p>
 </div>
@@ -426,11 +421,11 @@ Y = a + b X \tag{4.1}
 <h2>
 <span class="header-section-number">4.3</span> R projects and file structure<a class="anchor" aria-label="anchor" href="#r-projects-and-file-structure"><i class="fas fa-link"></i></a>
 </h2>
-<p>We can use R Studio to create an R project. This means that we can keep all of the files (data, analysis, report, etc) associated with a particular project together. To create a project, select ‘Click File’ -&gt; ‘New Project,’ then select ‘empty project,’ name the project and decide where to save it. For instance, a project focused on maternal mortality, may be called ‘maternalmortality,’ and might be saved within a folder of other projects. The use of R Projects is ‘the only practical convention that creates reliable, polite behavior across different computers or users and over time.’ <span class="citation">(<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester 2020</a>)</span>. Further, projects are ‘neither new, nor unique to R,’ but are a well-established part of software development.</p>
-<p>Once a project has been created, a new file with the extension ‘.RProj’ will appear in that folder. As an example, of a folder with an R Project, an example R Markdown document, and an appropriate file structure is available: <a href="https://github.com/RohanAlexander/starter_folder" class="uri">https://github.com/RohanAlexander/starter_folder</a>. That can be downloaded with: ‘Code’ -&gt; ‘Download ZIP.’</p>
+<p>We can use R Studio to create an R project. This means that we can keep all the files (data, analysis, report, etc) associated with a particular project together. A project can be created in R Studio ‘File’ -&gt; ‘New Project,’ then select ‘empty project,’ name the project and decide where to save it. For instance, a project focused on maternal mortality, may be called ‘maternalmortality,’ and might be saved within a folder of other projects. The use of R Projects is ‘the only practical convention that creates reliable, polite behavior across different computers or users and over time.’ <span class="citation">(<a href="references-1.html#ref-whattheyforgot" role="doc-biblioref">Jennifer Bryan and Hester 2020</a>)</span>. Further, projects are ‘neither new, nor unique to R,’ but are a well-established part of software development.</p>
+<p>Once a project has been created, a new file with the extension ‘.RProj’ will appear in that folder. As an example, of a folder with an R Project, an example R Markdown document, and an appropriate file structure is available: <a href="https://github.com/RohanAlexander/starter_folder" class="uri">https://github.com/RohanAlexander/starter_folder</a>. That can be downloaded: ‘Code’ -&gt; ‘Download ZIP.’</p>
 <p>The main advantage of using an R Project is that we are more easily able to reference other files in a self-contained way. That means when others want to reproduce our work, they know that all the file references and structure should not need to be changed. It means that files are referenced in relation to where the ‘.Rproj’ file is. For instance, instead of reading a csv from, say, <code>"~/Documents/projects/book/data/"</code> you can read it in from <code>book/data/</code>. It may be that someone else does not have a ‘projects’ folder, and so the former would not work for them, while the latter would.</p>
 <p>The use of R projects is required to meet the minimal level of reproducibility. The use of functions such as <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code>, and computer-specific file paths, bind the work to your computer in a way that is not appropriate.</p>
-<p>There are a variety of ways to set-up a folder. A variant of <span class="citation"><a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al.</a> (<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">2017</a>)</span> that is often useful is shown in the example: <a href="https://github.com/RohanAlexander/starter_folder" class="uri">https://github.com/RohanAlexander/starter_folder</a>. Here we have an ‘inputs’ folder that contains raw data (which should never be modified) and literature related to the project (which cannot be modified). An ‘outputs’ folder contains data that we create using R, as well as the paper that we are writing. And a ‘scripts’ folder is what modifies the raw data and saves it into ‘outputs.’ Useful other aspects include a ‘README.md’ which will specify overview details about the project, and a LICENSE.</p>
+<p>There are a variety of ways to set-up a folder. A variant of <span class="citation"><a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al.</a> (<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">2017</a>)</span> that is often useful is shown in the example: <a href="https://github.com/RohanAlexander/starter_folder" class="uri">https://github.com/RohanAlexander/starter_folder</a>. Here we have an ‘inputs’ folder that contains raw data (which should never be modified <span class="citation">(<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al. 2017</a>)</span>) and literature related to the project (which cannot be modified). An ‘outputs’ folder contains data that we create using R, as well as the paper that we are writing. And a ‘scripts’ folder is what modifies the raw data and saves it into ‘outputs.’ Useful other aspects include a ‘README.md’ which will specify overview details about the project, and a LICENSE.</p>
 </div>
 <div id="git-and-github" class="section level2" number="4.4">
 <h2>
@@ -446,7 +441,7 @@ Y = a + b X \tag{4.1}
 <p>Git is a version control system. One way one often starts doing version control is to have various versions of the one file: ‘first_go.R,’ ‘first_go-fixed.R,’ ‘first_go-fixed-with-mons-edits.R.’ But this soon becomes cumbersome. One often soon turns to dates, for instance: ‘2022-01-01-analysis.R,’ ‘2022-01-02-analysis.R,’ ‘2022-01-03-analysis.R,’ etc. While this keeps a record it can be difficult to search when we need to go back, because it can be difficult to remember the date some change was made. In any case, it quickly gets unwieldy for a project that is being regularly worked on.</p>
 <p>Instead of this, we use Git so that we can have one version of the file, say, ‘analysis.R’ and then use Git to keep a record of the changes to that file, and a snapshot of that file at a given point in time.</p>
 <p>We determine when Git takes that snapshot, and when we take that snapshot, we additionally include a message saying what changed between this snapshot and the last. In that way, there is only ever one version of the file, but the history can be more easily searched.</p>
-<p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="workflow.html#fig:hackernews">4.4</a>).</p>
+<p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="reproducible-workflows.html#fig:hackernews">4.4</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:hackernews"></span>
 <img src="figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks." width="95%"><p class="caption">
@@ -455,53 +450,54 @@ Figure 4.4: An infamous response to the launch of Dropbox in 2007, trivializing 
 </div>
 <p>Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. We will introduce GitHub here because it ‘is by far the most dominant code-hosting platform’ <span class="citation">(<a href="references-1.html#ref-eghbal2020working" role="doc-biblioref">Eghbal 2020, 21</a>)</span> and it is built into R Studio, but other options have advantages.</p>
 <p>One of the challenging aspects of Git is the terminology. Folders are called ‘repos.’ Saving is called a ‘commit.’ One gets used to it eventually, but initially feeling confused is entirely normal.</p>
+<p><span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span> is especially useful for setting up and using Git and GitHub.</p>
 <div id="git" class="section level3" number="4.4.1">
 <h3>
 <span class="header-section-number">4.4.1</span> Git<a class="anchor" aria-label="anchor" href="#git"><i class="fas fa-link"></i></a>
 </h3>
 <p>We need to git check whether Git is installed. Open R Studio, go to the Terminal, type the following, and then enter/return.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb132-1"><a href="workflow.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
-<p>If you get a version number, then you are done (Figure <a href="workflow.html#fig:gitone">4.5</a>).</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="reproducible-workflows.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
+<p>If you get a version number, then you are done (Figure <a href="reproducible-workflows.html#fig:gitone">4.5</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:gitone"></span>
 <img src="figures/git_one.png" alt="How to access the Terminal within R Studio" width="95%"><p class="caption">
 Figure 4.5: How to access the Terminal within R Studio
 </p>
 </div>
-<p>If you have a Mac then Git should come pre-installed, if you have Windows then there is a chance, and if you have Linux then you probably do not need this guide. If you do not get a version number, then you need to install it. To do that you should follow the instructions specific to your operating system in Chapter 5 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020a</a>)</span>.</p>
+<p>If you have a Mac then Git should come pre-installed, if you have Windows then there is a chance, and if you have Linux then you probably do not need this guide. If you do not get a version number, then you need to install it. To do that you should follow the instructions specific to your operating system in Chapter 5 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 <p>After we have Git, then we need to tell it our username and email. We need to do this because Git adds this information whenever we take a ‘snapshot,’ or to use Git’s language, whenever we make a commit.</p>
 <p>Again, within the Terminal, type the following, replacing the details with yours, and then enter/return after each line.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb133-1"><a href="workflow.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'Rohan Alexander'</span></span>
-<span id="cb133-2"><a href="workflow.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'rohan.alexander@utoronto.ca'</span></span>
-<span id="cb133-3"><a href="workflow.html#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div>
-<p>The details that you enter here will be public. There are various ways to hide your email address if you need to do this and GitHub provides instructions about this. Again, if you have issues, or need more detailed instructions about this step, then please see Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020a</a>)</span>.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb136-1"><a href="reproducible-workflows.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'Rohan Alexander'</span></span>
+<span id="cb136-2"><a href="reproducible-workflows.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'rohan.alexander@utoronto.ca'</span></span>
+<span id="cb136-3"><a href="reproducible-workflows.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div>
+<p>The details that you enter here will be public. There are various ways to hide your email address if you need to do this and GitHub provides instructions about this. Again, if you have issues, or need more detailed instructions about this step, then please see Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="github" class="section level3" number="4.4.2">
 <h3>
 <span class="header-section-number">4.4.2</span> GitHub<a class="anchor" aria-label="anchor" href="#github"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: <a href="https://github.com" class="uri">https://github.com</a> (Figure <a href="workflow.html#fig:githubone">4.6</a>).</p>
+<p>Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: <a href="https://github.com" class="uri">https://github.com</a> (Figure <a href="reproducible-workflows.html#fig:githubone">4.6</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubone"></span>
 <img src="figures/github_1.png" alt="GitHub sign-up screen" width="95%"><p class="caption">
 Figure 4.6: GitHub sign-up screen
 </p>
 </div>
-<p>GitHub does not have the most intuitive user experience in the world, but we are now going to make a new folder (which is called a ‘repo’ in Git). Look for a ‘+’ in the top right, and then select ‘New Repository’ (Figure <a href="workflow.html#fig:githubtwo">4.7</a>).</p>
+<p>We now need to make a new folder (which is called a ‘repo’ in Git). Look for a ‘+’ in the top right, and then select ‘New Repository’ (Figure <a href="reproducible-workflows.html#fig:githubtwo">4.7</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubtwo"></span>
 <img src="figures/github_2.png" alt="Start process of creating a new repository" width="95%"><p class="caption">
 Figure 4.7: Start process of creating a new repository
 </p>
 </div>
-<p>At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to ‘Initialize this repository with a README.’ Leave ‘Add .gitignore’ set to ‘None.’ After that, click ‘Create repository’ (Figure <a href="workflow.html#fig:githubthree">4.8</a>).</p>
+<p>At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to ‘Initialize this repository with a README.’ Leave ‘Add .gitignore’ set to ‘None.’ After that, click ‘Create repository’ (Figure <a href="reproducible-workflows.html#fig:githubthree">4.8</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubthree"></span>
 <img src="figures/github_3.png" alt="Finish creating a new repository" width="95%"><p class="caption">
 Figure 4.8: Finish creating a new repository
 </p>
 </div>
-<p>This will take us to a screen that is fairly empty, but the details that we need are in the green ‘Clone or Download’ button, which we can copy by clicking the clipboard (Figure <a href="workflow.html#fig:githubfour">4.9</a>).</p>
+<p>This will take us to a screen that is fairly empty, but the details that we need are in the green ‘Clone or Download’ button, which we can copy by clicking the clipboard (Figure <a href="reproducible-workflows.html#fig:githubfour">4.9</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubfour"></span>
 <img src="figures/github_4.png" alt="Get the details of your new repository" width="95%"><p class="caption">
@@ -509,7 +505,7 @@ Figure 4.9: Get the details of your new repository
 </p>
 </div>
 <p>Now returning to R Studio, we open Terminal, and use <code>cd</code> to navigate to the directory where we want to create this folder. Then type the following, replacing repo details with your own, and enter/return.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb134-1"><a href="workflow.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb137-1"><a href="reproducible-workflows.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
 <p>At this point, a new folder has been created and we can now use it.</p>
 <p>To use GitHub for a project that we are actively working on we follow a procedure:</p>
 <ol style="list-style-type: decimal">
@@ -527,13 +523,13 @@ Figure 4.9: Get the details of your new repository
 </li>
 </ol>
 <p>To summarize the workflow (assuming we are already in the relevant folder):</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="workflow.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb135-2"><a href="workflow.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb135-3"><a href="workflow.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
-<span id="cb135-4"><a href="workflow.html#cb135-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb135-5"><a href="workflow.html#cb135-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Short commit message"</span></span>
-<span id="cb135-6"><a href="workflow.html#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb135-7"><a href="workflow.html#cb135-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb138-1"><a href="reproducible-workflows.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb138-2"><a href="reproducible-workflows.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb138-3"><a href="reproducible-workflows.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb138-4"><a href="reproducible-workflows.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb138-5"><a href="reproducible-workflows.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Short commit message"</span></span>
+<span id="cb138-6"><a href="reproducible-workflows.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb138-7"><a href="reproducible-workflows.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="using-github-within-r-studio-with-the-git-pane" class="section level3" number="4.4.3">
 <h3>
@@ -541,22 +537,22 @@ Figure 4.9: Get the details of your new repository
 </h3>
 <p>The procedure that we went through is useful to better understand what is happening when we use Git and GitHub but can be a bit cumbersome. Usefully, GitHub is built into R Studio and so we can use the Git pane to move away from the Terminal.</p>
 <p>Get started by creating a new repo in GitHub, as before, and copy the repo information, as before. At this point, open R Studio, and create a new project using version control (‘Files’ -&gt; ‘New Project’ -&gt; ‘Version Control’ -&gt; ‘Git,’ and then paste the information for the repo). Follow through the rest of the set-up by naming the project something sensible, saving it somewhere sensible, and clicking ‘Open in new session,’ before creating the project. This will then create a new folder with an R Project which will be Git-initialized and linked to the GitHub repo.</p>
-<p>If we then open this R Project, we will have a ‘Git’ tab (Figure <a href="workflow.html#fig:rstudiogit">4.10</a>).</p>
+<p>If we then open this R Project, we will have a ‘Git’ tab (Figure <a href="reproducible-workflows.html#fig:rstudiogit">4.10</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rstudiogit"></span>
 <img src="figures/RStudio_git.png" alt="The Git pane in R Studio" width="95%"><p class="caption">
 Figure 4.10: The Git pane in R Studio
 </p>
 </div>
-<p>We can then use Git through that tab. As before, we first want to ‘pull,’ but we can do this by clicking the blue down arrow. As before, we want to commit the files that have changes, and we do this by selecting the ‘staged’ checkbox against the files that we would like to commit. Then ‘Commit.’ Again, we want to include a message with our commit, and we do this by typing a message in the ‘Commit message’ box and then ‘Commit.’ Finally, we can ‘Push.’ Further details on this workflow are available in Chapter 12 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020a</a>)</span>.</p>
+<p>We can then use Git through that tab. As before, we first want to ‘pull,’ but we can do this by clicking the blue down arrow. As before, we want to commit the files that have changes, and we do this by selecting the ‘staged’ checkbox against the files that we would like to commit. Then ‘Commit.’ Again, we want to include a message with our commit, and we do this by typing a message in the ‘Commit message’ box and then ‘Commit.’ Finally, we can ‘Push.’ Further details on this workflow are available in Chapter 12 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="using-github-with-usethis" class="section level3" number="4.4.4">
 <h3>
 <span class="header-section-number">4.4.4</span> Using GitHub with <code>usethis</code><a class="anchor" aria-label="anchor" href="#using-github-with-usethis"><i class="fas fa-link"></i></a>
 </h3>
-<p>We used the Git pane in R Studio to reduce the need to use the Terminal, but it did not remove the need to go to GitHub and set-up a new project. Having set Git up, we can further improve our workflow by using the <code>usethis</code> to do much of the work for us <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span>.</p>
-<p>First, we need to check that we have set-up Git with <code><a href="https://usethis.r-lib.org/reference/git_sitrep.html">usethis::git_sitrep()</a></code>. This should print information about the user. We can use <code><a href="https://usethis.r-lib.org/reference/use_git_config.html">usethis::use_git_config()</a></code> to update the username or email address. For instance,</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<p>We used the Git pane in R Studio to reduce the need to use the Terminal, but it did not remove the need to go to GitHub and set-up a new project. Having set-up Git and GitHub, we can further improve our workflow by using <code>usethis</code> to do much of the work <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span>.</p>
+<p>After installing and loading <code>usethis</code> we need to check that we have set-up Git with <code><a href="https://usethis.r-lib.org/reference/git_sitrep.html">usethis::git_sitrep()</a></code>. This should print information about the user. We can use <code><a href="https://usethis.r-lib.org/reference/use_git_config.html">usethis::use_git_config()</a></code> to update the username or email address. For instance,</p>
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org">usethis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://usethis.r-lib.org/reference/use_git_config.html">use_git_config</a></span><span class="op">(</span>user.name <span class="op">=</span> <span class="st">"Rohan Alexander"</span>, user.email <span class="op">=</span> <span class="st">"rohan.alexander@utoronto.ca"</span><span class="op">)</span></code></pre></div>
@@ -578,13 +574,13 @@ Figure 4.10: The Git pane in R Studio
 <p><span class="citation"><a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand</a> (<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">2021</a>)</span></p>
 </blockquote>
 <p>Everyone who uses R, or any programming language for that matter, has trouble find them at some point. This is normal. Programming is hard and everyone struggles sometimes. At some point code will not run or will throw an error. This is normal, and it happens to everyone. Everyone gets frustrated.</p>
-<p>To move forward we develop strategies to work through these issues. When you get errors there are steps that are worthwhile systematically going through.</p>
+<p>To move forward we develop strategies to work through the issues:</p>
 <ol style="list-style-type: decimal">
-<li>If you are getting an error message, then sometimes it will be useful. Try to read it carefully to see if there is anything of use in it.</li>
+<li>If you are get an error message, then sometimes it will be useful. Try to read it carefully to see if there is anything of use in it.</li>
 <li>Try to search, say on Google, for the error message. It can be useful to include ‘tidyverse’ or ‘in R’ in the search to help make the results more appropriate. Sometimes Stack Overflow results can be useful.</li>
-<li>Look at the help file for the function, by putting ‘?’ before the function, for instance, <code>?pivot_wider()</code>. For instance, it is common to use a slightly incorrect argument name or format such as accidentally including a string instead of a name or vice versa.</li>
-<li>Check the class of the object and ensuring that it is what it expected. We do this using <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, for instance, <code>class(data_set$data_column)</code>.</li>
-<li>Look for typos in the code.</li>
+<li>Look at the help file for the function, by putting ‘?’ before the function, for instance, <code>?pivot_wider()</code>. A common issue is to use a slightly incorrect argument name or format, such as accidentally including a string instead of an object name.</li>
+<li>Look at where the error is happening and remove code until the error is resolved, and then slowly add code back again.</li>
+<li>Check the class of the object, with <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, for instance, <code>class(data_set$data_column)</code>. Ensuring that it is what it expected.</li>
 <li>Restart R (‘Session’ -&gt; ‘Restart R and Clear Output’) and load everything again.</li>
 <li>Restart the computer.</li>
 <li>Search for what you are trying to do, rather than the error, being sure to include ‘tidyverse’ or ‘in R’ in the search to help make the results more appropriate. For instance, ‘save PDF of graph in R made using ggplot.’ Sometimes there are relevant blog posts or Stack Overflow answers that will help.</li>
@@ -600,21 +596,21 @@ Figure 4.10: The Git pane in R Studio
 <p>No one can advise or help you—no one. There is only one thing you should do. Go into yourself.</p>
 <p><span class="citation"><a href="references-1.html#ref-rilke" role="doc-biblioref">Rilke</a> (<a href="references-1.html#ref-rilke" role="doc-biblioref">1929</a>)</span></p>
 </blockquote>
-<p>Asking for help is a skill like any other. We get better at it with practice. It is important to try not to say ‘this doesn’t work,’ ‘I tried everything,’ ‘your code does not work,’ or ‘here is the error message, what do I do?’ This is because, in general, it is not possible to help based on these comments, because there are too many possibilities. Instead, you need to make it easy for others to help you. This involves a few steps.</p>
+<p>Asking for help is a skill like any other. We get better at it with practice. It is important to try not to say ‘this doesn’t work,’ ‘I tried everything,’ ‘your code does not work,’ or ‘here is the error message, what do I do?’ In general, it is not possible to help based on these comments, because there are too many possible issues. You need to make it easy for others to help you. This involves a few steps.</p>
 <ol style="list-style-type: decimal">
 <li>Provide a small, self-contained, example of your data, and code, and detail what is going wrong.</li>
-<li>Document what you have tried so far—which Stack Overflow pages have you looked at and why are they not quite what you are after? Which R Studio Community pages have you tried?</li>
+<li>Document what you have tried so far, including which Stack Overflow and R Studio Community pages have you looked at, and why are they not quite what you are after?</li>
 <li>Be clear about the outcome that you would like.</li>
 </ol>
 <p>Begin by creating a minimal REPRoducible EXample, a ‘reprex.’ This is code that contains what is needed to reproduce the error, but only what is needed. This means that the code it likely a smaller, simpler, version that nonetheless reproduces the error.</p>
 <p>Sometimes this process enables one to solve the problem. If it does not, then it gives someone else a fighting chance of being able to help. It is important to recognize that there is almost no chance that you have got a problem that someone has not addressed before. It is more likely that the main difficulty is in trying to communicate what you are trying to do and what is happening, in a way that allows others to recognize both. Developing tenacity is important.</p>
 <p>To develop reproducible examples, the <code>reprex</code> package <span class="citation">(<a href="references-1.html#ref-citereprex" role="doc-biblioref">Jennifer Bryan et al. 2019</a>)</span> is especially useful. To use it we:</p>
 <ol style="list-style-type: decimal">
-<li>Load the <code>reprex</code> package <code><a href="https://reprex.tidyverse.org">library(reprex)</a></code>.</li>
+<li>Load the <code>reprex</code> package: <code><a href="https://reprex.tidyverse.org">library(reprex)</a></code>.</li>
 <li>Highlight and copy the code that is giving issues.</li>
 <li>Run <code>reprex()</code> in the Console.</li>
 </ol>
-<p>If the code is self-contained, then it will preview in the Viewer. If it is not, then it will error.</p>
+<p>If the code is self-contained, then it will preview in the Viewer. If it is not, then it will error, and the code needs to be re-written so that it is self-contained.</p>
 <p>If you need data to reproduce the error, then you should use data that is built into R. There are a large number of datasets that are built into R and can be seen using <code><a href="https://rdrr.io/r/base/library.html">library(help = "datasets")</a></code>. But if possible, you should use a common option such as ‘mtcars’ or ‘faithful.’</p>
 </div>
 <div id="mentality" class="section level3" number="4.5.3">
@@ -636,18 +632,18 @@ Figure 4.10: The Git pane in R Studio
 <li>Done is better than perfect: We all have various perfectionist tendencies to a certain extent, but it can be useful to initially try to turn them off to a certain extent. In the first instance, try to write code that works, especially in the early days. You can always come back and improve aspects of it. But it is important to actually ship. Ugly code that gets the job done, is better than beautiful code that is never finished.</li>
 </ul>
 </div>
-<div id="code-comments" class="section level3" number="4.5.4">
+<div id="code-comments-and-style" class="section level3" number="4.5.4">
 <h3>
-<span class="header-section-number">4.5.4</span> Code comments<a class="anchor" aria-label="anchor" href="#code-comments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.5.4</span> Code comments and style<a class="anchor" aria-label="anchor" href="#code-comments-and-style"><i class="fas fa-link"></i></a>
 </h3>
-<p>Code must be commented. <span class="citation">(<a href="references-1.html#ref-lee2018ten" role="doc-biblioref">Lee 2018</a>)</span>.</p>
-<p>There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you are just working on your own. It is important to recognize that most projects will evolve over time, and one purpose served by code comments are as ‘[m]essages left for your future self (or near-future others) [that] help retrace and justify your decisions’ <span class="citation">(@ <a href="references-1.html#ref-bowers2011six" role="doc-biblioref">Bowers 2011</a>)</span>.</p>
+<p>Code must be commented <span class="citation">(<a href="references-1.html#ref-lee2018ten" role="doc-biblioref">Lee 2018</a>)</span>. Comments should focus on why certain code was written, (and to a lesser extent, why a common option is not selected).</p>
+<p>There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you are just working on your own. It is important to recognize that most projects will evolve over time, and one purpose served by code comments are as ‘[m]essages left for your future self (or near-future others) [that] help retrace and justify your decisions’ <span class="citation">(<a href="references-1.html#ref-bowers2011six" role="doc-biblioref">Bowers 2011</a>)</span>.</p>
 <p>Comments in R can be added by including the # symbol. We do not have to put a comment at the start of the line, it can be midway through. In general, we do not need to comment what every aspect of your code is doing but we should comment parts that are not obvious. For instance, if we read in some value then we may like to comment where it is coming from.</p>
-<p>You should comment why you are doing something. What are you trying to achieve?</p>
-<p>You must comment to explain weird things. Like if you are removing some specific row, say row 27, then why are you removing that row? It may seem obvious in the moment, but future-you in six months won’t remember.</p>
+<p>You should comment why you are doing something <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021a</a>)</span>. What are you trying to achieve?</p>
+<p>You must comment to explain weird things. Like if you are removing some specific row, say row 27, then why are you removing that row? It may seem obvious in the moment, but future-you in six months will not remember.</p>
 <p>You should break your code into sections. For instance, setting up the workspace, reading in datasets, manipulating and cleaning the dataset, analyzing the datasets, and finally producing tables and figures. Each of these should be separated with comments explaining what is going on, and sometimes into separate files, depending on the length.</p>
 <p>Additionally, at the top of each file it is important to basic information, such as the purpose of the file, and pre-requisites or dependencies, the date, the author and contact information, and finally and red-flags or todos.</p>
-<p>At the very least every R script needs a preamble.</p>
+<p>At the very least every R script needs a preamble and a clear demarcation of sections.</p>
 <pre><code><a href="https://tidyverse.tidyverse.org">#### Preamble ####
 # Purpose: Brief sentence about what this script does
 # Author: Your name
@@ -681,16 +677,67 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <span class="header-section-number">4.6.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li>What are three features of a good research question (write a paragraph or two)?</li>
-<li>What is a counterfactual (pick one)?
+<li>According to <span class="citation"><a href="references-1.html#ref-Alexander2019" role="doc-biblioref">M. Alexander</a> (<a href="references-1.html#ref-Alexander2019" role="doc-biblioref">2019a</a>)</span> research is reproducible if (pick one)?
 <ol style="list-style-type: lower-alpha">
-<li>If-then statements in which the if didn’t happen.</li>
-<li>If-then statements in which the if happen.</li>
-<li>Statements that are either true or false.</li>
-<li>Statements that are neither true or false.</li>
+<li>It is published in peer-reviewed journals.</li>
+<li>All of the materials used in the study are provided.</li>
+<li>It can be reproduced exactly without the authors providing materials.</li>
+<li>It can be reproduced exactly, given all the materials used in the study.</li>
 </ol>
 </li>
-<li>How do you hide the warnings in a R Markdown R chunk (pick one)?
+<li>According to the timeline of <span class="citation"><a href="references-1.html#ref-Gelman2016" role="doc-biblioref">Gelman</a> (<a href="references-1.html#ref-Gelman2016" role="doc-biblioref">2016</a>)</span>, a) when did Paul Meehl identify various issues; and b) when did null hypothesis significance testing (NHST) become controversial (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>1970s-1980s; 1990s-2000.</li>
+<li>1960s-1970s; 1980s-1990.</li>
+<li>1970s-1980s; 1980s-1990.</li>
+<li>1960s-1970s; 1990s-2000.</li>
+</ol>
+</li>
+<li>Which of the following are components of the project layout recommended by <span class="citation"><a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">Wilson et al.</a> (<a href="references-1.html#ref-wilsongoodenough" role="doc-biblioref">2017</a>)</span> (select all that apply)?
+<ol style="list-style-type: lower-alpha">
+<li>requirements.txt</li>
+<li>doc</li>
+<li>data</li>
+<li>LICENSE</li>
+<li>CITATION</li>
+<li>README</li>
+<li>src</li>
+<li>results</li>
+</ol>
+</li>
+<li>Based on <span class="citation"><a href="references-1.html#ref-monicatalks" role="doc-biblioref">M. Alexander</a> (<a href="references-1.html#ref-monicatalks" role="doc-biblioref">2021</a>)</span> please write a paragraph about some of the barriers you overcame, or still face, with regard to sharing code that you wrote.</li>
+<li>According to <span class="citation"><a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand</a> (<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">2021</a>)</span>, what is the key part of ‘If you need help getting unstuck, the first step is to create a reprex, or reproducible example. The goal of a reprex is to package your problematic code in such a way that other people can run it and feel your pain. Then, hopefully, they can provide a solution and put you out of your misery.’ (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>package your problematic code</li>
+<li>other people can run it and feel your pain</li>
+<li>the first step is to create a reprex</li>
+<li>they can provide a solution and put you out of your misery</li>
+</ol>
+</li>
+<li>According to <span class="citation"><a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand</a> (<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">2021</a>)</span>, what are the three key aspects of a reprex (select all that apply)?
+<ol style="list-style-type: lower-alpha">
+<li>data</li>
+<li>only the libraries that are necessary and all the libraries that are necessary</li>
+<li>relevant code and only relevant code</li>
+</ol>
+</li>
+<li>According to <span class="citation"><a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">2021a</a>)</span> for naming files, how would these files ‘00_get_data.R,’ ‘get data.R’ be classified (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li>bad; bad.</li>
+<li>good; bad.</li>
+<li>bad; good.</li>
+<li>good; good.</li>
+</ol>
+</li>
+<li>Which of the following would result in bold text in R Markdown (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>**bold**</code></li>
+<li><code>##bold##</code></li>
+<li><code>*bold*</code></li>
+<li><code>#bold#</code></li>
+</ol>
+</li>
+<li>Which option would hide the warnings in a R Markdown R chunk (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li><code>echo = FALSE</code></li>
 <li><code>include = FALSE</code></li>
@@ -699,22 +746,24 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <li><code>message = FALSE</code></li>
 </ol>
 </li>
-<li>What is a reprex and why is it important to be able to make one (select all)?
+<li>Which options would run the R code chunk, but not display the code in a R Markdown R chunk (pick one)?
 <ol style="list-style-type: lower-alpha">
-<li>A reproducible example that enables your error to be reproduced.</li>
-<li>A reproducible example that helps others help you.</li>
-<li>A reproducible example during the construction of which you may solve your own problem.</li>
-<li>A reproducible example that demonstrates you’ve actually tried to help yourself.</li>
+<li><code>echo = FALSE</code></li>
+<li><code>include = FALSE</code></li>
+<li><code>eval = FALSE</code></li>
+<li><code>warning = FALSE</code></li>
+<li><code>message = FALSE</code></li>
 </ol>
 </li>
-<li>Why are R Projects important (select all)?
+<li>Why are R Projects important (select all that apply)?
 <ol style="list-style-type: lower-alpha">
 <li>They help with reproducibility.</li>
 <li>They make it easier to share code.</li>
 <li>They make your workspace more organized.</li>
-<li>They are all that needs to be done.</li>
+<li>They ensure reproducibility.</li>
 </ol>
 </li>
+<li>Please discuss a circumstance in which an R Project would be useful.</li>
 <li>Consider this sequence: ‘<code>git pull</code>, <code>git status</code>, ________, <code>git status</code>, <code>git commit -m "My message"</code>, <code>git push</code>.’ What is the missing step (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>
@@ -727,14 +776,29 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <code>git push</code>.</li>
 </ol>
 </li>
+<li>Assuming the libraries and datasets have been loaded, what is the mistake in this code: <code>DoctorVisits |&gt; select("visits")</code> (pick one)?
+<ol style="list-style-type: lower-alpha">
+<li><code>"visits"</code></li>
+<li><code>DoctorVisits</code></li>
+<li><code>select</code></li>
+<li><code>|&gt;</code></li>
+</ol>
+</li>
+<li>What is a reprex and why is it important to be able to make one (select all that apply)?
+<ol style="list-style-type: lower-alpha">
+<li>A reproducible example that enables your error to be reproduced.</li>
+<li>A reproducible example that helps others help you.</li>
+<li>A reproducible example during the construction of which you may solve your own problem.</li>
+<li>A reproducible example that demonstrates you have actually tried to help yourself.</li>
+</ol>
+</li>
 </ol>
 </div>
 <div id="tutorial-3" class="section level3" number="4.6.2">
 <h3>
 <span class="header-section-number">4.6.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Make a first contribution: ‘First Contributions’ <a href="https://github.com/forwards/first-contributions" class="uri">https://github.com/forwards/first-contributions</a>.</p>
-<p>Write some code and exchange it with someone else. Another great way to learn is by exchanging your code with others. Initially, just have them read it and give you feedback about it. But after you get a bit more confident run each other’s code. The most efficiently I’ve ever improved in my R journey has been by having Monica try to run my code.</p>
+<p>Please put together a small R Markdown file that downloads a dataset using <code>opendatatoronto</code>, cleans it, and makes a graph. Then exchange it with someone else. Ask them to both read the code and to run it, and to then provide you with feedback about both aspects. Write a page or two about the comments that you received and changes that you could make going forward.</p>
 
 </div>
 </div>
@@ -748,7 +812,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#workflow"><span class="header-section-number">4</span> Workflow</a></li>
+<li><a class="nav-link" href="#reproducible-workflows"><span class="header-section-number">4</span> Reproducible workflows</a></li>
 <li><a class="nav-link" href="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
 <li>
 <a class="nav-link" href="#r-markdown"><span class="header-section-number">4.2</span> R Markdown</a><ul class="nav navbar-nav">
@@ -774,7 +838,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <li><a class="nav-link" href="#dealing-with-errors"><span class="header-section-number">4.5.1</span> Dealing with errors</a></li>
 <li><a class="nav-link" href="#reproducible-examples"><span class="header-section-number">4.5.2</span> Reproducible examples</a></li>
 <li><a class="nav-link" href="#mentality"><span class="header-section-number">4.5.3</span> Mentality</a></li>
-<li><a class="nav-link" href="#code-comments"><span class="header-section-number">4.5.4</span> Code comments</a></li>
+<li><a class="nav-link" href="#code-comments-and-style"><span class="header-section-number">4.5.4</span> Code comments and style</a></li>
 </ul>
 </li>
 <li>
@@ -804,7 +868,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

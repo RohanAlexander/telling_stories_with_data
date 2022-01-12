@@ -110,14 +110,10 @@ Often time will be constrained, possibly in interesting ways and these can guide
 
 Usually, the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{figures/humpty} 
-
-}
-
-\caption{Humpty Dumpty example}(\#fig:humpty)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/humpty.png" alt="Humpty Dumpty example" width="95%" />
+<p class="caption">(\#fig:humpty)Humpty Dumpty example</p>
+</div>
 
 Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won't ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.
 
@@ -179,9 +175,10 @@ If you use a technical term, then it should be briefly explained in plain langua
 ### On brevity
 
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{figures/johnson} \caption{'No more than four pages, or he's never going to read it. Two pages is preferable.'}(\#fig:unnamed-chunk-2)
-\end{figure}
+<div class="figure">
+<img src="figures/johnson.png" alt="'No more than four pages, or he's never going to read it. Two pages is preferable.'" width="90%" />
+<p class="caption">(\#fig:unnamed-chunk-2)'No more than four pages, or he's never going to read it. Two pages is preferable.'</p>
+</div>
 Source: Shipman, Tim, 2020, "The prime minister's vanishing briefs', The Sunday Times, 23 February, available at: https://www.thetimes.co.uk/article/the-prime-ministers-vanishing-briefs-67mt0bg95 via [Sarah Nickson](https://twitter.com/sarahjnickson).
 
 
@@ -250,6 +247,12 @@ You should break these rules when you need to. But the only way to know whether 
     b. word
     c. another
     d. word
+1. What are three features of a good research question (write a paragraph or two)?
+2. What is a counterfactual (pick one)?
+    a. If-then statements in which the if didn't happen.
+    b. If-then statements in which the if happen.
+    c. Statements that are either true or false.
+    c. Statements that are neither true or false.
 
 
 

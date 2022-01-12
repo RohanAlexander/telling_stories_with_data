@@ -56,7 +56,7 @@
 <li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
 <li><a class="" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
 <li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
-<li><a class="" href="workflow.html"><span class="header-section-number">4</span> Workflow</a></li>
+<li><a class="" href="reproducible-workflows.html"><span class="header-section-number">4</span> Reproducible workflows</a></li>
 <li class="book-part">Communication</li>
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="active" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
@@ -250,7 +250,7 @@ Figure 6.1: How do we get started with our data?
 <!-- #   y = value) -->
 <!-- ``` -->
 <p>Let’s look at a somewhat fun example from the <code>datasauRus</code> package <span class="citation">(<a href="references-1.html#ref-citedatasauRus" role="doc-biblioref">Locke and D’Agostino McGowan 2018</a>)</span>.</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lockedata/datasauRus">datasauRus</a></span><span class="op">)</span>
 
 <span class="co"># Code from: https://juliasilge.com/blog/datasaurus-multiclass/</span>
@@ -269,7 +269,7 @@ Figure 6.1: How do we get started with our data?
 <span class="co">#&gt; 3 dino       54.3  16.8   47.8  26.9 -0.0645</span>
 <span class="co">#&gt; 4 star       54.3  16.8   47.8  26.9 -0.0630</span></code></pre></div>
 <p>And despite these similarities at a summary statistic level, they’re actually very different, well, beasts, when you plot the raw data.</p>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">datasaurus_dozen</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dataset</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dino"</span>, <span class="st">"star"</span>, <span class="st">"away"</span>, <span class="st">"bullseye"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>, y<span class="op">=</span><span class="va">y</span>, colour<span class="op">=</span><span class="va">dataset</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -284,7 +284,7 @@ Figure 6.1: How do we get started with our data?
 </h3>
 <p>Bar charts are useful when you have one variable that you want to focus on. Hint: you almost always have one variable that you want to focus on. Hence, you should almost always include at least one (and likely many) bar charts. Bar charts go by a variety of names, depending on their specifics. I recommend the <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf">R Studio Data Viz Cheat Sheet</a>.</p>
 <p>To get started, let’s simulate some data.</p>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_observation</span> <span class="op">&lt;-</span> <span class="fl">10000</span>
@@ -305,7 +305,7 @@ Figure 6.1: How do we get started with our data?
                                              prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span>
                        <span class="op">)</span></code></pre></div>
 <p>First, let’s have a look at the data.</p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">example_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 5</span>
 <span class="co">#&gt;   person smoker     age_died height num_children</span>
@@ -317,13 +317,13 @@ Figure 6.1: How do we get started with our data?
 <span class="co">#&gt; 5      5 Smoker           32    135            1</span>
 <span class="co">#&gt; 6      6 Smoker           37    220            0</span></code></pre></div>
 <p>Now let’s plot the age distribution. Based on our simulated data, we’re expecting a fairly uniform plot.</p>
-<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_died</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p>Now let’s make it look a little better. There are themes that are built into ggplot, or you can install other themes from other packages, or you can edit aspects yourself. I’d recommend starting with the <code>ggthemes</code> package for some fun ones, but I tend to just use classic or minimal. Remember that you must always refer to your graphs in your text (Figure <a href="static-communication.html#fig:myfrstgraph">6.2</a>).</p>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_died</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -339,7 +339,7 @@ Figure 6.2: Number of people who died at each age
 </p>
 </div>
 <p>We may want to facet by some variable, in this case whether the person is a smoker (Figure <a href="static-communication.html#fig:mysecndgraph">6.3</a>).</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_died</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -356,7 +356,7 @@ Figure 6.3: Number of people who died at each age, by whether they smoke
 </p>
 </div>
 <p>Alternatively, we may wish to colour by that instead (Figure <a href="static-communication.html#fig:mysthidgraph">6.4</a>). I’ll filter to just a handful of age-groups to keep it tractable.</p>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">age_died</span> <span class="op">&lt;</span> <span class="fl">25</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_died</span>, fill <span class="op">=</span> <span class="va">smoker</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -380,7 +380,7 @@ Figure 6.4: Number of people who died at each age, by whether they smoke
 <span class="header-section-number">6.2.2</span> Scatter plot<a class="anchor" aria-label="anchor" href="#scatter-plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>Often, we are also interested in the relationship between two series. We’ll do that with a scatter plot. A scatter plot is almost always your best choice <span class="citation">(<a href="references-1.html#ref-weissgerber2015beyond" role="doc-biblioref">Weissgerber et al. 2015</a>)</span>. In this case, let’s simulate some data, say years of education and income.</p>
-<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_observation</span> <span class="op">&lt;-</span> <span class="fl">500</span>
@@ -403,7 +403,7 @@ Figure 6.4: Number of people who died at each age, by whether they smoke
 <span class="co">#&gt; 5               10.6  -1500. 51302.</span>
 <span class="co">#&gt; 6               16.1   1911. 82202.</span></code></pre></div>
 <p>Now let’s look at income as a function of years of education (Figure <a href="static-communication.html#fig:scattorplot">6.5</a>).</p>
-<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">scatter_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">years_of_education</span>, y <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -424,7 +424,7 @@ Figure 6.5: Relationship between income and years of education
 <span class="header-section-number">6.2.3</span> Never use box plots<a class="anchor" aria-label="anchor" href="#never-use-box-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>Box plots are almost never appropriate because they hide the distribution of data. To see this, consider some data from a beta distribution.</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">left</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="fl">5</span>,<span class="fl">2</span><span class="op">)</span>
 <span class="va">right</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="fl">2</span>,<span class="fl">5</span><span class="op">)</span>
 <span class="va">middle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="fl">5</span>,<span class="fl">5</span><span class="op">)</span>
@@ -438,17 +438,17 @@ Figure 6.5: Relationship between income and years of education
          middle <span class="op">=</span> 
            <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">20000</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Then compare the box plots.</p>
-<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">tricky_data</span><span class="op">$</span><span class="va">left_and_right</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">tricky_data</span><span class="op">$</span><span class="va">middle</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-10-2.png" width="672"></div>
-<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">tricky_data</span><span class="op">$</span><span class="va">left_and_right</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-10-3.png" width="672"></div>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">tricky_data</span><span class="op">$</span><span class="va">middle</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-10-4.png" width="672"></div>
 </div>
@@ -461,7 +461,7 @@ Figure 6.5: Relationship between income and years of education
 <span class="header-section-number">6.2.4.1</span> Best fit<a class="anchor" aria-label="anchor" href="#best-fit"><i class="fas fa-link"></i></a>
 </h4>
 <p>If we’re interested in quickly adding a line of best fit then, continuing with the earlier income example, we can do that with <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code> (Figure <a href="static-communication.html#fig:scattorplottwo">6.6</a>).</p>
-<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">scatter_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">years_of_education</span>, y <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -484,7 +484,7 @@ Figure 6.6: Relationship between income and years of education
 <span class="header-section-number">6.2.4.2</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram"><i class="fas fa-link"></i></a>
 </h4>
 <p>If we want to get counts by groups, then we may want to use a histogram. Figure <a href="static-communication.html#fig:hisogramone">6.7</a> shows the counts for our simulated incomes.</p>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">scatter_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -507,7 +507,7 @@ Figure 6.7: Distribution of income
 <span class="header-section-number">6.2.4.3</span> Multiple plots<a class="anchor" aria-label="anchor" href="#multiple-plots"><i class="fas fa-link"></i></a>
 </h4>
 <p>Finally, let’s try putting them together. We’re going to use the <code>patchwork</code> package <span class="citation">(<a href="references-1.html#ref-citepatchwork" role="doc-biblioref">Pedersen 2020</a>)</span> and the <code>penguins</code> package for data. Don’t forget <code>install.packages("palmerpenguins")</code> as this is probably the first time you’ve used the package.</p>
-<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
 
@@ -525,7 +525,7 @@ Figure 6.7: Distribution of income
 <span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>And we can make things fairly involved fairly quickly.</p>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="op">(</span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span>
   <span class="va">p2</span></code></pre></div>
@@ -539,7 +539,7 @@ Figure 6.7: Distribution of income
 </h2>
 <p>Tables are also critical to tell a compelling story. We may prefer a table to a graph when there are only a few features that we want to focus on. We’ll use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> alongside the ‘kableExtra’ package and also the <code>gt</code> package.</p>
 <p>Let’s start with the kable package and the summary dinosaur data from earlier.</p>
-<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op">&lt;-</span> 
   <span class="va">datasaurus_dozen</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dataset</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dino"</span>, <span class="st">"star"</span>, <span class="st">"away"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -576,7 +576,7 @@ Figure 6.7: Distribution of income
 </tbody>
 </table></div>
 <p>Even the defaults are pretty good, but we can add a few tweaks to make the table better. The first is that this many significant digits is inappropriate, we may also like to add a caption, make the column names consistent, and change the alignment.</p>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span>, 
                caption <span class="op">=</span> <span class="st">"My first table."</span>, 
@@ -611,7 +611,7 @@ Figure 6.7: Distribution of income
 </table></div>
 <p>The ‘’kableExtra’ package builds extra functionality <span class="citation">(<a href="references-1.html#ref-citekableextra" role="doc-biblioref">Zhu 2020</a>)</span>.</p>
 <p>The <code>gt</code> package <span class="citation">(<a href="references-1.html#ref-citegt" role="doc-biblioref">Iannone, Cheng, and Schloerke 2020</a>)</span> is a newer package that brings a lot of exciting features. However, being newer it sometimes has issues with PDF output.</p>
-<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gt.rstudio.com/">gt</a></span><span class="op">)</span>
 
 <span class="va">example_data</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
@@ -980,7 +980,7 @@ Figure 6.7: Distribution of income
 </table></div>
 </div>
 <p>We could add sub-titles easily.</p>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">example_data</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://gt.rstudio.com/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://gt.rstudio.com/reference/tab_header.html">tab_header</a></span><span class="op">(</span>
@@ -1359,7 +1359,7 @@ Figure 6.7: Distribution of income
 </table></div>
 </div>
 <p>One common reason for needing a table is to report regression results. You should consider <code>gtsummary</code>, <code>stargazer</code>, and <code>modelsummary</code>. But at the moment, my favourite is <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021</a>)</span>.</p>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'modelsummary'</span>
@@ -1472,7 +1472,7 @@ F
 <span class="header-section-number">6.4</span> Maps<a class="anchor" aria-label="anchor" href="#maps"><i class="fas fa-link"></i></a>
 </h2>
 <p>In many ways maps can be thought of as a fancy graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We are used to this type of set-up, for instance, in a ggplot setting that is quite familiar. Static maps will be useful for printed output, such as a PDF or Word report, or where there is something in particular that you want to illustrate.</p>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span> <span class="co"># First draw an outline</span>
     data <span class="op">=</span> <span class="va">some_data</span>, 
@@ -1486,7 +1486,7 @@ F
         y <span class="op">=</span> <span class="va">longitude</span><span class="op">)</span>
     <span class="op">)</span></code></pre></div>
 <p>And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. And helpfully, there is some geographic data built into ggplot, and there is some other information built into a package called <code>maps</code>.</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">maps</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -1511,7 +1511,7 @@ F
 <span class="co">#&gt; 5    Aklavik NT          NT    643 68.22 -135.00       0</span>
 <span class="co">#&gt; 6    Albanel QC          QC   1090 48.87  -72.42       0</span></code></pre></div>
 <p>With that information in hand we can then create a map of Canada that shows the cities with a population over 1,000. (The <code><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon()</a></code> function within <code>ggplot</code> draws shapes, by connecting points within groups. And the <code><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map()</a></code> function adjusts for the fact that we are making something that is 2D map to represent something that is 3D.)</p>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">canada</span>,
                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>,
@@ -1528,7 +1528,7 @@ F
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># If I'm being honest, this 'simple example' took me six hours to work out. Firstly </span>
 <span class="co"># to find Canada and then to find Canadian cities.</span></code></pre></div>
 <p>As is often the case with R, there are many different ways to get started creating static maps. We’ve already seen how they can be built using simply ggplot, but here we’ll explore one package that has a bunch of functionalities built in that will make things easier: <code>ggmap</code>.</p>
@@ -1539,19 +1539,19 @@ F
 </h3>
 <p>Like Canada, in Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.</p>
 <p>To get started we need to get a tile. We are going to use <code>ggmap</code> to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. (It can be useful to use Google Maps, or an alternative, to find the values of these that you need.) The bounding box provides the coordinates of the edges that you are interested in. In this case I have provided it with coordinates such that it will be centered around Canberra, Australia (our equivalent of Ottawa - a small city that was created for the purposes of being the capital).</p>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 
 <span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="fl">148.95</span>, bottom <span class="op">=</span> <span class="op">-</span><span class="fl">35.5</span>, right <span class="op">=</span> <span class="fl">149.3</span>, top <span class="op">=</span> <span class="op">-</span><span class="fl">35.1</span><span class="op">)</span></code></pre></div>
 <p>Once you have defined the bounding box, then the function <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. I’ve chosen the maptype that I like here - the black and white option - but the helpfile specifies a few others that you may like. At this point you can pass your maps to ggmap and it will plot the tile! It will be actively downloading these tiles, so you need an internet connection.</p>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">canberra_stamen_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox</span>, zoom <span class="op">=</span> <span class="fl">11</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
 <p>Once we have a map then we can use <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> to plot it. (That circle in the middle of the map is where the Australian Parliament House is… yes, our parliament is surrounded by circular roads (we call them ‘roundabouts’), actually it’s surrounded by two of them.)</p>
 <p>Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which ‘division’ (the Australian equivalent to ‘ridings’ in Canada) it is. This is available here: <a href="https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv" class="uri">https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv</a>. (The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.)</p>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Read in the booths data for each year</span>
 <span class="va">booths</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://results.aec.gov.au/24310/Website/Downloads/GeneralPollingPlacesDownload-24310.csv"</span>, 
                           skip <span class="op">=</span> <span class="fl">1</span>, 
@@ -1574,7 +1574,7 @@ F
 <span class="co">#&gt; #   PremisesStateAb &lt;chr&gt;, PremisesPostCode &lt;chr&gt;,</span>
 <span class="co">#&gt; #   Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;</span></code></pre></div>
 <p>This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we will filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still ‘booths’ in this dataset).</p>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Reduce the booths data to only rows with that have latitude and longitude</span>
 <span class="va">booths_reduced</span> <span class="op">&lt;-</span>
   <span class="va">booths</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
@@ -1583,7 +1583,7 @@ F
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Longitude</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># Remove rows that don't have a geography</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Longitude</span> <span class="op">&lt;</span> <span class="fl">165</span><span class="op">)</span> <span class="co"># Remove Norfolk Island</span></code></pre></div>
 <p>Now we can use <code>ggmap</code> in the same way as before to plot our underlying tiles, and then build on that using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to add our points of interest.</p>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span>, 
       extent <span class="op">=</span> <span class="st">"normal"</span>, 
       maprange <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
@@ -1603,7 +1603,7 @@ F
         panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 <p>We may like to save the map so that we don’t have to draw it every time, and we can do that in the same way as any other graph, using <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code>.</p>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"outputs/figures/map.pdf"</span>, width <span class="op">=</span> <span class="fl">20</span>, height <span class="op">=</span> <span class="fl">10</span>, units <span class="op">=</span> <span class="st">"cm"</span><span class="op">)</span></code></pre></div>
 <p>Finally, the reason that I used Stamen Maps and OpenStreetMap is because it is open source, however you can also use Google Maps if you want. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. The <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code> function with <code>ggmap</code>, brings some nice features that <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> does not have. For instance, you can enter a placename and it’ll do it’s best to find it rather than needing to specify a bounding box.</p>
 </div>
@@ -1612,7 +1612,7 @@ F
 <span class="header-section-number">6.4.2</span> Toronto bike parking<a class="anchor" aria-label="anchor" href="#toronto-bike-parking"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s see another example of a static map, this time using Toronto data accessed via the <code>opendatatoronto</code> package. The dataset that we are going to plot is available here: <a href="https://open.toronto.ca/dataset/street-furniture-bicycle-parking/" class="uri">https://open.toronto.ca/dataset/street-furniture-bicycle-parking/</a>.</p>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This code is based on code from: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sharlagelfand.github.io/opendatatoronto/">opendatatoronto</a></span><span class="op">)</span>
 <span class="co"># (The string identifies the package.)</span>
@@ -1622,7 +1622,7 @@ F
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">raw_data</span>, <span class="st">"inputs/data/bike_racks.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_data</span><span class="op">)</span></code></pre></div>
 <p>Now that we’ve saved a copy of the data, we can use that one. First, we need to clean it up a bit. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we’ll just ignore it.</p>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"inputs/data/bike_racks.csv"</span><span class="op">)</span>
 <span class="co"># We'll just focus on the data that we want</span>
 <span class="va">bike_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ward <span class="op">=</span> <span class="va">raw_data</span><span class="op">$</span><span class="va">WARD</span>,
@@ -1633,7 +1633,7 @@ F
                     longitude <span class="op">=</span> <span class="va">raw_data</span><span class="op">$</span><span class="va">LONGITUDE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">raw_data</span><span class="op">)</span></code></pre></div>
 <p>Some of the bike racks were temporary so remove them and also let’s just look at the area around the university, which is Ward 11</p>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Only keep ones that still exist</span>
 <span class="va">bike_data</span> <span class="op">&lt;-</span> 
   <span class="va">bike_data</span> <span class="op"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></span>
@@ -1644,7 +1644,7 @@ F
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ward</span> <span class="op">==</span> <span class="fl">11</span><span class="op">)</span> <span class="op"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">ward</span><span class="op">)</span></code></pre></div>
 <p>If you look at the dataset at this point, then you’ll notice that there is a row for every bike parking spot. But we don’t really need to know that, because sometimes there are lots right next to each other. Instead, we’d just like the one point (we’ll take advantage of this in an interactive graph in a moment). So, we want to create a count by address, and then just get one instance per address.</p>
-<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bike_data</span> <span class="op">&lt;-</span> 
   <span class="va">bike_data</span> <span class="op"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">street_address</span><span class="op">)</span> <span class="op"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></span> 
@@ -1668,7 +1668,7 @@ F
 
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">bike_data</span>, <span class="st">"outputs/data/bikes.csv"</span><span class="op">)</span></code></pre></div>
 <p>Now we can grab our tile and add our bike rack data onto it.</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="op">-</span><span class="fl">79.420390</span>, bottom <span class="op">=</span> <span class="fl">43.642658</span>, right <span class="op">=</span> <span class="op">-</span><span class="fl">79.383354</span>, top <span class="op">=</span> <span class="fl">43.672557</span><span class="op">)</span>
 
 <span class="va">toronto_stamen_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox</span>, zoom <span class="op">=</span> <span class="fl">14</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span>
@@ -1690,11 +1690,11 @@ F
 </h3>
 <p>To this point we just assumed that we already had geocoded data. The places ‘Canberra, Australia,’ or ‘Ottawa, Canada,’ are just names, they don’t actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding.</p>
 <p>There are a range of options to geocode data in R, but one good package is <code>tidygeocoder</code> <span class="citation">(<a href="references-1.html#ref-citetidygeocoder" role="doc-biblioref">Cambon and Belanger 2021</a>)</span>. To get started using the package we need a dataframe of locations. So we’ll just quickly make one here.</p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_locations</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>city <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Canberra'</span>, <span class="st">'Ottawa'</span><span class="op">)</span>,
          country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Australia'</span>, <span class="st">'Canada'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tidygeocoder</span><span class="fu">::</span><span class="fu"><a href="https://jessecambon.github.io/tidygeocoder/reference/geo.html">geo</a></span><span class="op">(</span>city <span class="op">=</span> <span class="va">some_locations</span><span class="op">$</span><span class="va">city</span>, 
                   country <span class="op">=</span> <span class="va">some_locations</span><span class="op">$</span><span class="va">country</span>, 
                   method <span class="op">=</span> <span class="st">'osm'</span><span class="op">)</span>
@@ -1807,7 +1807,7 @@ F
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

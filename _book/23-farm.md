@@ -86,11 +86,11 @@ ontario_population <-
 #> Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B
 
 head(ontario_population)
-#> # A tibble: 1 x 9
+#> # A tibble: 1 × 9
 #>   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households
 #>   <chr>  <fct> <fct>                  <dbl>      <dbl>     <dbl>      <dbl>
 #> 1 35     PR    Ontario              986722.   13448494   5598391    5169174
-#> # ... with 2 more variables: C_UID <chr>, v_CA16_1: Age Stats <dbl>
+#> # … with 2 more variables: C_UID <chr>, v_CA16_1: Age Stats <dbl>
 ```
 
 The package is fiddly, however it is worthwhile to ensure a reproducible workflow if the data that you are interested in are included. The two helper functions--- `list_census_regions()` and `list_census_vectors()` --- may be useful identify the arguments of interest.

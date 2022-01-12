@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "10 January, 2022"
+date: "12 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -23,9 +23,10 @@ cover-image: tellingstorieswithdatapainting.png
 
 # Preface {-}
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting} \caption{Telling stories with data}(\#fig:unnamed-chunk-1)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
+<p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
+</div>
 
 This book will help you tell stories with data. It establishes a foundation on which you can build and share knowledge about an aspect of the world of interest to you based on data that you observe. Telling stories in small groups around a fire played a critical role in the development of humans and society [@wiessner2014embers]. Today our stories, based on data, can influence millions.
 
@@ -57,7 +58,7 @@ All of that said, some of the most successful students have been those with no q
 
 This book is structured around six parts: I) Foundations, II) Communication, III) Acquisition, IV) Preparation, V) Modelling, and VI) Enrichment.
 
-Part I -- Foundations -- begins with Chapter \@ref(telling-stories-with-data), which provides an overview of what I am trying to achieve with this book and why you should read it. Chapter \@ref(drinking-from-a-fire-hose) provides some worked examples. The intention of these is that you can experience the full workflow recommended in this book without worrying too much about the specifics of what is happening. That workflow is: plan, simulate, acquire, model, and communicate. It is normal to not follow everything in this chapter, but you should go through it, typing out and executing the code yourself. If you only have time to read one chapter of this book, then I recommend that one. Chapter \@ref(r-essentials) goes through some essential tasks in R, which is the statistical programming language used in this book. It is more of a reference chapter, and you may find yourself returning to it from time to time. And Chapter \@ref(workflow) introduces some key tools used in the workflow that I advocate. These are things like using the command line, R Markdown, R Projects, Git and GitHub, using R in practice, and developing research questions.
+Part I -- Foundations -- begins with Chapter \@ref(telling-stories-with-data), which provides an overview of what I am trying to achieve with this book and why you should read it. Chapter \@ref(drinking-from-a-fire-hose) provides some worked examples. The intention of these is that you can experience the full workflow recommended in this book without worrying too much about the specifics of what is happening. That workflow is: plan, simulate, acquire, model, and communicate. It is normal to not follow everything in this chapter, but you should go through it, typing out and executing the code yourself. If you only have time to read one chapter of this book, then I recommend that one. Chapter \@ref(r-essentials) goes through some essential tasks in R, which is the statistical programming language used in this book. It is more of a reference chapter, and you may find yourself returning to it from time to time. And Chapter \@ref(workflow) introduces some key tools for reproducibility used in the workflow that I advocate. These are things like using the command line, R Markdown, R Projects, Git and GitHub, and using R in practice.
 
 Part II -- Communication -- considers three types of communication: written, static, and interactive. Chapter \@ref(on-writing) details the features that quantitative writing should have and how to go about writing a crisp, technical, paper. Static communication in Chapter \@ref(static-communication) introduces features like graphs, tables, and maps. Interactive communication in Chapter \@ref(interactive-communication) covers aspects such as websites, web applications, and maps that can be manipulated.
 
@@ -149,9 +150,7 @@ Finally, thank you to Monica Alexander. Without you I would not have written a b
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
-\BeginKnitrBlock{flushright}
-Rohan Alexander  
-Toronto, Canada
-\EndKnitrBlock{flushright}
+\BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
+Toronto, Canada</p>\EndKnitrBlock{flushright}
 
 
