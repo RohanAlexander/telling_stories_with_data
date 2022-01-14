@@ -126,10 +126,14 @@ That said, there is some evidence that data scientists are beginning to be more 
 
 The purpose of ethical consideration and concern for the broader impact of data science is not to prescriptively rule things in or out, but to provide an opportunity to raise some issues that should be paramount. The variety of data science applications, the relative youth of the field, and the speed of change, mean that such considerations are sometimes knowingly set aside, and this is acceptable to the rest of the field. This contrasts with fields such as science, medicine, engineering, and accounting. Possibly those fields are more self-aware (Figure \@ref(fig:personalprobability)).
 
-<div class="figure" style="text-align: center">
-<img src="figures/probability.png" alt="Probability, from XKCD" width="90%" />
-<p class="caption">(\#fig:personalprobability)Probability, from XKCD</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/probability} 
+
+}
+
+\caption{Probability, from XKCD}(\#fig:personalprobability)
+\end{figure}
 
 
 
@@ -170,10 +174,9 @@ R Studio is free in the sense that we do not pay for it. It is also free in the 
 
 When we open R Studio it will look like Figure \@ref(fig:first).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/01.png" alt="Opening R Studio for the first time" width="100%" />
-<p class="caption">(\#fig:first)Opening R Studio for the first time</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/01} \caption{Opening R Studio for the first time}(\#fig:first)
+\end{figure}
 
 The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt '>', typing '2+2', and then pressing 'return/enter'.
 
@@ -232,7 +235,7 @@ AustralianPoliticians::get_auspol('all') |>
   as_tibble() |> 
   filter(wasPrimeMinister == 1) |> 
   count(gender)
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   gender     n
 #>   <chr>  <int>
 #> 1 female     1
@@ -249,16 +252,16 @@ The idea of the pipe is that we take a dataset, and then do something to it. We 
 ```r
 AustralianPoliticians::get_auspol('all') |> 
   head()
-#> # A tibble: 6 × 20
+#> # A tibble: 6 x 20
 #>   uniqueID   surname allOtherNames      firstName commonName
 #>   <chr>      <chr>   <chr>              <chr>     <chr>     
-#> 1 Abbott1859 Abbott  Richard Hartley S… Richard   <NA>      
+#> 1 Abbott1859 Abbott  Richard Hartley S~ Richard   <NA>      
 #> 2 Abbott1869 Abbott  Percy Phipps       Percy     <NA>      
 #> 3 Abbott1877 Abbott  Macartney          Macartney Mac       
-#> 4 Abbott1886 Abbott  Charles Lydiard A… Charles   Aubrey    
+#> 4 Abbott1886 Abbott  Charles Lydiard A~ Charles   Aubrey    
 #> 5 Abbott1891 Abbott  Joseph Palmer      Joseph    <NA>      
 #> 6 Abbott1957 Abbott  Anthony John       Anthony   Tony      
-#> # … with 15 more variables: displayName <chr>,
+#> # ... with 15 more variables: displayName <chr>,
 #> #   earlierOrLaterNames <chr>, title <chr>, gender <chr>,
 #> #   birthDate <date>, birthYear <dbl>, birthPlace <chr>,
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
@@ -268,10 +271,9 @@ AustralianPoliticians::get_auspol('all') |>
 
 We can save this R Script as 'my_first_r_script.R' ('File' -> 'Save As'). At this point, our workspace should look something like Figure \@ref(fig:third).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/03.png" alt="After running an R Script" width="100%" />
-<p class="caption">(\#fig:third)After running an R Script</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/03} \caption{After running an R Script}(\#fig:third)
+\end{figure}
 
 One thing to be aware of is that each R Studio Cloud workspace is essentially a new computer. Because of this, we need to install any package that we want to use for each workspace. For instance, before we can use the `tidyverse`, we need to install it with `install.packages("tidyverse")`. This contrasts with using one's own computer.
 
@@ -313,16 +315,16 @@ australian_politicians <-
   get_auspol('all')
 
 head(australian_politicians)
-#> # A tibble: 6 × 20
+#> # A tibble: 6 x 20
 #>   uniqueID   surname allOtherNames      firstName commonName
 #>   <chr>      <chr>   <chr>              <chr>     <chr>     
-#> 1 Abbott1859 Abbott  Richard Hartley S… Richard   <NA>      
+#> 1 Abbott1859 Abbott  Richard Hartley S~ Richard   <NA>      
 #> 2 Abbott1869 Abbott  Percy Phipps       Percy     <NA>      
 #> 3 Abbott1877 Abbott  Macartney          Macartney Mac       
-#> 4 Abbott1886 Abbott  Charles Lydiard A… Charles   Aubrey    
+#> 4 Abbott1886 Abbott  Charles Lydiard A~ Charles   Aubrey    
 #> 5 Abbott1891 Abbott  Joseph Palmer      Joseph    <NA>      
 #> 6 Abbott1957 Abbott  Anthony John       Anthony   Tony      
-#> # … with 15 more variables: displayName <chr>,
+#> # ... with 15 more variables: displayName <chr>,
 #> #   earlierOrLaterNames <chr>, title <chr>, gender <chr>,
 #> #   birthDate <date>, birthYear <dbl>, birthPlace <chr>,
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
@@ -339,7 +341,7 @@ We use `select()` to pick particular columns of a dataset. For instance, we migh
 australian_politicians |> 
   select(firstName) |> 
   head()
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   firstName
 #>   <chr>    
 #> 1 Richard  
@@ -379,16 +381,16 @@ We can also use `select()` to remove columns, by negating the column name.
 australian_politicians |> 
   select(-firstName) |> 
   head()
-#> # A tibble: 6 × 19
+#> # A tibble: 6 x 19
 #>   uniqueID   surname allOtherNames    commonName displayName
 #>   <chr>      <chr>   <chr>            <chr>      <chr>      
-#> 1 Abbott1859 Abbott  Richard Hartley… <NA>       Abbott, Ri…
-#> 2 Abbott1869 Abbott  Percy Phipps     <NA>       Abbott, Pe…
+#> 1 Abbott1859 Abbott  Richard Hartley~ <NA>       Abbott, Ri~
+#> 2 Abbott1869 Abbott  Percy Phipps     <NA>       Abbott, Pe~
 #> 3 Abbott1877 Abbott  Macartney        Mac        Abbott, Mac
-#> 4 Abbott1886 Abbott  Charles Lydiard… Aubrey     Abbott, Au…
-#> 5 Abbott1891 Abbott  Joseph Palmer    <NA>       Abbott, Jo…
-#> 6 Abbott1957 Abbott  Anthony John     Tony       Abbott, To…
-#> # … with 14 more variables: earlierOrLaterNames <chr>,
+#> 4 Abbott1886 Abbott  Charles Lydiard~ Aubrey     Abbott, Au~
+#> 5 Abbott1891 Abbott  Joseph Palmer    <NA>       Abbott, Jo~
+#> 6 Abbott1957 Abbott  Anthony John     Tony       Abbott, To~
+#> # ... with 14 more variables: earlierOrLaterNames <chr>,
 #> #   title <chr>, gender <chr>, birthDate <date>,
 #> #   birthYear <dbl>, birthPlace <chr>, deathDate <date>,
 #> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>,
@@ -403,7 +405,7 @@ Finally, we can `select()` based on conditions. For instance, we can `select()` 
 australian_politicians |> 
   select(starts_with("birth")) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   birthDate  birthYear birthPlace  
 #>   <date>         <dbl> <chr>       
 #> 1 NA              1859 Bendigo     
@@ -434,7 +436,7 @@ australian_politicians <-
          wasPrimeMinister)
 
 australian_politicians |> head()
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   uniqueID   surname firstName gender birthDate  birthYear
 #>   <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Abbott1859 Abbott  Richard   male   NA              1859
@@ -443,8 +445,8 @@ australian_politicians |> head()
 #> 4 Abbott1886 Abbott  Charles   male   1886-01-04        NA
 #> 5 Abbott1891 Abbott  Joseph    male   1891-10-18        NA
 #> 6 Abbott1957 Abbott  Anthony   male   1957-11-04        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 ### `filter()`
@@ -455,7 +457,7 @@ We use `filter()` to pick particular rows of a dataset. For instance, we might b
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1)
-#> # A tibble: 30 × 10
+#> # A tibble: 30 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1957  Abbott  Anthony   male   1957-11-04        NA
@@ -468,7 +470,7 @@ australian_politicians |>
 #>  8 Fadden1894  Fadden  Arthur    male   1894-04-13        NA
 #>  9 Fisher1862  Fisher  Andrew    male   1862-08-29        NA
 #> 10 Forde1890   Forde   Francis   male   1890-07-18        NA
-#> # … with 20 more rows, and 4 more variables:
+#> # ... with 20 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -479,14 +481,14 @@ We could also give `filter()` two conditions. For instance, we could look at pol
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1 & firstName == "Joseph")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID    surname firstName gender birthDate  birthYear
 #>   <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Chifley1885 Chifley Joseph    male   1885-09-22        NA
 #> 2 Cook1860    Cook    Joseph    male   1860-12-07        NA
 #> 3 Lyons1879   Lyons   Joseph    male   1879-09-15        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 We get the same result if we use a comma instead of an ampersand.
@@ -495,14 +497,14 @@ We get the same result if we use a comma instead of an ampersand.
 ```r
 australian_politicians |> 
   filter(wasPrimeMinister == 1, firstName == "Joseph")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID    surname firstName gender birthDate  birthYear
 #>   <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Chifley1885 Chifley Joseph    male   1885-09-22        NA
 #> 2 Cook1860    Cook    Joseph    male   1860-12-07        NA
 #> 3 Lyons1879   Lyons   Joseph    male   1879-09-15        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 Similarly, we could look at politicians who were named, say, Myles or Ruth using the 'or' operator '|'
@@ -511,14 +513,14 @@ Similarly, we could look at politicians who were named, say, Myles or Ruth using
 ```r
 australian_politicians |> 
   filter(firstName == "Myles" | firstName == "Ruth")
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Coleman1931  Coleman Ruth      female 1931-09-27        NA
-#> 2 Ferricks1875 Ferric… Myles     male   1875-11-12        NA
+#> 2 Ferricks1875 Ferric~ Myles     male   1875-11-12        NA
 #> 3 Webber1965   Webber  Ruth      female 1965-03-24        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 We could also pipe the result. For instance we could pipe from `filter()` to `select()`.
@@ -528,7 +530,7 @@ We could also pipe the result. For instance we could pipe from `filter()` to `se
 australian_politicians |> 
   filter(firstName == "Ruth" | firstName == "Myles") |> 
   select(firstName, surname)
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>   firstName surname 
 #>   <chr>     <chr>   
 #> 1 Ruth      Coleman 
@@ -542,12 +544,12 @@ If we happen to know the particular row number that is of interest then we could
 ```r
 australian_politicians |> 
   filter(row_number() == 853)
-#> # A tibble: 1 × 10
+#> # A tibble: 1 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
-#> 1 Jakobsen1947 Jakobs… Carolyn   female 1947-09-11        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> 1 Jakobsen1947 Jakobs~ Carolyn   female 1947-09-11        NA
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 There is also a dedicated function to do this, which is `slice()`.
@@ -556,12 +558,12 @@ There is also a dedicated function to do this, which is `slice()`.
 ```r
 australian_politicians |> 
   slice(853)
-#> # A tibble: 1 × 10
+#> # A tibble: 1 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
-#> 1 Jakobsen1947 Jakobs… Carolyn   female 1947-09-11        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> 1 Jakobsen1947 Jakobs~ Carolyn   female 1947-09-11        NA
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 While this may seem somewhat esoteric, it is especially useful if we would like to remove a particular row using negation, or duplicate specific rows. For instance, we could remove the first row.
@@ -570,7 +572,7 @@ While this may seem somewhat esoteric, it is especially useful if we would like 
 ```r
 australian_politicians |> 
   slice(-1)
-#> # A tibble: 1,782 × 10
+#> # A tibble: 1,782 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1869  Abbott  Percy     male   1869-05-14        NA
@@ -583,7 +585,7 @@ australian_politicians |>
 #>  8 Adams1943   Adams   Judith    female 1943-04-11        NA
 #>  9 Adams1951   Adams   Dick      male   1951-04-29        NA
 #> 10 Adamson1857 Adamson John      male   1857-02-18        NA
-#> # … with 1,772 more rows, and 4 more variables:
+#> # ... with 1,772 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -594,14 +596,14 @@ We could also only, say, only keep the first three rows.
 ```r
 australian_politicians |> 
   slice(1:3)
-#> # A tibble: 3 × 10
+#> # A tibble: 3 x 10
 #>   uniqueID   surname firstName gender birthDate  birthYear
 #>   <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Abbott1859 Abbott  Richard   male   NA              1859
 #> 2 Abbott1869 Abbott  Percy     male   1869-05-14        NA
 #> 3 Abbott1877 Abbott  Macartney male   1877-07-03        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 Finally, we could duplicate the first two rows.
@@ -610,7 +612,7 @@ Finally, we could duplicate the first two rows.
 ```r
 australian_politicians |> 
   slice(1:2, 1:n())
-#> # A tibble: 1,785 × 10
+#> # A tibble: 1,785 x 10
 #>    uniqueID   surname firstName gender birthDate  birthYear
 #>    <chr>      <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Abbott1859 Abbott  Richard   male   NA              1859
@@ -623,7 +625,7 @@ australian_politicians |>
 #>  8 Abbott1957 Abbott  Anthony   male   1957-11-04        NA
 #>  9 Abel1939   Abel    John      male   1939-06-25        NA
 #> 10 Abetz1958  Abetz   Eric      male   1958-01-25        NA
-#> # … with 1,775 more rows, and 4 more variables:
+#> # ... with 1,775 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -639,20 +641,20 @@ We use `arrange()` to change the order of the dataset based on the values of par
 ```r
 australian_politicians |> 
   arrange(birthDate)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Braddon1829 Braddon Edward    male   1829-06-11        NA
-#>  2 Ferguson18… Fergus… John      male   1830-03-15        NA
+#>  2 Ferguson18~ Fergus~ John      male   1830-03-15        NA
 #>  3 Zeal1830    Zeal    William   male   1830-12-05        NA
 #>  4 Fraser1832  Fraser  Simon     male   1832-08-21        NA
 #>  5 Groom1833   Groom   William   male   1833-03-09        NA
 #>  6 Sargood1834 Sargood Frederick male   1834-05-30        NA
 #>  7 Fysh1835    Fysh    Philip    male   1835-03-01        NA
-#>  8 Playford18… Playfo… Thomas    male   1837-11-26        NA
+#>  8 Playford18~ Playfo~ Thomas    male   1837-11-26        NA
 #>  9 Solomon1839 Solomon Elias     male   1839-09-02        NA
 #> 10 McLean1840  McLean  Allan     male   1840-02-03        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -663,20 +665,20 @@ We could modify `arrange()` with `desc()` to change from ascending to descending
 ```r
 australian_politicians |> 
   arrange(desc(birthDate))
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID   surname  firstName gender birthDate  birthYear
 #>    <chr>      <chr>    <chr>     <chr>  <date>         <dbl>
-#>  1 SteeleJoh… Steele-… Jordon    male   1994-10-14        NA
-#>  2 Chandler1… Chandler Claire    female 1990-06-01        NA
+#>  1 SteeleJoh~ Steele-~ Jordon    male   1994-10-14        NA
+#>  2 Chandler1~ Chandler Claire    female 1990-06-01        NA
 #>  3 Roy1990    Roy      Wyatt     male   1990-05-22        NA
-#>  4 Thompson1… Thompson Phillip   male   1988-05-07        NA
-#>  5 Paterson1… Paterson James     male   1987-11-21        NA
+#>  4 Thompson1~ Thompson Phillip   male   1988-05-07        NA
+#>  5 Paterson1~ Paterson James     male   1987-11-21        NA
 #>  6 Burns1987  Burns    Joshua    male   1987-02-06        NA
 #>  7 Smith1986  Smith    Marielle  female 1986-12-30        NA
-#>  8 Kakoschke… Kakosch… Skye      female 1985-12-19        NA
-#>  9 Simmonds1… Simmonds Julian    male   1985-08-29        NA
+#>  8 Kakoschke~ Kakosch~ Skye      female 1985-12-19        NA
+#>  9 Simmonds1~ Simmonds Julian    male   1985-08-29        NA
 #> 10 Gorman1984 Gorman   Patrick   male   1984-12-12        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -687,20 +689,20 @@ And we could arrange based on more than one column. For instance, if two politic
 ```r
 australian_politicians |> 
   arrange(firstName, birthDate)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Blain1894   Blain   Adair     male   1894-11-21        NA
 #>  2 Dein1889    Dein    Adam      male   1889-03-04        NA
-#>  3 Armstrong1… Armstr… Adam      male   1909-07-01        NA
+#>  3 Armstrong1~ Armstr~ Adam      male   1909-07-01        NA
 #>  4 Bandt1972   Bandt   Adam      male   1972-03-11        NA
-#>  5 Ridgeway19… Ridgew… Aden      male   1962-09-18        NA
+#>  5 Ridgeway19~ Ridgew~ Aden      male   1962-09-18        NA
 #>  6 Bennett1933 Bennett Adrian    male   1933-01-21        NA
 #>  7 Gibson1935  Gibson  Adrian    male   1935-11-03        NA
 #>  8 Wynne1850   Wynne   Agar      male   1850-01-15        NA
-#>  9 Robertson1… Robert… Agnes     female 1882-07-31        NA
+#>  9 Robertson1~ Robert~ Agnes     female 1882-07-31        NA
 #> 10 Pittard1902 Pittard Alan      male   1902-11-15        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -712,20 +714,20 @@ We could achieve the same result by piping between two instances of `arrange()`.
 australian_politicians |> 
   arrange(birthDate) |> 
   arrange(firstName)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate  birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
 #>  1 Blain1894   Blain   Adair     male   1894-11-21        NA
 #>  2 Dein1889    Dein    Adam      male   1889-03-04        NA
-#>  3 Armstrong1… Armstr… Adam      male   1909-07-01        NA
+#>  3 Armstrong1~ Armstr~ Adam      male   1909-07-01        NA
 #>  4 Bandt1972   Bandt   Adam      male   1972-03-11        NA
-#>  5 Ridgeway19… Ridgew… Aden      male   1962-09-18        NA
+#>  5 Ridgeway19~ Ridgew~ Aden      male   1962-09-18        NA
 #>  6 Bennett1933 Bennett Adrian    male   1933-01-21        NA
 #>  7 Gibson1935  Gibson  Adrian    male   1935-11-03        NA
 #>  8 Wynne1850   Wynne   Agar      male   1850-01-15        NA
-#>  9 Robertson1… Robert… Agnes     female 1882-07-31        NA
+#>  9 Robertson1~ Robert~ Agnes     female 1882-07-31        NA
 #> 10 Pittard1902 Pittard Alan      male   1902-11-15        NA
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -736,7 +738,7 @@ When we use `arrange()` it is important to be clear about precedence. For instan
 ```r
 australian_politicians |> 
   arrange(birthYear, firstName)
-#> # A tibble: 1,783 × 10
+#> # A tibble: 1,783 x 10
 #>    uniqueID    surname firstName gender birthDate birthYear
 #>    <chr>       <chr>   <chr>     <chr>  <date>        <dbl>
 #>  1 Edwards1842 Edwards Richard   male   NA             1842
@@ -749,7 +751,7 @@ australian_politicians |>
 #>  8 Riley1859   Riley   Edward    male   NA             1859
 #>  9 Abbott1859  Abbott  Richard   male   NA             1859
 #> 10 Kennedy1860 Kennedy Thomas    male   NA             1860
-#> # … with 1,773 more rows, and 4 more variables:
+#> # ... with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
 ```
@@ -761,32 +763,32 @@ A nice way to arrange by a variety of columns is to use `across()`. It enables u
 australian_politicians |> 
   arrange(across(c(firstName, birthYear))) |> 
   head()
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   uniqueID    surname  firstName gender birthDate  birthYear
 #>   <chr>       <chr>    <chr>     <chr>  <date>         <dbl>
 #> 1 Blain1894   Blain    Adair     male   1894-11-21        NA
-#> 2 Armstrong1… Armstro… Adam      male   1909-07-01        NA
+#> 2 Armstrong1~ Armstro~ Adam      male   1909-07-01        NA
 #> 3 Bandt1972   Bandt    Adam      male   1972-03-11        NA
 #> 4 Dein1889    Dein     Adam      male   1889-03-04        NA
-#> 5 Ridgeway19… Ridgeway Aden      male   1962-09-18        NA
+#> 5 Ridgeway19~ Ridgeway Aden      male   1962-09-18        NA
 #> 6 Bennett1933 Bennett  Adrian    male   1933-01-21        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 
 australian_politicians |> 
   arrange(across(starts_with('birth'))) |> 
   head()
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   uniqueID     surname firstName gender birthDate  birthYear
 #>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
 #> 1 Braddon1829  Braddon Edward    male   1829-06-11        NA
-#> 2 Ferguson1830 Fergus… John      male   1830-03-15        NA
+#> 2 Ferguson1830 Fergus~ John      male   1830-03-15        NA
 #> 3 Zeal1830     Zeal    William   male   1830-12-05        NA
 #> 4 Fraser1832   Fraser  Simon     male   1832-08-21        NA
 #> 5 Groom1833    Groom   William   male   1833-03-09        NA
 #> 6 Sargood1834  Sargood Frederick male   1834-05-30        NA
-#> # … with 4 more variables: deathDate <date>, member <dbl>,
-#> #   senator <dbl>, wasPrimeMinister <dbl>
+#> # ... with 4 more variables: deathDate <date>,
+#> #   member <dbl>, senator <dbl>, wasPrimeMinister <dbl>
 ```
 
 
@@ -802,7 +804,7 @@ australian_politicians <-
 
 australian_politicians |> 
   select(member, senator, was_both)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    member senator was_both
 #>     <dbl>   <dbl>    <dbl>
 #>  1      0       1        0
@@ -815,7 +817,7 @@ australian_politicians |>
 #>  8      0       1        0
 #>  9      0       1        0
 #> 10      1       0        0
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 We could use `mutate()` with math, such as addition and subtraction. For instance, we could calculate the age that the politicians are (or would have been) in 2022.
@@ -828,7 +830,7 @@ australian_politicians <-
 
 australian_politicians |> 
   select(uniqueID, age)
-#> # A tibble: 1,783 × 2
+#> # A tibble: 1,783 x 2
 #>    uniqueID     age
 #>    <chr>      <dbl>
 #>  1 Abbott1859    NA
@@ -841,7 +843,7 @@ australian_politicians |>
 #>  8 Abetz1958     64
 #>  9 Adams1943     79
 #> 10 Adams1951     71
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 There are a variety of functions that are especially useful when constructing new columns. These include `log()` which will compute the natural logarithm, `lead()` which will bring values up by one row, `lag()` which will push values down by one row, and `cumsum()` which creates a cumulative sum of the column.
@@ -852,7 +854,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(log_age = log(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age log_age
 #>   <chr>      <dbl>   <dbl>
 #> 1 Abbott1859    NA   NA   
@@ -866,7 +868,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(lead_age = lead(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age lead_age
 #>   <chr>      <dbl>    <dbl>
 #> 1 Abbott1859    NA      153
@@ -880,7 +882,7 @@ australian_politicians |>
   select(uniqueID, age) |> 
   mutate(lag_age = lag(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age lag_age
 #>   <chr>      <dbl>   <dbl>
 #> 1 Abbott1859    NA      NA
@@ -895,7 +897,7 @@ australian_politicians |>
   filter(!is.na(age)) |> 
   mutate(cumulative_age = cumsum(age)) |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   uniqueID     age cumulative_age
 #>   <chr>      <dbl>          <dbl>
 #> 1 Abbott1869   153            153
@@ -913,7 +915,7 @@ As we have in earlier examples, we can also use `mutate()` in combination with `
 australian_politicians |> 
   mutate(across(c(firstName, surname), str_count)) |> 
   select(uniqueID, firstName, surname)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    uniqueID   firstName surname
 #>    <chr>          <int>   <int>
 #>  1 Abbott1859         7       6
@@ -926,7 +928,7 @@ australian_politicians |>
 #>  8 Abetz1958          4       5
 #>  9 Adams1943          6       5
 #> 10 Adams1951          4       5
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 
@@ -949,7 +951,7 @@ australian_politicians |>
              )
   ) |> 
   select(uniqueID, year_of_birth, decade_of_birth)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #>    uniqueID   year_of_birth decade_of_birth 
 #>    <chr>              <dbl> <chr>           
 #>  1 Abbott1859            NA Unknown or error
@@ -962,7 +964,7 @@ australian_politicians |>
 #>  8 Abetz1958           1958 1950s           
 #>  9 Adams1943           1943 1940s           
 #> 10 Adams1951           1951 1950s           
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 We could accomplish this with a series of `if_else()` statements, but `case_when()` is more clear. The cases are evaluated in order and as soon as there is a match `case_when()` does not continue to the remainder of the cases. So it can be useful to have a catch-all at the end that will signal if there is a potential issue that we might like to know about.
@@ -980,7 +982,7 @@ australian_politicians |>
   summarise(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   youngest oldest average
 #>      <dbl>  <dbl>   <dbl>
 #> 1       28    193    101.
@@ -994,7 +996,7 @@ australian_politicians |>
   summarize(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   youngest oldest average
 #>      <dbl>  <dbl>   <dbl>
 #> 1       28    193    101.
@@ -1009,7 +1011,7 @@ australian_politicians |>
   summarise(youngest = min(age, na.rm = TRUE),
             oldest = max(age, na.rm = TRUE),
             average = mean(age, na.rm = TRUE))
-#> # A tibble: 2 × 4
+#> # A tibble: 2 x 4
 #>   gender youngest oldest average
 #>   <chr>     <dbl>  <dbl>   <dbl>
 #> 1 female       32    140    66.0
@@ -1029,7 +1031,7 @@ australian_politicians |>
     mean_days = mean(days_lived) |> round(),
     max_days = max(days_lived)
     )
-#> # A tibble: 2 × 4
+#> # A tibble: 2 x 4
 #>   gender min_days   mean_days  max_days  
 #>   <chr>  <drtn>     <drtn>     <drtn>    
 #> 1 female 14856 days 28857 days 35560 days
@@ -1051,7 +1053,7 @@ australian_politicians |>
     mean_days = mean(days_lived) |> round(),
     max_days = max(days_lived)
     )
-#> # A tibble: 4 × 5
+#> # A tibble: 4 x 5
 #> # Groups:   gender [2]
 #>   gender member min_days   mean_days  max_days  
 #>   <chr>   <dbl> <drtn>     <drtn>     <drtn>    
@@ -1068,7 +1070,7 @@ We can use `count()` to create counts by groups. For instance, the number of pol
 australian_politicians |> 
   group_by(gender) |> 
   count()
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #> # Groups:   gender [2]
 #>   gender     n
 #>   <chr>  <int>
@@ -1085,7 +1087,7 @@ australian_politicians |>
   count() |> 
   ungroup() |> 
   mutate(proportion = n/(sum(n)))
-#> # A tibble: 2 × 3
+#> # A tibble: 2 x 3
 #>   gender     n proportion
 #>   <chr>  <int>      <dbl>
 #> 1 female   240      0.135
@@ -1099,7 +1101,7 @@ Using `count()` is essentially the same as using `group_by()` and then `summaris
 australian_politicians |> 
   group_by(gender) |> 
   summarise(n = n())
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   gender     n
 #>   <chr>  <int>
 #> 1 female   240
@@ -1114,7 +1116,7 @@ australian_politicians |>
   group_by(gender) |> 
   add_count() |> 
   select(uniqueID, gender, n)
-#> # A tibble: 1,783 × 3
+#> # A tibble: 1,783 x 3
 #> # Groups:   gender [2]
 #>    uniqueID   gender     n
 #>    <chr>      <chr>  <int>
@@ -1128,7 +1130,7 @@ australian_politicians |>
 #>  8 Abetz1958  male    1543
 #>  9 Adams1943  female   240
 #> 10 Adams1951  male    1543
-#> # … with 1,773 more rows
+#> # ... with 1,773 more rows
 ```
 
 
@@ -1563,7 +1565,7 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 
 
 ```
-#> # A tibble: 6 × 8
+#> # A tibble: 6 x 8
 #>   LOCATION INDICATOR SUBJECT MEASURE  FREQUENCY TIME  Value
 #>   <chr>    <chr>     <chr>   <chr>    <chr>     <chr> <dbl>
 #> 1 OECD     QGDP      TOT     PC_CHGPP A         1962   5.70
@@ -1572,7 +1574,7 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 #> 4 OECD     QGDP      TOT     PC_CHGPP A         1965   5.35
 #> 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
 #> 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
-#> # … with 1 more variable: Flag Codes <chr>
+#> # ... with 1 more variable: Flag Codes <chr>
 ```
 
 We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.
@@ -1604,7 +1606,7 @@ oecd_gdp_most_recent |>
   ggplot(mapping = aes(x = LOCATION, y = Value))
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-68-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-68-1.pdf)<!-- --> 
 
 Now we need to specify the type of graph that we are interested in. In this case we want a bar chart and we do this by adding `geom_bar()`.
 
@@ -1615,7 +1617,7 @@ oecd_gdp_most_recent |>
   geom_bar(stat="identity")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-69-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-69-1.pdf)<!-- --> 
 
 We can color the bars by whether the country is European by adding another aesthetic, 'fill'.
 
@@ -1626,7 +1628,7 @@ oecd_gdp_most_recent |>
   geom_bar(stat="identity")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-70-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-70-1.pdf)<!-- --> 
 
 Finally, we could make it look nicer by: adding labels, `labs()`; changing the color, `scale_fill_brewer()`; and the background, `theme_classic()`. 
 
@@ -1643,7 +1645,7 @@ oecd_gdp_most_recent |>
   scale_fill_brewer(palette = "Set1")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-71-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-71-1.pdf)<!-- --> 
 
 
 Facets enable us to that we create subplots that focus on specific aspects of our data. They are invaluable because they allow us to add another variable to a graph without having to make a 3D graph. We use `facet_wrap()` to add a facet and specify the variable that we would like to facet by. In this case, we facet by hemisphere.
@@ -1663,7 +1665,7 @@ oecd_gdp_most_recent |>
               scales = "free_x")
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-72-1.png" width="672" />
+![](03-r_essentials_files/figure-latex/unnamed-chunk-72-1.pdf)<!-- --> 
 
 
 
@@ -1709,7 +1711,7 @@ people_as_tibble <-
          fav_color = c("blue", " white ")
          )
 people_as_tibble
-#> # A tibble: 2 × 3
+#> # A tibble: 2 x 3
 #>   names  website             fav_color
 #>   <chr>  <chr>               <chr>    
 #> 1 rohan  rohanalexander.com  "blue"   
@@ -1733,7 +1735,7 @@ main_dataset <-
     status = c('adult', 'adult', 'child', 'infant')
   )
 main_dataset
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   names  status
 #>   <chr>  <chr> 
 #> 1 rohan  adult 
@@ -1747,7 +1749,7 @@ supplementary_dataset <-
     favorite_food = c('pasta', 'salmon', 'pizza', 'milk')
   )
 supplementary_dataset
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   names  favorite_food
 #>   <chr>  <chr>        
 #> 1 rohan  pasta        
@@ -1760,7 +1762,7 @@ main_dataset <-
   left_join(supplementary_dataset, by = "names")
 
 main_dataset
-#> # A tibble: 4 × 3
+#> # A tibble: 4 x 3
 #>   names  status favorite_food
 #>   <chr>  <chr>  <chr>        
 #> 1 rohan  adult  pasta        
@@ -1783,7 +1785,7 @@ pivot_example_data <-
          lauren = c("second", "first", "second"))
 
 pivot_example_data
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>    year mark   lauren
 #>   <dbl> <chr>  <chr> 
 #> 1  2019 first  second
@@ -1802,7 +1804,7 @@ data_pivoted_longer <-
                values_to = "position")
 
 head(data_pivoted_longer)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>    year person position
 #>   <dbl> <chr>  <chr>   
 #> 1  2019 mark   first   
@@ -1824,7 +1826,7 @@ data_pivoted_wider <-
                      values_from = "position")
 
 head(data_pivoted_wider)
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>    year mark   lauren
 #>   <dbl> <chr>  <chr> 
 #> 1  2019 first  second
@@ -1854,12 +1856,12 @@ dataset_of_strings |>
          make_howlett = str_replace(names, "alexander", "howlett"),
          remove_rohan = str_remove(names, "rohan")
          )
-#> # A tibble: 4 × 4
+#> # A tibble: 4 x 4
 #>   names            is_rohan make_howlett   remove_rohan     
 #>   <chr>            <lgl>    <chr>          <chr>            
 #> 1 rohan alexander  TRUE     rohan howlett  " alexander"     
-#> 2 monica alexander FALSE    monica howlett "monica alexande…
-#> 3 edward alexander FALSE    edward howlett "edward alexande…
+#> 2 monica alexander FALSE    monica howlett "monica alexande~
+#> 3 edward alexander FALSE    edward howlett "edward alexande~
 #> 4 hugo alexander   FALSE    hugo howlett   "hugo alexander"
 ```
 
@@ -1871,7 +1873,7 @@ dataset_of_strings |>
   mutate(length_is = str_length(string = names),
          name_and_length = str_c(names, length_is, sep = " - ")
          )
-#> # A tibble: 4 × 3
+#> # A tibble: 4 x 3
 #>   names            length_is name_and_length      
 #>   <chr>                <int> <chr>                
 #> 1 rohan alexander         15 rohan alexander - 15 
@@ -1889,7 +1891,7 @@ dataset_of_strings |>
            into = c("first", "last"),
            sep = " ",
            remove = FALSE)
-#> # A tibble: 4 × 3
+#> # A tibble: 4 x 3
 #>   names            first  last     
 #>   <chr>            <chr>  <chr>    
 #> 1 rohan alexander  rohan  alexander
@@ -1956,7 +1958,8 @@ days_data |>
   geom_point()
 ```
 
-<img src="03-r_essentials_files/figure-html/unnamed-chunk-82-1.png" width="50%" /><img src="03-r_essentials_files/figure-html/unnamed-chunk-82-2.png" width="50%" />
+
+\includegraphics[width=0.5\linewidth]{03-r_essentials_files/figure-latex/unnamed-chunk-82-1} \includegraphics[width=0.5\linewidth]{03-r_essentials_files/figure-latex/unnamed-chunk-82-2} 
 
 
 

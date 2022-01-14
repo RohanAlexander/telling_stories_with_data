@@ -274,15 +274,9 @@ digraph {
 ")
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-ebb7e8f254f4ab89bc33" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ebb7e8f254f4ab89bc33">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{42-causality_from_obs_files/figure-latex/firstdag-1} \caption{Using a DAG to illustrate perceived relationships}(\#fig:firstdag)
+\end{figure}
 
 
 In this example, we claim that $x$ causes $y$. We could build another where the situation is less clear. I find all the $x$ and $y$ very confusing, so will change to fruits (Figure \@ref(fig:carrotasconfounder)).
@@ -305,15 +299,9 @@ digraph {
 ")
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-361cc4dae70f0d94da78" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-361cc4dae70f0d94da78">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotasconfounder)Carrot as a confounder</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{42-causality_from_obs_files/figure-latex/carrotasconfounder-1} \caption{Carrot as a confounder}(\#fig:carrotasconfounder)
+\end{figure}
 
 In this case we again think $apple$ causes $banana$. But it's also clear that $carrot$ causes $banana$, and $carrot$ also causes $apple$. That relationship is a 'backdoor path', and would create spurious correlation in our analysis. We may think that changes in $apple$ are causing changes in $banana$, but it's actually that $carrot$ is changing them both and hence that variable is called a 'confounder'.
 
@@ -345,15 +333,9 @@ digraph {
 ")
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-a8a5a025380223560804" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a8a5a025380223560804">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotasmediator)Carrot as a mediator</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{42-causality_from_obs_files/figure-latex/carrotasmediator-1} \caption{Carrot as a mediator}(\#fig:carrotasmediator)
+\end{figure}
 
 In this case, $carrot$ is called a 'mediator' and we'd not like to adjust for it, because that would affect our estimate of the effect of $apple$ on $banana$. 
 
@@ -377,15 +359,9 @@ digraph {
 ")
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-970d7e1c24ad4d2d6b74" style="width:75%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-970d7e1c24ad4d2d6b74">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotascollider)Carrot as a collider</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{42-causality_from_obs_files/figure-latex/carrotascollider-1} \caption{Carrot as a collider}(\#fig:carrotascollider)
+\end{figure}
 
 In this case, $carrot$ is called a 'collider' and if we were to condition on it we would create a misleading relationship.
 
@@ -438,7 +414,7 @@ both %>%
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 
 Berkson's paradox occurs when we estimate some relationship based on the dataset that we have, but because the dataset is selected the relationship is different in a more general dataset [@citeberkson]. For instance, if we have a dataset of professional cyclists then we would find there is no relationship between their VO2 max and their chance of winning a bike race. But if we had a dataset of the general population then we would find an enormous relationship between their VO2 max and their chance of winning a bike race. The professional dataset has just been so selected that the relationship disappears - you can't become a professional unless you have a high VO2 max. 
@@ -474,7 +450,7 @@ both %>%
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 
 
@@ -534,7 +510,7 @@ diff_in_diff_example_data <-
     )
 
 head(diff_in_diff_example_data)
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #> # Rowwise: 
 #>   person  time treatment_group serve_speed
 #>    <int> <dbl>           <int>       <dbl>
@@ -566,7 +542,7 @@ diff_in_diff_example_data %>%
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 
 As it is a simple example, we could do this manually, by getting the average difference of the differences. 
@@ -597,13 +573,13 @@ diff_in_diff_example_regression <- lm(serve_speed ~ treatment_group*time,
                          data = diff_in_diff_example_data)
 
 tidy(diff_in_diff_example_regression)
-#> # A tibble: 4 × 5
+#> # A tibble: 4 x 5
 #>   term                 estimate std.error statistic  p.value
 #>   <chr>                   <dbl>     <dbl>     <dbl>    <dbl>
 #> 1 (Intercept)              4.97    0.0428     116.  0       
 #> 2 treatment_group1         3.03    0.0622      48.7 0       
 #> 3 time1                    1.01    0.0605      16.6 2.97e-58
-#> 4 treatment_group1:ti…     5.06    0.0880      57.5 0
+#> 4 treatment_group1:ti~     5.06    0.0880      57.5 0
 ```
 
 Fortunately, our estimates are the same!
@@ -746,16 +722,16 @@ table(amazon_purchase_data$free_shipping)
 #> 9629  371
 
 head(amazon_purchase_data)
-#> # A tibble: 6 × 7
+#> # A tibble: 6 x 7
 #>   unique_person_id   age city    gender income free_shipping
 #>              <int> <dbl> <fct>   <fct>   <dbl> <fct>        
 #> 1                1  47.5 Calgary Female  1.72  0            
-#> 2                2  27.8 Montre… Male    1.54  0            
+#> 2                2  27.8 Montre~ Male    1.54  0            
 #> 3                3  57.7 Toronto Female  3.16  0            
 #> 4                4  43.9 Toronto Male    0.636 0            
 #> 5                5  21.1 Toronto Female  1.43  0            
 #> 6                6  51.1 Calgary Male    1.18  0            
-#> # … with 1 more variable: average_spend <dbl>
+#> # ... with 1 more variable: average_spend <dbl>
 ```
 
 
@@ -989,16 +965,14 @@ newspapers <-
 
 We can now have a look at the main variables of interest for both national (Figure \@ref(fig:frenchnewspaperssummarystats)) and local daily newspapers (Figure \@ref(fig:frenchlocalnewspaperssummarystats)).
 
-<div class="figure">
-<img src="figures/french_national_newspapers_summary_stats.png" alt="Angelucci and Cagé, 2019, summary statistics: national daily newspapers" width="90%" />
-<p class="caption">(\#fig:frenchnewspaperssummarystats)Angelucci and Cagé, 2019, summary statistics: national daily newspapers</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{figures/french_national_newspapers_summary_stats} \caption{Angelucci and Cagé, 2019, summary statistics: national daily newspapers}(\#fig:frenchnewspaperssummarystats)
+\end{figure}
 Source: Angelucci and Cagé, 2019, p. 333.
 
-<div class="figure">
-<img src="figures/french_local_newspapers_summary_stats.png" alt="Angelucci and Cagé, 2019, summary statistics: local daily newspapers" width="90%" />
-<p class="caption">(\#fig:frenchlocalnewspaperssummarystats)Angelucci and Cagé, 2019, summary statistics: local daily newspapers</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{figures/french_local_newspapers_summary_stats} \caption{Angelucci and Cagé, 2019, summary statistics: local daily newspapers}(\#fig:frenchlocalnewspaperssummarystats)
+\end{figure}
 Source: Angelucci and Cagé, 2019, p. 334.
 
 Please read this section of their paper to see how they describe their dataset.
@@ -1022,7 +996,7 @@ newspapers %>%
   geom_vline(xintercept = 1966.5, linetype = "dashed")
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 
 
@@ -1211,10 +1185,9 @@ Why might this happen? @oostrom2021 looks at a variety of different options, gro
 Summary statistics are provided in a summary table (Figure \@ref(fig:oostromsummary)) (this approach is common in economics, but not a great idea because it hides the distribution of the data - better to plot the raw data.)
 
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/oostrom_1.png" alt="Summary statistics from Ooostrom" width="100%" />
-<p class="caption">(\#fig:oostromsummary)Summary statistics from Ooostrom</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/oostrom_1} \caption{Summary statistics from Ooostrom}(\#fig:oostromsummary)
+\end{figure}
 
 The model is:
 
@@ -1224,10 +1197,9 @@ where $y_{ij}$ is the efficacy for arm $i$ in trial $j$. The main coefficient of
 
 'Table 3.3' from the paper is actually the reason that I included this as a case student. If this sounds odd to you then you've not had to read millions of papers that are unclear about their results. 'Table 3.3' (republished here as Figure \@ref(fig:oostromtable)) is beautiful and I'll allow it to speak for itself.
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/oostrom_2.png" alt="Results" width="100%" />
-<p class="caption">(\#fig:oostromtable)Results</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/oostrom_2} \caption{Results}(\#fig:oostromtable)
+\end{figure}
 
 
 The paper is available here: https://www.tamaroostrom.com/research and I'd recommend a brief read.
@@ -1244,10 +1216,9 @@ Regression discontinuity design (RDD) is a popular way to get causality when the
 
 Please note that I've followed the terminology of Taddy, 2019. Gelman and Hill, 2007, and others use slightly different terminology. For instance, Cunningham refers to the forcing function as the running variable. It doesn't matter what you use so long as you are consistent. If you have a terminology that you are familiar with then please feel free to use it, and to share it with me!
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/johnholbein.jpeg" alt="The explosion of regression discontinuity designs in recent years." width="90%" />
-<p class="caption">(\#fig:johnholbein)The explosion of regression discontinuity designs in recent years.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/johnholbein} \caption{The explosion of regression discontinuity designs in recent years.}(\#fig:johnholbein)
+\end{figure}
 Source: John Holbein, [13 February 2020](https://twitter.com/JohnHolbein1/status/1228050675378069504). 
 
 The key assumptions are:
@@ -1321,7 +1292,7 @@ rdd_example_data %>%
 #> `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 We can use a dummy variable with linear regression to estimate the effect (we're hoping that it's 2 because that is what we imposed.)
 
@@ -1355,10 +1326,9 @@ The other great thing about regression discontinuity is that is can almost be as
 
 Figure \@ref(fig:scotland) shows an example with different slopes.
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/scotland.png" alt="Effect of minimum unit pricing for alcohol in Scotland." width="90%" />
-<p class="caption">(\#fig:scotland)Effect of minimum unit pricing for alcohol in Scotland.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/scotland} \caption{Effect of minimum unit pricing for alcohol in Scotland.}(\#fig:scotland)
+\end{figure}
 Source: John Burn-Murdoch, [7 February 2020](https://twitter.com/jburnmurdoch/status/1225773931342303233). 
 
 
@@ -1370,10 +1340,9 @@ In the randomised control trial and A/B testing section, because of randomised a
 
 In regression discontinuity we consider a slightly different setting - the two groups are completely different in terms of the forcing variable - they are on either side of the threshold. So there is no overlap at all. But we know the threshold and believe that those on either side are essentially matched. Let's consider the 2019 NBA Eastern Conference Semifinals - Toronto and the Philadelphia. Game 1: Raptors win 108-95; Game 2: 76ers win 94-89; Game 3: 76ers win 116-95; Game 4: Raptors win 101-96; Game 5: Raptors win 125-89; Game 6: 76ers win 112-101; and finally, Game 7: Raptors win 92-90, because of a ball that win in after bouncing on the rim four times. Was there really that much difference between the teams (Figure \@ref(fig:kawai))?
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/torraptors13.jpg" alt="It took four bounces to go in, so how different were the teams...?" width="90%" />
-<p class="caption">(\#fig:kawai)It took four bounces to go in, so how different were the teams...?</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/torraptors13} \caption{It took four bounces to go in, so how different were the teams...?}(\#fig:kawai)
+\end{figure}
 Source: Stan Behal / [Postmedia Network](https://nationalpost.com/sports/kawhi-leonard-miracle-shot-toronto-raptors-game-7-scott-stinson-kawhi-leonards-miracle-shot-sends-toronto-raptors-into-game-7-elation).
 
 
@@ -1383,10 +1352,9 @@ Source: Stan Behal / [Postmedia Network](https://nationalpost.com/sports/kawhi-l
 
 As with difference-in-differences, after I learnt about it, I began to see opportunities to implement it everywhere. Frankly, I find it a lot easier to think of legitimate examples of using regression discontinuity than difference-in-differences. But, at the risk of mentioning yet another movie from the 1990s that none of you have seen, when I think of RDD, my first thought is often of Sliding Doors (Figure \@ref(fig:slidingdoors)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/sliding_doors.png" alt="Nobody expects the Spanish Inquisition." width="90%" />
-<p class="caption">(\#fig:slidingdoors)Nobody expects the Spanish Inquisition.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/sliding_doors} \caption{Nobody expects the Spanish Inquisition.}(\#fig:slidingdoors)
+\end{figure}
 Source: Mlotek, Haley, 2018, 'The Almosts and What-ifs of 'Sliding Doors'', *The Ringer*, 24 April, freely available at: https://www.theringer.com/movies/2018/4/24/17261506/sliding-doors-20th-anniversary.
 
 Not only did the movie have a great soundtrack and help propel Gwyneth Paltrow to super-stardom, but it features an iconic moment in which Paltrow's character, Helen, arrives at a tube station at which point the movie splits into two. In one version she just makes the train, and arrives home to find her boyfriend cheating on her; and in another she just misses the train and doesn't find out about the boyfriend. 
@@ -1418,10 +1386,9 @@ In this model, $y_i$ is various development outcomes in village $i$; $\mbox{Year
 
 George, 2019, then conducts a whole bunch of tests of the validity of the regression discontinuity design (p. 19). These are critical in order for the results to be believed. There are a lot of different results but one is shown in Figure \@ref(fig:descendantsinindia).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/descendantsinindia.png" alt="George, 2019, descendant effects identified using close elections RD design (p. 41)." width="90%" />
-<p class="caption">(\#fig:descendantsinindia)George, 2019, descendant effects identified using close elections RD design (p. 41).</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/descendantsinindia} \caption{George, 2019, descendant effects identified using close elections RD design (p. 41).}(\#fig:descendantsinindia)
+\end{figure}
 
 
 #### Economic development
@@ -1438,10 +1405,9 @@ In this model, $y_{i,g,t}$ is the development outcome for a household $i$ in cen
 
 Again, there are a lot of different results but one is shown in Figure \@ref(fig:ufco).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/ufco.png" alt="George, 2020, UFCo effect on the probability of being poor (p. 17)." width="90%" />
-<p class="caption">(\#fig:ufco)George, 2020, UFCo effect on the probability of being poor (p. 17).</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/ufco} \caption{George, 2020, UFCo effect on the probability of being poor (p. 17).}(\#fig:ufco)
+\end{figure}
 
 
 
@@ -1516,10 +1482,9 @@ The threshold is also important. For instance, is there an actual shift or is th
 
 We want as 'sharp' an effect as possible, but if the thresholds are known, then they will be gamed. For instance, there is a lot of evidence that people run for certain marathon times, and we know that people aim for certain grades. Similarly, from the other side, it is a lot easier for an instructor to just give out As than it is to have to justify Bs. One way to look at this is to consider how 'balanced' the sample is on either side of the threshold. Do this by using histograms with appropriate bins, for instance Figure \@ref(fig:marathontimes), which is from @allen2017reference.
 
-<div class="figure">
-<img src="figures/marathontimes.png" alt="Bunching around marathon times." width="90%" />
-<p class="caption">(\#fig:marathontimes)Bunching around marathon times.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{figures/marathontimes} \caption{Bunching around marathon times.}(\#fig:marathontimes)
+\end{figure}
 
 
 You need to really think about the possible effect of the decision around the choice of model. To see this consider the difference between a linear and polynomial.
@@ -1545,7 +1510,7 @@ both %>%
   geom_smooth(formula = y~x, method = 'lm')
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 ```r
   
@@ -1555,7 +1520,7 @@ both %>%
   geom_smooth(formula = y ~ poly(x, 3), method = 'lm')
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-30-2.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-30-2.pdf)<!-- --> 
 
 
 
@@ -1747,7 +1712,7 @@ iv_example_data %>%
   facet_wrap(vars(province))
 ```
 
-<img src="42-causality_from_obs_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](42-causality_from_obs_files/figure-latex/unnamed-chunk-34-1.pdf)<!-- --> 
 
 Finally, we can use the tax rate as an instrumental variable to estimate the effect of smoking on health.
 
@@ -1904,10 +1869,9 @@ In terms of satisfying the exclusion restriction, @levitt2002using argues that t
 
 The dataset is based on 122 US cities between 1975 and 1995. Summary statistics are provided in Figure \@ref(fig:levittcrime).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/levitt_summary_stats.png" alt="Summary statistics for Levitt 2002." width="90%" />
-<p class="caption">(\#fig:levittcrime)Summary statistics for Levitt 2002.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/levitt_summary_stats} \caption{Summary statistics for Levitt 2002.}(\#fig:levittcrime)
+\end{figure}
 Source: @levitt2002using p. 1,246.
 
 
@@ -1924,18 +1888,16 @@ $$\Delta\ln(\mbox{Crime}_{ct}) = \beta_1 \ln(\mbox{Police}_{ct-1}) + X'_{ct}\Gam
 
 The typical way to present instrumental variable results is to show both stages. Figure \@ref(fig:levittcrimefirst) shows the relationship between police and firefighters.
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/levitt_first.png" alt="The relationship between firefighters, police and crime." width="90%" />
-<p class="caption">(\#fig:levittcrimefirst)The relationship between firefighters, police and crime.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/levitt_first} \caption{The relationship between firefighters, police and crime.}(\#fig:levittcrimefirst)
+\end{figure}
 Source: @levitt2002using p. 1,247.
 
 And then Figure \@ref(fig:levittcrimesecond) shows the relationship between police and crime, where is it the IV results that are the ones of interest.
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/levitt_second.png" alt="The impact of police on crime." width="90%" />
-<p class="caption">(\#fig:levittcrimesecond)The impact of police on crime.</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/levitt_second} \caption{The impact of police on crime.}(\#fig:levittcrimesecond)
+\end{figure}
 Source: @levitt2002using p. 1,248.
 
 ### Discussion

@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "12 January, 2022"
+date: "14 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -23,10 +23,9 @@ cover-image: tellingstorieswithdatapainting.png
 
 # Preface {-}
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
-<p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting} \caption{Telling stories with data}(\#fig:unnamed-chunk-1)
+\end{figure}
 
 This book will help you tell stories with data. It establishes a foundation on which you can build and share knowledge about an aspect of the world of interest to you based on data that you observe. Telling stories in small groups around a fire played a critical role in the development of humans and society [@wiessner2014embers]. Today our stories, based on data, can influence millions.
 
@@ -150,7 +149,9 @@ Finally, thank you to Monica Alexander. Without you I would not have written a b
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
-\BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
-Toronto, Canada</p>\EndKnitrBlock{flushright}
+\BeginKnitrBlock{flushright}
+Rohan Alexander  
+Toronto, Canada
+\EndKnitrBlock{flushright}
 
 

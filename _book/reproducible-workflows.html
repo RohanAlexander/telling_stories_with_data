@@ -53,7 +53,7 @@
 <li><a class="" href="index.html">Preface</a></li>
 <li><a class="" href="about-the-author.html">About the author</a></li>
 <li class="book-part">Foundations</li>
-<li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling Stories with Data</a></li>
+<li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling stories with data</a></li>
 <li><a class="" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
 <li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
 <li><a class="active" href="reproducible-workflows.html"><span class="header-section-number">4</span> Reproducible workflows</a></li>
@@ -174,7 +174,14 @@ Figure 4.1: Instructions given to Mechanical Turk workers for removing incomplet
 </li>
 <li>Including a detailed discussion about the limitations of the dataset and the approach in the final paper or report.</li>
 </ol>
-<p>There are various tools that we can use that will improve our workflow, including the use of R Markdown, R Projects, Git and GitHub.</p>
+<p>The workflow that we follow is summarized in Figure <a href="reproducible-workflows.html#fig:workflow">4.2</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:workflow"></span>
+<img src="figures/IMG_1847.png" alt="Workflow for telling stories with data" width="95%"><p class="caption">
+Figure 4.2: Workflow for telling stories with data
+</p>
+</div>
+<p>There are various tools that we can use at the different stages that will improve the reproducibility of this workflow. This includes the use of R Markdown, R Projects, and Git and GitHub.</p>
 </div>
 <div id="r-markdown" class="section level2" number="4.2">
 <h2>
@@ -233,11 +240,11 @@ DoctorVisits %&gt;%
   ggplot(aes(x = visits)) +
   geom_histogram(stat = "count")
 ```</code></pre>
-<p>The output of that code is Figure <a href="reproducible-workflows.html#fig:doctervisits">4.2</a>.</p>
+<p>The output of that code is Figure <a href="reproducible-workflows.html#fig:doctervisits">4.3</a>.</p>
 <div class="figure">
 <span style="display:block;" id="fig:doctervisits"></span>
 <img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672"><p class="caption">
-Figure 4.2: Number of doctor visits in the past two weeks, based on the 1977–1978 Australian Health Survey
+Figure 4.3: Number of doctor visits in the past two weeks, based on the 1977–1978 Australian Health Survey
 </p>
 </div>
 <p>There are various evaluation options that are available in chunks. We include these by putting a comma after <code>r</code> and then specifying any options before the closing curly brace. Helpful options include:</p>
@@ -335,9 +342,9 @@ bibliography: bibliography.bib
 <h3>
 <span class="header-section-number">4.2.6</span> Cross-references<a class="anchor" aria-label="anchor" href="#cross-references"><i class="fas fa-link"></i></a>
 </h3>
-<p>It can be useful to cross-reference figures, tables, and equations. This makes it easier to refer to them in the text. To do this for a figure we refer to the name of the R chunk that creates or contains the figure. For instance, <code>(Figure \@ref(fig:uniquename))</code> will produce: (Figure <a href="reproducible-workflows.html#fig:uniquename">4.3</a>) as the name of the R chunk is <code>uniquename</code>. We also need to add ‘fig’ in front of the chunk name so that R Markdown knows that this is a figure. We then include a ‘fig.cap’ in the R chunk that specifies a caption.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb131-1"><a href="reproducible-workflows.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r uniquename, fig.cap = "Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey", echo = TRUE}</span></span></code></pre></div>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<p>It can be useful to cross-reference figures, tables, and equations. This makes it easier to refer to them in the text. To do this for a figure we refer to the name of the R chunk that creates or contains the figure. For instance, <code>(Figure \@ref(fig:uniquename))</code> will produce: (Figure <a href="reproducible-workflows.html#fig:uniquename">4.4</a>) as the name of the R chunk is <code>uniquename</code>. We also need to add ‘fig’ in front of the chunk name so that R Markdown knows that this is a figure. We then include a ‘fig.cap’ in the R chunk that specifies a caption.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb133-1"><a href="reproducible-workflows.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r uniquename, fig.cap = "Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey", echo = TRUE}</span></span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
 
@@ -349,11 +356,11 @@ bibliography: bibliography.bib
 <div class="figure">
 <span style="display:block;" id="fig:uniquename"></span>
 <img src="04-workflow_files/figure-html/uniquename-1.png" alt="Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672"><p class="caption">
-Figure 4.3: Number of illnesses in the past two weeks, based on the 1977–1978 Australian Health Survey
+Figure 4.4: Number of illnesses in the past two weeks, based on the 1977–1978 Australian Health Survey
 </p>
 </div>
 <p>We can take a similar, but slightly different, approach to cross-reference tables. For instance, <code>(Table \@ref(tab:docvisittable))</code> will produce: (Table <a href="reproducible-workflows.html#tab:docvisittable">4.1</a>). In this case we specify ‘tab’ before the unique reference to the table, so that R Markdown knows that it is a table. For tables we need to include the caption in the main content, as a ‘caption,’ rather than in a ‘fig.cap’ chunk option as is the case for figures.</p>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">DoctorVisits</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">visits</span><span class="op">)</span> |&gt; 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey"</span><span class="op">)</span></code></pre></div>
@@ -441,11 +448,11 @@ Y = C + I + G + (X - M) \tag{4.1}
 <p>Git is a version control system. One way one often starts doing version control is to have various versions of the one file: ‘first_go.R,’ ‘first_go-fixed.R,’ ‘first_go-fixed-with-mons-edits.R.’ But this soon becomes cumbersome. One often soon turns to dates, for instance: ‘2022-01-01-analysis.R,’ ‘2022-01-02-analysis.R,’ ‘2022-01-03-analysis.R,’ etc. While this keeps a record it can be difficult to search when we need to go back, because it can be difficult to remember the date some change was made. In any case, it quickly gets unwieldy for a project that is being regularly worked on.</p>
 <p>Instead of this, we use Git so that we can have one version of the file, say, ‘analysis.R’ and then use Git to keep a record of the changes to that file, and a snapshot of that file at a given point in time.</p>
 <p>We determine when Git takes that snapshot, and when we take that snapshot, we additionally include a message saying what changed between this snapshot and the last. In that way, there is only ever one version of the file, but the history can be more easily searched.</p>
-<p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="reproducible-workflows.html#fig:hackernews">4.4</a>).</p>
+<p>The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure <a href="reproducible-workflows.html#fig:hackernews">4.5</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:hackernews"></span>
 <img src="figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks." width="95%"><p class="caption">
-Figure 4.4: An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user’s approach would probably work for them, it probably would not for most folks.
+Figure 4.5: An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user’s approach would probably work for them, it probably would not for most folks.
 </p>
 </div>
 <p>Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. We will introduce GitHub here because it ‘is by far the most dominant code-hosting platform’ <span class="citation">(<a href="references-1.html#ref-eghbal2020working" role="doc-biblioref">Eghbal 2020, 21</a>)</span> and it is built into R Studio, but other options have advantages.</p>
@@ -456,56 +463,56 @@ Figure 4.4: An infamous response to the launch of Dropbox in 2007, trivializing 
 <span class="header-section-number">4.4.1</span> Git<a class="anchor" aria-label="anchor" href="#git"><i class="fas fa-link"></i></a>
 </h3>
 <p>We need to git check whether Git is installed. Open R Studio, go to the Terminal, type the following, and then enter/return.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="reproducible-workflows.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
-<p>If you get a version number, then you are done (Figure <a href="reproducible-workflows.html#fig:gitone">4.5</a>).</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb137-1"><a href="reproducible-workflows.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
+<p>If you get a version number, then you are done (Figure <a href="reproducible-workflows.html#fig:gitone">4.6</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:gitone"></span>
 <img src="figures/git_one.png" alt="How to access the Terminal within R Studio" width="95%"><p class="caption">
-Figure 4.5: How to access the Terminal within R Studio
+Figure 4.6: How to access the Terminal within R Studio
 </p>
 </div>
 <p>If you have a Mac then Git should come pre-installed, if you have Windows then there is a chance, and if you have Linux then you probably do not need this guide. If you do not get a version number, then you need to install it. To do that you should follow the instructions specific to your operating system in Chapter 5 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 <p>After we have Git, then we need to tell it our username and email. We need to do this because Git adds this information whenever we take a ‘snapshot,’ or to use Git’s language, whenever we make a commit.</p>
 <p>Again, within the Terminal, type the following, replacing the details with yours, and then enter/return after each line.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb136-1"><a href="reproducible-workflows.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'Rohan Alexander'</span></span>
-<span id="cb136-2"><a href="reproducible-workflows.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'rohan.alexander@utoronto.ca'</span></span>
-<span id="cb136-3"><a href="reproducible-workflows.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb138-1"><a href="reproducible-workflows.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'Rohan Alexander'</span></span>
+<span id="cb138-2"><a href="reproducible-workflows.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'rohan.alexander@utoronto.ca'</span></span>
+<span id="cb138-3"><a href="reproducible-workflows.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code></pre></div>
 <p>The details that you enter here will be public. There are various ways to hide your email address if you need to do this and GitHub provides instructions about this. Again, if you have issues, or need more detailed instructions about this step, then please see Chapter 7 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 <div id="github" class="section level3" number="4.4.2">
 <h3>
 <span class="header-section-number">4.4.2</span> GitHub<a class="anchor" aria-label="anchor" href="#github"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: <a href="https://github.com" class="uri">https://github.com</a> (Figure <a href="reproducible-workflows.html#fig:githubone">4.6</a>).</p>
+<p>Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: <a href="https://github.com" class="uri">https://github.com</a> (Figure <a href="reproducible-workflows.html#fig:githubone">4.7</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubone"></span>
 <img src="figures/github_1.png" alt="GitHub sign-up screen" width="95%"><p class="caption">
-Figure 4.6: GitHub sign-up screen
+Figure 4.7: GitHub sign-up screen
 </p>
 </div>
-<p>We now need to make a new folder (which is called a ‘repo’ in Git). Look for a ‘+’ in the top right, and then select ‘New Repository’ (Figure <a href="reproducible-workflows.html#fig:githubtwo">4.7</a>).</p>
+<p>We now need to make a new folder (which is called a ‘repo’ in Git). Look for a ‘+’ in the top right, and then select ‘New Repository’ (Figure <a href="reproducible-workflows.html#fig:githubtwo">4.8</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubtwo"></span>
 <img src="figures/github_2.png" alt="Start process of creating a new repository" width="95%"><p class="caption">
-Figure 4.7: Start process of creating a new repository
+Figure 4.8: Start process of creating a new repository
 </p>
 </div>
-<p>At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to ‘Initialize this repository with a README.’ Leave ‘Add .gitignore’ set to ‘None.’ After that, click ‘Create repository’ (Figure <a href="reproducible-workflows.html#fig:githubthree">4.8</a>).</p>
+<p>At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to ‘Initialize this repository with a README.’ Leave ‘Add .gitignore’ set to ‘None.’ After that, click ‘Create repository’ (Figure <a href="reproducible-workflows.html#fig:githubthree">4.9</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubthree"></span>
 <img src="figures/github_3.png" alt="Finish creating a new repository" width="95%"><p class="caption">
-Figure 4.8: Finish creating a new repository
+Figure 4.9: Finish creating a new repository
 </p>
 </div>
-<p>This will take us to a screen that is fairly empty, but the details that we need are in the green ‘Clone or Download’ button, which we can copy by clicking the clipboard (Figure <a href="reproducible-workflows.html#fig:githubfour">4.9</a>).</p>
+<p>This will take us to a screen that is fairly empty, but the details that we need are in the green ‘Clone or Download’ button, which we can copy by clicking the clipboard (Figure <a href="reproducible-workflows.html#fig:githubfour">4.10</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:githubfour"></span>
 <img src="figures/github_4.png" alt="Get the details of your new repository" width="95%"><p class="caption">
-Figure 4.9: Get the details of your new repository
+Figure 4.10: Get the details of your new repository
 </p>
 </div>
 <p>Now returning to R Studio, we open Terminal, and use <code>cd</code> to navigate to the directory where we want to create this folder. Then type the following, replacing repo details with your own, and enter/return.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb137-1"><a href="reproducible-workflows.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb139-1"><a href="reproducible-workflows.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/RohanAlexander/test.git</span></code></pre></div>
 <p>At this point, a new folder has been created and we can now use it.</p>
 <p>To use GitHub for a project that we are actively working on we follow a procedure:</p>
 <ol style="list-style-type: decimal">
@@ -523,13 +530,13 @@ Figure 4.9: Get the details of your new repository
 </li>
 </ol>
 <p>To summarize the workflow (assuming we are already in the relevant folder):</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb138-1"><a href="reproducible-workflows.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb138-2"><a href="reproducible-workflows.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb138-3"><a href="reproducible-workflows.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
-<span id="cb138-4"><a href="reproducible-workflows.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb138-5"><a href="reproducible-workflows.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Short commit message"</span></span>
-<span id="cb138-6"><a href="reproducible-workflows.html#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb138-7"><a href="reproducible-workflows.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb140-1"><a href="reproducible-workflows.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb140-2"><a href="reproducible-workflows.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb140-3"><a href="reproducible-workflows.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span>
+<span id="cb140-4"><a href="reproducible-workflows.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb140-5"><a href="reproducible-workflows.html#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Short commit message"</span></span>
+<span id="cb140-6"><a href="reproducible-workflows.html#cb140-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb140-7"><a href="reproducible-workflows.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="using-github-within-r-studio-with-the-git-pane" class="section level3" number="4.4.3">
 <h3>
@@ -537,11 +544,11 @@ Figure 4.9: Get the details of your new repository
 </h3>
 <p>The procedure that we went through is useful to better understand what is happening when we use Git and GitHub but can be a bit cumbersome. Usefully, GitHub is built into R Studio and so we can use the Git pane to move away from the Terminal.</p>
 <p>Get started by creating a new repo in GitHub, as before, and copy the repo information, as before. At this point, open R Studio, and create a new project using version control (‘Files’ -&gt; ‘New Project’ -&gt; ‘Version Control’ -&gt; ‘Git,’ and then paste the information for the repo). Follow through the rest of the set-up by naming the project something sensible, saving it somewhere sensible, and clicking ‘Open in new session,’ before creating the project. This will then create a new folder with an R Project which will be Git-initialized and linked to the GitHub repo.</p>
-<p>If we then open this R Project, we will have a ‘Git’ tab (Figure <a href="reproducible-workflows.html#fig:rstudiogit">4.10</a>).</p>
+<p>If we then open this R Project, we will have a ‘Git’ tab (Figure <a href="reproducible-workflows.html#fig:rstudiogit">4.11</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rstudiogit"></span>
 <img src="figures/RStudio_git.png" alt="The Git pane in R Studio" width="95%"><p class="caption">
-Figure 4.10: The Git pane in R Studio
+Figure 4.11: The Git pane in R Studio
 </p>
 </div>
 <p>We can then use Git through that tab. As before, we first want to ‘pull,’ but we can do this by clicking the blue down arrow. As before, we want to commit the files that have changes, and we do this by selecting the ‘staged’ checkbox against the files that we would like to commit. Then ‘Commit.’ Again, we want to include a message with our commit, and we do this by typing a message in the ‘Commit message’ box and then ‘Commit.’ Finally, we can ‘Push.’ Further details on this workflow are available in Chapter 12 of <span class="citation"><a href="references-1.html#ref-happygit" role="doc-biblioref">Jenny Bryan</a> (<a href="references-1.html#ref-happygit" role="doc-biblioref">2020</a>)</span>.</p>
@@ -552,7 +559,7 @@ Figure 4.10: The Git pane in R Studio
 </h3>
 <p>We used the Git pane in R Studio to reduce the need to use the Terminal, but it did not remove the need to go to GitHub and set-up a new project. Having set-up Git and GitHub, we can further improve our workflow by using <code>usethis</code> to do much of the work <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span>.</p>
 <p>After installing and loading <code>usethis</code> we need to check that we have set-up Git with <code><a href="https://usethis.r-lib.org/reference/git_sitrep.html">usethis::git_sitrep()</a></code>. This should print information about the user. We can use <code><a href="https://usethis.r-lib.org/reference/use_git_config.html">usethis::use_git_config()</a></code> to update the username or email address. For instance,</p>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org">usethis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://usethis.r-lib.org/reference/use_git_config.html">use_git_config</a></span><span class="op">(</span>user.name <span class="op">=</span> <span class="st">"Rohan Alexander"</span>, user.email <span class="op">=</span> <span class="st">"rohan.alexander@utoronto.ca"</span><span class="op">)</span></code></pre></div>
@@ -799,6 +806,12 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <span class="header-section-number">4.6.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please put together a small R Markdown file that downloads a dataset using <code>opendatatoronto</code>, cleans it, and makes a graph. Then exchange it with someone else. Ask them to both read the code and to run it, and to then provide you with feedback about both aspects. Write a page or two about the comments that you received and changes that you could make going forward.</p>
+</div>
+<div id="paper" class="section level3" number="4.6.3">
+<h3>
+<span class="header-section-number">4.6.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper"><i class="fas fa-link"></i></a>
+</h3>
+<p>At about this point, writing Paper 1 (Appendix <a href="papers.html#paper-1">B.1</a>) would be appropriate.</p>
 
 </div>
 </div>
@@ -845,6 +858,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <a class="nav-link" href="#exercises-and-tutorial-3"><span class="header-section-number">4.6</span> Exercises and tutorial</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#exercises-3"><span class="header-section-number">4.6.1</span> Exercises</a></li>
 <li><a class="nav-link" href="#tutorial-3"><span class="header-section-number">4.6.2</span> Tutorial</a></li>
+<li><a class="nav-link" href="#paper"><span class="header-section-number">4.6.3</span> Paper</a></li>
 </ul>
 </li>
 </ul>
@@ -868,7 +882,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 14 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

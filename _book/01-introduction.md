@@ -3,6 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
+
 \mainmatter
 
 
@@ -11,7 +12,7 @@ output:
 # (PART) Foundations {-}
 
 
-# Telling Stories with Data
+# Telling stories with data
 
 **Required material**
 
@@ -81,7 +82,7 @@ A compelling story based on data can likely be told in around ten-to-twenty page
 
 It is possible to tell convincing stories even when it is not possible to conduct traditional experiments. These approaches do not rely on 'big data'---which is not a panacea [@meng2018statistical]---but instead on better using the data that are available. A blend of theory and application, combined with practical skills, a sophisticated workflow, and an appreciation for what one does not know, is often enough to create lasting knowledge.
 
-The best stories based on data tend to be multi-disciplinary. They take from whatever field they need to, but almost always draw on: statistics, data visualization, computer science, experimental design, economics, and information science (to name a few). As such, an end-to-end workflow requires a blend of skills from these areas. The best way to learn these skills is to use real-world data to conduct research projects where you:
+The best stories based on data tend to be multi-disciplinary. They take from whatever field they need to, but almost always draw on: statistics, data visualization, computer science, experimental design, economics, engineering, and information science (to name a few). As such, an end-to-end workflow requires a blend of skills from these areas. The best way to learn these skills is to use real-world data to conduct research projects where you:
 
 - obtain and clean relevant datasets; 
 - develop research questions; 
@@ -103,10 +104,9 @@ The key elements of telling convincing stories with data are:
 
 These elements are the foundation on which the workflow are built (Figure \@ref(fig:iceberg)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/IMG_1820.png" alt="The workflow builds on various elements" width="85%" />
-<p class="caption">(\#fig:iceberg)The workflow builds on various elements</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1820} \caption{The workflow builds on various elements}(\#fig:iceberg)
+\end{figure}
 
 This is a lot to master, but **communication** is the most important. Simple analysis, communicated well, is more valuable than complicated analysis communicated poorly. This is because the latter cannot be understood or trusted by others. A lack of clear communication sometimes reflects a failure by the researcher to understand what is going on, or even what they are doing. And so, while the level of the analysis should match the dataset, instruments, task, and skillset, when a trade-off is required between clarity and complication, it can be sensible to err on the side of clarity.
 
@@ -122,16 +122,20 @@ Curiosity provides internal motivation to explore a dataset, and associated proc
 
 Developing a comfort and ease in the messiness of real-world data means getting to ask new questions each time the data update. And knowing a dataset in detail tends to surface unexpected groupings or values that you can then work with subject-area experts to understand. Becoming a bit of a 'mongrel' by developing a base of knowledge across a variety of areas is especially valuable, as is becoming comfortable with the possibility of initially asking dumb questions.
 
-**Measurement** and **data collection** are about deciding how our world will become data. They are challenging. The world is so vibrant that it is difficult to reduce it to something that is possible to consistently measure and collect. Take, for instance, someone's height. We can, probably, all agree that we should take our shoes off before we measure height. But our height changes over the course of the day. And measuring someone's height with a tape measure will give different results to using a laser. If we are comparing heights between people or over time, it therefore becomes important to measure at the same time each day, using the same method. But that quickly becomes infeasible.
+**Measurement** and **data collection** are about deciding how our world will become data. They are challenging. The world is so vibrant that it is difficult to reduce it to something that is possible to consistently measure and collect. Take, for instance, someone's height. We can, probably, all agree that we should take our shoes off before we measure height. But our height changes over the course of the day. And measuring someone's height with a tape measure will give different results to using a laser. If we are comparing heights between people or over time, it therefore becomes important to measure at the same time each day, using the same method. But that quickly becomes unfeasible.
 
 Most of the questions we are interested in will use data that are more complicated than height. How do we measure how sad someone is? How do we measure pain? Who decides what we will measure and how we will measure it? There is a certain arrogance required to think that we can reduce the world to a value and then compare these. Ultimately, we must, but it is difficult to consistently define what is to be measured. This process is not value-free. The only way to reasonably come to terms with this brutal reduction is to deeply understand, and respect what we are measuring and collecting. What is the central essence, and what can be stripped away?
 
 Pablo Picasso, the twentieth century Spanish painter, has a series of drawings where he depicts the outline of an animal using only one line (Figure \@ref(fig:lumpthedog)). Despite their simplicity, we recognize which animal is being depicted---the drawing is sufficient to tell the animal is a dog, not a cat.  Could this be used to determine whether the dog is sick? Probably not. We would likely want a more detailed drawing. The decision as to which features should be measured and collected, and which to ignore, turns on context and purpose.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
-<p class="caption">(\#fig:lumpthedog)This drawing is clearly a dog, even though it is just one line</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/lump} 
+
+}
+
+\caption{This drawing is clearly a dog, even though it is just one line}(\#fig:lumpthedog)
+\end{figure}
 
 **Data cleaning and preparation** is a critical part of using data. We need to massage the data available to us into a dataset that we can use. This requires making a lot of decisions. The data cleaning and preparation stage is critical, and worthy of as much attention and care as any other. 
 
