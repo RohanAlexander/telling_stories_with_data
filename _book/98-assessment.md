@@ -20,7 +20,7 @@ Working individually and in an entirely reproducible way, please find a dataset 
     - introduction,
     - data, and 
     - references. 
-- In the data section thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text and at least one graph and one table. Graphs must be made in `ggplot2` [@citeggplot] and tables must be made using `knitr` [@citeknitr] (with or without `kableExtra` [@citekableextra]). Make sure to cross-reference graphs and tables.
+- In the data section thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text and at least one graph and one table. Graphs must be made in `ggplot2` [@citeggplot] and tables must be made using `knitr` [@citeknitr] (with or without `kableExtra` [@citekableextra]). Graphs must show the actual data, or as close to it as possible, not summary statistics. Make sure to cross-reference graphs and tables.
 - Add references by using a bib file. Be sure to reference R and any R packages you use, as well as the dataset. Check that you have referenced everything. Strong submissions will draw on related literature and would also reference those. There are various options in R Markdown for references style; just pick one that you are used to.
 - Go back and write an introduction. This should be two or three paragraphs. The last paragraph should set out the remainder of the paper.
 - Add an abstract. This should be three or four sentences. If your abstract is longer than four sentences, then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper? 
@@ -46,9 +46,9 @@ Working individually and in an entirely reproducible way, please find a dataset 
 ### FAQ
 
 - Can I use a dataset from Kaggle instead? No, because they have done the hard work for you.
-- I can not use code to download my dataset, can I just manually download it? No, because your entire workflow needs to be reproducible. Please fix the download problem or pick a different dataset.
+- I cannot use code to download my dataset, can I just manually download it? No, because your entire workflow needs to be reproducible. Please fix the download problem or pick a different dataset.
 - How much should I write? Most students submit something in the two-to-six-page range, but it's really up to you. Be precise and thorough.
-- My data is about apartment blocks/NBA/League of Legends so there's no ethical or bias aspect, what do I do? Please re-read the readings to better understand bias and ethics. If you really can not think of something, then it might be worth picking a different dataset.
+- My data is about apartment blocks/NBA/League of Legends so there's no ethical or bias aspect, what do I do? Please re-read the readings to better understand bias and ethics. If you really cannot think of something, then it might be worth picking a different dataset.
 - Can I use Python? No. If you already know Python then it doesn't hurt to learn another language.
 - Why do I need to cite R, when I don't need to cite Word? R is a free statistical programming language with academic origins so it's appropriate to acknowledge the work of others. It's also important for reproducibility.
 
@@ -76,15 +76,15 @@ Working individually and in an entirely reproducible way, please find a dataset 
 	- For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.
 - Data - [10 'Exceptional', 8 'Great', 6 'Good', 4 'Some issues', 2 'Many issues',  0 'Poor or not done']
 	- When you discuss the dataset (in the data section) you should make sure to discuss at least:
-	- The source of the data.
-	- The methodology and approach that is used to collect and process the data.
-	- The population, the frame, and the sample (as appropriate).
-	- Information about how respondents were found. What happened to non-response?
-	- What are its key features, strengths, and weaknesses about the source generally.
-	- You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
-	- What do the data look like?
-	- Plot the actual data that you're using (or as close as you can get to it).
-	- Discuss these plots and the other features of these data.
+  	1) The source of the data.
+  	2) The methodology and approach that is used to collect and process the data.
+  	3) The population, the frame, and the sample (as appropriate).
+  	4) Information about how respondents were found. What happened to non-response?
+  	5) What are the key features, strengths, and weaknesses about the source generally.
+  - You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
+  - What do the data look like?
+  - Plot the actual data that you're using (or as close as you can get to it).
+  - Discuss these plots and the other features of these data.
 	- These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.
 	- 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).
 - Numbering - [2 'Yes', 0 'Poor or not done']
@@ -120,7 +120,7 @@ Working individually and in an entirely reproducible way, please find a dataset 
 
 Some examples of papers that well in the past include those by: [Amy Farrow](inputs/pdfs/Mandatory_minimums-Amy_Farrow.pdf), [Morgaine Westin](inputs/pdfs/Mandatory_minimums-Morgaine_Westin.pdf), and [Rachel Lam](inputs/pdfs/Mandatory_minimums-Rachel_Lam.pdf).
 
-
+\newpage
 
 ## 'These numbers mean dial it up'
 
@@ -249,7 +249,7 @@ Working as part of a small team of 1-3 people, and in an entirely reproducible w
 	  - The methodology and approach that is used to collect and process the data.
 	  - The population, the frame, and the sample (as appropriate).
 	  - Information about how respondents were found. What happened to non-response?
-	  - What are its key features, strengths, and weaknesses about the survey generally.
+	  - What are the key features, strengths, and weaknesses about the survey generally.
   - You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones?
   - What do the data look like?
   - Plot the actual data that you're using (or as close as you can get to it).
@@ -514,7 +514,7 @@ You have various options for topics (pick one):
 
 ### Checks
 
-- Do you have a causal story, or at least a sub-section in the discussion that talks about causality and why you can not speak to it, or what you would do if you could?
+- Do you have a causal story, or at least a sub-section in the discussion that talks about causality and why you cannot speak to it, or what you would do if you could?
 
 
 ### FAQ

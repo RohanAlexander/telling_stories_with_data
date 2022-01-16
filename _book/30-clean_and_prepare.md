@@ -104,9 +104,10 @@ The first step is to save the raw data into a separate folder location. It is cr
 
 Planning the end state, or forcing yourself to begin with an end in mind is important for a variety of reasons. As with scraping data, it helps us to be pre-active about scope-creep, but with data cleaning I see a bigger benefit being that it forces us to really think about what we want the final dataset to look like. As before, I recommend first sketching the dataset. The key features of your sketch will be aspects such as the names of the columns, their class, and the possible range of values. It might look something like Figure \@ref(fig:sketchdataplan) .
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/sketchofdataset} \caption{Example of a dataset end plan}(\#fig:sketchdataplan)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/sketchofdataset.png" alt="Example of a dataset end plan" width="90%" />
+<p class="caption">(\#fig:sketchdataplan)Example of a dataset end plan</p>
+</div>
 
 Notice that this process has made it clear that we want the full names of the states, rather than abbreviations. And that population should be in millions, rather than some other units. The process of sketching out an end-point forces us to make decisions and be clear about our desired end state.
 
@@ -125,7 +126,7 @@ simulated_states_population <-
   )
 
 simulated_states_population
-#> # A tibble: 5 x 2
+#> # A tibble: 5 × 2
 #>   state      population
 #>   <chr>           <dbl>
 #> 1 Alabama           5  
@@ -152,7 +153,7 @@ tibble(
   age_group = c("0-9", "10-19", "0-9", "0-9", "10-19"),
   response_time = c(0, 9, 3, 3, 8),
   )
-#> # A tibble: 5 x 3
+#> # A tibble: 5 × 3
 #>   name    age_group response_time
 #>   <chr>   <chr>             <dbl>
 #> 1 Alfred  0-9                   0
@@ -226,7 +227,7 @@ data <-
   select(-drop_me)
 
 data
-#> # A tibble: 5 x 2
+#> # A tibble: 5 × 2
 #>   state      population
 #>   <chr>      <chr>     
 #> 1 Alabama    5         
@@ -268,7 +269,7 @@ my_data <-
   tibble(names = messy_string) %>% 
   tidyr::separate_rows(names, sep = ", ") 
 my_data
-#> # A tibble: 10 x 1
+#> # A tibble: 10 × 1
 #>    names   
 #>    <chr>   
 #>  1 "Rohan" 
@@ -289,7 +290,7 @@ We now need decide which of these errors we are going to fix. To help us decide 
 ```r
 my_data %>% 
   count(names, sort = TRUE)
-#> # A tibble: 7 x 2
+#> # A tibble: 7 × 2
 #>   names        n
 #>   <chr>    <int>
 #> 1 "Rohan"      3
@@ -313,7 +314,7 @@ my_data <-
 
 my_data %>% 
   count(names, sort = TRUE)
-#> # A tibble: 5 x 2
+#> # A tibble: 5 × 2
 #>   names        n
 #>   <chr>    <int>
 #> 1 "Rohan"      6
@@ -336,7 +337,7 @@ my_data <-
 
 my_data %>% 
   count(names, sort = TRUE)
-#> # A tibble: 3 x 2
+#> # A tibble: 3 × 2
 #>   names        n
 #>   <chr>    <int>
 #> 1 "Rohan"      8
@@ -356,7 +357,7 @@ my_data <-
 
 my_data %>% 
   count(names, sort = TRUE)
-#> # A tibble: 1 x 2
+#> # A tibble: 1 × 2
 #>   names     n
 #>   <chr> <int>
 #> 1 Rohan    10
@@ -423,8 +424,7 @@ You can see a page of the PDF here:
 knitr::include_graphics("figures/2020-04-10-screenshot-of-census.png") 
 ```
 
-
-\includegraphics[width=0.85\linewidth]{figures/2020-04-10-screenshot-of-census} 
+<img src="figures/2020-04-10-screenshot-of-census.png" width="85%" />
 
 
 
@@ -529,7 +529,7 @@ all_tables %>%
   mutate_all(~str_remove_all(., "_")) %>%
   mutate_all(~str_remove_all(., "-")) %>% 
   distinct()
-#> # A tibble: 39 x 3
+#> # A tibble: 39 × 3
 #>    male    female         total  
 #>    <chr>   <chr>          <chr>  
 #>  1  <NA>    <NA>           <NA>  
@@ -542,7 +542,7 @@ all_tables %>%
 #>  8 "SOUTH"  <NA>           <NA>  
 #>  9 "RIVER"  <NA>           <NA>  
 #> 10 "DELTA"  <NA>           <NA>  
-#> # ... with 29 more rows
+#> # … with 29 more rows
 # We clearly need to remove ",", "_", and "-". 
 # This also highlights a few issues on p. 185 that need to be manually adjusted
 # https://twitter.com/RohanAlexander/status/1244337583016022018
@@ -628,8 +628,8 @@ all_tables %>%
          ) %>% 
   select(area, page) %>% 
   distinct()
-#> # A tibble: 0 x 2
-#> # ... with 2 variables: area <chr>, page <int>
+#> # A tibble: 0 × 2
+#> # … with 2 variables: area <chr>, page <int>
 ```
 
 Now we can add the flag for whether the area is a county and adjust for the ones that are troublesome,
@@ -783,8 +783,8 @@ follow_up <-
   filter(check_total_is_rural_plus_urban == 0)
 
 head(follow_up)
-#> # A tibble: 0 x 16
-#> # ... with 16 variables: age <fct>, male <int>, female <int>, total <int>,
+#> # A tibble: 0 × 16
+#> # … with 16 variables: age <fct>, male <int>, female <int>, total <int>,
 #> #   area <chr>, area_type <chr>, age_type <chr>, male_rural <int>,
 #> #   female_rural <int>, total_rural <int>, male_urban <int>,
 #> #   female_urban <int>, total_urban <int>, total_from_bits <int>,
@@ -835,8 +835,8 @@ follow_up <-
   filter(total != group_sum) 
 
 head(follow_up)
-#> # A tibble: 0 x 16
-#> # ... with 16 variables: age <fct>, male <int>, female <int>, total <int>,
+#> # A tibble: 0 × 16
+#> # … with 16 variables: age <fct>, male <int>, female <int>, total <int>,
 #> #   area <chr>, area_type <chr>, age_type <chr>, male_rural <int>,
 #> #   female_rural <int>, total_rural <int>, male_urban <int>,
 #> #   female_urban <int>, total_urban <int>, groups <chr>, group_sum <dbl>,
@@ -869,8 +869,8 @@ all <-
 write_csv(all, path = "outputs/data/cleaned_kenya_2019_census.csv")
 
 head(all)
-#> # A tibble: 0 x 7
-#> # ... with 7 variables: area <chr>, area_type <chr>, part_of_area <chr>,
+#> # A tibble: 0 × 7
+#> # … with 7 variables: area <chr>, area_type <chr>, part_of_area <chr>,
 #> #   age <fct>, age_type <chr>, gender <chr>, number <int>
 ```
 
@@ -892,8 +892,8 @@ monicas_dataset <-
   select(area, age, gender, number)
 
 head(monicas_dataset)
-#> # A tibble: 0 x 4
-#> # ... with 4 variables: area <chr>, age <fct>, gender <chr>, number <int>
+#> # A tibble: 0 × 4
+#> # … with 4 variables: area <chr>, age <fct>, gender <chr>, number <int>
 ```
 
 
@@ -949,7 +949,7 @@ raw_data %>%
   geom_point()
 ```
 
-![](30-clean_and_prepare_files/figure-latex/unnamed-chunk-40-1.pdf)<!-- --> 
+<img src="30-clean_and_prepare_files/figure-html/unnamed-chunk-40-1.png" width="672" />
 
 The graph clearly shows the unexpected value of 150. The most likely explanation is that the data were incorrectly entered with a trailing 0, and should be 15.
 
@@ -972,7 +972,7 @@ raw_data <-
 
 raw_data %>% 
   count(country, sort = TRUE)
-#> # A tibble: 5 x 2
+#> # A tibble: 5 × 2
 #>   country        n
 #>   <chr>      <int>
 #> 1 Australia      4
@@ -1012,7 +1012,7 @@ top_five_kenya <-
 
 top_five_kenya %>% 
   count(county, sort = TRUE)
-#> # A tibble: 9 x 2
+#> # A tibble: 9 × 2
 #>   county       n
 #>   <chr>    <int>
 #> 1 Nakuru       2
@@ -1038,7 +1038,7 @@ top_five_kenya <-
 
 top_five_kenya %>% 
   count(county, sort = TRUE)
-#> # A tibble: 7 x 2
+#> # A tibble: 7 × 2
 #>   county       n
 #>   <chr>    <int>
 #> 1 Nairobi      3
@@ -1204,7 +1204,7 @@ bad_names_good_names <-
   )
 
 bad_names_good_names
-#> # A tibble: 1 x 4
+#> # A tibble: 1 × 4
 #>   First `second name has spaces` `weird#symbol` InCoNsIsTaNtCaPs
 #>   <dbl>                    <dbl>          <dbl>            <dbl>
 #> 1     1                        1              1                1
@@ -1214,7 +1214,7 @@ bad_names_good_names <-
   janitor::clean_names()
   
 bad_names_good_names
-#> # A tibble: 1 x 4
+#> # A tibble: 1 × 4
 #>   first second_name_has_spaces weird_number_symbol in_co_ns_is_ta_nt_ca_ps
 #>   <dbl>                  <dbl>               <dbl>                   <dbl>
 #> 1     1                      1                   1                       1
@@ -1267,7 +1267,7 @@ This behaviour is not possible within the `tidyverse` (for instance if `data.fra
 tibble(name = c('Anne', 'Bethany', 'Stephen', 'William'),
        age_group = c('18-29', '30-44', '45-60', '60+'),
        )
-#> # A tibble: 4 x 2
+#> # A tibble: 4 × 2
 #>   name    age_group
 #>   <chr>   <chr>    
 #> 1 Anne    18-29    

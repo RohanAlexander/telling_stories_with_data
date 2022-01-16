@@ -74,14 +74,10 @@ At a minimum, and with few exceptions, we must release our code, datasets, and e
 
 To be more specific, consider @wang2018deep who use deep neural networks to train a model to distinguish between gay and heterosexual men. (@murphy2017 provides a summary of the paper and the associated issues, along with comments from the authors.) To do this, @wang2018deep [p. 248] needed a dataset of photos of folks that were 'adult, Caucasian, fully visible, and of a gender that matched the one reported on the user’s profile'. They verified this using Amazon Mechanical Turk, an online platform that pays workers a small amount of money to complete specific tasks. Figure \@ref(fig:instructionsexample), from @wang2018deep supplemental materials, shows the instructions provided to the Mechanical Turk workers for this task. Some of the issues with these instructions include that Obama had a white mother and a black father but has been classified as 'Black'; and Latino is an ethnicity, rather than a race [@Mattson2017]. The classification task may seem objective, but, perhaps unthinkingly, echoes the views of Americans with a certain class and background.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{figures/mechanical_turk_instructions} 
-
-}
-
-\caption{Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces}(\#fig:instructionsexample)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/mechanical_turk_instructions.png" alt="Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces" width="95%" />
+<p class="caption">(\#fig:instructionsexample)Instructions given to Mechanical Turk workers for removing incomplete, non-Caucasian, nonadult, and nonhuman male faces</p>
+</div>
 
 This is just one specific concern about one part of the @wang2018deep workflow. Broader concerns are raised by others including @Gelman_2018. The main issue is that statistical models are specific to the data on which they were trained. And the only reason that we can identify likely issues in the model of @wang2018deep is because, despite not releasing the specific dataset that they used, they were nonetheless open about their procedure. For our work to be credible, it needs to be reproducible by others.
 
@@ -101,14 +97,10 @@ Some of the steps that we can take to make our work more reproducible include:
 
 The workflow that we follow is summarized in Figure \@ref(fig:workflow).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{figures/IMG_1847} 
-
-}
-
-\caption{Workflow for telling stories with data}(\#fig:workflow)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/IMG_1847.png" alt="Workflow for telling stories with data" width="95%" />
+<p class="caption">(\#fig:workflow)Workflow for telling stories with data</p>
+</div>
 
 There are various tools that we can use at the different stages that will improve the reproducibility of this workflow. This includes the use of R Markdown, R Projects, and Git and GitHub.
 
@@ -171,7 +163,10 @@ DoctorVisits %>%
 
 The output of that code is Figure \@ref(fig:doctervisits). 
 
-![(\#fig:doctervisits)Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey](04-workflow_files/figure-latex/doctervisits-1.pdf) 
+<div class="figure">
+<img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
+<p class="caption">(\#fig:doctervisits)Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
+</div>
 
 There are various evaluation options that are available in chunks. We include these by putting a comma after ```r``` and then specifying any options before the closing curly brace. Helpful options include: 
 
@@ -294,7 +289,10 @@ DoctorVisits |>
   geom_histogram(stat = "count")
 ```
 
-![(\#fig:uniquename)Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey](04-workflow_files/figure-latex/uniquename-1.pdf) 
+<div class="figure">
+<img src="04-workflow_files/figure-html/uniquename-1.png" alt="Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
+<p class="caption">(\#fig:uniquename)Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
+</div>
 
 We can take a similar, but slightly different, approach to cross-reference tables. For instance, `(Table \@ref(tab:docvisittable))` will produce: (Table \@ref(tab:docvisittable)). In this case we specify 'tab' before the unique reference to the table, so that R Markdown knows that it is a table. For tables we need to include the caption in the main content, as a 'caption', rather than in a 'fig.cap' chunk option as is the case for figures.
 
@@ -305,36 +303,22 @@ DoctorVisits |>
   knitr::kable(caption = "Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey")
 ```
 
-\begin{table}
 
-\caption{(\#tab:docvisittable)Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey}
-\centering
-\begin{tabular}[t]{r|r}
-\hline
-visits & n\\
-\hline
-0 & 4141\\
-\hline
-1 & 782\\
-\hline
-2 & 174\\
-\hline
-3 & 30\\
-\hline
-4 & 24\\
-\hline
-5 & 9\\
-\hline
-6 & 12\\
-\hline
-7 & 12\\
-\hline
-8 & 5\\
-\hline
-9 & 1\\
-\hline
-\end{tabular}
-\end{table}
+
+Table: (\#tab:docvisittable)Number of visits to the doctor in the past two weeks, based on the 1977--1978 Australian Health Survey
+
+| visits|    n|
+|------:|----:|
+|      0| 4141|
+|      1|  782|
+|      2|  174|
+|      3|   30|
+|      4|   24|
+|      5|    9|
+|      6|   12|
+|      7|   12|
+|      8|    5|
+|      9|    1|
 
 Finally, we can also cross-reference equations. To that we need to add a tag `(\#eq:macroidentity)` which we then reference. For instance, use `Equation \@ref(eq:macroidentity).` to produce Equation \@ref(eq:macroidentity).
 
@@ -385,14 +369,10 @@ We determine when Git takes that snapshot, and when we take that snapshot, we ad
 
 The issue is that Git was designed for software developers. As such, while it works, it can be a little ungainly for non-developers (Figure \@ref(fig:hackernews)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/hacker_news} 
-
-}
-
-\caption{An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks.}(\#fig:hackernews)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/hacker_news.png" alt="An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks." width="95%" />
+<p class="caption">(\#fig:hackernews)An infamous response to the launch of Dropbox in 2007, trivializing the use-case for Dropbox, and while this user's approach would probably work for them, it probably would not for most folks.</p>
+</div>
 
 Hence, GitHub, GitLab, and various other companies offer easier-to-use services that build on Git. We will introduce GitHub here because it 'is by far the most dominant code-hosting platform' [@eghbal2020working, p. 21] and it is built into R Studio, but other options have advantages.
 
@@ -414,14 +394,10 @@ git --version
 
 If you get a version number, then you are done (Figure \@ref(fig:gitone)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/git_one} 
-
-}
-
-\caption{How to access the Terminal within R Studio}(\#fig:gitone)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/git_one.png" alt="How to access the Terminal within R Studio" width="95%" />
+<p class="caption">(\#fig:gitone)How to access the Terminal within R Studio</p>
+</div>
 
 If you have a Mac then Git should come pre-installed, if you have Windows then there is a chance, and if you have Linux then you probably do not need this guide. If you do not get a version number, then you need to install it. To do that you should follow the instructions specific to your operating system in Chapter 5 of @happygit.
 
@@ -443,47 +419,31 @@ The details that you enter here will be public. There are various ways to hide y
 
 Now that Git is set-up we need to set-up GitHub. The first step is to create an account on GitHub: https://github.com (Figure \@ref(fig:githubone)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_1} 
-
-}
-
-\caption{GitHub sign-up screen}(\#fig:githubone)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/github_1.png" alt="GitHub sign-up screen" width="95%" />
+<p class="caption">(\#fig:githubone)GitHub sign-up screen</p>
+</div>
 
 We now need to make a new folder (which is called a 'repo' in Git). Look for a '+' in the top right, and then select 'New Repository' (Figure \@ref(fig:githubtwo)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_2} 
-
-}
-
-\caption{Start process of creating a new repository}(\#fig:githubtwo)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/github_2.png" alt="Start process of creating a new repository" width="95%" />
+<p class="caption">(\#fig:githubtwo)Start process of creating a new repository</p>
+</div>
 
 At this point we can add a sensible name for the repo. Leave it as public for now, because it can always be deleted later. And check the box to 'Initialize this repository with a README'. Leave 'Add .gitignore' set to 'None'. After that, click 'Create repository' (Figure \@ref(fig:githubthree)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_3} 
-
-}
-
-\caption{Finish creating a new repository}(\#fig:githubthree)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/github_3.png" alt="Finish creating a new repository" width="95%" />
+<p class="caption">(\#fig:githubthree)Finish creating a new repository</p>
+</div>
 
 This will take us to a screen that is fairly empty, but the details that we need are in the green 'Clone or Download' button, which we can copy by clicking the clipboard (Figure \@ref(fig:githubfour)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/github_4} 
-
-}
-
-\caption{Get the details of your new repository}(\#fig:githubfour)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/github_4.png" alt="Get the details of your new repository" width="95%" />
+<p class="caption">(\#fig:githubfour)Get the details of your new repository</p>
+</div>
 
 Now returning to R Studio, we open Terminal, and use `cd` to navigate to the directory where we want to create this folder. Then type the following, replacing repo details with your own, and enter/return.
 
@@ -528,14 +488,10 @@ Get started by creating a new repo in GitHub, as before, and copy the repo infor
 
 If we then open this R Project, we will have a 'Git' tab (Figure \@ref(fig:rstudiogit)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/RStudio_git} 
-
-}
-
-\caption{The Git pane in R Studio}(\#fig:rstudiogit)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/RStudio_git.png" alt="The Git pane in R Studio" width="95%" />
+<p class="caption">(\#fig:rstudiogit)The Git pane in R Studio</p>
+</div>
 
 We can then use Git through that tab. As before, we first want to 'pull', but we can do this by clicking the blue down arrow. As before, we want to commit the files that have changes, and we do this by selecting the 'staged' checkbox against the files that we would like to commit. Then 'Commit'. Again, we want to include a message with our commit, and we do this by typing a message in the 'Commit message' box and then 'Commit'. Finally, we can 'Push'. Further details on this workflow are available in Chapter 12 of @happygit.
 

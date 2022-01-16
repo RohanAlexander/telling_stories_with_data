@@ -7,54 +7,152 @@
 
 # On writing
 
+**Required material**
+
+> If you want to be a writer, you must do two things above all others: read a lot and write a lot. There's no way around these two things that I'm aware of, no shortcut.
+>
+> @stephenking [p. 145]
 
 
+- Read *On Writing Well*, (any edition is fine) [@zinsser].
+- Read two of the following well-written quantitative papers:
+    - *Asset prices in an exchange economy*, [@lucas1978asset].
+    - *Individuals, institutions, and innovation in the debates of the French Revolution*, [@barron2018individuals].
+    - *Modeling: optimal marathon performance on the basis of physiological factors*, [@joyner1991modeling].
+    - *On reproducible econometric research*, [@koenker2009reproducible].
+    - *Prevented mortality and greenhouse gas emissions from historical and projected nuclear power*, [@kharecha2013prevented].
+    - *Sample selection bias as a specification error*, [@heckman1979sample]. 
+    - *Seeing like a market*, [@fourcade2017seeing].
+    - *Simpson's paradox and the hot hand in basketball*, [@wardrop1995simpson].
+    - *Smoking and carcinoma of the lung*, [@doll1950smoking].
+    - *Some studies in machine learning using the game of checkers*, [@samuel1959some].
+    - *Statistical methods for assessing agreement between two methods of clinical measurement*, [@bland1986statistical].
+    - *The mundanity of excellence: An ethnographic report on stratification and Olympic swimmers*, [@chambliss1989mundanity].
+    - *The probable error of a mean*, [@student1908probable].
+- Read one of the following articles from *The New Yorker*:
+    - *Funny Like a Guy*, Tad Friend
+    - *Going the Distance*, David Remnick
+    - *Happy Feet*, Alexandra Jacobs
+    - *Levels of the Game*, John McPhee
+    - *Reporting from Hiroshima*, John Hersey
+    - *The Catastrophist*, Elizabeth Kolbert
+    - *The Quiet German*, George Packer 
+- Read one of the following articles:
+    - *Born to Run*, Walt Harrington
+    - *Federer as Religious Experience*, David Foster Wallace
+    - *Generation Why?*, Zadie Smith
+    - *Pearls Before Breakfast*, Gene Weingarten
+    - *The House that Hova Built*, Zadie Smith 
+    - *The Re-Education of Chris Copeland*, Flinder Boyd 
+- Read one of the following articles from *Grantland*:
+    - *Blades of Glory*, Holly Anderson
+    - *Dropped*, Jason Fagone
+    - *One hundred years of arm bars*, David Samuels
+    - *Out in the Great Alone*, Brian Phillips
+    - *The Cult of 'Jurassic Park'*, Bryan Curtis
+    - *The Sea of Crisis*, Brian Phillips
 
-**Required reading**
 
-- 
+<!-- - Bronner, Laura, 2020, 'Quant Editing', http://www.laurabronner.com/quant-editing. (Read these points and evaluate your own writing against them. It's fine to not comply with them if you have a good reason, but you need to know that you're not complying with them). -->
+<!-- - Cochrane, John H., 2005, 'Writing Tips for Ph.  D. Students', https://faculty.chicagobooth.edu/john.cochrane/research/papers/phd_paper_writing.pdf. (This is aimed at academic research papers, but parts are still broadly relevant. And if you're going into academia then this is very relevant.) -->
+<!-- - Codrey, Laura, 2013, 'Churchill’s call for brevity', 17 October, https://blog.nationalarchives.gov.uk/churchills-call-for-brevity/. -->
+<!-- - Girouard, Dave, 2020, 'A Founder's Guide to Writing Well', First Round Review, 4 August, https://firstround.com/review/a-founders-guide-to-writing-well/. -->
+<!-- - Graham, Paul, 2005, 'Writing, Briefly', http://paulgraham.com/writing44.html. -->
+<!-- - Shapiro, Jesse M., 'Four Steps to an Applied Micro Paper', https://www.brown.edu/Research/Shapiro/pdfs/foursteps.pdf. (This is mostly recommended for the part about 'the robot' with regard to your data section.) -->
+<!-- - Strunk, William Jr., 1959 [2009] 'The Elements of Style'. (Any edition is fine. Eventually you'll move beyond this, but it's important to know the rules before you break them). -->
+<!-- - The Economist, 1991 [2014], 'The Economist Style Guide', Twelfth edition. (Any edition is fine. Pick a point or two each day and think about how it related to your own writing.) -->
+<!-- - The Economist, 2013, 'Johnson: Those six little rules', Prospero, 29 July 2013, available at: https://www.economist.com/prospero/2013/07/29/johnson-those-six-little-rules -->
 
-Random stuff: 
-
-- https://psyarxiv.com/n32qw/
-- https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png
-- https://www.w3.org/History/1989/proposal.html
-
-**Required viewing**
-
-- 
-
-**Recommended reading**
-
-- 
-
-
-
-**Examples of well-written papers**
-
-- 
-
-
-**Key concepts/skills/etc**
-
-- 
-
-**Key libraries**
-
-- 
-
-**Key functions/etc**
-
-- 
-
-
-
-**Quiz**
+<!-- - Add https://dreamsongs.com/ArtOfLisp.html somewhere - maybe writing? -->
+<!-- - https://psyarxiv.com/n32qw/ -->
+<!-- - https://en.wikipedia.org/wiki/Einstein–Szilárd_letter#/media/File:Einstein-Roosevelt-letter.png -->
+<!-- - https://www.w3.org/History/1989/proposal.html -->
 
 
 
 
 ## Introduction
+
+
+> [T]he duty of a scientist is not only to find new things, but to communicate them successfully in at least three forms: 1) Writing papers and books. 2) Prepared public talks. 3) Impromptu talks.
+>
+> @hamming1996 [p. 65]
+
+> People who need to write: founders, VCs, lawyers, software engineers, designers, painters, data scientists, musicians, filmmakers, creative directors, physical trainers, teachers, writers. 
+> Learn to write.
+> 
+> Sahil Lavingia, 3 February 2020.
+
+> Writing well has done just as much for me as knowing how to code. I'd add that if you're intimidated by writing, start a blog and write often about something you're interested in. You'll get better. At least that's what I've done for the past 10 years. :)
+> 
+> Vicki Boykis, 3 February 2020.
+
+In order to telling convincing stories, we need to write. Writing is the way we work out what we believe and how we get feedback on our ideas. Our papers must be well-written, well-organized, and easy to follow. They should flow easily from one point to the next. They should have proper sentence structure, spelling, vocabulary, and grammar. Each point should be articulated clearly and completely, without being overly verbose. Papers should demonstrate understanding of the topic being written about, and confidence in discussing relevant terms, techniques, and issues. They should use make use of graphs and tables. References must be included and properly cited because this enhances credibility.
+
+This chapter is about writing. By the end of it you will have a better idea of how to write short, detailed, quantitative papers that communicate exactly what you want them to and do not waste the time of your reader. We write for the reader, not for ourselves. Specifically, we write so as to be useful to the reader, where '[u]seful writing tells people something true and important that they didn't already know, and tells them as unequivocally as possible' [@grahamhowtowriteusefully]. That said, the greatest benefit of writing often accrues to the writer, even when the writer is, correctly, writing for their audience. This is because the process of writing is a way of working out what you think and how you came to believe it.
+
+> The way to do a piece of writing is three or four times over, never once. For me, the hardest part comes first, getting something---anything---out in front of me. Sometimes in a nervous frenzy I just fling words as if I were flinging mud at a wall. Blurt out, heave out, babble out something---anything---as a first draft. With that, you have a achieved a sort of nucleus. Then, as you work it over and alter it, you begin to shape sentences that score higher with the ear and the eye. Edit it again---top to bottom. The chances are that about now you'll be seeing something that you are sort of eager for others to see. And all that takes times. What I have left out is the interstitial time. You finish that first awful blurting, and then you put the thing aside. You get in your car and drive home. On the way, your mind is still knitting at the words. You think of a better way to say something, a good phrase to correct a certain problem. Without that drafter version---if it did not exist---you obviously would not be thinking of things that would improve it. In short, you may be actually writing only two or three hours a day, but your mind, in one way or another, is working on it twenty-four hours a day---yes, while you sleep---but only if some sort of draft of earlier version already exists. Until it exists, writing has not really begun.
+>
+> @draftnumberfour [p. 159]
+
+The first task is to write a first draft as quickly as possible. A complete first draft of a five-to-ten page quantitative paper should be able to be done in a day. Until you get to a complete first draft do not delete anything during this process, regardless of how bad it may seem. Similarly, do not revise what was written, just add more if you change what you think. The only thing that is allowed is to add content. One of the scariest things in the world is a blank page, and we deal with this by first adding headings and space for the bits and pieces such as a title and abstract, that are needed. This will be our plan and its role is akin to that of placing on the counter the ingredients that you will use to prepare dinner [@draftnumberfour]. 
+
+Having established a generic outline, we then need to develop an understanding of what we are exploring through a research question. In theory, we develop a research question then we do all the rest of it; that never actually happens. Instead, we typically have some vague idea of what we are answering, which becomes less vague as we go on. This is being 'writing is refined thinking' [@stephenking, p. 131]. Having put down some thoughts about the research question, start to add dot points in each of the sections, adding sub-sections as needed. Then go back and expand those dot points into paragraphs. Rather than adding proper citations as you go, just add something like '[CITE R HERE]' or similar. Add graphs and tables, being happy with textual descriptions instead of actual graphs and tables. At this point a first draft exists.
+
+This first draft will be bad. 'All good writers write them [bad first drafts]. This is how they end up with good second drafts and terrific third drafts' [@birdbybird, p. 20]. It will be too long, it will not make sense, it will contain claims that you cannot support, and some that you will not want to. Ignore everything telling you that you are not good enough, or that it is impossible, and ignore what your professor wants you to do. Just write. You need something on paper and the first draft is when you accomplish this. Remove all distractions and just write. Perfectionism is the enemy here and must be set aside. Sometimes this can be accomplished by getting up very early to write, or by creating a deadline for yourself and only giving you that long to do it. One friend puts her baby to sleep to the sound of her typing, with the result being that she must keep typing otherwise the baby will wake up. 
+
+Only after a first draft exists should the 'delete' be considered. Until here, you just need to focus on adding content, even if it is poorly written, or not ideal. But in the second draft, you use it extensively. A printer and a red pen are helpful. And it needs to be done in one go, to ensure that you come to it as the reader will. We are taking out everything that is not the story [@stephenking, p. 57]. To get to a second draft you go through what was written in each of the sections and try to bring some sense to it. This revision process is the essence of writing [@draftnumberfour, p. 160]. Fix up the references and add the real graphs and tables. At this point, you typically have a better idea of what the paper is about, and the research questions are becoming clearer. So, an introduction and an abstract can be added. Typos and other issues affect the credibility of the work, and so it is important that these are fixed. 
+
+You now have something that is sensible. The job is to now make it great. Print out what you have and then go through it on paper. Again, it is important to be brutal at this point. By this point, you will be too close to it. We write for the reader, and so this is a good opportunity to give it to someone else so that you can understand where the weak points are. Address those, revise everything again. Rinse and repeat. At a certain point you will either run out of time, or become sick of the paper. That's when the paper is done!
+
+
+
+
+
+
+
+## Developing research questions
+
+Both qualitative and quantitative approaches have their place, but here we focus on quantitative approaches. Qualitative research is important as well, and often the most interesting work has a little of both---'mixed methods'. This means that we are subject to issues surrounding data quality, scales, measures, sources, etc. We are often especially interested in trying to tease out causality.
+
+Broadly there are two ways to go about research: 
+
+1) data-first, 
+2) question-first. 
+
+When being data-first the main issue is working out the questions that can be reasonably answered with the available data. When deciding what there are, it is useful to consider:
+
+1) Theory: Is there a reasonable expectation that there is something causal that could be determined? For instance, if the question involves charting the stock market, then it might be better to consider haruspex because at least that way you would have something to eat. Questions need to have some plausible theoretical underpinning.
+2) Importance: There are plenty of trivial questions that can be answered, but it important to not waste time. Having an important question can also help with motivation when one finds oneself in the fourth straight week of cleaning data and de-bugging code. It can also make it easier to attract talented employees and funding.
+3) Availability: Is there a reasonable expectation of additional data being available in the future, which could answer additional questions.
+4) Iteration: Is this something that could be run multiple times, or is it a once-off analysis?
+
+When trying to be question-first, there is a different issue of being concerned about data availability. The 'FINER framework' is used in medicine to help guide the development of research questions. It recommends asking questions that are: Feasible, Interesting, Novel, Ethical, and Relevant [@hulley2007designing]. @farrugia2010research builds on FINER with PICOT, which provides additional considerations: Population, Intervention, Comparison group, Outcome of interest, and Time.
+
+Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
+
+When answering questions usually, the creation of a counterfactual is crucial. Briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's *Through the Looking-Glass* [@throughthelookingglass].
+
+> 'What tremendously easy riddles you ask!' Humpty Dumpty growled out. 'Of course I don’t think so! Why, if ever I did fall off---which there's no chance of---but if I did---' Here he pursed his lips and looked so solemn and grand that Alice could hardly help laughing. 'If I did fall,' he went on, 'The King has promised me—with his very own mouth-to-to-'
+
+Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. It is this comparison group that often determines the answer to a question.
+
+
+
+<!-- results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes. -->
+
+<!-- Finally, we can often dodge ethics boards in data science, especially once you leave university. Typically, ethics guides from medicine and other fields are focused on ethics boards. But we often do not have those in data science applications. Even if your intentions are unimpeachable, I want to suggest one additional aspect to think about, and that is Bayes theorem:  -->
+<!-- $$P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}$$ -->
+<!-- (The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.) -->
+
+<!-- To see why this may be relevant, let's go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let's just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive: -->
+<!-- $$\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2$$ -->
+
+<!-- To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically, what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'.  -->
+
+<!-- I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.  -->
+
+<!-- Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule. -->
 
 
 
@@ -63,94 +161,50 @@ Random stuff:
 
 > I had not indeed published anything before I commenced "The Professor", but in many a crude effort, destroyed almost as soon as composed, I had got over any such taste as I might once have had for ornamented and redundant composition, and come to prefer what was plain and homely.
 >
-> Currer Bell (aka Charlotte Brontë), *The Professor*.
+> *The Professor* [@theprofessor].
 
-> It's not what you say, it's what they hear.
->
-> Frank Luntz
+We will discuss the following components: title, abstract, introduction, data, results, discussion, figures, tables, equations, and technical terms.
 
 
+### Title
+
+A title is the first opportunity that we have to engage our reader in our story. Ideally we are able to tell our reader exactly what we found. Effective titles are critical because others papers can be ignored by a reader. While a title does not have to be 'cute', it does need to be effective.
+
+One example of a title that is good enough is 'On the 2019 Canadian Federal Election'. This title is useful because the reader at least knows what the paper will be about. But it is not particular informative or enticing. A slightly better variant could be 'On the Liberal Party performance in the 2019 Canadian Federal Election'. This variant adds specifically which is particularly informative. Finally, another variant would be 'Liberal Party under-performance in Alberta in the 2019 Canadian Federal Election: Evidence from a Bayesian Hierarchical model'. Here the reader knows the approach of the paper and also the main take-away.
+
+We will consider a few examples of particularly effective titles. The title of @hug2019national is 'National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis'. Here it is clear what the paper is about and the methods that are used. Another effective title is from @Alexander2020, which is 'The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018'. While the method used in that paper is not clear from the title, the main finding it, along with a good deal of information about what the content will be. 
+
+A title is among the last aspects to be finalized. While getting through the first draft, we would typically just use a working title that is good enough to get the job done. We then refine it over the course of redrafting. The title needs to reflect the final story of the paper, and this is not usually something that we know at the start. We are interested in striking a balance between getting our reader interested enough to read the paper, and conveying enough of the content so as to be useful [@hayotacademicstyle]. We can think here of classic books, such as Macaulay's *History of England from the Accession of James the Second*, or Churchill's *A History of the English-Speaking Peoples*. Both are clear about what the content of the, and, for their target audience, spark interest.
+
+One specific approach is the form: 'Some exciting content: some specific content', for instance, 'Returning to their roots: Examining the performance of the Liberal Party in the 2019 Canadian Federal Election'. We could also consider the title of @kennedy2020know, which is 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample' and similarly, @craiu2019hiring, 'The Hiring Gambit: In Search of the Twofer Data Scientist'. A close variant of this is 'A question? And an answer', for instance, 'What increase in modern contraceptive use is needed in FP2020 countries to reach 75% demand satisfied by 2030? An assessment using the Accelerated Transition Method and Family Planning Estimation Model' by @cahill2020increase. Another specific approach is 'Specific content then broad content', for instance 'Toronto homelessness and the effect of COVID-19'. And a nice example of this is @tolley2021gender, 'Gender, municipal party politics, and Montreal's first woman mayor'.
 
 
-## Developing research questions
+### Abstract
 
-Both qualitative and quantitative approaches have their place, but here we focus on quantitative approaches. Qualitative research is important as well, and often the most interesting work has a little of both---'mixed methods'. This means that we are subject to issues surrounding data quality, scales, measures, sources, etc. We are especially interested in trying to tease out causality.
+For a six-page paper, a good abstract is a three to five sentence paragraph. For a longer paper the abstract can be slightly longer. The abstract should convey both what was done and why it matters. It must convey the context of the work, its objectives, approach, and findings. Oh, and you've got four, at most five, sentences to do it.
 
-Broadly there are two ways to go about research: 
+More specifically, a good recipe for an abstract is: first sentence: specify the general area of the paper and encourage the reader; second sentence: specify the dataset and methods at a general level; third sentence: specify the headline result; and a fourth sentence about implications. 
 
-1) data-first, 
-2) question-first. 
+We see this pattern in a variety of abstracts. For instance, @tolley2021gender.
 
-If you get a job somewhere typically you will initially be data-first. This means that you will need to work out the questions that you can reasonably answer with the data available to you. After you show some promise, you may be given the latitude to explore specific questions, possibly even gathering data specifically for that purpose. Contrast this with the example of the Behavioural Insights Team, [@gertler2016impact, p. 23] who got to design and then carry out experiments given the remit of the entire British government (as they were spun out of the prime minister's office).
+> In 2017, Montreal elected Valérie Plante, the first woman mayor in the city’s 400-year history. Using this election as a case study, we show how gender did and did not influence the outcome. A survey of Montreal electors suggests that gender was not a salient factor in vote choice. Although gender did not matter much for voters, it did shape the organization of the campaign and party. We argue that Plante’s victory can be explained in part by a strategy that showcased a less leader-centric party and a degendered campaign that helped counteract stereotypes about women’s unsuitability for positions of political leadership.
 
-When deciding the questions that you can reasonably answer with the data that are available, you need to think about: 
+Here the first sentence draws the reader because they are interested to learn about the first woman mayor in 400 years. The second sentence is clear about what is done in the paper. The third paper tells the reader how it is done i.e. a survey. And the fourth sentence adds some detail. The fifth and final sentence makes the main take-away from the paper clear.
 
-1) Theory: Do you have a reasonable expectation that there is something causal that could be determined? Charting the stock market - maybe, but might be better with haruspex because at least that way you have something you could eat. You need a reasonable theory of how $x$ may be affecting $y$.
-2) Importance: There are plenty of trivial questions that you could ask, but it's important to not waste your time. The importance of a question also helps with motivation when you are on your fourth straight week of cleaning data and de-bugging your code. It also (and this becomes important) makes it easier to get talented people to work with you, or similarly to convince people to fund you or allow you to work on this project.
-3) Availability: Can you reasonably expect get more data about this research question in the future or is this the extent of the data that could be gathered?
-4) Iteration: Is this something that you can come back to and run often or is this a once-off analysis?
+Let us look at another example, this one by @beauregard2021antiwomen.
 
-The 'FINER framework' as a mnemonic device used in medicine. This framework reminds us to ask questions that are [@hulley2007designing]:
+> Previous research on support for gender quotas focuses on attitudes toward gender equality and government intervention as explanations. We argue the role of attitudes toward women in understanding support for policies aiming to increase the presence of women in politics is ambivalent—both hostile and benevolent forms of sexism contribute in understanding support, albeit in different ways. Using original data from a survey conducted on a probability-based sample of Australian respondents, our findings demonstrate that hostile sexists are more likely to oppose increasing of women's presence in politics through the adoption of gender quotas. Benevolent sexists, on the other hand, are more likely to support these policies than respondents exhibiting low levels of benevolent sexism. We argue this is because benevolent sexism holds that women are pure and need protection; they do not have what it takes to succeed in politics without the assistance of quotas. Finally, we show that while women are more likely to support quotas, ambivalent sexism has the same relationship with support among both women and men. These findings suggest that aggregate levels of public support for gender quotas do not necessarily represent greater acceptance of gender equality generally.
 
-> - Feasible: Adequate number of subjects; adequate technical expertise; affordable in time and money; manageable in scope.
-> - Interesting: Getting the answer intrigues investigator, peers and community.
-> - Novel: Confirms, refutes or extends previous findings
-> - Ethical: Amenable to a study that institutional review board will approve.
-> - Relevant: To scientific knowledge; to clinical and health policy; to future research.
+Within the first two sentences it is clear what the broader environment is, and the specific contribution of this paper to that environment. The third and fourth sentences makes the data source clear and also the main findings. The fifth and sixth sentences add specificity here that would be of interest to likely readers of this abstract i.e. academic political science experts. And then the final sentence makes it clear the position of the authors. 
 
-@farrugia2010research build on this in terms of developing research questions and recommend 'PICOT':
-
-> - Population: What specific population are you interested in?
-> - Intervention: What is your investigational intervention?
-> - Comparison group: What is the main alternative to compare with the intervention?
-> - Outcome of interest: What do you intend to accomplish, measure, improve or affect?
-> - Time: What is the appropriate follow-up time to assess outcome
-
-Often time will be constrained, possibly in interesting ways and these can guide your research. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we either have to wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
-
-Usually, the creation of a counterfactual is crucial. We'll discuss counterfactuals a lot more later, but briefly, a counterfactual is an if-then statement in which the 'if' is false. Consider the example of Humpty Dumpty from Lewis Carroll's Through the Looking-Glass:
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.95\linewidth]{figures/humpty} 
-
-}
-
-\caption{Humpty Dumpty example}(\#fig:humpty)
-\end{figure}
-
-Humpty is satisfied with what would happen if he were to fall off, even though he is similarly satisfied that this would never happen. (I won't ruin the story for you.) The comparison group often determines your results e.g. the relationship between VO2 and athletic outcomes, compared with elite athletic outcomes.
-
-Finally, we can often dodge ethics boards in data science, especially once you leave university. Typically, ethics guides from medicine and other fields are focused on ethics boards. But we often do not have those in data science applications. Even if your intentions are unimpeachable, I want to suggest one additional aspect to think about, and that is Bayes theorem: 
-$$P(A|B) = \frac{P(B|A)\times P(A)}{P(B)}$$
-(The probability of A given B depends on the probability of B given A, the probability of A, and the probability of B.)
-
-To see why this may be relevant, let's go to the canonical Bayes example: There is some test for a disease that is 99 per cent accurate both ways (that is, if a person actually has the disease there is a 99 per cent chance the test says positive, and is a person does not have the disease then there is a 99 per cent chance the test says negative). Let's just say that only 0.005 of the population has the disease. Then if we randomly pick someone from the general population then the chance that they have the disease is outstandingly low. This is even if they test positive:
-$$\frac{0.99\times0.005}{0.99\times0.005 + 0.01\times0.995} \approx 33.2$$
-
-To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically, what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'. 
-
-I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not. 
-
-Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule.
+The journal *Nature* provides a guide for constructing an abstract: https://www.nature.com/documents/nature-summary-paragraph.pdf. They recommend: a basic introductory sentence that is comprehensible to a wide audience, then a more detailed sentence about background that is relevant to likely readers. Having set-up the background they recommend a sentence that states the general problem, and then sentences that summarize and then explain the main results. Finally, they recommend an abstract conclude with general context and broader perspective. The result is an abstract of six parts, that add up to around 200 words.
 
 
+### Introduction
 
-### Title, abstract, and introduction
+An introduction needs to be self-contained and convey everything that a reader needs to know. It is important to recognize that we are not writing a mystery story. We want to give-away the most important points in the introduction. For a six-page paper, an introduction may be two or three paragraphs. With an additional short final paragraph that highlights the remainder of the paper. @hayotacademicstyle [p. 90] describes the goals of an introduction to engage the reader, locate them in some discipline and background, and teach them what happens in the rest of the paper.
 
-A title is the first opportunity that you have to tell the reader your story. Ideally you will tell the reader exactly what you found. An effective title is critical in order to get your work read when there are other competing priorities. A title doesn't have to be 'cute' to be great.
-
-- Good: 'On the 2019 Canadian Federal Election'. (At least the reader knows what the paper is about.)
-- Better: 'The Liberal Party performance in the 2019 Canadian Federal Election'. (At least the reader knows what the paper is about more specifically.)
-- Even better: 'The Liberal Party did poorly in rural areas in the 2019 Canadian Federal Election'.  (The reader knows what the paper is about.)
-
-You should put your name and the date on the paper because this provides an important context to the paper.
-
-For a six-page paper, a good abstract is a three to five sentence paragraph. For a longer paper your abstract can be slightly longer. The abstract should say: What you did, what you found, and why the reader should care. Each of these should just be a sentence or two, so keep it very high level.
-
-You should then have an introduction that tells the reader everything they need to know. You are not writing a mystery story - tell the reader the most important points in the introduction. For a six-page paper, your introduction may be two or three paragraphs. Four would likely be too much, but it depends on the context. 
-
-Your introduction should set the scene and give the reader some background. For instance, you may like to start of a little broader, to provide some context to your paper. You should then describe how your paper fits into that context. Then give some high-level results - provide more detail than you provided in the abstract, but don't get into the weeds - and finally broadly discuss next steps or glaring weaknesses. With regard to that high-level result: you need to pick one. If you have a bunch of interesting findings, then good for you, but pick one and write your introduction around that. If it's compelling enough then the reader will end up reading all your other interesting findings in the discussion/results sections. Finally, you should highlight the remainder of the paper.
+The introduction should set the scene and give the reader some background. For instance, we typically start a little broader. This provides some context to the paper. You should then describe how your paper fits into that context. Then give some high-level results---provide more detail than you provided in the abstract, but don't get into the weeds---and finally broadly discuss next steps or glaring weaknesses. With regard to that high-level result: you need to pick one. If you have a bunch of interesting findings, then good for you, but pick one and write your introduction around that. If it's compelling enough then the reader will end up reading all your other interesting findings in the discussion/results sections. Finally, you should highlight the remainder of the paper. 
 
 As an example:
 
@@ -160,50 +214,54 @@ As an example:
 > 
 > The remainder of this paper is structured as follows: Section 2 discusses the data, Section 3 discusses the model, Section 4 presents the results, and finally Section 5 discusses our findings and some weaknesses.
 
-The recommended readings provide some lovely examples of titles, abstracts, and introductions. Please take the time to briefly read these papers.
+
+The introduction needs to be self-contained and tell your reader everything that they need to know. A reader should be able to only read the introduction and have an accurate picture of all the major aspects that they would if they were to read the whole paper. It would be rare to include graphs or tables in the introduction. An introduction always closes the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10-page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.
 
 
-### Figures, tables, equations, and technical terms
+### Data
 
-Figure and tables are a critical aspect of convincing people of your story. In a graph you can show your data and then let people decide for themselves. And in a table, you can more easily summarise your data.
+Robert Caro, Lyndon B. Johnson's biographer, describes the importance of conveying 'a sense of place' when writing biography [@caroonworking, p. 141]. This he defines as 'the physical setting in which a book's action is occurring: to see it clearly enough, in sufficient detail, so that he feels as if he himself were present while the action is occurring.' He provides the following example:
 
-Figures, tables, equations, etc, should be numbered and then referenced in the text e.g. "Figure 1 shows..." and then have Figure 1.
+> When Rebekah walked out the front door of that little house, there was nothing---a roadrunner streaking behind some rocks with something long and wet dangling from his beak, perhaps, or a rabbit disappearing around a bush so fast that all she really saw was the flash of a white tail---but otherwise nothing. There was no movement except for the ripple of the leaves in the scattered trees, no sound except for the constant whisper of the wind... If Rebekah climbed, almost in desperation, the hill in the back of the house, what she saw from its crest was more hills, an endless vista of hills, hills on which there was visible not a single house... hills on which nothing moved, empty hills with, above them, empty sky; a hawk circling silently overhead was an event. Bus most of all, there was nothing human, no one to talk to.
+> 
+> @caroonworking [p. 146] 
 
-You should make sure that all aspects of your graph are legible. Always label all of the axes. Your graphs should have titles, and the point that you want to communicate should be clear.
+How thoroughly we can imagine the circumstances of Rebekah Baines Johnson (Lyndon B. Johnson's mother). We need to provide our reader with the same sense of place for our dataset. Caro provides us with an example of the extent that we need to go to do this. He describes being puzzled of all the descriptions of LBJ as a congressman, who we be seen running to the Capitol. Caro describes, 'taking that walk over and over again---I don't know how many times I took it, but it was a lot of times---but I didn't see anything there'. But Caro is not the type to let that lack of understanding (as to why LBJ was running) persist, because 'I wanted to make the reader see this and feel this as Lyndon Johnson saw and felt it.' Caro knew there was something there, but his walks didn't show it to him. Then he realized - LBJ left for work at sunrise, so 'I decided to try doing that to see if there was something, and there was.... because at 5:30 in the morning the sun is just coming up over the horizon... and that white marble [of the Capitol and facade] just blazes out at you as that sun hits it' @caroonworking [p. 156].
 
-If you use a technical term, then it should be briefly explained in plain language for readers who might not be familiar with it. A great example of this is [this post](https://www.monicaalexander.com/posts/2019-20-01-babynames/) by Monica Alexander where she explains the Gini coefficient:
+When writing our papers, we need to achieve that same sense of place as Caro is able to provide. We do this by being as explicit as possible about our dataset. We typically even have a whole section about the dataset. The aim of this is to show people, as closely as possible, the actual data that underpin our story. 
+
+When writing the data section, we are beginning our answer to the critical question, which is 'How can I possibly know this?' [@draftnumberfour, p. 78]. The preeminent example of a data section is provided by @doll1950smoking. They begin with clearly describing their dataset. They then use tables to communicate relevant cross-tabs. And use figures to contrast the control and treatment groups. 
+
+We need to thoroughly discuss the variables in the dataset that is used. If there are other datasets that could have been used, but were not, then these should be mentioned. If variables were constructed or combined, then this process and motivation should be explained. To get a sense of the data it is important that the reader is able to understand what the data that underpin the results look like. This means that we must plot the actual data that are used, or as close to it as possible. If the dataset was created from some other source, then it can also help to include an example of that original source. The content in the data section then consists of discussing these graphs and tables. Here some judgment is required. While it is important that the reader has the opportunity to understand the details, it may be that some are better placed in an appendix. 
+
+Figure and tables are a critical aspect of convincing people of a story. In a graph we can show the data and then let the reader decide for themselves. And using a table, we can more easily summarize our dataset. Figures and tables should be numbered and then cross-referenced in the text, for instance "Figure 1 shows... Table 1 describes...". All aspects of graphs and tables need to be legible, as they are often aspects that a reader is drawn to, and should contain informative titles and labelled axes as appropriate. 
+
+
+
+
+### Model
+
+We will typically use a statistical model and we often have a specific section about this aspect. We specify clearly the equation/s that are relevant and explain the components of each with cross-references. When a technical term is used then it should be briefly explained in plain language for readers who might not be familiar with it. For instance, @monicababynames integrates an explanation of the Gini coefficient that brings the reader with her.
 
 > To look at the concentration of baby names, let's calculate the Gini coefficient for each country, sex and year. The Gini coefficient measures dispersion or inequality among values of a frequency distribution. It can take any value between 0 and 1. In the case of income distributions, a Gini coefficient of 1 would mean one person has all the income. In this case, a Gini coefficient of 1 would mean that all babies have the same name. In contrast, a Gini coefficient of 0 would mean names are evenly distributed across all babies.
 
+The model section typically begins with the model being written out, explained, and justified. After specifying the model with appropriate mathematical notation and cross-referencing it, it is then important to define and explain each aspect and why it is important, and it is especially important to define each aspect of the notation. This helps convince the reader that the model was well-chosen and enhances your credibility. The models variables should correspond to those that were discussed in the data section.
 
-### On brevity
+There should be some discussion of how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, and why is gender a categorical variable. In general, we are trying to convey a sense that this is the model for the situation. We want the reader to understand how the aspects that were discussed in the data section assert themselves in the modelling decisions that were made.
+
+The model section should close with some discussion of the assumptions that underpin the model, and a brief discussion of alternative models, or variants, and strengths and weaknesses made clear. It should be clear in the reader's mind why it was this model that was chosen. 
+
+At this point it is usually appropriate to specify the software that was used to run the model, and to provide some evidence of thought about the circumstances in which the model may not be appropriate. The later point would typically be expanded on in the discussion. Finally, there should be evidence of model validation and checking, model convergence and/or diagnostic issues. Again, there is a balanced act here and some of this content may be more appropriate placed in appendices. 
 
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{figures/johnson} \caption{'No more than four pages, or he's never going to read it. Two pages is preferable.'}(\#fig:unnamed-chunk-2)
-\end{figure}
-Source: Shipman, Tim, 2020, "The prime minister's vanishing briefs', The Sunday Times, 23 February, available at: https://www.thetimes.co.uk/article/the-prime-ministers-vanishing-briefs-67mt0bg95 via [Sarah Nickson](https://twitter.com/sarahjnickson).
 
+### Results
 
-> Insisting on two page briefs is sensible - not 'government by ADHD'. PM has to be across lots of issues - cannot and should not be across (most of) them in the same depth as secretaries of state. Danger lies in PM trying to take on too much and getting bogged down in detail.
-> 
-> This might irk officials who lack a sense of where their issue sits within the PM's list of priorities - or the writing skills to draft a succinct brief. But there'd be very few occasions when a brief to the PM warrants more than two pages.
-> 
-> This is not something peculiar to the current PM - other ministers have raised the same in interviews with \@instituteforgov Oliver Letwin complained of 'huge amount of terrible guff, at huge, colossal, humungous length coming from some departments'
-> https://www.instituteforgovernment.org.uk/ministers-reflect/person/oliver-letwin/
-> 
-> Letwin sent briefs back and asked they be re-drafted to one quarter of the length. 'Somewhere along the line the Civil Service had got used to splurge of the meaningless kind' Similarly, Theresa Villiers talked about the civil service's 'frustrating tendency to produce six pages of obscure and rather impenetrable text' and wishes she'd be firmer in sending documents back for re-drafting:
-> https://www.instituteforgovernment.org.uk/ministers-reflect/person/theresa-villiers/
-> 
-> Sarah Nickson, [23 Feb 2020](https://twitter.com/sarahjnickson/status/1231518746398908421).
+Two excellent examples of results sections provided by @kharecha2013prevented and @kiang2021racial. We are wanting to communicate the outcomes of the model in a clear way and without too much in the way of discussion implications. The results section likely requires summary statistics, tables, and graphs. Each of those aspects should be cross-referenced and have text associated with them that details what is seen in them. This section should strictly relay results.
 
-Brevity is important. Partly this because you are writing for the reader, not yourself, and your reader has other priorities. But it is also because as the writer it focuses you to consider what your most important points are, how you can best support them, and where your arguments are weakest. 
+### Discussion
 
-If you don't think that examples from government are persuasive, then please consider [Amazon's 2017 Letter to Shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312518121161/d456916dex991.htm), or other statements about Bezos and memo writing, for instance:
-
-> Well structured, narrative text is what we're after rather than just text... The reason writing a 4 page memo is harder than "writing" a 20 page powerpoint is because the narrative structure of a good memo forces better thought and better understanding of what's more important than what, and how things are related.
->
-> Jeff Bezos,  9 June 2004.
+A discussion section may be the final section of a paper. The first task of the discussion section is to take what was covered in the results section and add implications. For instance, the discussion section would typically begin with a one or two paragraph summary of what was done in the paper. It would then specify two or three things that we learn about the world from the paper. It would then go on to detail some of the weaknesses of what was done. And it would typically finish with a paragraph that specifies what is left to learn, or how should we proceed in the future.
 
 
 
@@ -212,22 +270,46 @@ If you don't think that examples from government are persuasive, then please con
 
 
 
-### Other
 
-Typos and other grammatical mistakes affect the credibility of your claims. If the reader can't trust you to use a spell-checker, then why should they trust you to use logistic regression? Microsoft Word has a fantastic spell-checker that is much better than what is available for R Markdown: copy/paste your work into there, look for the red lines and fix them in your R Markdown. Then look for the green lines and think about if you need to fix them in your R Markdown. If you don't have Word, then Google Docs is pretty good and so is Apple's Pages.
+### Brevity, typos, and grammar
 
-A few other general tips that I have stolen from various people including the Reserve Bank of Australia's style guide:
+Brevity is important. Partly this because you are writing for the reader, not yourself, and your reader has other priorities. But it is also because as the writer it focuses you to consider what your most important points are, how you can best support them, and where your arguments are weakest. Jean Chrétien, the Canadian Prime Minister from 1993 to 2003, describes how '[t]o allow me to get to the heart of an issue quickly, I asked the officials to summarize their documents in two or three pages and attach the rest of the materials as background information. I soon discovered that this was a problem only for those who didn't really know what they were talking about.' [@jeanchretien, p. 105].
 
-- Think about what you are writing. Aim to write everything as though it were on the front page of the newspaper, because one day it could be.
-- Be concise. Remove as many words as possible.
-- Be direct. Think about the structure of your story and identify the key pieces of information and arrange them so that your paper flows logically from one to the next. You should use sub-headings if you need.
-- Be precise. For instance, the stock-market didn't improve or worsen, it rose or fell. Distinguish levels from rates of change.
-- Be clear.
+This experience is not unique to Canada. For instance, the former British Conservative cabinet member, Oliver Letwin, describes there as being 'a huge amount of terrible guff, at huge, colossal, humungous length coming from some departments' and how he asked 'for them to be one quarter of the length'. He found that that 'the first time I did this there was shock at the idea and I think disbelief that anyone could possibly produce the same paper at one quarter of the length. It came back a few days later one quarter of the length, with of course nothing important lost.' [@institueforgovernment].
+
+Churchill himself asked for brevity during the Second World War, saying 'the discipline of setting out the real points concisely will prove an aid to clearer thinking'. And one of the foundations of Amazon, one of the world's largest companies, is clear text. with Jeff Bezos  asking for '[w]ell structured, narrative text... [which] forces better thought and better understanding of what's more important than what, and how things are related.'
+
+@zinsser goes further and describes 'the secret of good writing' being 'to strip every sentence to its cleanest components.' Every sentence should be simplified to its essence. And every word that does not contribute should be removed.
+
+Typos and other grammatical mistakes affect the credibility of claims. If the reader cannot trust you to use a spell-checker, then why should they trust you to use logistic regression? Microsoft Word and Google Docs are useful here for their spell-checkers: copy/paste from R Markdown, look for the red and green lines, and fix them in R Markdown.
+
+Here we are not worried about the n-th degree of grammatical content. Instead, we are interested in 'the grammatical principles of one's native language in conversation and in reading' [@stephenking, p. 118]. The way to develop that comfort is by reading a lot, and asking others to read your work also.
+
+Unnecessary words, typos, and grammatical issues should be removed from papers with a fanatical zeal.
+
+### Rules
+
+A variety of authors have established rules for writing, including famously, @politicsandtheenglishlanguage:
+
+- Never use a metaphor, simile or other figure of speech which you are used to seeing in print.
+- Never use a long word where a short one will do.
+- If it is possible to cut a word out, always cut it out.
+- Never use the passive where you can use the active.
+- Never use a foreign phrase, a scientific word or a jargon word if you can think of an everyday English equivalent.
+- Break any of these rules sooner than say anything outright barbarous.
+
+And these were reimagined by @johnsontheeconomist.
+
+A further remaining, focused on telling stories with data, could be:
+
+- Focus on the reader and their needs. Everything else is comment.
+- Write as though your work will be on the front page of a newspaper. Because it could be.
+- Be concise and direct, by removing as many words as possible, establishing and then relying on a logical structure.
+- Using words precisely, for instance a stock-market rises or falls, it does not improve or worsen.
 - Write simply.
 - Use short sentence where possible.
 - Avoid jargon.
 
-You should break these rules when you need to. But the only way to know whether you need to break a rule is to know the rules in the first instance.
 
 
 
@@ -245,27 +327,36 @@ You should break these rules when you need to. But the only way to know whether 
     b. "Unemployment"
     c. "Examining Canada's Unemployment (2010-2020)"
     d. "Canada's Unemployment Increased between 2010 and 2020"
-2. Which word/s can be removed in this sentence without affecting its meaning 'ADD SENTENCE' (pick all that apply)?
+2. Which word/s can be removed in this sentence without affecting its meaning 'ADD SENTENCE' (select all that apply)?
     a. a
     b. word
     c. another
     d. word
-1. What are three features of a good research question (write a paragraph or two)?
-2. What is a counterfactual (pick one)?
-    a. If-then statements in which the if didn't happen.
+3. What are three features of a good research question (write a paragraph or two)?
+4. What is a counterfactual (pick one)?
+    a. If-then statements in which the if does not happen.
     b. If-then statements in which the if happen.
     c. Statements that are either true or false.
     c. Statements that are neither true or false.
+5. Write a new four-sentence abstract for @chambliss1989mundanity
+6. Write a new four-sentence abstract for @doll1950smoking.
+7. Write a new four-sentence abstract for @student1908probable.
+8. Using only the 1000-most popular words in the English language, re-write the following:
 
 
 
 
 ### Tutorial
 
+@caroonworking [p. xii] writes at least one thousand words almost every day. In this tutorial we will write every day for a week. Begin by picking seven of the well-written papers specified above. Each day complete the following tasks: 
 
+- Transcribe, by writing each word yourself, the entire introduction.
+- Re-write the introduction so that it is five lines (or 10 per cent, whichever is less) shorter.
+- Transcribe, by writing each word yourself, the abstract.
+- Re-write a new, four-sentence, abstract for the paper. 
+- Write a second version of your new abstract using only the one-thousand most popular words in the English language: https://xkcd.com/simplewriter/.
+- Detail three points about the way the paper is written that you like
+- Detail one point about the way the paper is written that you do not like.
 
-
-
-
-
+Submit all seven papers.
 

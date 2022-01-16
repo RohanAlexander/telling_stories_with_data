@@ -204,7 +204,7 @@ population %>%
   filter(group %in% c(1, 2)) %>% 
   group_by(group, favourite_color) %>% 
   count()
-#> # A tibble: 4 x 3
+#> # A tibble: 4 × 3
 #> # Groups:   group, favourite_color [4]
 #>   group favourite_color     n
 #>   <int> <chr>           <int>
@@ -256,11 +256,11 @@ t.test(group_1, group_2)
 
 # We could also use the tidy function in the broom package.
 tidy(t.test(group_1, group_2))
-#> # A tibble: 1 x 10
+#> # A tibble: 1 × 10
 #>   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
 #>      <dbl>     <dbl>     <dbl>     <dbl>   <dbl>     <dbl>    <dbl>     <dbl>
 #> 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431
-#> # ... with 2 more variables: method <chr>, alternative <chr>
+#> # … with 2 more variables: method <chr>, alternative <chr>
 ```
 
 If properly done then not only will we get a 'representative' share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven't randomised on these variables? Let's start by looking at our dataset.
@@ -272,7 +272,7 @@ population %>%
   filter(group %in% c(1, 2)) %>% 
   group_by(group, supports_the_leafs) %>% 
   count()
-#> # A tibble: 4 x 3
+#> # A tibble: 4 × 3
 #> # Groups:   group, supports_the_leafs [4]
 #>   group supports_the_leafs     n
 #>   <int> <chr>              <int>
@@ -310,7 +310,7 @@ just_two_groups <- population %>%
 aov(group ~ favourite_color, 
     data = just_two_groups) %>% 
   tidy()
-#> # A tibble: 2 x 6
+#> # A tibble: 2 × 6
 #>   term               df    sumsq meansq statistic p.value
 #>   <chr>           <dbl>    <dbl>  <dbl>     <dbl>   <dbl>
 #> 1 favourite_color     1   0.0238 0.0238    0.0952   0.758
@@ -324,7 +324,7 @@ In this case, we fail to reject the null that the samples are the same. This all
 lm(group ~ favourite_color, 
     data = just_two_groups) %>% 
   tidy()
-#> # A tibble: 2 x 5
+#> # A tibble: 2 × 5
 #>   term                 estimate std.error statistic   p.value
 #>   <chr>                   <dbl>     <dbl>     <dbl>     <dbl>
 #> 1 (Intercept)            1.48      0.0338    43.8   1.67e-235
@@ -395,14 +395,14 @@ example_data %>%
   scale_fill_brewer(palette = "Set1")
 ```
 
-![](21-hunt_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
+<img src="21-hunt_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ```r
 
 example_regression <- lm(outcome ~ treatment, data = example_data)
 
 tidy(example_regression)
-#> # A tibble: 2 x 5
+#> # A tibble: 2 × 5
 #>   term        estimate std.error statistic  p.value
 #>   <chr>          <dbl>     <dbl>     <dbl>    <dbl>
 #> 1 (Intercept)     5.00    0.0430     116.  0       
@@ -445,9 +445,10 @@ But a better way to deal with this may be to change the experiment. For instance
 ## Case study - Fisher's tea party
 
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/drinking_tea} \caption{Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party.}(\#fig:ladiesdrinkingtea)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/drinking_tea.jpg" alt="Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party." width="90%" />
+<p class="caption">(\#fig:ladiesdrinkingtea)Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from https://artvee.com/dl/afternoon-tea-party.</p>
+</div>
 
 
 Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.^[I'm personally very attached to this example as this issue also matters a lot to my father]
@@ -494,14 +495,14 @@ Finally, an aside on this magical '5 per cent'. Fisher himself describes this as
 
 At the start of these notes, I said that Fisher held views that we would consider reprehensible today. My guess is, were he around today, he would think our use of p-values as discrediting. Do not just go searching for meaning in constellations of stars. Thoroughly interrogate your data and think precisely about the statistical methods you are applying. For conclusions that you want to hold up in the long-run, aim to use as simple, and as understandable, statistical methods as you can. Ensure that you can explain and justify your statistical decisions without recourse to astrology.
 
-
-\includegraphics[width=0.6\linewidth]{/Users/rohanalexander/Documents/book/figures/significant} 
+<img src="/Users/rohanalexander/Documents/book/figures/significant.png" width="60%" />
 Source: https://xkcd.com/882/
 
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/wisdom_over_fortune} \caption{'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune.}(\#fig:unnamed-chunk-11)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/wisdom_over_fortune.jpg" alt="'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune." width="90%" />
+<p class="caption">(\#fig:unnamed-chunk-11)'The triumph of wisdom over fortune' by Otto van Veen (Flemish, 1556 - 1629), as downloaded from https://artvee.com/dl/the-triumph-of-wisdom-over-fortune.</p>
+</div>
 
 
 ## Case study - Tuskegee Syphilis Study
@@ -638,9 +639,10 @@ Equation \@ref(eq:toronto) explains the outcome of student $i$ at campus $j$ bas
 
 It was found, that the one-on-one coaching 'increased grades by approximately 5 percentage points', while the other treatments had 'had no detectable impact'. One set of results are summarised in Figure \@ref(fig:torontointervention).
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/toronto_intervention} \caption{Example of the results of the intervention.}(\#fig:torontointervention)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/toronto_intervention.png" alt="Example of the results of the intervention." width="90%" />
+<p class="caption">(\#fig:torontointervention)Example of the results of the intervention.</p>
+</div>
 
 The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available [here](https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go).
 
@@ -659,9 +661,10 @@ The way the experiment worked is that a research assistant turned the wallet in 
 
 The wallets were transparent, and the business card had a name and email contact details. It also had a key and a grocery list (Figure \@ref(fig:walletsexample)).
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/wallet_example} \caption{Example of the wallet.}(\#fig:walletsexample)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/wallet_example.png" alt="Example of the wallet." width="90%" />
+<p class="caption">(\#fig:walletsexample)Example of the wallet.</p>
+</div>
 
 The grocery list was an attempt to convince the 'recipient' that the 'owner' was a local. Language and currency were adapted to local conditions. The key is only useful to the 'owner', not to the 'recipient' of the wallet and was included to test for altruistic concerns.
 
@@ -669,9 +672,10 @@ The primary treatment in the experiment is whether the wallet contained money or
 
 Considerable differences were found between countries (Figure \@ref(fig:wallets)).
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/wallet_results} \caption{Key finding as to wallet return rates.}(\#fig:wallets)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/wallet_results.png" alt="Key finding as to wallet return rates." width="90%" />
+<p class="caption">(\#fig:wallets)Key finding as to wallet return rates.</p>
+</div>
 
 Figure \@ref(fig:wallets) shows that in almost all countries wallets with money were more likely to be returned than wallets without. The authors further conducted the experiment with the equivalent of US$94.15 in three countries - Poland, the UK, and the US - and found that reporting rates further increased. In those same three countries further tests were done comparing the situation when the wallet always contained money, but the presence of the key was varied. The wallet was slightly more likely to be reported when there was a key.
 
@@ -808,16 +812,16 @@ upworthy <- read_csv(here::here("dont_push/upworthy-archive-exploratory-packages
 
 upworthy %>% 
   head()
-#> # A tibble: 6 x 17
+#> # A tibble: 6 × 17
 #>    ...1 created_at          updated_at          clickability_test_id     excerpt
 #>   <dbl> <dttm>              <dttm>              <chr>                    <chr>  
-#> 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2ce000024 Things~
-#> 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things~
-#> 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things~
-#> 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c44000039 Things~
-#> 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c44000039 Things~
-#> 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c44000039 Things~
-#> # ... with 12 more variables: headline <chr>, lede <chr>, slug <chr>,
+#> 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38 546d88fb84ad38b2ce000024 Things…
+#> 2     1 2014-11-20 06:43:44 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…
+#> 3     2 2014-11-20 06:44:59 2016-04-02 16:25:54 546d88fb84ad38b2ce000024 Things…
+#> 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…
+#> 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45 546d902c26714c6c44000039 Things…
+#> 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54 546d902c26714c6c44000039 Things…
+#> # … with 12 more variables: headline <chr>, lede <chr>, slug <chr>,
 #> #   eyecatcher_id <chr>, impressions <dbl>, clicks <dbl>, significance <dbl>,
 #> #   first_place <lgl>, winner <lgl>, share_text <chr>, square <chr>,
 #> #   test_week <dbl>
@@ -843,15 +847,15 @@ upworthy_restricted <-
   select(created_at, clickability_test_id, headline, impressions, clicks)
 
 head(upworthy_restricted)
-#> # A tibble: 6 x 5
+#> # A tibble: 6 × 5
 #>   created_at          clickability_test_id     headline       impressions clicks
 #>   <dttm>              <chr>                    <chr>                <dbl>  <dbl>
-#> 1 2014-11-20 06:43:16 546d88fb84ad38b2ce000024 They're Being~        3052    150
-#> 2 2014-11-20 06:43:44 546d88fb84ad38b2ce000024 They're Being~        3033    122
-#> 3 2014-11-20 06:44:59 546d88fb84ad38b2ce000024 They're Being~        3092    110
-#> 4 2014-11-20 06:54:36 546d902c26714c6c44000039 This Is What ~        3526     90
-#> 5 2014-11-20 06:54:57 546d902c26714c6c44000039 This Is What ~        3506    120
-#> 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What ~        3380     98
+#> 1 2014-11-20 06:43:16 546d88fb84ad38b2ce000024 They're Being…        3052    150
+#> 2 2014-11-20 06:43:44 546d88fb84ad38b2ce000024 They're Being…        3033    122
+#> 3 2014-11-20 06:44:59 546d88fb84ad38b2ce000024 They're Being…        3092    110
+#> 4 2014-11-20 06:54:36 546d902c26714c6c44000039 This Is What …        3526     90
+#> 5 2014-11-20 06:54:57 546d902c26714c6c44000039 This Is What …        3506    120
+#> 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What …        3380     98
 ```
 
 We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I'm interested in whether headlines that asked a question got more clicks than those that didn't.
@@ -865,7 +869,7 @@ upworthy_restricted <-
   mutate(asks_question = stringr::str_detect(string = headline, pattern = "\\?"))
 
 upworthy_restricted %>% count(asks_question)
-#> # A tibble: 2 x 2
+#> # A tibble: 2 × 2
 #>   asks_question     n
 #>   <lgl>         <int>
 #> 1 FALSE         19130
@@ -899,7 +903,10 @@ look_at_differences$difference_in_clicks %>% mean()
 
 So we find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure \@ref(fig:upworthy)).
 
-![(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not.](21-hunt_files/figure-latex/upworthy-1.pdf) 
+<div class="figure">
+<img src="21-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not." width="672" />
+<p class="caption">(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not.</p>
+</div>
 
 
 
@@ -938,7 +945,9 @@ So we find that in general, having a question in the headline may slightly decre
 ## Sensor data
 
 
+## FOI
 
+- 2019. Walby, Kevin and Alex Luscombe, eds. Freedom of Information and Social Science Research Design. New York: Routledge.
 
 
 ## Next steps

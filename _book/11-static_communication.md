@@ -9,16 +9,12 @@
 
 **Required reading**
 
-- (The) Economist, 2013, 'Johnson: Those six little rules', Prospero, 29 July 2013, available at: https://www.economist.com/prospero/2013/07/29/johnson-those-six-little-rules.
+
 - Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/. (Look at how Monica explains concepts, especially the Gini coefficient, in a way that you can understand even if you've never heard of it before.)
-- Bronner, Laura, 2020, 'Quant Editing', http://www.laurabronner.com/quant-editing. (Read these points and evaluate your own writing against them. It's fine to not comply with them if you have a good reason, but you need to know that you're not complying with them).
-- Girouard, Dave, 2020, 'A Founder's Guide to Writing Well', First Round Review, 4 August, https://firstround.com/review/a-founders-guide-to-writing-well/.
-- Graham, Paul, 2020, 'How to Write Usefully', http://paulgraham.com/useful.html. (Graham is good at writing for a programmer, but if you have a similar background then you may like this.)
 - Healy, Kieran, 2019, *Data Visualization: A Practical Introduction*, Princeton University Press, Chapters 3, 4, and 7, https://socviz.co/.
 - Hodgetts, Paul, 2020, 'The ggfortify Package', 31 December, https://www.hodgettsp.com/posts/r-ggfortify/. 
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 28, https://r4ds.had.co.nz/.
-- Zinsser, William, 1976 [2016], *On Writing Well*. (Any edition is fine. This book is included because if you're serious about improving your writing then you should start with this book. It only takes a few hours to read. You'll go onto other books, but start with this one.)
-- Zinsser, William, 2009, 'Writing English as a Second Language', Lecture, Columbia Graduate School of Journalism, 11 August, https://theamericanscholar.org/writing-english-as-a-second-language/. (I'm realistic enough to realise that requiring a book, even though I've said it's great and it's short, is a bit of a stretch. If you really don't want to commit to reading the Zinsser, then please at least read this 'crib notes' version of it.) 
+
 
 **Required viewing**
 
@@ -27,30 +23,13 @@
 
 **Recommended reading**
 
-- (The) Economist, 1991 [2014], 'The Economist Style Guide', Twelfth edition. (Any edition is fine. Pick a point or two each day and think about how it related to your own writing.)
-- Cochrane, John H., 2005, 'Writing Tips for Ph.  D. Students', https://faculty.chicagobooth.edu/john.cochrane/research/papers/phd_paper_writing.pdf. (This is aimed at academic research papers, but parts are still broadly relevant. And if you're going into academia then this is very relevant.)
-- Codrey, Laura, 2013, 'Churchill’s call for brevity', 17 October, https://blog.nationalarchives.gov.uk/churchills-call-for-brevity/.
 - Engel, Claudia A, 2019, *Using Spatial Data with R*, 11 February, Chapter 3 Making Maps in R, freely available at: https://cengel.github.io/R-spatial/mapping.html.
 - Five Thirty Eight, 2020, Pick almost any article in their sports (https://fivethirtyeight.com/sports/) or politics (https://fivethirtyeight.com/politics/) sections. (The people at 538 write beautifully. Look at how their titles tell you exactly what is going on, or what they found. Look at how nicely their first paragraphs motivates you to read the rest of the article. Why am I [reading](https://fivethirtyeight.com/features/byu-is-scorching-the-nets-from-even-farther-back/) about BYU basketball when I'm indifferent to both BYU and college basketball? Because that title and first paragraph hooked me.)
-- Graham, Paul, 2005, 'Writing, Briefly', http://paulgraham.com/writing44.html.
 - Lovelace, Robin, Jakub Nowosad, Jannes Muenchow, 2020, *Geocomputation with R*, 29 March, Chapter 8, Making maps with R, freely available at: https://geocompr.robinlovelace.net/adv-map.html.
 - Patrick, Cameron, 2019, 'Plotting multiple variables at once using ggplot2 and tidyr', 26 November, https://cameronpatrick.com/post/2019/11/plotting-multiple-variables-ggplot2-tidyr/.
 - Patrick, Cameron, 2020, 'Making beautiful bar charts with ggplot', 15 March, https://cameronpatrick.com/post/2020/03/beautiful-bar-charts-ggplot/.
-- Shapiro, Jesse M., 'Four Steps to an Applied Micro Paper', https://www.brown.edu/Research/Shapiro/pdfs/foursteps.pdf. (This is mostly recommended for the part about 'the robot' with regard to your data section.)
-- Shapiro, Julian, 'Writing Well', https://www.julian.com/guide/write/intro.
-- Strunk, William Jr., 1959 [2009] 'The Elements of Style'. (Any edition is fine. Eventually you'll move beyond this, but it's important to know the rules before you break them).
 - Vanderplas, Susan, Dianne Cook, and Heike Hofmann, 2020, 'Testing Statistical Charts: What Makes a Good Graph?', *Annual Review of Statistics and Its Application*, https://www.annualreviews.org/doi/abs/10.1146/annurev-statistics-031219-041252
 
-
-
-**Examples of well-written papers**
-
-- Barron, Alexander TJ, Jenny Huang, Rebecca L. Spang, and Simon DeDeo. "Individuals, institutions, and innovation in the debates of the French Revolution." Proceedings of the National Academy of Sciences 115, no. 18 (2018): 4607-4612. r
-- Chambliss, Daniel F. "The Mundanity of Excellence: An Ethnographic Report on Stratification and Olympic Swimmers." *Sociological Theory* 7, no. 1 (1989): 70-86. doi:10.2307/202063. 
-- Joyner, Michael J. "Modeling: optimal marathon performance on the basis of physiological factors." *Journal of Applied Physiology*, 70, no. 2 (1991): 683-687. 
-- Kharecha, Pushker A., and James E. Hansen, 2013, 'Prevented mortality and greenhouse gas emissions from historical and projected nuclear power', *Environmental science & technology*, 47, no. 9, pp. 4889-4895.
-- Samuel, Arthur L., 1959, 'Some studies in machine learning using the game of checkers', *IBM Journal of research and development*, 3, no. 3, pp. 210-229.
-- Wardrop, Robert L., 1995, 'Simpson's paradox and the hot hand in basketball', *The American Statistician*, 49, no. 1, 24-28.
 
 
 **Key concepts/skills/etc**
@@ -87,32 +66,15 @@
 
 ## Introduction
 
-> [T]he duty of a scientist is not only to find new things, bu to communicate them successfully in at least three forms: 1) Writing papers and books. 2) Prepared public talks. 3) Impromptu talks.
->
-> @hamming1996 [p. 65]
-
-In order to convince someone of your story, your paper must be well-written, well-organized, and easy to follow. It should flow easily from one point to the next. It should have proper sentence structure, spelling, vocabulary, and grammar. Each point should be articulated clearly and completely without being overly verbose. Papers should demonstrate your understanding of the topics you are writing about and your confidence in discussing the terms, techniques and issues that are relevant. References must be included and properly cited because this enhances your credibility.
-
-> People who need to write: founders, VCs, lawyers, software engineers, designers, painters, data scientists, musicians, filmmakers, creative directors, physical trainers, teachers, writers. 
-> Learn to write.
-> 
-> [Sahil Lavingia](https://twitter.com/shl/status/1224346643585089536).
-
-
-> This is great advice. Writing well has done just as much for me as knowing how to code. I'd add that if you're intimidated by writing, start a blog and write often about something you're interested in. You'll get better. At least that's what I've done for the past 10 years. :)
-> 
-> [Vicki Boykis](https://twitter.com/vboykis/status/1224351069771386881?s=21).
-
-
-This chapter is about writing. By the end of it you will have a better idea of how to write short, detailed, quantitative papers that communicate exactly what you want them to and don't waste the time of your reader. 
 
 One critical part of telling stories with *data*, is that it's ultimately the data that has to convince them. You're the medium, but the data are the message. To that end, the easiest way to try to convince someone of your story is to show them the data that allowed you to come to that story. Plot your raw data, or as close to it as possible.
 
 While `ggplot` is a fantastic tool for doing this, there is a lot to that package and so it can be difficult to know where to start. My recommendation is that you start with either a scatter plot or a bar chart. What is critical is that you show the reader your raw data. These notes run through how to do that. It then discusses some more advanced options, but the important thing is that you show the reader your raw data (or as close to it as you can). Students seem to get confused what 'raw' means; I'm using it to refer to as close to the original dataset as possible, so no sums, or averages, etc, if possible. Sometimes your data are too disperse for that or you've got other constraints, so there needs to be an element of manipulation. The main point is that you, at the very least, need to plot the data that you're going to be modelling. If you are dealing with larger datasets then just take a 10/1/0.1/etc per cent sample.
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/jerry} \caption{Show me the data!}(\#fig:unnamed-chunk-2)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/jerry.png" alt="Show me the data!" width="90%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Show me the data!</p>
+</div>
 Source: YouTube screenshot.
 
 
@@ -124,9 +86,10 @@ Graphs are critical to tell a compelling story. And the most important thing wit
 
 Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal).
 
-\begin{figure}
-\includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/thomowillrose} \caption{How do we get started with our data?}(\#fig:thomowillrose)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/thomowillrose.png" alt="How do we get started with our data?" width="90%" />
+<p class="caption">(\#fig:thomowillrose)How do we get started with our data?</p>
+</div>
 
 
 <!-- To illustrate why it's important, let's first look at a famous example - Anscombe's quartet. -->
@@ -188,7 +151,7 @@ datasaurus_dozen %>%
     x_y_cor = cor(x, y)
   ) %>% 
   ungroup()
-#> # A tibble: 4 x 6
+#> # A tibble: 4 × 6
 #>   dataset  x_mean  x_sd y_mean  y_sd x_y_cor
 #>   <chr>     <dbl> <dbl>  <dbl> <dbl>   <dbl>
 #> 1 away       54.3  16.8   47.8  26.9 -0.0641
@@ -210,7 +173,7 @@ datasaurus_dozen %>%
   labs(colour = "Dataset")
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 
 
@@ -248,7 +211,7 @@ First, let's have a look at the data.
 
 ```r
 head(example_data)
-#> # A tibble: 6 x 5
+#> # A tibble: 6 × 5
 #>   person smoker     age_died height num_children
 #>    <int> <chr>         <dbl>  <int>        <int>
 #> 1      1 Smoker           55     80            3
@@ -268,7 +231,7 @@ example_data %>%
   geom_bar()
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Now let's make it look a little better. There are themes that are built into ggplot, or you can install other themes from other packages, or you can edit aspects yourself. I'd recommend starting with the `ggthemes` package for some fun ones, but I tend to just use classic or minimal. Remember that you must always refer to your graphs in your text (Figure \@ref(fig:myfrstgraph)).
 
@@ -284,7 +247,10 @@ example_data %>%
        caption = "Source: Simulated data.")
 ```
 
-![(\#fig:myfrstgraph)Number of people who died at each age](11-static_communication_files/figure-latex/myfrstgraph-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/myfrstgraph-1.png" alt="Number of people who died at each age" width="672" />
+<p class="caption">(\#fig:myfrstgraph)Number of people who died at each age</p>
+</div>
 
 We may want to facet by some variable, in this case whether the person is a smoker (Figure \@ref(fig:mysecndgraph)).
 
@@ -301,7 +267,10 @@ example_data %>%
        caption = "Source: Simulated data.")
 ```
 
-![(\#fig:mysecndgraph)Number of people who died at each age, by whether they smoke](11-static_communication_files/figure-latex/mysecndgraph-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/mysecndgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
+<p class="caption">(\#fig:mysecndgraph)Number of people who died at each age, by whether they smoke</p>
+</div>
 
 
 Alternatively, we may wish to colour by that instead (Figure \@ref(fig:mysthidgraph)). I'll filter to just a handful of age-groups to keep it tractable.
@@ -320,7 +289,10 @@ example_data %>%
        caption = "Source: Simulated data.")
 ```
 
-![(\#fig:mysthidgraph)Number of people who died at each age, by whether they smoke](11-static_communication_files/figure-latex/mysthidgraph-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/mysthidgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
+<p class="caption">(\#fig:mysthidgraph)Number of people who died at each age, by whether they smoke</p>
+</div>
 
 It's important to recognise that a boxplot hides the full distribution of a variable. Unless you need to communicate the general distribution of many variables at once then you should not use them. The same box plot can apply to very different distributions.
 
@@ -343,7 +315,7 @@ scatter_data <-
          income = if_else(income < 0, 0, income))
 
 head(scatter_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   years_of_education   error income
 #>                <dbl>   <dbl>  <dbl>
 #> 1               15.4 -13782. 63180.
@@ -368,7 +340,10 @@ scatter_data %>%
        caption = "Source: Simulated data.")
 ```
 
-![(\#fig:scattorplot)Relationship between income and years of education](11-static_communication_files/figure-latex/scattorplot-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/scattorplot-1.png" alt="Relationship between income and years of education" width="672" />
+<p class="caption">(\#fig:scattorplot)Relationship between income and years of education</p>
+</div>
 
 
 ### Never use box plots
@@ -399,26 +374,26 @@ Then compare the box plots.
 boxplot(tricky_data$left_and_right)
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ```r
 boxplot(tricky_data$middle)
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-10-2.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-10-2.png" width="672" />
 
 ```r
 
 hist(tricky_data$left_and_right)
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-10-3.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-10-3.png" width="672" />
 
 ```r
 hist(tricky_data$middle)
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-10-4.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-10-4.png" width="672" />
 
 
 
@@ -442,7 +417,10 @@ scatter_data %>%
 #> `geom_smooth()` using formula 'y ~ x'
 ```
 
-![(\#fig:scattorplottwo)Relationship between income and years of education](11-static_communication_files/figure-latex/scattorplottwo-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between income and years of education" width="672" />
+<p class="caption">(\#fig:scattorplottwo)Relationship between income and years of education</p>
+</div>
 
 #### Histogram
 
@@ -462,7 +440,10 @@ scatter_data %>%
 #> `binwidth`.
 ```
 
-![(\#fig:hisogramone)Distribution of income](11-static_communication_files/figure-latex/hisogramone-1.pdf) 
+<div class="figure">
+<img src="11-static_communication_files/figure-html/hisogramone-1.png" alt="Distribution of income" width="672" />
+<p class="caption">(\#fig:hisogramone)Distribution of income</p>
+</div>
 
 #### Multiple plots
 
@@ -487,7 +468,7 @@ p2 <-
 p1 + p2
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 And we can make things fairly involved fairly quickly.
 
@@ -498,7 +479,7 @@ And we can make things fairly involved fairly quickly.
   p2
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 
 
@@ -524,17 +505,12 @@ example_data %>%
 ```
 
 
-\begin{tabular}{l|r|r}
-\hline
-dataset & Mean & Std\_dev\\
-\hline
-away & 54.26610 & 16.76983\\
-\hline
-dino & 54.26327 & 16.76514\\
-\hline
-star & 54.26734 & 16.76896\\
-\hline
-\end{tabular}
+
+|dataset |     Mean|  Std_dev|
+|:-------|--------:|--------:|
+|away    | 54.26610| 16.76983|
+|dino    | 54.26327| 16.76514|
+|star    | 54.26734| 16.76896|
 
 Even the defaults are pretty good, but we can add a few tweaks to make the table better. The first is that this many significant digits is inappropriate, we may also like to add a caption, make the column names consistent, and change the alignment.
 
@@ -548,22 +524,15 @@ example_data %>%
                )
 ```
 
-\begin{table}
 
-\caption{(\#tab:unnamed-chunk-14)My first table.}
-\centering
-\begin{tabular}[t]{l|l|l}
-\hline
-Dataset & Mean & Standard deviation\\
-\hline
-away & 54.27 & 16.77\\
-\hline
-dino & 54.26 & 16.77\\
-\hline
-star & 54.27 & 16.77\\
-\hline
-\end{tabular}
-\end{table}
+
+Table: (\#tab:unnamed-chunk-14)My first table.
+
+|Dataset |Mean  |Standard deviation |
+|:-------|:-----|:------------------|
+|away    |54.27 |16.77              |
+|dino    |54.26 |16.77              |
+|star    |54.27 |16.77              |
 
 The ''kableExtra' package builds extra functionality [@citekableextra].
 
@@ -579,16 +548,370 @@ example_data %>%
   gt()
 ```
 
-\captionsetup[table]{labelformat=empty,skip=1pt}
-\begin{longtable}{lrr}
-\toprule
-dataset & Mean & Std\_dev \\ 
-\midrule
-away & 54.26610 & 16.76982 \\ 
-dino & 54.26327 & 16.76514 \\ 
-star & 54.26734 & 16.76896 \\ 
- \bottomrule
-\end{longtable}
+```{=html}
+<div id="ghkvxdrhjj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ghkvxdrhjj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ghkvxdrhjj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ghkvxdrhjj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ghkvxdrhjj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ghkvxdrhjj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ghkvxdrhjj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ghkvxdrhjj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ghkvxdrhjj .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ghkvxdrhjj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ghkvxdrhjj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ghkvxdrhjj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ghkvxdrhjj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ghkvxdrhjj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#ghkvxdrhjj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ghkvxdrhjj .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ghkvxdrhjj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ghkvxdrhjj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ghkvxdrhjj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ghkvxdrhjj .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ghkvxdrhjj .gt_left {
+  text-align: left;
+}
+
+#ghkvxdrhjj .gt_center {
+  text-align: center;
+}
+
+#ghkvxdrhjj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ghkvxdrhjj .gt_font_normal {
+  font-weight: normal;
+}
+
+#ghkvxdrhjj .gt_font_bold {
+  font-weight: bold;
+}
+
+#ghkvxdrhjj .gt_font_italic {
+  font-style: italic;
+}
+
+#ghkvxdrhjj .gt_super {
+  font-size: 65%;
+}
+
+#ghkvxdrhjj .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">dataset</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Std_dev</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">away</td>
+<td class="gt_row gt_right">54.26610</td>
+<td class="gt_row gt_right">16.76982</td></tr>
+    <tr><td class="gt_row gt_left">dino</td>
+<td class="gt_row gt_right">54.26327</td>
+<td class="gt_row gt_right">16.76514</td></tr>
+    <tr><td class="gt_row gt_left">star</td>
+<td class="gt_row gt_right">54.26734</td>
+<td class="gt_row gt_right">16.76896</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
 
 We could add sub-titles easily.
 
@@ -602,20 +925,377 @@ example_data %>%
   )
 ```
 
-\captionsetup[table]{labelformat=empty,skip=1pt}
-\begin{longtable}{lrr}
-\caption*{
-{\large Summary stats can be misleading} \\ 
-{\small With an example from a dinosaur!}
-} \\ 
-\toprule
-dataset & Mean & Std\_dev \\ 
-\midrule
-away & 54.26610 & 16.76982 \\ 
-dino & 54.26327 & 16.76514 \\ 
-star & 54.26734 & 16.76896 \\ 
- \bottomrule
-\end{longtable}
+```{=html}
+<div id="ymmvvnknyk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ymmvvnknyk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ymmvvnknyk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ymmvvnknyk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ymmvvnknyk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ymmvvnknyk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ymmvvnknyk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ymmvvnknyk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ymmvvnknyk .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ymmvvnknyk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ymmvvnknyk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ymmvvnknyk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ymmvvnknyk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ymmvvnknyk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#ymmvvnknyk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ymmvvnknyk .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ymmvvnknyk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ymmvvnknyk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ymmvvnknyk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ymmvvnknyk .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#ymmvvnknyk .gt_left {
+  text-align: left;
+}
+
+#ymmvvnknyk .gt_center {
+  text-align: center;
+}
+
+#ymmvvnknyk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ymmvvnknyk .gt_font_normal {
+  font-weight: normal;
+}
+
+#ymmvvnknyk .gt_font_bold {
+  font-weight: bold;
+}
+
+#ymmvvnknyk .gt_font_italic {
+  font-style: italic;
+}
+
+#ymmvvnknyk .gt_super {
+  font-size: 65%;
+}
+
+#ymmvvnknyk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Summary stats can be misleading</th>
+    </tr>
+    <tr>
+      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>With an example from a dinosaur!</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">dataset</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Std_dev</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">away</td>
+<td class="gt_row gt_right">54.26610</td>
+<td class="gt_row gt_right">16.76982</td></tr>
+    <tr><td class="gt_row gt_left">dino</td>
+<td class="gt_row gt_right">54.26327</td>
+<td class="gt_row gt_right">16.76514</td></tr>
+    <tr><td class="gt_row gt_left">star</td>
+<td class="gt_row gt_right">54.26734</td>
+<td class="gt_row gt_right">16.76896</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
 
 One common reason for needing a table is to report regression results. You should consider `gtsummary`, `stargazer`, and `modelsummary`. But at the moment, my favourite is `modelsummary` [@citemodelsummary].
 
@@ -632,27 +1312,60 @@ mod <- lm(y ~ x, datasaurus_dozen)
 modelsummary(mod)
 ```
 
-\begin{table}
-\centering
-\begin{tabular}[t]{lc}
-\toprule
-  & Model 1\\
-\midrule
-(Intercept) & \num{53.590}\\
- & (\num{2.119})\\
-x & \num{-0.106}\\
- & (\num{0.037})\\
-\midrule
-Num.Obs. & \num{1846}\\
-R2 & \num{0.004}\\
-R2 Adj. & \num{0.004}\\
-AIC & \num{17383.0}\\
-BIC & \num{17399.6}\\
-Log.Lik. & \num{-8688.506}\\
-F & \num{8.072}\\
-\bottomrule
-\end{tabular}
-\end{table}
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Model 1 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> 53.590 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (2.119) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> x </td>
+   <td style="text-align:center;"> −0.106 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.037) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 1846 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.004 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> 0.004 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:center;"> 17383.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIC </td>
+   <td style="text-align:center;"> 17399.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Log.Lik. </td>
+   <td style="text-align:center;"> −8688.506 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> F </td>
+   <td style="text-align:center;"> 8.072 </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -734,7 +1447,7 @@ ggplot() +
        y = "Latitude")
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 ```r
 # If I'm being honest, this 'simple example' took me six hours to work out. Firstly 
@@ -769,7 +1482,7 @@ canberra_stamen_map <- get_stamenmap(bbox, zoom = 11, maptype = "toner-lite")
 ggmap(canberra_stamen_map)
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 Once we have a map then we can use `ggmap()` to plot it. (That circle in the middle of the map is where the Australian Parliament House is... yes, our parliament is surrounded by circular roads (we call them 'roundabouts'), actually it's surrounded by two of them.)
 
@@ -783,7 +1496,7 @@ booths <- readr::read_csv("https://results.aec.gov.au/24310/Website/Downloads/Ge
                           guess_max = 10000)
 
 head(booths)
-#> # A tibble: 6 x 15
+#> # A tibble: 6 × 15
 #>   State DivisionID DivisionNm PollingPlaceID
 #>   <chr>      <dbl> <chr>               <dbl>
 #> 1 ACT          318 Bean                93925
@@ -792,7 +1505,7 @@ head(booths)
 #> 4 ACT          318 Bean                11452
 #> 5 ACT          318 Bean                 8761
 #> 6 ACT          318 Bean                 8763
-#> # ... with 11 more variables: PollingPlaceTypeID <dbl>,
+#> # … with 11 more variables: PollingPlaceTypeID <dbl>,
 #> #   PollingPlaceNm <chr>, PremisesNm <chr>,
 #> #   PremisesAddress1 <chr>, PremisesAddress2 <chr>,
 #> #   PremisesAddress3 <chr>, PremisesSuburb <chr>,
@@ -836,7 +1549,7 @@ ggmap(canberra_stamen_map,
         panel.grid.minor = element_blank())
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 We may like to save the map so that we don't have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
 
@@ -911,7 +1624,7 @@ bike_data <-
   select(-id, -running_total)
 
 head(bike_data)
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>   street_address   latitude longitude number_of_spots
 #>   <chr>               <dbl>     <dbl>           <int>
 #> 1 8 Kensington Ave     43.7     -79.4               1
@@ -943,7 +1656,7 @@ ggmap(toronto_stamen_map,  maprange = FALSE) +
   theme_minimal() 
 ```
 
-![](11-static_communication_files/figure-latex/unnamed-chunk-31-1.pdf)<!-- --> 
+<img src="11-static_communication_files/figure-html/unnamed-chunk-31-1.png" width="672" />
 
 
 
@@ -968,7 +1681,7 @@ tidygeocoder::geo(city = some_locations$city,
                   method = 'osm')
 #> Passing 2 addresses to the Nominatim single address geocoder
 #> Query completed in: 2 seconds
-#> # A tibble: 2 x 4
+#> # A tibble: 2 × 4
 #>   city     country     lat  long
 #>   <chr>    <chr>     <dbl> <dbl>
 #> 1 Canberra Australia -35.3 149. 

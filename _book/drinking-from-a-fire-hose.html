@@ -81,7 +81,7 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -276,16 +276,16 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Other         </span>
-<span class="co">#&gt;  2      2 Green         </span>
+<span class="co">#&gt;  1      1 Green         </span>
+<span class="co">#&gt;  2      2 Liberal       </span>
 <span class="co">#&gt;  3      3 Green         </span>
-<span class="co">#&gt;  4      4 Other         </span>
-<span class="co">#&gt;  5      5 Conservative  </span>
-<span class="co">#&gt;  6      6 Bloc Québécois</span>
-<span class="co">#&gt;  7      7 Other         </span>
-<span class="co">#&gt;  8      8 Bloc Québécois</span>
-<span class="co">#&gt;  9      9 Conservative  </span>
-<span class="co">#&gt; 10     10 New Democratic</span>
+<span class="co">#&gt;  4      4 Green         </span>
+<span class="co">#&gt;  5      5 Liberal       </span>
+<span class="co">#&gt;  6      6 Other         </span>
+<span class="co">#&gt;  7      7 Conservative  </span>
+<span class="co">#&gt;  8      8 New Democratic</span>
+<span class="co">#&gt;  9      9 Liberal       </span>
+<span class="co">#&gt; 10     10 Other         </span>
 <span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
 </div>
 <div id="acquire" class="section level3" number="2.2.3">
@@ -746,7 +746,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
     <span class="op">)</span></code></pre></div>
 <p>The dataset is on a daily basis for each shelter. We are interested in understanding average usage for each month. To do this, we need to and add a month column, which we do using <code><a href="https://lubridate.tidyverse.org/reference/month.html">month()</a></code> from <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>. By default, <code><a href="https://lubridate.tidyverse.org/reference/month.html">month()</a></code> provides the number of the month, and so we include two arguments ‘label’ and ‘abbr’ to get the full name of the month. We remove rows that do not have any data for the number of beds using <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na()</a></code> from <code>tidyr</code>. And we then create a summary statistic on the basis of monthly groups, using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>. We use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> to create a table.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">toronto_shelters_clean</span> |&gt;
+<code class="sourceCode R"><span class="co"># Based on code from Florence Vallée-Dubois and Lisa Lendway</span>
+<span class="va">toronto_shelters_clean</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
                                  label <span class="op">=</span> <span class="cn">TRUE</span>, 
                                  abbr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -1370,7 +1371,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 14 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -81,7 +81,7 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="active" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -122,7 +122,7 @@
 <li>references.</li>
 </ul>
 </li>
-<li>In the data section thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text and at least one graph and one table. Graphs must be made in <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span> and tables must be made using <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> (with or without <code>kableExtra</code> <span class="citation">(<a href="references-1.html#ref-citekableextra" role="doc-biblioref">Zhu 2020</a>)</span>). Make sure to cross-reference graphs and tables.</li>
+<li>In the data section thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text and at least one graph and one table. Graphs must be made in <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span> and tables must be made using <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> (with or without <code>kableExtra</code> <span class="citation">(<a href="references-1.html#ref-citekableextra" role="doc-biblioref">Zhu 2020</a>)</span>). Graphs must show the actual data, or as close to it as possible, not summary statistics. Make sure to cross-reference graphs and tables.</li>
 <li>Add references by using a bib file. Be sure to reference R and any R packages you use, as well as the dataset. Check that you have referenced everything. Strong submissions will draw on related literature and would also reference those. There are various options in R Markdown for references style; just pick one that you are used to.</li>
 <li>Go back and write an introduction. This should be two or three paragraphs. The last paragraph should set out the remainder of the paper.</li>
 <li>Add an abstract. This should be three or four sentences. If your abstract is longer than four sentences, then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</li>
@@ -154,9 +154,9 @@
 </h3>
 <ul>
 <li>Can I use a dataset from Kaggle instead? No, because they have done the hard work for you.</li>
-<li>I can not use code to download my dataset, can I just manually download it? No, because your entire workflow needs to be reproducible. Please fix the download problem or pick a different dataset.</li>
+<li>I cannot use code to download my dataset, can I just manually download it? No, because your entire workflow needs to be reproducible. Please fix the download problem or pick a different dataset.</li>
 <li>How much should I write? Most students submit something in the two-to-six-page range, but it’s really up to you. Be precise and thorough.</li>
-<li>My data is about apartment blocks/NBA/League of Legends so there’s no ethical or bias aspect, what do I do? Please re-read the readings to better understand bias and ethics. If you really can not think of something, then it might be worth picking a different dataset.</li>
+<li>My data is about apartment blocks/NBA/League of Legends so there’s no ethical or bias aspect, what do I do? Please re-read the readings to better understand bias and ethics. If you really cannot think of something, then it might be worth picking a different dataset.</li>
 <li>Can I use Python? No. If you already know Python then it doesn’t hurt to learn another language.</li>
 <li>Why do I need to cite R, when I don’t need to cite Word? R is a free statistical programming language with academic origins so it’s appropriate to acknowledge the work of others. It’s also important for reproducibility.</li>
 </ul>
@@ -204,17 +204,24 @@
 <li>Data - [10 ‘Exceptional,’ 8 ‘Great,’ 6 ‘Good,’ 4 ‘Some issues,’ 2 ‘Many issues,’ 0 ‘Poor or not done’]
 <ul>
 <li>When you discuss the dataset (in the data section) you should make sure to discuss at least:</li>
+</ul>
+<ol style="list-style-type: decimal">
 <li>The source of the data.</li>
 <li>The methodology and approach that is used to collect and process the data.</li>
 <li>The population, the frame, and the sample (as appropriate).</li>
 <li>Information about how respondents were found. What happened to non-response?</li>
-<li>What are its key features, strengths, and weaknesses about the source generally.</li>
+<li>What are the key features, strengths, and weaknesses about the source generally.</li>
+</ol>
+<ul>
 <li>You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don’t use? Did you construct any variables by combining various ones?</li>
 <li>What do the data look like?</li>
 <li>Plot the actual data that you’re using (or as close as you can get to it).</li>
-<li>Discuss these plots and the other features of these data.</li>
+<li>Discuss these plots and the other features of these data.
+<ul>
 <li>These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix.</li>
 <li>‘Exceptional’ means that when I read your submission I learn something about the dataset that I don’t learn from any other submission (within a reasonable measure of course).</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Numbering - [2 ‘Yes,’ 0 ‘Poor or not done’]
@@ -269,6 +276,7 @@
 <span class="header-section-number">B.1.6</span> Previous examples<a class="anchor" aria-label="anchor" href="#previous-examples"><i class="fas fa-link"></i></a>
 </h3>
 <p>Some examples of papers that well in the past include those by: <a href="inputs/pdfs/Mandatory_minimums-Amy_Farrow.pdf">Amy Farrow</a>, <a href="inputs/pdfs/Mandatory_minimums-Morgaine_Westin.pdf">Morgaine Westin</a>, and <a href="inputs/pdfs/Mandatory_minimums-Rachel_Lam.pdf">Rachel Lam</a>.</p>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div id="these-numbers-mean-dial-it-up" class="section level2" number="24.2">
@@ -448,7 +456,7 @@
 <li>The methodology and approach that is used to collect and process the data.</li>
 <li>The population, the frame, and the sample (as appropriate).</li>
 <li>Information about how respondents were found. What happened to non-response?</li>
-<li>What are its key features, strengths, and weaknesses about the survey generally.</li>
+<li>What are the key features, strengths, and weaknesses about the survey generally.</li>
 </ul>
 </li>
 <li>You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don’t use? Did you construct any variables by combining various ones?</li>
@@ -846,7 +854,7 @@
 <span class="header-section-number">B.4.5</span> Checks<a class="anchor" aria-label="anchor" href="#checks-3"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Do you have a causal story, or at least a sub-section in the discussion that talks about causality and why you can not speak to it, or what you would do if you could?</li>
+<li>Do you have a causal story, or at least a sub-section in the discussion that talks about causality and why you cannot speak to it, or what you would do if you could?</li>
 </ul>
 </div>
 <div id="faq-3" class="section level3" number="24.4.6">
@@ -1324,7 +1332,7 @@ This submission will be graded based on a rubric that will be posted on Quercus 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></div>
+<div class="prev"><a href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></div>
 <div class="next"><a href="references-1.html">References</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -1419,7 +1427,7 @@ This submission will be graded based on a rubric that will be posted on Quercus 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 14 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

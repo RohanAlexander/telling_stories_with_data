@@ -73,9 +73,10 @@ You will be guided thoroughly here. Hopefully by experiencing the power of telli
 
 To get started, go to R Studio Cloud -- https://rstudio.cloud/ -- and create an account. As we are not doing anything too involved the free version will be fine for now. Once you have an account and log in, then it should look something like Figure \@ref(fig:second).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02} \caption{Opening R Studio Cloud for the first time}(\#fig:second)
-\end{figure}
+<div class="figure">
+<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
+<p class="caption">(\#fig:second)Opening R Studio Cloud for the first time</p>
+</div>
 
 (You will be in 'Your Workspace', and you will not have an 'Example Workspace'.) From here you should start a 'New Project'. You can give the project a name by clicking on 'Untitled Project' and replacing it. 
 
@@ -92,25 +93,17 @@ For this example, we need to plan two aspects. The first is what the dataset tha
 
 The basic requirement for the dataset is that it has the name of the seat (sometimes called a 'riding' in Canada) and the party of the person elected. So, a quick sketch of the dataset that we would need could look something like Figure \@ref(fig:canadaexampledata). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.4\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1815} 
-
-}
-
-\caption{Quick sketch of a dataset that could be useful for analysing Canadian elections}(\#fig:canadaexampledata)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1815.png" alt="Quick sketch of a dataset that could be useful for analysing Canadian elections" width="40%" />
+<p class="caption">(\#fig:canadaexampledata)Quick sketch of a dataset that could be useful for analysing Canadian elections</p>
+</div>
 
 We also need to plan the graph that we are interested in. Given we want to display the number of seats that each party won, a quick sketch of what we might aim for is Figure \@ref(fig:canadaexampletable). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1814} 
-
-}
-
-\caption{Quick sketch of a possible graph of the number of ridings won by each party}(\#fig:canadaexampletable)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1814.png" alt="Quick sketch of a possible graph of the number of ridings won by each party" width="75%" />
+<p class="caption">(\#fig:canadaexampletable)Quick sketch of a possible graph of the number of ridings won by each party</p>
+</div>
 
 
 ### Simulate
@@ -190,20 +183,20 @@ simulated_data <-
     ))
 
 simulated_data
-#> # A tibble: 338 x 2
+#> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 Liberal       
-#>  2      2 Green         
-#>  3      3 Liberal       
-#>  4      4 Other         
-#>  5      5 Bloc Québécois
-#>  6      6 Liberal       
-#>  7      7 Green         
-#>  8      8 Green         
-#>  9      9 Other         
-#> 10     10 Green         
-#> # ... with 328 more rows
+#>  1      1 Green         
+#>  2      2 Liberal       
+#>  3      3 Green         
+#>  4      4 Green         
+#>  5      5 Liberal       
+#>  6      6 Other         
+#>  7      7 Conservative  
+#>  8      8 New Democratic
+#>  9      9 Liberal       
+#> 10     10 Other         
+#> # … with 328 more rows
 ```
 
 
@@ -240,39 +233,39 @@ We can take a quick look at the dataset using `head()` which will show the first
 
 ```r
 head(raw_elections_data)
-#> # A tibble: 6 x 13
-#>   Province   `Electoral Distri~ `Electoral Distr~ Population
+#> # A tibble: 6 × 13
+#>   Province   `Electoral Distri… `Electoral Distr… Population
 #>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 Newfoundl~ Avalon                         10001      86494
-#> 2 Newfoundl~ Bonavista--Burin-~             10002      74116
-#> 3 Newfoundl~ Coast of Bays--Ce~             10003      77680
-#> 4 Newfoundl~ Labrador                       10004      27197
-#> 5 Newfoundl~ Long Range Mounta~             10005      86553
-#> 6 Newfoundl~ St. John's East/S~             10006      85697
-#> # ... with 9 more variables: Electors/Électeurs <dbl>,
+#> 1 Newfoundl… Avalon                         10001      86494
+#> 2 Newfoundl… Bonavista--Burin-…             10002      74116
+#> 3 Newfoundl… Coast of Bays--Ce…             10003      77680
+#> 4 Newfoundl… Labrador                       10004      27197
+#> 5 Newfoundl… Long Range Mounta…             10005      86553
+#> 6 Newfoundl… St. John's East/S…             10006      85697
+#> # … with 9 more variables: Electors/Électeurs <dbl>,
 #> #   Polling Stations/Bureaux de scrutin <dbl>,
 #> #   Valid Ballots/Bulletins valides <dbl>,
 #> #   Percentage of Valid Ballots /Pourcentage des bulletins valides <dbl>,
 #> #   Rejected Ballots/Bulletins rejetés <dbl>,
 #> #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés <dbl>,
-#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, ...
+#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, …
 tail(raw_elections_data)
-#> # A tibble: 6 x 13
-#>   Province   `Electoral Distri~ `Electoral Distr~ Population
+#> # A tibble: 6 × 13
+#>   Province   `Electoral Distri… `Electoral Distr… Population
 #>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 British C~ Vancouver South/V~             59040     102927
-#> 2 British C~ Victoria                       59041     117133
-#> 3 British C~ West Vancouver--S~             59042     119113
+#> 1 British C… Vancouver South/V…             59040     102927
+#> 2 British C… Victoria                       59041     117133
+#> 3 British C… West Vancouver--S…             59042     119113
 #> 4 Yukon      Yukon                          60001      35874
-#> 5 Northwest~ Northwest Territo~             61001      41786
+#> 5 Northwest… Northwest Territo…             61001      41786
 #> 6 Nunavut    Nunavut                        62001      35944
-#> # ... with 9 more variables: Electors/Électeurs <dbl>,
+#> # … with 9 more variables: Electors/Électeurs <dbl>,
 #> #   Polling Stations/Bureaux de scrutin <dbl>,
 #> #   Valid Ballots/Bulletins valides <dbl>,
 #> #   Percentage of Valid Ballots /Pourcentage des bulletins valides <dbl>,
 #> #   Rejected Ballots/Bulletins rejetés <dbl>,
 #> #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés <dbl>,
-#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, ...
+#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, …
 ```
 
 We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using `clean_names()` from `janitor` [@janitor] which changes the names into 'snake_case'.
@@ -296,22 +289,22 @@ cleaned_elections_data <-
 
 # Have a look at the first six rows
 head(cleaned_elections_data)
-#> # A tibble: 6 x 13
-#>   province   electoral_distric~ electoral_distri~ population
+#> # A tibble: 6 × 13
+#>   province   electoral_distric… electoral_distri… population
 #>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 Newfoundl~ Avalon                         10001      86494
-#> 2 Newfoundl~ Bonavista--Burin-~             10002      74116
-#> 3 Newfoundl~ Coast of Bays--Ce~             10003      77680
-#> 4 Newfoundl~ Labrador                       10004      27197
-#> 5 Newfoundl~ Long Range Mounta~             10005      86553
-#> 6 Newfoundl~ St. John's East/S~             10006      85697
-#> # ... with 9 more variables: electors_electeurs <dbl>,
+#> 1 Newfoundl… Avalon                         10001      86494
+#> 2 Newfoundl… Bonavista--Burin-…             10002      74116
+#> 3 Newfoundl… Coast of Bays--Ce…             10003      77680
+#> 4 Newfoundl… Labrador                       10004      27197
+#> 5 Newfoundl… Long Range Mounta…             10005      86553
+#> 6 Newfoundl… St. John's East/S…             10006      85697
+#> # … with 9 more variables: electors_electeurs <dbl>,
 #> #   polling_stations_bureaux_de_scrutin <dbl>,
 #> #   valid_ballots_bulletins_valides <dbl>,
 #> #   percentage_of_valid_ballots_pourcentage_des_bulletins_valides <dbl>,
 #> #   rejected_ballots_bulletins_rejetes <dbl>,
 #> #   percentage_of_rejected_ballots_pourcentage_des_bulletins_rejetes <dbl>,
-#> #   total_ballots_cast_total_des_bulletins_deposes <dbl>, ...
+#> #   total_ballots_cast_total_des_bulletins_deposes <dbl>, …
 ```
 
 The names are faster to type because R Studio will auto-complete them. To do this, we begin typing the name of a column and then use 'tab' to auto-complete it.
@@ -329,15 +322,15 @@ cleaned_elections_data <-
 
 # Have a look at the first six rows
 head(cleaned_elections_data)
-#> # A tibble: 6 x 2
-#>   electoral_district_name_no~ elected_candidate_candidat_elu
+#> # A tibble: 6 × 2
+#>   electoral_district_name_no… elected_candidate_candidat_elu
 #>   <chr>                       <chr>                         
-#> 1 Avalon                      McDonald, Kenneth Liberal/Lib~
-#> 2 Bonavista--Burin--Trinity   Rogers, Churence Liberal/Libé~
-#> 3 Coast of Bays--Central--No~ Simms, Scott Liberal/Libéral  
+#> 1 Avalon                      McDonald, Kenneth Liberal/Lib…
+#> 2 Bonavista--Burin--Trinity   Rogers, Churence Liberal/Libé…
+#> 3 Coast of Bays--Central--No… Simms, Scott Liberal/Libéral  
 #> 4 Labrador                    Jones, Yvonne Liberal/Libéral 
-#> 5 Long Range Mountains        Hutchings, Gudie Liberal/Libé~
-#> 6 St. John's East/St. John's~ Harris, Jack NDP-New Democrat~
+#> 5 Long Range Mountains        Hutchings, Gudie Liberal/Libé…
+#> 6 St. John's East/St. John's… Harris, Jack NDP-New Democrat…
 ```
 
 Some of the names of the columns are still quite long because they have both English and French in them. We can look at the names of the columns with `names()`. And we can change the names using `rename()` from `dplyr` [@citedplyr].
@@ -359,15 +352,15 @@ cleaned_elections_data <-
     )
 
 head(cleaned_elections_data)
-#> # A tibble: 6 x 2
+#> # A tibble: 6 × 2
 #>   riding                             elected_candidate      
 #>   <chr>                              <chr>                  
-#> 1 Avalon                             McDonald, Kenneth Libe~
-#> 2 Bonavista--Burin--Trinity          Rogers, Churence Liber~
-#> 3 Coast of Bays--Central--Notre Dame Simms, Scott Liberal/L~
-#> 4 Labrador                           Jones, Yvonne Liberal/~
-#> 5 Long Range Mountains               Hutchings, Gudie Liber~
-#> 6 St. John's East/St. John's-Est     Harris, Jack NDP-New D~
+#> 1 Avalon                             McDonald, Kenneth Libe…
+#> 2 Bonavista--Burin--Trinity          Rogers, Churence Liber…
+#> 3 Coast of Bays--Central--Notre Dame Simms, Scott Liberal/L…
+#> 4 Labrador                           Jones, Yvonne Liberal/…
+#> 5 Long Range Mountains               Hutchings, Gudie Liber…
+#> 6 St. John's East/St. John's-Est     Harris, Jack NDP-New D…
 ```
 
 We will now look at this dataset, and the 'elected_candidate' column in particular.
@@ -397,7 +390,7 @@ cleaned_elections_data <-
   select(-other)
 
 head(cleaned_elections_data)
-#> # A tibble: 6 x 2
+#> # A tibble: 6 × 2
 #>   riding                             party                  
 #>   <chr>                              <chr>                  
 #> 1 Avalon                             Libéral                
@@ -405,7 +398,7 @@ head(cleaned_elections_data)
 #> 3 Coast of Bays--Central--Notre Dame Libéral                
 #> 4 Labrador                           Libéral                
 #> 5 Long Range Mountains               Libéral                
-#> 6 St. John's East/St. John's-Est     NPD-Nouveau Parti démo~
+#> 6 St. John's East/St. John's-Est     NPD-Nouveau Parti démo…
 ```
 
 Finally we want to change the party names from French to English to match what we simulated, using `recode()` from `dplyr` [@citedplyr].
@@ -427,7 +420,7 @@ cleaned_elections_data <-
   )
 
 head(cleaned_elections_data)
-#> # A tibble: 6 x 2
+#> # A tibble: 6 × 2
 #>   riding                             party         
 #>   <chr>                              <chr>         
 #> 1 Avalon                             Liberal       
@@ -476,7 +469,7 @@ We can get a quick count of how many seats each party won using `count()` from `
 ```r
 cleaned_elections_data |> 
   count(party)
-#> # A tibble: 6 x 2
+#> # A tibble: 6 × 2
 #>   party              n
 #>   <chr>          <int>
 #> 1 Bloc Québécois    32
@@ -497,7 +490,7 @@ cleaned_elections_data |>
   geom_bar()
 ```
 
-![](02-drinking_from_a_fire_hose_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
+<img src="02-drinking_from_a_fire_hose_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 This accomplishes what we set out to do. But we can make it look a bit nicer by modifying the default options (Figure \@ref(fig:canadanice)).
 
@@ -512,7 +505,10 @@ cleaned_elections_data |>
        y = "Number of seats") # Make the labels more meaningful
 ```
 
-![(\#fig:canadanice)Number of seats won, by political party, at the 2019 Canadian Federal Election.](02-drinking_from_a_fire_hose_files/figure-latex/canadanice-1.pdf) 
+<div class="figure">
+<img src="02-drinking_from_a_fire_hose_files/figure-html/canadanice-1.png" alt="Number of seats won, by political party, at the 2019 Canadian Federal Election." width="672" />
+<p class="caption">(\#fig:canadanice)Number of seats won, by political party, at the 2019 Canadian Federal Election.</p>
+</div>
 
 
 ### Communicate
@@ -538,25 +534,17 @@ Toronto has a large homeless population [@torontohomeless]. Freezing winters mea
 
 The dataset that we are interested in would need to have date, the shelter, and the number of beds that were occupied that night. A quick sketch of a dataset that would work is Figure \@ref(fig:torontohomelessdataplan). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1817} 
-
-}
-
-\caption{Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto}(\#fig:torontohomelessdataplan)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1817.png" alt="Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto" width="50%" />
+<p class="caption">(\#fig:torontohomelessdataplan)Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto</p>
+</div>
 
 We are interested in creating a table that has the monthly average number of beds occupied each night. The table would probably look something like Figure \@ref(fig:houselessexampletable). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1818} 
-
-}
-
-\caption{Quick sketch of a table of the average number of beds occupied each month}(\#fig:houselessexampletable)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1818.png" alt="Quick sketch of a table of the average number of beds occupied each month" width="50%" />
+<p class="caption">(\#fig:houselessexampletable)Quick sketch of a table of the average number of beds occupied each month</p>
+</div>
 
 
 ### Simulate
@@ -658,7 +646,7 @@ simulated_occupancy_data <-
     )
 
 head(simulated_occupancy_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   date       shelter   number_occupied
 #>   <date>     <chr>               <int>
 #> 1 2021-07-01 Shelter 1              28
@@ -703,22 +691,22 @@ head(toronto_shelters)
 
 
 ```
-#> # A tibble: 6 x 32
+#> # A tibble: 6 × 32
 #>     `_id` OCCUPANCY_DATE ORGANIZATION_ID ORGANIZATION_NAME  
 #>     <dbl> <date>                   <dbl> <chr>              
-#> 1 7272806 2021-01-01                  24 COSTI Immigrant Se~
-#> 2 7272807 2021-01-01                  24 COSTI Immigrant Se~
-#> 3 7272808 2021-01-01                  24 COSTI Immigrant Se~
-#> 4 7272809 2021-01-01                  24 COSTI Immigrant Se~
-#> 5 7272810 2021-01-01                  24 COSTI Immigrant Se~
-#> 6 7272811 2021-01-01                  24 COSTI Immigrant Se~
-#> # ... with 28 more variables: SHELTER_ID <dbl>,
+#> 1 7272806 2021-01-01                  24 COSTI Immigrant Se…
+#> 2 7272807 2021-01-01                  24 COSTI Immigrant Se…
+#> 3 7272808 2021-01-01                  24 COSTI Immigrant Se…
+#> 4 7272809 2021-01-01                  24 COSTI Immigrant Se…
+#> 5 7272810 2021-01-01                  24 COSTI Immigrant Se…
+#> 6 7272811 2021-01-01                  24 COSTI Immigrant Se…
+#> # … with 28 more variables: SHELTER_ID <dbl>,
 #> #   SHELTER_GROUP <chr>, LOCATION_ID <dbl>,
 #> #   LOCATION_NAME <chr>, LOCATION_ADDRESS <chr>,
 #> #   LOCATION_POSTAL_CODE <chr>, LOCATION_CITY <chr>,
 #> #   LOCATION_PROVINCE <chr>, PROGRAM_ID <dbl>,
 #> #   PROGRAM_NAME <chr>, SECTOR <chr>, PROGRAM_MODEL <chr>,
-#> #   OVERNIGHT_SERVICE_TYPE <chr>, PROGRAM_AREA <chr>, ...
+#> #   OVERNIGHT_SERVICE_TYPE <chr>, PROGRAM_AREA <chr>, …
 ```
 
 Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure \@ref(fig:torontohomelessdataplan)). We need to change the names to make them easier to type using `clean_names()`, reduce the columns to only those that are relevant using `select()`, and only keep the second half of the year using `filter()`. 
@@ -731,7 +719,7 @@ toronto_shelters_clean <-
   filter(occupancy_date >= as_date("2021-07-01"))
 
 head(toronto_shelters_clean)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   occupancy_date      id occupied_beds
 #>   <date>           <dbl>         <dbl>
 #> 1 2021-12-27     7323151            50
@@ -774,6 +762,7 @@ The dataset is on a daily basis for each shelter. We are interested in understan
 
 
 ```r
+# Based on code from Florence Vallée-Dubois and Lisa Lendway
 toronto_shelters_clean |>
   mutate(occupancy_month = month(occupancy_date, 
                                  label = TRUE, 
@@ -785,23 +774,15 @@ toronto_shelters_clean |>
 ```
 
 
-\begin{tabular}{l|r}
-\hline
-occupancy\_month & number\_occupied\\
-\hline
-July & 29.67137\\
-\hline
-August & 30.83975\\
-\hline
-September & 31.65405\\
-\hline
-October & 32.32991\\
-\hline
-November & 33.26980\\
-\hline
-December & 33.57806\\
-\hline
-\end{tabular}
+
+|occupancy_month | number_occupied|
+|:---------------|---------------:|
+|July            |        29.67137|
+|August          |        30.83975|
+|September       |        31.65405|
+|October         |        32.32991|
+|November        |        33.26980|
+|December        |        33.57806|
 
 As with before, this looks fine, and achieves what we set out to do. But we can make some tweaks to the defaults to make it look even better (Table \@ref(tab:homelessoccupancy)). We can add a caption, make the column names easier to read, only show an appropriate level of decimal places, and improve the formatting.
 
@@ -822,23 +803,18 @@ toronto_shelters_clean |>
         )
 ```
 
-\begin{table}
 
-\caption{(\#tab:homelessoccupancy)Homeless shelter usage in Toronto in 2021}
-\centering
-\begin{tabular}[t]{lr}
-\toprule
-Month & Average daily number of occupied beds\\
-\midrule
-July & 29.7\\
-August & 30.8\\
-September & 31.7\\
-October & 32.3\\
-November & 33.3\\
-December & 33.6\\
-\bottomrule
-\end{tabular}
-\end{table}
+
+Table: (\#tab:homelessoccupancy)Homeless shelter usage in Toronto in 2021
+
+|Month     | Average daily number of occupied beds|
+|:---------|-------------------------------------:|
+|July      |                                  29.7|
+|August    |                                  30.8|
+|September |                                  31.7|
+|October   |                                  32.3|
+|November  |                                  33.3|
+|December  |                                  33.6|
 
 
 ### Communicate
@@ -866,25 +842,17 @@ For this example, we need to think about what our dataset should look like, and 
 
 The dataset needs to have columns that specify the country, and the year. It also needs to have a column with the NMR estimate for that year for that country. Roughly, it should look like Figure \@ref(fig:nmrexampledata). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.4\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1812} 
-
-}
-
-\caption{Quick sketch of a potentially useful NMR dataset}(\#fig:nmrexampledata)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1812.png" alt="Quick sketch of a potentially useful NMR dataset" width="40%" />
+<p class="caption">(\#fig:nmrexampledata)Quick sketch of a potentially useful NMR dataset</p>
+</div>
 
 We are interested to make a graph with year on the x-axis and estimated NMR on the y-axis. Each country should have its own series Roughly similar to Figure \@ref(fig:nmrexamplegraph). 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1813} 
-
-}
-
-\caption{Quick sketch of a graph of NMR by country over time}(\#fig:nmrexamplegraph)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/IMG_1813.png" alt="Quick sketch of a graph of NMR by country over time" width="75%" />
+<p class="caption">(\#fig:nmrexamplegraph)Quick sketch of a graph of NMR by country over time</p>
+</div>
 
 
 ### Simulate
@@ -955,7 +923,7 @@ simulated_nmr_data <-
   )
 
 head(simulated_nmr_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   country    year   nmr
 #>   <chr>     <int> <dbl>
 #> 1 Argentina  1971 35.9 
@@ -993,7 +961,7 @@ simulated_nmr_data <-
   )
 
 head(simulated_nmr_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   country    year   nmr
 #>   <chr>     <dbl> <dbl>
 #> 1 Argentina  1971 35.9 
@@ -1072,22 +1040,22 @@ We can take a quick look to get a better sense of it. We might be interested in 
 
 ```r
 head(raw_igme_data)
-#> # A tibble: 6 x 29
-#>   `Geographic area` Indicator         Sex   `Wealth Quintil~
+#> # A tibble: 6 × 29
+#>   `Geographic area` Indicator         Sex   `Wealth Quintil…
 #>   <chr>             <chr>             <chr> <chr>           
-#> 1 Afghanistan       Neonatal mortali~ Total Total           
-#> 2 Afghanistan       Neonatal mortali~ Total Total           
-#> 3 Afghanistan       Neonatal mortali~ Total Total           
-#> 4 Afghanistan       Neonatal mortali~ Total Total           
-#> 5 Afghanistan       Neonatal mortali~ Total Total           
-#> 6 Afghanistan       Neonatal mortali~ Total Total           
-#> # ... with 25 more variables: Series Name <chr>,
+#> 1 Afghanistan       Neonatal mortali… Total Total           
+#> 2 Afghanistan       Neonatal mortali… Total Total           
+#> 3 Afghanistan       Neonatal mortali… Total Total           
+#> 4 Afghanistan       Neonatal mortali… Total Total           
+#> 5 Afghanistan       Neonatal mortali… Total Total           
+#> 6 Afghanistan       Neonatal mortali… Total Total           
+#> # … with 25 more variables: Series Name <chr>,
 #> #   Series Year <chr>, Regional group <chr>,
 #> #   TIME_PERIOD <chr>, OBS_VALUE <dbl>,
 #> #   COUNTRY_NOTES <chr>, CONNECTION <lgl>,
 #> #   DEATH_CATEGORY <lgl>, CATEGORY <chr>,
 #> #   Observation Status <chr>, Unit of measure <chr>,
-#> #   Series Category <chr>, Series Type <chr>, ...
+#> #   Series Category <chr>, Series Type <chr>, …
 names(raw_igme_data)
 #>  [1] "Geographic area"        "Indicator"             
 #>  [3] "Sex"                    "Wealth Quintile"       
@@ -1122,7 +1090,7 @@ cleaned_igme_data <-
          obs_value)
 
 head(cleaned_igme_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   geographic_area time_period obs_value
 #>   <chr>           <chr>           <dbl>
 #> 1 Argentina       1970-06          24.9
@@ -1147,7 +1115,7 @@ cleaned_igme_data <-
          country = geographic_area)
 
 head(cleaned_igme_data)
-#> # A tibble: 6 x 3
+#> # A tibble: 6 × 3
 #>   country    year   nmr
 #>   <chr>     <int> <dbl>
 #> 1 Argentina  1971  24.7
@@ -1231,7 +1199,10 @@ cleaned_igme_data |>
   scale_color_brewer(palette = "Set1")
 ```
 
-![(\#fig:nmrgraph)Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)](02-drinking_from_a_fire_hose_files/figure-latex/nmrgraph-1.pdf) 
+<div class="figure">
+<img src="02-drinking_from_a_fire_hose_files/figure-html/nmrgraph-1.png" alt="Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)" width="672" />
+<p class="caption">(\#fig:nmrgraph)Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)</p>
+</div>
 
 
 ### Communicate

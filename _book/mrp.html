@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 17 Multilevel regression with post-stratification | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019b). Read Chapter 17 of Regression and Other Stories,...">
+<meta name="description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019c). Read Chapter 17 of Regression and Other Stories,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 17 Multilevel regression with post-stratification | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019b). Read Chapter 17 of Regression and Other Stories,...">
+<meta property="og:description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019c). Read Chapter 17 of Regression and Other Stories,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 17 Multilevel regression with post-stratification | Telling Stories With Data">
-<meta name="twitter:description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019b). Read Chapter 17 of Regression and Other Stories,...">
+<meta name="twitter:description" content="STATUS: Under construction. Required material Read Analyzing name changes after marriage using a non-representative survey, (M. Alexander 2019c). Read Chapter 17 of Regression and Other Stories,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +81,7 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders.html"><span class="header-section-number">A</span> Oh you think and shoulders</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -98,7 +98,7 @@
 <p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required material</strong></p>
 <ul>
-<li>Read <em>Analyzing name changes after marriage using a non-representative survey</em>, <span class="citation">(<a href="references-1.html#ref-monicanamechanges" role="doc-biblioref">M. Alexander 2019b</a>)</span>.</li>
+<li>Read <em>Analyzing name changes after marriage using a non-representative survey</em>, <span class="citation">(<a href="references-1.html#ref-monicanamechanges" role="doc-biblioref">M. Alexander 2019c</a>)</span>.</li>
 <li>Read Chapter 17 of <em>Regression and Other Stories</em>, <span class="citation">(<a href="references-1.html#ref-gelmanhillvehtari2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span>.</li>
 <li>Read <em>An introduction to multilevel regression and post-stratification for estimating constituency opinion</em>, <span class="citation">(<a href="references-1.html#ref-hanretty2020" role="doc-biblioref">Hanretty 2020</a>)</span>.</li>
 <li>Read the Introduction from <em>Estimating State Public Opinion With Multi-Level Regression and Poststratification using R</em>, <span class="citation">(<a href="references-1.html#ref-kastelleclaxphillips" role="doc-biblioref">Kastellec, Lax, and Phillips 2016</a>)</span>.</li>
@@ -242,9 +242,9 @@
 </ol>
 </li>
 </ol>
-<div id="introduction-23" class="section level2" number="17.1">
+<div id="introduction-24" class="section level2" number="17.1">
 <h2>
-<span class="header-section-number">17.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-23"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-24"><i class="fas fa-link"></i></a>
 </h2>
 <blockquote>
 <p>[The Presidential election of] 2016 was the largest analytics failure in US political history.</p>
@@ -723,9 +723,9 @@ F
 <li>Young men dominate the Xbox population: 18-to-29-year-olds comprise 65 per cent of the Xbox dataset, compared to 19 per cent in the exit poll; and men make up 93 per cent of the Xbox sample but only 47 per cent of the electorate.</li>
 </ul>
 </div>
-<div id="model-2" class="section level3" number="17.3.2">
+<div id="model-3" class="section level3" number="17.3.2">
 <h3>
-<span class="header-section-number">17.3.2</span> Model<a class="anchor" aria-label="anchor" href="#model-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.3.2</span> Model<a class="anchor" aria-label="anchor" href="#model-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>Given the structure of the US electorate, they use a two-stage modelling approach. The details don’t really matter too much, but essentially they model how likely a respondent is to vote for Obama, given various information such as state, education, sex, etc:</p>
 <p><span class="math display">\[
@@ -2007,9 +2007,9 @@ F
 <span class="co">#&gt; 5 connecticut male   age_60_or_more Some post secondary        142 0.0248 </span>
 <span class="co">#&gt; 6 connecticut male   age_60_or_more High school or less        371 0.0647</span></code></pre></div>
 </div>
-<div id="model-3" class="section level3" number="17.5.3">
+<div id="model-4" class="section level3" number="17.5.3">
 <h3>
-<span class="header-section-number">17.5.3</span> Model<a class="anchor" aria-label="anchor" href="#model-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.5.3</span> Model<a class="anchor" aria-label="anchor" href="#model-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>We’re going to use logistic regression to estimate a model where the binary of support for Biden is explained by gender, age-group, education-level, and state. We’re going to do this in a Bayesian framework using <code>rstanarm</code> <span class="citation">(<a href="references-1.html#ref-citerstanarm" role="doc-biblioref">Goodrich et al. 2020</a>)</span>. There are a variety of reasons for using <code>rstanarm</code> here, but the main one is that Stan is pre-compiled which eases some of the computer set-up issues that we may otherwise have. A great further resource about implementing MRP with <code>rstanarm</code> is <span class="citation"><a href="references-1.html#ref-kennedygabry2020" role="doc-biblioref">Kennedy and Gabry</a> (<a href="references-1.html#ref-kennedygabry2020" role="doc-biblioref">2020</a>)</span>.</p>
 <div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
@@ -2769,7 +2769,7 @@ RMSE
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#mrp"><span class="header-section-number">17</span> Multilevel regression with post-stratification</a></li>
-<li><a class="nav-link" href="#introduction-23"><span class="header-section-number">17.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#introduction-24"><span class="header-section-number">17.1</span> Introduction</a></li>
 <li>
 <a class="nav-link" href="#simulation---toddler-bedtimes"><span class="header-section-number">17.2</span> Simulation - Toddler bedtimes</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#construct-a-population"><span class="header-section-number">17.2.1</span> Construct a population</a></li>
@@ -2782,7 +2782,7 @@ RMSE
 <li>
 <a class="nav-link" href="#case-study---xbox-paper"><span class="header-section-number">17.3</span> Case study - Xbox paper</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#overview-6"><span class="header-section-number">17.3.1</span> Overview</a></li>
-<li><a class="nav-link" href="#model-2"><span class="header-section-number">17.3.2</span> Model</a></li>
+<li><a class="nav-link" href="#model-3"><span class="header-section-number">17.3.2</span> Model</a></li>
 <li><a class="nav-link" href="#post-stratify"><span class="header-section-number">17.3.3</span> Post-stratify</a></li>
 </ul>
 </li>
@@ -2799,7 +2799,7 @@ RMSE
 <a class="nav-link" href="#forecasting-the-2020-us-election"><span class="header-section-number">17.5</span> Forecasting the 2020 US election</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#survey-data"><span class="header-section-number">17.5.1</span> Survey data</a></li>
 <li><a class="nav-link" href="#post-stratification-data"><span class="header-section-number">17.5.2</span> Post-stratification data</a></li>
-<li><a class="nav-link" href="#model-3"><span class="header-section-number">17.5.3</span> Model</a></li>
+<li><a class="nav-link" href="#model-4"><span class="header-section-number">17.5.3</span> Model</a></li>
 <li><a class="nav-link" href="#post-stratify-2"><span class="header-section-number">17.5.4</span> Post-stratify</a></li>
 </ul>
 </li>
@@ -2827,7 +2827,7 @@ RMSE
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 14 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
