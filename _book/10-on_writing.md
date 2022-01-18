@@ -3,8 +3,6 @@
 
 # (PART) Communication {-}
 
-**STATUS: Under construction.**
-
 # On writing
 
 **Required material**
@@ -346,15 +344,17 @@ A further remaining, focused on telling stories with data, could be:
 
 
 
+
+
 ### Tutorial
 
 @caroonworking [p. xii] writes at least one thousand words almost every day. In this tutorial we will write every day for a week. Begin by picking seven of the well-written papers specified above. Each day complete the following tasks: 
 
 - Transcribe, by writing each word yourself, the entire introduction.
-- Re-write the introduction so that it is five lines (or 10 per cent, whichever is less) shorter.
+- (This idea comes from @draftnumberfour [p. 186].) Re-write the introduction so that it is five lines (or 10 per cent, whichever is less) shorter.
 - Transcribe, by writing each word yourself, the abstract.
 - Re-write a new, four-sentence, abstract for the paper. 
-- Write a second version of your new abstract using only the one-thousand most popular words in the English language: https://xkcd.com/simplewriter/.
+- (This idea comes from comes from Chelsea Parlett-Pelleriti.) Write a second version of your new abstract using only the one-thousand most popular words in the English language: https://xkcd.com/simplewriter/.
 - Detail three points about the way the paper is written that you like
 - Detail one point about the way the paper is written that you do not like.
 

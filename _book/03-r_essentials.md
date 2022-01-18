@@ -23,12 +23,12 @@
 
 **Key libraries**
 
-- `forcats`
-- `ggplot2`
-- `haven`
-- `stringr`
-- `tidyr`
-- `tidyverse`
+- `forcats` [@citeforcats]
+- `ggplot2` [@citeggplot]
+- `haven` [@citehaven]
+- `stringr` [@citestringr]
+- `tidyr` [@citetidyr]
+- `tidyverse` [@citetidyverse]
 
 **Key functions**
 
@@ -1305,6 +1305,13 @@ Sometimes it is helpful to be able to change the classes of many columns at once
 
 
 ```r
+class(ResumeNames$name)
+#> [1] "factor"
+class(ResumeNames$gender)
+#> [1] "factor"
+class(ResumeNames$ethnicity)
+#> [1] "factor"
+
 ResumeNames |>
   mutate(across(c(name, gender, ethnicity), as.character)) |>
   head()
@@ -1343,6 +1350,13 @@ ResumeNames |>
 #> 4                    manufacturing
 #> 5 health/education/social services
 #> 6                            trade
+
+class(ResumeNames$name)
+#> [1] "factor"
+class(ResumeNames$gender)
+#> [1] "factor"
+class(ResumeNames$ethnicity)
+#> [1] "factor"
 ```
 
 There are many ways for code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be 'character' or 'numeric', actually being 'factor'. And variables that we think should be 'numeric' actually being 'character'.
@@ -1575,7 +1589,7 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 #> # … with 1 more variable: Flag Codes <chr>
 ```
 
-We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.
+We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for ten countries: Australia, Canada, Chile, Indonesia, Germany, Great Britain, New Zealand, South Africa, Spain, and the US.
 
 
 ```r
@@ -1583,14 +1597,13 @@ oecd_gdp_most_recent <-
   oecd_gdp |> 
   filter(TIME == "2021-Q3",
          SUBJECT == "TOT",
-         LOCATION %in% c("AUS", "CAN", "CHL", "DEU",
-                         "GBR", "IDN", "IND", "ESP", 
-                         "JPN", "NZL", "USA", "ZAF"),
+         LOCATION %in% c("AUS", "CAN", "CHL", "DEU", "GBR",
+                         "IDN", "ESP", "NZL", "USA", "ZAF"),
          MEASURE == "PC_CHGPY") |> 
   mutate(european = if_else(LOCATION %in% c("DEU", "GBR", "ESP"),
                              "European",
                              "Not european"),
-         hemisphere = if_else(LOCATION %in% c("CAN", "DEU", "GBR", "ESP", "JPN", "USA"),
+         hemisphere = if_else(LOCATION %in% c("CAN", "DEU", "GBR", "ESP", "USA"),
                              "Northern Hemisphere",
                              "Southern Hemisphere"),
          )
@@ -1635,7 +1648,7 @@ Finally, we could make it look nicer by: adding labels, `labs()`; changing the c
 oecd_gdp_most_recent |> 
   ggplot(mapping = aes(x = LOCATION, y = Value, fill = european)) +
   geom_bar(stat="identity") + 
-  labs(title = "Quarterly change in GDP for twelve OECD countries in 2021Q3", 
+  labs(title = "Quarterly change in GDP for ten OECD countries in 2021Q3", 
        x = "Countries", 
        y = "Change (%)",
        fill = "Is European?") +
@@ -1653,7 +1666,7 @@ Facets enable us to that we create subplots that focus on specific aspects of ou
 oecd_gdp_most_recent |> 
   ggplot(mapping = aes(x = LOCATION, y = Value, fill = european)) +
   geom_bar(stat="identity") + 
-  labs(title = "Quarterly change in GDP for six OECD countries in 2021Q3", 
+  labs(title = "Quarterly change in GDP for ten OECD countries in 2021Q3", 
        x = "Countries", 
        y = "Change (%)",
        fill = "Is European?") +

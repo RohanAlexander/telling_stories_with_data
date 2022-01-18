@@ -116,12 +116,24 @@
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
-<li><code>forcats</code></li>
-<li><code>ggplot2</code></li>
-<li><code>haven</code></li>
-<li><code>stringr</code></li>
-<li><code>tidyr</code></li>
-<li><code>tidyverse</code></li>
+<li>
+<code>forcats</code> <span class="citation">(<a href="references-1.html#ref-citeforcats" role="doc-biblioref">Wickham 2020a</a>)</span>
+</li>
+<li>
+<code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>
+</li>
+<li>
+<code>haven</code> <span class="citation">(<a href="references-1.html#ref-citehaven" role="doc-biblioref">Wickham and Miller 2020</a>)</span>
+</li>
+<li>
+<code>stringr</code> <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>
+</li>
+<li>
+<code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021b</a>)</span>
+</li>
+<li>
+<code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span>
+</li>
 </ul>
 <p><strong>Key functions</strong></p>
 <ul>
@@ -1177,7 +1189,14 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; [1] "integer"</span></code></pre></div>
 <p>Sometimes it is helpful to be able to change the classes of many columns at once. We can do this by using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>.</p>
 <div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ResumeNames</span> |&gt;
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">name</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">ethnicity</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+
+<span class="va">ResumeNames</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">gender</span>, <span class="va">ethnicity</span><span class="op">)</span>, <span class="va">as.character</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;      name gender ethnicity quality call    city jobs</span>
@@ -1214,7 +1233,14 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 3                    manufacturing</span>
 <span class="co">#&gt; 4                    manufacturing</span>
 <span class="co">#&gt; 5 health/education/social services</span>
-<span class="co">#&gt; 6                            trade</span></code></pre></div>
+<span class="co">#&gt; 6                            trade</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">name</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">ethnicity</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span></code></pre></div>
 <p>There are many ways for code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be ‘character’ or ‘numeric,’ actually being ‘factor.’ And variables that we think should be ‘numeric’ actually being ‘character.’</p>
 </div>
 <div id="simulating-data" class="section level3" number="3.6.2">
@@ -1400,20 +1426,19 @@ We define a function using <code>function()</code>, and then assign a name. We w
 #&gt; 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
 #&gt; 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
 #&gt; # … with 1 more variable: Flag Codes &lt;chr&gt;</code></pre>
-<p>We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for twelve countries: Australia, Canada, Chile, Germany, Great Britain, Indonesia, India, Japan, New Zealand, South Africa, Spain, and the US.</p>
+<p>We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for ten countries: Australia, Canada, Chile, Indonesia, Germany, Great Britain, New Zealand, South Africa, Spain, and the US.</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> <span class="op">&lt;-</span> 
   <span class="va">oecd_gdp</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TIME</span> <span class="op">==</span> <span class="st">"2021-Q3"</span>,
          <span class="va">SUBJECT</span> <span class="op">==</span> <span class="st">"TOT"</span>,
-         <span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"CAN"</span>, <span class="st">"CHL"</span>, <span class="st">"DEU"</span>,
-                         <span class="st">"GBR"</span>, <span class="st">"IDN"</span>, <span class="st">"IND"</span>, <span class="st">"ESP"</span>, 
-                         <span class="st">"JPN"</span>, <span class="st">"NZL"</span>, <span class="st">"USA"</span>, <span class="st">"ZAF"</span><span class="op">)</span>,
+         <span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"CAN"</span>, <span class="st">"CHL"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>,
+                         <span class="st">"IDN"</span>, <span class="st">"ESP"</span>, <span class="st">"NZL"</span>, <span class="st">"USA"</span>, <span class="st">"ZAF"</span><span class="op">)</span>,
          <span class="va">MEASURE</span> <span class="op">==</span> <span class="st">"PC_CHGPY"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>european <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span><span class="op">)</span>,
                              <span class="st">"European"</span>,
                              <span class="st">"Not european"</span><span class="op">)</span>,
-         hemisphere <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CAN"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span>, <span class="st">"JPN"</span>, <span class="st">"USA"</span><span class="op">)</span>,
+         hemisphere <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CAN"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span>, <span class="st">"USA"</span><span class="op">)</span>,
                              <span class="st">"Northern Hemisphere"</span>,
                              <span class="st">"Southern Hemisphere"</span><span class="op">)</span>,
          <span class="op">)</span></code></pre></div>
@@ -1439,7 +1464,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for twelve OECD countries in 2021Q3"</span>, 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for ten OECD countries in 2021Q3"</span>, 
        x <span class="op">=</span> <span class="st">"Countries"</span>, 
        y <span class="op">=</span> <span class="st">"Change (%)"</span>,
        fill <span class="op">=</span> <span class="st">"Is European?"</span><span class="op">)</span> <span class="op">+</span>
@@ -1451,7 +1476,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for six OECD countries in 2021Q3"</span>, 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Quarterly change in GDP for ten OECD countries in 2021Q3"</span>, 
        x <span class="op">=</span> <span class="st">"Countries"</span>, 
        y <span class="op">=</span> <span class="st">"Change (%)"</span>,
        fill <span class="op">=</span> <span class="st">"Is European?"</span><span class="op">)</span> <span class="op">+</span>
@@ -1938,7 +1963,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 18 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

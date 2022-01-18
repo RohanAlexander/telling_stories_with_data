@@ -799,7 +799,40 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <li>A reproducible example that demonstrates you have actually tried to help yourself.</li>
 </ol>
 </li>
+<li>The following code produces an error. Please use <code>reprex</code> <span class="citation">(<a href="references-1.html#ref-citereprex" role="doc-biblioref">Jennifer Bryan et al. 2019</a>)</span> to build a reproducible example that you could use to get help with it, and submit the reprex.</li>
 </ol>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="va">oecd_gdp</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://stats.oecd.org/sdmx-json/data/DP_LIVE/.QGDP.../OECD?contentType=csv&amp;detail=code&amp;separator=comma&amp;csv-lang=en"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">oecd_gdp</span><span class="op">)</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://forcats.tidyverse.org">forcats</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+
+<span class="va">oecd_gdp_most_recent</span> <span class="op">&lt;-</span> 
+  <span class="va">oecd_gdp</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TIME</span> <span class="op">==</span> <span class="st">"2021-Q3"</span>,
+         <span class="va">SUBJECT</span> <span class="op">==</span> <span class="st">"TOT"</span>,
+         <span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AUS"</span>, <span class="st">"CAN"</span>, <span class="st">"CHL"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>,
+                         <span class="st">"IDN"</span>, <span class="st">"ESP"</span>, <span class="st">"NZL"</span>, <span class="st">"USA"</span>, <span class="st">"ZAF"</span><span class="op">)</span>,
+         <span class="va">MEASURE</span> <span class="op">==</span> <span class="st">"PC_CHGPY"</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>european <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span><span class="op">)</span>,
+                             <span class="st">"European"</span>,
+                             <span class="st">"Not european"</span><span class="op">)</span>,
+         hemisphere <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">LOCATION</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CAN"</span>, <span class="st">"DEU"</span>, <span class="st">"GBR"</span>, <span class="st">"ESP"</span>, <span class="st">"USA"</span><span class="op">)</span>,
+                             <span class="st">"Northern Hemisphere"</span>,
+                             <span class="st">"Southern Hemisphere"</span><span class="op">)</span>,
+         <span class="op">)</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ggplot</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span>
+
+<span class="va">oecd_gdp_most_recent</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="tutorial-3" class="section level3" number="4.6.2">
 <h3>
@@ -819,7 +852,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 
 
 
-<div class="chapter-nav">
+  <div class="chapter-nav">
 <div class="prev"><a href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></div>
 <div class="next"><a href="on-writing.html"><span class="header-section-number">5</span> On writing</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -871,18 +904,14 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 </div>
     </nav>
 </div>
-</div>
-  
-
-  
 
 </div>
- <!-- .container -->
+</div> <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 18 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

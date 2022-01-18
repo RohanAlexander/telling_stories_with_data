@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "16 January, 2022"
+date: "18 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -139,8 +139,6 @@ Thank you to Hareem Naveed for helpful feedback and encouragement. Her industry 
 Thank you to my PhD supervisory panel John Tang, Martine Mariotti, Tim Hatton, and Zach Ward who gave me the freedom to explore the intellectual space that was of interest to me, the support to follow through on those interests, and the guidance to ensure that it all resulted in something tangible.
 
 Thank you to Elle Côtè for enabling this book to be written.
-
-The idea for the 'remove five lines' part of the Chapter \@ref(on-writing) tutorial comes from @draftnumberfour [p. 186]. And the 'one-thousand most popular words' part of the Chapter \@ref(on-writing) tutorial comes from Chelsea Parlett-Pelleriti. 
 
 This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail, Scott Cunningham, Andrew Heiss, Lisa Lendway, Grant McDermott, Nathan Matias, David Mimno, and Ed Rubin. Thank you to these folks. The changed norm of academics making their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.
 

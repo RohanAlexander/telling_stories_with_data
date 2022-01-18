@@ -724,7 +724,41 @@ raw_data <- readr::read_csv("inputs/data/raw_data.csv")
     b.  A reproducible example that helps others help you.
     c.  A reproducible example during the construction of which you may solve your own problem.
     d.  A reproducible example that demonstrates you have actually tried to help yourself.
+16. The following code produces an error.  Please use `reprex` [@citereprex]  to build a reproducible example that you could use to get help with it, and submit the reprex.
 
+```r
+library(tidyverse)
+
+oecd_gdp <- 
+  read_csv("https://stats.oecd.org/sdmx-json/data/DP_LIVE/.QGDP.../OECD?contentType=csv&detail=code&separator=comma&csv-lang=en")
+
+head(oecd_gdp)
+
+library(forcats)
+library(dplyr)
+
+oecd_gdp_most_recent <- 
+  oecd_gdp |> 
+  filter(TIME == "2021-Q3",
+         SUBJECT == "TOT",
+         LOCATION %in% c("AUS", "CAN", "CHL", "DEU", "GBR",
+                         "IDN", "ESP", "NZL", "USA", "ZAF"),
+         MEASURE == "PC_CHGPY") |> 
+  mutate(european = if_else(LOCATION %in% c("DEU", "GBR", "ESP"),
+                             "European",
+                             "Not european"),
+         hemisphere = if_else(LOCATION %in% c("CAN", "DEU", "GBR", "ESP", "USA"),
+                             "Northern Hemisphere",
+                             "Southern Hemisphere"),
+         )
+
+library(ggplot)
+library(patchwork)
+
+oecd_gdp_most_recent |> 
+  ggplot(mapping = aes(x = LOCATION, y = Value)) |> 
+  geom_bar(stat="identity")
+```
 
 
 

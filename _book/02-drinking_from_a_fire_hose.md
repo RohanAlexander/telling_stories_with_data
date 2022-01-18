@@ -187,15 +187,15 @@ simulated_data
 #>    Riding Party         
 #>     <int> <chr>         
 #>  1      1 Green         
-#>  2      2 Liberal       
-#>  3      3 Green         
-#>  4      4 Green         
-#>  5      5 Liberal       
-#>  6      6 Other         
+#>  2      2 Green         
+#>  3      3 New Democratic
+#>  4      4 Bloc Québécois
+#>  5      5 Conservative  
+#>  6      6 New Democratic
 #>  7      7 Conservative  
-#>  8      8 New Democratic
-#>  9      9 Liberal       
-#> 10     10 Other         
+#>  8      8 Green         
+#>  9      9 Conservative  
+#> 10     10 Conservative  
 #> # … with 328 more rows
 ```
 
@@ -506,8 +506,8 @@ cleaned_elections_data |>
 ```
 
 <div class="figure">
-<img src="02-drinking_from_a_fire_hose_files/figure-html/canadanice-1.png" alt="Number of seats won, by political party, at the 2019 Canadian Federal Election." width="672" />
-<p class="caption">(\#fig:canadanice)Number of seats won, by political party, at the 2019 Canadian Federal Election.</p>
+<img src="02-drinking_from_a_fire_hose_files/figure-html/canadanice-1.png" alt="Number of seats won, by political party, at the 2019 Canadian Federal Election" width="672" />
+<p class="caption">(\#fig:canadanice)Number of seats won, by political party, at the 2019 Canadian Federal Election</p>
 </div>
 
 

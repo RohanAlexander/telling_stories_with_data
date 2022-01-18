@@ -4,168 +4,194 @@
 
 # Static communication
 
-**STATUS: Under construction.**
+**Required material**
 
+- Read *R for Data Science*, Chapter 28 'Graphics for communication', [@r4ds].
+- Read *Data Visualization: A Practical Introduction*, Chapters 3 'Make a plot', 4 'Show the right numbers', and 5 'Graph tables, add labels, make notes', [@healyviz].
+- Read *Testing Statistical Charts: What Makes a Good Graph?*, [@vanderplas2020testing].
+- Read *Data Feminism*, Chapter 3 'On Rational, Scientific, Objective Viewpoints from Mythical, Imaginary, Impossible Standpoints', [@datafeminism2020].
 
-**Required reading**
-
-
-- Alexander, Monica, 2019, 'The concentration and uniqueness of baby names in Australia and the US', https://www.monicaalexander.com/posts/2019-20-01-babynames/. (Look at how Monica explains concepts, especially the Gini coefficient, in a way that you can understand even if you've never heard of it before.)
-- Healy, Kieran, 2019, *Data Visualization: A Practical Introduction*, Princeton University Press, Chapters 3, 4, and 7, https://socviz.co/.
-- Hodgetts, Paul, 2020, 'The ggfortify Package', 31 December, https://www.hodgettsp.com/posts/r-ggfortify/. 
-- Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 28, https://r4ds.had.co.nz/.
-
-
-**Required viewing**
-
-- Kuriwaki, Shiro, 2020, 'Making maps in R with sf', 1 March, freely available at: https://vimeo.com/394800836.
-
-
-**Recommended reading**
-
-- Engel, Claudia A, 2019, *Using Spatial Data with R*, 11 February, Chapter 3 Making Maps in R, freely available at: https://cengel.github.io/R-spatial/mapping.html.
-- Five Thirty Eight, 2020, Pick almost any article in their sports (https://fivethirtyeight.com/sports/) or politics (https://fivethirtyeight.com/politics/) sections. (The people at 538 write beautifully. Look at how their titles tell you exactly what is going on, or what they found. Look at how nicely their first paragraphs motivates you to read the rest of the article. Why am I [reading](https://fivethirtyeight.com/features/byu-is-scorching-the-nets-from-even-farther-back/) about BYU basketball when I'm indifferent to both BYU and college basketball? Because that title and first paragraph hooked me.)
-- Lovelace, Robin, Jakub Nowosad, Jannes Muenchow, 2020, *Geocomputation with R*, 29 March, Chapter 8, Making maps with R, freely available at: https://geocompr.robinlovelace.net/adv-map.html.
-- Patrick, Cameron, 2019, 'Plotting multiple variables at once using ggplot2 and tidyr', 26 November, https://cameronpatrick.com/post/2019/11/plotting-multiple-variables-ggplot2-tidyr/.
-- Patrick, Cameron, 2020, 'Making beautiful bar charts with ggplot', 15 March, https://cameronpatrick.com/post/2020/03/beautiful-bar-charts-ggplot/.
-- Vanderplas, Susan, Dianne Cook, and Heike Hofmann, 2020, 'Testing Statistical Charts: What Makes a Good Graph?', *Annual Review of Statistics and Its Application*, https://www.annualreviews.org/doi/abs/10.1146/annurev-statistics-031219-041252
+<!-- - Kuriwaki, Shiro, 2020, 'Making maps in R with sf', 1 March, freely available at: https://vimeo.com/394800836. -->
+<!-- - Hodgetts, Paul, 2020, 'The ggfortify Package', 31 December, https://www.hodgettsp.com/posts/r-ggfortify/.  -->
+<!-- - Engel, Claudia A, 2019, *Using Spatial Data with R*, 11 February, Chapter 3 Making Maps in R, freely available at: https://cengel.github.io/R-spatial/mapping.html. -->
+<!-- - Lovelace, Robin, Jakub Nowosad, Jannes Muenchow, 2020, *Geocomputation with R*, 29 March, Chapter 8, Making maps with R, freely available at: https://geocompr.robinlovelace.net/adv-map.html. -->
+<!-- - Patrick, Cameron, 2019, 'Plotting multiple variables at once using ggplot2 and tidyr', 26 November, https://cameronpatrick.com/post/2019/11/plotting-multiple-variables-ggplot2-tidyr/. -->
+<!-- - Patrick, Cameron, 2020, 'Making beautiful bar charts with ggplot', 15 March, https://cameronpatrick.com/post/2020/03/beautiful-bar-charts-ggplot/. -->
 
 
 
-**Key concepts/skills/etc**
+**Key concepts and skills**
 
-- Show the reader your raw data, or as close as you can come to it.
-- Use either `geom_point` or `geom_bar` initially.
-- Writing efficiently and effectively is a requirement if you want your work to be convincing.
-- Don't waste your reader's time.
-- A good title says what the paper is about, a great title says what the paper found.
-- For a six-page paper, a good abstract is a three to five sentence paragraph. For a longer paper your abstract can be slightly longer.
-- Thinking of maps as a (often fiddly, but strangely enjoyable) variant of a usual ggplot.
-- Broadening the data that we make available via interactive maps, while still telling a clear story.
-- Becoming comfortable with (and excited about) creating static maps.
+- Knowing the importance of showing the reader the actual dataset, or as close as is possible.
+- Using a variety of different graph options, including bar charts, scatterplots, line plots, and histograms.
+- Knowing how to use tables to show part of a dataset, communicate summary statistics, and display regression results.
+- Approaching maps as a type of a graph.
+- Comfort with geocoding places.
+
 
 **Key libraries**
 
-- `ggplot`
-- `patchwork`
-- `ggmap`
+- `datasauRus` [@citedatasauRus]
+- `ggmap` [@KahleWickham2013]
+- `kableExtra` [@citekableextra]
+- `knitr` [@citeknitr]
 - `maps`
-
-**Key functions/etc**
-
-- `ggplot::geom_point()`
-- `ggplot::geom_bar()`
-- `canada.cities`
-- `geom_polygon()`
-- `ggmap()`
-- `map()`
-- `map_data()`
+- `modelsummary` [@citemodelsummary]
+- `opendatatoronto` [@citeSharla]
+- `patchwork` [@citepatchwork]
+- `tidyverse` [@citetidyverse]
+- `viridis` [@viridis]
+- `WDI` [@WDI]
 
 
+**Key functions**
+
+- `ggmap::get_googlemap()`
+- `ggmap::get_stamenmap()`
+- `ggmap::ggmap()`
+- `ggplot2::coord_map()`
+- `ggplot2::facet_wrap()`
+- `ggplot2::geom_abline()`
+- `ggplot2::geom_bar()`
+- `ggplot2::geom_boxplot()`
+- `ggplot2::geom_dotplot()`
+- `ggplot2::geom_freqpoly()`
+- `ggplot2::geom_histogram()`
+- `ggplot2::geom_jitter()`
+- `ggplot2::geom_line()`
+- `ggplot2::geom_path()`
+- `ggplot2::geom_point()`
+- `ggplot2::geom_polygon()`
+- `ggplot2::geom_smooth()`
+- `ggplot2::geom_step()`
+- `ggplot2::ggplot()`
+- `ggplot2::ggsave()`
+- `ggplot2::labeller()`
+- `ggplot2::labs()`
+- `ggplot2::map_data()`
+- `ggplot2::scale_color_brewer()`
+- `ggplot2::scale_colour_viridis_d()`
+- `ggplot2::scale_fill_brewer()`
+- `ggplot2::scale_fill_viridis()`
+- `ggplot2::stat_qq()`
+- `ggplot2::stat_qq_line()`
+- `ggplot2::theme()`
+- `ggplot2::theme_bw()`
+- `ggplot2::theme_classic()`
+- `ggplot2::theme_linedraw()`
+- `ggplot2::theme_minimal()`
+- `kableExtra::add_header_above()`
+- `knitr::kable()`
+- `lm()`
+- `maps::map()`
+- `modelsummary::datasummary()`
+- `modelsummary::datasummary_balance()`
+- `modelsummary::datasummary_correlation()`
+- `modelsummary::datasummary_skim()`
+- `modelsummary::modelsummary()`
+- `WDI::WDI()`
+- `WDI::WDIsearch()`
 
 
 ## Introduction
 
+When telling stories with data, we are trying to allow the data to convince our reader of something. The paper is the medium, and the data are the message. To that end, we want to try to show our reader the data that allowed us to come to our understanding of the story. We use graphs, tables, and maps to help achieve this. 
 
-One critical part of telling stories with *data*, is that it's ultimately the data that has to convince them. You're the medium, but the data are the message. To that end, the easiest way to try to convince someone of your story is to show them the data that allowed you to come to that story. Plot your raw data, or as close to it as possible.
+In the first instance, we must show the actual data that underpin our analysis, or as close to it as we can. For instance, if our dataset consists of 2,500 responses to a survey, then at some point in our paper we would expect a graph that contains 2,500 points or sums to 2,500. To do this we build graphs using `ggplot2` [@citeggplot]. We will go through a variety of different options here including bar charts, Scatterplots, histograms, and line charts.
 
-While `ggplot` is a fantastic tool for doing this, there is a lot to that package and so it can be difficult to know where to start. My recommendation is that you start with either a scatter plot or a bar chart. What is critical is that you show the reader your raw data. These notes run through how to do that. It then discusses some more advanced options, but the important thing is that you show the reader your raw data (or as close to it as you can). Students seem to get confused what 'raw' means; I'm using it to refer to as close to the original dataset as possible, so no sums, or averages, etc, if possible. Sometimes your data are too disperse for that or you've got other constraints, so there needs to be an element of manipulation. The main point is that you, at the very least, need to plot the data that you're going to be modelling. If you are dealing with larger datasets then just take a 10/1/0.1/etc per cent sample.
+In contrast to the role of graphs, which is to show the actual data, or as close to it as possible, the role of tables is typically to convey various summary statistics. We will build tables using `knitr` [@citeknitr] and `kableExtra` [@citekableextra] in the first instance, and then `gt` [@citegt] and `modelsummary` [@citemodelsummary]. 
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/jerry.png" alt="Show me the data!" width="90%" />
-<p class="caption">(\#fig:unnamed-chunk-2)Show me the data!</p>
-</div>
-Source: YouTube screenshot.
-
-
+Finally, we will cover maps as a variant of graphs that are used to show a particular type of data. We will build static maps using `ggmap` [@KahleWickham2013], having obtained the geocoded data that we need using `tidygeocoder` [@citetidygeocoder].
 
 
 ## Graphs
 
-Graphs are critical to tell a compelling story. And the most important thing with your graphs is to plot your raw data. Again: Plot. Your. Raw. Data.
+Graphs are a critical aspect of compelling stories told with data.
 
-Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal).
+> Graphs allow us to explore data to see overall patterns and to see detailed behavior; no other approach can compete in revealing the structure of data so thoroughly. Graphs allow us to view complex mathematical models fitted to data, and they allow us to assess the validity of such models.
+>
+> @elementsofgraphingdata [p. 5]
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/thomowillrose.png" alt="How do we get started with our data?" width="90%" />
-<p class="caption">(\#fig:thomowillrose)How do we get started with our data?</p>
-</div>
+In a way, the graphing of data is an information coding process where we create a glyph, or purposeful mark, that we mean to convey information to our audience. The audience must decode our glyph. The success of our graph turns on how much data are lost in this process. And the decoding is the critical aspect [@elementsofgraphingdata, p. 221], which means that we are creating graphs for the audience. If nothing else is possible, the most important feature is to convey as much of the actual data as possible.
 
-
-<!-- To illustrate why it's important, let's first look at a famous example - Anscombe's quartet. -->
-
-<!-- ```{r} -->
-<!-- # head(anscombe) -->
-<!-- ``` -->
-
-<!-- I'll need to munge around with it to get it into the format we need. Don't worry about this code for now. -->
-
-<!-- ```{r} -->
-<!-- # the_x <-  -->
-<!-- #   anscombe %>% -->
-<!-- #   select(x1:x4) %>%  -->
-<!-- #   tidyr::pivot_longer(cols = everything(), -->
-<!-- #                names_to = "dataset", -->
-<!-- #                values_to = "x") %>%  -->
-<!-- #   mutate(dataset = str_remove(dataset, "x")) -->
-<!-- #  -->
-<!-- # the_y <-  -->
-<!-- #   anscombe %>% -->
-<!-- #   select(y1:y4) %>%  -->
-<!-- #   tidyr::pivot_longer(cols = everything(), -->
-<!-- #                names_to = "dataset", -->
-<!-- #                values_to = "y") %>%  -->
-<!-- #   mutate(dataset = str_remove(dataset, "y")) -->
-<!-- #  -->
-<!-- # anscombe_long <- cbind(the_x, the_y %>% select(y)) -->
-<!-- #  -->
-<!-- #  -->
-<!-- # datasets::anscombe %>%  -->
-<!-- #   select(x1:x4) %>%  -->
-<!-- #   pivot_longer(x1:x4) %>%  -->
-<!-- #   mutate(name = as.numeric(str_remove(name, "x"))) %>%  -->
-<!-- #   rename(dataset = name, -->
-<!-- #   x = value) %>%  -->
-<!-- #   group_by(dataset) %>%  -->
-<!-- #   mutate(i = 1:n()) %>%  -->
-<!-- #   left_join(datasets::anscombe %>% -->
-<!-- #   select(y1:y4) %>%  -->
-<!-- #   pivot_longer(y1:y4) %>%  -->
-<!-- #   mutate(name = as.numeric(str_remove(name, "y"))) %>%  -->
-<!-- #   rename(dataset = name, -->
-<!-- #   y = value) -->
-
-<!-- ``` -->
-
-Let's look at a somewhat fun example from the `datasauRus` package [@citedatasauRus].
+To see why this is important we begin by using the dataset 'datasaurus_dozen' from `datasauRus` [@citedatasauRus]. First, we can take a quick look at the dataset.
 
 
 ```r
-library(datasauRus)
-
-# Code from: https://juliasilge.com/blog/datasaurus-multiclass/
-datasaurus_dozen %>%
-  filter(dataset %in% c("dino", "star", "away", "bullseye")) %>%
-  group_by(dataset) %>%
-  summarise(across(c(x, y), list(mean = mean, sd = sd)),
-    x_y_cor = cor(x, y)
-  ) %>% 
-  ungroup()
-#> # A tibble: 4 × 6
-#>   dataset  x_mean  x_sd y_mean  y_sd x_y_cor
-#>   <chr>     <dbl> <dbl>  <dbl> <dbl>   <dbl>
-#> 1 away       54.3  16.8   47.8  26.9 -0.0641
-#> 2 bullseye   54.3  16.8   47.8  26.9 -0.0686
-#> 3 dino       54.3  16.8   47.8  26.9 -0.0645
-#> 4 star       54.3  16.8   47.8  26.9 -0.0630
+install.packages('datasauRus')
 ```
 
-And despite these similarities at a summary statistic level, they're actually very different, well, beasts, when you plot the raw data.
+
+```r
+library(tidyverse)
+library(datasauRus)
+
+head(datasaurus_dozen)
+#> # A tibble: 6 × 3
+#>   dataset     x     y
+#>   <chr>   <dbl> <dbl>
+#> 1 dino     55.4  97.2
+#> 2 dino     51.5  96.0
+#> 3 dino     46.2  94.5
+#> 4 dino     42.8  91.4
+#> 5 dino     40.8  88.3
+#> 6 dino     38.7  84.9
+datasaurus_dozen |> count(dataset)
+#> # A tibble: 13 × 2
+#>    dataset        n
+#>    <chr>      <int>
+#>  1 away         142
+#>  2 bullseye     142
+#>  3 circle       142
+#>  4 dino         142
+#>  5 dots         142
+#>  6 h_lines      142
+#>  7 high_lines   142
+#>  8 slant_down   142
+#>  9 slant_up     142
+#> 10 star         142
+#> 11 v_lines      142
+#> 12 wide_lines   142
+#> 13 x_shape      142
+```
+
+We can see that the dataset consists of values for 'x' and 'y', which should be plotted on the x-axis and y-axis, respectively. We can further see that there are thirteen different values in the variable 'dataset' including: "dino", "star", "away", and "bullseye". We will focus on those four and generate some summary statistics for each (Table \@ref(tab:datasaurussummarystats)).
 
 
 ```r
-datasaurus_dozen %>% 
-  filter(dataset %in% c("dino", "star", "away", "bullseye")) %>%
+# Code from Julia Silge: https://juliasilge.com/blog/datasaurus-multiclass/
+datasaurus_dozen |>
+  filter(dataset %in% c("dino", "star", "away", "bullseye")) |>
+  group_by(dataset) |>
+  summarise(across(c(x, y), 
+                   list(mean = mean, sd = sd)),
+            x_y_cor = cor(x, y)) |>
+  knitr::kable(
+    caption = "Mean and standard deviation for four 'datasaurus' datasets",
+    col.names = c("Dataset", "x mean", "x sd", "y mean", "y sd", "correlation"),
+    digits = 1,
+    booktabs = TRUE,
+    linesep = ""
+  )
+```
+
+
+
+Table: (\#tab:datasaurussummarystats)Mean and standard deviation for four 'datasaurus' datasets
+
+|Dataset  | x mean| x sd| y mean| y sd| correlation|
+|:--------|------:|----:|------:|----:|-----------:|
+|away     |   54.3| 16.8|   47.8| 26.9|        -0.1|
+|bullseye |   54.3| 16.8|   47.8| 26.9|        -0.1|
+|dino     |   54.3| 16.8|   47.8| 26.9|        -0.1|
+|star     |   54.3| 16.8|   47.8| 26.9|        -0.1|
+
+Despite the similarities of the summary statistics, it turns out the different 'datasets' are actually very different beasts when we graph the actual data (Figure \@ref(fig:datasaurusgraph)).
+
+
+```r
+datasaurus_dozen |> 
+  filter(dataset %in% c("dino", "star", "away", "bullseye")) |>
   ggplot(aes(x=x, y=y, colour=dataset)) +
   geom_point() +
   theme_minimal() +
@@ -173,271 +199,707 @@ datasaurus_dozen %>%
   labs(colour = "Dataset")
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="figure">
+<img src="11-static_communication_files/figure-html/datasaurusgraph-1.png" alt="Graph of four 'datasaurus' datasets" width="672" />
+<p class="caption">(\#fig:datasaurusgraph)Graph of four 'datasaurus' datasets</p>
+</div>
 
-
-
-### Bar chart
-
-Bar charts are useful when you have one variable that you want to focus on. Hint: you almost always have one variable that you want to focus on. Hence, you should almost always include at least one (and likely many) bar charts. Bar charts go by a variety of names, depending on their specifics. I recommend the [R Studio Data Viz Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf).
-
-To get started, let's simulate some data.
+This is a modern version of a famous plot 'Anscombe's Quartet'. That plot conveys the same message about the importance of plotting the actual data and not relying on summary statistics. The 'anscombe' dataset is built into R.
 
 
 ```r
-set.seed(853)
+head(anscombe)
+#>   x1 x2 x3 x4   y1   y2    y3   y4
+#> 1 10 10 10  8 8.04 9.14  7.46 6.58
+#> 2  8  8  8  8 6.95 8.14  6.77 5.76
+#> 3 13 13 13  8 7.58 8.74 12.74 7.71
+#> 4  9  9  9  8 8.81 8.77  7.11 8.84
+#> 5 11 11 11  8 8.33 9.26  7.81 8.47
+#> 6 14 14 14  8 9.96 8.10  8.84 7.04
+```
+It consists of six observations for four different datasets, again with x and y values for each observation. We need to manipulate this dataset with `pivot_longer()` to get it into a 'tidy format'. 
 
-number_of_observation <- 10000
 
-example_data <- tibble(person = c(1:number_of_observation),
-                       smoker = sample(x = c("Smoker", "Non-smoker"),
-                                       size = number_of_observation, 
-                                       replace = TRUE),
-                       age_died = runif(number_of_observation,
-                                        min = 0,
-                                        max = 100) %>% round(digits = 0),
-                       height = sample(x = c(50:220), 
-                                       size =  number_of_observation, 
-                                       replace = TRUE),
-                       num_children = sample(x = c(0:5),
-                                             size = number_of_observation, 
-                                             replace = TRUE,
-                                             prob = c(0.1, 0.2, 0.40, 0.15, 0.1, 0.05))
-                       )
+```r
+# From Nick Tierney: https://www.njtierney.com/post/2020/06/01/tidy-anscombe/
+# Code is from the pivot_longer() vignette.
+tidy_anscombe <- 
+  anscombe |>
+  pivot_longer(everything(),
+               names_to = c(".value", "set"),
+               names_pattern = "(.)(.)"
+               )
 ```
 
-First, let's have a look at the data.
+We can again first create some summary statistics (Table \@ref(tab:anscombesummarystats)) and then graph the data (Figure \@ref(fig:anscombegraph)).
 
 
 ```r
-head(example_data)
-#> # A tibble: 6 × 5
-#>   person smoker     age_died height num_children
-#>    <int> <chr>         <dbl>  <int>        <int>
-#> 1      1 Smoker           55     80            3
-#> 2      2 Non-smoker       54     78            2
-#> 3      3 Non-smoker       84    109            1
-#> 4      4 Smoker           75    114            4
-#> 5      5 Smoker           32    135            1
-#> 6      6 Smoker           37    220            0
+tidy_anscombe |>
+  group_by(set) |>
+  summarise(across(c(x, y),
+                   list(mean = mean, sd = sd)),
+            x_y_cor = cor(x, y)) |>
+  knitr::kable(
+    caption = "Mean and standard deviation for Anscombe",
+    col.names = c("Dataset", "x mean", "x sd", "y mean", "y sd", "correlation"),
+    digits = 1,
+    booktabs = TRUE,
+    linesep = ""
+  )
 ```
 
-Now let's plot the age distribution. Based on our simulated data, we're expecting a fairly uniform plot.
+
+
+Table: (\#tab:anscombesummarystats)Mean and standard deviation for Anscombe
+
+|Dataset | x mean| x sd| y mean| y sd| correlation|
+|:-------|------:|----:|------:|----:|-----------:|
+|1       |      9|  3.3|    7.5|    2|         0.8|
+|2       |      9|  3.3|    7.5|    2|         0.8|
+|3       |      9|  3.3|    7.5|    2|         0.8|
+|4       |      9|  3.3|    7.5|    2|         0.8|
+
 
 
 ```r
-example_data %>% 
-  ggplot(mapping = aes(x = age_died)) +
+tidy_anscombe |> 
+  ggplot(aes(x = x, y = y, colour = set)) +
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(vars(set), nrow = 2, ncol = 2) +
+  labs(colour = "Dataset")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/anscombegraph-1.png" alt="Recreation of Anscombe's Quartet" width="672" />
+<p class="caption">(\#fig:anscombegraph)Recreation of Anscombe's Quartet</p>
+</div>
+
+
+<!-- Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal). -->
+
+<!-- ```{r thomowillrose, echo=FALSE, fig.cap="How do we get started with our data?", out.width = '90%'} -->
+<!-- knitr::include_graphics(here::here("figures/thomowillrose.png")) -->
+
+
+
+
+### Bar charts
+
+We typically use a bar chart when we have a categorical variable that we want to focus on. We saw an example of this in Chapter \@ref(drinking-from-a-fire-hose) where we constructed a graph of the number of occupied beds. The geom that we will primarily use is `geom_bar()`, but there are many variants to cater for the specific situation. 
+
+We will use a dataset from the 1997-2001 British Election Panel Study that was put together by @fox2006effect.
+
+
+```r
+# Vincent Arel Bundock provides access to this dataset.
+beps <- 
+  read_csv(
+    file = 
+      "https://vincentarelbundock.github.io/Rdatasets/csv/carData/BEPS.csv"
+    )
+```
+
+
+
+
+
+
+```r
+head(beps)
+#> # A tibble: 6 × 11
+#>    ...1 vote     age economic.cond.n… economic.cond.h… Blair
+#>   <dbl> <chr>  <dbl>            <dbl>            <dbl> <dbl>
+#> 1     1 Liber…    43                3                3     4
+#> 2     2 Labour    36                4                4     4
+#> 3     3 Labour    35                4                4     5
+#> 4     4 Labour    24                4                2     2
+#> 5     5 Labour    41                2                2     1
+#> 6     6 Labour    47                3                4     4
+#> # … with 5 more variables: Hague <dbl>, Kennedy <dbl>,
+#> #   Europe <dbl>, political.knowledge <dbl>, gender <chr>
+```
+
+
+We have some data on the age of the respondents. We could begin by making a graph of this age distribution (Figure \@ref(fig:bepfitst)).
+
+
+```r
+beps |> 
+  ggplot(mapping = aes(x = age)) +
   geom_bar()
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<div class="figure">
+<img src="11-static_communication_files/figure-html/bepfitst-1.png" alt="Distribution of ages in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:bepfitst)Distribution of ages in the 1997-2001 British Election Panel Study</p>
+</div>
 
-Now let's make it look a little better. There are themes that are built into ggplot, or you can install other themes from other packages, or you can edit aspects yourself. I'd recommend starting with the `ggthemes` package for some fun ones, but I tend to just use classic or minimal. Remember that you must always refer to your graphs in your text (Figure \@ref(fig:myfrstgraph)).
+We can see that by default, `geom_bar()` has created a count of the number of times each age appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could additionally specify a column of values for the y-axis and then use 'stat = "identity"'.
+
+We may additionally like to consider different groupings of the data, for instance, 'vote' (Figure \@ref(fig:bepsecond)).
 
 
 ```r
-example_data %>% 
-  ggplot(mapping = aes(x = age_died)) +
-  geom_bar() +
-  theme_minimal() +
-  labs(x = "Age died",
-       y = "Number",
-       title = "Number of people who died at each age",
-       caption = "Source: Simulated data.")
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar()
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/myfrstgraph-1.png" alt="Number of people who died at each age" width="672" />
-<p class="caption">(\#fig:myfrstgraph)Number of people who died at each age</p>
+<img src="11-static_communication_files/figure-html/bepsecond-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:bepsecond)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
-We may want to facet by some variable, in this case whether the person is a smoker (Figure \@ref(fig:mysecndgraph)).
+The default is that these different groups are stacked, but they can be placed side-by-side with 'position = "dodge"' (Figure \@ref(fig:bepthird)).
 
 
 ```r
-example_data %>% 
-  ggplot(mapping = aes(x = age_died)) +
-  geom_bar() +
-  theme_minimal() +
-  facet_wrap(vars(smoker)) +
-  labs(x = "Age died",
-       y = "Number",
-       title = "Number of people who died at each age, by whether they smoke",
-       caption = "Source: Simulated data.")
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar(position = "dodge")
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/mysecndgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
-<p class="caption">(\#fig:mysecndgraph)Number of people who died at each age, by whether they smoke</p>
+<img src="11-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:bepthird)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
-
-Alternatively, we may wish to colour by that instead (Figure \@ref(fig:mysthidgraph)). I'll filter to just a handful of age-groups to keep it tractable.
+At this point, we may like to address the general look of the graph. There are various themes that are built into `ggplot2`. Some of these include `theme_bw()`, `theme_classic()`, `theme_linedraw()`, and `theme_minimal()`. A full list is available at the `ggplot2` cheatsheet: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf. We can use these themes by adding them as a layer (Figure \@ref(fig:bepthemes)). We can use `patchwork` [@citepatchwork] to bring together multiple graphs. To do this we assign the graph to a name, and then use '+' to signal which should be next to each other, '/' to signal which would be on top, and brackets for precedence.
 
 
 ```r
-example_data %>% 
-  filter(age_died < 25) %>% 
-  ggplot(mapping = aes(x = age_died, fill = smoker)) +
+library(patchwork)
+
+theme_bw <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
   geom_bar(position = "dodge") +
-  theme_minimal() +
-  labs(x = "Age died",
-       y = "Number",
-       fill = "Smoker",
-       title = "Number of people who died at each age, by whether they smoke",
-       caption = "Source: Simulated data.")
+  theme_bw()
+
+theme_classic <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar(position = "dodge") +
+  theme_classic()
+
+theme_linedraw <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar(position = "dodge") +
+  theme_linedraw()
+
+theme_minimal <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar(position = "dodge") +
+  theme_minimal()
+
+(theme_bw + theme_classic) / (theme_linedraw + theme_minimal)
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/mysthidgraph-1.png" alt="Number of people who died at each age, by whether they smoke" width="672" />
-<p class="caption">(\#fig:mysthidgraph)Number of people who died at each age, by whether they smoke</p>
+<img src="11-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672" />
+<p class="caption">(\#fig:bepthemes)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes</p>
 </div>
 
-It's important to recognise that a boxplot hides the full distribution of a variable. Unless you need to communicate the general distribution of many variables at once then you should not use them. The same box plot can apply to very different distributions.
+We can install themes from other packages, including `ggthemes` [@ggthemes], and `hrbrthemes` [@hrbrthemes], and we can even build our own.
 
-
-### Scatter plot
-
-Often, we are also interested in the relationship between two series. We'll do that with a scatter plot. A scatter plot is almost always your best choice [@weissgerber2015beyond]. In this case, let's simulate some data, say years of education and income.
+The default labels are from the name of the relevant variable, and it is often useful to add more detail. We can add a title and caption at this point. A caption can be useful to add information about the source of the dataset. A title can be useful when the graph is going to be considered outside of the context of our paper. But the need to cross-reference all graphs that are in a paper means that included a title within `labs()` is unnecessary (Figure \@ref(fig:withnicelabels)).
 
 
 ```r
-set.seed(853)
-
-number_of_observation <- 500
-
-scatter_data <- 
-  tibble(years_of_education = runif(n = number_of_observation, min = 10, max = 25),
-         error = rnorm(n= number_of_observation, mean = 0, sd = 10000),
-         ) %>% 
-  mutate(income = years_of_education * 5000 + error,
-         income = if_else(income < 0, 0, income))
-
-head(scatter_data)
-#> # A tibble: 6 × 3
-#>   years_of_education   error income
-#>                <dbl>   <dbl>  <dbl>
-#> 1               15.4 -13782. 63180.
-#> 2               11.8   7977. 66985.
-#> 3               17.3  -9787. 76498.
-#> 4               14.7  12999. 86689.
-#> 5               10.6  -1500. 51302.
-#> 6               16.1   1911. 82202.
-```
-
-Now let's look at income as a function of years of education (Figure \@ref(fig:scattorplot)).
-
-
-```r
-scatter_data %>% 
-  ggplot(mapping = aes(x = years_of_education, y = income)) +
-  geom_point() +
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
   theme_minimal() +
-  labs(x = "Years of education",
-       y = "Income",
-       title = "Relationship between income and years of education",
-       caption = "Source: Simulated data.")
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for",
+       title = "Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study",
+       caption = "Source: 1997-2001 British Election Panel Study.")
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/scattorplot-1.png" alt="Relationship between income and years of education" width="672" />
-<p class="caption">(\#fig:scattorplot)Relationship between income and years of education</p>
+<img src="11-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:withnicelabels)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
+</div>
+
+We use facets to create 'many little graphics that are variations of a single graphic' [@grammarofgraphics, p. 219]. They are especially useful when we want to specifically compare some outcomes across some variable. For instance, we may be interested to explain vote, by age and gender (Figure \@ref(fig:facets)).
+
+
+```r
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") +
+  facet_wrap(vars(gender))
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/facets-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facets)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+</div>
+
+We could change `facet_wrap()` to wrap vertically instead of horizontally with 'dir = "v"'. Alternatively, we could specify a number of rows, say 'nrow = 2', or a number of columns, say 'ncol = 2'. Additionally, by default, both facets will have the same scales. We could enable both facets to have different scales with 'scales = "free"', or just the x-axis 'scales = "free_x"', or just the y-axis 'scales = "free_y"' (Figure \@ref(fig:facetsfancy)). 
+
+
+```r
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") +
+  facet_wrap(vars(gender),
+             dir = "v",
+             scales = "free")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facetsfancy)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+</div>
+
+Finally, we can change the labels of the facets (Figure \@ref(fig:facetsfancylabels)). 
+
+
+```r
+new_labels <- c(female = "Female", male = "Male")
+
+beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") +
+  facet_wrap(vars(gender),
+             dir = "v",
+             scales = "free",
+             labeller = labeller(gender = new_labels))
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facetsfancylabels)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+</div>
+
+There are a variety of different ways to change the colors, and many palettes are available including from `RColorBrewer` [@RColorBrewer], which we specify with `scale_fill_brewer()`, `viridis` [@viridis], which we specify with `scale_fill_viridis()` and is particularly focused on color-blind palettes (Figure \@ref(fig:usecolor)). 
+
+
+```r
+library(viridis)
+library(patchwork)
+
+RColorBrewerBrBG <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") + 
+  scale_fill_brewer(palette = "Blues")
+
+RColorBrewerSet2 <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") +
+  scale_fill_brewer(palette = "Set1")
+
+viridis <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") + 
+  scale_fill_viridis(discrete = TRUE)
+
+viridismagma <- 
+  beps |> 
+  ggplot(mapping = aes(x = age, fill = vote)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Age of respondent",
+       y = "Number of respondents",
+       fill = "Voted for") +
+   scale_fill_viridis(discrete = TRUE, 
+                      option = "magma")
+
+(RColorBrewerBrBG + RColorBrewerSet2) /
+ (viridis + viridismagma)
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:usecolor)Distribution of age and vote preference, in the 1997-2001 British Election Panel Study</p>
+</div>
+
+Details of the variety of palettes available in `RColorBrewer` and `viridis` are available in their help files. Many different palettes are available, and we can also build our own. That said, color is something to be considered with a great deal of care because the test of the success of a graph is the amount of information that is communicated [@elementsofgraphingdata]. Colors should not be added to graphs unnecessarily---that is to say, they must play some role. Typically, that role is to distinguish different groups, and that implies making the colors dissimilar. Colors may also be appropriate if there is some relationship between the color and the variable, for instance if making a graph of 'lemons and cherries' it would help the reader if the colors were 'yellow and red' respectively [@franconeri2021science, p. 121].
+
+
+### Scatterplots
+
+We are often interested in the relationship between two variables. We can use scatterplots to show this information. Unless there is a good reason to move to a different option, a scatterplot is almost always the best choice [@weissgerber2015beyond]. Indeed, 'among all forms of statistical graphics, the scatterplot may be considered the most versatile and generally useful invention in the entire history of statistical graphics.' [@historyofdataviz, p. 121] To illustrate scatterplots, we will use `WDI` [@WDI] to download some data about unemployment and GDP growth from the World Bank.
+
+
+```r
+install.packages('WDI')
+```
+
+
+```r
+library(WDI)
+WDIsearch("gdp growth")
+#>      indicator             
+#> [1,] "5.51.01.10.gdp"      
+#> [2,] "6.0.GDP_growth"      
+#> [3,] "NV.AGR.TOTL.ZG"      
+#> [4,] "NY.GDP.MKTP.KD.ZG"   
+#> [5,] "NY.GDP.MKTP.KN.87.ZG"
+#>      name                                    
+#> [1,] "Per capita GDP growth"                 
+#> [2,] "GDP growth (annual %)"                 
+#> [3,] "Real agricultural GDP growth rates (%)"
+#> [4,] "GDP growth (annual %)"                 
+#> [5,] "GDP growth (annual %)"
+WDIsearch("inflation")
+#>      indicator             
+#> [1,] "FP.CPI.TOTL.ZG"      
+#> [2,] "FP.FPI.TOTL.ZG"      
+#> [3,] "FP.WPI.TOTL.ZG"      
+#> [4,] "NY.GDP.DEFL.87.ZG"   
+#> [5,] "NY.GDP.DEFL.KD.ZG"   
+#> [6,] "NY.GDP.DEFL.KD.ZG.AD"
+#>      name                                               
+#> [1,] "Inflation, consumer prices (annual %)"            
+#> [2,] "Inflation, food prices (annual %)"                
+#> [3,] "Inflation, wholesale prices (annual %)"           
+#> [4,] "Inflation, GDP deflator (annual %)"               
+#> [5,] "Inflation, GDP deflator (annual %)"               
+#> [6,] "Inflation, GDP deflator: linked series (annual %)"
+```
+
+
+```r
+inflation_and_gdp <- 
+  WDI(indicator = c("FP.CPI.TOTL.ZG",
+                    "NY.GDP.MKTP.KD.ZG"
+                    ),
+      country = c("AU", "ET", "IN", "US")
+      )
+```
+
+
+
+
+
+At this point we may like to change the names to be more meaningful and only keep rows that have data for both GDP and inflation using `drop_na()`.
+
+
+```r
+inflation_and_gdp <- 
+  inflation_and_gdp |> 
+  rename(inflation = FP.CPI.TOTL.ZG,
+         gdp = NY.GDP.MKTP.KD.ZG) |> 
+  select(-iso2c) |> 
+  drop_na()
+
+head(inflation_and_gdp)
+#> # A tibble: 6 × 4
+#>   country    year inflation   gdp
+#>   <chr>     <dbl>     <dbl> <dbl>
+#> 1 Australia  1961     2.29   2.48
+#> 2 Australia  1962    -0.319  1.29
+#> 3 Australia  1963     0.641  6.21
+#> 4 Australia  1964     2.87   6.98
+#> 5 Australia  1965     3.41   5.98
+#> 6 Australia  1966     3.29   2.38
+```
+
+Now let us look at income as a function of years of education (Figure \@ref(fig:scattorplot)).
+
+
+```r
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point()
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/scattorplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:scattorplot)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
+</div>
+
+As with the bar plots, we will change the theme, and update the labels (Figure \@ref(fig:scatterplotnicer)).
+
+
+```r
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/scatterplotnicer-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:scatterplotnicer)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
+</div>
+
+We use 'color' instead of 'fill' because we are using dots rather than bars. This also then slightly affects how we change the palette (Figure \@ref(fig:scatterplotnicercolor)). 
+
+
+```r
+library(patchwork)
+
+RColorBrewerBrBG <-
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.") +
+  scale_color_brewer(palette = "Blues")
+
+RColorBrewerSet2 <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.") +
+  scale_color_brewer(palette = "Set1")
+
+viridis <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.") +
+  scale_colour_viridis_d()
+
+viridismagma <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.") +
+  scale_colour_viridis_d(option = "magma")
+
+(RColorBrewerBrBG + RColorBrewerSet2) /
+ (viridis + viridismagma)
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/scatterplotnicercolor-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:scatterplotnicercolor)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
+</div>
+
+The dots of a dot plot often overlap. We can address this situation in one of two ways: adding a degree of transparency to our dots with 'alpha' (Figure \@ref(fig:alphaplot)). The value for 'alpha' can vary between 0, which is fully transparent, and 1, which is completely opaque. We can also specify a small amount by which we are comfortable if the points move with `geom_jitter()` (Figure \@ref(fig:jitterplot)). We can specify which direction movement occurs with 'width' or 'height'. The decision between these two options turns on the degree to which exact accuracy matters, and the number of points.
+
+
+```r
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_point(alpha = 0.5) +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/alphaplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:alphaplot)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
 </div>
 
 
-### Never use box plots
-
-Box plots are almost never appropriate because they hide the distribution of data. To see this, consider some data from a beta distribution.
-
-
 ```r
-left <- rbeta(10000,5,2)
-right <- rbeta(10000,2,5)
-middle <- rbeta(10000,5,5)
-
-tricky_data <- 
-  tibble(left_and_right = 
-           c(
-             rbeta(10000,5,2),
-             rbeta(10000,2,5)
-           ),
-         middle = 
-           rbeta(20000,1,1))
-```
-
-
-Then compare the box plots.
-
-
-```r
-boxplot(tricky_data$left_and_right)
-```
-
-<img src="11-static_communication_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-
-```r
-boxplot(tricky_data$middle)
-```
-
-<img src="11-static_communication_files/figure-html/unnamed-chunk-10-2.png" width="672" />
-
-```r
-
-hist(tricky_data$left_and_right)
-```
-
-<img src="11-static_communication_files/figure-html/unnamed-chunk-10-3.png" width="672" />
-
-```r
-hist(tricky_data$middle)
-```
-
-<img src="11-static_communication_files/figure-html/unnamed-chunk-10-4.png" width="672" />
-
-
-
-### Other
-
-#### Best fit
-
-If we're interested in quickly adding a line of best fit then, continuing with the earlier income example, we can do that with `geom_smooth()` (Figure \@ref(fig:scattorplottwo)).
-
-
-```r
-scatter_data %>% 
-  ggplot(mapping = aes(x = years_of_education, y = income)) +
-  geom_point() +
-  geom_smooth(method = lm, color = "black") +
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_jitter() +
   theme_minimal() +
-  labs(x = "Years of education",
-       y = "Income",
-       title = "Relationship between income and years of education",
-       caption = "Source: Simulated data.")
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/jitterplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:jitterplot)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
+</div>
+
+A common use case for a Scatterplot is to illustrate a relationship between two variables. It can be useful to add a line of best fit using `geom_smooth()` (Figure \@ref(fig:scattorplottwo)). By default `geom_smooth()` will impose a X relationship. By default, loess smoothing is used for datasets with less than 1,000 observations, but we can specify the relationship using 'method', change the color with 'color' and remove standard errors with 'se'. We use `geom_smooth()` to add a layer to the graph, and so it inherits all the settings that it can from `ggplot()`. For instance, that is why here we have one line for each country. We could overwrite that by specifying a particular color, in which case we would only have one line.
+
+
+```r
+defaults <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_jitter() +
+  geom_smooth() +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+
+straightline <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_jitter() +
+  geom_smooth(method = lm, se = FALSE) +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+
+onestraightline <- 
+  inflation_and_gdp |>
+  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  geom_jitter() +
+  geom_smooth(method = lm, color = "black", se = FALSE) +
+  theme_minimal() +
+  labs(x = "Inflation",
+       y = "GDP growth",
+       color = "Country",
+       title = "Relationship between inflation and GDP growth",
+       caption = "Data source: World Bank.")
+
+(defaults + straightline + onestraightline)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+#> `geom_smooth()` using formula 'y ~ x'
 #> `geom_smooth()` using formula 'y ~ x'
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between income and years of education" width="672" />
-<p class="caption">(\#fig:scattorplottwo)Relationship between income and years of education</p>
+<img src="11-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:scattorplottwo)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
 </div>
 
-#### Histogram
 
-If we want to get counts by groups, then we may want to use a histogram. Figure \@ref(fig:hisogramone) shows the counts for our simulated incomes.
+### Line plots
+
+We can use a line plot when we have variables that should be joined together, for instance, economic time series. We will continue with the dataset from the World Bank and focus on initially on GDP (Figure \@ref(fig:lineplot)). 
 
 
 ```r
-scatter_data %>% 
-  ggplot(mapping = aes(x = income)) +
-  geom_histogram() +
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+  geom_line()
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/lineplot-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:lineplot)GDP over time for Australia, Ethiopia, India, and the US</p>
+</div>
+
+As before, we can adjust the theme and labels (Figure \@ref(fig:lineplottwo)).
+
+
+```r
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+  geom_line() +
   theme_minimal() +
-  labs(x = "Income",
-       y = "Number",
-       title = "Distribution of income",
-       caption = "Source: Simulated data.")
-#> `stat_bin()` using `bins = 30`. Pick better value with
-#> `binwidth`.
+  labs(x = "Year",
+       y = "GDP",
+       color = "Country",
+       title = "GDP over time",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/lineplottwo-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:lineplottwo)GDP over time for Australia, Ethiopia, India, and the US</p>
+</div>
+
+We can use a slight variant, `geom_step()` to focus attention on the change from year to year (Figure \@ref(fig:stepplot)).
+
+
+```r
+inflation_and_gdp |>
+  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+  geom_step() +
+  theme_minimal() +
+  labs(x = "Year",
+       y = "GDP",
+       color = "Country",
+       title = "GDP over time",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/stepplot-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672" />
+<p class="caption">(\#fig:stepplot)GDP over time for Australia, Ethiopia, India, and the US</p>
+</div>
+
+<!-- The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data. We have a variety of ways to investigate this including `geom_point()` and `geom_path()`. -->
+
+<!-- And finally, we can use -->
+<!--  (Figure \@ref(fig:stepplot)). -->
+
+<!-- ```{r stepplot, fig.cap="GDP over time for Australia, Ethiopia, India, and the US"} -->
+<!-- inflation_and_gdp |> -->
+<!--   ggplot(mapping = aes(x = gdp, y = inflation, color = country)) + -->
+<!--   geom_path() + -->
+<!--   theme_minimal() + -->
+<!--   labs(x = "GDP", -->
+<!--        y = "Inflation", -->
+<!--        color = "Country", -->
+<!--        title = "GDP over time", -->
+<!--        caption = "Data source: World Bank.") -->
+<!-- ``` -->
+
+
+### Histograms
+
+A histogram is useful to show the shape of a continuous variable and works by constructing counts of the number of observations in different subsets of the support, called 'bins'. In Figure \@ref(fig:hisogramone) we examine the distribution of GDP in the US.
+
+
+```r
+inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram()
 ```
 
 <div class="figure">
@@ -445,871 +907,771 @@ scatter_data %>%
 <p class="caption">(\#fig:hisogramone)Distribution of income</p>
 </div>
 
-#### Multiple plots
-
-Finally, let's try putting them together. We're going to use the `patchwork` package [@citepatchwork] and the `penguins` package for data. Don't forget `install.packages("palmerpenguins")` as this is probably the first time you've used the package.
+And again we can add a theme and labels (Figure \@ref(fig:hisogramtwo).
 
 
 ```r
-library(patchwork)
-library(palmerpenguins)
-
-p1 <- 
-  ggplot(palmerpenguins::penguins) + 
-  geom_point(aes(bill_length_mm, bill_depth_mm)) +
-  labs(x = "Bill length (mm)",
-       y = "Bill depth (mm)")
-p2 <- 
-  ggplot(palmerpenguins::penguins) + 
-  geom_bar(aes(species)) +
-  labs(x = "Species",
-       y = "Number")
-
-p1 + p2
+inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram() +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+#> `stat_bin()` using `bins = 30`. Pick better value with
+#> `binwidth`.
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<div class="figure">
+<img src="11-static_communication_files/figure-html/hisogramtwo-1.png" alt="Distribution of GDP in the United States" width="672" />
+<p class="caption">(\#fig:hisogramtwo)Distribution of GDP in the United States</p>
+</div>
 
-And we can make things fairly involved fairly quickly.
+The key component determining the shape of a histogram is the number of bins. This can be specified in one of two ways: 1) specifying the number of 'bins' to include, or 2) specifying how wide they should be with 'binwidth' (Figure \@ref(fig:hisogrambins)).
 
 
 ```r
 
-(p1 | p2) /
-  p2
+twobins <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(bins = 2) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+fivebins <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(bins = 5) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+twentybins <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(bins = 20) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+halfbinwidth <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(binwidth = 0.5) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+twobinwidth <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(binwidth = 2) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+fivebinwidth <- 
+  inflation_and_gdp |> 
+  filter(country == "United States") |> 
+  ggplot(mapping = aes(x = gdp)) +
+  geom_histogram(binwidth = 5) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       caption = "Data source: World Bank.")
+
+(twobins + fivebins + twentybins) / (halfbinwidth + twobinwidth + fivebinwidth)
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<div class="figure">
+<img src="11-static_communication_files/figure-html/hisogrambins-1.png" alt="Distribution of GDP in the United States" width="672" />
+<p class="caption">(\#fig:hisogrambins)Distribution of GDP in the United States</p>
+</div>
+
+The histogram is smoothing the data, and the number of bins affects how much smoothing occurs. When there are only two bins then the data are very smooth, but we have lost a great deal of accuracy. More specifically, 'the histogram estimator is a piecewise constant function where the height of the function is proportional to the number of observations in each bin' [@wasserman, p. 303]. Too few bins result in a biased estimator, while too many bins results in an estimator with high variance. Our decision as to the number of bins, or their width, is concerned with trying to balance bias and variance. This will depend on a variety of concerns including the subject matter and the goal [@elementsofgraphingdata, p. 135].
+
+Finally, while we can use 'fill' to distinguish between different types of observations, it can get quite messy. It is usually better to give away showing the distribution with columns and instead trace the outline of the distribution, using `geom_freqpoly()` (Figure \@ref(fig:freq)) or to build it up using dots with `geom_dotplot()` (Figure \@ref(fig:dotplot)) .
+
+
+```r
+inflation_and_gdp |> 
+  ggplot(mapping = aes(x = gdp, color = country)) +
+  geom_freqpoly() +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       color = "Country",
+       caption = "Data source: World Bank.") +
+  scale_color_brewer(palette = "Set1") 
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/freq-1.png" alt="Distribution of GDP in the United States" width="672" />
+<p class="caption">(\#fig:freq)Distribution of GDP in the United States</p>
+</div>
+
+
+
+```r
+inflation_and_gdp |> 
+  ggplot(mapping = aes(x = gdp, group = country, fill = country)) +
+  geom_dotplot(method = 'histodot', alpha = 0.4) +
+  theme_minimal() +
+  labs(x = "GDP",
+       y = "Number of occurrences",
+       fill = "Country",
+       caption = "Data source: World Bank.") +
+  scale_color_brewer(palette = "Set1") 
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/dotplot-1.png" alt="Distribution of GDP in the United States" width="672" />
+<p class="caption">(\#fig:dotplot)Distribution of GDP in the United States</p>
+</div>
+
+
+### Boxplots
+
+Boxplots are almost never an appropriate choice because they hide the distribution of data, rather than show it. Unless we need to compare the summary statistics of many variables at once, then they should almost never be used. This is because the same boxplot can apply to very different distributions. To see this, consider some simulated data from the beta distribution of two types. One type of data contains draws from two beta distributions: one that is right skewed and another that is left skewed. The other type of data contains draws from a beta distribution with no skew.
+
+
+```r
+set.seed(853)
+both_left_and_right_skew <- 
+  c(
+    rbeta(500, 5, 2),
+    rbeta(500, 2, 5)
+    )
+
+no_skew <- 
+  rbeta(1000, 1, 1)
+
+beta_distributions <- 
+  tibble(
+    observation = c(both_left_and_right_skew, no_skew),
+    source = c(rep("Left and right skew", 1000),
+               rep("No skew", 1000)
+               )
+  )
+```
+
+We can first compare the boxplots of the two series (Figure \@ref(fig:boxplotfirst).
+
+
+```r
+beta_distributions |> 
+  ggplot(aes(x = source, y = observation)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/boxplotfirst-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
+<p class="caption">(\#fig:boxplotfirst)Data drawn from beta distributions with different parameters</p>
+</div>
+
+But if we plot the actual data then we can see how different they are (Figure \@ref(fig:freqpolyofdistributions).
+
+
+```r
+beta_distributions |> 
+  ggplot(aes(x = observation, color = source)) +
+  geom_freqpoly(binwidth = 0.05) +
+  theme_classic()
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/freqpolyofdistributions-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
+<p class="caption">(\#fig:freqpolyofdistributions)Data drawn from beta distributions with different parameters</p>
+</div>
+
+One way forward, if a boxplot must be included, is to include the actual data as a layer on top of the boxplot (Figure \@ref(fig:bloxplotandoverlay).
+
+
+```r
+beta_distributions |> 
+  ggplot(aes(x = source, y = observation)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.3) +
+  theme_classic()
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/bloxplotandoverlay-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
+<p class="caption">(\#fig:bloxplotandoverlay)Data drawn from beta distributions with different parameters</p>
+</div>
+
+An even better solution is to graph the quantiles of each distribution against (Figure \@ref(fig:qqplotftw). The Q-Q plot was developed by @wilk1968probability and requires us to plot the distributions against each other.
+
+
+```r
+beta_distributions |> 
+  ggplot(aes(sample = observation, color = source)) +
+  stat_qq(alpha = 0.3) +
+  stat_qq_line() +
+  theme_classic() +
+  scale_color_brewer(palette = "Set1") 
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/qqplotftw-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
+<p class="caption">(\#fig:qqplotftw)Data drawn from beta distributions with different parameters</p>
+</div>
+
+
 
 
 
 ## Tables
 
-Tables are also critical to tell a compelling story. We may prefer a table to a graph when there are only a few features that we want to focus on. We'll use `knitr::kable()` alongside the 'kableExtra' package and also the `gt` package.
+Tables are critical for telling a compelling story. Tables can communicate less information than a graph, but they can do so at a high fidelity. We primarily use tables in three ways:
 
-Let's start with the kable package and the summary dinosaur data from earlier. 
+1. To show some of our actual dataset, for which we will use `kable()` from `knitr` [@citeknitr], alongside `kableExtra` [@citekableextra].
+2. To communicate summary statistics, for which we will use `gt` [@citegt] and `modelsummary` [@citemodelsummary].
+3. To display regression results, for which we will use `modelsummary` [@citemodelsummary].
+
+
+### Showing part of a dataset
+
+We will illustrate showing part of a dataset using `kable()` from `knitr` and drawing on `kableExtra` for enhancement. We will use the World Bank dataset on inflation and GDP from earlier.
 
 
 ```r
-example_data <- 
-  datasaurus_dozen %>% 
-  filter(dataset %in% c("dino", "star", "away")) %>% 
-  group_by(dataset) %>% 
-  summarize(
-    Mean    = mean(x),
-    Std_dev = sd(x),
-    ) 
+library(knitr)
+head(inflation_and_gdp)
+#> # A tibble: 6 × 4
+#>   country    year inflation   gdp
+#>   <chr>     <dbl>     <dbl> <dbl>
+#> 1 Australia  1961     2.29   2.48
+#> 2 Australia  1962    -0.319  1.29
+#> 3 Australia  1963     0.641  6.21
+#> 4 Australia  1964     2.87   6.98
+#> 5 Australia  1965     3.41   5.98
+#> 6 Australia  1966     3.29   2.38
+```
 
-example_data %>% 
-  knitr::kable()
+To begin, we can display the first ten rows with the default `kable()` settings.
+
+
+```r
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable() 
 ```
 
 
 
-|dataset |     Mean|  Std_dev|
-|:-------|--------:|--------:|
-|away    | 54.26610| 16.76983|
-|dino    | 54.26327| 16.76514|
-|star    | 54.26734| 16.76896|
+|country   | year|  inflation|      gdp|
+|:---------|----:|----------:|--------:|
+|Australia | 1961|  2.2875817| 2.483271|
+|Australia | 1962| -0.3194888| 1.294468|
+|Australia | 1963|  0.6410256| 6.214949|
+|Australia | 1964|  2.8662420| 6.978540|
+|Australia | 1965|  3.4055728| 5.980893|
+|Australia | 1966|  3.2934132| 2.381966|
+|Australia | 1967|  3.4782609| 6.303650|
+|Australia | 1968|  2.5210084| 5.095103|
+|Australia | 1969|  3.2786885| 7.043526|
+|Australia | 1970|  3.4391534| 7.175782|
 
-Even the defaults are pretty good, but we can add a few tweaks to make the table better. The first is that this many significant digits is inappropriate, we may also like to add a caption, make the column names consistent, and change the alignment.
-
-
-```r
-example_data %>% 
-  knitr::kable(digits = 2, 
-               caption = "My first table.", 
-               col.names = c("Dataset", "Mean", "Standard deviation"),
-               align = c('l', 'l', 'l')
-               )
-```
-
-
-
-Table: (\#tab:unnamed-chunk-14)My first table.
-
-|Dataset |Mean  |Standard deviation |
-|:-------|:-----|:------------------|
-|away    |54.27 |16.77              |
-|dino    |54.26 |16.77              |
-|star    |54.27 |16.77              |
-
-The ''kableExtra' package builds extra functionality [@citekableextra].
-
-
-
-The `gt` package [@citegt] is a newer package that brings a lot of exciting features. However, being newer it sometimes has issues with PDF output.
+In order to be able to cross-reference it in text, we need to add a caption with 'caption'. We can also make the column names more information with 'col.names' and specify the number of digits to be displayed (Table \@ref(tab:gdpfirst)).
 
 
 ```r
-library(gt)
-
-example_data %>% 
-  gt()
-```
-
-```{=html}
-<div id="ghkvxdrhjj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#ghkvxdrhjj .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#ghkvxdrhjj .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#ghkvxdrhjj .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#ghkvxdrhjj .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#ghkvxdrhjj .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#ghkvxdrhjj .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#ghkvxdrhjj .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#ghkvxdrhjj .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ghkvxdrhjj .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ghkvxdrhjj .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#ghkvxdrhjj .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#ghkvxdrhjj .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#ghkvxdrhjj .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#ghkvxdrhjj .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ghkvxdrhjj .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ghkvxdrhjj .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#ghkvxdrhjj .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#ghkvxdrhjj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ghkvxdrhjj .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#ghkvxdrhjj .gt_left {
-  text-align: left;
-}
-
-#ghkvxdrhjj .gt_center {
-  text-align: center;
-}
-
-#ghkvxdrhjj .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#ghkvxdrhjj .gt_font_normal {
-  font-weight: normal;
-}
-
-#ghkvxdrhjj .gt_font_bold {
-  font-weight: bold;
-}
-
-#ghkvxdrhjj .gt_font_italic {
-  font-style: italic;
-}
-
-#ghkvxdrhjj .gt_super {
-  font-size: 65%;
-}
-
-#ghkvxdrhjj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">dataset</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Mean</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Std_dev</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">away</td>
-<td class="gt_row gt_right">54.26610</td>
-<td class="gt_row gt_right">16.76982</td></tr>
-    <tr><td class="gt_row gt_left">dino</td>
-<td class="gt_row gt_right">54.26327</td>
-<td class="gt_row gt_right">16.76514</td></tr>
-    <tr><td class="gt_row gt_left">star</td>
-<td class="gt_row gt_right">54.26734</td>
-<td class="gt_row gt_right">16.76896</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
-
-We could add sub-titles easily.
-
-
-```r
-example_data %>% 
-  gt() %>%
-  tab_header(
-    title = "Summary stats can be misleading",
-    subtitle = "With an example from a dinosaur!"
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable(
+    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP"),
+    digits = 1
   )
 ```
 
-```{=html}
-<div id="ymmvvnknyk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
 
-#ymmvvnknyk .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
 
-#ymmvvnknyk .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
+Table: (\#tab:gdpfirst)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
 
-#ymmvvnknyk .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
+|Country   | Year| Inflation| GDP|
+|:---------|----:|---------:|---:|
+|Australia | 1961|       2.3| 2.5|
+|Australia | 1962|      -0.3| 1.3|
+|Australia | 1963|       0.6| 6.2|
+|Australia | 1964|       2.9| 7.0|
+|Australia | 1965|       3.4| 6.0|
+|Australia | 1966|       3.3| 2.4|
+|Australia | 1967|       3.5| 6.3|
+|Australia | 1968|       2.5| 5.1|
+|Australia | 1969|       3.3| 7.0|
+|Australia | 1970|       3.4| 7.2|
 
-#ymmvvnknyk .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
+When producing PDFs, the 'booktabs' option makes a host of small changes to the default display and results in tables that look better (Table \@ref(tab:gdpbookdtabs)). When using 'booktabs' we additionally should specify 'linesep' otherwise `kable()` adds a small space every five lines. (None of this will show up for html output.)
 
-#ymmvvnknyk .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
 
-#ymmvvnknyk .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#ymmvvnknyk .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#ymmvvnknyk .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#ymmvvnknyk .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#ymmvvnknyk .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#ymmvvnknyk .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ymmvvnknyk .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ymmvvnknyk .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#ymmvvnknyk .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#ymmvvnknyk .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#ymmvvnknyk .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#ymmvvnknyk .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymmvvnknyk .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ymmvvnknyk .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#ymmvvnknyk .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#ymmvvnknyk .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ymmvvnknyk .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#ymmvvnknyk .gt_left {
-  text-align: left;
-}
-
-#ymmvvnknyk .gt_center {
-  text-align: center;
-}
-
-#ymmvvnknyk .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#ymmvvnknyk .gt_font_normal {
-  font-weight: normal;
-}
-
-#ymmvvnknyk .gt_font_bold {
-  font-weight: bold;
-}
-
-#ymmvvnknyk .gt_font_italic {
-  font-style: italic;
-}
-
-#ymmvvnknyk .gt_super {
-  font-size: 65%;
-}
-
-#ymmvvnknyk .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
-      <th colspan="3" class="gt_heading gt_title gt_font_normal" style>Summary stats can be misleading</th>
-    </tr>
-    <tr>
-      <th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>With an example from a dinosaur!</th>
-    </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">dataset</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Mean</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Std_dev</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">away</td>
-<td class="gt_row gt_right">54.26610</td>
-<td class="gt_row gt_right">16.76982</td></tr>
-    <tr><td class="gt_row gt_left">dino</td>
-<td class="gt_row gt_right">54.26327</td>
-<td class="gt_row gt_right">16.76514</td></tr>
-    <tr><td class="gt_row gt_left">star</td>
-<td class="gt_row gt_right">54.26734</td>
-<td class="gt_row gt_right">16.76896</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
+```r
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable(
+    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP"),
+    digits = 1,
+    booktabs = TRUE, 
+    linesep = ""
+  )
 ```
 
-One common reason for needing a table is to report regression results. You should consider `gtsummary`, `stargazer`, and `modelsummary`. But at the moment, my favourite is `modelsummary` [@citemodelsummary].
+
+
+Table: (\#tab:gdpbookdtabs)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+
+|Country   | Year| Inflation| GDP|
+|:---------|----:|---------:|---:|
+|Australia | 1961|       2.3| 2.5|
+|Australia | 1962|      -0.3| 1.3|
+|Australia | 1963|       0.6| 6.2|
+|Australia | 1964|       2.9| 7.0|
+|Australia | 1965|       3.4| 6.0|
+|Australia | 1966|       3.3| 2.4|
+|Australia | 1967|       3.5| 6.3|
+|Australia | 1968|       2.5| 5.1|
+|Australia | 1969|       3.3| 7.0|
+|Australia | 1970|       3.4| 7.2|
+
+
+```r
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable(
+    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP"),
+    digits = 1,
+    booktabs = TRUE
+  )
+```
+
+
+
+Table: (\#tab:gdpbookdtabsnolinesep)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+
+|Country   | Year| Inflation| GDP|
+|:---------|----:|---------:|---:|
+|Australia | 1961|       2.3| 2.5|
+|Australia | 1962|      -0.3| 1.3|
+|Australia | 1963|       0.6| 6.2|
+|Australia | 1964|       2.9| 7.0|
+|Australia | 1965|       3.4| 6.0|
+|Australia | 1966|       3.3| 2.4|
+|Australia | 1967|       3.5| 6.3|
+|Australia | 1968|       2.5| 5.1|
+|Australia | 1969|       3.3| 7.0|
+|Australia | 1970|       3.4| 7.2|
+
+
+We can specify the alignment of the columns using a character vector of 'l' (left), 'c' (centre), and 'r' (right) (Table \@ref(tab:gdpalign)). Additionally, (and this is not relevant for this table), we could specify groupings for numbers that are at least one thousand using 'format.args = list(big.mark = ",")'.
+
+
+```r
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable(
+    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP"),
+    digits = 1,
+    booktabs = TRUE, 
+    linesep = "",
+    align = c('l', 'c', 'c', 'r'),
+  )
+```
+
+
+
+Table: (\#tab:gdpalign)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+
+|Country   | Year | Inflation | GDP|
+|:---------|:----:|:---------:|---:|
+|Australia | 1961 |    2.3    | 2.5|
+|Australia | 1962 |   -0.3    | 1.3|
+|Australia | 1963 |    0.6    | 6.2|
+|Australia | 1964 |    2.9    | 7.0|
+|Australia | 1965 |    3.4    | 6.0|
+|Australia | 1966 |    3.3    | 2.4|
+|Australia | 1967 |    3.5    | 6.3|
+|Australia | 1968 |    2.5    | 5.1|
+|Australia | 1969 |    3.3    | 7.0|
+|Australia | 1970 |    3.4    | 7.2|
+
+We can use `kableExtra` [@citekableextra] to add extra functionality to `kable`. For instance, we could add a row that groups some of the columns (Table \@ref(tab:gdpalign)).
+
+
+```r
+library(kableExtra)
+
+inflation_and_gdp %>% 
+  slice(1:10) %>% 
+  kable(
+    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP"),
+    digits = 1,
+    booktabs = TRUE, 
+    linesep = "",
+    align = c('l', 'c', 'c', 'r')
+  ) %>% 
+  add_header_above(c(" " = 2, "Economic variables" = 2))
+```
+
+<table>
+<caption>(\#tab:gdpkableextra)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economic variables</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Country </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> Inflation </th>
+   <th style="text-align:right;"> GDP </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1961 </td>
+   <td style="text-align:center;"> 2.3 </td>
+   <td style="text-align:right;"> 2.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1962 </td>
+   <td style="text-align:center;"> -0.3 </td>
+   <td style="text-align:right;"> 1.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1963 </td>
+   <td style="text-align:center;"> 0.6 </td>
+   <td style="text-align:right;"> 6.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1964 </td>
+   <td style="text-align:center;"> 2.9 </td>
+   <td style="text-align:right;"> 7.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1965 </td>
+   <td style="text-align:center;"> 3.4 </td>
+   <td style="text-align:right;"> 6.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1966 </td>
+   <td style="text-align:center;"> 3.3 </td>
+   <td style="text-align:right;"> 2.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1967 </td>
+   <td style="text-align:center;"> 3.5 </td>
+   <td style="text-align:right;"> 6.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1968 </td>
+   <td style="text-align:center;"> 2.5 </td>
+   <td style="text-align:right;"> 5.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1969 </td>
+   <td style="text-align:center;"> 3.3 </td>
+   <td style="text-align:right;"> 7.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:center;"> 1970 </td>
+   <td style="text-align:center;"> 3.4 </td>
+   <td style="text-align:right;"> 7.2 </td>
+  </tr>
+</tbody>
+</table>
+
+
+### Communicating summary statistics
+
+We can use `datasummary()` from `modelsummary` to create tables of summary statistics from our dataset. 
 
 
 ```r
 library(modelsummary)
-#> 
-#> Attaching package: 'modelsummary'
-#> The following object is masked from 'package:gt':
-#> 
-#>     escape_latex
 
-mod <- lm(y ~ x, datasaurus_dozen)
-modelsummary(mod)
+inflation_and_gdp %>% 
+  datasummary_skim()
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Unique (#) </th>
+   <th style="text-align:right;"> Missing (%) </th>
+   <th style="text-align:right;"> Mean </th>
+   <th style="text-align:right;"> SD </th>
+   <th style="text-align:right;"> Min </th>
+   <th style="text-align:right;"> Median </th>
+   <th style="text-align:right;"> Max </th>
+   <th style="text-align:right;">    </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> year </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1992.2 </td>
+   <td style="text-align:right;"> 16.9 </td>
+   <td style="text-align:right;"> 1961.0 </td>
+   <td style="text-align:right;"> 1993.0 </td>
+   <td style="text-align:right;"> 2020.0 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.02" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.79" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.56" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.32" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.09" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.86" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.62" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.39" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.16" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.92" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.69" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.46" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> −9.8 </td>
+   <td style="text-align:right;"> 4.3 </td>
+   <td style="text-align:right;"> 44.4 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.36" width="4.10" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.28" width="4.10" height="0.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.21" width="4.10" height="4.45" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.12" width="4.10" height="0.54" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gdp </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 4.1 </td>
+   <td style="text-align:right;"> 3.7 </td>
+   <td style="text-align:right;"> −11.1 </td>
+   <td style="text-align:right;"> 3.9 </td>
+   <td style="text-align:right;"> 13.9 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.74" width="3.56" height="3.92" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+</tbody>
+</table>
+
+By default it summarizes the 'numeric' variables, but we can ask for the 'categorical' variables (Table \@ref(tab:testdatasummary)). Additionally we can add cross-references in the same way as `kable()`, that is, include a title and then cross-reference the name of the R chunk.
+
+
+```r
+inflation_and_gdp %>% 
+  datasummary_skim(type = "categorical",
+                   title = "Summary of categorical variables for the inflation and GDP dataset")
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:testdatasummary)Summary of categorical variables for the inflation and GDP dataset</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> country </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:right;"> % </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 27.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ethiopia </td>
+   <td style="text-align:right;"> 38 </td>
+   <td style="text-align:right;"> 17.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> India </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 27.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> United States </td>
+   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 27.5 </td>
+  </tr>
+</tbody>
+</table>
+
+We can create a table that shows the correlation between variables using `datasummary_correlation()` (Table \@ref(tab:correlationtable)).
+
+
+```r
+inflation_and_gdp %>% 
+  datasummary_correlation(
+    title = "Correlation between the variables for the inflation and GDP dataset"
+    )
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:correlationtable)Correlation between the variables for the inflation and GDP dataset</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> year </th>
+   <th style="text-align:right;"> inflation </th>
+   <th style="text-align:right;"> gdp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> year </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:right;"> −.02 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gdp </td>
+   <td style="text-align:right;"> .10 </td>
+   <td style="text-align:right;"> .00 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+We typically need a table of descriptive statistics that we could add to our paper (Table \@ref(tab:descriptivestats)). This is in contrast to Table \@ref(tab:testdatasummary) which would likely not be included in a paper. We can add a note about the source of the data using 'notes'.
+
+
+```r
+datasummary_balance(formula = ~country,
+                    data = inflation_and_gdp,
+                    title = "Descriptive statistics for the inflation and GDP dataset",
+                    notes = "Data source: World Bank.")
+```
+
+<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
+<caption>(\#tab:descriptivestats)Descriptive statistics for the inflation and GDP dataset</caption>
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Australia (N=60)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Ethiopia (N=38)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">India (N=60)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">United States (N=60)</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Mean </th>
+   <th style="text-align:right;"> Std. Dev. </th>
+   <th style="text-align:right;"> Mean  </th>
+   <th style="text-align:right;"> Std. Dev.  </th>
+   <th style="text-align:right;"> Mean   </th>
+   <th style="text-align:right;"> Std. Dev.   </th>
+   <th style="text-align:right;"> Mean    </th>
+   <th style="text-align:right;"> Std. Dev.    </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> year </td>
+   <td style="text-align:right;"> 1990.5 </td>
+   <td style="text-align:right;"> 17.5 </td>
+   <td style="text-align:right;"> 2000.5 </td>
+   <td style="text-align:right;"> 11.1 </td>
+   <td style="text-align:right;"> 1990.5 </td>
+   <td style="text-align:right;"> 17.5 </td>
+   <td style="text-align:right;"> 1990.5 </td>
+   <td style="text-align:right;"> 17.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 9.4 </td>
+   <td style="text-align:right;"> 11.1 </td>
+   <td style="text-align:right;"> 7.5 </td>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 3.7 </td>
+   <td style="text-align:right;"> 2.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gdp </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 2.2 </td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<sup></sup> Data source: World Bank.</td></tr></tfoot>
+</table>
+
+
+
+
+
+### Display regression results
+
+Finally, one common reason for needing a table is to report regression results. We will do this using `modelsummary()` from `modelsummary` [@citemodelsummary].
+
+
+```r
+first_model <- lm(formula = gdp ~ inflation, 
+                  data = inflation_and_gdp)
+
+modelsummary(first_model)
 ```
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1322,47 +1684,268 @@ modelsummary(mod)
 <tbody>
   <tr>
    <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 53.590 </td>
+   <td style="text-align:center;"> 4.157 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (2.119) </td>
+   <td style="text-align:center;"> (0.352) </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> x </td>
-   <td style="text-align:center;"> −0.106 </td>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:center;"> −0.002 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.037) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.041) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 1846 </td>
+   <td style="text-align:center;"> 218 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.004 </td>
+   <td style="text-align:center;"> 0.000 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> 0.004 </td>
+   <td style="text-align:center;"> −0.005 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 17383.0 </td>
+   <td style="text-align:center;"> 1195.1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 17399.6 </td>
+   <td style="text-align:center;"> 1205.3 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −8688.506 </td>
+   <td style="text-align:center;"> −594.554 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 8.072 </td>
+   <td style="text-align:center;"> 0.002 </td>
+  </tr>
+</tbody>
+</table>
+
+We can put a variety of different of different models together (Table \@ref(tab:twomodels)).
+
+
+```r
+second_model <- lm(formula = gdp ~ inflation + country, 
+                  data = inflation_and_gdp,
+                  title = "Explaining GDP as a function of inflation")
+#> Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+#>  extra argument 'title' will be disregarded
+
+modelsummary(list(first_model, second_model))
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Model 1 </th>
+   <th style="text-align:center;"> Model 2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> 4.157 </td>
+   <td style="text-align:center;"> 3.728 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.352) </td>
+   <td style="text-align:center;"> (0.495) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:center;"> −0.002 </td>
+   <td style="text-align:center;"> −0.075 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.041) </td>
+   <td style="text-align:center;"> (0.041) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryEthiopia </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 2.872 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.757) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryIndia </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 1.854 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.655) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryUnited States </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> −0.524 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.646) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 218 </td>
+   <td style="text-align:center;"> 218 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> 0.110 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> −0.005 </td>
+   <td style="text-align:center;"> 0.093 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:center;"> 1195.1 </td>
+   <td style="text-align:center;"> 1175.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIC </td>
+   <td style="text-align:center;"> 1205.3 </td>
+   <td style="text-align:center;"> 1196.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Log.Lik. </td>
+   <td style="text-align:center;"> −594.554 </td>
+   <td style="text-align:center;"> −581.844 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> F </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 6.587 </td>
+  </tr>
+</tbody>
+</table>
+
+
+We can adjust the number of significant digits (Table \@ref(tab:twomodelstwo)).
+
+
+```r
+second_model <- lm(formula = gdp ~ inflation + country, 
+                  data = inflation_and_gdp)
+
+modelsummary(list(first_model, second_model),
+             fmt = 1,
+             title = "Two models of GDP as a function of inflation")
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:twomodelstwo)Two models of GDP as a function of inflation</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Model 1 </th>
+   <th style="text-align:center;"> Model 2 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> 4.2 </td>
+   <td style="text-align:center;"> 3.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.4) </td>
+   <td style="text-align:center;"> (0.5) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> inflation </td>
+   <td style="text-align:center;"> 0.0 </td>
+   <td style="text-align:center;"> −0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.0) </td>
+   <td style="text-align:center;"> (0.0) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryEthiopia </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 2.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.8) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryIndia </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 1.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.7) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> countryUnited States </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> −0.5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.6) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 218 </td>
+   <td style="text-align:center;"> 218 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.000 </td>
+   <td style="text-align:center;"> 0.110 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> −0.005 </td>
+   <td style="text-align:center;"> 0.093 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:center;"> 1195.1 </td>
+   <td style="text-align:center;"> 1175.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIC </td>
+   <td style="text-align:center;"> 1205.3 </td>
+   <td style="text-align:center;"> 1196.0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Log.Lik. </td>
+   <td style="text-align:center;"> −594.554 </td>
+   <td style="text-align:center;"> −581.844 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> F </td>
+   <td style="text-align:center;"> 0.002 </td>
+   <td style="text-align:center;"> 6.587 </td>
   </tr>
 </tbody>
 </table>
@@ -1375,11 +1958,9 @@ modelsummary(mod)
 
 
 
-
-
 ## Maps
 
-In many ways maps can be thought of as a fancy graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We are used to this type of set-up, for instance, in a ggplot setting that is quite familiar. Static maps will be useful for printed output, such as a PDF or Word report, or where there is something in particular that you want to illustrate. 
+In many ways maps can be thought of as another type of graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We have seen this type of set-up  are used to this type of set-up, for instance, in the `ggplot2` setting, this is quite familiar. 
 
 
 ```r
@@ -1397,12 +1978,11 @@ ggplot() +
     )
 ```
 
-And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. And helpfully, there is some geographic data built into ggplot, and there is some other information built into a package called `maps`. 
+And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. There is some geographic data built into `ggplot2`, and there is additional information in `maps`. 
 
 
 ```r
 library(maps)
-library(tidyverse)
 
 canada <- map_data(database = "world", regions = "canada")
 canadian_cities <- maps::canada.cities
@@ -1426,7 +2006,7 @@ head(canadian_cities)
 #> 6    Albanel QC          QC   1090 48.87  -72.42       0
 ```
 
-With that information in hand we can then create a map of Canada that shows the cities with a population over 1,000. (The `geom_polygon()` function within `ggplot` draws shapes, by connecting points within groups. And the `coord_map()` function adjusts for the fact that we are making something that is 2D map to represent something that is 3D.)
+With that information in hand we can then create a map of Canada that shows the cities with a population over 1,000. (The `geom_polygon()` function within `ggplot2` draws shapes, by connecting points within groups. And the `coord_map()` function adjusts for the fact that we are making something that is 2D map to represent something that is 3D.)
 
 
 ```r
@@ -1447,24 +2027,24 @@ ggplot() +
        y = "Latitude")
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-20-1.png" width="672" />
-
-```r
-# If I'm being honest, this 'simple example' took me six hours to work out. Firstly 
-# to find Canada and then to find Canadian cities.
-```
+<img src="11-static_communication_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 
-As is often the case with R, there are many different ways to get started creating static maps. We've already seen how they can be built using simply ggplot, but here we'll explore one package that has a bunch of functionalities built in that will make things easier: `ggmap`. 
+As is often the case with R, there are many different ways to get started creating static maps. We have already seen how they can be built using only `ggplot2`, but `ggmap` brings additional functionality [@KahleWickham2013].
 
-There are two essential components to a map: 1) some border or background image (also known as a tile); and 2) something of interest within that border or on top of that tile. In `ggmap`, we will use an open-source option for our tile, Stamen Maps (maps.stamen.com), and we will use plot points based on latitude and longitude.
+There are two essential components to a map: 
+
+1) some border or background image (also known as a tile); and 
+2) something of interest within that border or on top of that tile. 
+
+In `ggmap`, we will use an open-source option for our tile, Stamen Maps: maps.stamen.com. And we will use plot points based on latitude and longitude.
 
 
 ### Australian polling places
 
-Like Canada, in Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.
+In Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.
 
-To get started we need to get a tile. We are going to use `ggmap` to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. (It can be useful to use Google Maps, or an alternative, to find the values of these that you need.) The bounding box provides the coordinates of the edges that you are interested in. In this case I have provided it with coordinates such that it will be centered around Canberra, Australia (our equivalent of Ottawa - a small city that was created for the purposes of being the capital).
+To get started we need to get a tile. We are going to use `ggmap` to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. It can be useful to use Google Maps, or an alternative, to find the values of these that you need. The bounding box provides the coordinates of the edges that you are interested in. In this case we have provided it with coordinates such that it will be centered around Canberra, Australia, which is a small city that was created for the purposes of being the capital.
 
 
 ```r
@@ -1473,7 +2053,7 @@ library(ggmap)
 bbox <- c(left = 148.95, bottom = -35.5, right = 149.3, top = -35.1)
 ```
 
-Once you have defined the bounding box, then the function `get_stamenmap()` will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. I've chosen the maptype that I like here - the black and white option - but the helpfile specifies a few others that you may like. At this point you can pass your maps to ggmap and it will plot the tile! It will be actively downloading these tiles, so you need an internet connection.
+Once you have defined the bounding box, then the function `get_stamenmap()` will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. We have used a black-and-white type of map but the helpfile specifies others. At this point we can the map to maps to `ggmap()` and it will plot the tile! It will be actively downloading these tiles, and so it needs an internet connection.
 
 
 ```r
@@ -1482,18 +2062,21 @@ canberra_stamen_map <- get_stamenmap(bbox, zoom = 11, maptype = "toner-lite")
 ggmap(canberra_stamen_map)
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
-Once we have a map then we can use `ggmap()` to plot it. (That circle in the middle of the map is where the Australian Parliament House is... yes, our parliament is surrounded by circular roads (we call them 'roundabouts'), actually it's surrounded by two of them.)
+Once we have a map then we can use `ggmap()` to plot it. (That circle in the middle of the map is where the Australian Parliament House is. Yes, the Australian parliament is surrounded by circular roads, which Australians call 'roundabouts', actually Australians thought this was such a great idea, that we surrounded it by two of them.)
 
-Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' (the Australian equivalent to 'ridings' in Canada) it is. This is available here: https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv. (The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.)
+Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' (the Australian equivalent to 'ridings' in Canada) it is. This is available here: https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv. The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
 
 
 ```r
 # Read in the booths data for each year
-booths <- readr::read_csv("https://results.aec.gov.au/24310/Website/Downloads/GeneralPollingPlacesDownload-24310.csv", 
-                          skip = 1, 
-                          guess_max = 10000)
+booths <-
+  readr::read_csv(
+    "https://results.aec.gov.au/24310/Website/Downloads/GeneralPollingPlacesDownload-24310.csv",
+    skip = 1,
+    guess_max = 10000
+  )
 
 head(booths)
 #> # A tibble: 6 × 15
@@ -1519,10 +2102,10 @@ This dataset is for the whole of Australia, but as we are just going to plot the
 ```r
 # Reduce the booths data to only rows with that have latitude and longitude
 booths_reduced <-
-  booths %>%
-  filter(State == "ACT") %>% 
-  select(PollingPlaceID, DivisionNm, Latitude, Longitude) %>% 
-  filter(!is.na(Longitude)) %>% # Remove rows that don't have a geography
+  booths |>
+  filter(State == "ACT") |> 
+  select(PollingPlaceID, DivisionNm, Latitude, Longitude) |> 
+  filter(!is.na(Longitude)) |> # Remove rows that do not have a geography
   filter(Longitude < 165) # Remove Norfolk Island
 ```
 
@@ -1530,18 +2113,19 @@ Now we can use `ggmap` in the same way as before to plot our underlying tiles, a
 
 
 ```r
-ggmap(canberra_stamen_map, 
-      extent = "normal", 
+ggmap(canberra_stamen_map,
+      extent = "normal",
       maprange = FALSE) +
   geom_point(data = booths_reduced,
-             aes(x = Longitude, 
-                 y = Latitude, 
-                 colour = DivisionNm),
-             ) +
+             aes(x = Longitude,
+                 y = Latitude,
+                 colour = DivisionNm),) +
   scale_color_brewer(name = "2019 Division", palette = "Set1") +
-  coord_map(projection="mercator",
-            xlim=c(attr(map, "bb")$ll.lon, attr(map, "bb")$ur.lon),
-            ylim=c(attr(map, "bb")$ll.lat, attr(map, "bb")$ur.lat)) +
+  coord_map(
+    projection = "mercator",
+    xlim = c(attr(map, "bb")$ll.lon, attr(map, "bb")$ur.lon),
+    ylim = c(attr(map, "bb")$ll.lat, attr(map, "bb")$ur.lat)
+  ) +
   labs(x = "Longitude",
        y = "Latitude") +
   theme_minimal() +
@@ -1549,78 +2133,100 @@ ggmap(canberra_stamen_map,
         panel.grid.minor = element_blank())
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
-We may like to save the map so that we don't have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
+We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
 
 
 ```r
-ggsave("outputs/figures/map.pdf", width = 20, height = 10, units = "cm")
+ggsave("map.pdf", width = 20, height = 10, units = "cm")
 ```
 
-Finally, the reason that I used Stamen Maps and OpenStreetMap is because it is open source, however you can also use Google Maps if you want. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. The `get_googlemap()` function with `ggmap`, brings some nice features that `get_stamenmap()` does not have. For instance, you can enter a placename and it'll do it's best to find it rather than needing to specify a bounding box.
+Finally, the reason that we used Stamen Maps and OpenStreetMap is because it is open source, but you can also use Google Maps. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. Using Google Maps, `get_googlemap()`, brings some advantages over `get_stamenmap()`, for instance it will attempt to find a placename, rather than needing to specify a bounding box.
 
 
 
 ### Toronto bike parking
 
-Let's see another example of a static map, this time using Toronto data accessed via the `opendatatoronto` package. The dataset that we are going to plot is available here: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
+Let us see another example of a static map, this time using Toronto data accessed using `opendatatoronto` [@citesharla]. The dataset that we are going to plot is available here: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
 
 
 
 ```r
-# This code is based on code from: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
+# Based on: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
 library(opendatatoronto)
 # (The string identifies the package.)
 resources <- list_package_resources("71e6c206-96e1-48f1-8f6f-0e804687e3be")
 # In this case there is only one dataset within this resource so just need the first one	
-raw_data <- filter(resources, row_number()==1) %>% get_resource()
-write_csv(raw_data, "inputs/data/bike_racks.csv")
-head(raw_data)
+bike_parking_locations <- filter(resources, row_number()==1) |> get_resource()
 ```
 
-Now that we've saved a copy of the data, we can use that one. First, we need to clean it up a bit. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we'll just ignore it.
+
 
 
 ```r
-raw_data <- read_csv("inputs/data/bike_racks.csv")
-# We'll just focus on the data that we want
-bike_data <- tibble(ward = raw_data$WARD,
-                    id = raw_data$ID,
-                    status = raw_data$STATUS,
-                    street_address = paste(raw_data$ADDRESSNUMBERTEXT, raw_data$ADDRESSSTREET),
-                    latitude = raw_data$LATITUDE,
-                    longitude = raw_data$LONGITUDE)
-rm(raw_data)
+head(bike_parking_locations)
+#> # A tibble: 6 × 20
+#>     `_id` OBJECTID ID       ADDRESSNUMBERTEXT ADDRESSSTREET 
+#>     <dbl>    <dbl> <chr>    <chr>             <chr>         
+#> 1 3613143        4 BP-11699 70                The Pond Rd   
+#> 2 3613144        9 BP-11900 8                 Assiniboine Rd
+#> 3 3613145       56 BP-11338 1495              Queen St W    
+#> 4 3613146       65 BP-03501 8                 Kensington Ave
+#> 5 3613147      100 BP-03280 87                Avenue Rd     
+#> 6 3613148      109 BP-12883 21                Canniff St    
+#> # … with 15 more variables: FRONTINGSTREET <chr>,
+#> #   SIDE <chr>, FROMSTREET <chr>, DIRECTION <chr>,
+#> #   SITEID <lgl>, WARD <chr>, BIA <chr>, ASSETTYPE <chr>,
+#> #   STATUS <chr>, SDE_STATE_ID <dbl>, X <dbl>, Y <dbl>,
+#> #   LONGITUDE <dbl>, LATITUDE <dbl>, geometry <chr>
 ```
 
-Some of the bike racks were temporary so remove them and also let's just look at the area around the university, which is Ward 11
+First, we need to clean the data are little. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we will just ignore it and focus on the data that we are interested in.
+
+
+```r
+bike_data <- tibble(
+  ward = bike_parking_locations$WARD,
+  id = bike_parking_locations$ID,
+  status = bike_parking_locations$STATUS,
+  street_address = paste(
+    bike_parking_locations$ADDRESSNUMBERTEXT,
+    bike_parking_locations$ADDRESSSTREET
+  ),
+  latitude = bike_parking_locations$LATITUDE,
+  longitude = bike_parking_locations$LONGITUDE
+)
+rm(bike_parking_locations)
+```
+
+Some of the bike racks were temporary so remove them and also let us just look at the area around the University of Toronto, which is Ward 11
 
 
 ```r
 # Only keep ones that still exist
 bike_data <- 
-  bike_data %>%
-  filter(status == "Existing") %>% 
+  bike_data |>
+  filter(status == "Existing") |> 
   select(-status)
 
-bike_data <- bike_data %>% 
-  filter(ward == 11) %>% 
+bike_data <- bike_data |> 
+  filter(ward == 11) |> 
   select(-ward)
 ```
 
-If you look at the dataset at this point, then you'll notice that there is a row for every bike parking spot. But we don't really need to know that, because sometimes there are lots right next to each other. Instead, we'd just like the one point (we'll take advantage of this in an interactive graph in a moment). So, we want to create a count by address, and then just get one instance per address.
+If you look at the dataset at this point, then you will notice that there is a row for every bike parking spot. But we do not really need to know that, because sometimes there are lots right next to each other. Instead, we'd just like the one point. So, we want to create a count by address, and then just get one instance per address.
 
 
 ```r
 bike_data <- 
-  bike_data %>%
-  group_by(street_address) %>% 
+  bike_data |>
+  group_by(street_address) |> 
   mutate(number_of_spots = n(),
          running_total = row_number()
-         ) %>% 
-  ungroup() %>% 
-  filter(running_total == 1) %>% 
+         ) |> 
+  ungroup() |> 
+  filter(running_total == 1) |> 
   select(-id, -running_total)
 
 head(bike_data)
@@ -1633,39 +2239,45 @@ head(bike_data)
 #> 4 147 Baldwin St       43.7     -79.4               2
 #> 5 888 Yonge St         43.7     -79.4               1
 #> 6 180 Elizabeth St     43.7     -79.4              10
-
-write_csv(bike_data, "outputs/data/bikes.csv")
 ```
+
+
 
 Now we can grab our tile and add our bike rack data onto it.
 
 
 ```r
-bbox <- c(left = -79.420390, bottom = 43.642658, right = -79.383354, top = 43.672557)
+bbox <-
+  c(
+    left = -79.420390,
+    bottom = 43.642658,
+    right = -79.383354,
+    top = 43.672557
+  )
 
-toronto_stamen_map <- get_stamenmap(bbox, zoom = 14, maptype = "toner-lite")
+toronto_stamen_map <-
+  get_stamenmap(bbox, zoom = 14, maptype = "toner-lite")
 
 ggmap(toronto_stamen_map,  maprange = FALSE) +
   geom_point(data = bike_data,
-             aes(x = longitude, 
+             aes(x = longitude,
                  y = latitude),
-             alpha = 0.3
-             ) +
+             alpha = 0.3) +
   labs(x = "Longitude",
        y = "Latitude") +
   theme_minimal() 
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-37-1.png" width="672" />
 
 
 
 
 ### Geocoding
 
-To this point we just assumed that we already had geocoded data. The places 'Canberra, Australia', or 'Ottawa, Canada', are just names, they don't actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding. 
+To this point we assumed that we already had geocoded data. But the places 'Canberra, Australia', or 'Ottawa, Canada', are just names, they do not actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding. 
 
-There are a range of options to geocode data in R, but one good package is `tidygeocoder` [@citetidygeocoder]. To get started using the package we need a dataframe of locations. So we'll just quickly make one here.
+There are a range of options to geocode data in R, but `tidygeocoder` is especially useful [@citetidygeocoder]. To get started using the package we need a dataframe of locations. 
 
 
 ```r
@@ -1691,15 +2303,13 @@ tidygeocoder::geo(city = some_locations$city,
 
 
 
-
-
 ## Exercises and tutorial
 
 ### Exercises
 
 
 1. I have a dataset that contains measurements of height (in cm) for a sample of 300 penguins, who are either the Adeline or Emperor species. I am interested in visualizing the distribution of heights by species in a graphical way. Please discuss whether a pie chart is an appropriate type of graph to use. What about a box and whisker plot? Finally, what are some considerations if you made a histogram? [Please write a paragraph or two for each aspect.]
-2. Assume the dataset and columns exist. Would this code work? `data %>% ggplot(aes(x = col_one)) %>% geom_point()` (pick one)?
+2. Assume the dataset and columns exist. Would this code work? `data |> ggplot(aes(x = col_one)) |> geom_point()` (pick one)?
     a. Yes
     b. No
 3. If I have categorical data, which geom should I use to plot it (pick one)?
@@ -1707,7 +2317,7 @@ tidygeocoder::geo(city = some_locations$city,
     b. `geom_point()`
     c. `geom_abline()`
     d. `geom_boxplot()`
-4. Why are box plots often inappropriate (pick one)?
+4. Why are boxplots often inappropriate (pick one)?
     a. They hide the full distribution of the data.
     b. They are hard to make.
     c. They are ugly.
