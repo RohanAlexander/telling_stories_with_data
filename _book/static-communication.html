@@ -416,7 +416,7 @@ Figure 6.2: Recreation of Anscombe’s Quartet
 </p>
 </div>
 <!-- Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal). -->
-<!-- ```{r thomowillrose, echo=FALSE, fig.cap="How do we get started with our data?", out.width = '90%'} -->
+<!-- ```{r thomowillrose, echo=FALSE, fig.cap = "How do we get started with our data?", out.width = '90%'} -->
 <!-- knitr::include_graphics(here::here("figures/thomowillrose.png")) -->
 <div id="bar-charts" class="section level3" number="6.2.1">
 <h3>
@@ -650,7 +650,8 @@ Figure 6.11: Distribution of age and vote preference, in the 1997-2001 British E
 <div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'WDI'</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/WDI/">WDI</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/WDI/">WDI</a></span><span class="op">)</span>
 <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"gdp growth"</span><span class="op">)</span>
 <span class="co">#&gt;      indicator             </span>
 <span class="co">#&gt; [1,] "5.51.01.10.gdp"      </span>
@@ -678,38 +679,55 @@ Figure 6.11: Distribution of age and vote preference, in the 1997-2001 British E
 <span class="co">#&gt; [3,] "Inflation, wholesale prices (annual %)"           </span>
 <span class="co">#&gt; [4,] "Inflation, GDP deflator (annual %)"               </span>
 <span class="co">#&gt; [5,] "Inflation, GDP deflator (annual %)"               </span>
-<span class="co">#&gt; [6,] "Inflation, GDP deflator: linked series (annual %)"</span></code></pre></div>
+<span class="co">#&gt; [6,] "Inflation, GDP deflator: linked series (annual %)"</span>
+<span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"population, total"</span><span class="op">)</span>
+<span class="co">#&gt;           indicator                name </span>
+<span class="co">#&gt;       "SP.POP.TOTL" "Population, total"</span>
+<span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">"Unemployment, total"</span><span class="op">)</span>
+<span class="co">#&gt;      indicator          </span>
+<span class="co">#&gt; [1,] "SL.UEM.TOTL.NE.ZS"</span>
+<span class="co">#&gt; [2,] "SL.UEM.TOTL.ZS"   </span>
+<span class="co">#&gt;      name                                                                 </span>
+<span class="co">#&gt; [1,] "Unemployment, total (% of total labor force) (national estimate)"   </span>
+<span class="co">#&gt; [2,] "Unemployment, total (% of total labor force) (modeled ILO estimate)"</span></code></pre></div>
 <div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op">&lt;-</span> 
+<code class="sourceCode R"><span class="va">world_bank_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"FP.CPI.TOTL.ZG"</span>,
-                    <span class="st">"NY.GDP.MKTP.KD.ZG"</span>
+                    <span class="st">"NY.GDP.MKTP.KD.ZG"</span>,
+                    <span class="st">"SP.POP.TOTL"</span>,
+                    <span class="st">"SL.UEM.TOTL.NE.ZS"</span>
                     <span class="op">)</span>,
       country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AU"</span>, <span class="st">"ET"</span>, <span class="st">"IN"</span>, <span class="st">"US"</span><span class="op">)</span>
       <span class="op">)</span></code></pre></div>
 <p>At this point we may like to change the names to be more meaningful and only keep rows that have data for both GDP and inflation using <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na()</a></code>.</p>
 <div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+<code class="sourceCode R"><span class="va">world_bank_data</span> <span class="op">&lt;-</span> 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>inflation <span class="op">=</span> <span class="va">FP.CPI.TOTL.ZG</span>,
-         gdp <span class="op">=</span> <span class="va">NY.GDP.MKTP.KD.ZG</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">iso2c</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="op">)</span>
+         gdp_growth <span class="op">=</span> <span class="va">NY.GDP.MKTP.KD.ZG</span>,
+         population <span class="op">=</span> <span class="va">SP.POP.TOTL</span>,
+         unemployment_rate <span class="op">=</span> <span class="va">SL.UEM.TOTL.NE.ZS</span>
+         <span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">iso2c</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">inflation_and_gdp</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;   country    year inflation   gdp</span>
-<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Australia  1961     2.29   2.48</span>
-<span class="co">#&gt; 2 Australia  1962    -0.319  1.29</span>
-<span class="co">#&gt; 3 Australia  1963     0.641  6.21</span>
-<span class="co">#&gt; 4 Australia  1964     2.87   6.98</span>
-<span class="co">#&gt; 5 Australia  1965     3.41   5.98</span>
-<span class="co">#&gt; 6 Australia  1966     3.29   2.38</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">world_bank_data</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 6</span>
+<span class="co">#&gt;   country    year inflation gdp_growth population</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Australia  1960     3.73       NA      10276477</span>
+<span class="co">#&gt; 2 Australia  1961     2.29        2.48   10483000</span>
+<span class="co">#&gt; 3 Australia  1962    -0.319       1.29   10742000</span>
+<span class="co">#&gt; 4 Australia  1963     0.641       6.21   10950000</span>
+<span class="co">#&gt; 5 Australia  1964     2.87        6.98   11167000</span>
+<span class="co">#&gt; 6 Australia  1965     3.41        5.98   11388000</span>
+<span class="co">#&gt; # … with 1 more variable: unemployment_rate &lt;dbl&gt;</span></code></pre></div>
 <p>Now let us look at income as a function of years of education (Figure <a href="static-communication.html#fig:scattorplot">6.12</a>).</p>
 <div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values</span>
+<span class="co">#&gt; (geom_point).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:scattorplot"></span>
 <img src="11-static_communication_files/figure-html/scattorplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -718,15 +736,17 @@ Figure 6.12: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 </div>
 <p>As with the bar plots, we will change the theme, and update the labels (Figure <a href="static-communication.html#fig:scatterplotnicer">6.13</a>).</p>
 <div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
        y <span class="op">=</span> <span class="st">"GDP growth"</span>,
        color <span class="op">=</span> <span class="st">"Country"</span>,
        title <span class="op">=</span> <span class="st">"Relationship between inflation and GDP growth"</span>,
-       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values</span>
+<span class="co">#&gt; (geom_point).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:scatterplotnicer"></span>
 <img src="11-static_communication_files/figure-html/scatterplotnicer-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -738,8 +758,8 @@ Figure 6.13: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span>
 
 <span class="va">RColorBrewerBrBG</span> <span class="op">&lt;-</span>
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
@@ -750,8 +770,8 @@ Figure 6.13: Relationship between inflation and GDP for Australia, Ethiopia, Ind
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Blues"</span><span class="op">)</span>
 
 <span class="va">RColorBrewerSet2</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
@@ -762,8 +782,8 @@ Figure 6.13: Relationship between inflation and GDP for Australia, Ethiopia, Ind
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span>
 
 <span class="va">viridis</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
@@ -774,8 +794,8 @@ Figure 6.13: Relationship between inflation and GDP for Australia, Ethiopia, Ind
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_colour_viridis_d</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">viridismagma</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
@@ -795,15 +815,17 @@ Figure 6.14: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 </div>
 <p>The dots of a dot plot often overlap. We can address this situation in one of two ways: adding a degree of transparency to our dots with ‘alpha’ (Figure <a href="static-communication.html#fig:alphaplot">6.15</a>). The value for ‘alpha’ can vary between 0, which is fully transparent, and 1, which is completely opaque. We can also specify a small amount by which we are comfortable if the points move with <code><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter()</a></code> (Figure <a href="static-communication.html#fig:jitterplot">6.16</a>). We can specify which direction movement occurs with ‘width’ or ‘height.’ The decision between these two options turns on the degree to which exact accuracy matters, and the number of points.</p>
 <div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
        y <span class="op">=</span> <span class="st">"GDP growth"</span>,
        color <span class="op">=</span> <span class="st">"Country"</span>,
        title <span class="op">=</span> <span class="st">"Relationship between inflation and GDP growth"</span>,
-       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values</span>
+<span class="co">#&gt; (geom_point).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:alphaplot"></span>
 <img src="11-static_communication_files/figure-html/alphaplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -811,15 +833,17 @@ Figure 6.15: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 </p>
 </div>
 <div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Inflation"</span>,
        y <span class="op">=</span> <span class="st">"GDP growth"</span>,
        color <span class="op">=</span> <span class="st">"Country"</span>,
        title <span class="op">=</span> <span class="st">"Relationship between inflation and GDP growth"</span>,
-       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values</span>
+<span class="co">#&gt; (geom_point).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:jitterplot"></span>
 <img src="11-static_communication_files/figure-html/jitterplot-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -829,8 +853,8 @@ Figure 6.16: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 <p>A common use case for a Scatterplot is to illustrate a relationship between two variables. It can be useful to add a line of best fit using <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code> (Figure <a href="static-communication.html#fig:scattorplottwo">6.17</a>). By default <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code> will impose a X relationship. By default, loess smoothing is used for datasets with less than 1,000 observations, but we can specify the relationship using ‘method,’ change the color with ‘color’ and remove standard errors with ‘se.’ We use <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code> to add a layer to the graph, and so it inherits all the settings that it can from <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>. For instance, that is why here we have one line for each country. We could overwrite that by specifying a particular color, in which case we would only have one line.</p>
 <div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">defaults</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -841,8 +865,8 @@ Figure 6.16: Relationship between inflation and GDP for Australia, Ethiopia, Ind
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">straightline</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -853,8 +877,8 @@ Figure 6.16: Relationship between inflation and GDP for Australia, Ethiopia, Ind
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">onestraightline</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, y <span class="op">=</span> <span class="va">inflation</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, color <span class="op">=</span> <span class="st">"black"</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -866,8 +890,20 @@ Figure 6.16: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 
 <span class="op">(</span><span class="va">defaults</span> <span class="op">+</span> <span class="va">straightline</span> <span class="op">+</span> <span class="va">onestraightline</span><span class="op">)</span>
 <span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing non-finite values</span>
+<span class="co">#&gt; (stat_smooth).</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values</span>
+<span class="co">#&gt; (geom_point).</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
-<span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></code></pre></div>
+<span class="co">#&gt; Warning: Removed 26 rows containing non-finite values</span>
+<span class="co">#&gt; (stat_smooth).</span>
+
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values (geom_point).</span>
+<span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
+<span class="co">#&gt; Warning: Removed 26 rows containing non-finite values</span>
+<span class="co">#&gt; (stat_smooth).</span>
+
+<span class="co">#&gt; Warning: Removed 26 rows containing missing values (geom_point).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:scattorplottwo"></span>
 <img src="11-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between inflation and GDP for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -881,9 +917,11 @@ Figure 6.17: Relationship between inflation and GDP for Australia, Ethiopia, Ind
 </h3>
 <p>We can use a line plot when we have variables that should be joined together, for instance, economic time series. We will continue with the dataset from the World Bank and focus on initially on GDP (Figure <a href="static-communication.html#fig:lineplot">6.18</a>).</p>
 <div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp_growth</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 25 row(s) containing missing values</span>
+<span class="co">#&gt; (geom_path).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:lineplot"></span>
 <img src="11-static_communication_files/figure-html/lineplot-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -892,15 +930,17 @@ Figure 6.18: GDP over time for Australia, Ethiopia, India, and the US
 </div>
 <p>As before, we can adjust the theme and labels (Figure <a href="static-communication.html#fig:lineplottwo">6.19</a>).</p>
 <div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp_growth</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Year"</span>,
        y <span class="op">=</span> <span class="st">"GDP"</span>,
        color <span class="op">=</span> <span class="st">"Country"</span>,
        title <span class="op">=</span> <span class="st">"GDP over time"</span>,
-       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 25 row(s) containing missing values</span>
+<span class="co">#&gt; (geom_path).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:lineplottwo"></span>
 <img src="11-static_communication_files/figure-html/lineplottwo-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -909,77 +949,83 @@ Figure 6.19: GDP over time for Australia, Ethiopia, India, and the US
 </div>
 <p>We can use a slight variant, <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_step()</a></code> to focus attention on the change from year to year (Figure <a href="static-communication.html#fig:stepplot">6.20</a>).</p>
 <div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt;
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">gdp_growth</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_step</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Year"</span>,
        y <span class="op">=</span> <span class="st">"GDP"</span>,
        color <span class="op">=</span> <span class="st">"Country"</span>,
        title <span class="op">=</span> <span class="st">"GDP over time"</span>,
-       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 25 row(s) containing missing values</span>
+<span class="co">#&gt; (geom_path).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:stepplot"></span>
 <img src="11-static_communication_files/figure-html/stepplot-1.png" alt="GDP over time for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
 Figure 6.20: GDP over time for Australia, Ethiopia, India, and the US
 </p>
 </div>
-<!-- The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data. We have a variety of ways to investigate this including `geom_point()` and `geom_path()`. -->
-<!-- And finally, we can use -->
-<!--  (Figure \@ref(fig:stepplot)). -->
-<!-- ```{r stepplot, fig.cap="GDP over time for Australia, Ethiopia, India, and the US"} -->
-<!-- inflation_and_gdp |> -->
-<!--   ggplot(mapping = aes(x = gdp, y = inflation, color = country)) + -->
-<!--   geom_path() + -->
-<!--   theme_minimal() + -->
-<!--   labs(x = "GDP", -->
-<!--        y = "Inflation", -->
-<!--        color = "Country", -->
-<!--        title = "GDP over time", -->
-<!--        caption = "Data source: World Bank.") -->
-<!-- ``` -->
+<p>The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data, for instance in the UK between 1861 and 1957 <span class="citation">(<a href="references-1.html#ref-phillips1958relation" role="doc-biblioref">Phillips 1958</a>)</span>. We have a variety of ways to investigate this including <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path()</a></code> which links values in the order they appear in the datset. In Figure <a href="static-communication.html#fig:phillipsmyboy">6.21</a> we show a Phillips curve for the US between 1960 and 2020, and it is clear that any relationship that once existed between these variables does not appear to still exist.</p>
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">unemployment_rate</span>, y <span class="op">=</span> <span class="va">inflation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_path</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Unemployment rate"</span>,
+       y <span class="op">=</span> <span class="st">"Inflation"</span>,
+       caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:phillipsmyboy"></span>
+<img src="11-static_communication_files/figure-html/phillipsmyboy-1.png" alt="Phillips curve for the US (1960-2020)" width="672"><p class="caption">
+Figure 6.21: Phillips curve for the US (1960-2020)
+</p>
+</div>
 </div>
 <div id="histograms" class="section level3" number="6.2.4">
 <h3>
 <span class="header-section-number">6.2.4</span> Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
 </h3>
-<p>A histogram is useful to show the shape of a continuous variable and works by constructing counts of the number of observations in different subsets of the support, called ‘bins.’ In Figure <a href="static-communication.html#fig:hisogramone">6.21</a> we examine the distribution of GDP in the US.</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt; 
+<p>A histogram is useful to show the shape of a continuous variable and works by constructing counts of the number of observations in different subsets of the support, called ‘bins.’ In Figure <a href="static-communication.html#fig:hisogramone">6.22</a> we examine the distribution of GDP in the US.</p>
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:hisogramone"></span>
 <img src="11-static_communication_files/figure-html/hisogramone-1.png" alt="Distribution of income" width="672"><p class="caption">
-Figure 6.21: Distribution of income
+Figure 6.22: Distribution of income
 </p>
 </div>
-<p>And again we can add a theme and labels (Figure <a href="static-communication.html#fig:hisogramtwo">6.22</a>.</p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt; 
+<p>And again we can add a theme and labels (Figure <a href="static-communication.html#fig:hisogramtwo">6.23</a>.</p>
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
        y <span class="op">=</span> <span class="st">"Number of occurrences"</span>,
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 <span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with</span>
-<span class="co">#&gt; `binwidth`.</span></code></pre></div>
+<span class="co">#&gt; `binwidth`.</span>
+<span class="co">#&gt; Warning: Removed 1 rows containing non-finite values</span>
+<span class="co">#&gt; (stat_bin).</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:hisogramtwo"></span>
 <img src="11-static_communication_files/figure-html/hisogramtwo-1.png" alt="Distribution of GDP in the United States" width="672"><p class="caption">
-Figure 6.22: Distribution of GDP in the United States
+Figure 6.23: Distribution of GDP in the United States
 </p>
 </div>
-<p>The key component determining the shape of a histogram is the number of bins. This can be specified in one of two ways: 1) specifying the number of ‘bins’ to include, or 2) specifying how wide they should be with ‘binwidth’ (Figure <a href="static-communication.html#fig:hisogrambins">6.23</a>).</p>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<p>The key component determining the shape of a histogram is the number of bins. This can be specified in one of two ways: 1) specifying the number of ‘bins’ to include, or 2) specifying how wide they should be with ‘binwidth’ (Figure <a href="static-communication.html#fig:hisogrambins">6.24</a>).</p>
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">twobins</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -987,9 +1033,9 @@ Figure 6.22: Distribution of GDP in the United States
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">fivebins</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -997,9 +1043,9 @@ Figure 6.22: Distribution of GDP in the United States
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">twentybins</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1007,9 +1053,9 @@ Figure 6.22: Distribution of GDP in the United States
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">halfbinwidth</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1017,9 +1063,9 @@ Figure 6.22: Distribution of GDP in the United States
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">twobinwidth</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1027,9 +1073,9 @@ Figure 6.22: Distribution of GDP in the United States
        caption <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span>
 
 <span class="va">fivebinwidth</span> <span class="op">&lt;-</span> 
-  <span class="va">inflation_and_gdp</span> |&gt; 
+  <span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"United States"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1040,14 +1086,14 @@ Figure 6.22: Distribution of GDP in the United States
 <div class="figure">
 <span style="display:block;" id="fig:hisogrambins"></span>
 <img src="11-static_communication_files/figure-html/hisogrambins-1.png" alt="Distribution of GDP in the United States" width="672"><p class="caption">
-Figure 6.23: Distribution of GDP in the United States
+Figure 6.24: Distribution of GDP in the United States
 </p>
 </div>
 <p>The histogram is smoothing the data, and the number of bins affects how much smoothing occurs. When there are only two bins then the data are very smooth, but we have lost a great deal of accuracy. More specifically, ‘the histogram estimator is a piecewise constant function where the height of the function is proportional to the number of observations in each bin’ <span class="citation">(<a href="references-1.html#ref-wasserman" role="doc-biblioref">Wasserman 2005, 303</a>)</span>. Too few bins result in a biased estimator, while too many bins results in an estimator with high variance. Our decision as to the number of bins, or their width, is concerned with trying to balance bias and variance. This will depend on a variety of concerns including the subject matter and the goal <span class="citation">(<a href="references-1.html#ref-elementsofgraphingdata" role="doc-biblioref">Cleveland 1994, 135</a>)</span>.</p>
-<p>Finally, while we can use ‘fill’ to distinguish between different types of observations, it can get quite messy. It is usually better to give away showing the distribution with columns and instead trace the outline of the distribution, using <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_freqpoly()</a></code> (Figure <a href="static-communication.html#fig:freq">6.24</a>) or to build it up using dots with <code><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html">geom_dotplot()</a></code> (Figure <a href="static-communication.html#fig:dotplot">6.25</a>) .</p>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<p>Finally, while we can use ‘fill’ to distinguish between different types of observations, it can get quite messy. It is usually better to give away showing the distribution with columns and instead trace the outline of the distribution, using <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_freqpoly()</a></code> (Figure <a href="static-communication.html#fig:freq">6.25</a>) or to build it up using dots with <code><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html">geom_dotplot()</a></code> (Figure <a href="static-communication.html#fig:dotplot">6.26</a>) .</p>
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_freqpoly</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1058,12 +1104,12 @@ Figure 6.23: Distribution of GDP in the United States
 <div class="figure">
 <span style="display:block;" id="fig:freq"></span>
 <img src="11-static_communication_files/figure-html/freq-1.png" alt="Distribution of GDP in the United States" width="672"><p class="caption">
-Figure 6.24: Distribution of GDP in the United States
+Figure 6.25: Distribution of GDP in the United States
 </p>
 </div>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp</span>, group <span class="op">=</span> <span class="va">country</span>, fill <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gdp_growth</span>, group <span class="op">=</span> <span class="va">country</span>, fill <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html">geom_dotplot</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">'histodot'</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"GDP"</span>,
@@ -1074,7 +1120,7 @@ Figure 6.24: Distribution of GDP in the United States
 <div class="figure">
 <span style="display:block;" id="fig:dotplot"></span>
 <img src="11-static_communication_files/figure-html/dotplot-1.png" alt="Distribution of GDP in the United States" width="672"><p class="caption">
-Figure 6.25: Distribution of GDP in the United States
+Figure 6.26: Distribution of GDP in the United States
 </p>
 </div>
 </div>
@@ -1083,7 +1129,7 @@ Figure 6.25: Distribution of GDP in the United States
 <span class="header-section-number">6.2.5</span> Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"><i class="fas fa-link"></i></a>
 </h3>
 <p>Boxplots are almost never an appropriate choice because they hide the distribution of data, rather than show it. Unless we need to compare the summary statistics of many variables at once, then they should almost never be used. This is because the same boxplot can apply to very different distributions. To see this, consider some simulated data from the beta distribution of two types. One type of data contains draws from two beta distributions: one that is right skewed and another that is left skewed. The other type of data contains draws from a beta distribution with no skew.</p>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">both_left_and_right_skew</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
@@ -1101,8 +1147,8 @@ Figure 6.25: Distribution of GDP in the United States
                <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"No skew"</span>, <span class="fl">1000</span><span class="op">)</span>
                <span class="op">)</span>
   <span class="op">)</span></code></pre></div>
-<p>We can first compare the boxplots of the two series (Figure <a href="static-communication.html#fig:boxplotfirst">6.26</a>.</p>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<p>We can first compare the boxplots of the two series (Figure <a href="static-communication.html#fig:boxplotfirst">6.27</a>.</p>
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beta_distributions</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">source</span>, y <span class="op">=</span> <span class="va">observation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1110,11 +1156,11 @@ Figure 6.25: Distribution of GDP in the United States
 <div class="figure">
 <span style="display:block;" id="fig:boxplotfirst"></span>
 <img src="11-static_communication_files/figure-html/boxplotfirst-1.png" alt="Data drawn from beta distributions with different parameters" width="672"><p class="caption">
-Figure 6.26: Data drawn from beta distributions with different parameters
+Figure 6.27: Data drawn from beta distributions with different parameters
 </p>
 </div>
-<p>But if we plot the actual data then we can see how different they are (Figure <a href="static-communication.html#fig:freqpolyofdistributions">6.27</a>.</p>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<p>But if we plot the actual data then we can see how different they are (Figure <a href="static-communication.html#fig:freqpolyofdistributions">6.28</a>.</p>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beta_distributions</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">observation</span>, color <span class="op">=</span> <span class="va">source</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_freqpoly</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">+</span>
@@ -1122,11 +1168,11 @@ Figure 6.26: Data drawn from beta distributions with different parameters
 <div class="figure">
 <span style="display:block;" id="fig:freqpolyofdistributions"></span>
 <img src="11-static_communication_files/figure-html/freqpolyofdistributions-1.png" alt="Data drawn from beta distributions with different parameters" width="672"><p class="caption">
-Figure 6.27: Data drawn from beta distributions with different parameters
+Figure 6.28: Data drawn from beta distributions with different parameters
 </p>
 </div>
-<p>One way forward, if a boxplot must be included, is to include the actual data as a layer on top of the boxplot (Figure <a href="static-communication.html#fig:bloxplotandoverlay">6.28</a>.</p>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<p>One way forward, if a boxplot must be included, is to include the actual data as a layer on top of the boxplot (Figure <a href="static-communication.html#fig:bloxplotandoverlay">6.29</a>.</p>
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beta_distributions</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">source</span>, y <span class="op">=</span> <span class="va">observation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1135,11 +1181,11 @@ Figure 6.27: Data drawn from beta distributions with different parameters
 <div class="figure">
 <span style="display:block;" id="fig:bloxplotandoverlay"></span>
 <img src="11-static_communication_files/figure-html/bloxplotandoverlay-1.png" alt="Data drawn from beta distributions with different parameters" width="672"><p class="caption">
-Figure 6.28: Data drawn from beta distributions with different parameters
+Figure 6.29: Data drawn from beta distributions with different parameters
 </p>
 </div>
-<p>An even better solution is to graph the quantiles of each distribution against (Figure <a href="static-communication.html#fig:qqplotftw">6.29</a>. The Q-Q plot was developed by <span class="citation"><a href="references-1.html#ref-wilk1968probability" role="doc-biblioref">Wilk and Gnanadesikan</a> (<a href="references-1.html#ref-wilk1968probability" role="doc-biblioref">1968</a>)</span> and requires us to plot the distributions against each other.</p>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<p>An even better solution is to graph the quantiles of each distribution against (Figure <a href="static-communication.html#fig:qqplotftw">6.30</a>. The Q-Q plot was developed by <span class="citation"><a href="references-1.html#ref-wilk1968probability" role="doc-biblioref">Wilk and Gnanadesikan</a> (<a href="references-1.html#ref-wilk1968probability" role="doc-biblioref">1968</a>)</span> and requires us to plot the distributions against each other.</p>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beta_distributions</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">observation</span>, color <span class="op">=</span> <span class="va">source</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span>
@@ -1149,7 +1195,7 @@ Figure 6.28: Data drawn from beta distributions with different parameters
 <div class="figure">
 <span style="display:block;" id="fig:qqplotftw"></span>
 <img src="11-static_communication_files/figure-html/qqplotftw-1.png" alt="Data drawn from beta distributions with different parameters" width="672"><p class="caption">
-Figure 6.29: Data drawn from beta distributions with different parameters
+Figure 6.30: Data drawn from beta distributions with different parameters
 </p>
 </div>
 </div>
@@ -1169,448 +1215,559 @@ Figure 6.29: Data drawn from beta distributions with different parameters
 <span class="header-section-number">6.3.1</span> Showing part of a dataset<a class="anchor" aria-label="anchor" href="#showing-part-of-a-dataset"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will illustrate showing part of a dataset using <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> and drawing on <code>kableExtra</code> for enhancement. We will use the World Bank dataset on inflation and GDP from earlier.</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">inflation_and_gdp</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;   country    year inflation   gdp</span>
-<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Australia  1961     2.29   2.48</span>
-<span class="co">#&gt; 2 Australia  1962    -0.319  1.29</span>
-<span class="co">#&gt; 3 Australia  1963     0.641  6.21</span>
-<span class="co">#&gt; 4 Australia  1964     2.87   6.98</span>
-<span class="co">#&gt; 5 Australia  1965     3.41   5.98</span>
-<span class="co">#&gt; 6 Australia  1966     3.29   2.38</span></code></pre></div>
-<p>To begin, we can display the first ten rows with the default <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> settings.</p>
 <div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">world_bank_data</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 6</span>
+<span class="co">#&gt;   country    year inflation gdp_growth population</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Australia  1960     3.73       NA      10276477</span>
+<span class="co">#&gt; 2 Australia  1961     2.29        2.48   10483000</span>
+<span class="co">#&gt; 3 Australia  1962    -0.319       1.29   10742000</span>
+<span class="co">#&gt; 4 Australia  1963     0.641       6.21   10950000</span>
+<span class="co">#&gt; 5 Australia  1964     2.87        6.98   11167000</span>
+<span class="co">#&gt; 6 Australia  1965     3.41        5.98   11388000</span>
+<span class="co">#&gt; # … with 1 more variable: unemployment_rate &lt;dbl&gt;</span></code></pre></div>
+<p>To begin, we can display the first ten rows with the default <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> settings.</p>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span> </code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">country</th>
 <th align="right">year</th>
 <th align="right">inflation</th>
-<th align="right">gdp</th>
+<th align="right">gdp_growth</th>
+<th align="right">population</th>
+<th align="right">unemployment_rate</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">Australia</td>
+<td align="right">1960</td>
+<td align="right">3.7288136</td>
+<td align="right">NA</td>
+<td align="right">10276477</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1961</td>
 <td align="right">2.2875817</td>
 <td align="right">2.483271</td>
+<td align="right">10483000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1962</td>
 <td align="right">-0.3194888</td>
 <td align="right">1.294468</td>
+<td align="right">10742000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1963</td>
 <td align="right">0.6410256</td>
 <td align="right">6.214949</td>
+<td align="right">10950000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1964</td>
 <td align="right">2.8662420</td>
 <td align="right">6.978540</td>
+<td align="right">11167000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1965</td>
 <td align="right">3.4055728</td>
 <td align="right">5.980893</td>
+<td align="right">11388000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1966</td>
 <td align="right">3.2934132</td>
 <td align="right">2.381966</td>
+<td align="right">11651000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1967</td>
 <td align="right">3.4782609</td>
 <td align="right">6.303650</td>
+<td align="right">11799000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1968</td>
 <td align="right">2.5210084</td>
 <td align="right">5.095103</td>
+<td align="right">12009000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1969</td>
 <td align="right">3.2786885</td>
 <td align="right">7.043526</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="right">1970</td>
-<td align="right">3.4391534</td>
-<td align="right">7.175782</td>
+<td align="right">12263000</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table></div>
 <p>In order to be able to cross-reference it in text, we need to add a caption with ‘caption.’ We can also make the column names more information with ‘col.names’ and specify the number of digits to be displayed (Table <a href="static-communication.html#tab:gdpfirst">6.3</a>).</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US"</span>,
-    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP"</span><span class="op">)</span>,
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US"</span>,
+    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP growth"</span>, <span class="st">"Population"</span>, <span class="st">"Unemployment rate"</span><span class="op">)</span>,
     digits <span class="op">=</span> <span class="fl">1</span>
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:gdpfirst">Table 6.3: </span>First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+<span id="tab:gdpfirst">Table 6.3: </span>First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
 <thead><tr class="header">
 <th align="left">Country</th>
 <th align="right">Year</th>
 <th align="right">Inflation</th>
-<th align="right">GDP</th>
+<th align="right">GDP growth</th>
+<th align="right">Population</th>
+<th align="right">Unemployment rate</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">Australia</td>
+<td align="right">1960</td>
+<td align="right">3.7</td>
+<td align="right">NA</td>
+<td align="right">10276477</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
 <td align="right">1961</td>
 <td align="right">2.3</td>
 <td align="right">2.5</td>
+<td align="right">10483000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1962</td>
 <td align="right">-0.3</td>
 <td align="right">1.3</td>
+<td align="right">10742000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1963</td>
 <td align="right">0.6</td>
 <td align="right">6.2</td>
+<td align="right">10950000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1964</td>
 <td align="right">2.9</td>
 <td align="right">7.0</td>
+<td align="right">11167000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1965</td>
 <td align="right">3.4</td>
 <td align="right">6.0</td>
+<td align="right">11388000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1966</td>
 <td align="right">3.3</td>
 <td align="right">2.4</td>
+<td align="right">11651000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1967</td>
 <td align="right">3.5</td>
 <td align="right">6.3</td>
+<td align="right">11799000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1968</td>
 <td align="right">2.5</td>
 <td align="right">5.1</td>
+<td align="right">12009000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1969</td>
 <td align="right">3.3</td>
 <td align="right">7.0</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="right">1970</td>
-<td align="right">3.4</td>
-<td align="right">7.2</td>
+<td align="right">12263000</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table></div>
 <p>When producing PDFs, the ‘booktabs’ option makes a host of small changes to the default display and results in tables that look better (Table <a href="static-communication.html#tab:gdpbookdtabs">6.4</a>). When using ‘booktabs’ we additionally should specify ‘linesep’ otherwise <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> adds a small space every five lines. (None of this will show up for html output.)</p>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US"</span>,
-    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP"</span><span class="op">)</span>,
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US"</span>,
+    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP growth"</span>, <span class="st">"Population"</span>, <span class="st">"Unemployment rate"</span><span class="op">)</span>,
     digits <span class="op">=</span> <span class="fl">1</span>,
     booktabs <span class="op">=</span> <span class="cn">TRUE</span>, 
     linesep <span class="op">=</span> <span class="st">""</span>
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:gdpbookdtabs">Table 6.4: </span>First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+<span id="tab:gdpbookdtabs">Table 6.4: </span>First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
 <thead><tr class="header">
 <th align="left">Country</th>
 <th align="right">Year</th>
 <th align="right">Inflation</th>
-<th align="right">GDP</th>
+<th align="right">GDP growth</th>
+<th align="right">Population</th>
+<th align="right">Unemployment rate</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">Australia</td>
+<td align="right">1960</td>
+<td align="right">3.7</td>
+<td align="right">NA</td>
+<td align="right">10276477</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
 <td align="right">1961</td>
 <td align="right">2.3</td>
 <td align="right">2.5</td>
+<td align="right">10483000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1962</td>
 <td align="right">-0.3</td>
 <td align="right">1.3</td>
+<td align="right">10742000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1963</td>
 <td align="right">0.6</td>
 <td align="right">6.2</td>
+<td align="right">10950000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1964</td>
 <td align="right">2.9</td>
 <td align="right">7.0</td>
+<td align="right">11167000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1965</td>
 <td align="right">3.4</td>
 <td align="right">6.0</td>
+<td align="right">11388000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1966</td>
 <td align="right">3.3</td>
 <td align="right">2.4</td>
+<td align="right">11651000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1967</td>
 <td align="right">3.5</td>
 <td align="right">6.3</td>
+<td align="right">11799000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1968</td>
 <td align="right">2.5</td>
 <td align="right">5.1</td>
+<td align="right">12009000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1969</td>
 <td align="right">3.3</td>
 <td align="right">7.0</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="right">1970</td>
-<td align="right">3.4</td>
-<td align="right">7.2</td>
+<td align="right">12263000</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table></div>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US"</span>,
-    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP"</span><span class="op">)</span>,
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US"</span>,
+    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP growth"</span>, <span class="st">"Population"</span>, <span class="st">"Unemployment rate"</span><span class="op">)</span>,
     digits <span class="op">=</span> <span class="fl">1</span>,
     booktabs <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:gdpbookdtabsnolinesep">Table 6.5: </span>First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+<span id="tab:gdpbookdtabsnolinesep">Table 6.5: </span>First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
 <thead><tr class="header">
 <th align="left">Country</th>
 <th align="right">Year</th>
 <th align="right">Inflation</th>
-<th align="right">GDP</th>
+<th align="right">GDP growth</th>
+<th align="right">Population</th>
+<th align="right">Unemployment rate</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">Australia</td>
+<td align="right">1960</td>
+<td align="right">3.7</td>
+<td align="right">NA</td>
+<td align="right">10276477</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1961</td>
 <td align="right">2.3</td>
 <td align="right">2.5</td>
+<td align="right">10483000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1962</td>
 <td align="right">-0.3</td>
 <td align="right">1.3</td>
+<td align="right">10742000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1963</td>
 <td align="right">0.6</td>
 <td align="right">6.2</td>
+<td align="right">10950000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1964</td>
 <td align="right">2.9</td>
 <td align="right">7.0</td>
+<td align="right">11167000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1965</td>
 <td align="right">3.4</td>
 <td align="right">6.0</td>
+<td align="right">11388000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1966</td>
 <td align="right">3.3</td>
 <td align="right">2.4</td>
+<td align="right">11651000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1967</td>
 <td align="right">3.5</td>
 <td align="right">6.3</td>
+<td align="right">11799000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Australia</td>
 <td align="right">1968</td>
 <td align="right">2.5</td>
 <td align="right">5.1</td>
+<td align="right">12009000</td>
+<td align="right">NA</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Australia</td>
 <td align="right">1969</td>
 <td align="right">3.3</td>
 <td align="right">7.0</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="right">1970</td>
-<td align="right">3.4</td>
-<td align="right">7.2</td>
+<td align="right">12263000</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table></div>
 <p>We can specify the alignment of the columns using a character vector of ‘l’ (left), ‘c’ (centre), and ‘r’ (right) (Table <a href="static-communication.html#tab:gdpalign">6.6</a>). Additionally, (and this is not relevant for this table), we could specify groupings for numbers that are at least one thousand using ‘format.args = list(big.mark = “,”).’</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US"</span>,
-    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP"</span><span class="op">)</span>,
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US"</span>,
+    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP growth"</span>, <span class="st">"Population"</span>, <span class="st">"Unemployment rate"</span><span class="op">)</span>,
     digits <span class="op">=</span> <span class="fl">1</span>,
     booktabs <span class="op">=</span> <span class="cn">TRUE</span>, 
     linesep <span class="op">=</span> <span class="st">""</span>,
-    align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l'</span>, <span class="st">'c'</span>, <span class="st">'c'</span>, <span class="st">'r'</span><span class="op">)</span>,
+    align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l'</span>, <span class="st">'l'</span>, <span class="st">'c'</span>, <span class="st">'c'</span>, <span class="st">'r'</span>, <span class="st">'r'</span><span class="op">)</span>,
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:gdpalign">Table 6.6: </span>First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+<span id="tab:gdpalign">Table 6.6: </span>First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
 <thead><tr class="header">
 <th align="left">Country</th>
-<th align="center">Year</th>
+<th align="left">Year</th>
 <th align="center">Inflation</th>
-<th align="right">GDP</th>
+<th align="center">GDP growth</th>
+<th align="right">Population</th>
+<th align="right">Unemployment rate</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">Australia</td>
-<td align="center">1961</td>
+<td align="left">1960</td>
+<td align="center">3.7</td>
+<td align="center">NA</td>
+<td align="right">10276477</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">1961</td>
 <td align="center">2.3</td>
-<td align="right">2.5</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="center">1962</td>
-<td align="center">-0.3</td>
-<td align="right">1.3</td>
-</tr>
-<tr class="odd">
-<td align="left">Australia</td>
-<td align="center">1963</td>
-<td align="center">0.6</td>
-<td align="right">6.2</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="center">1964</td>
-<td align="center">2.9</td>
-<td align="right">7.0</td>
-</tr>
-<tr class="odd">
-<td align="left">Australia</td>
-<td align="center">1965</td>
-<td align="center">3.4</td>
-<td align="right">6.0</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="center">1966</td>
-<td align="center">3.3</td>
-<td align="right">2.4</td>
-</tr>
-<tr class="odd">
-<td align="left">Australia</td>
-<td align="center">1967</td>
-<td align="center">3.5</td>
-<td align="right">6.3</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="center">1968</td>
 <td align="center">2.5</td>
-<td align="right">5.1</td>
+<td align="right">10483000</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">Australia</td>
-<td align="center">1969</td>
-<td align="center">3.3</td>
-<td align="right">7.0</td>
+<td align="left">1962</td>
+<td align="center">-0.3</td>
+<td align="center">1.3</td>
+<td align="right">10742000</td>
+<td align="right">NA</td>
 </tr>
 <tr class="even">
 <td align="left">Australia</td>
-<td align="center">1970</td>
+<td align="left">1963</td>
+<td align="center">0.6</td>
+<td align="center">6.2</td>
+<td align="right">10950000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Australia</td>
+<td align="left">1964</td>
+<td align="center">2.9</td>
+<td align="center">7.0</td>
+<td align="right">11167000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">1965</td>
 <td align="center">3.4</td>
-<td align="right">7.2</td>
+<td align="center">6.0</td>
+<td align="right">11388000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Australia</td>
+<td align="left">1966</td>
+<td align="center">3.3</td>
+<td align="center">2.4</td>
+<td align="right">11651000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">1967</td>
+<td align="center">3.5</td>
+<td align="center">6.3</td>
+<td align="right">11799000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Australia</td>
+<td align="left">1968</td>
+<td align="center">2.5</td>
+<td align="center">5.1</td>
+<td align="right">12009000</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Australia</td>
+<td align="left">1969</td>
+<td align="center">3.3</td>
+<td align="center">7.0</td>
+<td align="right">12263000</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table></div>
 <p>We can use <code>kableExtra</code> <span class="citation">(<a href="references-1.html#ref-citekableextra" role="doc-biblioref">Zhu 2020</a>)</span> to add extra functionality to <code>kable</code>. For instance, we could add a row that groups some of the columns (Table <a href="static-communication.html#tab:gdpalign">6.6</a>).</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span>
 
-<span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">world_bank_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US"</span>,
-    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP"</span><span class="op">)</span>,
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US"</span>,
+    col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Country"</span>, <span class="st">"Year"</span>, <span class="st">"Inflation"</span>, <span class="st">"GDP growth"</span>, <span class="st">"Population"</span>, <span class="st">"Unemployment rate"</span><span class="op">)</span>,
     digits <span class="op">=</span> <span class="fl">1</span>,
     booktabs <span class="op">=</span> <span class="cn">TRUE</span>, 
     linesep <span class="op">=</span> <span class="st">""</span>,
-    align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l'</span>, <span class="st">'c'</span>, <span class="st">'c'</span>, <span class="st">'r'</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Economic variables"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    align <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l'</span>, <span class="st">'l'</span>, <span class="st">'c'</span>, <span class="st">'c'</span>, <span class="st">'r'</span>, <span class="st">'r'</span><span class="op">)</span>,
+  <span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/add_header_above.html">add_header_above</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span> <span class="op">=</span> <span class="fl">2</span>, <span class="st">"Economic indicators"</span> <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:gdpkableextra">Table 6.7: </span>First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+<span id="tab:gdpkableextra">Table 6.7: </span>First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US
 </caption>
 <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
 </th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Economic variables
+Economic indicators
 </div>
 </th>
 </tr>
@@ -1618,14 +1775,20 @@ Economic variables
 <th style="text-align:left;">
 Country
 </th>
-<th style="text-align:center;">
+<th style="text-align:left;">
 Year
 </th>
 <th style="text-align:center;">
 Inflation
 </th>
+<th style="text-align:center;">
+GDP growth
+</th>
 <th style="text-align:right;">
-GDP
+Population
+</th>
+<th style="text-align:right;">
+Unemployment rate
 </th>
 </tr>
 </thead>
@@ -1634,140 +1797,200 @@ GDP
 <td style="text-align:left;">
 Australia
 </td>
+<td style="text-align:left;">
+1960
+</td>
 <td style="text-align:center;">
+3.7
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:right;">
+10276477
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
 1961
 </td>
 <td style="text-align:center;">
 2.3
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 2.5
+</td>
+<td style="text-align:right;">
+10483000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1962
 </td>
 <td style="text-align:center;">
 -0.3
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 1.3
+</td>
+<td style="text-align:right;">
+10742000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1963
 </td>
 <td style="text-align:center;">
 0.6
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6.2
+</td>
+<td style="text-align:right;">
+10950000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1964
 </td>
 <td style="text-align:center;">
 2.9
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 7.0
+</td>
+<td style="text-align:right;">
+11167000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1965
 </td>
 <td style="text-align:center;">
 3.4
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6.0
+</td>
+<td style="text-align:right;">
+11388000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1966
 </td>
 <td style="text-align:center;">
 3.3
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 2.4
+</td>
+<td style="text-align:right;">
+11651000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1967
 </td>
 <td style="text-align:center;">
 3.5
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 6.3
+</td>
+<td style="text-align:right;">
+11799000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1968
 </td>
 <td style="text-align:center;">
 2.5
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 5.1
+</td>
+<td style="text-align:right;">
+12009000
+</td>
+<td style="text-align:right;">
+NA
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Australia
 </td>
-<td style="text-align:center;">
+<td style="text-align:left;">
 1969
 </td>
 <td style="text-align:center;">
 3.3
 </td>
-<td style="text-align:right;">
+<td style="text-align:center;">
 7.0
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:center;">
-1970
-</td>
-<td style="text-align:center;">
-3.4
+<td style="text-align:right;">
+12263000
 </td>
 <td style="text-align:right;">
-7.2
+NA
 </td>
 </tr>
 </tbody>
@@ -1778,10 +2001,10 @@ Australia
 <span class="header-section-number">6.3.2</span> Communicating summary statistics<a class="anchor" aria-label="anchor" href="#communicating-summary-statistics"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary.html">datasummary()</a></code> from <code>modelsummary</code> to create tables of summary statistics from our dataset.</p>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 
-<span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
@@ -1817,22 +2040,22 @@ Max
 year
 </td>
 <td style="text-align:right;">
-60
+61
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-1992.2
+1990.0
 </td>
 <td style="text-align:right;">
-16.9
+17.6
 </td>
 <td style="text-align:right;">
-1961.0
+1960.0
 </td>
 <td style="text-align:right;">
-1993.0
+1990.0
 </td>
 <td style="text-align:right;">
 2020.0
@@ -1846,7 +2069,7 @@ year
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.02" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.79" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.56" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.32" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.09" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.86" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.62" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.39" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.16" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.92" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.69" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.46" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="3.70" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.48" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.19" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.30" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.70" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.81" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.52" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
 </tr>
 <tr>
@@ -1854,16 +2077,16 @@ year
 inflation
 </td>
 <td style="text-align:right;">
-218
+238
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-6.0
+6.1
 </td>
 <td style="text-align:right;">
-6.2
+6.3
 </td>
 <td style="text-align:right;">
 −9.8
@@ -1883,21 +2106,21 @@ inflation
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.36" width="4.10" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.28" width="4.10" height="0.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.21" width="4.10" height="4.45" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.12" width="4.10" height="0.54" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.30" width="4.10" height="0.36" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.23" width="4.10" height="0.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.23" width="4.10" height="4.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.02" width="4.10" height="0.64" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.52" width="4.10" height="0.14" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-gdp
+gdp_growth
 </td>
 <td style="text-align:right;">
-218
+220
 </td>
 <td style="text-align:right;">
-0
+10
 </td>
 <td style="text-align:right;">
-4.1
+4.2
 </td>
 <td style="text-align:right;">
 3.7
@@ -1920,14 +2143,88 @@ gdp
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.74" width="3.56" height="3.92" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.62" width="3.56" height="4.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+244
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+304177482.9
+</td>
+<td style="text-align:right;">
+380093166.9
+</td>
+<td style="text-align:right;">
+10276477.0
+</td>
+<td style="text-align:right;">
+147817291.5
+</td>
+<td style="text-align:right;">
+1380004385.0
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.44" y="3.22" width="6.49" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.93" y="8.22" width="6.49" height="3.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.42" y="10.75" width="6.49" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.91" y="10.88" width="6.49" height="0.78" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.40" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.89" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.38" y="10.82" width="6.49" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+unemployment_rate
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+10.9
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewbox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clippath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)"></g><defs><clippath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clippath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.86" y="11.41" width="4.60" height="0.25" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.45" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.05" y="9.43" width="4.60" height="2.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.65" y="7.94" width="4.60" height="3.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.24" y="3.22" width="4.60" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.84" y="6.94" width="4.60" height="4.72" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.03" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.63" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.22" y="11.17" width="4.60" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
 </tr>
 </tbody>
 </table></div>
 <p>By default it summarizes the ‘numeric’ variables, but we can ask for the ‘categorical’ variables (Table <a href="static-communication.html#tab:testdatasummary">6.8</a>). Additionally we can add cross-references in the same way as <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>, that is, include a title and then cross-reference the name of the R chunk.</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"categorical"</span>,
                    title <span class="op">=</span> <span class="st">"Summary of categorical variables for the inflation and GDP dataset"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1951,10 +2248,10 @@ N
 Australia
 </td>
 <td style="text-align:right;">
-60
+61
 </td>
 <td style="text-align:right;">
-27.5
+25.0
 </td>
 </tr>
 <tr>
@@ -1962,10 +2259,10 @@ Australia
 Ethiopia
 </td>
 <td style="text-align:right;">
-38
+61
 </td>
 <td style="text-align:right;">
-17.4
+25.0
 </td>
 </tr>
 <tr>
@@ -1973,10 +2270,10 @@ Ethiopia
 India
 </td>
 <td style="text-align:right;">
-60
+61
 </td>
 <td style="text-align:right;">
-27.5
+25.0
 </td>
 </tr>
 <tr>
@@ -1984,17 +2281,17 @@ India
 United States
 </td>
 <td style="text-align:right;">
-60
+61
 </td>
 <td style="text-align:right;">
-27.5
+25.0
 </td>
 </tr>
 </tbody>
 </table></div>
 <p>We can create a table that shows the correlation between variables using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_correlation.html">datasummary_correlation()</a></code> (Table <a href="static-communication.html#tab:correlationtable">6.9</a>).</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inflation_and_gdp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_correlation.html">datasummary_correlation</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"Correlation between the variables for the inflation and GDP dataset"</span>
     <span class="op">)</span></code></pre></div>
@@ -2012,7 +2309,13 @@ year
 inflation
 </th>
 <th style="text-align:right;">
-gdp
+gdp_growth
+</th>
+<th style="text-align:right;">
+population
+</th>
+<th style="text-align:right;">
+unemployment_rate
 </th>
 </tr></thead>
 <tbody>
@@ -2029,16 +2332,8 @@ year
 <td style="text-align:right;">
 .
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-inflation
-</td>
 <td style="text-align:right;">
-−.02
-</td>
-<td style="text-align:right;">
-1
+.
 </td>
 <td style="text-align:right;">
 .
@@ -2046,7 +2341,27 @@ inflation
 </tr>
 <tr>
 <td style="text-align:left;">
-gdp
+inflation
+</td>
+<td style="text-align:right;">
+.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+.
+</td>
+<td style="text-align:right;">
+.
+</td>
+<td style="text-align:right;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gdp_growth
 </td>
 <td style="text-align:right;">
 .10
@@ -2057,13 +2372,59 @@ gdp
 <td style="text-align:right;">
 1
 </td>
+<td style="text-align:right;">
+.
+</td>
+<td style="text-align:right;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+.24
+</td>
+<td style="text-align:right;">
+.07
+</td>
+<td style="text-align:right;">
+.15
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+unemployment_rate
+</td>
+<td style="text-align:right;">
+−.13
+</td>
+<td style="text-align:right;">
+−.14
+</td>
+<td style="text-align:right;">
+−.31
+</td>
+<td style="text-align:right;">
+−.35
+</td>
+<td style="text-align:right;">
+1
+</td>
 </tr>
 </tbody>
 </table></div>
 <p>We typically need a table of descriptive statistics that we could add to our paper (Table <a href="static-communication.html#tab:descriptivestats">6.10</a>). This is in contrast to Table <a href="static-communication.html#tab:testdatasummary">6.8</a> which would likely not be included in a paper. We can add a note about the source of the data using ‘notes.’</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_balance.html">datasummary_balance</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">country</span>,
-                    data <span class="op">=</span> <span class="va">inflation_and_gdp</span>,
+                    data <span class="op">=</span> <span class="va">world_bank_data</span>,
                     title <span class="op">=</span> <span class="st">"Descriptive statistics for the inflation and GDP dataset"</span>,
                     notes <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
@@ -2076,22 +2437,22 @@ gdp
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Australia (N=60)
+Australia (N=61)
 </div>
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Ethiopia (N=38)
+Ethiopia (N=61)
 </div>
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-India (N=60)
+India (N=61)
 </div>
 </th>
 <th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-United States (N=60)
+United States (N=61)
 </div>
 </th>
 </tr>
@@ -2130,28 +2491,28 @@ Std. Dev.
 year
 </td>
 <td style="text-align:right;">
-1990.5
+1990.0
 </td>
 <td style="text-align:right;">
-17.5
+17.8
 </td>
 <td style="text-align:right;">
-2000.5
+1990.0
 </td>
 <td style="text-align:right;">
-11.1
+17.8
 </td>
 <td style="text-align:right;">
-1990.5
+1990.0
 </td>
 <td style="text-align:right;">
-17.5
+17.8
 </td>
 <td style="text-align:right;">
-1990.5
+1990.0
 </td>
 <td style="text-align:right;">
-17.5
+17.8
 </td>
 </tr>
 <tr>
@@ -2165,16 +2526,16 @@ inflation
 3.8
 </td>
 <td style="text-align:right;">
-9.4
+8.7
 </td>
 <td style="text-align:right;">
-11.1
+10.4
 </td>
 <td style="text-align:right;">
-7.5
+7.4
 </td>
 <td style="text-align:right;">
-4.9
+5.0
 </td>
 <td style="text-align:right;">
 3.7
@@ -2185,7 +2546,7 @@ inflation
 </tr>
 <tr>
 <td style="text-align:left;">
-gdp
+gdp_growth
 </td>
 <td style="text-align:right;">
 3.4
@@ -2197,7 +2558,7 @@ gdp
 5.9
 </td>
 <td style="text-align:right;">
-6.5
+6.4
 </td>
 <td style="text-align:right;">
 5.0
@@ -2210,6 +2571,64 @@ gdp
 </td>
 <td style="text-align:right;">
 2.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+17244215.9
+</td>
+<td style="text-align:right;">
+4328625.6
+</td>
+<td style="text-align:right;">
+55662437.9
+</td>
+<td style="text-align:right;">
+27626912.1
+</td>
+<td style="text-align:right;">
+888774544.9
+</td>
+<td style="text-align:right;">
+292997809.4
+</td>
+<td style="text-align:right;">
+255028733.1
+</td>
+<td style="text-align:right;">
+45603604.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+unemployment_rate
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+0.9
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.6
 </td>
 </tr>
 </tbody>
@@ -2225,9 +2644,9 @@ gdp
 <span class="header-section-number">6.3.3</span> Display regression results<a class="anchor" aria-label="anchor" href="#display-regression-results"><i class="fas fa-link"></i></a>
 </h3>
 <p>Finally, one common reason for needing a table is to report regression results. We will do this using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary()</a></code> from <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span>.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp</span> <span class="op">~</span> <span class="va">inflation</span>, 
-                  data <span class="op">=</span> <span class="va">inflation_and_gdp</span><span class="op">)</span>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp_growth</span> <span class="op">~</span> <span class="va">inflation</span>, 
+                  data <span class="op">=</span> <span class="va">world_bank_data</span><span class="op">)</span>
 
 <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">first_model</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2328,14 +2747,20 @@ F
 </tbody>
 </table></div>
 <p>We can put a variety of different of different models together (Table <a href="#tab:twomodels"><strong>??</strong></a>).</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">second_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp</span> <span class="op">~</span> <span class="va">inflation</span> <span class="op">+</span> <span class="va">country</span>, 
-                  data <span class="op">=</span> <span class="va">inflation_and_gdp</span>,
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">second_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp_growth</span> <span class="op">~</span> <span class="va">inflation</span> <span class="op">+</span> <span class="va">country</span>, 
+                  data <span class="op">=</span> <span class="va">world_bank_data</span>,
                   title <span class="op">=</span> <span class="st">"Explaining GDP as a function of inflation"</span><span class="op">)</span>
 <span class="co">#&gt; Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :</span>
 <span class="co">#&gt;  extra argument 'title' will be disregarded</span>
 
-<span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">first_model</span>, <span class="va">second_model</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="va">third_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp_growth</span> <span class="op">~</span> <span class="va">inflation</span> <span class="op">+</span> <span class="va">country</span> <span class="op">+</span> <span class="va">population</span>, 
+                  data <span class="op">=</span> <span class="va">world_bank_data</span>,
+                  title <span class="op">=</span> <span class="st">"Explaining GDP as a function of inflation"</span><span class="op">)</span>
+<span class="co">#&gt; Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :</span>
+<span class="co">#&gt;  extra argument 'title' will be disregarded</span>
+
+<span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">first_model</span>, <span class="va">second_model</span>, <span class="va">third_model</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
@@ -2345,6 +2770,9 @@ Model 1
 </th>
 <th style="text-align:center;">
 Model 2
+</th>
+<th style="text-align:center;">
+Model 3
 </th>
 </tr></thead>
 <tbody>
@@ -2358,6 +2786,9 @@ Model 2
 <td style="text-align:center;">
 3.728
 </td>
+<td style="text-align:center;">
+3.668
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2367,6 +2798,9 @@ Model 2
 </td>
 <td style="text-align:center;">
 (0.495)
+</td>
+<td style="text-align:center;">
+(0.494)
 </td>
 </tr>
 <tr>
@@ -2379,9 +2813,15 @@ inflation
 <td style="text-align:center;">
 −0.075
 </td>
+<td style="text-align:center;">
+−0.072
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.041)
 </td>
 <td style="text-align:center;">
 (0.041)
@@ -2399,6 +2839,9 @@ countryEthiopia
 <td style="text-align:center;">
 2.872
 </td>
+<td style="text-align:center;">
+2.716
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2407,6 +2850,9 @@ countryEthiopia
 </td>
 <td style="text-align:center;">
 (0.757)
+</td>
+<td style="text-align:center;">
+(0.758)
 </td>
 </tr>
 <tr>
@@ -2418,6 +2864,9 @@ countryIndia
 <td style="text-align:center;">
 1.854
 </td>
+<td style="text-align:center;">
+−0.561
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2426,6 +2875,9 @@ countryIndia
 </td>
 <td style="text-align:center;">
 (0.655)
+</td>
+<td style="text-align:center;">
+(1.520)
 </td>
 </tr>
 <tr>
@@ -2437,6 +2889,33 @@ countryUnited States
 <td style="text-align:center;">
 −0.524
 </td>
+<td style="text-align:center;">
+−1.176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+(0.646)
+</td>
+<td style="text-align:center;">
+(0.742)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.000
+</td>
 </tr>
 <tr>
 <td style="text-align:left;box-shadow: 0px 1px">
@@ -2444,12 +2923,17 @@ countryUnited States
 <td style="text-align:center;box-shadow: 0px 1px">
 </td>
 <td style="text-align:center;box-shadow: 0px 1px">
-(0.646)
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.000)
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Num.Obs.
+</td>
+<td style="text-align:center;">
+218
 </td>
 <td style="text-align:center;">
 218
@@ -2468,6 +2952,9 @@ R2
 <td style="text-align:center;">
 0.110
 </td>
+<td style="text-align:center;">
+0.123
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2478,6 +2965,9 @@ R2 Adj.
 </td>
 <td style="text-align:center;">
 0.093
+</td>
+<td style="text-align:center;">
+0.102
 </td>
 </tr>
 <tr>
@@ -2490,6 +2980,9 @@ AIC
 <td style="text-align:center;">
 1175.7
 </td>
+<td style="text-align:center;">
+1174.5
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2500,6 +2993,9 @@ BIC
 </td>
 <td style="text-align:center;">
 1196.0
+</td>
+<td style="text-align:center;">
+1198.2
 </td>
 </tr>
 <tr>
@@ -2512,6 +3008,9 @@ Log.Lik.
 <td style="text-align:center;">
 −581.844
 </td>
+<td style="text-align:center;">
+−580.266
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2523,15 +3022,15 @@ F
 <td style="text-align:center;">
 6.587
 </td>
+<td style="text-align:center;">
+5.939
+</td>
 </tr>
 </tbody>
 </table></div>
 <p>We can adjust the number of significant digits (Table <a href="static-communication.html#tab:twomodelstwo">6.11</a>).</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">second_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp</span> <span class="op">~</span> <span class="va">inflation</span> <span class="op">+</span> <span class="va">country</span>, 
-                  data <span class="op">=</span> <span class="va">inflation_and_gdp</span><span class="op">)</span>
-
-<span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">first_model</span>, <span class="va">second_model</span><span class="op">)</span>,
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">first_model</span>, <span class="va">second_model</span>, <span class="va">third_model</span><span class="op">)</span>,
              fmt <span class="op">=</span> <span class="fl">1</span>,
              title <span class="op">=</span> <span class="st">"Two models of GDP as a function of inflation"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2547,6 +3046,9 @@ Model 1
 <th style="text-align:center;">
 Model 2
 </th>
+<th style="text-align:center;">
+Model 3
+</th>
 </tr></thead>
 <tbody>
 <tr>
@@ -2559,12 +3061,18 @@ Model 2
 <td style="text-align:center;">
 3.7
 </td>
+<td style="text-align:center;">
+3.7
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
 (0.4)
+</td>
+<td style="text-align:center;">
+(0.5)
 </td>
 <td style="text-align:center;">
 (0.5)
@@ -2580,9 +3088,15 @@ inflation
 <td style="text-align:center;">
 −0.1
 </td>
+<td style="text-align:center;">
+−0.1
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.0)
 </td>
 <td style="text-align:center;">
 (0.0)
@@ -2600,11 +3114,17 @@ countryEthiopia
 <td style="text-align:center;">
 2.9
 </td>
+<td style="text-align:center;">
+2.7
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
 </td>
 <td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+(0.8)
 </td>
 <td style="text-align:center;">
 (0.8)
@@ -2619,6 +3139,9 @@ countryIndia
 <td style="text-align:center;">
 1.9
 </td>
+<td style="text-align:center;">
+−0.6
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2627,6 +3150,9 @@ countryIndia
 </td>
 <td style="text-align:center;">
 (0.7)
+</td>
+<td style="text-align:center;">
+(1.5)
 </td>
 </tr>
 <tr>
@@ -2638,6 +3164,33 @@ countryUnited States
 <td style="text-align:center;">
 −0.5
 </td>
+<td style="text-align:center;">
+−1.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+(0.6)
+</td>
+<td style="text-align:center;">
+(0.7)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0.0
+</td>
 </tr>
 <tr>
 <td style="text-align:left;box-shadow: 0px 1px">
@@ -2645,12 +3198,17 @@ countryUnited States
 <td style="text-align:center;box-shadow: 0px 1px">
 </td>
 <td style="text-align:center;box-shadow: 0px 1px">
-(0.6)
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.0)
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 Num.Obs.
+</td>
+<td style="text-align:center;">
+218
 </td>
 <td style="text-align:center;">
 218
@@ -2669,6 +3227,9 @@ R2
 <td style="text-align:center;">
 0.110
 </td>
+<td style="text-align:center;">
+0.123
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2679,6 +3240,9 @@ R2 Adj.
 </td>
 <td style="text-align:center;">
 0.093
+</td>
+<td style="text-align:center;">
+0.102
 </td>
 </tr>
 <tr>
@@ -2691,6 +3255,9 @@ AIC
 <td style="text-align:center;">
 1175.7
 </td>
+<td style="text-align:center;">
+1174.5
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2701,6 +3268,9 @@ BIC
 </td>
 <td style="text-align:center;">
 1196.0
+</td>
+<td style="text-align:center;">
+1198.2
 </td>
 </tr>
 <tr>
@@ -2713,6 +3283,9 @@ Log.Lik.
 <td style="text-align:center;">
 −581.844
 </td>
+<td style="text-align:center;">
+−580.266
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -2724,6 +3297,9 @@ F
 <td style="text-align:center;">
 6.587
 </td>
+<td style="text-align:center;">
+5.939
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -2734,7 +3310,7 @@ F
 <span class="header-section-number">6.4</span> Maps<a class="anchor" aria-label="anchor" href="#maps"><i class="fas fa-link"></i></a>
 </h2>
 <p>In many ways maps can be thought of as another type of graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We have seen this type of set-up are used to this type of set-up, for instance, in the <code>ggplot2</code> setting, this is quite familiar.</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span> <span class="co"># First draw an outline</span>
     data <span class="op">=</span> <span class="va">some_data</span>, 
@@ -2748,7 +3324,7 @@ F
         y <span class="op">=</span> <span class="va">longitude</span><span class="op">)</span>
     <span class="op">)</span></code></pre></div>
 <p>And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. There is some geographic data built into <code>ggplot2</code>, and there is additional information in <code>maps</code>.</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">maps</span><span class="op">)</span>
 
 <span class="va">canada</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/map_data.html">map_data</a></span><span class="op">(</span>database <span class="op">=</span> <span class="st">"world"</span>, regions <span class="op">=</span> <span class="st">"canada"</span><span class="op">)</span>
@@ -2772,7 +3348,7 @@ F
 <span class="co">#&gt; 5    Aklavik NT          NT    643 68.22 -135.00       0</span>
 <span class="co">#&gt; 6    Albanel QC          QC   1090 48.87  -72.42       0</span></code></pre></div>
 <p>With that information in hand we can then create a map of Canada that shows the cities with a population over 1,000. (The <code><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon()</a></code> function within <code>ggplot2</code> draws shapes, by connecting points within groups. And the <code><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map()</a></code> function adjusts for the fact that we are making something that is 2D map to represent something that is 3D.)</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">canada</span>,
                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>,
@@ -2802,19 +3378,19 @@ F
 </h3>
 <p>In Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.</p>
 <p>To get started we need to get a tile. We are going to use <code>ggmap</code> to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. It can be useful to use Google Maps, or an alternative, to find the values of these that you need. The bounding box provides the coordinates of the edges that you are interested in. In this case we have provided it with coordinates such that it will be centered around Canberra, Australia, which is a small city that was created for the purposes of being the capital.</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 
 <span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="fl">148.95</span>, bottom <span class="op">=</span> <span class="op">-</span><span class="fl">35.5</span>, right <span class="op">=</span> <span class="fl">149.3</span>, top <span class="op">=</span> <span class="op">-</span><span class="fl">35.1</span><span class="op">)</span></code></pre></div>
 <p>Once you have defined the bounding box, then the function <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. We have used a black-and-white type of map but the helpfile specifies others. At this point we can the map to maps to <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> and it will plot the tile! It will be actively downloading these tiles, and so it needs an internet connection.</p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">canberra_stamen_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox</span>, zoom <span class="op">=</span> <span class="fl">11</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 <p>Once we have a map then we can use <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> to plot it. (That circle in the middle of the map is where the Australian Parliament House is. Yes, the Australian parliament is surrounded by circular roads, which Australians call ‘roundabouts,’ actually Australians thought this was such a great idea, that we surrounded it by two of them.)</p>
 <p>Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which ‘division’ (the Australian equivalent to ‘ridings’ in Canada) it is. This is available here: <a href="https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv" class="uri">https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv</a>. The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Read in the booths data for each year</span>
 <span class="va">booths</span> <span class="op">&lt;-</span>
   <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -2840,7 +3416,7 @@ F
 <span class="co">#&gt; #   PremisesStateAb &lt;chr&gt;, PremisesPostCode &lt;chr&gt;,</span>
 <span class="co">#&gt; #   Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;</span></code></pre></div>
 <p>This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we will filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still ‘booths’ in this dataset).</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Reduce the booths data to only rows with that have latitude and longitude</span>
 <span class="va">booths_reduced</span> <span class="op">&lt;-</span>
   <span class="va">booths</span> |&gt;
@@ -2849,7 +3425,7 @@ F
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Longitude</span><span class="op">)</span><span class="op">)</span> |&gt; <span class="co"># Remove rows that do not have a geography</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Longitude</span> <span class="op">&lt;</span> <span class="fl">165</span><span class="op">)</span> <span class="co"># Remove Norfolk Island</span></code></pre></div>
 <p>Now we can use <code>ggmap</code> in the same way as before to plot our underlying tiles, and then build on that using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to add our points of interest.</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span>,
       extent <span class="op">=</span> <span class="st">"normal"</span>,
       maprange <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
@@ -2870,7 +3446,7 @@ F
         panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672"></div>
 <p>We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code>.</p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"map.pdf"</span>, width <span class="op">=</span> <span class="fl">20</span>, height <span class="op">=</span> <span class="fl">10</span>, units <span class="op">=</span> <span class="st">"cm"</span><span class="op">)</span></code></pre></div>
 <p>Finally, the reason that we used Stamen Maps and OpenStreetMap is because it is open source, but you can also use Google Maps. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. Using Google Maps, <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code>, brings some advantages over <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>, for instance it will attempt to find a placename, rather than needing to specify a bounding box.</p>
 </div>
@@ -2878,15 +3454,15 @@ F
 <h3>
 <span class="header-section-number">6.4.2</span> Toronto bike parking<a class="anchor" aria-label="anchor" href="#toronto-bike-parking"><i class="fas fa-link"></i></a>
 </h3>
-<p>Let us see another example of a static map, this time using Toronto data accessed using <code>opendatatoronto</code> <span class="citation">(<a href="#ref-citesharla" role="doc-biblioref"><strong>citesharla?</strong></a>)</span>. The dataset that we are going to plot is available here: <a href="https://open.toronto.ca/dataset/street-furniture-bicycle-parking/" class="uri">https://open.toronto.ca/dataset/street-furniture-bicycle-parking/</a>.</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<p>Let us see another example of a static map, this time using Toronto data accessed using <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>. The dataset that we are going to plot is available here: <a href="https://open.toronto.ca/dataset/street-furniture-bicycle-parking/" class="uri">https://open.toronto.ca/dataset/street-furniture-bicycle-parking/</a>.</p>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Based on: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sharlagelfand.github.io/opendatatoronto/">opendatatoronto</a></span><span class="op">)</span>
 <span class="co"># (The string identifies the package.)</span>
 <span class="va">resources</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/list_package_resources.html">list_package_resources</a></span><span class="op">(</span><span class="st">"71e6c206-96e1-48f1-8f6f-0e804687e3be"</span><span class="op">)</span>
 <span class="co"># In this case there is only one dataset within this resource so just need the first one    </span>
 <span class="va">bike_parking_locations</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">resources</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">bike_parking_locations</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 20</span>
 <span class="co">#&gt;     `_id` OBJECTID ID       ADDRESSNUMBERTEXT ADDRESSSTREET </span>
@@ -2903,7 +3479,7 @@ F
 <span class="co">#&gt; #   STATUS &lt;chr&gt;, SDE_STATE_ID &lt;dbl&gt;, X &lt;dbl&gt;, Y &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   LONGITUDE &lt;dbl&gt;, LATITUDE &lt;dbl&gt;, geometry &lt;chr&gt;</span></code></pre></div>
 <p>First, we need to clean the data are little. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we will just ignore it and focus on the data that we are interested in.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bike_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   ward <span class="op">=</span> <span class="va">bike_parking_locations</span><span class="op">$</span><span class="va">WARD</span>,
   id <span class="op">=</span> <span class="va">bike_parking_locations</span><span class="op">$</span><span class="va">ID</span>,
@@ -2917,7 +3493,7 @@ F
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">bike_parking_locations</span><span class="op">)</span></code></pre></div>
 <p>Some of the bike racks were temporary so remove them and also let us just look at the area around the University of Toronto, which is Ward 11</p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Only keep ones that still exist</span>
 <span class="va">bike_data</span> <span class="op">&lt;-</span> 
   <span class="va">bike_data</span> |&gt;
@@ -2928,7 +3504,7 @@ F
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ward</span> <span class="op">==</span> <span class="fl">11</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">ward</span><span class="op">)</span></code></pre></div>
 <p>If you look at the dataset at this point, then you will notice that there is a row for every bike parking spot. But we do not really need to know that, because sometimes there are lots right next to each other. Instead, we’d just like the one point. So, we want to create a count by address, and then just get one instance per address.</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bike_data</span> <span class="op">&lt;-</span> 
   <span class="va">bike_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">street_address</span><span class="op">)</span> |&gt; 
@@ -2950,7 +3526,7 @@ F
 <span class="co">#&gt; 5 888 Yonge St         43.7     -79.4               1</span>
 <span class="co">#&gt; 6 180 Elizabeth St     43.7     -79.4              10</span></code></pre></div>
 <p>Now we can grab our tile and add our bike rack data onto it.</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bbox</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
     left <span class="op">=</span> <span class="op">-</span><span class="fl">79.420390</span>,
@@ -2978,11 +3554,11 @@ F
 </h3>
 <p>To this point we assumed that we already had geocoded data. But the places ‘Canberra, Australia,’ or ‘Ottawa, Canada,’ are just names, they do not actually inherently have a location. In order to plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding.</p>
 <p>There are a range of options to geocode data in R, but <code>tidygeocoder</code> is especially useful <span class="citation">(<a href="references-1.html#ref-citetidygeocoder" role="doc-biblioref">Cambon and Belanger 2021</a>)</span>. To get started using the package we need a dataframe of locations.</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_locations</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>city <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Canberra'</span>, <span class="st">'Ottawa'</span><span class="op">)</span>,
          country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Australia'</span>, <span class="st">'Canada'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tidygeocoder</span><span class="fu">::</span><span class="fu"><a href="https://jessecambon.github.io/tidygeocoder/reference/geo.html">geo</a></span><span class="op">(</span>city <span class="op">=</span> <span class="va">some_locations</span><span class="op">$</span><span class="va">city</span>, 
                   country <span class="op">=</span> <span class="va">some_locations</span><span class="op">$</span><span class="va">country</span>, 
                   method <span class="op">=</span> <span class="st">'osm'</span><span class="op">)</span>
@@ -3043,7 +3619,9 @@ F
 <h3>
 <span class="header-section-number">6.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-5"><i class="fas fa-link"></i></a>
 </h3>
-<p>Discuss, in a page or two, the layered grammar of <span class="citation"><a href="references-1.html#ref-wickham2010layered" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-wickham2010layered" role="doc-biblioref">2010</a>)</span> and how it relates to telling stories with data.</p>
+<p>Using R Markdown, please create a graph using <code>ggplot2</code> and a map using <code>ggmap</code> and add explanatory text to accompany both. This should take one or two pages for each of them.</p>
+<p>For the graph, please reflect on <span class="citation"><a href="references-1.html#ref-vanderplas2020testing" role="doc-biblioref">Vanderplas, Cook, and Hofmann</a> (<a href="references-1.html#ref-vanderplas2020testing" role="doc-biblioref">2020</a>)</span> and add a few paragraphs about the different options that you considered that the graph more effective.</p>
+<p>For the map, please reflect on the following quote from Heather Krause: ‘maps only show people who aren’t invisible to the makers’ as well as Chapter 3 from <span class="citation"><a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">D’Ignazio and Klein</a> (<a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">2020</a>)</span> and add a few paragraphs related to this.</p>
 
 </div>
 </div>
@@ -3102,7 +3680,7 @@ F
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 18 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

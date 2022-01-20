@@ -49,6 +49,7 @@ fig:scattorplottwo
 fig:lineplot
 fig:lineplottwo
 fig:stepplot
+fig:phillipsmyboy
 fig:hisogramone
 fig:hisogramtwo
 fig:hisogrambins
@@ -76,6 +77,7 @@ fig:distillfour
 fig:blogdownone
 fig:blogdowntwo
 fig:blogdownthree
+fig:babynames
 fig:shinyone
 fig:focuson2020
 fig:rtweetlogin
@@ -252,8 +254,8 @@ exercises-and-tutorial-5
 exercises-5
 tutorial-5
 interactive-communication
-making-a-website
 introduction-4
+making-a-website
 postcards
 distill
 blogdown

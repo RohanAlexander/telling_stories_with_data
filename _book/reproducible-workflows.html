@@ -105,7 +105,7 @@
 </li>
 <li>Watch <em>Make a reprex… Please</em>, <span class="citation">(<a href="references-1.html#ref-sharlatalks" role="doc-biblioref">Gelfand 2021</a>)</span>
 </li>
-<li>Read <em>The tidyverse style guide</em>, ‘Part: Analyses,’ <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021a</a>)</span>
+<li>Read <em>The tidyverse style guide</em>, ‘Part: Analyses,’ <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021b</a>)</span>
 </li>
 </ul>
 <!-- - Watch *Object of type 'closure' is not subsettable*, [@jennybryan] --><!-- **Recommended reading** --><!-- - Chan, Martin, 2020, 'RStudio Projects and Working Directories: A Beginner's Guide', https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner's-guide/. --><!-- - Daly, Darren, 2020, 'A brief history of medical statistics and its impact on reproducibility', 2 February, https://medium.com/@darren_dahly/a-brief-history-of-medical-statistics-and-its-role-in-reproducibility-23e31082f024. --><!-- - Gertler, Paul, Sebastian Martinez, Patrick Premand, Laura Rawlings, and Christel Vermeersch, 'Impact Evaluation in Practice', Chapters 1, 2. --><!-- - Guzey, Alexey, 2020, 'How Life Sciences Actually Work: Findings of a Year-Long Investigation', https://guzey.com/how-life-sciences-actually-work/. --><!-- - King, Gary, 'How to Write a Publishable Paper as a Class Project', https://gking.harvard.edu/papers. --><!-- - King, Gary, 2006, 'Publication, publication', *PS: Political Science & Politics*, vol. 39, pp. 119-125, https://gking.harvard.edu/files/gking/files/paperspub.pdf. --><!-- - Lowndes, Julia S. Stewart, Benjamin D. Best, Courtney Scarborough, Jamie C. Afflerbach, Melanie R. Frazier, Casey C. O'Hara, Ning Jiang, and Benjamin S. Halpern, 2017, 'Our path to better science in less time using open data science tools', Nature ecology & evolution, 1(6). --><!-- - Riederer, Emily, 2019, 'Resource Round-Up: Reproducible Research Edition', 29 August, https://emilyriederer.netlify.com/post/resource-round-up-reproducible-research-edition/. --><!-- - Riederer, Emily, 2019, 'RMarkdown Driven Development (RmdDD)', 4 May, https://emilyriederer.netlify.com/post/rmarkdown-driven-development/. --><!-- - Varian, Hal, 'How to Build an Economic Model in Your Spare Time', http://people.ischool.berkeley.edu/~hal/Papers/how.pdf. (This paper was written a while ago for economists, please just ignore the economics specific parts.) --><!-- - Wayne, Hillel, 2020, 'This is how science happens', 9 March, https://www.hillelwayne.com/post/this-is-how-science-happens/.  --><p><strong>Key concepts and skills</strong></p>
@@ -646,7 +646,7 @@ Figure 4.11: The Git pane in R Studio
 <p>Code must be commented <span class="citation">(<a href="references-1.html#ref-lee2018ten" role="doc-biblioref">Lee 2018</a>)</span>. Comments should focus on why certain code was written, (and to a lesser extent, why a common option is not selected).</p>
 <p>There is no one way to write code, especially in R. However, there are some general guidelines that will make it easier for you even if you are just working on your own. It is important to recognize that most projects will evolve over time, and one purpose served by code comments are as ‘[m]essages left for your future self (or near-future others) [that] help retrace and justify your decisions’ <span class="citation">(<a href="references-1.html#ref-bowers2011six" role="doc-biblioref">Bowers 2011</a>)</span>.</p>
 <p>Comments in R can be added by including the # symbol. We do not have to put a comment at the start of the line, it can be midway through. In general, we do not need to comment what every aspect of your code is doing but we should comment parts that are not obvious. For instance, if we read in some value then we may like to comment where it is coming from.</p>
-<p>You should comment why you are doing something <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021a</a>)</span>. What are you trying to achieve?</p>
+<p>You should comment why you are doing something <span class="citation">(<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham 2021b</a>)</span>. What are you trying to achieve?</p>
 <p>You must comment to explain weird things. Like if you are removing some specific row, say row 27, then why are you removing that row? It may seem obvious in the moment, but future-you in six months will not remember.</p>
 <p>You should break your code into sections. For instance, setting up the workspace, reading in datasets, manipulating and cleaning the dataset, analyzing the datasets, and finally producing tables and figures. Each of these should be separated with comments explaining what is going on, and sometimes into separate files, depending on the length.</p>
 <p>Additionally, at the top of each file it is important to basic information, such as the purpose of the file, and pre-requisites or dependencies, the date, the author and contact information, and finally and red-flags or todos.</p>
@@ -728,7 +728,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <li>relevant code and only relevant code</li>
 </ol>
 </li>
-<li>According to <span class="citation"><a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">2021a</a>)</span> for naming files, how would these files ‘00_get_data.R,’ ‘get data.R’ be classified (pick one)?
+<li>According to <span class="citation"><a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">Wickham</a> (<a href="references-1.html#ref-tidyversestyleguide" role="doc-biblioref">2021b</a>)</span> for naming files, how would these files ‘00_get_data.R,’ ‘get data.R’ be classified (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>bad; bad.</li>
 <li>good; bad.</li>
@@ -911,7 +911,7 @@ raw_data &lt;- readr::read_csv("inputs/data/raw_data.csv")
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 18 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

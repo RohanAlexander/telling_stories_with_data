@@ -279,7 +279,7 @@ tidy_anscombe |>
 
 <!-- Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal). -->
 
-<!-- ```{r thomowillrose, echo=FALSE, fig.cap="How do we get started with our data?", out.width = '90%'} -->
+<!-- ```{r thomowillrose, echo=FALSE, fig.cap = "How do we get started with our data?", out.width = '90%'} -->
 <!-- knitr::include_graphics(here::here("figures/thomowillrose.png")) -->
 
 
@@ -561,6 +561,7 @@ install.packages('WDI')
 
 
 ```r
+library(tidyverse)
 library(WDI)
 WDIsearch("gdp growth")
 #>      indicator             
@@ -590,13 +591,25 @@ WDIsearch("inflation")
 #> [4,] "Inflation, GDP deflator (annual %)"               
 #> [5,] "Inflation, GDP deflator (annual %)"               
 #> [6,] "Inflation, GDP deflator: linked series (annual %)"
+WDIsearch("population, total")
+#>           indicator                name 
+#>       "SP.POP.TOTL" "Population, total"
+WDIsearch("Unemployment, total")
+#>      indicator          
+#> [1,] "SL.UEM.TOTL.NE.ZS"
+#> [2,] "SL.UEM.TOTL.ZS"   
+#>      name                                                                 
+#> [1,] "Unemployment, total (% of total labor force) (national estimate)"   
+#> [2,] "Unemployment, total (% of total labor force) (modeled ILO estimate)"
 ```
 
 
 ```r
-inflation_and_gdp <- 
+world_bank_data <- 
   WDI(indicator = c("FP.CPI.TOTL.ZG",
-                    "NY.GDP.MKTP.KD.ZG"
+                    "NY.GDP.MKTP.KD.ZG",
+                    "SP.POP.TOTL",
+                    "SL.UEM.TOTL.NE.ZS"
                     ),
       country = c("AU", "ET", "IN", "US")
       )
@@ -610,32 +623,37 @@ At this point we may like to change the names to be more meaningful and only kee
 
 
 ```r
-inflation_and_gdp <- 
-  inflation_and_gdp |> 
+world_bank_data <- 
+  world_bank_data |> 
   rename(inflation = FP.CPI.TOTL.ZG,
-         gdp = NY.GDP.MKTP.KD.ZG) |> 
-  select(-iso2c) |> 
-  drop_na()
+         gdp_growth = NY.GDP.MKTP.KD.ZG,
+         population = SP.POP.TOTL,
+         unemployment_rate = SL.UEM.TOTL.NE.ZS
+         ) |> 
+  select(-iso2c)
 
-head(inflation_and_gdp)
-#> # A tibble: 6 × 4
-#>   country    year inflation   gdp
-#>   <chr>     <dbl>     <dbl> <dbl>
-#> 1 Australia  1961     2.29   2.48
-#> 2 Australia  1962    -0.319  1.29
-#> 3 Australia  1963     0.641  6.21
-#> 4 Australia  1964     2.87   6.98
-#> 5 Australia  1965     3.41   5.98
-#> 6 Australia  1966     3.29   2.38
+head(world_bank_data)
+#> # A tibble: 6 × 6
+#>   country    year inflation gdp_growth population
+#>   <chr>     <dbl>     <dbl>      <dbl>      <dbl>
+#> 1 Australia  1960     3.73       NA      10276477
+#> 2 Australia  1961     2.29        2.48   10483000
+#> 3 Australia  1962    -0.319       1.29   10742000
+#> 4 Australia  1963     0.641       6.21   10950000
+#> 5 Australia  1964     2.87        6.98   11167000
+#> 6 Australia  1965     3.41        5.98   11388000
+#> # … with 1 more variable: unemployment_rate <dbl>
 ```
 
 Now let us look at income as a function of years of education (Figure \@ref(fig:scattorplot)).
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point()
+#> Warning: Removed 26 rows containing missing values
+#> (geom_point).
 ```
 
 <div class="figure">
@@ -647,8 +665,8 @@ As with the bar plots, we will change the theme, and update the labels (Figure \
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -656,6 +674,8 @@ inflation_and_gdp |>
        color = "Country",
        title = "Relationship between inflation and GDP growth",
        caption = "Data source: World Bank.")
+#> Warning: Removed 26 rows containing missing values
+#> (geom_point).
 ```
 
 <div class="figure">
@@ -670,8 +690,8 @@ We use 'color' instead of 'fill' because we are using dots rather than bars. Thi
 library(patchwork)
 
 RColorBrewerBrBG <-
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -682,8 +702,8 @@ RColorBrewerBrBG <-
   scale_color_brewer(palette = "Blues")
 
 RColorBrewerSet2 <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -694,8 +714,8 @@ RColorBrewerSet2 <-
   scale_color_brewer(palette = "Set1")
 
 viridis <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -706,8 +726,8 @@ viridis <-
   scale_colour_viridis_d()
 
 viridismagma <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -730,8 +750,8 @@ The dots of a dot plot often overlap. We can address this situation in one of tw
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point(alpha = 0.5) +
   theme_minimal() +
   labs(x = "Inflation",
@@ -739,6 +759,8 @@ inflation_and_gdp |>
        color = "Country",
        title = "Relationship between inflation and GDP growth",
        caption = "Data source: World Bank.")
+#> Warning: Removed 26 rows containing missing values
+#> (geom_point).
 ```
 
 <div class="figure">
@@ -748,8 +770,8 @@ inflation_and_gdp |>
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_jitter() +
   theme_minimal() +
   labs(x = "Inflation",
@@ -757,6 +779,8 @@ inflation_and_gdp |>
        color = "Country",
        title = "Relationship between inflation and GDP growth",
        caption = "Data source: World Bank.")
+#> Warning: Removed 26 rows containing missing values
+#> (geom_point).
 ```
 
 <div class="figure">
@@ -769,8 +793,8 @@ A common use case for a Scatterplot is to illustrate a relationship between two 
 
 ```r
 defaults <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_jitter() +
   geom_smooth() +
   theme_minimal() +
@@ -781,8 +805,8 @@ defaults <-
        caption = "Data source: World Bank.")
 
 straightline <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_jitter() +
   geom_smooth(method = lm, se = FALSE) +
   theme_minimal() +
@@ -793,8 +817,8 @@ straightline <-
        caption = "Data source: World Bank.")
 
 onestraightline <- 
-  inflation_and_gdp |>
-  ggplot(mapping = aes(x = gdp, y = inflation, color = country)) +
+  world_bank_data |>
+  ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_jitter() +
   geom_smooth(method = lm, color = "black", se = FALSE) +
   theme_minimal() +
@@ -806,8 +830,20 @@ onestraightline <-
 
 (defaults + straightline + onestraightline)
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+#> Warning: Removed 26 rows containing non-finite values
+#> (stat_smooth).
+#> Warning: Removed 26 rows containing missing values
+#> (geom_point).
 #> `geom_smooth()` using formula 'y ~ x'
+#> Warning: Removed 26 rows containing non-finite values
+#> (stat_smooth).
+
+#> Warning: Removed 26 rows containing missing values (geom_point).
 #> `geom_smooth()` using formula 'y ~ x'
+#> Warning: Removed 26 rows containing non-finite values
+#> (stat_smooth).
+
+#> Warning: Removed 26 rows containing missing values (geom_point).
 ```
 
 <div class="figure">
@@ -822,9 +858,11 @@ We can use a line plot when we have variables that should be joined together, fo
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = year, y = gdp_growth, color = country)) +
   geom_line()
+#> Warning: Removed 25 row(s) containing missing values
+#> (geom_path).
 ```
 
 <div class="figure">
@@ -836,8 +874,8 @@ As before, we can adjust the theme and labels (Figure \@ref(fig:lineplottwo)).
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = year, y = gdp_growth, color = country)) +
   geom_line() +
   theme_minimal() +
   labs(x = "Year",
@@ -845,6 +883,8 @@ inflation_and_gdp |>
        color = "Country",
        title = "GDP over time",
        caption = "Data source: World Bank.")
+#> Warning: Removed 25 row(s) containing missing values
+#> (geom_path).
 ```
 
 <div class="figure">
@@ -856,8 +896,8 @@ We can use a slight variant, `geom_step()` to focus attention on the change from
 
 
 ```r
-inflation_and_gdp |>
-  ggplot(mapping = aes(x = year, y = gdp, color = country)) +
+world_bank_data |>
+  ggplot(mapping = aes(x = year, y = gdp_growth, color = country)) +
   geom_step() +
   theme_minimal() +
   labs(x = "Year",
@@ -865,6 +905,8 @@ inflation_and_gdp |>
        color = "Country",
        title = "GDP over time",
        caption = "Data source: World Bank.")
+#> Warning: Removed 25 row(s) containing missing values
+#> (geom_path).
 ```
 
 <div class="figure">
@@ -872,22 +914,24 @@ inflation_and_gdp |>
 <p class="caption">(\#fig:stepplot)GDP over time for Australia, Ethiopia, India, and the US</p>
 </div>
 
-<!-- The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data. We have a variety of ways to investigate this including `geom_point()` and `geom_path()`. -->
+The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data, for instance in the UK between 1861 and 1957 [@phillips1958relation]. We have a variety of ways to investigate this including `geom_path()` which links values in the order they appear in the datset. In Figure \@ref(fig:phillipsmyboy) we show a Phillips curve for the US between 1960 and 2020, and it is clear that any relationship that once existed between these variables does not appear to still exist.
 
-<!-- And finally, we can use -->
-<!--  (Figure \@ref(fig:stepplot)). -->
 
-<!-- ```{r stepplot, fig.cap="GDP over time for Australia, Ethiopia, India, and the US"} -->
-<!-- inflation_and_gdp |> -->
-<!--   ggplot(mapping = aes(x = gdp, y = inflation, color = country)) + -->
-<!--   geom_path() + -->
-<!--   theme_minimal() + -->
-<!--   labs(x = "GDP", -->
-<!--        y = "Inflation", -->
-<!--        color = "Country", -->
-<!--        title = "GDP over time", -->
-<!--        caption = "Data source: World Bank.") -->
-<!-- ``` -->
+```r
+world_bank_data |>
+  filter(country == "United States") |>
+  ggplot(mapping = aes(x = unemployment_rate, y = inflation)) +
+  geom_path() +
+  theme_minimal() +
+  labs(x = "Unemployment rate",
+       y = "Inflation",
+       caption = "Data source: World Bank.")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/phillipsmyboy-1.png" alt="Phillips curve for the US (1960-2020)" width="672" />
+<p class="caption">(\#fig:phillipsmyboy)Phillips curve for the US (1960-2020)</p>
+</div>
 
 
 ### Histograms
@@ -896,9 +940,9 @@ A histogram is useful to show the shape of a continuous variable and works by co
 
 
 ```r
-inflation_and_gdp |> 
+world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram()
 ```
 
@@ -911,9 +955,9 @@ And again we can add a theme and labels (Figure \@ref(fig:hisogramtwo).
 
 
 ```r
-inflation_and_gdp |> 
+world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram() +
   theme_minimal() +
   labs(x = "GDP",
@@ -921,6 +965,8 @@ inflation_and_gdp |>
        caption = "Data source: World Bank.")
 #> `stat_bin()` using `bins = 30`. Pick better value with
 #> `binwidth`.
+#> Warning: Removed 1 rows containing non-finite values
+#> (stat_bin).
 ```
 
 <div class="figure">
@@ -934,9 +980,9 @@ The key component determining the shape of a histogram is the number of bins. Th
 ```r
 
 twobins <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(bins = 2) +
   theme_minimal() +
   labs(x = "GDP",
@@ -944,9 +990,9 @@ twobins <-
        caption = "Data source: World Bank.")
 
 fivebins <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(bins = 5) +
   theme_minimal() +
   labs(x = "GDP",
@@ -954,9 +1000,9 @@ fivebins <-
        caption = "Data source: World Bank.")
 
 twentybins <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(bins = 20) +
   theme_minimal() +
   labs(x = "GDP",
@@ -964,9 +1010,9 @@ twentybins <-
        caption = "Data source: World Bank.")
 
 halfbinwidth <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(binwidth = 0.5) +
   theme_minimal() +
   labs(x = "GDP",
@@ -974,9 +1020,9 @@ halfbinwidth <-
        caption = "Data source: World Bank.")
 
 twobinwidth <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(binwidth = 2) +
   theme_minimal() +
   labs(x = "GDP",
@@ -984,9 +1030,9 @@ twobinwidth <-
        caption = "Data source: World Bank.")
 
 fivebinwidth <- 
-  inflation_and_gdp |> 
+  world_bank_data |> 
   filter(country == "United States") |> 
-  ggplot(mapping = aes(x = gdp)) +
+  ggplot(mapping = aes(x = gdp_growth)) +
   geom_histogram(binwidth = 5) +
   theme_minimal() +
   labs(x = "GDP",
@@ -1007,8 +1053,8 @@ Finally, while we can use 'fill' to distinguish between different types of obser
 
 
 ```r
-inflation_and_gdp |> 
-  ggplot(mapping = aes(x = gdp, color = country)) +
+world_bank_data |> 
+  ggplot(mapping = aes(x = gdp_growth, color = country)) +
   geom_freqpoly() +
   theme_minimal() +
   labs(x = "GDP",
@@ -1026,8 +1072,8 @@ inflation_and_gdp |>
 
 
 ```r
-inflation_and_gdp |> 
-  ggplot(mapping = aes(x = gdp, group = country, fill = country)) +
+world_bank_data |> 
+  ggplot(mapping = aes(x = gdp_growth, group = country, fill = country)) +
   geom_dotplot(method = 'histodot', alpha = 0.4) +
   theme_minimal() +
   labs(x = "GDP",
@@ -1151,81 +1197,82 @@ We will illustrate showing part of a dataset using `kable()` from `knitr` and dr
 
 ```r
 library(knitr)
-head(inflation_and_gdp)
-#> # A tibble: 6 × 4
-#>   country    year inflation   gdp
-#>   <chr>     <dbl>     <dbl> <dbl>
-#> 1 Australia  1961     2.29   2.48
-#> 2 Australia  1962    -0.319  1.29
-#> 3 Australia  1963     0.641  6.21
-#> 4 Australia  1964     2.87   6.98
-#> 5 Australia  1965     3.41   5.98
-#> 6 Australia  1966     3.29   2.38
+head(world_bank_data)
+#> # A tibble: 6 × 6
+#>   country    year inflation gdp_growth population
+#>   <chr>     <dbl>     <dbl>      <dbl>      <dbl>
+#> 1 Australia  1960     3.73       NA      10276477
+#> 2 Australia  1961     2.29        2.48   10483000
+#> 3 Australia  1962    -0.319       1.29   10742000
+#> 4 Australia  1963     0.641       6.21   10950000
+#> 5 Australia  1964     2.87        6.98   11167000
+#> 6 Australia  1965     3.41        5.98   11388000
+#> # … with 1 more variable: unemployment_rate <dbl>
 ```
 
 To begin, we can display the first ten rows with the default `kable()` settings.
 
 
 ```r
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable() 
 ```
 
 
 
-|country   | year|  inflation|      gdp|
-|:---------|----:|----------:|--------:|
-|Australia | 1961|  2.2875817| 2.483271|
-|Australia | 1962| -0.3194888| 1.294468|
-|Australia | 1963|  0.6410256| 6.214949|
-|Australia | 1964|  2.8662420| 6.978540|
-|Australia | 1965|  3.4055728| 5.980893|
-|Australia | 1966|  3.2934132| 2.381966|
-|Australia | 1967|  3.4782609| 6.303650|
-|Australia | 1968|  2.5210084| 5.095103|
-|Australia | 1969|  3.2786885| 7.043526|
-|Australia | 1970|  3.4391534| 7.175782|
+|country   | year|  inflation| gdp_growth| population| unemployment_rate|
+|:---------|----:|----------:|----------:|----------:|-----------------:|
+|Australia | 1960|  3.7288136|         NA|   10276477|                NA|
+|Australia | 1961|  2.2875817|   2.483271|   10483000|                NA|
+|Australia | 1962| -0.3194888|   1.294468|   10742000|                NA|
+|Australia | 1963|  0.6410256|   6.214949|   10950000|                NA|
+|Australia | 1964|  2.8662420|   6.978540|   11167000|                NA|
+|Australia | 1965|  3.4055728|   5.980893|   11388000|                NA|
+|Australia | 1966|  3.2934132|   2.381966|   11651000|                NA|
+|Australia | 1967|  3.4782609|   6.303650|   11799000|                NA|
+|Australia | 1968|  2.5210084|   5.095103|   12009000|                NA|
+|Australia | 1969|  3.2786885|   7.043526|   12263000|                NA|
 
 In order to be able to cross-reference it in text, we need to add a caption with 'caption'. We can also make the column names more information with 'col.names' and specify the number of digits to be displayed (Table \@ref(tab:gdpfirst)).
 
 
 ```r
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable(
-    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
-    col.names = c("Country", "Year", "Inflation", "GDP"),
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP growth", "Population", "Unemployment rate"),
     digits = 1
   )
 ```
 
 
 
-Table: (\#tab:gdpfirst)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+Table: (\#tab:gdpfirst)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US
 
-|Country   | Year| Inflation| GDP|
-|:---------|----:|---------:|---:|
-|Australia | 1961|       2.3| 2.5|
-|Australia | 1962|      -0.3| 1.3|
-|Australia | 1963|       0.6| 6.2|
-|Australia | 1964|       2.9| 7.0|
-|Australia | 1965|       3.4| 6.0|
-|Australia | 1966|       3.3| 2.4|
-|Australia | 1967|       3.5| 6.3|
-|Australia | 1968|       2.5| 5.1|
-|Australia | 1969|       3.3| 7.0|
-|Australia | 1970|       3.4| 7.2|
+|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
+|:---------|----:|---------:|----------:|----------:|-----------------:|
+|Australia | 1960|       3.7|         NA|   10276477|                NA|
+|Australia | 1961|       2.3|        2.5|   10483000|                NA|
+|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
+|Australia | 1963|       0.6|        6.2|   10950000|                NA|
+|Australia | 1964|       2.9|        7.0|   11167000|                NA|
+|Australia | 1965|       3.4|        6.0|   11388000|                NA|
+|Australia | 1966|       3.3|        2.4|   11651000|                NA|
+|Australia | 1967|       3.5|        6.3|   11799000|                NA|
+|Australia | 1968|       2.5|        5.1|   12009000|                NA|
+|Australia | 1969|       3.3|        7.0|   12263000|                NA|
 
 When producing PDFs, the 'booktabs' option makes a host of small changes to the default display and results in tables that look better (Table \@ref(tab:gdpbookdtabs)). When using 'booktabs' we additionally should specify 'linesep' otherwise `kable()` adds a small space every five lines. (None of this will show up for html output.)
 
 
 ```r
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable(
-    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
-    col.names = c("Country", "Year", "Inflation", "GDP"),
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP growth", "Population", "Unemployment rate"),
     digits = 1,
     booktabs = TRUE, 
     linesep = ""
@@ -1234,28 +1281,28 @@ inflation_and_gdp %>%
 
 
 
-Table: (\#tab:gdpbookdtabs)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+Table: (\#tab:gdpbookdtabs)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US
 
-|Country   | Year| Inflation| GDP|
-|:---------|----:|---------:|---:|
-|Australia | 1961|       2.3| 2.5|
-|Australia | 1962|      -0.3| 1.3|
-|Australia | 1963|       0.6| 6.2|
-|Australia | 1964|       2.9| 7.0|
-|Australia | 1965|       3.4| 6.0|
-|Australia | 1966|       3.3| 2.4|
-|Australia | 1967|       3.5| 6.3|
-|Australia | 1968|       2.5| 5.1|
-|Australia | 1969|       3.3| 7.0|
-|Australia | 1970|       3.4| 7.2|
+|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
+|:---------|----:|---------:|----------:|----------:|-----------------:|
+|Australia | 1960|       3.7|         NA|   10276477|                NA|
+|Australia | 1961|       2.3|        2.5|   10483000|                NA|
+|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
+|Australia | 1963|       0.6|        6.2|   10950000|                NA|
+|Australia | 1964|       2.9|        7.0|   11167000|                NA|
+|Australia | 1965|       3.4|        6.0|   11388000|                NA|
+|Australia | 1966|       3.3|        2.4|   11651000|                NA|
+|Australia | 1967|       3.5|        6.3|   11799000|                NA|
+|Australia | 1968|       2.5|        5.1|   12009000|                NA|
+|Australia | 1969|       3.3|        7.0|   12263000|                NA|
 
 
 ```r
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable(
-    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
-    col.names = c("Country", "Year", "Inflation", "GDP"),
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP growth", "Population", "Unemployment rate"),
     digits = 1,
     booktabs = TRUE
   )
@@ -1263,54 +1310,54 @@ inflation_and_gdp %>%
 
 
 
-Table: (\#tab:gdpbookdtabsnolinesep)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+Table: (\#tab:gdpbookdtabsnolinesep)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US
 
-|Country   | Year| Inflation| GDP|
-|:---------|----:|---------:|---:|
-|Australia | 1961|       2.3| 2.5|
-|Australia | 1962|      -0.3| 1.3|
-|Australia | 1963|       0.6| 6.2|
-|Australia | 1964|       2.9| 7.0|
-|Australia | 1965|       3.4| 6.0|
-|Australia | 1966|       3.3| 2.4|
-|Australia | 1967|       3.5| 6.3|
-|Australia | 1968|       2.5| 5.1|
-|Australia | 1969|       3.3| 7.0|
-|Australia | 1970|       3.4| 7.2|
+|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
+|:---------|----:|---------:|----------:|----------:|-----------------:|
+|Australia | 1960|       3.7|         NA|   10276477|                NA|
+|Australia | 1961|       2.3|        2.5|   10483000|                NA|
+|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
+|Australia | 1963|       0.6|        6.2|   10950000|                NA|
+|Australia | 1964|       2.9|        7.0|   11167000|                NA|
+|Australia | 1965|       3.4|        6.0|   11388000|                NA|
+|Australia | 1966|       3.3|        2.4|   11651000|                NA|
+|Australia | 1967|       3.5|        6.3|   11799000|                NA|
+|Australia | 1968|       2.5|        5.1|   12009000|                NA|
+|Australia | 1969|       3.3|        7.0|   12263000|                NA|
 
 
 We can specify the alignment of the columns using a character vector of 'l' (left), 'c' (centre), and 'r' (right) (Table \@ref(tab:gdpalign)). Additionally, (and this is not relevant for this table), we could specify groupings for numbers that are at least one thousand using 'format.args = list(big.mark = ",")'.
 
 
 ```r
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable(
-    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
-    col.names = c("Country", "Year", "Inflation", "GDP"),
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP growth", "Population", "Unemployment rate"),
     digits = 1,
     booktabs = TRUE, 
     linesep = "",
-    align = c('l', 'c', 'c', 'r'),
+    align = c('l', 'l', 'c', 'c', 'r', 'r'),
   )
 ```
 
 
 
-Table: (\#tab:gdpalign)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US
+Table: (\#tab:gdpalign)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US
 
-|Country   | Year | Inflation | GDP|
-|:---------|:----:|:---------:|---:|
-|Australia | 1961 |    2.3    | 2.5|
-|Australia | 1962 |   -0.3    | 1.3|
-|Australia | 1963 |    0.6    | 6.2|
-|Australia | 1964 |    2.9    | 7.0|
-|Australia | 1965 |    3.4    | 6.0|
-|Australia | 1966 |    3.3    | 2.4|
-|Australia | 1967 |    3.5    | 6.3|
-|Australia | 1968 |    2.5    | 5.1|
-|Australia | 1969 |    3.3    | 7.0|
-|Australia | 1970 |    3.4    | 7.2|
+|Country   |Year | Inflation | GDP growth | Population| Unemployment rate|
+|:---------|:----|:---------:|:----------:|----------:|-----------------:|
+|Australia |1960 |    3.7    |     NA     |   10276477|                NA|
+|Australia |1961 |    2.3    |    2.5     |   10483000|                NA|
+|Australia |1962 |   -0.3    |    1.3     |   10742000|                NA|
+|Australia |1963 |    0.6    |    6.2     |   10950000|                NA|
+|Australia |1964 |    2.9    |    7.0     |   11167000|                NA|
+|Australia |1965 |    3.4    |    6.0     |   11388000|                NA|
+|Australia |1966 |    3.3    |    2.4     |   11651000|                NA|
+|Australia |1967 |    3.5    |    6.3     |   11799000|                NA|
+|Australia |1968 |    2.5    |    5.1     |   12009000|                NA|
+|Australia |1969 |    3.3    |    7.0     |   12263000|                NA|
 
 We can use `kableExtra` [@citekableextra] to add extra functionality to `kable`. For instance, we could add a row that groups some of the columns (Table \@ref(tab:gdpalign)).
 
@@ -1318,93 +1365,115 @@ We can use `kableExtra` [@citekableextra] to add extra functionality to `kable`.
 ```r
 library(kableExtra)
 
-inflation_and_gdp %>% 
-  slice(1:10) %>% 
+world_bank_data |> 
+  slice(1:10) |> 
   kable(
-    caption = "First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US",
-    col.names = c("Country", "Year", "Inflation", "GDP"),
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US",
+    col.names = c("Country", "Year", "Inflation", "GDP growth", "Population", "Unemployment rate"),
     digits = 1,
     booktabs = TRUE, 
     linesep = "",
-    align = c('l', 'c', 'c', 'r')
-  ) %>% 
-  add_header_above(c(" " = 2, "Economic variables" = 2))
+    align = c('l', 'l', 'c', 'c', 'r', 'r'),
+  ) |> 
+  add_header_above(c(" " = 2, "Economic indicators" = 4))
 ```
 
 <table>
-<caption>(\#tab:gdpkableextra)First ten rows of a dataset of inflation and GDP for Australia, Ethiopia, India, and the US</caption>
+<caption>(\#tab:gdpkableextra)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
  <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economic variables</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economic indicators</div></th>
 </tr>
   <tr>
    <th style="text-align:left;"> Country </th>
-   <th style="text-align:center;"> Year </th>
+   <th style="text-align:left;"> Year </th>
    <th style="text-align:center;"> Inflation </th>
-   <th style="text-align:right;"> GDP </th>
+   <th style="text-align:center;"> GDP growth </th>
+   <th style="text-align:right;"> Population </th>
+   <th style="text-align:right;"> Unemployment rate </th>
   </tr>
  </thead>
 <tbody>
   <tr>
    <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1961 </td>
+   <td style="text-align:left;"> 1960 </td>
+   <td style="text-align:center;"> 3.7 </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:right;"> 10276477 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1961 </td>
    <td style="text-align:center;"> 2.3 </td>
-   <td style="text-align:right;"> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1962 </td>
-   <td style="text-align:center;"> -0.3 </td>
-   <td style="text-align:right;"> 1.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1963 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:right;"> 6.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1964 </td>
-   <td style="text-align:center;"> 2.9 </td>
-   <td style="text-align:right;"> 7.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1965 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:right;"> 6.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1966 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:right;"> 2.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1967 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:right;"> 6.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1968 </td>
    <td style="text-align:center;"> 2.5 </td>
-   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 10483000 </td>
+   <td style="text-align:right;"> NA </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1969 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:right;"> 7.0 </td>
+   <td style="text-align:left;"> 1962 </td>
+   <td style="text-align:center;"> -0.3 </td>
+   <td style="text-align:center;"> 1.3 </td>
+   <td style="text-align:right;"> 10742000 </td>
+   <td style="text-align:right;"> NA </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Australia </td>
-   <td style="text-align:center;"> 1970 </td>
+   <td style="text-align:left;"> 1963 </td>
+   <td style="text-align:center;"> 0.6 </td>
+   <td style="text-align:center;"> 6.2 </td>
+   <td style="text-align:right;"> 10950000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1964 </td>
+   <td style="text-align:center;"> 2.9 </td>
+   <td style="text-align:center;"> 7.0 </td>
+   <td style="text-align:right;"> 11167000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1965 </td>
    <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:right;"> 7.2 </td>
+   <td style="text-align:center;"> 6.0 </td>
+   <td style="text-align:right;"> 11388000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1966 </td>
+   <td style="text-align:center;"> 3.3 </td>
+   <td style="text-align:center;"> 2.4 </td>
+   <td style="text-align:right;"> 11651000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1967 </td>
+   <td style="text-align:center;"> 3.5 </td>
+   <td style="text-align:center;"> 6.3 </td>
+   <td style="text-align:right;"> 11799000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1968 </td>
+   <td style="text-align:center;"> 2.5 </td>
+   <td style="text-align:center;"> 5.1 </td>
+   <td style="text-align:right;"> 12009000 </td>
+   <td style="text-align:right;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:left;"> 1969 </td>
+   <td style="text-align:center;"> 3.3 </td>
+   <td style="text-align:center;"> 7.0 </td>
+   <td style="text-align:right;"> 12263000 </td>
+   <td style="text-align:right;"> NA </td>
   </tr>
 </tbody>
 </table>
@@ -1418,7 +1487,7 @@ We can use `datasummary()` from `modelsummary` to create tables of summary stati
 ```r
 library(modelsummary)
 
-inflation_and_gdp %>% 
+world_bank_data |> 
   datasummary_skim()
 ```
 
@@ -1439,12 +1508,12 @@ inflation_and_gdp %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 60 </td>
+   <td style="text-align:right;"> 61 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1992.2 </td>
-   <td style="text-align:right;"> 16.9 </td>
-   <td style="text-align:right;"> 1961.0 </td>
-   <td style="text-align:right;"> 1993.0 </td>
+   <td style="text-align:right;"> 1990.0 </td>
+   <td style="text-align:right;"> 17.6 </td>
+   <td style="text-align:right;"> 1960.0 </td>
+   <td style="text-align:right;"> 1990.0 </td>
    <td style="text-align:right;"> 2020.0 </td>
    <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
     .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
@@ -1455,15 +1524,15 @@ inflation_and_gdp %>%
       stroke-miterlimit: 10.00;
     }
   </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.02" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.79" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.56" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.32" y="5.33" width="3.77" height="6.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.09" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.86" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.62" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.39" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.16" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.92" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.69" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.46" y="3.64" width="3.77" height="8.02" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="3.70" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.48" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.19" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.30" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.70" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.81" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.52" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> inflation </td>
-   <td style="text-align:right;"> 218 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 6.0 </td>
-   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> 238 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 6.3 </td>
    <td style="text-align:right;"> −9.8 </td>
    <td style="text-align:right;"> 4.3 </td>
    <td style="text-align:right;"> 44.4 </td>
@@ -1476,14 +1545,14 @@ inflation_and_gdp %>%
       stroke-miterlimit: 10.00;
     }
   </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.36" width="4.10" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.28" width="4.10" height="0.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.21" width="4.10" height="4.45" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.12" width="4.10" height="0.54" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.077" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.30" width="4.10" height="0.36" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.23" width="4.10" height="0.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.23" width="4.10" height="4.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.02" width="4.10" height="0.64" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.52" width="4.10" height="0.14" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> gdp </td>
-   <td style="text-align:right;"> 218 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 4.1 </td>
+   <td style="text-align:left;"> gdp_growth </td>
+   <td style="text-align:right;"> 220 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 4.2 </td>
    <td style="text-align:right;"> 3.7 </td>
    <td style="text-align:right;"> −11.1 </td>
    <td style="text-align:right;"> 3.9 </td>
@@ -1497,7 +1566,49 @@ inflation_and_gdp %>%
       stroke-miterlimit: 10.00;
     }
   </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.74" width="3.56" height="3.92" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.62" width="3.56" height="4.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> population </td>
+   <td style="text-align:right;"> 244 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 304177482.9 </td>
+   <td style="text-align:right;"> 380093166.9 </td>
+   <td style="text-align:right;"> 10276477.0 </td>
+   <td style="text-align:right;"> 147817291.5 </td>
+   <td style="text-align:right;"> 1380004385.0 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.44" y="3.22" width="6.49" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.93" y="8.22" width="6.49" height="3.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.42" y="10.75" width="6.49" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.91" y="10.88" width="6.49" height="0.78" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.40" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.89" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.38" y="10.82" width="6.49" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
+</td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> unemployment_rate </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 52 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 5.7 </td>
+   <td style="text-align:right;"> 10.9 </td>
+   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.86" y="11.41" width="4.60" height="0.25" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.45" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.05" y="9.43" width="4.60" height="2.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.65" y="7.94" width="4.60" height="3.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.24" y="3.22" width="4.60" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.84" y="6.94" width="4.60" height="4.72" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.03" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.63" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.22" y="11.17" width="4.60" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
 </td>
   </tr>
 </tbody>
@@ -1507,7 +1618,7 @@ By default it summarizes the 'numeric' variables, but we can ask for the 'catego
 
 
 ```r
-inflation_and_gdp %>% 
+world_bank_data |> 
   datasummary_skim(type = "categorical",
                    title = "Summary of categorical variables for the inflation and GDP dataset")
 ```
@@ -1524,23 +1635,23 @@ inflation_and_gdp %>%
 <tbody>
   <tr>
    <td style="text-align:left;"> Australia </td>
-   <td style="text-align:right;"> 60 </td>
-   <td style="text-align:right;"> 27.5 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 25.0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Ethiopia </td>
-   <td style="text-align:right;"> 38 </td>
-   <td style="text-align:right;"> 17.4 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 25.0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> India </td>
-   <td style="text-align:right;"> 60 </td>
-   <td style="text-align:right;"> 27.5 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 25.0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> United States </td>
-   <td style="text-align:right;"> 60 </td>
-   <td style="text-align:right;"> 27.5 </td>
+   <td style="text-align:right;"> 61 </td>
+   <td style="text-align:right;"> 25.0 </td>
   </tr>
 </tbody>
 </table>
@@ -1549,7 +1660,7 @@ We can create a table that shows the correlation between variables using `datasu
 
 
 ```r
-inflation_and_gdp %>% 
+world_bank_data |> 
   datasummary_correlation(
     title = "Correlation between the variables for the inflation and GDP dataset"
     )
@@ -1562,7 +1673,9 @@ inflation_and_gdp %>%
    <th style="text-align:left;">   </th>
    <th style="text-align:right;"> year </th>
    <th style="text-align:right;"> inflation </th>
-   <th style="text-align:right;"> gdp </th>
+   <th style="text-align:right;"> gdp_growth </th>
+   <th style="text-align:right;"> population </th>
+   <th style="text-align:right;"> unemployment_rate </th>
   </tr>
  </thead>
 <tbody>
@@ -1571,17 +1684,39 @@ inflation_and_gdp %>%
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> . </td>
    <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
   </tr>
   <tr>
    <td style="text-align:left;"> inflation </td>
-   <td style="text-align:right;"> −.02 </td>
+   <td style="text-align:right;"> .00 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gdp_growth </td>
+   <td style="text-align:right;"> .10 </td>
+   <td style="text-align:right;"> .00 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> . </td>
+   <td style="text-align:right;"> . </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> population </td>
+   <td style="text-align:right;"> .24 </td>
+   <td style="text-align:right;"> .07 </td>
+   <td style="text-align:right;"> .15 </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> . </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> gdp </td>
-   <td style="text-align:right;"> .10 </td>
-   <td style="text-align:right;"> .00 </td>
+   <td style="text-align:left;"> unemployment_rate </td>
+   <td style="text-align:right;"> −.13 </td>
+   <td style="text-align:right;"> −.14 </td>
+   <td style="text-align:right;"> −.31 </td>
+   <td style="text-align:right;"> −.35 </td>
    <td style="text-align:right;"> 1 </td>
   </tr>
 </tbody>
@@ -1592,7 +1727,7 @@ We typically need a table of descriptive statistics that we could add to our pap
 
 ```r
 datasummary_balance(formula = ~country,
-                    data = inflation_and_gdp,
+                    data = world_bank_data,
                     title = "Descriptive statistics for the inflation and GDP dataset",
                     notes = "Data source: World Bank.")
 ```
@@ -1602,10 +1737,10 @@ datasummary_balance(formula = ~country,
  <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Australia (N=60)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Ethiopia (N=38)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">India (N=60)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">United States (N=60)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Australia (N=61)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Ethiopia (N=61)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">India (N=61)</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">United States (N=61)</div></th>
 </tr>
   <tr>
    <th style="text-align:left;">   </th>
@@ -1622,36 +1757,58 @@ datasummary_balance(formula = ~country,
 <tbody>
   <tr>
    <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 1990.5 </td>
-   <td style="text-align:right;"> 17.5 </td>
-   <td style="text-align:right;"> 2000.5 </td>
-   <td style="text-align:right;"> 11.1 </td>
-   <td style="text-align:right;"> 1990.5 </td>
-   <td style="text-align:right;"> 17.5 </td>
-   <td style="text-align:right;"> 1990.5 </td>
-   <td style="text-align:right;"> 17.5 </td>
+   <td style="text-align:right;"> 1990.0 </td>
+   <td style="text-align:right;"> 17.8 </td>
+   <td style="text-align:right;"> 1990.0 </td>
+   <td style="text-align:right;"> 17.8 </td>
+   <td style="text-align:right;"> 1990.0 </td>
+   <td style="text-align:right;"> 17.8 </td>
+   <td style="text-align:right;"> 1990.0 </td>
+   <td style="text-align:right;"> 17.8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> inflation </td>
    <td style="text-align:right;"> 4.7 </td>
    <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:right;"> 9.4 </td>
-   <td style="text-align:right;"> 11.1 </td>
-   <td style="text-align:right;"> 7.5 </td>
-   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 8.7 </td>
+   <td style="text-align:right;"> 10.4 </td>
+   <td style="text-align:right;"> 7.4 </td>
+   <td style="text-align:right;"> 5.0 </td>
    <td style="text-align:right;"> 3.7 </td>
    <td style="text-align:right;"> 2.8 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> gdp </td>
+   <td style="text-align:left;"> gdp_growth </td>
    <td style="text-align:right;"> 3.4 </td>
    <td style="text-align:right;"> 1.8 </td>
    <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 6.4 </td>
    <td style="text-align:right;"> 5.0 </td>
    <td style="text-align:right;"> 3.3 </td>
    <td style="text-align:right;"> 2.9 </td>
    <td style="text-align:right;"> 2.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> population </td>
+   <td style="text-align:right;"> 17244215.9 </td>
+   <td style="text-align:right;"> 4328625.6 </td>
+   <td style="text-align:right;"> 55662437.9 </td>
+   <td style="text-align:right;"> 27626912.1 </td>
+   <td style="text-align:right;"> 888774544.9 </td>
+   <td style="text-align:right;"> 292997809.4 </td>
+   <td style="text-align:right;"> 255028733.1 </td>
+   <td style="text-align:right;"> 45603604.8 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> unemployment_rate </td>
+   <td style="text-align:right;"> 6.8 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 0.9 </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1.6 </td>
   </tr>
 </tbody>
 <tfoot><tr><td style="padding: 0; " colspan="100%">
@@ -1668,8 +1825,8 @@ Finally, one common reason for needing a table is to report regression results. 
 
 
 ```r
-first_model <- lm(formula = gdp ~ inflation, 
-                  data = inflation_and_gdp)
+first_model <- lm(formula = gdp_growth ~ inflation, 
+                  data = world_bank_data)
 
 modelsummary(first_model)
 ```
@@ -1733,13 +1890,19 @@ We can put a variety of different of different models together (Table \@ref(tab:
 
 
 ```r
-second_model <- lm(formula = gdp ~ inflation + country, 
-                  data = inflation_and_gdp,
+second_model <- lm(formula = gdp_growth ~ inflation + country, 
+                  data = world_bank_data,
                   title = "Explaining GDP as a function of inflation")
 #> Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
 #>  extra argument 'title' will be disregarded
 
-modelsummary(list(first_model, second_model))
+third_model <- lm(formula = gdp_growth ~ inflation + country + population, 
+                  data = world_bank_data,
+                  title = "Explaining GDP as a function of inflation")
+#> Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
+#>  extra argument 'title' will be disregarded
+
+modelsummary(list(first_model, second_model, third_model))
 ```
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1748,6 +1911,7 @@ modelsummary(list(first_model, second_model))
    <th style="text-align:left;">   </th>
    <th style="text-align:center;"> Model 1 </th>
    <th style="text-align:center;"> Model 2 </th>
+   <th style="text-align:center;"> Model 3 </th>
   </tr>
  </thead>
 <tbody>
@@ -1755,19 +1919,23 @@ modelsummary(list(first_model, second_model))
    <td style="text-align:left;"> (Intercept) </td>
    <td style="text-align:center;"> 4.157 </td>
    <td style="text-align:center;"> 3.728 </td>
+   <td style="text-align:center;"> 3.668 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;"> (0.352) </td>
    <td style="text-align:center;"> (0.495) </td>
+   <td style="text-align:center;"> (0.494) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> inflation </td>
    <td style="text-align:center;"> −0.002 </td>
    <td style="text-align:center;"> −0.075 </td>
+   <td style="text-align:center;"> −0.072 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.041) </td>
    <td style="text-align:center;"> (0.041) </td>
    <td style="text-align:center;"> (0.041) </td>
   </tr>
@@ -1775,34 +1943,53 @@ modelsummary(list(first_model, second_model))
    <td style="text-align:left;"> countryEthiopia </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> 2.872 </td>
+   <td style="text-align:center;"> 2.716 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> (0.757) </td>
+   <td style="text-align:center;"> (0.758) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> countryIndia </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> 1.854 </td>
+   <td style="text-align:center;"> −0.561 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> (0.655) </td>
+   <td style="text-align:center;"> (1.520) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> countryUnited States </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> −0.524 </td>
+   <td style="text-align:center;"> −1.176 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.646) </td>
+   <td style="text-align:center;"> (0.742) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> population </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 0.000 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px">  </td>
    <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.646) </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.000) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 218 </td>
    <td style="text-align:center;"> 218 </td>
    <td style="text-align:center;"> 218 </td>
   </tr>
@@ -1810,31 +1997,37 @@ modelsummary(list(first_model, second_model))
    <td style="text-align:left;"> R2 </td>
    <td style="text-align:center;"> 0.000 </td>
    <td style="text-align:center;"> 0.110 </td>
+   <td style="text-align:center;"> 0.123 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R2 Adj. </td>
    <td style="text-align:center;"> −0.005 </td>
    <td style="text-align:center;"> 0.093 </td>
+   <td style="text-align:center;"> 0.102 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> AIC </td>
    <td style="text-align:center;"> 1195.1 </td>
    <td style="text-align:center;"> 1175.7 </td>
+   <td style="text-align:center;"> 1174.5 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> BIC </td>
    <td style="text-align:center;"> 1205.3 </td>
    <td style="text-align:center;"> 1196.0 </td>
+   <td style="text-align:center;"> 1198.2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
    <td style="text-align:center;"> −594.554 </td>
    <td style="text-align:center;"> −581.844 </td>
+   <td style="text-align:center;"> −580.266 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
    <td style="text-align:center;"> 0.002 </td>
    <td style="text-align:center;"> 6.587 </td>
+   <td style="text-align:center;"> 5.939 </td>
   </tr>
 </tbody>
 </table>
@@ -1844,10 +2037,7 @@ We can adjust the number of significant digits (Table \@ref(tab:twomodelstwo)).
 
 
 ```r
-second_model <- lm(formula = gdp ~ inflation + country, 
-                  data = inflation_and_gdp)
-
-modelsummary(list(first_model, second_model),
+modelsummary(list(first_model, second_model, third_model),
              fmt = 1,
              title = "Two models of GDP as a function of inflation")
 ```
@@ -1859,6 +2049,7 @@ modelsummary(list(first_model, second_model),
    <th style="text-align:left;">   </th>
    <th style="text-align:center;"> Model 1 </th>
    <th style="text-align:center;"> Model 2 </th>
+   <th style="text-align:center;"> Model 3 </th>
   </tr>
  </thead>
 <tbody>
@@ -1866,19 +2057,23 @@ modelsummary(list(first_model, second_model),
    <td style="text-align:left;"> (Intercept) </td>
    <td style="text-align:center;"> 4.2 </td>
    <td style="text-align:center;"> 3.7 </td>
+   <td style="text-align:center;"> 3.7 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;"> (0.4) </td>
+   <td style="text-align:center;"> (0.5) </td>
    <td style="text-align:center;"> (0.5) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> inflation </td>
    <td style="text-align:center;"> 0.0 </td>
    <td style="text-align:center;"> −0.1 </td>
+   <td style="text-align:center;"> −0.1 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.0) </td>
    <td style="text-align:center;"> (0.0) </td>
    <td style="text-align:center;"> (0.0) </td>
   </tr>
@@ -1886,34 +2081,53 @@ modelsummary(list(first_model, second_model),
    <td style="text-align:left;"> countryEthiopia </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> 2.9 </td>
+   <td style="text-align:center;"> 2.7 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.8) </td>
    <td style="text-align:center;"> (0.8) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> countryIndia </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> 1.9 </td>
+   <td style="text-align:center;"> −0.6 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> (0.7) </td>
+   <td style="text-align:center;"> (1.5) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> countryUnited States </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;"> −0.5 </td>
+   <td style="text-align:center;"> −1.2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (0.6) </td>
+   <td style="text-align:center;"> (0.7) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> population </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 0.0 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px">  </td>
    <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.6) </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.0) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 218 </td>
    <td style="text-align:center;"> 218 </td>
    <td style="text-align:center;"> 218 </td>
   </tr>
@@ -1921,31 +2135,37 @@ modelsummary(list(first_model, second_model),
    <td style="text-align:left;"> R2 </td>
    <td style="text-align:center;"> 0.000 </td>
    <td style="text-align:center;"> 0.110 </td>
+   <td style="text-align:center;"> 0.123 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R2 Adj. </td>
    <td style="text-align:center;"> −0.005 </td>
    <td style="text-align:center;"> 0.093 </td>
+   <td style="text-align:center;"> 0.102 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> AIC </td>
    <td style="text-align:center;"> 1195.1 </td>
    <td style="text-align:center;"> 1175.7 </td>
+   <td style="text-align:center;"> 1174.5 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> BIC </td>
    <td style="text-align:center;"> 1205.3 </td>
    <td style="text-align:center;"> 1196.0 </td>
+   <td style="text-align:center;"> 1198.2 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
    <td style="text-align:center;"> −594.554 </td>
    <td style="text-align:center;"> −581.844 </td>
+   <td style="text-align:center;"> −580.266 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
    <td style="text-align:center;"> 0.002 </td>
    <td style="text-align:center;"> 6.587 </td>
+   <td style="text-align:center;"> 5.939 </td>
   </tr>
 </tbody>
 </table>
@@ -2148,7 +2368,7 @@ Finally, the reason that we used Stamen Maps and OpenStreetMap is because it is 
 
 ### Toronto bike parking
 
-Let us see another example of a static map, this time using Toronto data accessed using `opendatatoronto` [@citesharla]. The dataset that we are going to plot is available here: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
+Let us see another example of a static map, this time using Toronto data accessed using `opendatatoronto` [@citeSharla]. The dataset that we are going to plot is available here: https://open.toronto.ca/dataset/street-furniture-bicycle-parking/.
 
 
 
@@ -2333,5 +2553,8 @@ tidygeocoder::geo(city = some_locations$city,
 
 ### Tutorial
 
-Discuss, in a page or two, the layered grammar of @wickham2010layered and how it relates to telling stories with data.
+Using R Markdown, please create a graph using `ggplot2` and a map using `ggmap` and add explanatory text to accompany both. This should take one or two pages for each of them.
 
+For the graph, please reflect on @vanderplas2020testing and add a few paragraphs about the different options that you considered that the graph more effective. 
+
+For the map, please reflect on the following quote from Heather Krause: 'maps only show people who aren't invisible to the makers' as well as Chapter 3 from @datafeminism2020 and add a few paragraphs related to this.

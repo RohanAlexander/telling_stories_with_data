@@ -258,15 +258,15 @@ Figure 15.1: Oh my.
 <span class="math display">\[y = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}z^2},\]</span>
 where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> measures the number of standard deviations from the mean <span class="math inline">\(\mu\)</span> to the number <span class="math inline">\(x\)</span>.’</p>
 <p>In <code>R</code> we can simulate <span class="math inline">\(n\)</span> data points from the Normal distribution with <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>.</p>
-<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt;  [1]  1.30390185 -0.57971314  0.47583106  0.64960880</span>
-<span class="co">#&gt;  [5]  0.90718191 -1.21948537  0.05728394 -0.79357293</span>
-<span class="co">#&gt;  [9]  0.33521998  0.37754841  0.90396023  0.34586007</span>
-<span class="co">#&gt; [13]  0.48281331 -1.25752368  0.90135088 -0.02387759</span>
-<span class="co">#&gt; [17] -1.15738497  0.81156460 -1.14854259 -1.33486709</span></code></pre></div>
+<span class="co">#&gt;  [1]  0.70483375 -0.78710619 -1.16119072  0.06407191</span>
+<span class="co">#&gt;  [5] -0.78604673  1.65060856 -0.75458355 -1.14082399</span>
+<span class="co">#&gt;  [9] -0.77394297  0.50279475  1.27673691  0.12028022</span>
+<span class="co">#&gt; [13] -0.42445330  0.73184135 -0.72235213  2.43930802</span>
+<span class="co">#&gt; [17]  0.51894544  1.17340033  1.40809662  1.33646474</span></code></pre></div>
 <p>It will take a few draws before we get the expected shape.</p>
-<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
@@ -308,7 +308,7 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> measures the num
 <span class="math display">\[\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x.\]</span></p>
 <p>The hats are used to indicate that these are estimated values. We are saying this is a linear regression because we assume that if <span class="math inline">\(x\)</span> doubles then <span class="math inline">\(y\)</span> would also double. Linear regressions considers how the average of a dependent variable changes based on the independent variables.</p>
 <p>I want to focus on data, so we’ll make this example concrete, by generating some data and then discussing everything in the context of that. The example will be looking at someone’s time for running five kilometers, compared with their time for running a marathon.</p>
-<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">number_of_observations</span> <span class="op">&lt;-</span> <span class="fl">100</span>
 <span class="va">running_data</span> <span class="op">&lt;-</span> 
@@ -335,7 +335,7 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> measures the num
 <p>The residual sum of squares (RSS) then requires summing across all the points:
 <span class="math display">\[\mbox{RSS} = e^2_1+ e^2_2 +\dots + e^2_n.\]</span>
 This results in one ‘linear best-fit’ line, but it is worth thinking about all of the assumptions and decisions that it took to get us to this point.</p>
-<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -355,15 +355,15 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <span class="header-section-number">15.2.2</span> Implementation in base R<a class="anchor" aria-label="anchor" href="#implementation-in-base-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>Within R, the main function for doing linear regression is <code>lm</code>. This is included in base R, so you don’t need to call any packages, but in a moment, we will call a bunch of packages that will surround <code>lm</code> within an environment that we are more familiar with. You specify the relationship with the dependent variable first, then <code>~</code>, then the independent variables. Finally, you should specify the dataset (or you could pipe to it as usual).</p>
-<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">dataset</span><span class="op">)</span></code></pre></div>
 <p>In general, you should assign this to an object:</p>
-<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data_first_model</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">marathon_time</span> <span class="op">~</span> <span class="va">five_km_time</span>, 
      data <span class="op">=</span> <span class="va">running_data</span><span class="op">)</span></code></pre></div>
 <p>To see the result of your regression you can then call <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
-<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">running_data_first_model</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
@@ -404,7 +404,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <li>
 <code><a href="https://generics.r-lib.org/reference/augment.html">broom::augment()</a></code>: Adds the forecast values, and hence, residuals, to your dataset.</li>
 </ul>
-<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">running_data_first_model</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 × 5</span>
@@ -421,7 +421,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <span class="co">#&gt; #   BIC &lt;dbl&gt;, deviance &lt;dbl&gt;, df.residual &lt;int&gt;,</span>
 <span class="co">#&gt; #   nobs &lt;int&gt;</span></code></pre></div>
 <p>Notice how the results are fairly similar to the base summary function.</p>
-<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">running_data_first_model</span>,
           data <span class="op">=</span> <span class="va">running_data</span><span class="op">)</span>
@@ -438,7 +438,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <span class="co">#&gt; # … with 5 more variables: .resid &lt;dbl&gt;, .hat &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;</span></code></pre></div>
 <p>We could now make plots of the residuals.</p>
-<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">running_data</span>, 
        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
@@ -446,7 +446,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Number of occurrences"</span>,
        x <span class="op">=</span> <span class="st">"Residuals"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="41-ijalm_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
-<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">running_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">five_km_time</span>, <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -458,7 +458,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
 <p>When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. (A pro hockey player may sometimes shoot right of the net, and sometimes left of the net, but we’d hope that on average they’d be right in the middle of the net). In the words of <span class="citation"><a href="references-1.html#ref-islr" role="doc-biblioref">James et al.</a> (<a href="references-1.html#ref-islr" role="doc-biblioref">2017</a>)</span>, ‘an unbiased estimator does not systematically over- or under-estimate the true parameter.’</p>
 <p>But we want to try to speak to the ‘true’ relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyse. And this is where standard error comes in. It tells us how off our estimate is compared with the actual.</p>
 <p>From standard errors, we can compute a confidence interval. A 95 per cent confidence interval means that there is a 0.95 probability that the interval happens to contain the population parameter (which is typically unknown).</p>
-<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -472,7 +472,7 @@ This results in one ‘linear best-fit’ line, but it is worth thinking about a
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="41-ijalm_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>There are a bunch of different tests that you can use to understand how your model is performing given this data. One quick way to look at a whole bunch of different aspects is to use the <code>performance</code> package <span class="citation">(<a href="references-1.html#ref-citePerformance" role="doc-biblioref">Lüdecke et al. 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/performance/">performance</a></span><span class="op">)</span>
 <span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">running_data_first_model</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="41-ijalm_files/figure-html/unnamed-chunk-12-1.png" width="672"></div>
@@ -518,7 +518,7 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 </blockquote>
 <p>We may also like to consider variables that do not have an inherent ordering. For instance, pregnant or not. When there are only two options then we can use a binary variable which is 0 or 1. If there are more than two levels then use a combination of binary variables, where the ‘missing’ outcome (baseline) gets pushed onto the intercept.</p>
 <p>In other languages you may need to explicitly construct dummy variables, but as R was designed as a language to do statistical programming, it does a lot of the work here for you and is fairly forgiving. For instance, if you have a column of character values that only had two values: <code>c("Monica", "Rohan", "Rohan", "Monica", "Monica", "Rohan")</code>, and you used this as a independent variable in your usual regression set up then R would treat it as a dummy variable.</p>
-<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data_rain_model</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">marathon_time</span> <span class="op">~</span> <span class="va">five_km_time</span> <span class="op">+</span> <span class="va">was_raining</span>, 
      data <span class="op">=</span> <span class="va">running_data</span><span class="op">)</span>
@@ -544,7 +544,7 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 <span class="co">#&gt; Multiple R-squared:  0.8842, Adjusted R-squared:  0.8818 </span>
 <span class="co">#&gt; F-statistic: 370.4 on 2 and 97 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
 <p>The result probably isn’t too surprising if we look at a plot of the data.</p>
-<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span>, color <span class="op">=</span> <span class="va">was_raining</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -590,7 +590,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <span class="header-section-number">15.3.2</span> More credible outputs<a class="anchor" aria-label="anchor" href="#more-credible-outputs"><i class="fas fa-link"></i></a>
 </h3>
 <p>Finally, after creating beautiful graphs and tables you may want your regression output to look just as nice. There are a variety of packages in R that will automatically format your regression outputs. One that is particularly nice is <code>huxtable</code> <span class="citation">(<a href="references-1.html#ref-citehuxtable" role="doc-biblioref">Hugh-Jones 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hughjonesd.github.io/huxtable/">huxtable</a></span><span class="op">)</span>
 <span class="fu"><a href="https://hughjonesd.github.io/huxtable/reference/huxreg.html">huxreg</a></span><span class="op">(</span><span class="va">running_data_first_model</span>, <span class="va">running_data_rain_model</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
@@ -664,7 +664,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <p>The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There’s nothing wrong with that. And that’s the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.</p>
 <p>The <code>tidymodels</code> package <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> is what all the cool kids are using these days. It’s an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they’ve crashed and burned, but hopefully this time is different.) The issue is that let’s say you want to run a simple linear regression and then run a random forest. The language that you’d use to code these models is fairly different. The <code>tidymodels</code> package is the latest attempt to bring a coherent grammar to this. It’s also a package of packages.</p>
 <p>We’ll create test and training datasets.</p>
-<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
 
@@ -674,11 +674,11 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <span class="co">#&gt; &lt;80/20/100&gt;</span></code></pre></div>
 <p>So we have 81 points in our training set, 19 in our test set and 100 in total.</p>
 <p>We can then make datasets for the test and training samples.</p>
-<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data_train</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">training</a></span><span class="op">(</span><span class="va">running_data_split</span><span class="op">)</span>
 <span class="va">running_data_test</span>  <span class="op">&lt;-</span>  <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html">testing</a></span><span class="op">(</span><span class="va">running_data_split</span><span class="op">)</span></code></pre></div>
 <p>If we have a look at the dataset that we made we can see that it’s got fewer rows. We could have reached the same outcome with something like:</p>
-<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">running_data</span> <span class="op">&lt;-</span> 
   <span class="va">running_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://hughjonesd.github.io/huxtable/reference/dplyr-verbs.html">mutate</a></span><span class="op">(</span>magic_number <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">running_data</span><span class="op">)</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">running_data</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
@@ -690,7 +690,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <span class="va">running_data_train</span> <span class="op">&lt;-</span> 
   <span class="va">running_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">magic_number</span> <span class="op">&gt;</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_go</span> <span class="op">&lt;-</span> 
   <span class="fu">parsnip</span><span class="fu">::</span><span class="fu"><a href="https://parsnip.tidymodels.org/reference/linear_reg.html">linear_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu">parsnip</span><span class="fu">::</span><span class="fu"><a href="https://parsnip.tidymodels.org/reference/set_engine.html">set_engine</a></span><span class="op">(</span>engine <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -704,7 +704,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 </h3>
 <p>The <code>tidymodels</code> package will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That’s the kind of thing that <code>tidymodels</code> is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the <code>tidymodels</code> ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.</p>
 <p>There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to <code>R</code>, which is designed for more general statistical computing. We will use <code>Stan</code> in these notes within the context of our familiar R environment. We will interface with <code>Stan</code> using the <code>rstanarm</code> package <span class="citation">(<a href="references-1.html#ref-citerstanarm" role="doc-biblioref">Goodrich et al. 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span>
 
 <span class="va">first_go_in_rstanarm</span> <span class="op">&lt;-</span>
@@ -714,7 +714,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
     prior <span class="op">=</span> <span class="cn">NULL</span>,
     seed <span class="op">=</span> <span class="fl">853</span>
   <span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_go_in_rstanarm</span>
 <span class="co">#&gt; stan_lm</span>
 <span class="co">#&gt;  family:       gaussian [identity]</span>
@@ -803,7 +803,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <span class="header-section-number">15.4.2</span> Implementation in base<a class="anchor" aria-label="anchor" href="#implementation-in-base"><i class="fas fa-link"></i></a>
 </h3>
 <p>I’d like to consider a slightly more interesting example, which is a dataset of pearl jewellery, from the Australian retailer Paspaley.</p>
-<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv"</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 1289 Columns: 13</span>
 <span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
@@ -820,7 +820,7 @@ Figure 15.2: Don’t leave out the main effects in an interactive model
 <span class="co">#&gt;       Other    Platinum   Rose gold  White gold Yellow gold </span>
 <span class="co">#&gt;         134          23          89         475         568</span></code></pre></div>
 <p>In this case we’ll model whether some jewellery is made of white or yellow gold, based on their price and the year (Figure <a href="ijalm.html#fig:logisticgraph">15.3</a>).</p>
-<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_logistic_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">paspaley_dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">metal</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'White gold'</span>, <span class="st">'Yellow gold'</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -832,12 +832,12 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 </p>
 </div>
 <p>The graph suggests that we should filter any price higher than $100,000.</p>
-<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_logistic_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">paspaley_logistic_dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">&lt;</span> <span class="fl">100000</span><span class="op">)</span></code></pre></div>
 <p>As with linear regression, logistic regression is built into R, with the <code>glm</code> function. In this case, we’ll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we’ll change it to a binary, that will be 1 if white gold and 0 if not.</p>
-<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_logistic_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">paspaley_logistic_dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://hughjonesd.github.io/huxtable/reference/dplyr-verbs.html">mutate</a></span><span class="op">(</span>is_white_gold <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">metal</span> <span class="op">==</span> <span class="st">"White gold"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
@@ -874,7 +874,7 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Number of Fisher Scoring iterations: 4</span></code></pre></div>
 <p>One reason that logistic regression can be a bit of a pain initially is because the coefficients take a bit of work to interpret. In particular, our estimate on price is -3.170e-06. This is the odds. So the odds that it was white gold decrease by -3.170e-06 as the price increases. We can have our model make forecasts in terms of a probability, by asking for that.</p>
-<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_logistic_dataset</span> <span class="op">&lt;-</span> 
   <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">white_gold_model</span>,
           data <span class="op">=</span> <span class="va">paspaley_logistic_dataset</span>,
@@ -987,7 +987,7 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <!-- https://meghan.rbind.io/post/tidymodels-intro/ -->
 <!-- https://alison.rbind.io/post/2020-02-27-better-tidymodels/#tidymodels-101 -->
 <p>We can use <code>tidymodels</code> to run this if we wanted. In this case, we need it as a factor.</p>
-<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">paspaley_logistic_dataset</span> <span class="op">&lt;-</span> 
@@ -1007,7 +1007,7 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <span class="va">white_gold_model_tidymodels</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  2ms </span>
+<span class="co">#&gt; Fit time:  3ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, </span>
 <span class="co">#&gt;     data = data)</span>
@@ -1024,7 +1024,7 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <h3>
 <span class="header-section-number">15.4.4</span> Implementation in <code>rstanarm</code><a class="anchor" aria-label="anchor" href="#implementation-in-rstanarm-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">paspaley_in_rstanarm</span> <span class="op">&lt;-</span>
   <span class="fu">rstanarm</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span>
     <span class="va">is_white_gold</span> <span class="op">~</span> <span class="va">price</span> <span class="op">+</span> <span class="va">year</span>,
@@ -1046,11 +1046,11 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <p>When we have count data, we use Poisson distribution. From <span class="citation"><a href="references-1.html#ref-pitman" role="doc-biblioref">Pitman</a> (<a href="references-1.html#ref-pitman" role="doc-biblioref">1993, 121</a>)</span> ’The Poisson distribution with parameter <span class="math inline">\(\mu\)</span> or Poisson (<span class="math inline">\(\mu\)</span>) distribution is the distribution of probabilities <span class="math inline">\(P_{\mu}(k)\)</span> over <span class="math inline">\({0, 1, 2, ...}\)</span> defined by:
 <span class="math display">\[P_{\mu}(k) = e^{-\mu}\mu^k/k!\mbox{, for }k=0,1,2,...\]</span>
 We can simulate <span class="math inline">\(n\)</span> data points from the Poisson distribution with <code><a href="https://rdrr.io/r/stats/Poisson.html">rpois()</a></code> where <span class="math inline">\(\lambda\)</span> is the mean and the variance.</p>
-<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span>, lambda <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt;  [1] 2 2 3 4 2 2 4 2 4 1 3 2 3 3 2 2 0 1 2 1</span></code></pre></div>
 <p>That <span class="math inline">\(\lambda\)</span> parameter governs the shape of the distribution.</p>
-<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">number_of_each</span> <span class="op">&lt;-</span> <span class="fl">1000</span>
 <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>lambda <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">number_of_each</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">number_of_each</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>, <span class="va">number_of_each</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">5</span>, <span class="va">number_of_each</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="va">number_of_each</span><span class="op">)</span><span class="op">)</span>,
@@ -1061,7 +1061,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="41-ijalm_files/figure-html/unnamed-chunk-29-1.png" width="672"></div>
 <p>For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.</p>
-<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">count_of_A_plus</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span> 
@@ -1081,7 +1081,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <h3>
 <span class="header-section-number">15.5.2</span> Implementation in base<a class="anchor" aria-label="anchor" href="#implementation-in-base-1"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">grades_model</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">number_of_A_plus</span> <span class="op">~</span> <span class="va">department</span>, 
     data <span class="op">=</span> <span class="va">count_of_A_plus</span>, 
@@ -1118,7 +1118,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <span class="header-section-number">15.5.3</span> Implementation in <code>tidymodels</code><a class="anchor" aria-label="anchor" href="#implementation-in-tidymodels-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use <code>tidymodels</code> to run this if we wanted although we first need to install a helper package <code>poissonreg</code>.</p>
-<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("poissonreg")</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -1136,7 +1136,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <span class="va">a_plus_model_tidymodels</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  2ms </span>
+<span class="co">#&gt; Fit time:  3ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, </span>
 <span class="co">#&gt;     data = data)</span>
@@ -1231,7 +1231,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 18 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
