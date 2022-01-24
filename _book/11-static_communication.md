@@ -97,11 +97,11 @@
 
 When telling stories with data, we are trying to allow the data to convince our reader of something. The paper is the medium, and the data are the message. To that end, we want to try to show our reader the data that allowed us to come to our understanding of the story. We use graphs, tables, and maps to help achieve this. 
 
-In the first instance, we must show the actual data that underpin our analysis, or as close to it as we can. For instance, if our dataset consists of 2,500 responses to a survey, then at some point in our paper we would expect a graph that contains 2,500 points or sums to 2,500. To do this we build graphs using `ggplot2` [@citeggplot]. We will go through a variety of different options here including bar charts, Scatterplots, histograms, and line charts.
+In the first instance, we must show the actual data that underpin our analysis, or as close to it as we can. For instance, if our dataset consists of 2,500 responses to a survey, then at some point in our paper we would expect a graph that contains 2,500 points or sums to 2,500. To do this we build graphs using `ggplot2` [@citeggplot]. We will go through a variety of different options here including bar charts, scatterplots, histograms, and line charts.
 
 In contrast to the role of graphs, which is to show the actual data, or as close to it as possible, the role of tables is typically to convey various summary statistics. We will build tables using `knitr` [@citeknitr] and `kableExtra` [@citekableextra] in the first instance, and then `gt` [@citegt] and `modelsummary` [@citemodelsummary]. 
 
-Finally, we will cover maps as a variant of graphs that are used to show a particular type of data. We will build static maps using `ggmap` [@KahleWickham2013], having obtained the geocoded data that we need using `tidygeocoder` [@citetidygeocoder].
+Finally, we cover maps as a variant of graphs that are used to show a particular type of data. We will build static maps using `ggmap` [@KahleWickham2013], having obtained the geocoded data that we need using `tidygeocoder` [@citetidygeocoder].
 
 
 ## Graphs
@@ -204,7 +204,7 @@ datasaurus_dozen |>
 <p class="caption">(\#fig:datasaurusgraph)Graph of four 'datasaurus' datasets</p>
 </div>
 
-This is a modern version of a famous plot 'Anscombe's Quartet'. That plot conveys the same message about the importance of plotting the actual data and not relying on summary statistics. The 'anscombe' dataset is built into R.
+This is a variant of the famous 'Anscombe's Quartet'. That plot conveys the same message about the importance of plotting the actual data and not relying on summary statistics. The 'anscombe' dataset is built into R.
 
 
 ```r
@@ -222,7 +222,7 @@ It consists of six observations for four different datasets, again with x and y 
 
 ```r
 # From Nick Tierney: https://www.njtierney.com/post/2020/06/01/tidy-anscombe/
-# Code is from the pivot_longer() vignette.
+# Code from pivot_longer() vignette.
 tidy_anscombe <- 
   anscombe |>
   pivot_longer(everything(),
@@ -287,7 +287,7 @@ tidy_anscombe |>
 
 ### Bar charts
 
-We typically use a bar chart when we have a categorical variable that we want to focus on. We saw an example of this in Chapter \@ref(drinking-from-a-fire-hose) where we constructed a graph of the number of occupied beds. The geom that we will primarily use is `geom_bar()`, but there are many variants to cater for the specific situation. 
+We typically use a bar chart when we have a categorical variable that we want to focus on. We saw an example of this in Chapter \@ref(drinking-from-a-fire-hose) where we constructed a graph of the number of occupied beds. The geom that we primarily use is `geom_bar()`, but there are many variants to cater for the specific situation. 
 
 We will use a dataset from the 1997-2001 British Election Panel Study that was put together by @fox2006effect.
 
@@ -336,9 +336,9 @@ beps |>
 <p class="caption">(\#fig:bepfitst)Distribution of ages in the 1997-2001 British Election Panel Study</p>
 </div>
 
-We can see that by default, `geom_bar()` has created a count of the number of times each age appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could additionally specify a column of values for the y-axis and then use 'stat = "identity"'.
+We can see that by default, `geom_bar()` has created a count of the number of times each age appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could also specify a column of values for the y-axis and then use 'stat = "identity"'.
 
-We may additionally like to consider different groupings of the data, for instance, 'vote' (Figure \@ref(fig:bepsecond)).
+We may also like to consider different groupings of the data, for instance, 'vote' (Figure \@ref(fig:bepsecond)).
 
 
 ```r
@@ -552,7 +552,9 @@ Details of the variety of palettes available in `RColorBrewer` and `viridis` are
 
 ### Scatterplots
 
-We are often interested in the relationship between two variables. We can use scatterplots to show this information. Unless there is a good reason to move to a different option, a scatterplot is almost always the best choice [@weissgerber2015beyond]. Indeed, 'among all forms of statistical graphics, the scatterplot may be considered the most versatile and generally useful invention in the entire history of statistical graphics.' [@historyofdataviz, p. 121] To illustrate scatterplots, we will use `WDI` [@WDI] to download some data about unemployment and GDP growth from the World Bank.
+We are often interested in the relationship between two variables. We can use scatterplots to show this information. Unless there is a good reason to move to a different option, a scatterplot is almost always the best choice [@weissgerber2015beyond]. Indeed, 'among all forms of statistical graphics, the scatterplot may be considered the most versatile and generally useful invention in the entire history of statistical graphics.' [@historyofdataviz, p. 121] To illustrate scatterplots, we use `WDI` [@WDI] to download some economic indicators from the World Bank.
+
+> **Oh, you think we have good data on that!** Gross Domestic Product (GDP) 'combines in a single figure, and with no double counting, all the output (or production) carried out by all the firms, non-profit institutions, government bodies and households in a given country during a given period, regardless of the type of goods and services produced, provided that the production takes place within the country's economic territory. (@EssentialMacroAggregates, p. 15). The modern concept was developed by Simon Kuznets and is widely used and reported. There is a certain comfort in having a definitive and concrete single number to describe something as complicated as the entire economic activity of a country. And it is crucial that we have such summary statistics. But as with any summary statistic, its strength is also its weakness. A single number necessarily loses information about constituent components, and these distributional differences are critical. It highlights short term economic progress over longer term improvements. And 'the quantitative definiteness of the estimates makes it easy to forget their dependence upon imperfect data and the consequently wide margins of possible error to which both totals and components are liable' [@NationalIncomeAndItsComposition, p. xxvi]. Reliance on any one summary measure of economic performance presents a misguided picture not only of a country's economy, but also of its peoples.
 
 
 ```r
@@ -619,7 +621,7 @@ world_bank_data <-
 
 
 
-At this point we may like to change the names to be more meaningful and only keep rows that have data for both GDP and inflation using `drop_na()`.
+At this point we may like to change the names to be more meaningful and only keep the columns that we need.
 
 
 ```r
@@ -661,7 +663,7 @@ world_bank_data |>
 <p class="caption">(\#fig:scattorplot)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
 </div>
 
-As with the bar plots, we will change the theme, and update the labels (Figure \@ref(fig:scatterplotnicer)).
+As with the bar plots, we change the theme, and update the labels (Figure \@ref(fig:scatterplotnicer)).
 
 
 ```r
@@ -788,7 +790,7 @@ world_bank_data |>
 <p class="caption">(\#fig:jitterplot)Relationship between inflation and GDP for Australia, Ethiopia, India, and the US</p>
 </div>
 
-A common use case for a Scatterplot is to illustrate a relationship between two variables. It can be useful to add a line of best fit using `geom_smooth()` (Figure \@ref(fig:scattorplottwo)). By default `geom_smooth()` will impose a X relationship. By default, loess smoothing is used for datasets with less than 1,000 observations, but we can specify the relationship using 'method', change the color with 'color' and remove standard errors with 'se'. We use `geom_smooth()` to add a layer to the graph, and so it inherits all the settings that it can from `ggplot()`. For instance, that is why here we have one line for each country. We could overwrite that by specifying a particular color, in which case we would only have one line.
+A common use case for a scatterplot is to illustrate a relationship between two variables. It can be useful to add a line of best fit using `geom_smooth()` (Figure \@ref(fig:scattorplottwo)). By default `geom_smooth()` will impose a X relationship. By default, loess smoothing is used for datasets with less than 1,000 observations, but we can specify the relationship using 'method', change the color with 'color' and remove standard errors with 'se'. We use `geom_smooth()` to add a layer to the graph, and so it inherits all the settings that it can from `ggplot()`. For instance, that is why here we have one line for each country. We could overwrite that by specifying a particular color, in which case we would only have one line.
 
 
 ```r
@@ -1129,7 +1131,7 @@ beta_distributions |>
 <p class="caption">(\#fig:boxplotfirst)Data drawn from beta distributions with different parameters</p>
 </div>
 
-But if we plot the actual data then we can see how different they are (Figure \@ref(fig:freqpolyofdistributions).
+But if we plot the actual data then we can see how different they are (Figure \@ref(fig:freqpolyofdistributions)).
 
 
 ```r
@@ -1185,9 +1187,9 @@ beta_distributions |>
 
 Tables are critical for telling a compelling story. Tables can communicate less information than a graph, but they can do so at a high fidelity. We primarily use tables in three ways:
 
-1. To show some of our actual dataset, for which we will use `kable()` from `knitr` [@citeknitr], alongside `kableExtra` [@citekableextra].
-2. To communicate summary statistics, for which we will use `gt` [@citegt] and `modelsummary` [@citemodelsummary].
-3. To display regression results, for which we will use `modelsummary` [@citemodelsummary].
+1. To show some of our actual dataset, for which we use `kable()` from `knitr` [@citeknitr], alongside `kableExtra` [@citekableextra].
+2. To communicate summary statistics, for which we use `gt` [@citegt] and `modelsummary` [@citemodelsummary].
+3. To display regression results, for which we use `modelsummary` [@citemodelsummary].
 
 
 ### Showing part of a dataset
@@ -1891,21 +1893,17 @@ We can put a variety of different of different models together (Table \@ref(tab:
 
 ```r
 second_model <- lm(formula = gdp_growth ~ inflation + country, 
-                  data = world_bank_data,
-                  title = "Explaining GDP as a function of inflation")
-#> Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
-#>  extra argument 'title' will be disregarded
+                  data = world_bank_data)
 
 third_model <- lm(formula = gdp_growth ~ inflation + country + population, 
-                  data = world_bank_data,
-                  title = "Explaining GDP as a function of inflation")
-#> Warning: In lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) :
-#>  extra argument 'title' will be disregarded
+                  data = world_bank_data)
 
-modelsummary(list(first_model, second_model, third_model))
+modelsummary(list(first_model, second_model, third_model),
+             title = "Explaining GDP as a function of inflation")
 ```
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:twomodels)Explaining GDP as a function of inflation</caption>
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -2257,7 +2255,7 @@ There are two essential components to a map:
 1) some border or background image (also known as a tile); and 
 2) something of interest within that border or on top of that tile. 
 
-In `ggmap`, we will use an open-source option for our tile, Stamen Maps: maps.stamen.com. And we will use plot points based on latitude and longitude.
+In `ggmap`, we use an open-source option for our tile, Stamen Maps: maps.stamen.com. And we use plot points based on latitude and longitude.
 
 
 ### Australian polling places
@@ -2286,7 +2284,7 @@ ggmap(canberra_stamen_map)
 
 Once we have a map then we can use `ggmap()` to plot it. (That circle in the middle of the map is where the Australian Parliament House is. Yes, the Australian parliament is surrounded by circular roads, which Australians call 'roundabouts', actually Australians thought this was such a great idea, that we surrounded it by two of them.)
 
-Now we want to get some data that we will plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' (the Australian equivalent to 'ridings' in Canada) it is. This is available here: https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv. The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
+Now we want to get some data that we plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' (the Australian equivalent to 'ridings' in Canada) it is. This is available here: https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv. The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
 
 
 ```r
@@ -2316,7 +2314,7 @@ head(booths)
 #> #   Latitude <dbl>, Longitude <dbl>
 ```
 
-This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we will filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still 'booths' in this dataset).
+This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still 'booths' in this dataset).
 
 
 ```r
@@ -2402,7 +2400,7 @@ head(bike_parking_locations)
 #> #   LONGITUDE <dbl>, LATITUDE <dbl>, geometry <chr>
 ```
 
-First, we need to clean the data are little. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we will just ignore it and focus on the data that we are interested in.
+First, we need to clean the data are little. There are some clear errors in the ADDRESSNUMBERTEXT field, but not too many, so we just ignore it and focus on the data that we are interested in.
 
 
 ```r
@@ -2545,7 +2543,7 @@ tidygeocoder::geo(city = some_locations$city,
 5. Which of the following, if any, are elements of the layered grammar of graphics [@wickham2010layered] (select all that apply)?
     a. A default dataset and set of mappings from variables to aesthetics.
     b. One or more layers, with each layer having one geometric object, one statistical transformation, one position adjustment, and optionally, one dataset and set of aesthetic mappings.
-    c. Colours that enable the reader to understand the main point.
+    c. Colors that enable the reader to understand the main point.
     d. A coordinate system.
     e. The facet specification.
     f. One scale for each aesthetic mapping used.

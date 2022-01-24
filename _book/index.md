@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "19 January, 2022"
+date: "24 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -97,10 +97,13 @@ Each chapter has the following features:
 
 - A list of required materials that you should go through before you read that chapter. To be clear, you should first read that material and then return to this book. Each chapter also contains recommended materials for those who are particularly interested in the topic and want a starting place for further exploration. 
 - A summary of the key concepts and skills that are developed in that chapter. Technical chapters additionally contain a list of the main packages and functions that are used in the chapter. The combination of these features acts as a checklist for your learning, and you should return to them after completing the chapter.
-- A section called 'Oh, you think we have good data on that!' which focuses on a particular setting, such as cause of death, in which it is often assumed that there is unimpeachable and unambiguous data but the reality tends to be quite far from that.
-- A section called 'Shoulders of giants', which focuses on some of those who created the intellectual foundation on which we build.
 - A series of short exercises that you should complete after going through the required materials, but before going through the chapter, to test your knowledge. After completing the chapter, you should go back through the exercises to make sure that you understand each aspect. 
 - One or two tutorial questions are included at the end of each chapter to further encourage you to actively engage with the material. You could consider forming small groups to discuss your answers to these questions.
+
+Some chapters additionally feature:
+
+- A section called 'Oh, you think we have good data on that!' which focuses on a particular setting, such as cause of death, in which it is often assumed that there is unimpeachable and unambiguous data but the reality tends to be quite far from that.
+- A section called 'Shoulders of giants', which focuses on some of those who created the intellectual foundation on which we build.
 
 Finally, a set of six papers is included in the appendix. If you write these, you will be conducting original research on a topic that is of interest to you. Although open-ended research may be new to you, the extent to which you are able to: develop your own questions, use quantitative methods to explore them, and communicates your findings, is the measure of the success of this book.
 
@@ -135,6 +138,8 @@ Thank you to Greg Wilson for providing a structure to think about teaching, for 
 Thank you to an anonymous reviewer and Isabella Ghement, who thoroughly went through an early draft of this book and provided detailed feedback that improved this book.
 
 Thank you to Hareem Naveed for helpful feedback and encouragement. Her industry experience was an invaluable resource as I grappled with questions of coverage and focus.
+
+Thank you to Leslie Root, who came up with the idea around 'Oh, you think we have good data on that!'.
 
 Thank you to my PhD supervisory panel John Tang, Martine Mariotti, Tim Hatton, and Zach Ward who gave me the freedom to explore the intellectual space that was of interest to me, the support to follow through on those interests, and the guidance to ensure that it all resulted in something tangible.
 

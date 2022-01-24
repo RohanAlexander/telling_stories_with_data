@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Farm data | Telling Stories With Data</title>
+<meta name="author" content="Rohan Alexander">
+<meta name="description" content="STATUS: Under construction. Required reading Crawford (2021), Chapter 3. Statistics Canada (2017), Chapter 10 - Data quality assessment. Recommended reading Key concepts/skills/etc Key libraries...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Farm data | Telling Stories With Data">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/tellingstorieswithdatapainting.png">
+<meta property="og:description" content="STATUS: Under construction. Required reading Crawford (2021), Chapter 3. Statistics Canada (2017), Chapter 10 - Data quality assessment. Recommended reading Key concepts/skills/etc Key libraries...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Farm data | Telling Stories With Data">
+<meta name="twitter:description" content="STATUS: Under construction. Required reading Crawford (2021), Chapter 3. Statistics Canada (2017), Chapter 10 - Data quality assessment. Recommended reading Key concepts/skills/etc Key libraries...">
+<meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script><script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script><script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script><script src="libs/deckgl-8.1.6/deckgl.min.js"></script><script src="libs/legend-0.0.1/legend.js"></script><script src="libs/title-0.0.1/title.js"></script><script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script><script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script><script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script><link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet">
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script><link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet">
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script><script src="libs/scatterplot-1.0.0/scatterplot.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Telling Stories With Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+<li class="book-part">Foundations</li>
+<li><a class="" href="telling-stories-with-data.html"><span class="header-section-number">1</span> Telling stories with data</a></li>
+<li><a class="" href="drinking-from-a-fire-hose.html"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
+<li><a class="" href="r-essentials.html"><span class="header-section-number">3</span> R essentials</a></li>
+<li><a class="" href="reproducible-workflows.html"><span class="header-section-number">4</span> Reproducible workflows</a></li>
+<li class="book-part">Communication</li>
+<li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
+<li><a class="" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
+<li><a class="" href="interactive-communication.html"><span class="header-section-number">7</span> Interactive communication</a></li>
+<li class="book-part">Measure and acquire</li>
+<li><a class="" href="gather-data.html"><span class="header-section-number">8</span> Gather data</a></li>
+<li><a class="" href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></li>
+<li><a class="active" href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></li>
+<li class="book-part">Preparation</li>
+<li><a class="" href="cleaning-and-preparing-data.html"><span class="header-section-number">11</span> Cleaning and preparing data</a></li>
+<li><a class="" href="storing-and-retrieving-data.html"><span class="header-section-number">12</span> Storing and retrieving data</a></li>
+<li><a class="" href="disseminating-and-protecting-data.html"><span class="header-section-number">13</span> Disseminating and protecting data</a></li>
+<li class="book-part">Modelling</li>
+<li><a class="" href="exploratory-data-analysis.html"><span class="header-section-number">14</span> Exploratory data analysis</a></li>
+<li><a class="" href="ijalm.html"><span class="header-section-number">15</span> It’s Just A Linear Model</a></li>
+<li><a class="" href="causality.html"><span class="header-section-number">16</span> Causality from observational data</a></li>
+<li><a class="" href="mrp.html"><span class="header-section-number">17</span> Multilevel regression with post-stratification</a></li>
+<li><a class="" href="text-as-data.html"><span class="header-section-number">18</span> Text as data</a></li>
+<li class="book-part">Enrichment</li>
+<li><a class="" href="using-the-cloud.html"><span class="header-section-number">19</span> Using the cloud</a></li>
+<li><a class="" href="deploying-models.html"><span class="header-section-number">20</span> Deploying models</a></li>
+<li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
+<li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
+<li><a class="" href="references-1.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="farm-data" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Farm data<a class="anchor" aria-label="anchor" href="#farm-data"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>STATUS: Under construction.</strong></p>
+<p><strong>Required reading</strong></p>
+<ul>
+<li>
+<span class="citation"><a href="references-1.html#ref-crawford" role="doc-biblioref">Crawford</a> (<a href="references-1.html#ref-crawford" role="doc-biblioref">2021</a>)</span>, Chapter 3.</li>
+<li>
+<span class="citation"><a href="references-1.html#ref-statcanhistory" role="doc-biblioref">Statistics Canada</a> (<a href="references-1.html#ref-statcanhistory" role="doc-biblioref">2017</a>)</span>, Chapter 10 - Data quality assessment.</li>
+</ul>
+<p><strong>Recommended reading</strong></p>
+<ul>
+<li>
+</ul>
+<p><strong>Key concepts/skills/etc</strong></p>
+<ul>
+<li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li>
+</ul>
+<p><strong>Key functions/etc</strong></p>
+<ul>
+<li>
+</ul>
+<div id="overview" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are a variety of sources of data that have been produced for the purposes of being used as datasets. One thinks here especially of censuses. <span class="citation"><a href="references-1.html#ref-whitby" role="doc-biblioref">Whitby</a> (<a href="references-1.html#ref-whitby" role="doc-biblioref">2020, 30–31</a>)</span> provides an enthralling overview, describing how ‘(t)he earliest censuses suggested in writing come… from China’s Yellow River valley’ and that they were used for more than just purposes of taxation and conscription. He continues, highlighting the links between the census and Christianity, for instance from the Book of Luke ‘In those days Caesar Augustus issued a decree that a census should be taken of the entire Roman world,’ which led to David and Mary travelling to Bethlehem.</p>
+<p>Taxation was a substantial motivator for censuses. <span class="citation"><a href="references-1.html#ref-jones1953census" role="doc-biblioref">Jones</a> (<a href="references-1.html#ref-jones1953census" role="doc-biblioref">1953</a>)</span> describes how census records survive that ‘were probably engraved in the late third or early fourth century A.D., when Diocletian and his colleagues and successors are known to have been active in carrying out censuses to serve as the basis of their new system of taxation.’ And detailed records of this sort have been abused. For instance, <span class="citation"><a href="references-1.html#ref-luebke1994locating" role="doc-biblioref">Luebke and Milton</a> (<a href="references-1.html#ref-luebke1994locating" role="doc-biblioref">1994</a>)</span> say how ‘(t)he Nazi regime gathered its information with two relatively conventional tools of modern administration: the national census and police registration.’</p>
+<p>Another source of data deliberately put together to be a dataset include economic conditions such as unemployment, inflation, and GDP. Interestingly, <span class="citation"><a href="references-1.html#ref-rockoff2019controversies" role="doc-biblioref">Rockoff</a> (<a href="references-1.html#ref-rockoff2019controversies" role="doc-biblioref">2019</a>)</span> describes how these economic statistics were not actually developed by the federal government, even though it ‘eventually took over the role of producing these statistics on a regular basis.’ The broader point is that these types of datasets and censuses are typically put together by governments. They have the powers of the state behind them.</p>
+<p>Another, similarly large and established source of data are from long-running large surveys. These are conducted on a regular basis, and while not usually directly conducted by the government, they are usually funded, one way or another, by the government. For instance, here we often think of electoral surveys, such as the Canadian Election Study, which has run in association with every federal election since 1965, and similarly the British Election Study which has been associated with every general election since 1964.</p>
+<p>Finally, there has been a large push toward open data in government. While the term has become contentious because of how it has occurred in practice, the underlying principle - that the government should make available the data that is has - is undeniable.</p>
+<p>In this chapter we cover these datasets, which I term ‘farmed data.’ They are typically fairly nicely put together and the work of collecting, preparing and cleaning these datasets has typically been done. They are also, usually, conducted on a set release cycle. For instance, most developed countries release unemployment and inflation dataset on a monthly basis, GDP on a quarterly basis, and a census every five to ten years.</p>
+<p>While these datasets have always been useful, they were developed for a time when much analysis was conducted without the use of scripts and programming languages. A cottage industry of R package development has sprung up around making it easier to get these datasets into R. In this chapter we cover a few that are especially useful.</p>
+<p>It is important to recognise that data are not neutral. Thinking clearly about who is included in the dataset, and who is systematically excluded, is critical. As <span class="citation"><a href="references-1.html#ref-crawford" role="doc-biblioref">Crawford</a> (<a href="references-1.html#ref-crawford" role="doc-biblioref">2021, 121</a>)</span> says:</p>
+<blockquote>
+<p>The way data is understood, captured, classified, and named is fundamentally an act of world-making and containment. It has enormous ramifications for the way artificial intelligence works in the world and which communities are most affected. The myth of data collection as a benevolent practice in computer science has obscured its operations of power, protecting those who profit most while avoiding responsibility for its consequences.</p>
+</blockquote>
+</div>
+<div id="censuses" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Censuses<a class="anchor" aria-label="anchor" href="#censuses"><i class="fas fa-link"></i></a>
+</h2>
+<p>MEasuring homelessness?</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/books/NBK218229/" class="uri">https://www.ncbi.nlm.nih.gov/books/NBK218229/</a></p>
+<p>“S-Night survey conducted by the US Census Bureau in 1990”</p>
+<p>“Street count surveys are used in many cities to count the number of homeless people in the streets at a point in time and gain a better understanding of the needs of homeless populations. In surveys such as the S-Night survey conducted by the US Census Bureau in 1990, enumerators are sent to pre-identified sites to enumerate homeless people while other survey personnel (“plants”) are planted among homeless people and indistinguishable from actual homeless. The ratio of plants seen by the enumerators to the number of plants deployed is used to inform the detection probability of homeless and provide an adjustment to the homeless undercount. In practice, one cannot know for sure which plants were seen because enumerators cannot distinguish between plants and homeless people. We can only rely on the plants’ judgement of whether (yes, no or maybe) they think they were seen by an enumerator. The presence of “maybes” in the data leads to more unknown parameters than data points, which makes estimation of detection probabilities difficult. We propose to solve this problem by developing a Bayesian hierarchical model that uses hierarchical priors on detection probabilities across survey years and/or across cities. Such hierarchical modeling of the data is challenging because the data is available at various aggregated levels of the population (e.g., <code>seen</code> = plant AND seen + homeless AND seen, <code>maybes</code> = plant AND seen AND not interviewed AND maybe + plant AND not seen AND maybe.) The new methodology will be applied to a simulated reconstruction of the original S-night survey data and our estimates will be compared to those of the original analysis of the S-night data."</p>
+<div id="canada" class="section level3" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Canada<a class="anchor" aria-label="anchor" href="#canada"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first census in Canada was conducted in 1666. There were 3,215 inhabitants that were counted and the census ‘recorded their age, sex, marital status and occupation’ <span class="citation">(<a href="references-1.html#ref-statcanhistory" role="doc-biblioref">Statistics Canada 2017</a>)</span>. In 1867 a decennial census was required to ‘determine representation by population in the new Parliament.’ Regular censuses have occurred since then, the most recent in 2021.</p>
+<p>In general, data from the Canadian census is not as easily available as in other countries. The ‘Individuals File, 2016 Census Public Use Microdata Files (PUMF)’ - <a href="https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X" class="uri">https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X</a> - is probably the best first step, although it does not provide much detail. It is a 2.7 per cent sample from the 2016 census. It is free, but must be requested, after which Statistics Canada will email access details.</p>
+<p>Another way to access data from the Canadian census is to use <code>cancensus</code>, which is an R package that provides access to the Canadian census <span class="citation">(<a href="references-1.html#ref-citecancensus" role="doc-biblioref">von Bergmann, Shkolnik, and Jacobs 2021</a>)</span>. The use of this package requires an API key, which can be requested by creating an account here: <a href="https://censusmapper.ca/users/sign_up" class="uri">https://censusmapper.ca/users/sign_up</a> and then clicking ‘edit profile.’ The package has a helper function <code>cancensus::set_api_key("ADD_YOUR_API_KEY_HERE", install = TRUE)</code> that makes it easier to add the key to your ‘.Renviron’ file. Once that is done you can use the package to access the data.</p>
+<p>The main function in the package is <code><a href="https://mountainmath.github.io/cancensus/index.html/reference/get_census.html">cancensus::get_census()</a></code>, and that requires an argument for the census of interest, and a variety of other factors. In this example we will use the 2016 census</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="farm-data.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb318-2"><a href="farm-data.html#cb318-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
+<span id="cb318-3"><a href="farm-data.html#cb318-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb318-4"><a href="farm-data.html#cb318-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
+<span id="cb318-5"><a href="farm-data.html#cb318-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
+<span id="cb318-6"><a href="farm-data.html#cb318-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
+<span id="cb318-7"><a href="farm-data.html#cb318-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
+<span id="cb318-8"><a href="farm-data.html#cb318-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
+<span id="cb318-9"><a href="farm-data.html#cb318-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
+<span id="cb318-10"><a href="farm-data.html#cb318-10" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb318-11"><a href="farm-data.html#cb318-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb318-12"><a href="farm-data.html#cb318-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb318-13"><a href="farm-data.html#cb318-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb318-14"><a href="farm-data.html#cb318-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb318-15"><a href="farm-data.html#cb318-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb318-16"><a href="farm-data.html#cb318-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb318-17"><a href="farm-data.html#cb318-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B</span>
+<span id="cb318-18"><a href="farm-data.html#cb318-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb318-19"><a href="farm-data.html#cb318-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ontario_population)</span>
+<span id="cb318-20"><a href="farm-data.html#cb318-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 9</span></span>
+<span id="cb318-21"><a href="farm-data.html#cb318-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households</span></span>
+<span id="cb318-22"><a href="farm-data.html#cb318-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt;                  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb318-23"><a href="farm-data.html#cb318-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 35     PR    Ontario              986722.   13448494   5598391    5169174</span></span>
+<span id="cb318-24"><a href="farm-data.html#cb318-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: C_UID &lt;chr&gt;, v_CA16_1: Age Stats &lt;dbl&gt;</span></span></code></pre></div>
+<p>The package is fiddly, however it is worthwhile to ensure a reproducible workflow if the data that you are interested in are included. The two helper functions— <code>list_census_regions()</code> and <code>list_census_vectors()</code> — may be useful identify the arguments of interest.</p>
+</div>
+<div id="usa" class="section level3" number="10.2.2">
+<h3>
+<span class="header-section-number">10.2.2</span> USA<a class="anchor" aria-label="anchor" href="#usa"><i class="fas fa-link"></i></a>
+</h3>
+<p>The requirement for a US Census is included in their constitution, and there is fairly decent, although clunky, general access. However, the US is in an interesting situation where there may actually be better options. For instance, the American Community Survey (ACS) is a survey that is comparable to the questions asked on many censuses that is conducted monthly. By the end of the year, it ends up with millions of responses. Although the ACS is smaller than a census, the advantage is that it is available on a more timely basis.</p>
+<p>The best way to access the ACS is to use the Integrated Public Use Microdata Series (IPUMS). You will need to create an account, but it is free and easy to do.</p>
+<p>Lol, just use IPUMS.</p>
+</div>
+<div id="australia" class="section level3" number="10.2.3">
+<h3>
+<span class="header-section-number">10.2.3</span> Australia<a class="anchor" aria-label="anchor" href="#australia"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="other-government-data" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Other government data<a class="anchor" aria-label="anchor" href="#other-government-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="unemployment" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> Unemployment<a class="anchor" aria-label="anchor" href="#unemployment"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="weather" class="section level3" number="10.3.2">
+<h3>
+<span class="header-section-number">10.3.2</span> Weather<a class="anchor" aria-label="anchor" href="#weather"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="that-canadian-survey-that-we-used-in-sta304-from-the-library" class="section level3" number="10.3.3">
+<h3>
+<span class="header-section-number">10.3.3</span> That Canadian survey that we used in STA304 from the library<a class="anchor" aria-label="anchor" href="#that-canadian-survey-that-we-used-in-sta304-from-the-library"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="open-government-data" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Open Government Data<a class="anchor" aria-label="anchor" href="#open-government-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="canada-1" class="section level3" number="10.4.1">
+<h3>
+<span class="header-section-number">10.4.1</span> Canada<a class="anchor" aria-label="anchor" href="#canada-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Canadian Government Open Data: <a href="https://open.canada.ca/en/open-data" class="uri">https://open.canada.ca/en/open-data</a>.</p></li>
+<li><p>City of Toronto Open Data Portal</p></li>
+</ul>
+</div>
+</div>
+<div id="electoral-studies" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Electoral Studies<a class="anchor" aria-label="anchor" href="#electoral-studies"><i class="fas fa-link"></i></a>
+</h2>
+<div id="canadian-electoral-study" class="section level3" number="10.5.1">
+<h3>
+<span class="header-section-number">10.5.1</span> Canadian Electoral Study<a class="anchor" aria-label="anchor" href="#canadian-electoral-study"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="australian-electoral-study" class="section level3" number="10.5.2">
+<h3>
+<span class="header-section-number">10.5.2</span> Australian Electoral Study<a class="anchor" aria-label="anchor" href="#australian-electoral-study"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="cces" class="section level3" number="10.5.3">
+<h3>
+<span class="header-section-number">10.5.3</span> CCES<a class="anchor" aria-label="anchor" href="#cces"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="other-1" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Other<a class="anchor" aria-label="anchor" href="#other-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>University of Toronto Dataverse: <a href="https://dataverse.scholarsportal.info/dataverse/toronto" class="uri">https://dataverse.scholarsportal.info/dataverse/toronto</a>.</li>
+<li>Data is Plural structured archive: <a href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0" class="uri">https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0</a>.</li>
+<li>Kaggle Datasets: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a>.</li>
+<li>Figure Eight: <a href="https://www.figure-eight.com/data-for-everyone/" class="uri">https://www.figure-eight.com/data-for-everyone/</a>.</li>
+<li>Google dataset search: <a href="https://datasetsearch.research.google.com/" class="uri">https://datasetsearch.research.google.com/</a>.</li>
+<li>Awesome Data: <a href="https://github.com/awesomedata/awesome-public-datasets" class="uri">https://github.com/awesomedata/awesome-public-datasets</a>.</li>
+</ul>
+</div>
+<div id="exercises-and-tutorial-9" class="section level2" number="10.7">
+<h2>
+<span class="header-section-number">10.7</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-9"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercises-9" class="section level3" number="10.7.1">
+<h3>
+<span class="header-section-number">10.7.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-9"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Please identify three other sources of data that you are interested in and describe where are they available (please include a link or code)?</li>
+<li>Please focus on one of those sources. What steps do you have to go through in order to get a dataset that can be analysed in R?</li>
+<li>Let’s say you take a job at RBC (a Canadian bank) and they already have some quantitative data for you to use. What are some questions that you should explore when deciding whether that data will be useful to you?</li>
+<li>Write three points (you are welcome to use dot points) about why government data may be especially useful?</li>
+<li>Please pick a government of interest and find their inflation statistics. To what extent do you know about how these data were gathered?</li>
+<li>With reference to <span class="citation"><a href="references-1.html#ref-chen2019forensic" role="doc-biblioref">Chen et al.</a> (<a href="references-1.html#ref-chen2019forensic" role="doc-biblioref">2019</a>)</span> and <span class="citation"><a href="references-1.html#ref-martinez2019much" role="doc-biblioref">Martinez</a> (<a href="references-1.html#ref-martinez2019much" role="doc-biblioref">2019</a>)</span> to what extent do you think we can trust government statistics? Please mention at least three governments in your answer.</li>
+<li>The 2021 census in Canada asked, firstly, ‘What was this person’s sex at birth? Sex refers to sex assigned at birth. Male/Female,’ and then ‘What is this person’s gender? Refers to current gender which may be different from sex assigned at birth and may be different from what is indicated on legal documents. Male/Female/Or please specify this person’s gender (space for a typed or handwritten answer).’ With reference to <span class="citation"><a href="references-1.html#ref-statcan2020" role="doc-biblioref">Statistics Canada</a> (<a href="references-1.html#ref-statcan2020" role="doc-biblioref">2020</a>)</span>, please discuss the extent to which you think this is an appropriate way for census to have proceeded. You are welcome to discuss the case of a different country if you are more familiar with that.</li>
+<li>Pretend that we have conducted a survey of everyone in Canada, where we asked for age, sex, and gender. Your friend claims that there is no need to worry about uncertainty ‘because we have the whole population.’ Is your friend right or wrong, and why?</li>
+</ol>
+</div>
+<div id="tutorial-9" class="section level3" number="10.7.2">
+<h3>
+<span class="header-section-number">10.7.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-9"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></div>
+<div class="next"><a href="cleaning-and-preparing-data.html"><span class="header-section-number">11</span> Cleaning and preparing data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#farm-data"><span class="header-section-number">10</span> Farm data</a></li>
+<li><a class="nav-link" href="#overview"><span class="header-section-number">10.1</span> Overview</a></li>
+<li>
+<a class="nav-link" href="#censuses"><span class="header-section-number">10.2</span> Censuses</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#canada"><span class="header-section-number">10.2.1</span> Canada</a></li>
+<li><a class="nav-link" href="#usa"><span class="header-section-number">10.2.2</span> USA</a></li>
+<li><a class="nav-link" href="#australia"><span class="header-section-number">10.2.3</span> Australia</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#other-government-data"><span class="header-section-number">10.3</span> Other government data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#unemployment"><span class="header-section-number">10.3.1</span> Unemployment</a></li>
+<li><a class="nav-link" href="#weather"><span class="header-section-number">10.3.2</span> Weather</a></li>
+<li><a class="nav-link" href="#that-canadian-survey-that-we-used-in-sta304-from-the-library"><span class="header-section-number">10.3.3</span> That Canadian survey that we used in STA304 from the library</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#open-government-data"><span class="header-section-number">10.4</span> Open Government Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#canada-1"><span class="header-section-number">10.4.1</span> Canada</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#electoral-studies"><span class="header-section-number">10.5</span> Electoral Studies</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#canadian-electoral-study"><span class="header-section-number">10.5.1</span> Canadian Electoral Study</a></li>
+<li><a class="nav-link" href="#australian-electoral-study"><span class="header-section-number">10.5.2</span> Australian Electoral Study</a></li>
+<li><a class="nav-link" href="#cces"><span class="header-section-number">10.5.3</span> CCES</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#other-1"><span class="header-section-number">10.6</span> Other</a></li>
+<li>
+<a class="nav-link" href="#exercises-and-tutorial-9"><span class="header-section-number">10.7</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-9"><span class="header-section-number">10.7.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-9"><span class="header-section-number">10.7.2</span> Tutorial</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/23-farm.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/23-farm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 January, 2022.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

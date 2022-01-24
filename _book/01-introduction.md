@@ -190,6 +190,8 @@ Much of data science focuses on the 'science', but it is important to also focus
 
 @Jordan2019Artificial describes being in a medical office and being given some probability, based on prenatal screening, that his child, then a fetus, had Down syndrome. By way of background, one can test to know for sure, but that test comes with the risk of the fetus not surviving, so this initial screening probability matters. @Jordan2019Artificial found those probabilities were being determined based on a study done a decade earlier in the UK. The issue was that in the ensuing 10 years, imaging technology had improved so the test was not expecting such high-resolution images and there had been a subsequent (false) increase in Down syndrome diagnoses when the images improved. There was no problem with the science, it was the data.
 
+> **Shoulders of giants** Dr Michael Jordan is Pehong Chen Distinguished Professor at the University of California, Berkeley. After taking a PhD in Cognitive Science from University of California, San Diego, in 1985, he was appointed as an assistant professor at MIT, being promoted to full professor in 1997, and in 1998 he moved to Berkeley. One area of his research is statistical machine learning. One particularly important paper is @Blei2003latent, which enables text to be grouped together to define topics.
+
 It is not just the 'science' bit that is hard, it is the 'data' bit as well. For instance, researchers went back and examined one of the most popular text datasets in computer science, and they found that around 30 per cent of the data were inappropriately duplicated [@bandy2021addressing]. There is an entire field---linguistics---that specializes in these types of datasets, and inappropriate use of data is one of the dangers of any one field being hegemonic. The strength of data science is that it brings together folks with a variety of backgrounds and training to the task of learning about some dataset. It is not constrained by what was done in the past. But this means that we must go out of our way to show respect for those who do not come from our own tradition, but who are nonetheless as similarly interested in a dataset as we are. Data science is multi-disciplinary and increasingly critical; hence it must reflect our world. There is a pressing need a diversity of backgrounds, of approaches, and of disciplines in data science. 
 
 Our world is messy, and so are our data. To successfully tell stories with data you need to become comfortable with the fact that the process will be difficult. Hannah Fry, the British mathematician, describes spending six months rewriting code before it solved her problem [@hannahfryft]. You need to learn to stick with it. You also need to countenance failure, and you do this by developing resilience and having intrinsic motivation. The world of data is about considering possibilities and probabilities, and learning to make trade-offs between them. There is almost never anything that we know for certain, and there is no perfect analysis.
@@ -210,12 +212,12 @@ Ultimately, we are all just telling stories with data, but these stories are inc
     b. No one. 
     c. Those in the training set. 
     d. Those in the test set.
-2. In your own words, what is data science?
+2. What is data science (in your own words)?
 3. According to @keyes2019 what is perhaps a more accurate definition of data science (pick one)? 
     a. The inhumane reduction of humanity down to what can be counted.
     b. The quantitative analysis of large amounts of data for the purpose of decision-making.
     c. Data science is an inter-disciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from many structural and unstructured data.
-4. Imagine that you have a job in which including 'race' as an explanatory variable improves the performance of your model. What types of issues would you consider when deciding whether to include this variable in production? What if the variable was sexuality?
+4. Imagine that you have a job in which including 'race' and/or sexuality as explanatory variables improves the performance of your model. What types of issues would you consider when deciding whether to include these variable in production (in your own words)?
 5. Re-order the following steps of the workflow to be correct:
     1. Simulate.
     2. Acquire.
@@ -233,7 +235,7 @@ Ultimately, we are all just telling stories with data, but these stories are inc
     c. Big data.
     d. Humility about one's own knowledge.
     e. Theory and application.
-8. Why is ethics a key element of telling convincing stories?
+8. Why is ethics a key element of telling convincing stories (in your own words)?
     
     
 ### Tutorial
