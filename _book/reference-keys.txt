@@ -27,6 +27,8 @@ fig:githubtwo
 fig:githubthree
 fig:githubfour
 fig:rstudiogit
+fig:bowleygraphisnice
+fig:bowleytableisnice
 tab:datasaurussummarystats
 fig:datasaurusgraph
 tab:anscombesummarystats
@@ -222,6 +224,8 @@ paper
 on-writing
 introduction-1
 developing-research-questions
+data-first
+question-first
 writing
 title
 abstract

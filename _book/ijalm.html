@@ -260,11 +260,11 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> measures the num
 <p>In <code>R</code> we can simulate <span class="math inline">\(n\)</span> data points from the Normal distribution with <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>.</p>
 <div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt;  [1]  2.72772867  1.70433858 -2.02178680 -0.27964530</span>
-<span class="co">#&gt;  [5] -0.78645093  0.93667294  0.57194024 -0.97501847</span>
-<span class="co">#&gt;  [9]  0.20047542  0.16650827 -0.93590235  0.62169546</span>
-<span class="co">#&gt; [13] -1.03365911  2.31355001 -0.20403281 -0.62172301</span>
-<span class="co">#&gt; [17]  0.55174629 -0.36467361 -0.07804215 -0.50370513</span></code></pre></div>
+<span class="co">#&gt;  [1] -0.06505270 -0.95464302  0.84896234  1.42272317</span>
+<span class="co">#&gt;  [5] -0.30237448  0.31081692 -0.21841785 -2.06116925</span>
+<span class="co">#&gt;  [9]  0.06760464  0.69733253 -1.40822519  0.50346694</span>
+<span class="co">#&gt; [13] -1.54976495 -1.29160029  1.86401240  0.44707372</span>
+<span class="co">#&gt; [17]  1.73192004  1.80625006 -0.32707230 -0.11431150</span></code></pre></div>
 <p>It will take a few draws before we get the expected shape.</p>
 <div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -1007,7 +1007,7 @@ Figure 15.3: Examining the type of gold some jewellery is made from.
 <span class="va">white_gold_model_tidymodels</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  4ms </span>
+<span class="co">#&gt; Fit time:  3ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, </span>
 <span class="co">#&gt;     data = data)</span>
@@ -1136,7 +1136,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <span class="va">a_plus_model_tidymodels</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  2ms </span>
+<span class="co">#&gt; Fit time:  1ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, </span>
 <span class="co">#&gt;     data = data)</span>
@@ -1231,7 +1231,7 @@ We can simulate <span class="math inline">\(n\)</span> data points from the Pois
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 25 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

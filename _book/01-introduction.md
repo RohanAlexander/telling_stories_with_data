@@ -104,7 +104,7 @@ The key elements of telling convincing stories with data are:
 
 These elements are the foundation on which the workflow are built (Figure \@ref(fig:iceberg)).
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/IMG_1820.png" alt="The workflow builds on various elements" width="85%" />
 <p class="caption">(\#fig:iceberg)The workflow builds on various elements</p>
 </div>
