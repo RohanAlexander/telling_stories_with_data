@@ -5,12 +5,11 @@
 
 # On writing
 
-**Required material**
-
 > If you want to be a writer, you must do two things above all others: read a lot and write a lot. There's no way around these two things that I'm aware of, no shortcut.
 >
 > @stephenking [p. 145]
 
+**Required material**
 
 - Read *On Writing Well*, (any edition is fine) [@zinsser].
 - Read *Publication, publication*, [@king2006publication]
@@ -105,7 +104,7 @@ This chapter is about writing. By the end of it, you will have a better idea of 
 
 The process of writing is a process of re-writing. And the critical task is to get to a first draft as quickly as possible. A complete first draft of a five-to-ten-page quantitative paper can be done in a day. Until that complete first draft exists, it is useful to try to not to delete or even revise anything that was written, regardless of how bad it may seem. Just write.
 
-One of the most intimidating things in the world is a blank page, and we deal with this by immediately adding headings such as: 'Introduction', 'Data', 'Model', 'Results', and 'Discussion'. And then add fields in the top matter for the various bits and pieces that are needed, such as 'title', 'date', 'author' and 'abstract'. This creates a generic outline, and its role is akin to placing on the counter, the ingredients that we will use to prepare dinner  [@draftnumberfour]. 
+One of the most intimidating things in the world is a blank page, and we deal with this by immediately adding headings such as: 'Introduction', 'Data', 'Model', 'Results', and 'Discussion'. And then add fields in the top matter for the various bits and pieces that are needed, such as 'title', 'date', 'author' and 'abstract'. This creates a generic outline, and its role is akin to placing on the counter, the ingredients that we will use to prepare dinner [@draftnumberfour]. 
 
 Having established this generic outline, we need to develop an understanding of what we are exploring through developing a research question. In theory, we develop a research question, answer it, and then we do all the writing; but that rarely actually happens [@franklin2005exploratory]. Instead, we typically have some idea of the question, and our answer, and these become less vague as we write. This is because it is through the process of writing that we refine our thinking [@stephenking, p. 131]. Having put down some thoughts about the research question, we can start to add dot points in each of the sections, adding sub-sections, with informative sub-headings as needed. We then go back and expand those dot points into paragraphs. 
 
@@ -132,7 +131,7 @@ Broadly, there are two ways to go about research:
 When being data-first, the main issue is working out the questions that can be reasonably answered with the available data. When deciding what these are, it is useful to consider:
 
 1) Theory: Is there a reasonable expectation that there is something causal that could be determined? For instance, if the question involves charting the stock market, then it might be better to consider haruspex because at least that way we would have something to eat. Questions usually need to have some plausible theoretical underpinning to help avoid spurious relationships.
-2) Importance: There are plenty of trivial questions that can be answered, but it important to not waste our time or that of the reader. Having an important question can also help with motivation when we find ourselves in, say, the fourth straight week of cleaning data and de-bugging code. It can also make it easier to attract talented employees and funding.
+2) Importance: There are plenty of trivial questions that can be answered, but it important to not waste our time or that of the reader. Having an important question can also help with motivation when we find ourselves in, say, the fourth straight week of cleaning data and de-bugging code. It can also make it easier to attract talented employees and funding. That said, there is a balance that is needed. But it is important that the question has a decent chance of being answered. And so attacking a generational-defining question might be best broken up into smaller chunks.
 3) Availability: Is there a reasonable expectation of additional data being available in the future? This could allow us to answer related questions and turn this one paper into a research agenda.
 4) Iteration: Is this something that could be run multiple times, or is it a once-off analysis? If it is the former, then it becomes possible to start answering specific research questions and then iterate. But if we can only get access to the data once then we need to think about broader questions.
 
@@ -142,7 +141,11 @@ There's a saying, sometimes attributed to Xiao-Li Meng that all of statistics is
 
 ### Question-first
 
-When trying to be question-first, there is the inverse different issue of being concerned about data availability. The 'FINER framework' is used in medicine to help guide the development of research questions. It recommends asking questions that are: Feasible, Interesting, Novel, Ethical, and Relevant [@hulley2007designing]. @farrugia2010research builds on FINER with PICOT, which recommends additional considerations: Population, Intervention, Comparison group, Outcome of interest, and Time. It can feel overwhelming trying to write out a question. One way to go about it is to ask a very specific question. Another is to decide whether we are interested in descriptive, predictive, inferential, or causal analysis. These then lead to different types of questions, for instance, descriptive analysis: 'What happened when...?'; predictive analysis: 'What happens if...?'; inferential: 'Why does... happen?'; and causal: 'What happens if...?'.
+When trying to be question-first, there is the inverse different issue of being concerned about data availability. The 'FINER framework' is used in medicine to help guide the development of research questions. It recommends asking questions that are: Feasible, Interesting, Novel, Ethical, and Relevant [@hulley2007designing]. @farrugia2010research builds on FINER with PICOT, which recommends additional considerations: Population, Intervention, Comparison group, Outcome of interest, and Time. It can feel overwhelming trying to write out a question. One way to go about it is to ask a very specific question. Another is to decide whether we are interested in descriptive, predictive, inferential, or causal analysis. 
+
+These then lead to different types of questions, for instance, descriptive analysis: 'What does $x$ look like?'; predictive analysis: 'What will happen to $x$?'; inferential: 'How can we explain $x$?'; and causal: 'What impact does $x$ have on $y$?'. Each of these have a role to play. 
+
+<!-- Since the credibility revolution [@angrist2010credibility] causal questions have been preeimininant and the rise of t -->
 
 Often time will be constrained, possibly in interesting ways and these can guide the specifics of the research question. If we are interested in the effect of Trump's tweets on the stock market, then that can be done just by looking at the minutes (milliseconds?) after he tweets. But what if we are interested in the effect of a cancer drug on long term outcomes? If the effect takes 20 years, then we must either wait a while, or we need to look at people who were treated in 2000, but then we have selection effects and different circumstances to if we give the drug today. Often the only reasonable thing to do is to build a statistical model, but then we need adequate sample sizes, etc.
 
@@ -187,7 +190,7 @@ We will consider a few examples of particularly effective titles. @hug2019nation
 
 A title is often among the last aspects of a paper to be finalized. While getting through the first draft, we would typically just use a working title that is good enough to get the job done. We then refine it over the course of redrafting. The title needs to reflect the final story of the paper, and this is not usually something that we know at the start. We are interested in striking a balance between getting our reader interested enough to read the paper, and conveying enough of the content so as to be useful [@hayotacademicstyle]. We can think here of classic books, such as Macaulay's *History of England from the Accession of James the Second*, or Churchill's *A History of the English-Speaking Peoples*. Both are clear about what the content is, and, for their target audience, spark interest.
 
-One specific approach is the form: 'Exciting content: Specific content', for instance, 'Returning to their roots: Examining the performance of 'Vote Leave' in the 2016 Brexit referendum'. @kennedy2020know provides a particular nice example of this approach with 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample', as does @craiu2019hiring with 'The Hiring Gambit: In Search of the Twofer Data Scientist'. A close variant of this is 'A question? And an answer'. For instance, @cahill2020increase with 'What increase in modern contraceptive use is needed in FP2020 countries to reach 75% demand satisfied by 2030? An assessment using the Accelerated Transition Method and Family Planning Estimation Model'. As one gains experience with this variant, it becomes possible to know when it is appropriate to drop the answer part yet remain effective, such as @briggs2021does with 'Why Does Aid Not Target the Poorest?'. Another specific approach is 'Specific content then broad content' or inversely. For instance 'Rurality, elites, and support for 'Vote Leave' in the 2016 Brexit referendum' or 'Support for 'Vote Leave' in the 2016 Brexit referendum, rurality and elites. This approach is used by @tolley2021gender with 'Gender, municipal party politics, and Montreal's first woman mayor'.
+One specific approach is the form: 'Exciting content: Specific content', for instance, 'Returning to their roots: Examining the performance of 'Vote Leave' in the 2016 Brexit referendum'. @kennedy2020know provides a particular nice example of this approach with 'Know your population and know your model: Using model-based regression and poststratification to generalize findings beyond the observed sample', as does @craiu2019hiring with 'The Hiring Gambit: In Search of the Twofer Data Scientist'. A close variant of this is 'A question? And an answer'. For instance, @cahill2020increase with 'What increase in modern contraceptive use is needed in FP2020 countries to reach 75% demand satisfied by 2030? An assessment using the Accelerated Transition Method and Family Planning Estimation Model'. As one gains experience with this variant, it becomes possible to know when it is appropriate to drop the answer part yet remain effective, such as @briggs2021does with 'Why Does Aid Not Target the Poorest?'. Another specific approach is 'Specific content then broad content' or inversely. For instance, 'Rurality, elites, and support for 'Vote Leave' in the 2016 Brexit referendum' or 'Support for 'Vote Leave' in the 2016 Brexit referendum, rurality and elites. This approach is used by @tolley2021gender with 'Gender, municipal party politics, and Montreal's first woman mayor'.
 
 
 ### Abstract
@@ -327,7 +330,7 @@ The discussion section would typically begin with a sub-section that comprises a
 
 Following these sub-sections of what we learn about the world, we would typically have a sub-section focused on some of the weaknesses of what was done. This could concern aspects such as the data that were used, the approach, and the model. And the final sub-section is typically a few paragraphs that specify what is left to learn, and how future work could proceed.
 
-In general, we would expect this section to take at least twenty-five per cent of the total paper. For instance, in an eight page paper, we would expect at least two pages of discussion.
+In general, we would expect this section to take at least twenty-five per cent of the total paper. For instance, in an eight-page paper, we would expect at least two pages of discussion.
 
 
 
@@ -351,13 +354,13 @@ This experience is also not unique to academia. For instance, one of the foundat
 
 Typos and other grammatical mistakes affect the credibility of claims. If the reader cannot trust us to use a spell-checker, then why should they trust us to use logistic regression? Microsoft Word and Google Docs are useful here for their spell-checkers: copy/paste from R Markdown, look for the red and green lines, and fix them in R Markdown.
 
-We are not worried about the n-th degree of grammatical content. Instead, we are interested in grammar and sentence structure that occurs in conversational language use [@stephenking, p. 118]. The way to develop that comfort is by reading a lot, and asking others to read your work also.
+We are not worried about the n-th degree of grammatical content. Instead, we are interested in grammar and sentence structure that occurs in conversational language use [@stephenking, p. 118]. The way to develop that comfort is by reading a lot and asking others to read your work also.
 
 Unnecessary words, typos, and grammatical issues should be removed from papers with a fanatical zeal.
 
 ### Rules
 
-A variety of authors have established rules for writing, including famously, @politicsandtheenglishlanguage, which were reimagined by @johnsontheeconomist. A further reimagining, focused on telling stories with data, could be:
+A variety of authors have established rules for writing, including famously, @politicsandtheenglishlanguage, which were reimagined by @johnsontheeconomist. And @fiske2021words have a list of rules for scientific papers. A further reimagining, focused on telling stories with data, could be:
 
 - Focus on the reader and their needs. Everything else is comment.
 - Establish a logical structure and rely on that structure to tell the story.
@@ -376,20 +379,50 @@ A variety of authors have established rules for writing, including famously, @po
 
 ### Exercises
 
-1. According to @king2006publication, what is the key task of subheadings (pick one)?
+1. According to @zinsser, whose picture hangs in Zinsser's office?
+    a. Charlotte Bronte
+    b. E. M. Forster
+    c.  E. B. White
+    d. Stephen King
+2. According to @zinsser, what is the secret to good writing?
+    a. Correct sentence structure and grammar.
+    b. The use of long words, adverbs, and passive voice.
+    c. Thorough planning.
+    d.  Strip every sentence to its cleanest components.
+3. According to @zinsser, what must a writer constantly ask?
+    a.  What am I trying to say?
+    b. Who am I writing for?
+    c. How can this be re-written?
+    d. Why does this matter?
+4. Which two repeated words, characterize the advice of @zinsser?
+    a. Re-write, re-write.
+    b. Remove, remove.
+    c.  Simplify, simplify.
+    d. Less, less.
+5. According to @zinsser, a writer should never say anything in writing that they wouldn't say in?
+    a. Private
+    b. Public
+    c.  Conversation
+    d. Speeches
+6. According to @zinsser, what are the only tools that a writer has?
+    a. Papers
+    b.  Words
+    c. Paragraphs
+    d. Sentences
+7. According to @king2006publication, what is the key task of subheadings (pick one)?
     a.  Enable a reader who randomly falls asleep but keeps turning pages to know where they are.
     b. Be broad and sweeping so that a reader is impressed by the importance of the paper.
     c. Use acronyms to integrate the paper into the literature.
-2. According to @king2006publication, what is the maximum length of an abstract (pick one)?
+8. According to @king2006publication, what is the maximum length of an abstract (pick one)?
     a. Two hundred words.
     b. Two hundred and fifty words.
     c. One hundred words.
     d.  One hundred and fifty words.
-3. According to @king2006publication, in a paper, raw computer output should be (pick one)?
+9. According to @king2006publication, in a paper, raw computer output should be (pick one)?
     a. Commented out.
     b.  Not included.
     a. Included.
-5. According to @king2006publication, if our standard error was 0.05 then which of the following specificity for a coefficient would be silly (select all that apply)?
+10. According to @king2006publication, if our standard error was 0.05 then which of the following specificity for a coefficient would be silly (select all that apply)?
     a.  2.7182818
     b.  2.718282
     c. 2.72
@@ -398,51 +431,51 @@ A variety of authors have established rules for writing, including famously, @po
     f.  2.718
     g. 3
     h.  2.71828
-6. When should we try not to use the 'delete' key (pick one)?
+11. When should we try not to use the 'delete' key (pick one)?
     a.  While writing the first draft.
     b. While writing the second draft.
     a. While writing the third draft.
     d. The 'delete' key should always be used.
-2. How long should a first draft take to write of a five-to-ten-page paper (pick one)?
+12. How long should a first draft take to write of a five-to-ten-page paper (pick one)?
     a. One hour
     b.  One day
     c. One week
     d. One month
-3. What is a key aspect of the re-drafting process (select all that apply)?
+13. What is a key aspect of the re-drafting process (select all that apply)?
     a.  Going through it with a red pen to remove unneeded words.
     b.  Printing the paper and reading a physical copy.
     c.  Cutting and pasting to enhance flow.
     d.  Reading it aloud.
     e.  Exchanging it with others.
-4. What are three features of a good research question (write a paragraph or two)?
-5. What are some of the challenges of being 'data-first' (write a paragraph or two)?
-6. What are some of the challenges of being 'question-first' (write a paragraph or two)?
-7. What is a counterfactual (pick one)?
+14. What are three features of a good research question (write a paragraph or two)?
+15. What are some of the challenges of being 'data-first' (write a paragraph or two)?
+16. What are some of the challenges of being 'question-first' (write a paragraph or two)?
+17. What is a counterfactual (pick one)?
     a.  If-then statements in which the if does not happen.
     b. If-then statements in which the if happens.
     c. Statements that are either true or false.
     c. Statements that are neither true or false.
-8. Which of the following is the best title (pick one)?
+18. Which of the following is the best title (pick one)?
     a. "Problem Set 1"
     b. "Unemployment"
     c. "Examining England's Unemployment (2010-2020)"
     d.  "England's Unemployment Increased between 2010 and 2020"
-9. Which of the following is the best title (pick one)?
+19. Which of the following is the best title (pick one)?
     a. "Problem Set 2"
     b. "Standard errors"
     c.  "On standard errors with small samples"
-10. Which word/s can be removed from the following sentence without affecting its meaning (select all that apply)? 'Like many parents, when our children were born, one of the first things that my wife and I did regularly was read stories to them.' 
+20. Which word/s can be removed from the following sentence without affecting its meaning (select all that apply)? 'Like many parents, when our children were born, one of the first things that my wife and I did regularly was read stories to them.' 
     a.  first
     b.  regularly
     c.  stories
-11. Please write a new title for either @barron2018individuals or @fourcade2017seeing.
-12. Please write a new title for the first article from the list of articles from *The New Yorker* that you read.
-13. Please write a new title for the other article from the list of articles from *The New Yorker* that you read.
-14. Please write a new four-sentence abstract for @chambliss1989mundanity
-15. Please write a new four-sentence abstract for @doll1950smoking or @student1908probable or @kharecha2013prevented.
-16. Please write an abstract for the first article from the list of 'miscellaneous' articles that you read.
-16. Please write an abstract for the other article from the list of 'miscellaneous' articles that you read.
-17. Using only the 1000-most popular words in the English language -- https://xkcd.com/simplewriter/ -- re-write the following so that it retains its original meaning:
+21. Please write a new title for either @barron2018individuals or @fourcade2017seeing.
+22. Please write a new title for the first article from the list of articles from *The New Yorker* that you read.
+23. Please write a new title for the other article from the list of articles from *The New Yorker* that you read.
+24. Please write a new four-sentence abstract for @chambliss1989mundanity
+25. Please write a new four-sentence abstract for @doll1950smoking or @student1908probable or @kharecha2013prevented.
+26. Please write an abstract for the first article from the list of 'miscellaneous' articles that you read.
+26. Please write an abstract for the other article from the list of 'miscellaneous' articles that you read.
+27. Using only the 1000-most popular words in the English language -- https://xkcd.com/simplewriter/ -- re-write the following so that it retains its original meaning:
 
 > When using data, we try to tell a convincing story. It may be as exciting as predicting elections, as banal as increasing internet advertising click rates, as serious as finding the cause of a disease, or as fun as forecasting basketball games. In any case the key elements are the same. 
 
@@ -458,7 +491,7 @@ A variety of authors have established rules for writing, including famously, @po
 - (This idea comes from @draftnumberfour [p. 186].) Re-write the introduction so that it is five lines (or 10 per cent, whichever is less) shorter.
 - Transcribe, by writing each word yourself, the abstract.
 - Re-write a new, four-sentence, abstract for the paper. 
-- (This idea comes from comes from Chelsea Parlett-Pelleriti.) Write a second version of your new abstract using only the one-thousand most popular words in the English language: https://xkcd.com/simplewriter/.
+- (This idea comes from comes from Chelsea Parlett-Pelleriti.) Write a second version of your new abstract using only the one thousand most popular words in the English language: https://xkcd.com/simplewriter/.
 - Detail three points about the way the paper is written that you like
 - Detail one point about the way the paper is written that you do not like.
 

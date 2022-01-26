@@ -22,17 +22,18 @@
 
 ## Shoulders of giants
 
+Chapter 1:
 
-
+> **Shoulders of giants** Dr Michael Jordan is Pehong Chen Distinguished Professor at the University of California, Berkeley. After taking a PhD in Cognitive Science from University of California, San Diego, in 1985, he was appointed as an assistant professor at MIT, being promoted to full professor in 1997, and in 1998 he moved to Berkeley. One area of his research is statistical machine learning. One particularly important paper is @Blei2003latent, which enables text to be grouped together to define topics. Another is . Two recent interesting and approachable papers are 
 
 Chapter 2: 
 
 > **Shoulders of giants** Robert Gentleman and Ross Ihaka
 
-Chapter 5:
 
-> **Shoulders of giants** Xiao-Li Meng
+Chapter 3:
 
+> **Shoulders of giants** Dr Di Cook is Professor of Business Analytics at Monash University. After taking a PhD in statistics from Rutgers University in 1993, she was appointed as an assistant professor at Iowa State University, being promoted to full professor in 2005, and in 2015 she moved to Monash. One area of her research is data visualisation, [ADD TWO OR THREE PAPERS]. [ASK FOR COMMENT ABOUT THE IMPORTANCE OF TELLING STORIES WITH DATA]
 
 - Andrew Gelman
 - Barbara Bailar

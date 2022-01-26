@@ -243,7 +243,7 @@ Ultimately, we are all just telling stories with data, but these stories are inc
 The purpose of this tutorial is to clarify in your mind the difficulty of measurement, even of seemingly simple things, and hence the likelihood of measurement issues in more complicated areas. 
 
 1. Please obtain some seeds for a fast-growing plant such as radishes, mustard greens, or arugula. Plant the seeds and measure how much soil you used. Water them and measure the water you used. Each day take a note of any changes. More generally, measure and record as much as you can. Note your thoughts about the difficulty of measurement. Eventually your seeds will sprout, and you should measure how big they are. We will return to use the data that you put together.
-2. While you are waiting for the seeds to sprout, and for one week only, please measure the length of your hair daily. Write a one-or-two-page paper about what you found and what you learned about the difficulty of measurement.
+2. While you are waiting for the seeds to sprout, and for one week only, please measure the length of your hair daily. Write a one-to-two-page paper about what you found and what you learned about the difficulty of measurement.
 
 
 

@@ -51,6 +51,7 @@ fig:scattorplottwo
 fig:lineplot
 fig:lineplottwo
 fig:stepplot
+fig:notphillips
 fig:phillipsmyboy
 fig:hisogramone
 fig:hisogramtwo
@@ -60,7 +61,6 @@ fig:dotplot
 fig:boxplotfirst
 fig:freqpolyofdistributions
 fig:bloxplotandoverlay
-fig:qqplotftw
 tab:gdpfirst
 tab:gdpbookdtabs
 tab:gdpbookdtabsnolinesep
@@ -71,6 +71,10 @@ tab:correlationtable
 tab:descriptivestats
 tab:twomodels
 tab:twomodelstwo
+fig:mapbasesingermany
+fig:mapbasesinjapan
+fig:mapbasesinaustralia
+fig:mynicemap
 fig:trestles
 fig:trestlesredux
 fig:distillone
@@ -253,7 +257,7 @@ communicating-summary-statistics
 display-regression-results
 maps
 australian-polling-places
-toronto-bike-parking
+us-troop-deployment
 geocoding
 exercises-and-tutorial-5
 exercises-5

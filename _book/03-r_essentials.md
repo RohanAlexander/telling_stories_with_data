@@ -2078,6 +2078,6 @@ days_data |>
 > 
 > Amia Srinivasan, 22 September 2021
 
-Reflect on the quote from Amia Srinivasan, Chichele Professor of Social and Political Theory, All Souls College, Oxford, and @datafeminism2020, especially Chapter 6, and in two pages discuss a dataset that you are familiar with.
+Reflect on the quote from Amia Srinivasan, Chichele Professor of Social and Political Theory, All Souls College, Oxford, and @datafeminism2020, especially Chapter 6, and spend at least two pages discussing them in relation to a dataset that you are familiar with.
 
 

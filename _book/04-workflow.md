@@ -764,7 +764,7 @@ oecd_gdp_most_recent |>
 
 ### Tutorial
 
-Please put together a small R Markdown file that downloads a dataset using `opendatatoronto`, cleans it, and makes a graph. Then exchange it with someone else. Ask them to both read the code and to run it, and to then provide you with feedback about both aspects. Write a page or two of single-spaced content, about the comments that you received and changes that you could make going forward.
+Please put together a small R Markdown file that downloads a dataset using `opendatatoronto`, cleans it, and makes a graph. Then exchange it with someone else. Ask them to both read the code and to run it, and to then provide you with feedback about both aspects. Write a one-to-two pages of single-spaced content, about the comments that you received and changes that you could make going forward.
 
 
 
