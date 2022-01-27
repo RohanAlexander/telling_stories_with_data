@@ -151,30 +151,30 @@
 <p>In general, data from the Canadian census is not as easily available as in other countries. The ‘Individuals File, 2016 Census Public Use Microdata Files (PUMF)’ - <a href="https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X" class="uri">https://www150.statcan.gc.ca/n1/en/catalogue/98M0001X</a> - is probably the best first step, although it does not provide much detail. It is a 2.7 per cent sample from the 2016 census. It is free, but must be requested, after which Statistics Canada will email access details.</p>
 <p>Another way to access data from the Canadian census is to use <code>cancensus</code>, which is an R package that provides access to the Canadian census <span class="citation">(<a href="references-1.html#ref-citecancensus" role="doc-biblioref">von Bergmann, Shkolnik, and Jacobs 2021</a>)</span>. The use of this package requires an API key, which can be requested by creating an account here: <a href="https://censusmapper.ca/users/sign_up" class="uri">https://censusmapper.ca/users/sign_up</a> and then clicking ‘edit profile.’ The package has a helper function <code>cancensus::set_api_key("ADD_YOUR_API_KEY_HERE", install = TRUE)</code> that makes it easier to add the key to your ‘.Renviron’ file. Once that is done you can use the package to access the data.</p>
 <p>The main function in the package is <code><a href="https://mountainmath.github.io/cancensus/index.html/reference/get_census.html">cancensus::get_census()</a></code>, and that requires an argument for the census of interest, and a variety of other factors. In this example we will use the 2016 census</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="farm-data.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb320-2"><a href="farm-data.html#cb320-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
-<span id="cb320-3"><a href="farm-data.html#cb320-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb320-4"><a href="farm-data.html#cb320-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
-<span id="cb320-5"><a href="farm-data.html#cb320-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
-<span id="cb320-6"><a href="farm-data.html#cb320-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
-<span id="cb320-7"><a href="farm-data.html#cb320-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
-<span id="cb320-8"><a href="farm-data.html#cb320-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
-<span id="cb320-9"><a href="farm-data.html#cb320-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb320-10"><a href="farm-data.html#cb320-10" aria-hidden="true" tabindex="-1"></a>             )</span>
-<span id="cb320-11"><a href="farm-data.html#cb320-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb320-12"><a href="farm-data.html#cb320-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb320-13"><a href="farm-data.html#cb320-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb320-14"><a href="farm-data.html#cb320-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb320-15"><a href="farm-data.html#cb320-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb320-16"><a href="farm-data.html#cb320-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
-<span id="cb320-17"><a href="farm-data.html#cb320-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B</span>
-<span id="cb320-18"><a href="farm-data.html#cb320-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb320-19"><a href="farm-data.html#cb320-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ontario_population)</span>
-<span id="cb320-20"><a href="farm-data.html#cb320-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 9</span></span>
-<span id="cb320-21"><a href="farm-data.html#cb320-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households</span></span>
-<span id="cb320-22"><a href="farm-data.html#cb320-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt;                  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
-<span id="cb320-23"><a href="farm-data.html#cb320-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 35     PR    Ontario              986722.   13448494   5598391    5169174</span></span>
-<span id="cb320-24"><a href="farm-data.html#cb320-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: C_UID &lt;chr&gt;, v_CA16_1: Age Stats &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="farm-data.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb321-2"><a href="farm-data.html#cb321-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
+<span id="cb321-3"><a href="farm-data.html#cb321-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb321-4"><a href="farm-data.html#cb321-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
+<span id="cb321-5"><a href="farm-data.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
+<span id="cb321-6"><a href="farm-data.html#cb321-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
+<span id="cb321-7"><a href="farm-data.html#cb321-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
+<span id="cb321-8"><a href="farm-data.html#cb321-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
+<span id="cb321-9"><a href="farm-data.html#cb321-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
+<span id="cb321-10"><a href="farm-data.html#cb321-10" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb321-11"><a href="farm-data.html#cb321-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb321-12"><a href="farm-data.html#cb321-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb321-13"><a href="farm-data.html#cb321-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb321-14"><a href="farm-data.html#cb321-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb321-15"><a href="farm-data.html#cb321-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb321-16"><a href="farm-data.html#cb321-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B     </span>
+<span id="cb321-17"><a href="farm-data.html#cb321-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">170</span> B</span>
+<span id="cb321-18"><a href="farm-data.html#cb321-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb321-19"><a href="farm-data.html#cb321-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ontario_population)</span>
+<span id="cb321-20"><a href="farm-data.html#cb321-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 9</span></span>
+<span id="cb321-21"><a href="farm-data.html#cb321-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   GeoUID Type  `Region Name` `Area (sq km)` Population Dwellings Households</span></span>
+<span id="cb321-22"><a href="farm-data.html#cb321-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;  &lt;fct&gt; &lt;fct&gt;                  &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb321-23"><a href="farm-data.html#cb321-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 35     PR    Ontario              986722.   13448494   5598391    5169174</span></span>
+<span id="cb321-24"><a href="farm-data.html#cb321-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2 more variables: C_UID &lt;chr&gt;, v_CA16_1: Age Stats &lt;dbl&gt;</span></span></code></pre></div>
 <p>The package is fiddly, however it is worthwhile to ensure a reproducible workflow if the data that you are interested in are included. The two helper functions— <code>list_census_regions()</code> and <code>list_census_vectors()</code> — may be useful identify the arguments of interest.</p>
 </div>
 <div id="usa" class="section level3" number="10.2.2">
@@ -344,7 +344,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 27 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

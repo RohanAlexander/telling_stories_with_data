@@ -11,7 +11,7 @@
 
 **Required material**
 
-- Read *On Writing Well*, (any edition is fine) [@zinsser].
+- Read *On Writing Well*, (any edition is fine) Parts I ''Principles' and II 'Methods', [@zinsser].
 - Read *Publication, publication*, [@king2006publication]
 - Read two of the following well-written quantitative papers:
     - *Asset prices in an exchange economy*, [@lucas1978asset].
@@ -126,6 +126,7 @@ Broadly, there are two ways to go about research:
 1) data-first; or
 2) question-first. 
 
+
 ### Data-first
 
 When being data-first, the main issue is working out the questions that can be reasonably answered with the available data. When deciding what these are, it is useful to consider:
@@ -137,6 +138,9 @@ When being data-first, the main issue is working out the questions that can be r
 
 There's a saying, sometimes attributed to Xiao-Li Meng that all of statistics is a missing data problem. And so paradoxically, another way to ask data-first questions to think about which data we do not have. For instance, returning to the neonatal and maternal mortality examples discussed in, respectively, Chapters \@ref(telling-stories-with-data) and \@ref(drinking-from-a-fire-hose), the fundamental problem is that we do not have perfect and complete data about cause of death. If we did, then we could count the number of relevant deaths. Having established the missing data problem, we can take a data-driven approach by looking at the data we do have, and then ask research questions that speak to the extent that we can use that to approximate our hypothetical perfect and complete dataset.
 
+One way that some researchers are data-first, is that they develop a particular expertise in the data of some geographical or historical circumstance. For instance, they may be especially knowledgeable about the present-day UK, or late nineteenth century Japan. They then look at the questions that other researchers are asking in other circumstances, and bring their data to that question. For instance, it is common to see a particular question initially asked for the US, and then a host of researchers answer that same question for the UK, Canada, Australia, and many other countries.
+
+A variant of data-driven research is model-driven research. Here a researcher becomes an expert on some particular statistical approach and then applies that approach whenever there are appropriate datasets.
 
 
 ### Question-first

@@ -1269,6 +1269,7 @@ world_bank_data |>
 |Australia | 1968|  2.5210084|   5.095103|   12009000|                NA|
 |Australia | 1969|  3.2786885|   7.043526|   12263000|                NA|
 
+
 In order to be able to cross-reference it in text, we need to add a caption with 'caption'. We can also make the column names more information with 'col.names' and specify the number of digits to be displayed (Table \@ref(tab:gdpfirst)).
 
 
@@ -1527,6 +1528,438 @@ world_bank_data |>
 </tbody>
 </table>
 
+Another especially nice way to build tables is to use `gt` [@citegt].
+
+
+```r
+library(gt)
+
+world_bank_data |> 
+  slice(1:10) |> 
+  gt() 
+```
+
+```{=html}
+<div id="hocubwlzce" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#hocubwlzce .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hocubwlzce .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hocubwlzce .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hocubwlzce .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hocubwlzce .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hocubwlzce .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hocubwlzce .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hocubwlzce .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hocubwlzce .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hocubwlzce .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hocubwlzce .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hocubwlzce .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hocubwlzce .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#hocubwlzce .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hocubwlzce .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hocubwlzce .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hocubwlzce .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#hocubwlzce .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hocubwlzce .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#hocubwlzce .gt_left {
+  text-align: left;
+}
+
+#hocubwlzce .gt_center {
+  text-align: center;
+}
+
+#hocubwlzce .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hocubwlzce .gt_font_normal {
+  font-weight: normal;
+}
+
+#hocubwlzce .gt_font_bold {
+  font-weight: bold;
+}
+
+#hocubwlzce .gt_font_italic {
+  font-style: italic;
+}
+
+#hocubwlzce .gt_super {
+  font-size: 65%;
+}
+
+#hocubwlzce .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">inflation</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">gdp_growth</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">population</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">unemployment_rate</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1960</td>
+<td class="gt_row gt_right">3.7288136</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">10276477</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1961</td>
+<td class="gt_row gt_right">2.2875817</td>
+<td class="gt_row gt_right">2.483271</td>
+<td class="gt_row gt_right">10483000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1962</td>
+<td class="gt_row gt_right">-0.3194888</td>
+<td class="gt_row gt_right">1.294468</td>
+<td class="gt_row gt_right">10742000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1963</td>
+<td class="gt_row gt_right">0.6410256</td>
+<td class="gt_row gt_right">6.214949</td>
+<td class="gt_row gt_right">10950000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1964</td>
+<td class="gt_row gt_right">2.8662420</td>
+<td class="gt_row gt_right">6.978540</td>
+<td class="gt_row gt_right">11167000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1965</td>
+<td class="gt_row gt_right">3.4055728</td>
+<td class="gt_row gt_right">5.980893</td>
+<td class="gt_row gt_right">11388000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1966</td>
+<td class="gt_row gt_right">3.2934132</td>
+<td class="gt_row gt_right">2.381966</td>
+<td class="gt_row gt_right">11651000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1967</td>
+<td class="gt_row gt_right">3.4782609</td>
+<td class="gt_row gt_right">6.303650</td>
+<td class="gt_row gt_right">11799000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1968</td>
+<td class="gt_row gt_right">2.5210084</td>
+<td class="gt_row gt_right">5.095103</td>
+<td class="gt_row gt_right">12009000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1969</td>
+<td class="gt_row gt_right">3.2786885</td>
+<td class="gt_row gt_right">7.043526</td>
+<td class="gt_row gt_right">12263000</td>
+<td class="gt_row gt_right">NA</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
+
+
+
 
 ### Communicating summary statistics
 
@@ -1535,6 +1968,11 @@ We can use `datasummary()` from `modelsummary` to create tables of summary stati
 
 ```r
 library(modelsummary)
+#> 
+#> Attaching package: 'modelsummary'
+#> The following object is masked from 'package:gt':
+#> 
+#>     escape_latex
 
 world_bank_data |> 
   datasummary_skim()
@@ -2299,7 +2737,7 @@ ggplot() +
        y = "Latitude")
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-24-1.png" width="672" />
 
 
 As is often the case with R, there are many different ways to get started creating static maps. We have seen how they can be built using only `ggplot2`, but `ggmap` brings additional functionality [@KahleWickham2013].
@@ -2334,7 +2772,7 @@ canberra_stamen_map <- get_stamenmap(bbox, zoom = 11, maptype = "toner-lite")
 ggmap(canberra_stamen_map)
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 Once we have a map then we can use `ggmap()` to plot it. Now we want to get some data that we plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' it is. This is available [here](https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv). The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
 
@@ -2403,7 +2841,7 @@ ggmap(canberra_stamen_map,
         panel.grid.minor = element_blank())
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 
 We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
 
@@ -2640,10 +3078,10 @@ ggplot() +
     d. Two vertical lines
 2. Assume `tidyverse` and the 'beps' dataset have been installed and loaded. What change should be made to the following to make the bars for the different parties be next to each other rather than on top of each other?
 `beps |> ggplot(mapping = aes(x = age, fill = vote)) + geom_bar()`
-    a. 'position = "side_by_side"'
-    b.  'position = "dodge"'
-    c. 'position = "adjacent"'
-    d. 'position = "closest"'
+    a. `position = "side_by_side"`
+    b.  `position = "dodge"`
+    c. `position = "adjacent"`
+    d. `position = "closest"`
 3. Which theme should be used to remove the solid lines along the x and y axes?
     a.  `theme_minimal()`
     b. `theme_classic()`
@@ -2656,18 +3094,18 @@ ggplot() +
     c. `scale = "Voted for"`
     d.  `fill = "Voted for"`
 5. Which palette from `scale_colour_brewer()` is divergent?
-    a. Accent
-    b.  RdBu
-    c. GnBu
-    d. Set1
+    a. 'Accent'
+    b.  'RdBu'
+    c. 'GnBu'
+    d. 'Set1'
 6. Which geom should be used to make a scatter plot?
     a. `geom_smooth()`
     b.  `geom_point()`
     c. `geom_bar()`
     d. `geom_dotplot()`
 7. Which of these would result in the largest number of bins?
-    a. geom_histogram(binwidth = 5)
-    b.  geom_histogram(binwidth = 2)
+    a. `geom_histogram(binwidth = 5)`
+    b.  `geom_histogram(binwidth = 2)`
 9. If there is a dataset that contains the heights of 100 birds each from one of three different species. If we are interested in understanding the distribution of these heights, then in a paragraph or two, please explain which type of graph should be used and why?
 10. Assume the dataset and columns exist. Would this code work? `data |> ggplot(aes(x = col_one)) |> geom_point()` (pick one)?
     a. Yes
@@ -2690,10 +3128,10 @@ ggplot() +
     e. The facet specification.
     f. One scale for each aesthetic mapping used.
 14. Which function from `modelsummary` is used to create a table of descriptive statistics?
-    a. datasummary_descriptive()
-    b. datasummary_skim()
-    c. datasummary_crosstab()
-    d.  datasummary_balance()
+    a. `datasummary_descriptive()`
+    b. `datasummary_skim()`
+    c. `datasummary_crosstab()`
+    d.  `datasummary_balance()`
 
 
 ### Tutorial

@@ -1686,10 +1686,86 @@ oecd_gdp_most_recent |>
 
 We have focused on two aspects of the `tidyverse`: `dplyr`, and `ggplot2`. However, the `tidyverse` comprises a variety of different packages and functions. We will now go through four common aspects:
 
-- Importing data and `tibble()`
-- Joining and pivoting datasets
-- String manipulation and `stringr`
-- Factor variables and `forcats`
+- Importing data and `tibble()`.
+- Joining and pivoting datasets.
+- String manipulation and `stringr`.
+- Factor variables and `forcats`.
+
+However, the first task is to deal with the nomenclature, and in particular to be specific about what is 'tidy' about the 'tidyverse'. The name refers to tidy data, and the benefit of that is that while there are a variety of ways for data to be messy, tidy data satisfy three rules. This means the structure of the datasets consistent regardless of the specifics, and makes it easier to apply functions that expect certain types of input. Tidy data refers to a dataset where [@r4ds]:
+
+- Every variable is in a column of its own.
+- Every observation is in its own row.
+- Every value is in its own cell.
+
+Table \@ref(tab:tidydata) is tidy. Table \@ref(tab:nottidydata) is not tidy because age and hair share a column. 
+
+
+```r
+tibble(
+  person = c("Rohan", "Monica", "Edward", "Hugo"),
+  age = c(35, 35, 2, 0),
+  hair = c("Black", "Blonde", "Brown", "None")
+  ) |>
+  knitr::kable(
+    caption = "Example of tidy data",
+    col.names = c("Person", "Age", "Hair"),
+    digits = 1,
+    booktabs = TRUE,
+    linesep = ""
+    )
+```
+
+
+
+Table: (\#tab:tidydata)Example of tidy data
+
+|Person | Age|Hair   |
+|:------|---:|:------|
+|Rohan  |  35|Black  |
+|Monica |  35|Blonde |
+|Edward |   2|Brown  |
+|Hugo   |   0|None   |
+
+
+```r
+tibble(
+  person = c(
+    "Rohan",
+    "Rohan",
+    "Monica",
+    "Monica",
+    "Edward",
+    "Edward",
+    "Hugo",
+    "Hugo"
+  ),
+  variable = c("Age", "Hair", "Age", "Hair", "Age", "Hair", "Age", "Hair"),
+  value = c("35", "Black", "35", "Blonde", "2", "Brown", "0", "None")
+) |>
+  knitr::kable(
+    caption = "Example of data that are not tidy",
+    col.names = c("Person", "Variable", "Value"),
+    digits = 1,
+    booktabs = TRUE,
+    linesep = ""
+  )
+```
+
+
+
+Table: (\#tab:nottidydata)Example of data that are not tidy
+
+|Person |Variable |Value  |
+|:------|:--------|:------|
+|Rohan  |Age      |35     |
+|Rohan  |Hair     |Black  |
+|Monica |Age      |35     |
+|Monica |Hair     |Blonde |
+|Edward |Age      |2      |
+|Edward |Hair     |Brown  |
+|Hugo   |Age      |0      |
+|Hugo   |Hair     |None   |
+
 
 
 ### Importing data and `tibble()`

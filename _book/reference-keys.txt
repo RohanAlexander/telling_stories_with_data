@@ -14,6 +14,8 @@ fig:nmrgraph
 fig:personalprobability
 fig:first
 fig:third
+tab:tidydata
+tab:nottidydata
 fig:instructionsexample
 fig:workflow
 fig:doctervisits
@@ -84,6 +86,9 @@ fig:distillfour
 fig:blogdownone
 fig:blogdowntwo
 fig:blogdownthree
+fig:canhasbase
+fig:canhasbaseandmoney
+fig:canhasbaseandmoneymapdeck
 fig:babynames
 fig:shinyone
 fig:focuson2020
