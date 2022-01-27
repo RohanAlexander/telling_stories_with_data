@@ -925,12 +925,12 @@ head(simulated_dataset)
 #> # A tibble: 6 × 4
 #>   prime_minister birth_year death_year years_lived
 #>   <chr>               <int>      <int>       <int>
-#> 1 Karen                1738       1834          96
-#> 2 Ethan                1758       1838          80
-#> 3 Frances              1844       1904          60
-#> 4 Heather              1893       1967          74
-#> 5 Linda                1926       2026         100
-#> 6 Elizabeth            1936       2007          71
+#> 1 Ashley               1730       1780          50
+#> 2 Susan                1787       1871          84
+#> 3 Bertha               1802       1893          91
+#> 4 Samantha             1807       1901          94
+#> 5 Julie                1811       1897          86
+#> 6 Joyce                1819       1886          67
 ```
 
 One of the advantages of generating a simulated dataset is that if you are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we want something like Figure \@ref(fig:pmsgraphexample).
@@ -1323,12 +1323,12 @@ monicas_data %>%
 ```
 
 ```{=html}
-<div id="zxlmnpmxed" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jeubxxiotd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zxlmnpmxed .gt_table {
+#jeubxxiotd .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1353,7 +1353,7 @@ monicas_data %>%
   border-left-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_heading {
+#jeubxxiotd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1365,7 +1365,7 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_title {
+#jeubxxiotd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1375,7 +1375,7 @@ monicas_data %>%
   border-bottom-width: 0;
 }
 
-#zxlmnpmxed .gt_subtitle {
+#jeubxxiotd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1385,13 +1385,13 @@ monicas_data %>%
   border-top-width: 0;
 }
 
-#zxlmnpmxed .gt_bottom_border {
+#jeubxxiotd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_col_headings {
+#jeubxxiotd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1406,7 +1406,7 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_col_heading {
+#jeubxxiotd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1426,7 +1426,7 @@ monicas_data %>%
   overflow-x: hidden;
 }
 
-#zxlmnpmxed .gt_column_spanner_outer {
+#jeubxxiotd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1438,15 +1438,15 @@ monicas_data %>%
   padding-right: 4px;
 }
 
-#zxlmnpmxed .gt_column_spanner_outer:first-child {
+#jeubxxiotd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zxlmnpmxed .gt_column_spanner_outer:last-child {
+#jeubxxiotd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zxlmnpmxed .gt_column_spanner {
+#jeubxxiotd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1458,7 +1458,7 @@ monicas_data %>%
   width: 100%;
 }
 
-#zxlmnpmxed .gt_group_heading {
+#jeubxxiotd .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1480,7 +1480,7 @@ monicas_data %>%
   vertical-align: middle;
 }
 
-#zxlmnpmxed .gt_empty_group_heading {
+#jeubxxiotd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1495,15 +1495,15 @@ monicas_data %>%
   vertical-align: middle;
 }
 
-#zxlmnpmxed .gt_from_md > :first-child {
+#jeubxxiotd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zxlmnpmxed .gt_from_md > :last-child {
+#jeubxxiotd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zxlmnpmxed .gt_row {
+#jeubxxiotd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1522,7 +1522,7 @@ monicas_data %>%
   overflow-x: hidden;
 }
 
-#zxlmnpmxed .gt_stub {
+#jeubxxiotd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1534,7 +1534,7 @@ monicas_data %>%
   padding-left: 12px;
 }
 
-#zxlmnpmxed .gt_summary_row {
+#jeubxxiotd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1544,7 +1544,7 @@ monicas_data %>%
   padding-right: 5px;
 }
 
-#zxlmnpmxed .gt_first_summary_row {
+#jeubxxiotd .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1554,7 +1554,7 @@ monicas_data %>%
   border-top-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_grand_summary_row {
+#jeubxxiotd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1564,7 +1564,7 @@ monicas_data %>%
   padding-right: 5px;
 }
 
-#zxlmnpmxed .gt_first_grand_summary_row {
+#jeubxxiotd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1574,11 +1574,11 @@ monicas_data %>%
   border-top-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_striped {
+#jeubxxiotd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zxlmnpmxed .gt_table_body {
+#jeubxxiotd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1587,7 +1587,7 @@ monicas_data %>%
   border-bottom-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_footnotes {
+#jeubxxiotd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1601,13 +1601,13 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_footnote {
+#jeubxxiotd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#zxlmnpmxed .gt_sourcenotes {
+#jeubxxiotd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1621,41 +1621,41 @@ monicas_data %>%
   border-right-color: #D3D3D3;
 }
 
-#zxlmnpmxed .gt_sourcenote {
+#jeubxxiotd .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#zxlmnpmxed .gt_left {
+#jeubxxiotd .gt_left {
   text-align: left;
 }
 
-#zxlmnpmxed .gt_center {
+#jeubxxiotd .gt_center {
   text-align: center;
 }
 
-#zxlmnpmxed .gt_right {
+#jeubxxiotd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zxlmnpmxed .gt_font_normal {
+#jeubxxiotd .gt_font_normal {
   font-weight: normal;
 }
 
-#zxlmnpmxed .gt_font_bold {
+#jeubxxiotd .gt_font_bold {
   font-weight: bold;
 }
 
-#zxlmnpmxed .gt_font_italic {
+#jeubxxiotd .gt_font_italic {
   font-style: italic;
 }
 
-#zxlmnpmxed .gt_super {
+#jeubxxiotd .gt_super {
   font-size: 65%;
 }
 
-#zxlmnpmxed .gt_footnote_marks {
+#jeubxxiotd .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;

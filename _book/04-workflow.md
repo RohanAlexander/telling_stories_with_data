@@ -155,8 +155,8 @@ library(AER)
 
 data("DoctorVisits", package = "AER")
 
-DoctorVisits %>%
-  ggplot(aes(x = visits)) +
+DoctorVisits |>
+  ggplot(aes(x = illness)) +
   geom_histogram(stat = "count")
 ```
 ````

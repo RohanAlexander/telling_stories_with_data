@@ -898,10 +898,7 @@ Figure 6.16: Relationship between inflation and GDP growth for Australia, Ethiop
 
 <span class="va">defaults</span> <span class="op">/</span> 
   <span class="va">straightline</span> <span class="op">/</span>
-  <span class="va">onestraightline</span>
-<span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span>
-<span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span>
-<span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></code></pre></div>
+  <span class="va">onestraightline</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:scattorplottwo"></span>
 <img src="11-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672"><p class="caption">
@@ -3691,14 +3688,71 @@ Figure 6.34: Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain
 <span class="header-section-number">6.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-5"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li>I have a dataset that contains measurements of height (in cm) for a sample of 300 penguins, who are either the Adeline or Emperor species. I am interested in visualizing the distribution of heights by species in a graphical way. Please discuss whether a pie chart is an appropriate type of graph to use. What about a box and whisker plot? Finally, what are some considerations if you made a histogram? [Please write a paragraph or two for each aspect.]</li>
+<li>Assume <code>tidyverse</code> and <code>datasauRus</code> are installed and loaded. What would be the outcome of the following code?
+<code>datasaurus_dozen |&gt; filter(dataset == "high_lines") |&gt; ggplot(aes(x=x, y=y)) + geom_point()</code>
+<ol style="list-style-type: lower-alpha">
+<li>Four vertical lines</li>
+<li>Five vertical lines</li>
+<li>Three vertical lines</li>
+<li>Two vertical lines</li>
+</ol>
+</li>
+<li>Assume <code>tidyverse</code> and the ‘beps’ dataset have been installed and loaded. What change should be made to the following to make the bars for the different parties be next to each other rather than on top of each other?
+<code>beps |&gt; ggplot(mapping = aes(x = age, fill = vote)) + geom_bar()</code>
+<ol style="list-style-type: lower-alpha">
+<li>‘position = “side_by_side”’</li>
+<li>‘position = “dodge”’</li>
+<li>‘position = “adjacent”’</li>
+<li>‘position = “closest”’</li>
+</ol>
+</li>
+<li>Which theme should be used to remove the solid lines along the x and y axes?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark()</a></code></li>
+</ol>
+</li>
+<li>Assume <code>tidyverse</code> and the ‘beps’ dataset have been installed and loaded. What should be added to ‘labs()’ to change the text of the legend?
+<code>beps |&gt; ggplot(mapping = aes(x = age, fill = vote)) + geom_bar() + theme_minimal() + labs(x = "Age of respondent", y = "Number of respondents")</code>
+<ol style="list-style-type: lower-alpha">
+<li><code>color = "Voted for"</code></li>
+<li><code>legend = "Voted for"</code></li>
+<li><code>scale = "Voted for"</code></li>
+<li><code>fill = "Voted for"</code></li>
+</ol>
+</li>
+<li>Which palette from <code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_colour_brewer()</a></code> is divergent?
+<ol style="list-style-type: lower-alpha">
+<li>Accent</li>
+<li>RdBu</li>
+<li>GnBu</li>
+<li>Set1</li>
+</ol>
+</li>
+<li>Which geom should be used to make a scatter plot?
+<ol style="list-style-type: lower-alpha">
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code></li>
+<li><code><a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html">geom_dotplot()</a></code></li>
+</ol>
+</li>
+<li>Which of these would result in the largest number of bins?
+<ol style="list-style-type: lower-alpha">
+<li>geom_histogram(binwidth = 5)</li>
+<li>geom_histogram(binwidth = 2)</li>
+</ol>
+</li>
+<li>If there is a dataset that contains the heights of 100 birds each from one of three different species. If we are interested in understanding the distribution of these heights, then in a paragraph or two, please explain which type of graph should be used and why?</li>
 <li>Assume the dataset and columns exist. Would this code work? <code>data |&gt; ggplot(aes(x = col_one)) |&gt; geom_point()</code> (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>Yes</li>
 <li>No</li>
 </ol>
 </li>
-<li>If I have categorical data, which geom should I use to plot it (pick one)?
+<li>Which geom should be used to plot categorical data (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li><code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code></li>
 <li><code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code></li>
@@ -3722,6 +3776,14 @@ Figure 6.34: Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain
 <li>A coordinate system.</li>
 <li>The facet specification.</li>
 <li>One scale for each aesthetic mapping used.</li>
+</ol>
+</li>
+<li>Which function from <code>modelsummary</code> is used to create a table of descriptive statistics?
+<ol style="list-style-type: lower-alpha">
+<li>datasummary_descriptive()</li>
+<li>datasummary_skim()</li>
+<li>datasummary_crosstab()</li>
+<li>datasummary_balance()</li>
 </ol>
 </li>
 </ol>

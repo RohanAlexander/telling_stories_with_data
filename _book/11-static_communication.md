@@ -2,6 +2,9 @@
 
 
 
+
+
+
 # Static communication
 
 **Required material**
@@ -837,9 +840,6 @@ onestraightline <-
 defaults / 
   straightline /
   onestraightline
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-#> `geom_smooth()` using formula 'y ~ x'
-#> `geom_smooth()` using formula 'y ~ x'
 ```
 
 <div class="figure">
@@ -2632,28 +2632,68 @@ ggplot() +
 
 ### Exercises
 
-
-1. I have a dataset that contains measurements of height (in cm) for a sample of 300 penguins, who are either the Adeline or Emperor species. I am interested in visualizing the distribution of heights by species in a graphical way. Please discuss whether a pie chart is an appropriate type of graph to use. What about a box and whisker plot? Finally, what are some considerations if you made a histogram? [Please write a paragraph or two for each aspect.]
-2. Assume the dataset and columns exist. Would this code work? `data |> ggplot(aes(x = col_one)) |> geom_point()` (pick one)?
+1. Assume `tidyverse` and `datasauRus` are installed and loaded. What would be the outcome of the following code?
+`datasaurus_dozen |> filter(dataset == "high_lines") |> ggplot(aes(x=x, y=y)) + geom_point()`
+    a.  Four vertical lines
+    b. Five vertical lines
+    c. Three vertical lines
+    d. Two vertical lines
+2. Assume `tidyverse` and the 'beps' dataset have been installed and loaded. What change should be made to the following to make the bars for the different parties be next to each other rather than on top of each other?
+`beps |> ggplot(mapping = aes(x = age, fill = vote)) + geom_bar()`
+    a. 'position = "side_by_side"'
+    b.  'position = "dodge"'
+    c. 'position = "adjacent"'
+    d. 'position = "closest"'
+3. Which theme should be used to remove the solid lines along the x and y axes?
+    a.  `theme_minimal()`
+    b. `theme_classic()`
+    c. `theme_bw()`
+    d. `theme_dark()`
+4. Assume `tidyverse` and the 'beps' dataset have been installed and loaded. What should be added to 'labs()' to change the text of the legend?
+`beps |> ggplot(mapping = aes(x = age, fill = vote)) + geom_bar() + theme_minimal() + labs(x = "Age of respondent", y = "Number of respondents")`
+    a. `color = "Voted for"`
+    b. `legend = "Voted for"`
+    c. `scale = "Voted for"`
+    d.  `fill = "Voted for"`
+5. Which palette from `scale_colour_brewer()` is divergent?
+    a. Accent
+    b.  RdBu
+    c. GnBu
+    d. Set1
+6. Which geom should be used to make a scatter plot?
+    a. `geom_smooth()`
+    b.  `geom_point()`
+    c. `geom_bar()`
+    d. `geom_dotplot()`
+7. Which of these would result in the largest number of bins?
+    a. geom_histogram(binwidth = 5)
+    b.  geom_histogram(binwidth = 2)
+9. If there is a dataset that contains the heights of 100 birds each from one of three different species. If we are interested in understanding the distribution of these heights, then in a paragraph or two, please explain which type of graph should be used and why?
+10. Assume the dataset and columns exist. Would this code work? `data |> ggplot(aes(x = col_one)) |> geom_point()` (pick one)?
     a. Yes
     b. No
-3. If I have categorical data, which geom should I use to plot it (pick one)?
+11. Which geom should be used to plot categorical data (pick one)?
     a.  `geom_bar()`
     b. `geom_point()`
     c. `geom_abline()`
     d. `geom_boxplot()`
-4. Why are boxplots often inappropriate (pick one)?
+12. Why are boxplots often inappropriate (pick one)?
     a.  They hide the full distribution of the data.
     b. They are hard to make.
     c. They are ugly.
     d. The mode is clearly displayed.
-5. Which of the following, if any, are elements of the layered grammar of graphics [@wickham2010layered] (select all that apply)?
+13. Which of the following, if any, are elements of the layered grammar of graphics [@wickham2010layered] (select all that apply)?
     a. A default dataset and set of mappings from variables to aesthetics.
     b. One or more layers, with each layer having one geometric object, one statistical transformation, one position adjustment, and optionally, one dataset and set of aesthetic mappings.
     c. Colors that enable the reader to understand the main point.
     d. A coordinate system.
     e. The facet specification.
     f. One scale for each aesthetic mapping used.
+14. Which function from `modelsummary` is used to create a table of descriptive statistics?
+    a. datasummary_descriptive()
+    b. datasummary_skim()
+    c. datasummary_crosstab()
+    d.  datasummary_balance()
 
 
 ### Tutorial

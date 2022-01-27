@@ -236,8 +236,8 @@ library(AER)
 
 data("DoctorVisits", package = "AER")
 
-DoctorVisits %&gt;%
-  ggplot(aes(x = visits)) +
+DoctorVisits |&gt;
+  ggplot(aes(x = illness)) +
   geom_histogram(stat = "count")
 ```</code></pre>
 <p>The output of that code is Figure <a href="reproducible-workflows.html#fig:doctervisits">4.3</a>.</p>
