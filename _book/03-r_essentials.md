@@ -2071,7 +2071,7 @@ days_data |>
     b. A closed source paid program.
     c. A programming language created by Guido van Rossum
     d. A statistical programming language.
-4. What is the class of the output of '2 + 2' (pick one)?
+4. What is the class of the output of `2 + 2` (pick one)?
     a. character
     b. factor
     c. numeric

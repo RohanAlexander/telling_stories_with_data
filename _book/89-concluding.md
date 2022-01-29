@@ -74,3 +74,17 @@ We often hear the phrase let the data speak. Hopefully by this point you underst
 
 
 
+
+## Exercises and tutorial
+
+
+### Exercises
+
+
+### Tutorial
+
+### Paper
+
+At about this point, the Final Paper (Appendix \@ref(final-paper)) would be appropriate.
+
+

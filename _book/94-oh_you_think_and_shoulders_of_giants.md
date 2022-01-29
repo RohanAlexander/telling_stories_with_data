@@ -5,6 +5,12 @@
 
 ## Oh, you think we have good data on that!
 
+Chapter 8:
+
+> **Oh, you think we have good data on that!** City boundaries. What constitues 'Atlanta'? Different definitions - metro, X, Y. (also an issue in countries with boundaries changing over time)
+
+
+
 > **Oh, you think we have good data on that!** Migration.
 
 > **Oh, you think we have good data on that!** Weather stations 
@@ -15,7 +21,6 @@
 
 > **Oh, you think we have good data on that!** Cause of death
 
-> **Oh, you think we have good data on that!** City boundaries. What constitues 'Atlanta'? Different definitions - metro, X, Y. (also an issue in countries with boundaries changing over time)
 
 > **Oh, you think we have good data on that!** Timing
 

@@ -61,72 +61,6 @@
 - `tidyverse`
 
 
-**Quiz**
-
-1. Your Mum asked you what you've been learning this term. You decide to tell her about multilevel regression with post-stratification (MRP). Please explain what MRP is. Your Mum has a university-education, but has not necessarily taken any statistics, so you will need to explain any technical terms that you use. [Please write two or three paragraphs; strong answers would be clear about both strengths and weaknesses.]
-2. With respect to @wang2015forecasting: Why is this paper interesting? What do you like about this paper? What do you wish it did better? To what extent can you reproduce this paper? [Please write one or two paragraphs about each aspect.]
-3. With respect to @wang2015forecasting, what is not a feature they mention election forecasts need? 
-    a. Explainable.
-    b. Accurate.
-    c. Cost-effective.
-    d. Relevant.
-    e. Timely.
-4. With respect to @wang2015forecasting, what is a weakness of MRP?
-    a. Detailed data requirement. 
-    b. Allows use of biased data. 
-    c. Expensive to conduct.
-5. With respect to @wang2015forecasting, what is concerning about the Xbox sample? 
-    a. Non-representative. 
-    b. Small sample size. 
-    c. Multiple responses from the same respondent.
-6. I am interested in studying how voting intentions in the 2020 US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, some possible independent variables would be: [Please check all that apply.] 
-    a. Whether the respondent is registered to vote (yes/no). 
-    b. Whether the respondent is going to vote for Biden (yes/no). 
-    c. The race of the respondent (white/not white). 
-    d. The respondent's marital status (married/not).
-7. Please think about @cohn2016 Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]
-8. When we think about multilevel regression with post-stratification, what are the key assumptions that we are making? [Please write one or two paragraphs about each aspect.]
-9. I train a model based on a survey, and then post-stratify it using the 2020 ACS dataset. What are some of the practical considerations that I may have to contend when I am doing this? [Please write a paragraph each about at least three considerations.]
-10. In a similar manner to @ghitza2020voter pretend you've got access to a US voter file record from a private company. You train a model on the 2020 US CCES, and post-stratify it, on an individual-basis, based on that voter file. 
-    a. Could you please put-together a datasheet for the voter file dataset following @gebru2020datasheets? As a reminder, datasheets accompany datasets and document 'motivation, composition, collection process, recommended uses,' among other aspects.
-    b. Could you also please put together a model card for your model, following @Mitchell_2019? As a reminder, model cards are deliberately straight-forward one- or two-page documents that report aspects such as: model details; intended use; metrics; training data; ethical considerations; as well as caveats and recommendations [@Mitchell_2019].
-    c. Could you please discuss three ethical aspects around the features that you are using in your model? [Please write a paragraph or two for each point.]
-    d. Could you please detail the protections that you would put in place in terms of the dataset, the model, and the predictions?
-11. If I have a model output from `lm()` called 'my_model_output' how can I use `modelsummary` to display the output (assume the package has been loaded) [please select all that apply]?
-    a. `modelsummary::modelsummary(my_model_output)`
-    b. `modelsummary(my_model_output)`
-    c. `my_model_output %>% modelsummary()`
-    d. `my_model_output %>% modelsummary(statistic = NULL)`
-12. Which of the following are examples of linear models [please select all that apply]?
-    a. `lm(y ~ x_1 + x_2 + x_3, data = my_data)`
-    b. `lm(y ~ x_1 + x_2^2 + x_3, data = my_data)`
-    c. `lm(y ~ x_1 * x_2 + x_3, data = my_data)`
-    d. `lm(y ~ x_1 + x_1^2 + x_2 + x_3, data = my_data)`
-13. Consider a situation in which you have a survey dataset with these age-groups: 18-29; 30-44; 45- 60; and 60+. And a post-stratification dataset with these age-groups: 18-24; 25-29; 30-34; 35-39; 40-44; 45-49; 50-54; 55-59; and 60+. What approach would you take to bringing these together? [Please write a paragraph.]
-14. Consider a situation in which you again have a survey dataset with these age-groups: 18-29; 30-44; 45- 60; and 60+. But this time the post-stratification dataset has these age-groups: 18-34; 35-49; 50-64; and 65+. What approach would you take to bringing these together? [Please write a paragraph.]
-15. Please consider @kennedy2020using. What are some statistical facets when considering a survey focused on gender, with a post-stratification survey that is not? [Please check all that apply.]
-	a. Impute all non-male as female
-	b. Estimate gender using auxiliary information
-	c. Impute population
-	d. Impute sample values
-	e. Model population distribution using auxiliary data
-	f. Remove all non-binary respondents
-	g. Remove respondents
-	h. Assume population distribution
-16. Please consider @kennedy2020using. What are some ethical facets when considering a survey focused on gender, with a post-stratification survey that is not? [Please check all that apply.]
-	a. Impute all non-male as female
-	b. Estimate gender using auxiliary information
-	c. Impute population
-	d. Impute sample values
-	e. Model population distribution using auxiliary data
-	f. Remove all non-binary respondents
-	g. Remove respondents
-	h. Assume population distribution
-17. Please consider @kennedy2020using. How do they define ethics?
-	a. Respecting the perspectives and dignity of individual survey respondents.
-	b. Generating estimates of the general population and for subpopulations of interest.
-	c. Using more complicated procedures only when they serve some useful function.
-
 
 ## Introduction
 
@@ -2485,7 +2419,76 @@ More generally, we could pretty much use MRP anywhere we have samples. Determini
 
 ### Exercises
 
+1. Your Mum asked you what you've been learning this term. You decide to tell her about multilevel regression with post-stratification (MRP). Please explain what MRP is. Your Mum has a university-education, but has not necessarily taken any statistics, so you will need to explain any technical terms that you use. [Please write two or three paragraphs; strong answers would be clear about both strengths and weaknesses.]
+2. With respect to @wang2015forecasting: Why is this paper interesting? What do you like about this paper? What do you wish it did better? To what extent can you reproduce this paper? [Please write one or two paragraphs about each aspect.]
+3. With respect to @wang2015forecasting, what is not a feature they mention election forecasts need? 
+    a. Explainable.
+    b. Accurate.
+    c. Cost-effective.
+    d. Relevant.
+    e. Timely.
+4. With respect to @wang2015forecasting, what is a weakness of MRP?
+    a. Detailed data requirement. 
+    b. Allows use of biased data. 
+    c. Expensive to conduct.
+5. With respect to @wang2015forecasting, what is concerning about the Xbox sample? 
+    a. Non-representative. 
+    b. Small sample size. 
+    c. Multiple responses from the same respondent.
+6. I am interested in studying how voting intentions in the 2020 US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, some possible independent variables would be: [Please check all that apply.] 
+    a. Whether the respondent is registered to vote (yes/no). 
+    b. Whether the respondent is going to vote for Biden (yes/no). 
+    c. The race of the respondent (white/not white). 
+    d. The respondent's marital status (married/not).
+7. Please think about @cohn2016 Why is this type of exercise not carried out more? Why do you think that different groups, even with the same background and level of quantitative sophistication, could have such different estimates even when they use the same data? [Please write a paragraph or two about each aspect.]
+8. When we think about multilevel regression with post-stratification, what are the key assumptions that we are making? [Please write one or two paragraphs about each aspect.]
+9. I train a model based on a survey, and then post-stratify it using the 2020 ACS dataset. What are some of the practical considerations that I may have to contend when I am doing this? [Please write a paragraph each about at least three considerations.]
+10. In a similar manner to @ghitza2020voter pretend you've got access to a US voter file record from a private company. You train a model on the 2020 US CCES, and post-stratify it, on an individual-basis, based on that voter file. 
+    a. Could you please put-together a datasheet for the voter file dataset following @gebru2020datasheets? As a reminder, datasheets accompany datasets and document 'motivation, composition, collection process, recommended uses,' among other aspects.
+    b. Could you also please put together a model card for your model, following @Mitchell_2019? As a reminder, model cards are deliberately straight-forward one- or two-page documents that report aspects such as: model details; intended use; metrics; training data; ethical considerations; as well as caveats and recommendations [@Mitchell_2019].
+    c. Could you please discuss three ethical aspects around the features that you are using in your model? [Please write a paragraph or two for each point.]
+    d. Could you please detail the protections that you would put in place in terms of the dataset, the model, and the predictions?
+11. If I have a model output from `lm()` called 'my_model_output' how can I use `modelsummary` to display the output (assume the package has been loaded) [please select all that apply]?
+    a. `modelsummary::modelsummary(my_model_output)`
+    b. `modelsummary(my_model_output)`
+    c. `my_model_output %>% modelsummary()`
+    d. `my_model_output %>% modelsummary(statistic = NULL)`
+12. Which of the following are examples of linear models [please select all that apply]?
+    a. `lm(y ~ x_1 + x_2 + x_3, data = my_data)`
+    b. `lm(y ~ x_1 + x_2^2 + x_3, data = my_data)`
+    c. `lm(y ~ x_1 * x_2 + x_3, data = my_data)`
+    d. `lm(y ~ x_1 + x_1^2 + x_2 + x_3, data = my_data)`
+13. Consider a situation in which you have a survey dataset with these age-groups: 18-29; 30-44; 45- 60; and 60+. And a post-stratification dataset with these age-groups: 18-24; 25-29; 30-34; 35-39; 40-44; 45-49; 50-54; 55-59; and 60+. What approach would you take to bringing these together? [Please write a paragraph.]
+14. Consider a situation in which you again have a survey dataset with these age-groups: 18-29; 30-44; 45- 60; and 60+. But this time the post-stratification dataset has these age-groups: 18-34; 35-49; 50-64; and 65+. What approach would you take to bringing these together? [Please write a paragraph.]
+15. Please consider @kennedy2020using. What are some statistical facets when considering a survey focused on gender, with a post-stratification survey that is not? [Please check all that apply.]
+	a. Impute all non-male as female
+	b. Estimate gender using auxiliary information
+	c. Impute population
+	d. Impute sample values
+	e. Model population distribution using auxiliary data
+	f. Remove all non-binary respondents
+	g. Remove respondents
+	h. Assume population distribution
+16. Please consider @kennedy2020using. What are some ethical facets when considering a survey focused on gender, with a post-stratification survey that is not? [Please check all that apply.]
+	a. Impute all non-male as female
+	b. Estimate gender using auxiliary information
+	c. Impute population
+	d. Impute sample values
+	e. Model population distribution using auxiliary data
+	f. Remove all non-binary respondents
+	g. Remove respondents
+	h. Assume population distribution
+17. Please consider @kennedy2020using. How do they define ethics?
+	a. Respecting the perspectives and dignity of individual survey respondents.
+	b. Generating estimates of the general population and for subpopulations of interest.
+	c. Using more complicated procedures only when they serve some useful function.
+
+
 ### Tutorial
 
 
+
+### Paper
+
+At about this point, the Final Paper (Appendix \@ref(paper-6)) would be appropriate.
 

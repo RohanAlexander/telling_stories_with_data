@@ -521,67 +521,6 @@ For an example of this, start with @obermeyer2019dissecting:
 
 
 
-## Sampling and survey essentials
-
-### Introduction
-
-Statistics is the cold, hard, core of using data. Statisticians have spent considerable time and effort thinking about the properties that various samples of data will have and how they enable us to speak to implications for the broader population.
-
-Let's say that we have some data. For instance, a particular toddler goes to sleep at 6:00pm every night. We might be interested to know whether that bed-time is common more generally among all toddlers, or if we have an unusual toddler. We only have one toddler so our ability to use his bed time to speak about all toddlers is limited. But what about if we talk to our friends who also have toddlers? How many friends, and friends of friends, do we have to ask because we can begin to feel comfortable speaking about some underlying truth of toddler bedtime?
-
-In the wonderful phrase of @wuandthompson [p. 3] '[s]tatistics is the science of how to collect and analyze data, and draw statements and conclusions about unknown populations. The term population usually refers to a real or hypothetical set of units with characteristics and attributes which can be modelled by random variables and their respective probability distributions.'. In my own much less wonderful phrasing, 'statistics involves having some data and trying to say something sensible about it'. I mean, it's really up to you which one you want to go with.
-
-In the case of surveys, our population is a finite set of $N$ labels: 'person 1', 'person 2', 'person 3', ..., 'person $N$'. It is important here to recognise that there is a difference between the population of interest to a survey and a population in the sense that it is used when we talk of limits and similar infinity concepts in statistics. For instance, from time to time, you hear people who work with census data say that they don't need to worry about confidence intervals because they have the whole population of the country. Nothing could be further from the truth. 
-
-@wuandthompson [p. 4] have a lovely example of the ambiguity that surrounds the definition of a population. Let's consider the population of voters. In Canada that means anyone who is 18 or older. Fine. But what if we are interested in consumers - what is the definition of hipsters? I regularly eat avocado toast, (+1), but I've never had bullet coffee (-1). Am I in the population or not? 
-
-More things are formally defined than you may realise. For instance, the idea of a rural area is precisely defined. A property is either in a rural area or not. But then we come to the lovely example of @wuandthompson [p. 4] when it comes to whether someone is a smoker. If a 15 year old has had 100 cigarettes then it's pretty clear that we need to treat them differently than if they have had none. But if a 100 year old has had 100 cigarettes then we consider them to have none. That's fine, but what is the age at which this changes? Further, think about how this changes over time. At one point, parents used to be worried if children had more than two hours of screen time, now those same children (and possibly even the parents) regularly likely spend more than eight hours in front of a screen if they work in an office job.
-
-So we come to some critical terminology:
-
-1. Population: 'The set of all units covered by the main objective of the study.' @wuandthompson [p. 5].
-2. Frame: 'Lists of sampling units' @wuandthompson [p. 9] where sampling units are either the observational units themselves or the clusters. 
-3. Sample: Those who complete and return the survey. 
-
-To be a little more concrete about this, consider that we are trying to conduct a survey about the attitudes Australians who live in Toronto. So the target population is all Australians who live in Toronto, the frame might be all those Australians who live in Toronto who use Facebook, because we are going to use Facebook to choose who to sample. And then finally, if we take that Facebook list of all Australians living in Canada and we gave each one a chance at being surveyed then that would be our sampled population, but if we just picked the ones that I know then it would just be Dan, Monica, and Liza (from New Zealand but we'll claim her because that's a thing that Australians do).
-
-In that example the target population and the frame will be different because not all Australians who live in Toronto are on Facebook. Similarly, if not everyone that we gave the survey to actually completed the survey then the sample and the frame would be different.
-
-Having identified a population of interest and a frame (i.e. a list that gets the closest to that population) At this point we distinguish between probability and non-probability sampling. 
-
-With probability sampling, every member of the frame has some chance of being sampled. Consider the example of the Australian Election Study - they get a list of all the addresses in Australia, and then randomly choose some to send letters to. The 'randomista' and RCT revolution that we discuss later, is needed because of a lack of probability sampling, but when it exists it plays a role here. Importantly it ensure that we are clear about the role of uncertainty [@wuandthompson, p. 11]. The trade-off is that it is expensive and difficult. Note that each unit in the frame doesn't have to have the same probability necessarily, it just needs to be determined by a probability measure.
-
-In contrast, with non-probability sampling we focus on populations that are 'readily available' or convenient, satisfy certain quotas, based on judgement, or those that volunteer. The difference between probability and non-probability sampling is that of degree - we typically cannot force someone to take our survey, and hence, there is almost also as aspect of volunteering. 
-
-While acknowledging that it is a spectrum, most of statistics was developed based on probability sampling. But much of modern sampling is done using non-probability sampling. In particular, a common approach is to have a bunch of Facebook ads trying to recruit a panel of people in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this - what type of people are likely to respond to such an ad? I don't know who Canada's richest person is, but are they likely to be in this panel? Is your grandmother likely to respond to that ad? What about you - do you even use Facebook? 
-
-In some cases it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them - they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be. Hence, the role of surveys. Note, however that censuses will typically have many of the same concerns.
-
-When we consider our population, it will typically have some ordering. This may be as simple as a country having states/provinces. We consider a stratified structure to be one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata. Examples of strata in @wuandthompson [p. 8] include provinces, federal electoral districts, or health regions. But strata need not be geographic, and it may be possible to use different majors. We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, if we surveyed provinces in proportion to their population, then even a survey of 10,000 responses would only expect to have 10 responses from the Yukon. 
-
-The other word that is used that takes advantage of the ordering of some population is clusters. Again, these are collectively exhaustive and mutually exclusive. Again, they may be geographically based, but need not be. The difference between stratified sampling and cluster sampling, is that 'under stratified sampling, sample data are collected from every stratum, (whereas) under cluster sampling, only a portion of the clusters has members in the final sample' @wuandthompson [p. 8]. That all said, this difference can become less clear in practice, especially *ex post* - what if you stratify then randomly sample within that strata, but no one is selected - but in terms of intention the difference is clear.
-
-We now turn to the first of our claims, which is that if we have a perfect frame and no non-response, then our sample results will match that of the population. We'd of course be very worried if that weren't the case, but it's nice to have it stated. We establish some type of population mean for the study variable, $\mu_y$, and population means for the auxiliary variables $\mu_x$, which could be things like age, gender, etc. Remembering that when we do this in the real world, we may have many study variables, and indeed, some overlap. If a variable is an indicator then in this set-up all we have to do is to work out the proportion in order to estimate it, which is $P$. And finally, we get a rule of thumb for large samples whereby the variance in this binary and perfect setting becomes $\sigma_y^2 = P/(1-P)$ [@wuandthompson, p. 11].
-
-Finally, we conclude with the steps that you should consider. These are all critical. Strong reports would grapple with all of these.
-
-
-
-
-### Simple random sampling
-
-TBD
-
-
-### Stratified and cluster sampling
-
-TBD
-
-
-### Snowball sampling and confidant methods
-
-TBD
-
 
 
 

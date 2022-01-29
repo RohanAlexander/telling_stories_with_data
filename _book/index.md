@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "27 January, 2022"
+date: "29 January, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -131,7 +131,7 @@ Thank you to David Grubbs and the team at CRC Press for taking a chance on me an
 
 Thank you to Michael Chong and Sharla Gelfand for greatly helping to shape some of the approaches I advocate. However, both do much more than that and contribute in an enormous way to the spirit of generosity that characterises the R community.
 
-Thank you to Kelly Lyons for her support, guidance, mentorship, and friendship. Every day she demonstrates what an academic should be, and more broadly, what we should all aspire to be as a person. 
+Thank you to Kelly Lyons for her support, guidance, mentorship, and friendship. Every day she demonstrates what an academic should be, and more broadly, what we should all aspire to be as a person.
 
 Thank you to Greg Wilson for providing a structure to think about teaching, for being the catalyst for this book, and for helpful comments on drafts. Every day he provides an example of how to contribute to the intellectual community.
 
@@ -149,7 +149,7 @@ This book has greatly benefited from the notes and teaching materials of others 
 
 Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 
-Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
+Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Arsh Lakhanpal, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
 
 Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Thank you for your inestimable help with writing this book, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), giving me the time that I needed to write, encouragement when it turned out that writing a book just meant endlessly re-writing that which was perfect the day before, reading everything in this book many times, providing perfect hydration in the form of coffee or cocktails as appropriate, and much more.
 

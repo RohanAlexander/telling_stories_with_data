@@ -61,7 +61,7 @@
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="active" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
 <li><a class="" href="interactive-communication.html"><span class="header-section-number">7</span> Interactive communication</a></li>
-<li class="book-part">Measure and acquire</li>
+<li class="book-part">Worlds become data</li>
 <li><a class="" href="gather-data.html"><span class="header-section-number">8</span> Gather data</a></li>
 <li><a class="" href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></li>
 <li><a class="" href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></li>
@@ -459,10 +459,29 @@ Figure 6.2: Recreation of Anscombe’s Quartet
 <span class="co">#&gt; 6     6 Labour    47                3                4     4</span>
 <span class="co">#&gt; # … with 5 more variables: Hague &lt;dbl&gt;, Kennedy &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   Europe &lt;dbl&gt;, political.knowledge &lt;dbl&gt;, gender &lt;chr&gt;</span></code></pre></div>
-<p>The dataset consists of which party the person supports, along with various demographic, economic, and political variables. In particular, we have the age of the respondents. We could begin by making a graph of this age distribution using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> (Figure <a href="static-communication.html#fig:bepfitst">6.3</a>).</p>
+<p>The dataset consists of which party the person supports, along with various demographic, economic, and political variables. In particular, we have the age of the respondents. We begin by creating age-groups from the ages, and making a bar chart of the age-groups using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> (Figure <a href="static-communication.html#fig:bepfitst">6.3</a>).</p>
 <div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="va">beps</span> <span class="op">&lt;-</span> 
+  <span class="va">beps</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>age_group <span class="op">=</span> 
+           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&lt;</span> <span class="fl">35</span> <span class="op">~</span> <span class="st">"&lt;35"</span>,
+                     <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">50</span> <span class="op">~</span> <span class="st">"35-49"</span>,
+                     <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">65</span> <span class="op">~</span> <span class="st">"50-64"</span>,
+                     <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">80</span> <span class="op">~</span> <span class="st">"65-79"</span>,
+                     <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">100</span> <span class="op">~</span> <span class="st">"80-99"</span>
+                     <span class="op">)</span>,
+         age_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">age_group</span>,
+                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"&lt;35"</span>,
+                                       <span class="st">"35-49"</span>,
+                                       <span class="st">"50-64"</span>,
+                                       <span class="st">"65-79"</span>,
+                                       <span class="st">"80-99"</span>
+                                       <span class="op">)</span>
+                            <span class="op">)</span>
+         <span class="op">)</span>
+
+<span class="va">beps</span> |&gt;  
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:bepfitst"></span>
@@ -470,11 +489,11 @@ Figure 6.2: Recreation of Anscombe’s Quartet
 Figure 6.3: Distribution of ages in the 1997-2001 British Election Panel Study
 </p>
 </div>
-<p>By default, <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> has created a count of the number of times each age appears in the dataset. It does this because the default ‘stat’ for <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> is ‘count.’ This saves us from having to create that statistic ourselves. But if we had already constructed a count (for instance, with <code>beps |&gt; count(age)</code>), then we could also specify a column of values for the y-axis and then use <code>stat = "identity"</code>.</p>
+<p>By default, <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> has created a count of the number of times each age-group appears in the dataset. It does this because the default ‘stat’ for <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> is ‘count.’ This saves us from having to create that statistic ourselves. But if we had already constructed a count (for instance, with <code>beps |&gt; count(age)</code>), then we could also specify a column of values for the y-axis and then use <code>stat = "identity"</code>.</p>
 <p>We may also like to consider different groupings of the data, for instance, looking at age-groups by which party the respondent supports (Figure <a href="static-communication.html#fig:bepsecond">6.4</a>).</p>
 <div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:bepsecond"></span>
@@ -485,12 +504,12 @@ Figure 6.4: Distribution of ages, and vote preference, in the 1997-2001 British 
 <p>The default is that these different groups are stacked, but they can be placed side-by-side with <code>position = "dodge"</code> (Figure <a href="static-communication.html#fig:bepthird">6.5</a>).</p>
 <div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:bepthird"></span>
-<img src="11-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.5: Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.5: Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>At this point, we may like to address the general look of the graph. There are various themes that are built into <code>ggplot2</code>. Some of these include <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark()</a></code>, and <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code>. A full list is available at the <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">cheatsheet</a>. We can use these themes by adding them as a layer (Figure <a href="static-communication.html#fig:bepthemes">6.6</a>). Here we can use <code>patchwork</code> <span class="citation">(<a href="references-1.html#ref-citepatchwork" role="doc-biblioref">Pedersen 2020</a>)</span> to bring together multiple graphs. To do this we assign the graph to a name, and then use ‘+’ to signal which should be next to each other, ‘/’ to signal which would be on top, and brackets for precedence.</p>
@@ -499,77 +518,77 @@ Figure 6.5: Distribution of ages, and vote preference, in the 1997-2001 British 
 
 <span class="va">theme_bw</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">theme_classic</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">theme_dark</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">theme_minimal</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="op">(</span><span class="va">theme_bw</span> <span class="op">+</span> <span class="va">theme_classic</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">theme_dark</span> <span class="op">+</span> <span class="va">theme_minimal</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:bepthemes"></span>
-<img src="11-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672"><p class="caption">
-Figure 6.6: Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes
+<img src="11-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672"><p class="caption">
+Figure 6.6: Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes
 </p>
 </div>
 <p>We can install themes from other packages, including <code>ggthemes</code> <span class="citation">(<a href="references-1.html#ref-ggthemes" role="doc-biblioref">Arnold 2021</a>)</span>, and <code>hrbrthemes</code> <span class="citation">(<a href="references-1.html#ref-hrbrthemes" role="doc-biblioref">Rudis 2020</a>)</span>. And we can also build our own.</p>
 <p>The default labels use dby <code>ggplot2</code> are from the name of the relevant variable, and it is often useful to add more detail. We could add a title and caption at this point. A caption can be useful to add information about the source of the dataset. A title can be useful when the graph is going to be considered outside of the context of our paper. But in the case of a graph that will be included in a paper, the need to cross-reference all graphs that are in a paper means that included a title within <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> is unnecessary (Figure <a href="static-communication.html#fig:withnicelabels">6.7</a>).</p>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span>,
-       title <span class="op">=</span> <span class="st">"Distribution of ages, and vote preference, in
+       title <span class="op">=</span> <span class="st">"Distribution of age-groups, and vote preference, in
        the 1997-2001 British Election Panel Study"</span>,
        caption <span class="op">=</span> <span class="st">"Source: 1997-2001 British Election Panel Study."</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:withnicelabels"></span>
-<img src="11-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.7: Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.7: Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>We use facets to create ‘many little graphics that are variations of a single graphic’ <span class="citation">(<a href="references-1.html#ref-grammarofgraphics" role="doc-biblioref">L. Wilkinson 2005, 219</a>)</span>. They are especially useful when we want to specifically compare across some variable, but have already used color. For instance, we may be interested to explain vote, by age and gender (Figure <a href="static-communication.html#fig:facets">6.8</a>).</p>
 <div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:facets"></span>
-<img src="11-static_communication_files/figure-html/facets-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.8: Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/facets-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.8: Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>We could change <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> to wrap vertically instead of horizontally with <code>dir = "v"</code>. Alternatively, we could specify a number of rows, say <code>nrow = 2</code>, or a number of columns, say <code>ncol = 2</code>. Additionally, by default, both facets will have the same scales. We could enable both facets to have different scales with <code>scales = "free"</code>, or just the x-axis <code>scales = "free_x"</code>, or just the y-axis <code>scales = "free_y"</code> (Figure <a href="static-communication.html#fig:facetsfancy">6.9</a>).</p>
 <div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span>,
@@ -577,8 +596,8 @@ Figure 6.8: Distribution of age by gender, and vote preference, in the 1997-2001
              scales <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:facetsfancy"></span>
-<img src="11-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.9: Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.9: Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>Finally, we can change the labels of the facets using <code><a href="https://ggplot2.tidyverse.org/reference/labeller.html">labeller()</a></code> (Figure <a href="static-communication.html#fig:facetsfancylabels">6.10</a>).</p>
@@ -586,10 +605,10 @@ Figure 6.9: Distribution of age by gender, and vote preference, in the 1997-2001
 <code class="sourceCode R"><span class="va">new_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>female <span class="op">=</span> <span class="st">"Female"</span>, male <span class="op">=</span> <span class="st">"Male"</span><span class="op">)</span>
 
 <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span>,
@@ -598,8 +617,8 @@ Figure 6.9: Distribution of age by gender, and vote preference, in the 1997-2001
              labeller <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labeller.html">labeller</a></span><span class="op">(</span>gender <span class="op">=</span> <span class="va">new_labels</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:facetsfancylabels"></span>
-<img src="11-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.10: Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.10: Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>There are a variety of different ways to change the colors, and many palettes are available including from <code>RColorBrewer</code> <span class="citation">(<a href="references-1.html#ref-RColorBrewer" role="doc-biblioref">Neuwirth 2014</a>)</span>, which we specify with <code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer()</a></code>, and <code>viridis</code> <span class="citation">(<a href="references-1.html#ref-viridis" role="doc-biblioref">Garnier et al. 2021</a>)</span>, which we specify with <code><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html">scale_fill_viridis()</a></code> and is particularly focused on color-blind palettes (Figure <a href="static-communication.html#fig:usecolor">6.11</a>).</p>
@@ -609,40 +628,40 @@ Figure 6.10: Distribution of age by gender, and vote preference, in the 1997-200
 
 <span class="va">RColorBrewerBrBG</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Blues"</span><span class="op">)</span>
 
 <span class="va">RColorBrewerSet2</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span>
 
 <span class="va">viridis</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number of respondents"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html">scale_fill_viridis</a></span><span class="op">(</span>discrete <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="va">viridismagma</span> <span class="op">&lt;-</span> 
   <span class="va">beps</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, fill <span class="op">=</span> <span class="va">vote</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age of respondent"</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Age-group of respondent"</span>,
        y <span class="op">=</span> <span class="st">"Number"</span>,
        fill <span class="op">=</span> <span class="st">"Voted for"</span><span class="op">)</span> <span class="op">+</span>
    <span class="fu"><a href="https://sjmgarnier.github.io/viridis/reference/scale_viridis.html">scale_fill_viridis</a></span><span class="op">(</span>discrete <span class="op">=</span> <span class="cn">TRUE</span>, 
@@ -652,8 +671,8 @@ Figure 6.10: Distribution of age by gender, and vote preference, in the 1997-200
   <span class="op">(</span><span class="va">viridis</span> <span class="op">+</span> <span class="va">viridismagma</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:usecolor"></span>
-<img src="11-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
-Figure 6.11: Distribution of age and vote preference, in the 1997-2001 British Election Panel Study
+<img src="11-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study" width="672"><p class="caption">
+Figure 6.11: Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study
 </p>
 </div>
 <p>Details of the variety of palettes available in <code>RColorBrewer</code> and <code>viridis</code> are available in their help files. Many different palettes are available, and we can also build our own. That said, color is something to be considered with a great deal of care and it should only be added to increase the amount of information that is communicated <span class="citation">(<a href="references-1.html#ref-elementsofgraphingdata" role="doc-biblioref">Cleveland 1994</a>)</span>. Colors should not be added to graphs unnecessarily—that is to say, they must play some role. Typically, that role is to distinguish different groups, and that implies making the colors dissimilar. Colors may also be appropriate if there is some relationship between the color and the variable, for instance if making a graph of sales of, say, mangoes and raspberries, it could help the reader if the colors were yellow and red, respectively <span class="citation">(<a href="references-1.html#ref-franconeri2021science" role="doc-biblioref">Franconeri et al. 2021, 121</a>)</span>.</p>
@@ -2479,13 +2498,463 @@ NA
 </tbody>
 </table></div>
 </div>
+<p>Again, we can add a caption and more informative column labels (Table <a href="static-communication.html#tab:gtsecond">6.8</a>).</p>
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">world_bank_data</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span>
+    caption <span class="op">=</span> <span class="st">"First ten rows of a dataset of economic indicators for
+    Australia, Ethiopia, India, and the US"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://gt.rstudio.com/reference/cols_label.html">cols_label</a></span><span class="op">(</span>
+      country <span class="op">=</span> <span class="st">"Country"</span>,
+      year <span class="op">=</span> <span class="st">"Year"</span>,
+      inflation <span class="op">=</span> <span class="st">"Inflation"</span>,
+      gdp_growth <span class="op">=</span> <span class="st">"GDP growth"</span>,
+      population <span class="op">=</span> <span class="st">"Population"</span>,
+      unemployment_rate <span class="op">=</span> <span class="st">"Unemployment rate"</span>
+    <span class="op">)</span></code></pre></div>
+<div id="pylntqexnj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#pylntqexnj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pylntqexnj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pylntqexnj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pylntqexnj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pylntqexnj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pylntqexnj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pylntqexnj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pylntqexnj .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pylntqexnj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pylntqexnj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pylntqexnj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pylntqexnj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pylntqexnj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#pylntqexnj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pylntqexnj .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pylntqexnj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pylntqexnj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#pylntqexnj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#pylntqexnj .gt_left {
+  text-align: left;
+}
+
+#pylntqexnj .gt_center {
+  text-align: center;
+}
+
+#pylntqexnj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pylntqexnj .gt_font_normal {
+  font-weight: normal;
+}
+
+#pylntqexnj .gt_font_bold {
+  font-weight: bold;
+}
+
+#pylntqexnj .gt_font_italic {
+  font-style: italic;
+}
+
+#pylntqexnj .gt_super {
+  font-size: 65%;
+}
+
+#pylntqexnj .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<div class="inline-table"><table class="gt_table">
+<caption>
+<span id="tab:gtsecond">Table 6.8: </span>First ten rows of a dataset of economic indicators for
+    Australia, Ethiopia, India, and the US</caption>
+  
+  <thead class="gt_col_headings"><tr>
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Inflation</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GDP growth</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Population</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Unemployment rate</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1960</td>
+<td class="gt_row gt_right">3.7288136</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">10276477</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1961</td>
+<td class="gt_row gt_right">2.2875817</td>
+<td class="gt_row gt_right">2.483271</td>
+<td class="gt_row gt_right">10483000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1962</td>
+<td class="gt_row gt_right">-0.3194888</td>
+<td class="gt_row gt_right">1.294468</td>
+<td class="gt_row gt_right">10742000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1963</td>
+<td class="gt_row gt_right">0.6410256</td>
+<td class="gt_row gt_right">6.214949</td>
+<td class="gt_row gt_right">10950000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1964</td>
+<td class="gt_row gt_right">2.8662420</td>
+<td class="gt_row gt_right">6.978540</td>
+<td class="gt_row gt_right">11167000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1965</td>
+<td class="gt_row gt_right">3.4055728</td>
+<td class="gt_row gt_right">5.980893</td>
+<td class="gt_row gt_right">11388000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1966</td>
+<td class="gt_row gt_right">3.2934132</td>
+<td class="gt_row gt_right">2.381966</td>
+<td class="gt_row gt_right">11651000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1967</td>
+<td class="gt_row gt_right">3.4782609</td>
+<td class="gt_row gt_right">6.303650</td>
+<td class="gt_row gt_right">11799000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1968</td>
+<td class="gt_row gt_right">2.5210084</td>
+<td class="gt_row gt_right">5.095103</td>
+<td class="gt_row gt_right">12009000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+<tr>
+<td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1969</td>
+<td class="gt_row gt_right">3.2786885</td>
+<td class="gt_row gt_right">7.043526</td>
+<td class="gt_row gt_right">12263000</td>
+<td class="gt_row gt_right">NA</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 </div>
 <div id="communicating-summary-statistics" class="section level3" number="6.3.2">
 <h3>
 <span class="header-section-number">6.3.2</span> Communicating summary statistics<a class="anchor" aria-label="anchor" href="#communicating-summary-statistics"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary.html">datasummary()</a></code> from <code>modelsummary</code> to create tables of summary statistics from our dataset.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'modelsummary'</span>
@@ -2711,15 +3180,15 @@ unemployment_rate
 </tr>
 </tbody>
 </table></div>
-<p>By default, <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary.html">datasummary()</a></code> summarizes the ‘numeric’ variables, but we can ask for the ‘categorical’ variables (Table <a href="static-communication.html#tab:testdatasummary">6.8</a>). Additionally we can add cross-references in the same way as <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>, that is, include a title and then cross-reference the name of the R chunk.</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<p>By default, <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary.html">datasummary()</a></code> summarizes the ‘numeric’ variables, but we can ask for the ‘categorical’ variables (Table <a href="static-communication.html#tab:testdatasummary">6.9</a>). Additionally we can add cross-references in the same way as <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code>, that is, include a title and then cross-reference the name of the R chunk.</p>
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"categorical"</span>,
                    title <span class="op">=</span> <span class="st">"Summary of categorical economic indicator 
                    variables for four countries"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:testdatasummary">Table 6.8: </span>Summary of categorical economic indicator
+<span id="tab:testdatasummary">Table 6.9: </span>Summary of categorical economic indicator
 variables for four countries
 </caption>
 <thead><tr>
@@ -2780,8 +3249,8 @@ United States
 </tr>
 </tbody>
 </table></div>
-<p>We can create a table that shows the correlation between variables using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_correlation.html">datasummary_correlation()</a></code> (Table <a href="static-communication.html#tab:correlationtable">6.9</a>).</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<p>We can create a table that shows the correlation between variables using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_correlation.html">datasummary_correlation()</a></code> (Table <a href="static-communication.html#tab:correlationtable">6.10</a>).</p>
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">world_bank_data</span> |&gt; 
   <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_correlation.html">datasummary_correlation</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="st">"Correlation between the economic indicator variables for 
@@ -2789,7 +3258,7 @@ United States
     <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:correlationtable">Table 6.9: </span>Correlation between the economic indicator variables for
+<span id="tab:correlationtable">Table 6.10: </span>Correlation between the economic indicator variables for
 four countries (Australia, Ethiopia, India, and the US)
 </caption>
 <thead><tr>
@@ -2914,15 +3383,15 @@ unemployment_rate
 </tr>
 </tbody>
 </table></div>
-<p>We typically need a table of descriptive statistics that we could add to our paper (Table <a href="static-communication.html#tab:descriptivestats">6.10</a>). This contrasts with Table <a href="static-communication.html#tab:testdatasummary">6.8</a> which would likely not be included in a paper. We can add a note about the source of the data using ‘notes.’</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<p>We typically need a table of descriptive statistics that we could add to our paper (Table <a href="static-communication.html#tab:descriptivestats">6.11</a>). This contrasts with Table <a href="static-communication.html#tab:testdatasummary">6.9</a> which would likely not be included in a paper. We can add a note about the source of the data using ‘notes.’</p>
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_balance.html">datasummary_balance</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="op">~</span><span class="va">country</span>,
                     data <span class="op">=</span> <span class="va">world_bank_data</span>,
                     title <span class="op">=</span> <span class="st">"Descriptive statistics for the inflation and GDP dataset"</span>,
                     notes <span class="op">=</span> <span class="st">"Data source: World Bank."</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
 <caption>
-<span id="tab:descriptivestats">Table 6.10: </span>Descriptive statistics for the inflation and GDP dataset
+<span id="tab:descriptivestats">Table 6.11: </span>Descriptive statistics for the inflation and GDP dataset
 </caption>
 <thead>
 <tr>
@@ -3137,7 +3606,7 @@ unemployment_rate
 <span class="header-section-number">6.3.3</span> Display regression results<a class="anchor" aria-label="anchor" href="#display-regression-results"><i class="fas fa-link"></i></a>
 </h3>
 <p>Finally, one common reason for needing a table is to report regression results. We will do this using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary()</a></code> from <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span>.</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp_growth</span> <span class="op">~</span> <span class="va">inflation</span>, 
                   data <span class="op">=</span> <span class="va">world_bank_data</span><span class="op">)</span>
 
@@ -3239,8 +3708,8 @@ F
 </tr>
 </tbody>
 </table></div>
-<p>We can put a variety of different of different models together (Table <a href="static-communication.html#tab:twomodels">6.11</a>).</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<p>We can put a variety of different of different models together (Table <a href="static-communication.html#tab:twomodels">6.12</a>).</p>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">second_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">gdp_growth</span> <span class="op">~</span> <span class="va">inflation</span> <span class="op">+</span> <span class="va">country</span>, 
                   data <span class="op">=</span> <span class="va">world_bank_data</span><span class="op">)</span>
 
@@ -3251,7 +3720,7 @@ F
              title <span class="op">=</span> <span class="st">"Explaining GDP as a function of inflation"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:twomodels">Table 6.11: </span>Explaining GDP as a function of inflation
+<span id="tab:twomodels">Table 6.12: </span>Explaining GDP as a function of inflation
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -3519,14 +3988,14 @@ F
 </tr>
 </tbody>
 </table></div>
-<p>We can adjust the number of significant digits (Table <a href="static-communication.html#tab:twomodelstwo">6.12</a>).</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<p>We can adjust the number of significant digits (Table <a href="static-communication.html#tab:twomodelstwo">6.13</a>).</p>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">first_model</span>, <span class="va">second_model</span>, <span class="va">third_model</span><span class="op">)</span>,
              fmt <span class="op">=</span> <span class="fl">1</span>,
              title <span class="op">=</span> <span class="st">"Two models of GDP as a function of inflation"</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:twomodelstwo">Table 6.12: </span>Two models of GDP as a function of inflation
+<span id="tab:twomodelstwo">Table 6.13: </span>Two models of GDP as a function of inflation
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -3801,7 +4270,7 @@ F
 <span class="header-section-number">6.4</span> Maps<a class="anchor" aria-label="anchor" href="#maps"><i class="fas fa-link"></i></a>
 </h2>
 <p>In many ways maps can be thought of as another type of graph, where the x-axis is latitude, the y-axis is longitude, and there is some outline or a background image. We have seen this type of set-up are used to this type of set-up, for instance, in the <code>ggplot2</code> setting, this is quite familiar.</p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span> <span class="co"># First draw an outline</span>
     data <span class="op">=</span> <span class="va">some_data</span>, 
@@ -3815,7 +4284,7 @@ F
         y <span class="op">=</span> <span class="va">longitude</span><span class="op">)</span>
     <span class="op">)</span></code></pre></div>
 <p>And while there are some small complications, for the most part it is as straight-forward as that. The first step is to get some data. There is some geographic data built into <code>ggplot2</code>, and there is additional information in the ‘world.cities’ dataset from <code>maps</code>.</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">maps</span><span class="op">)</span>
 
 <span class="va">france</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/map_data.html">map_data</a></span><span class="op">(</span>map <span class="op">=</span> <span class="st">"france"</span><span class="op">)</span>
@@ -3842,7 +4311,7 @@ F
 <span class="co">#&gt; 5 Aire-sur-la-Lys      France  10470 50.64 2.39       0</span>
 <span class="co">#&gt; 6 Aix-en-Provence      France 148622 43.53 5.44       0</span></code></pre></div>
 <p>With that information in hand, we can then create a map of France that shows the larger cities. We use <code><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon()</a></code> from <code>ggplot2</code> to draw shapes by connecting points within groups. And <code><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_map()</a></code> adjusts for the fact that we are making a 2D map to represent a world that is 3D.)</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">france</span>,
                <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">long</span>,
@@ -3858,7 +4327,7 @@ F
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Longitude"</span>,
        y <span class="op">=</span> <span class="st">"Latitude"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-24-1.png" width="672"></div>
+<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
 <p>As is often the case with R, there are many different ways to get started creating static maps. We have seen how they can be built using only <code>ggplot2</code>, but <code>ggmap</code> brings additional functionality <span class="citation">(<a href="references-1.html#ref-KahleWickham2013" role="doc-biblioref">Kahle and Wickham 2013</a>)</span>.</p>
 <p>There are two essential components to a map:</p>
 <ol style="list-style-type: decimal">
@@ -3872,18 +4341,18 @@ F
 </h3>
 <p>In Australia people go to specific locations, called booths, to vote. These booths have latitudes and longitudes and so we can plot these. One reason we may like to do this is to notice patterns over geographies.</p>
 <p>To get started we need to get a tile. We are going to use <code>ggmap</code> to get a tile from Stamen Maps, which builds on OpenStreetMap (openstreetmap.org). The main argument to this function is to specify a bounding box. This requires two latitudes - one for the top of the box and one for the bottom of the box - and two longitudes - one for the left of the box and one for the right of the box. It can be useful to use Google Maps, or an alternative, to find the values of these that you need. The bounding box provides the coordinates of the edges that you are interested in. In this case we have provided it with coordinates such that it will be centered around Canberra, Australia, which is a small city that was created for the purposes of being the capital.</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 
 <span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="fl">148.95</span>, bottom <span class="op">=</span> <span class="op">-</span><span class="fl">35.5</span>, right <span class="op">=</span> <span class="fl">149.3</span>, top <span class="op">=</span> <span class="op">-</span><span class="fl">35.1</span><span class="op">)</span></code></pre></div>
 <p>Once you have defined the bounding box, then the function <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> will get the tiles in that area. The number of tiles that it needs to get depends on the zoom, and the type of tiles that it gets depends on the maptype. We have used a black-and-white type of map but the helpfile specifies others. At this point we can the map to maps to <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> and it will plot the tile! It will be actively downloading these tiles, and so it needs an internet connection.</p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">canberra_stamen_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox</span>, zoom <span class="op">=</span> <span class="fl">11</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-26-1.png" width="672"></div>
+<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 <p>Once we have a map then we can use <code><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap()</a></code> to plot it. Now we want to get some data that we plot on top of our tiles. We will just plot the location of the polling places, based on which ‘division’ it is. This is available <a href="https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv">here</a>. The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Read in the booths data for each year</span>
 <span class="va">booths</span> <span class="op">&lt;-</span>
   <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -3909,7 +4378,7 @@ F
 <span class="co">#&gt; #   PremisesStateAb &lt;chr&gt;, PremisesPostCode &lt;chr&gt;,</span>
 <span class="co">#&gt; #   Latitude &lt;dbl&gt;, Longitude &lt;dbl&gt;</span></code></pre></div>
 <p>This dataset is for the whole of Australia, but as we are just going to plot the area around Canberra we filter to that and only to booths that are geographic (the AEC has various options for people who are in hospital, or not able to get to a booth, etc, and these are still ‘booths’ in this dataset).</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Reduce the booths data to only rows with that have latitude and longitude</span>
 <span class="va">booths_reduced</span> <span class="op">&lt;-</span>
   <span class="va">booths</span> |&gt;
@@ -3918,7 +4387,7 @@ F
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Longitude</span><span class="op">)</span><span class="op">)</span> |&gt; <span class="co"># Remove rows that do not have a geography</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Longitude</span> <span class="op">&lt;</span> <span class="fl">165</span><span class="op">)</span> <span class="co"># Remove Norfolk Island</span></code></pre></div>
 <p>Now we can use <code>ggmap</code> in the same way as before to plot our underlying tiles, and then build on that using <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to add our points of interest.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">canberra_stamen_map</span>,
       extent <span class="op">=</span> <span class="st">"normal"</span>,
       maprange <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
@@ -3937,9 +4406,9 @@ F
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid.major <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
         panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-29-1.png" width="672"></div>
+<div class="inline-figure"><img src="11-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672"></div>
 <p>We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave()</a></code>.</p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"map.pdf"</span>, width <span class="op">=</span> <span class="fl">20</span>, height <span class="op">=</span> <span class="fl">10</span>, units <span class="op">=</span> <span class="st">"cm"</span><span class="op">)</span></code></pre></div>
 <p>Finally, the reason that we used Stamen Maps and OpenStreetMap is because it is open source, but we could have also used Google Maps. This requires you to first register a credit card with Google, and specify a key, but with low usage should be free. Using Google Maps, <code><a href="https://rdrr.io/pkg/ggmap/man/get_googlemap.html">get_googlemap()</a></code>, brings some advantages over <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code>, for instance it will attempt to find a placename, rather than needing to specify a bounding box.</p>
 </div>
@@ -3948,9 +4417,9 @@ F
 <span class="header-section-number">6.4.2</span> US troop deployment<a class="anchor" aria-label="anchor" href="#us-troop-deployment"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let us see another example of a static map, this time using data on US military deployments from <code>troopdata</code> <span class="citation">(<a href="references-1.html#ref-troopdata" role="doc-biblioref">Flynn 2021</a>)</span>. We can access data about US overseas military bases back to the start of the Cold War using <code><a href="https://rdrr.io/pkg/troopdata/man/get_basedata.html">get_basedata()</a></code>.</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"troopdata"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"troopdata"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/meflynn/troopdata">troopdata</a></span><span class="op">)</span>
 
 <span class="va">bases</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/troopdata/man/get_basedata.html">get_basedata</a></span><span class="op">(</span><span class="op">)</span>
@@ -3967,7 +4436,7 @@ F
 <span class="co">#&gt; 6 Afghanistan   700 AFG   Herat     34.3  62.2     1       0</span>
 <span class="co">#&gt; # … with 1 more variable: fundedsite &lt;dbl&gt;</span></code></pre></div>
 <p>We will look at the locations of US military bases in: Germany, Japan, and Australia. The <code>troopdata</code> dataset already has latitude and longitude of the base. We will use that as our item of interest. The first step is to define a bounding box for each of country.</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 
 <span class="co"># Based on: https://data.humdata.org/dataset/bounding-boxes-for-countries</span>
@@ -3995,7 +4464,7 @@ F
     top <span class="op">=</span> <span class="op">-</span><span class="fl">9.133</span>
   <span class="op">)</span></code></pre></div>
 <p>Then we need to get the tiles using <code><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap()</a></code> from <code>ggmap</code>.</p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">germany_stamen_map</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox_germany</span>, zoom <span class="op">=</span> <span class="fl">6</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span>
 
@@ -4005,7 +4474,7 @@ F
 <span class="va">australia_stamen_map</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span><span class="va">bbox_australia</span>, zoom <span class="op">=</span> <span class="fl">5</span>, maptype <span class="op">=</span> <span class="st">"toner-lite"</span><span class="op">)</span></code></pre></div>
 <p>And finally, we can bring it all together with maps show US military bases in Germany (Figure <a href="static-communication.html#fig:mapbasesingermany">6.31</a>), Japan (Figure <a href="static-communication.html#fig:mapbasesinjapan">6.32</a>), and Australia (Figure <a href="static-communication.html#fig:mapbasesinaustralia">6.33</a>).</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">germany_stamen_map</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bases</span>,
              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>,
@@ -4020,7 +4489,7 @@ F
 Figure 6.31: Map of US military bases in Germany
 </p>
 </div>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">japan_stamen_map</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bases</span>,
              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>,
@@ -4035,7 +4504,7 @@ Figure 6.31: Map of US military bases in Germany
 Figure 6.32: Map of US military bases in Japan
 </p>
 </div>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">australia_stamen_map</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bases</span>,
              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>,
@@ -4057,7 +4526,7 @@ Figure 6.33: Map of US military bases in Australia
 </h3>
 <p>To this point we assumed that we already had geocoded data, which means that we have a latitude and longitude. If we only have place names, such as ‘Canberra, Australia,’ ‘Ottawa, Canada,’ ‘Accra, Ghana,’ ‘Quito, Ecuador’ are just names, they do not actually inherently have a location. To plot them we need to get a latitude and longitude for them. The process of going from names to coordinates is called geocoding.</p>
 <p>There are a range of options to geocode data in R, but <code>tidygeocoder</code> is especially useful <span class="citation">(<a href="references-1.html#ref-citetidygeocoder" role="doc-biblioref">Cambon and Belanger 2021</a>)</span>. We first need a dataframe of locations.</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">place_names</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
     city <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Canberra'</span>, <span class="st">'Ottawa'</span>, <span class="st">'Accra'</span>, <span class="st">'Quito'</span><span class="op">)</span>,
@@ -4072,7 +4541,7 @@ Figure 6.33: Map of US military bases in Australia
 <span class="co">#&gt; 2 Ottawa   Canada   </span>
 <span class="co">#&gt; 3 Accra    Ghana    </span>
 <span class="co">#&gt; 4 Quito    Ecuador</span></code></pre></div>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jessecambon.github.io/tidygeocoder/">tidygeocoder</a></span><span class="op">)</span>
 
 <span class="va">place_names</span> <span class="op">&lt;-</span>
@@ -4089,7 +4558,7 @@ Figure 6.33: Map of US military bases in Australia
 <span class="co">#&gt; 3 Accra    Ghana       5.56   -0.201</span>
 <span class="co">#&gt; 4 Quito    Ecuador    -0.220 -78.5</span></code></pre></div>
 <p>And we can now plot and label these cities (Figure <a href="static-communication.html#fig:mynicemap">6.34</a>).</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/map_data.html">map_data</a></span><span class="op">(</span>map <span class="op">=</span> <span class="st">"world"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -4297,7 +4766,7 @@ Figure 6.34: Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 27 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -340,12 +340,31 @@ head(beps)
 #> #   Europe <dbl>, political.knowledge <dbl>, gender <chr>
 ```
 
-The dataset consists of which party the person supports, along with various demographic, economic, and political variables. In particular, we have the age of the respondents. We could begin by making a graph of this age distribution using `geom_bar()` (Figure \@ref(fig:bepfitst)).
+The dataset consists of which party the person supports, along with various demographic, economic, and political variables. In particular, we have the age of the respondents. We begin by creating age-groups from the ages, and making a bar chart of the age-groups using `geom_bar()` (Figure \@ref(fig:bepfitst)).
 
 
 ```r
-beps |> 
-  ggplot(mapping = aes(x = age)) +
+beps <- 
+  beps |> 
+  mutate(age_group = 
+           case_when(age < 35 ~ "<35",
+                     age < 50 ~ "35-49",
+                     age < 65 ~ "50-64",
+                     age < 80 ~ "65-79",
+                     age < 100 ~ "80-99"
+                     ),
+         age_group = factor(age_group,
+                            levels = c("<35",
+                                       "35-49",
+                                       "50-64",
+                                       "65-79",
+                                       "80-99"
+                                       )
+                            )
+         )
+
+beps |>  
+  ggplot(mapping = aes(x = age_group)) +
   geom_bar()
 ```
 
@@ -354,14 +373,14 @@ beps |>
 <p class="caption">(\#fig:bepfitst)Distribution of ages in the 1997-2001 British Election Panel Study</p>
 </div>
 
-By default, `geom_bar()` has created a count of the number of times each age appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that statistic ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could also specify a column of values for the y-axis and then use `stat = "identity"`.
+By default, `geom_bar()` has created a count of the number of times each age-group appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that statistic ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could also specify a column of values for the y-axis and then use `stat = "identity"`.
 
 We may also like to consider different groupings of the data, for instance, looking at age-groups by which party the respondent supports (Figure \@ref(fig:bepsecond)).
 
 
 ```r
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar()
 ```
 
@@ -375,13 +394,13 @@ The default is that these different groups are stacked, but they can be placed s
 
 ```r
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar(position = "dodge")
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:bepthird)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:bepthird)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 At this point, we may like to address the general look of the graph. There are various themes that are built into `ggplot2`. Some of these include `theme_bw()`, `theme_classic()`, `theme_dark()`, and `theme_minimal()`. A full list is available at the `ggplot2` [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf). We can use these themes by adding them as a layer (Figure \@ref(fig:bepthemes)). Here we can use `patchwork` [@citepatchwork] to bring together multiple graphs. To do this we assign the graph to a name, and then use '+' to signal which should be next to each other, '/' to signal which would be on top, and brackets for precedence.
@@ -392,25 +411,25 @@ library(patchwork)
 
 theme_bw <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar(position = "dodge") +
   theme_bw()
 
 theme_classic <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar(position = "dodge") +
   theme_classic()
 
 theme_dark <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar(position = "dodge") +
   theme_dark()
 
 theme_minimal <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar(position = "dodge") +
   theme_minimal()
 
@@ -418,8 +437,8 @@ theme_minimal <-
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672" />
-<p class="caption">(\#fig:bepthemes)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes</p>
+<img src="11-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672" />
+<p class="caption">(\#fig:bepthemes)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes</p>
 </div>
 
 We can install themes from other packages, including `ggthemes` [@ggthemes], and `hrbrthemes` [@hrbrthemes]. And we can also build our own.
@@ -429,20 +448,20 @@ The default labels use dby `ggplot2` are from the name of the relevant variable,
 
 ```r
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for",
-       title = "Distribution of ages, and vote preference, in
+       title = "Distribution of age-groups, and vote preference, in
        the 1997-2001 British Election Panel Study",
        caption = "Source: 1997-2001 British Election Panel Study.")
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:withnicelabels)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:withnicelabels)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 We use facets to create 'many little graphics that are variations of a single graphic' [@grammarofgraphics, p. 219]. They are especially useful when we want to specifically compare across some variable, but have already used color. For instance, we may be interested to explain vote, by age and gender (Figure \@ref(fig:facets)).
@@ -450,18 +469,18 @@ We use facets to create 'many little graphics that are variations of a single gr
 
 ```r
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") +
   facet_wrap(vars(gender))
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/facets-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facets)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/facets-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facets)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 We could change `facet_wrap()` to wrap vertically instead of horizontally with `dir = "v"`. Alternatively, we could specify a number of rows, say `nrow = 2`, or a number of columns, say `ncol = 2`. Additionally, by default, both facets will have the same scales. We could enable both facets to have different scales with `scales = "free"`, or just the x-axis `scales = "free_x"`, or just the y-axis `scales = "free_y"` (Figure \@ref(fig:facetsfancy)). 
@@ -469,10 +488,10 @@ We could change `facet_wrap()` to wrap vertically instead of horizontally with `
 
 ```r
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") +
   facet_wrap(vars(gender),
@@ -481,8 +500,8 @@ beps |>
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facetsfancy)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facetsfancy)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 Finally, we can change the labels of the facets using `labeller()` (Figure \@ref(fig:facetsfancylabels)). 
@@ -492,10 +511,10 @@ Finally, we can change the labels of the facets using `labeller()` (Figure \@ref
 new_labels <- c(female = "Female", male = "Male")
 
 beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") +
   facet_wrap(vars(gender),
@@ -505,8 +524,8 @@ beps |>
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facetsfancylabels)Distribution of age by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:facetsfancylabels)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 There are a variety of different ways to change the colors, and many palettes are available including from `RColorBrewer` [@RColorBrewer], which we specify with `scale_fill_brewer()`, and `viridis` [@viridis], which we specify with `scale_fill_viridis()` and is particularly focused on color-blind palettes (Figure \@ref(fig:usecolor)). 
@@ -518,40 +537,40 @@ library(patchwork)
 
 RColorBrewerBrBG <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") + 
   scale_fill_brewer(palette = "Blues")
 
 RColorBrewerSet2 <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") +
   scale_fill_brewer(palette = "Set1")
 
 viridis <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number of respondents",
        fill = "Voted for") + 
   scale_fill_viridis(discrete = TRUE)
 
 viridismagma <- 
   beps |> 
-  ggplot(mapping = aes(x = age, fill = vote)) +
+  ggplot(mapping = aes(x = age_group, fill = vote)) +
   geom_bar() +
   theme_minimal() +
-  labs(x = "Age of respondent",
+  labs(x = "Age-group of respondent",
        y = "Number",
        fill = "Voted for") +
    scale_fill_viridis(discrete = TRUE, 
@@ -562,8 +581,8 @@ viridismagma <-
 ```
 
 <div class="figure">
-<img src="11-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:usecolor)Distribution of age and vote preference, in the 1997-2001 British Election Panel Study</p>
+<img src="11-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
+<p class="caption">(\#fig:usecolor)Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study</p>
 </div>
 
 Details of the variety of palettes available in `RColorBrewer` and `viridis` are available in their help files. Many different palettes are available, and we can also build our own. That said, color is something to be considered with a great deal of care and it should only be added to increase the amount of information that is communicated [@elementsofgraphingdata]. Colors should not be added to graphs unnecessarily---that is to say, they must play some role. Typically, that role is to distinguish different groups, and that implies making the colors dissimilar. Colors may also be appropriate if there is some relationship between the color and the variable, for instance if making a graph of sales of, say, mangoes and raspberries, it could help the reader if the colors were yellow and red, respectively [@franconeri2021science, p. 121].
@@ -1958,6 +1977,446 @@ world_bank_data |>
 </div>
 ```
 
+Again, we can add a caption and more informative column labels (Table \@ref(tab:gtsecond)).
+
+
+```r
+world_bank_data |>
+  slice(1:10) |>
+  gt(
+    caption = "First ten rows of a dataset of economic indicators for
+    Australia, Ethiopia, India, and the US") |>
+  cols_label(
+      country = "Country",
+      year = "Year",
+      inflation = "Inflation",
+      gdp_growth = "GDP growth",
+      population = "Population",
+      unemployment_rate = "Unemployment rate"
+    )
+```
+
+```{=html}
+<div id="pylntqexnj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#pylntqexnj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pylntqexnj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pylntqexnj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pylntqexnj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pylntqexnj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pylntqexnj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pylntqexnj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pylntqexnj .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pylntqexnj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pylntqexnj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pylntqexnj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pylntqexnj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pylntqexnj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#pylntqexnj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pylntqexnj .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pylntqexnj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pylntqexnj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#pylntqexnj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pylntqexnj .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#pylntqexnj .gt_left {
+  text-align: left;
+}
+
+#pylntqexnj .gt_center {
+  text-align: center;
+}
+
+#pylntqexnj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pylntqexnj .gt_font_normal {
+  font-weight: normal;
+}
+
+#pylntqexnj .gt_font_bold {
+  font-weight: bold;
+}
+
+#pylntqexnj .gt_font_italic {
+  font-style: italic;
+}
+
+#pylntqexnj .gt_super {
+  font-size: 65%;
+}
+
+#pylntqexnj .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <caption>(#tab:gtsecond)First ten rows of a dataset of economic indicators for
+    Australia, Ethiopia, India, and the US</caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Country</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Year</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Inflation</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GDP growth</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Population</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Unemployment rate</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1960</td>
+<td class="gt_row gt_right">3.7288136</td>
+<td class="gt_row gt_right">NA</td>
+<td class="gt_row gt_right">10276477</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1961</td>
+<td class="gt_row gt_right">2.2875817</td>
+<td class="gt_row gt_right">2.483271</td>
+<td class="gt_row gt_right">10483000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1962</td>
+<td class="gt_row gt_right">-0.3194888</td>
+<td class="gt_row gt_right">1.294468</td>
+<td class="gt_row gt_right">10742000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1963</td>
+<td class="gt_row gt_right">0.6410256</td>
+<td class="gt_row gt_right">6.214949</td>
+<td class="gt_row gt_right">10950000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1964</td>
+<td class="gt_row gt_right">2.8662420</td>
+<td class="gt_row gt_right">6.978540</td>
+<td class="gt_row gt_right">11167000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1965</td>
+<td class="gt_row gt_right">3.4055728</td>
+<td class="gt_row gt_right">5.980893</td>
+<td class="gt_row gt_right">11388000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1966</td>
+<td class="gt_row gt_right">3.2934132</td>
+<td class="gt_row gt_right">2.381966</td>
+<td class="gt_row gt_right">11651000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1967</td>
+<td class="gt_row gt_right">3.4782609</td>
+<td class="gt_row gt_right">6.303650</td>
+<td class="gt_row gt_right">11799000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1968</td>
+<td class="gt_row gt_right">2.5210084</td>
+<td class="gt_row gt_right">5.095103</td>
+<td class="gt_row gt_right">12009000</td>
+<td class="gt_row gt_right">NA</td></tr>
+    <tr><td class="gt_row gt_left">Australia</td>
+<td class="gt_row gt_right">1969</td>
+<td class="gt_row gt_right">3.2786885</td>
+<td class="gt_row gt_right">7.043526</td>
+<td class="gt_row gt_right">12263000</td>
+<td class="gt_row gt_right">NA</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+```
+
 
 
 
@@ -2737,7 +3196,7 @@ ggplot() +
        y = "Latitude")
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
 
 As is often the case with R, there are many different ways to get started creating static maps. We have seen how they can be built using only `ggplot2`, but `ggmap` brings additional functionality [@KahleWickham2013].
@@ -2772,7 +3231,7 @@ canberra_stamen_map <- get_stamenmap(bbox, zoom = 11, maptype = "toner-lite")
 ggmap(canberra_stamen_map)
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
 
 Once we have a map then we can use `ggmap()` to plot it. Now we want to get some data that we plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' it is. This is available [here](https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv). The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
 
@@ -2841,7 +3300,7 @@ ggmap(canberra_stamen_map,
         panel.grid.minor = element_blank())
 ```
 
-<img src="11-static_communication_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+<img src="11-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672" />
 
 We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
 

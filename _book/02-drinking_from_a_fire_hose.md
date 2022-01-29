@@ -187,15 +187,15 @@ simulated_data
 #>    Riding Party         
 #>     <int> <chr>         
 #>  1      1 Green         
-#>  2      2 Other         
-#>  3      3 Bloc Québécois
-#>  4      4 New Democratic
-#>  5      5 Other         
-#>  6      6 New Democratic
-#>  7      7 Other         
-#>  8      8 Green         
-#>  9      9 Liberal       
-#> 10     10 Bloc Québécois
+#>  2      2 New Democratic
+#>  3      3 Liberal       
+#>  4      4 Green         
+#>  5      5 New Democratic
+#>  6      6 Conservative  
+#>  7      7 Bloc Québécois
+#>  8      8 Conservative  
+#>  9      9 Other         
+#> 10     10 Green         
 #> # … with 328 more rows
 ```
 

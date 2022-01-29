@@ -61,7 +61,7 @@
 <li><a class="" href="on-writing.html"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
 <li><a class="" href="interactive-communication.html"><span class="header-section-number">7</span> Interactive communication</a></li>
-<li class="book-part">Measure and acquire</li>
+<li class="book-part">Worlds become data</li>
 <li><a class="" href="gather-data.html"><span class="header-section-number">8</span> Gather data</a></li>
 <li><a class="active" href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></li>
 <li><a class="" href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></li>
@@ -188,9 +188,9 @@
 <h2>
 <span class="header-section-number">9.1</span> Experiments and randomised controlled trials<a class="anchor" aria-label="anchor" href="#experiments-and-randomised-controlled-trials"><i class="fas fa-link"></i></a>
 </h2>
-<div id="introduction-11" class="section level3" number="9.1.1">
+<div id="introduction-6" class="section level3" number="9.1.1">
 <h3>
-<span class="header-section-number">9.1.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-6"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>First a note on Ronald Fisher and Francis Galton. Fisher and Galton are the intellectual grandfathers of much of the work that we cover. In some cases it is directly their work, in other cases it is work that built on their contributions. Both of these men believed in eugenics, amongst other things that are generally reprehensible.</em></p>
 <p>This chapter is about experiments. This is a situation in which we can explicitly control and vary some aspects. The advantage of this is that identification should be clear. There is a treatment group that is treated and a control group that is not. These are randomly split. And so if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely, because our ability to speak to internal validity affects our ability to speak to external validity.</p>
@@ -207,12 +207,12 @@
 <p>When Monica and I moved to San Francisco, the Giants immediately won the baseball, and the Warriors began a historic streak. We moved to Chicago and the Cubs won the baseball for the first time in a hundred years. We then moved to Massachusetts, and the Patriots won the Super Bowl again and again and again. Finally, we moved to Toronto, and the Raptors won the basketball. Should a city pay us to live there or could their funds be better spent elsewhere?</p>
 <p>One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send us to live there for a year. If we had enough lifetimes, then we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. Experiments and randomised controlled trials are circumstances in which we try to randomly allocate some treatment, so as to have a belief that everything else was constant (or at least ignorable).</p>
 <p>In the words of <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 3</a>)</span> an action, <span class="math inline">\(A\)</span>, is also known ‘as an intervention, an exposure, or a treatment.’ I’ll typically use ‘treated/control’ language, reflecting whether an action was imposed or not. That treatment random variable will typically be binary, that is 0 or 1, ‘treated’ or ‘not treated/control/comparison.’ We’ll then typically have some outcome random variable, <span class="math inline">\(Y\)</span>, which will typically be binary, able to be made binary, or continuous, although we’ll touch on other options. An example of a binary outcome could be vote choice - ‘Conservative’ vs ‘Not Conservative’ - noticing there that I grouped all the other parties into simply ‘Not Conservative’ to force the binary outcome.</p>
-<p>Further following <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 4</a>)</span>, but in the notation of <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span> we describe a treatment as ‘causal’ when <span class="math inline">\((Y|a=0)\neq (Y|a=1)\)</span>. As discussed above, the fundamental problem of causal inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There’s a joke in statistics, okay, well, TBH, I have a joke about statistics, and it’s that at some point every professor is like ‘… and so X really just boils down to a missing data problem’ and it’s funny because, that’s kind of the fundamental issue of statistics, we’d not really need the science if we had all the data. In hindsight, this is not really a joke, but I’m a father now so I’ll just lean into it.&lt;/p&gt;"><sup>3</sup></a></p>
+<p>Further following <span class="citation"><a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">Hernan and Robins</a> (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 4</a>)</span>, but in the notation of <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span> we describe a treatment as ‘causal’ when <span class="math inline">\((Y|a=0)\neq (Y|a=1)\)</span>. As discussed above, the fundamental problem of causal inference is that we cannot both treat and control the one individual. So when we want to know the effect of the treatment, we need to compare it with the counterfactual, which is what would have happened if the individual were not treated. So causal inference turns out to be fundamentally a missing data problem.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;There’s a joke in statistics, okay, well, TBH, I have a joke about statistics, and it’s that at some point every professor is like ‘… and so X really just boils down to a missing data problem’ and it’s funny because, that’s kind of the fundamental issue of statistics, we’d not really need the science if we had all the data. In hindsight, this is not really a joke, but I’m a father now so I’ll just lean into it.&lt;/p&gt;"><sup>1</sup></a></p>
 <p>To quote from <span class="citation"><a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">Gertler et al.</a> (<a href="references-1.html#ref-gertler2016impact" role="doc-biblioref">2016, 48</a>)</span>, in the context of evaluating income in response to an intervention program:</p>
 <blockquote>
 <p>To put it another way, we would like to measure income at the same point in time for the same unit of observation (a person, in this case), but in two different states of the world. If it were possible to do this, we would be observing how much income the same individual would have had at the same point in time both with and without the program, so that the only possible explanation for any difference in that person’s income would be the program. By comparing the same individual with herself at the same moment, we would have managed to eliminate any outside factors that might also have explained the difference in outcomes. We could then be confident that the relationship between the vocational training program and the change in income is causal… [A] unit either participated in the program or did not participate. The unit cannot be observed simultaneously in two different states (in other words, with and without the program).</p>
 </blockquote>
-<p>As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups - all those treated and all those not. We are looking to estimate the counterfactual. We usually consider a default that there’s no effect and we require evidence for us to change our mind. As we’re interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we’ll make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average across the population, it’s probably not the case.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;As someone who oddly is somewhat superstitious, believes fully in the irony gods, and does have a pair of lucky, fun, socks, this example was not randomly chosen.&lt;/p&gt;"><sup>4</sup></a></p>
+<p>As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups - all those treated and all those not. We are looking to estimate the counterfactual. We usually consider a default that there’s no effect and we require evidence for us to change our mind. As we’re interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we’ll make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average across the population, it’s probably not the case.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;As someone who oddly is somewhat superstitious, believes fully in the irony gods, and does have a pair of lucky, fun, socks, this example was not randomly chosen.&lt;/p&gt;"><sup>2</sup></a></p>
 <p>It’s worth pointing out that we don’t just have to be interested in the average effect. We may consider the median, or variance, or whatever. Nonetheless, if we were interested in the average effect, then one way to proceed would be to divide the dataset into two - treated and not treated - have an effect column of 0s and 1s, sum the column and divide it by the length of the column, and then look at the ratio. This would be an estimator, which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. To give another example, following <span class="citation"><a href="references-1.html#ref-gelmanhillvehtari2020" role="doc-biblioref">Gelman, Hill, and Vehtari</a> (<a href="references-1.html#ref-gelmanhillvehtari2020" role="doc-biblioref">2020</a>)</span>:</p>
 <blockquote>
 <p>An estimand, or quantity of interest, is some summary of parameters or data that somebody is interested in estimating. For example, in the regression model, <span class="math inline">\(y = a + bx + \epsilon\)</span>, the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> might be of interest…. We use the data to construct estimates of parameters and other quantities of interest.</p>
@@ -236,7 +236,7 @@
 <li>take your analysis to the real dataset.</li>
 </ol>
 <p>The reason this is a good approach is that you know roughly what the outcomes should be in step 2, whereas if you go directly to the real dataset then you don’t know if unexpected outcomes are likely due to your own analysis errors, or actual results. The first time you generate a simulated dataset it will take a while, but after a bit of practice you’ll get good at it. There are also packages that can help, including <code>DeclareDesign</code> <span class="citation">(<a href="references-1.html#ref-citedeclaredesign" role="doc-biblioref">Blair et al. 2019</a>)</span> and <code>survey</code> <span class="citation">(<a href="references-1.html#ref-citesurvey" role="doc-biblioref">Lumley 2020</a>)</span>. Another good reason it’s useful to take this approach of simulation is that when you’re working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -262,7 +262,7 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span>, <span class="va">group</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We’ll get more into this terminology later, but the sampling frame is subset of the population that can actually be sampled, for instance they are listed somewhere. For instance, <a href="https://jazzystats.com/">Lauren Kennedy</a> likes to use the analogy of a city’s population, and the phonebook - almost everyone is in there (or at least they used to be), so the population and the sampling frame are almost the same, but they are not.</p>
 <p>Now look at the mean for two groups drawn out of the sampling frame.</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -277,7 +277,7 @@
 <span class="co">#&gt; 3     2 Blue              105</span>
 <span class="co">#&gt; 4     2 White             369</span></code></pre></div>
 <p>We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we can use a t-test.</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">population</span> <span class="op">&lt;-</span> 
@@ -322,7 +322,7 @@
 <span class="co">#&gt; 1 -0.00804     0.213     0.222    -0.308   0.758      989.  -0.0592    0.0431</span>
 <span class="co">#&gt; # … with 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</span></code></pre></div>
 <p>If properly done then not only will we get a ‘representative’ share of people with the favourite color blue, but we should also get a representative share of people who support the Maple Leafs. Why should that happen when we haven’t randomised on these variables? Let’s start by looking at our dataset.</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -353,7 +353,7 @@
 </blockquote>
 <p>We need to cover ANOVA because of its importance historically, but in general you probably shouldn’t actually use ANOVA day-to-day. There’s nothing wrong with it, in the right circumstances, it’s more just that it is a hundred years old and the number of modern use-case where it’s still your best-bet is pretty small. In any case, typically, the null is that all of the groups are from the same distribution.</p>
 <p>We can run ANOVA with the function built into R - <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>.</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">just_two_groups</span> <span class="op">&lt;-</span> <span class="va">population</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_frame</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
@@ -367,7 +367,7 @@
 <span class="co">#&gt; 1 favourite_color     1   0.0238 0.0238    0.0952   0.758</span>
 <span class="co">#&gt; 2 Residuals        1006 251.     0.250    NA       NA</span></code></pre></div>
 <p>In this case, we fail to reject the null that the samples are the same. This all said, it’s just linear regression. So I’m not sure why it got a fancy name.</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">group</span> <span class="op">~</span> <span class="va">favourite_color</span>, 
     data <span class="op">=</span> <span class="va">just_two_groups</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
@@ -405,7 +405,7 @@
 <span class="math display">\[\mbox{ATE} = \mbox{E}[y|d=1] - \mbox{E}[y|d=0].\]</span></p>
 <p>That is, the difference between the treated group, <span class="math inline">\(d = 1\)</span>, and the control group, <span class="math inline">\(d = 0\)</span>, when measured by the expected value of some outcome variable, <span class="math inline">\(y\)</span>. So the mean causal effect is simply the difference between the two expectations!</p>
 <p>Let’s again get stuck into some code. First we need to generate some data.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 <span class="va">example_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>,
                        treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, size  <span class="op">=</span> <span class="fl">1000</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -433,7 +433,7 @@
        fill <span class="op">=</span> <span class="st">"Person was treated"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="21-hunt_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">example_regression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">example_data</span><span class="op">)</span>
 
@@ -470,7 +470,7 @@
 Figure 9.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1926), as downloaded from <a href="https://artvee.com/dl/afternoon-tea-party" class="uri">https://artvee.com/dl/afternoon-tea-party</a>.
 </p>
 </div>
-<p>Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I’m personally very attached to this example as this issue also matters a lot to my father&lt;/p&gt;"><sup>5</sup></a></p>
+<p>Fisher (see note above) introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea when the milk was added first, or last.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;I’m personally very attached to this example as this issue also matters a lot to my father&lt;/p&gt;"><sup>3</sup></a></p>
 <p>From <span class="citation"><a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">Fisher</a> (<a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">1935, 13</a>)</span>:</p>
 <blockquote>
 <p>A lady declares that by tasting a cup of tea made with milk she can discriminate whether the milk or the tea infusion was first added to the cup. We will consider the problem of designing an experiment by means of which this assertion can be tested.</p>
@@ -487,8 +487,8 @@ Figure 9.1: Afternoon Tea Party (1890–1891), by Mary Cassatt (American, 1844-1
 <li>The person has to choose the four that are the same.</li>
 <li>The person knows it’s an experiment.</li>
 </ul>
-<p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;For posteriority, 2020 was quite a year.&lt;/p&gt;"><sup>6</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<p>We’ll now try this experiment. So brew some tea, grab eight cups, and pour eight cups of tea for a friend that you’re isolating with<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;For posteriority, 2020 was quite a year.&lt;/p&gt;"><sup>4</sup></a> - four where you put the milk in first and four where you put the milk in last. Make sure you use the same amount of tea and milk in each! Don’t forget to randomise the order, possibly even using the following code:</p>
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3 7 6 4 1 8 2 5</span></code></pre></div>
 <p>Then have your friend guess which four you put milk in first and which four you put milk in last!</p>
@@ -528,60 +528,9 @@ Figure 9.2: ‘The triumph of wisdom over fortune’ by Otto van Veen (Flemish, 
 <p>Health systems rely on commercial prediction algorithms to identify and help patients with complex health needs. We show that a widely used algorithm, typical of this industry-wide approach and affecting millions of patients, exhibits significant racial bias: At a given risk score, Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses. Remedying this disparity would increase the percentage of Black patients receiving additional help from 17.7 to 46.5%. The bias arises because the algorithm predicts health care costs rather than illness, but unequal access to care means that we spend less money caring for Black patients than for White patients. Thus, despite health care cost appearing to be an effective proxy for health by some measures of predictive accuracy, large racial biases arise. We suggest that the choice of convenient, seemingly effective proxies for ground truth can be an important source of algorithmic bias in many contexts.</p>
 </blockquote>
 </div>
-<div id="sampling-and-survey-essentials" class="section level2" number="9.4">
+<div id="case-study---the-oregon-health-insurance-experiment" class="section level2" number="9.4">
 <h2>
-<span class="header-section-number">9.4</span> Sampling and survey essentials<a class="anchor" aria-label="anchor" href="#sampling-and-survey-essentials"><i class="fas fa-link"></i></a>
-</h2>
-<div id="introduction-12" class="section level3" number="9.4.1">
-<h3>
-<span class="header-section-number">9.4.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-12"><i class="fas fa-link"></i></a>
-</h3>
-<p>Statistics is the cold, hard, core of using data. Statisticians have spent considerable time and effort thinking about the properties that various samples of data will have and how they enable us to speak to implications for the broader population.</p>
-<p>Let’s say that we have some data. For instance, a particular toddler goes to sleep at 6:00pm every night. We might be interested to know whether that bed-time is common more generally among all toddlers, or if we have an unusual toddler. We only have one toddler so our ability to use his bed time to speak about all toddlers is limited. But what about if we talk to our friends who also have toddlers? How many friends, and friends of friends, do we have to ask because we can begin to feel comfortable speaking about some underlying truth of toddler bedtime?</p>
-<p>In the wonderful phrase of <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 3</a>)</span> ‘[s]tatistics is the science of how to collect and analyze data, and draw statements and conclusions about unknown populations. The term population usually refers to a real or hypothetical set of units with characteristics and attributes which can be modelled by random variables and their respective probability distributions.’ In my own much less wonderful phrasing, ‘statistics involves having some data and trying to say something sensible about it.’ I mean, it’s really up to you which one you want to go with.</p>
-<p>In the case of surveys, our population is a finite set of <span class="math inline">\(N\)</span> labels: ‘person 1,’ ‘person 2,’ ‘person 3,’ …, ‘person <span class="math inline">\(N\)</span>.’ It is important here to recognise that there is a difference between the population of interest to a survey and a population in the sense that it is used when we talk of limits and similar infinity concepts in statistics. For instance, from time to time, you hear people who work with census data say that they don’t need to worry about confidence intervals because they have the whole population of the country. Nothing could be further from the truth.</p>
-<p><span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 4</a>)</span> have a lovely example of the ambiguity that surrounds the definition of a population. Let’s consider the population of voters. In Canada that means anyone who is 18 or older. Fine. But what if we are interested in consumers - what is the definition of hipsters? I regularly eat avocado toast, (+1), but I’ve never had bullet coffee (-1). Am I in the population or not?</p>
-<p>More things are formally defined than you may realise. For instance, the idea of a rural area is precisely defined. A property is either in a rural area or not. But then we come to the lovely example of <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 4</a>)</span> when it comes to whether someone is a smoker. If a 15 year old has had 100 cigarettes then it’s pretty clear that we need to treat them differently than if they have had none. But if a 100 year old has had 100 cigarettes then we consider them to have none. That’s fine, but what is the age at which this changes? Further, think about how this changes over time. At one point, parents used to be worried if children had more than two hours of screen time, now those same children (and possibly even the parents) regularly likely spend more than eight hours in front of a screen if they work in an office job.</p>
-<p>So we come to some critical terminology:</p>
-<ol style="list-style-type: decimal">
-<li>Population: ‘The set of all units covered by the main objective of the study.’ <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 5</a>)</span>.</li>
-<li>Frame: ‘Lists of sampling units’ <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 9</a>)</span> where sampling units are either the observational units themselves or the clusters.</li>
-<li>Sample: Those who complete and return the survey.</li>
-</ol>
-<p>To be a little more concrete about this, consider that we are trying to conduct a survey about the attitudes Australians who live in Toronto. So the target population is all Australians who live in Toronto, the frame might be all those Australians who live in Toronto who use Facebook, because we are going to use Facebook to choose who to sample. And then finally, if we take that Facebook list of all Australians living in Canada and we gave each one a chance at being surveyed then that would be our sampled population, but if we just picked the ones that I know then it would just be Dan, Monica, and Liza (from New Zealand but we’ll claim her because that’s a thing that Australians do).</p>
-<p>In that example the target population and the frame will be different because not all Australians who live in Toronto are on Facebook. Similarly, if not everyone that we gave the survey to actually completed the survey then the sample and the frame would be different.</p>
-<p>Having identified a population of interest and a frame (i.e. a list that gets the closest to that population) At this point we distinguish between probability and non-probability sampling.</p>
-<p>With probability sampling, every member of the frame has some chance of being sampled. Consider the example of the Australian Election Study - they get a list of all the addresses in Australia, and then randomly choose some to send letters to. The ‘randomista’ and RCT revolution that we discuss later, is needed because of a lack of probability sampling, but when it exists it plays a role here. Importantly it ensure that we are clear about the role of uncertainty <span class="citation">(<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson 2020, 11</a>)</span>. The trade-off is that it is expensive and difficult. Note that each unit in the frame doesn’t have to have the same probability necessarily, it just needs to be determined by a probability measure.</p>
-<p>In contrast, with non-probability sampling we focus on populations that are ‘readily available’ or convenient, satisfy certain quotas, based on judgement, or those that volunteer. The difference between probability and non-probability sampling is that of degree - we typically cannot force someone to take our survey, and hence, there is almost also as aspect of volunteering.</p>
-<p>While acknowledging that it is a spectrum, most of statistics was developed based on probability sampling. But much of modern sampling is done using non-probability sampling. In particular, a common approach is to have a bunch of Facebook ads trying to recruit a panel of people in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this - what type of people are likely to respond to such an ad? I don’t know who Canada’s richest person is, but are they likely to be in this panel? Is your grandmother likely to respond to that ad? What about you - do you even use Facebook?</p>
-<p>In some cases it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them - they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be. Hence, the role of surveys. Note, however that censuses will typically have many of the same concerns.</p>
-<p>When we consider our population, it will typically have some ordering. This may be as simple as a country having states/provinces. We consider a stratified structure to be one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata. Examples of strata in <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 8</a>)</span> include provinces, federal electoral districts, or health regions. But strata need not be geographic, and it may be possible to use different majors. We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, if we surveyed provinces in proportion to their population, then even a survey of 10,000 responses would only expect to have 10 responses from the Yukon.</p>
-<p>The other word that is used that takes advantage of the ordering of some population is clusters. Again, these are collectively exhaustive and mutually exclusive. Again, they may be geographically based, but need not be. The difference between stratified sampling and cluster sampling, is that ‘under stratified sampling, sample data are collected from every stratum, (whereas) under cluster sampling, only a portion of the clusters has members in the final sample’ <span class="citation"><a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson</a> (<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">2020, 8</a>)</span>. That all said, this difference can become less clear in practice, especially <em>ex post</em> - what if you stratify then randomly sample within that strata, but no one is selected - but in terms of intention the difference is clear.</p>
-<p>We now turn to the first of our claims, which is that if we have a perfect frame and no non-response, then our sample results will match that of the population. We’d of course be very worried if that weren’t the case, but it’s nice to have it stated. We establish some type of population mean for the study variable, <span class="math inline">\(\mu_y\)</span>, and population means for the auxiliary variables <span class="math inline">\(\mu_x\)</span>, which could be things like age, gender, etc. Remembering that when we do this in the real world, we may have many study variables, and indeed, some overlap. If a variable is an indicator then in this set-up all we have to do is to work out the proportion in order to estimate it, which is <span class="math inline">\(P\)</span>. And finally, we get a rule of thumb for large samples whereby the variance in this binary and perfect setting becomes <span class="math inline">\(\sigma_y^2 = P/(1-P)\)</span> <span class="citation">(<a href="references-1.html#ref-wuandthompson" role="doc-biblioref">Wu and Thompson 2020, 11</a>)</span>.</p>
-<p>Finally, we conclude with the steps that you should consider. These are all critical. Strong reports would grapple with all of these.</p>
-</div>
-<div id="simple-random-sampling" class="section level3" number="9.4.2">
-<h3>
-<span class="header-section-number">9.4.2</span> Simple random sampling<a class="anchor" aria-label="anchor" href="#simple-random-sampling"><i class="fas fa-link"></i></a>
-</h3>
-<p>TBD</p>
-</div>
-<div id="stratified-and-cluster-sampling" class="section level3" number="9.4.3">
-<h3>
-<span class="header-section-number">9.4.3</span> Stratified and cluster sampling<a class="anchor" aria-label="anchor" href="#stratified-and-cluster-sampling"><i class="fas fa-link"></i></a>
-</h3>
-<p>TBD</p>
-</div>
-<div id="snowball-sampling-and-confidant-methods" class="section level3" number="9.4.4">
-<h3>
-<span class="header-section-number">9.4.4</span> Snowball sampling and confidant methods<a class="anchor" aria-label="anchor" href="#snowball-sampling-and-confidant-methods"><i class="fas fa-link"></i></a>
-</h3>
-<p>TBD</p>
-</div>
-</div>
-<div id="case-study---the-oregon-health-insurance-experiment" class="section level2" number="9.5">
-<h2>
-<span class="header-section-number">9.5</span> Case study - The Oregon Health Insurance Experiment<a class="anchor" aria-label="anchor" href="#case-study---the-oregon-health-insurance-experiment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4</span> Case study - The Oregon Health Insurance Experiment<a class="anchor" aria-label="anchor" href="#case-study---the-oregon-health-insurance-experiment"><i class="fas fa-link"></i></a>
 </h2>
 <p>The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>:</p>
 <blockquote>
@@ -601,9 +550,9 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <p>To complete the specification of Equation <a href="hunt-data.html#eq:oregon">(9.1)</a>, <span class="math inline">\(X_{ih}\)</span> is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, <span class="math inline">\(V_{ih}\)</span> is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.</p>
 <p>There is a wide range of literature related to this intervention. More papers are available <a href="https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states">here</a>.</p>
 </div>
-<div id="case-study---student-coaching-how-far-can-technology-go" class="section level2" number="9.6">
+<div id="case-study---student-coaching-how-far-can-technology-go" class="section level2" number="9.5">
 <h2>
-<span class="header-section-number">9.6</span> Case study - Student Coaching: How Far Can Technology Go?<a class="anchor" aria-label="anchor" href="#case-study---student-coaching-how-far-can-technology-go"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.5</span> Case study - Student Coaching: How Far Can Technology Go?<a class="anchor" aria-label="anchor" href="#case-study---student-coaching-how-far-can-technology-go"><i class="fas fa-link"></i></a>
 </h2>
 <p>There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn’t scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015.</p>
 <p>The intervention was administered to students as part of an economics class. Students received 2 per cent of their grade for completing the exercise. The specific exercise depended on the group of the student. The intervention involved three treatments as well as a control group that was just given a Big Five personality traits test. Additional information that was obtained included ‘the highest level of education obtained by students’ parents, the amount of education they expect to obtain, whether they are first-year or international students, and their work and study time plans for the upcoming year.’ <span class="citation">(<a href="references-1.html#ref-Oreopoulos2018" role="doc-biblioref">Oreopoulos and Petronijevic 2018, 6</a>)</span>.</p>
@@ -631,9 +580,9 @@ Figure 9.3: Example of the results of the intervention.
 </div>
 <p>The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available <a href="https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go">here</a>.</p>
 </div>
-<div id="case-study---civic-honesty-around-the-globe" class="section level2" number="9.7">
+<div id="case-study---civic-honesty-around-the-globe" class="section level2" number="9.6">
 <h2>
-<span class="header-section-number">9.7</span> Case study - Civic Honesty Around The Globe<a class="anchor" aria-label="anchor" href="#case-study---civic-honesty-around-the-globe"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.6</span> Case study - Civic Honesty Around The Globe<a class="anchor" aria-label="anchor" href="#case-study---civic-honesty-around-the-globe"><i class="fas fa-link"></i></a>
 </h2>
 <p>Trust isn’t something that we think regularly about, but it’s actually fairly fundamental to most interactions, both economic and personal. For instance, many of us get paid after we do some work - we’re trusting our employer will make good; and vice versa - if you get paid in advance then they are trusting you. In a strictly naive, one-shot, transaction-cost-less world, this doesn’t make sense. If you get paid in advance, the incentive is for you to take the money and run in the last pay period before you quit, and through backward induction everything falls apart. Of course, we don’t live in such a world. For one thing there are transaction costs, for another generally we have repeated interactions, and finally, in my experience, the world usually ends up being fairly small.</p>
 <p>Understanding the extent of honestly in different countries may help us to explain economic development and other aspects of interest such as tax compliance, but it’s fairly hard to measure. We can’t really ask people how honest they are - wouldn’t the liars lie, resulting in a lemons problem <span class="citation">(<a href="references-1.html#ref-akerlof1978market" role="doc-biblioref">Akerlof 1978</a>)</span>? To get around, this <span class="citation"><a href="references-1.html#ref-cohn2019civic" role="doc-biblioref">A. Cohn et al.</a> (<a href="references-1.html#ref-cohn2019civic" role="doc-biblioref">2019a</a>)</span> conduct an experiment in 355 cities across 40 countries where they ‘turn in’ either: a wallet with the local equivalent of US$13.45 in it, or no money. They are interested in whether the ‘recipient’ attempts to return the wallet. They find that ‘[in virtually all countries, citizens were more likely to return wallets that contained more money’ <span class="citation">(<a href="references-1.html#ref-cohn2019civic" role="doc-biblioref">A. Cohn et al. 2019a, 1</a>)</span>.</p>
@@ -661,13 +610,13 @@ Figure 9.5: Key finding as to wallet return rates.
 <p>Annoyingly the authors don’t explicitly specify the estimating equation. However they do say that important covariates about the ‘recipient’ include: gender, age-group, busyness, whether they were local, spoke English, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920.</p>
 <p>The code or data for the paper are available: <span class="citation"><a href="references-1.html#ref-walletsdata" role="doc-biblioref">A. Cohn</a> (<a href="references-1.html#ref-walletsdata" role="doc-biblioref">2019</a>)</span>.</p>
 </div>
-<div id="ab-testing" class="section level2" number="9.8">
+<div id="ab-testing" class="section level2" number="9.7">
 <h2>
-<span class="header-section-number">9.8</span> A/B testing<a class="anchor" aria-label="anchor" href="#ab-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7</span> A/B testing<a class="anchor" aria-label="anchor" href="#ab-testing"><i class="fas fa-link"></i></a>
 </h2>
-<div id="introduction-13" class="section level3" number="9.8.1">
+<div id="introduction-7" class="section level3" number="9.7.1">
 <h3>
-<span class="header-section-number">9.8.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-7"><i class="fas fa-link"></i></a>
 </h3>
 <blockquote>
 <p>Large companies, particularly tech companies, have developed incredibly sophisticated infrastructure for running complex experiments. In the tech industry, these experiments are often called A/B tests because they compare the effectiveness of two treatments: A and B. Such experiments are frequently run for things like increasing click-through rates on ads, but the same experimental infrastructure can also be used for research that advances scientific understanding.</p>
@@ -693,9 +642,9 @@ Figure 9.5: Key finding as to wallet return rates.
 <p>In these notes, I’m going to use A/B testing to strictly refer to the situation in which we’re dealing with a tech firm, and some type of change in code. If we are dealing with the physical world then we’ll stick with RCTs.</p>
 <p>I’m usually fairly dismissive of the CS folks who adopt different language for concepts that have been around for a long time. However, in the case of A/B testing I think that it’s possibly justified. There is something different about doing tens of thousands of small experiments all the time, compared with our normal RCT set-up of one experiment conducted over months. And finally, if you don’t work in a tech firm, then don’t discount the difficulty of shifting to an experimental set-up. You may think that it’s easy to go to a workplace and say ‘hey, let’s test stuff before we spend thousands/millions of dollars.’ You’d be wrong. In my opinion, the hardest part of A/B testing isn’t the science, it’s the politics.</p>
 </div>
-<div id="delivery" class="section level3" number="9.8.2">
+<div id="delivery" class="section level3" number="9.7.2">
 <h3>
-<span class="header-section-number">9.8.2</span> Delivery<a class="anchor" aria-label="anchor" href="#delivery"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.2</span> Delivery<a class="anchor" aria-label="anchor" href="#delivery"><i class="fas fa-link"></i></a>
 </h3>
 <p>Drawing on <span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 153–61</a>)</span>, we first consider how we will be delivering the A/B test. In the case of a RCT it’s fairly obvious how we deliver it - for instance, make a person come to a doctor’s clinic and inject them with a drug or a placebo. In the case of A/B testing, it’s less obvious - do you run it ‘server-side’ or ‘client-side?’ What this means is, do you just change the website - ‘server side,’ or do you change an app - ‘client side.’ This may seem like a silly issue, but it affects: 1) release; and 2) data transmission.</p>
 <p>In the case of the effect on release, it’s easy and normal to update a website all the time, so small changes can be easily implemented in the case of server-side. However, in the case of client-side, let’s say an app, it’s likely a much bigger deal.</p>
@@ -707,18 +656,18 @@ Figure 9.5: Key finding as to wallet return rates.
 <p>Now, in the case of the effect on data transmission, again server-side is less of a big deal - you kind of get the data as part of the user interacting. But in the case of client-side - it’s not necessarily the case that the user will have the internet at the time they’re using your application, and if they do, they may have limitations on the data uploads. The phone may limit data transmission depending on its effect on battery, CPU, general performance, etc. Then maybe you decide to cache, but then the user may find it weird that some minor app takes up as much size as their photos.</p>
 <p>The effect of all this is that you need to plan and build this into your expectations - don’t promise results the day after a release if you’re evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.</p>
 </div>
-<div id="instrumentation" class="section level3" number="9.8.3">
+<div id="instrumentation" class="section level3" number="9.7.3">
 <h3>
-<span class="header-section-number">9.8.3</span> Instrumentation<a class="anchor" aria-label="anchor" href="#instrumentation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.3</span> Instrumentation<a class="anchor" aria-label="anchor" href="#instrumentation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Drawing on <span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 162</a> - 165)</span>, I’ll now discuss instrumentation. <span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020</a>)</span> use the name ‘instrumentation.’ I’d prefer something like ‘measurement methods’ so that we don’t confuse this with the entirely different concept of instrumental variables later in the course, but instrumentation is what is used in industry, so we’ll use that here too.</p>
 <p>Regardless of what it’s called, the point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to ‘download’ some tiny thing they don’t notice so that you know they’ve gone somewhere - see ‘email’ etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?</p>
 <p>There are likely different servers and databases for different faces of the product. For instance, Twitter in Australia, compared with Twitter in Canada, compared with Twitter on my phone’s app, compared with Twitter accessed via the browser. Joining these different datasets can be difficult and requires either a unique id or some probabilistic approach.</p>
 <p><span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 165</a>)</span> recommend changing the culture of your workplace to ensure instrumentation is normalised, which I mean, yeah, good luck.</p>
 </div>
-<div id="randomisation-unit" class="section level3" number="9.8.4">
+<div id="randomisation-unit" class="section level3" number="9.7.4">
 <h3>
-<span class="header-section-number">9.8.4</span> Randomisation unit<a class="anchor" aria-label="anchor" href="#randomisation-unit"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.4</span> Randomisation unit<a class="anchor" aria-label="anchor" href="#randomisation-unit"><i class="fas fa-link"></i></a>
 </h3>
 <p>Again, drawing on <span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 162</a> - 165)</span>, we need to be very aware of what are we actually randomising over? Again, this is something that’s kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let’s consider the malaria netting experiments - either a person/village/state gets a net or it doesn’t. Easy (relatively). But in the case of server-side A/B testing - are we randomising the page, the session, or the user?</p>
 <p>To think about this, let’s think about colour. Let’s say that we change our logo from red to blue on the ‘home’ page. If we’re randomising at the page level, then when the user goes to the ‘about’ page the logo could be back to red. If we’re randomising at the session level, then it’ll be blue while they’re using the website that time, but if they close it and come back then it’ll be red. Finally, if we’re randomising at a user level then it’ll always be red for me, but always blue for my friend. That last bit assumes perfect identity tracking, which might be generally okay if you’re Google or Facebook, but for anyone else is going to be a challenge - what if you visit cbc.ca on your phone and then on your laptop? You’re likely considered a different ‘user.’</p>
@@ -726,9 +675,9 @@ Figure 9.5: Key finding as to wallet return rates.
 <p>We are always interested in whether the treatment and control groups have been created randomly. One way to test it is an A/A test. <span class="citation"><a href="references-1.html#ref-taddy2019" role="doc-biblioref">Taddy</a> (<a href="references-1.html#ref-taddy2019" role="doc-biblioref">2019, 129</a>)</span> describes how ‘AB platforms typically run “AA” tests that show the same website in groups A and B. If you see a significant difference between groups in an AA trial, then something is likely wrong in your randomization.’</p>
 <p><span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 201</a>)</span> says similarly, that ‘(w)e highly recommend running continuous A/A tests in parallel with other experiments to uncover problems, including distribution mismatches and plat- form anomalies.’</p>
 </div>
-<div id="partnerships" class="section level3" number="9.8.5">
+<div id="partnerships" class="section level3" number="9.7.5">
 <h3>
-<span class="header-section-number">9.8.5</span> Partnerships<a class="anchor" aria-label="anchor" href="#partnerships"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.5</span> Partnerships<a class="anchor" aria-label="anchor" href="#partnerships"><i class="fas fa-link"></i></a>
 </h3>
 <p>Unless we work at a Facebook/Twitter type firm, it may not be possible to run A/B tests ourselves at scale. While we can randomise our own personal website fairly easily, for most of us there won’t be many visitors. Hence it can be important to partner with such firms. <span class="citation"><a href="references-1.html#ref-Salganik2018" role="doc-biblioref">Salganik</a> (<a href="references-1.html#ref-Salganik2018" role="doc-biblioref">2018, 187</a>)</span> draws our attention to the fact that there may be tension between ‘the researchers and the partners.’</p>
 <p>As an example, <span class="citation"><a href="references-1.html#ref-Salganik2018" role="doc-biblioref">Salganik</a> (<a href="references-1.html#ref-Salganik2018" role="doc-biblioref">2018</a>)</span> discusses a situation where one treatment (out of the three that were possible) accounted for 98 per cent of the sample because Facebook wanted to treat everyone. The researchers were only able to convince ‘them to hold back 1 per cent for a related treatment and 1 per cent for a control group.’ He continues:</p>
@@ -744,28 +693,28 @@ Figure 9.5: Key finding as to wallet return rates.
 <li>You should ‘(b)uild ethics into your design: replace, refine, and reduce,’ that is ‘(m)ake your experiment more humane by replacing experiments with non-experimental studies, refining the treatments [to be as harmless as possible], and reducing the number of participants’ <span class="citation">(<a href="references-1.html#ref-Salganik2018" role="doc-biblioref">Salganik 2018, 196</a>)</span>.</li>
 </ol>
 </div>
-<div id="speed-vs-quality" class="section level3" number="9.8.6">
+<div id="speed-vs-quality" class="section level3" number="9.7.6">
 <h3>
-<span class="header-section-number">9.8.6</span> Speed vs quality<a class="anchor" aria-label="anchor" href="#speed-vs-quality"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.6</span> Speed vs quality<a class="anchor" aria-label="anchor" href="#speed-vs-quality"><i class="fas fa-link"></i></a>
 </h3>
 <p>Don’t peek at your results early and then call off the rest of the experiment if you’ve got significance. You essentially ruin everything that underpins statistics if you do that.</p>
 </div>
-<div id="conflicting-priorities" class="section level3" number="9.8.7">
+<div id="conflicting-priorities" class="section level3" number="9.7.7">
 <h3>
-<span class="header-section-number">9.8.7</span> Conflicting priorities<a class="anchor" aria-label="anchor" href="#conflicting-priorities"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.7.7</span> Conflicting priorities<a class="anchor" aria-label="anchor" href="#conflicting-priorities"><i class="fas fa-link"></i></a>
 </h3>
 <p>One of the interesting aspects of A/B testing is that we’re usually running them not because we desperately care about the specific outcome, but because that feeds into some other measure that we care about. For instance, do we care whether the website is quite-dark-blue or slightly-darker-blue or white? Probably not, but we probably care a lot about the company share price. But then what if picking the best blue comes at a cost to the share price?</p>
 <p>Obviously, this is a bit contrived, so let’s pretend that we work at a food delivery app and that we’re the junior data scientist in charge of driver satisfaction. We do some A/B tests and we find that drivers are always happier when they are able to deliver food to the customer faster. Faster is better, always. But one way to achieve faster deliveries, is for them to not put the food into a hot box that will maintain the temperature. Something like that might save 30 seconds, which is significant on a 10-15 minute deliver. Unfortunately, although making a decision like that on the basis of A/B tests designed to optimize driver-satisfaction, would ultimately likely make the customer experience worse. If customers receive cold food, (when it’s meant to be hot) then they may stop using the service and so this is likely bad for the app in the longer term.</p>
 <p>This trade-off may be obvious if you’re running the driver-experiment and you’re looking at the customer complaints. Maybe on a small team or in a start-up you would be. But if you work for a larger team, you’d likely not and so ensuring that A/B tests aren’t resulting in false optimization is something that is especially interesting, and not a typical trade-off in a normal RCT.</p>
 </div>
 </div>
-<div id="case-study---upworthy" class="section level2" number="9.9">
+<div id="case-study---upworthy" class="section level2" number="9.8">
 <h2>
-<span class="header-section-number">9.9</span> Case study - Upworthy<a class="anchor" aria-label="anchor" href="#case-study---upworthy"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.8</span> Case study - Upworthy<a class="anchor" aria-label="anchor" href="#case-study---upworthy"><i class="fas fa-link"></i></a>
 </h2>
 <p>The trouble with much of A/B testing is that because it’s done by firms we typically don’t have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to <span class="citation">(<a href="references-1.html#ref-upworthy" role="doc-biblioref">Matias et al. 2019</a>)</span>. You are able to request access to the dataset here: <a href="https://upworthy.natematias.com" class="uri">https://upworthy.natematias.com</a> (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by <span class="citation"><a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">Fitts</a> (<a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">2014</a>)</span>.</p>
 <p>Let’s have a quick look at the data.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -794,7 +743,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; [16] "square"               "test_week"</span></code></pre></div>
 <p>From the documentation: ‘The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.’ So each row is a package and it should be part of a test ‘clickability_test_id.’</p>
 <p>We have a variety of variables. We’ll focus on ‘created_at,’ ‘clickability_test_id’ so that we can create comparison groups, ‘headline,’ ‘impressions’ which is the number of people that saw the package, and ‘clicks’ which is the number that clicked on that package. So within each batch of tests, we’re interested in the effect of varied headlines on impressions and clicks.</p>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">created_at</span>, <span class="va">clickability_test_id</span>, <span class="va">headline</span>, <span class="va">impressions</span>, <span class="va">clicks</span><span class="op">)</span>
@@ -811,7 +760,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; 6 2014-11-20 06:55:07 546d902c26714c6c44000039 This Is What …        3380     98</span></code></pre></div>
 <p>We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I’m interested in whether headlines that asked a question got more clicks than those that didn’t.</p>
 <p>To identify whether a headline asks a question, I’m going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>asks_question <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">headline</span>, pattern <span class="op">=</span> <span class="st">"\\?"</span><span class="op">)</span><span class="op">)</span>
@@ -823,7 +772,7 @@ Figure 9.5: Key finding as to wallet return rates.
 <span class="co">#&gt; 1 FALSE         19130</span>
 <span class="co">#&gt; 2 TRUE           3536</span></code></pre></div>
 <p>Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">to_question_or_not_to_question</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy_restricted</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -851,54 +800,54 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </p>
 </div>
 </div>
-<div id="implementing-surveys" class="section level2" number="9.10">
+<div id="implementing-surveys" class="section level2" number="9.9">
 <h2>
-<span class="header-section-number">9.10</span> Implementing surveys<a class="anchor" aria-label="anchor" href="#implementing-surveys"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9</span> Implementing surveys<a class="anchor" aria-label="anchor" href="#implementing-surveys"><i class="fas fa-link"></i></a>
 </h2>
-<div id="google" class="section level3" number="9.10.1">
+<div id="google" class="section level3" number="9.9.1">
 <h3>
-<span class="header-section-number">9.10.1</span> Google<a class="anchor" aria-label="anchor" href="#google"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.1</span> Google<a class="anchor" aria-label="anchor" href="#google"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="facebook" class="section level3" number="9.10.2">
+<div id="facebook" class="section level3" number="9.9.2">
 <h3>
-<span class="header-section-number">9.10.2</span> Facebook<a class="anchor" aria-label="anchor" href="#facebook"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.2</span> Facebook<a class="anchor" aria-label="anchor" href="#facebook"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="survey-monkey" class="section level3" number="9.10.3">
+<div id="survey-monkey" class="section level3" number="9.9.3">
 <h3>
-<span class="header-section-number">9.10.3</span> Survey Monkey<a class="anchor" aria-label="anchor" href="#survey-monkey"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.3</span> Survey Monkey<a class="anchor" aria-label="anchor" href="#survey-monkey"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="mechanical-turk" class="section level3" number="9.10.4">
+<div id="mechanical-turk" class="section level3" number="9.9.4">
 <h3>
-<span class="header-section-number">9.10.4</span> Mechanical Turk<a class="anchor" aria-label="anchor" href="#mechanical-turk"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.4</span> Mechanical Turk<a class="anchor" aria-label="anchor" href="#mechanical-turk"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="prolific" class="section level3" number="9.10.5">
+<div id="prolific" class="section level3" number="9.9.5">
 <h3>
-<span class="header-section-number">9.10.5</span> Prolific<a class="anchor" aria-label="anchor" href="#prolific"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.5</span> Prolific<a class="anchor" aria-label="anchor" href="#prolific"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="qualtrics" class="section level3" number="9.10.6">
+<div id="qualtrics" class="section level3" number="9.9.6">
 <h3>
-<span class="header-section-number">9.10.6</span> Qualtrics<a class="anchor" aria-label="anchor" href="#qualtrics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.6</span> Qualtrics<a class="anchor" aria-label="anchor" href="#qualtrics"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="other" class="section level3" number="9.10.7">
+<div id="other" class="section level3" number="9.9.7">
 <h3>
-<span class="header-section-number">9.10.7</span> Other<a class="anchor" aria-label="anchor" href="#other"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.9.7</span> Other<a class="anchor" aria-label="anchor" href="#other"><i class="fas fa-link"></i></a>
 </h3>
 </div>
 </div>
-<div id="sensor-data" class="section level2" number="9.11">
+<div id="sensor-data" class="section level2" number="9.10">
 <h2>
-<span class="header-section-number">9.11</span> Sensor data<a class="anchor" aria-label="anchor" href="#sensor-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.10</span> Sensor data<a class="anchor" aria-label="anchor" href="#sensor-data"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="foi" class="section level2" number="9.12">
+<div id="foi" class="section level2" number="9.11">
 <h2>
-<span class="header-section-number">9.12</span> FOI<a class="anchor" aria-label="anchor" href="#foi"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.11</span> FOI<a class="anchor" aria-label="anchor" href="#foi"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li><ol start="2019" style="list-style-type: decimal">
@@ -906,9 +855,9 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </ol></li>
 </ul>
 </div>
-<div id="next-steps" class="section level2" number="9.13">
+<div id="next-steps" class="section level2" number="9.12">
 <h2>
-<span class="header-section-number">9.13</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.12</span> Next steps<a class="anchor" aria-label="anchor" href="#next-steps"><i class="fas fa-link"></i></a>
 </h2>
 <p>Large scale experiments are happening all around us. These days I feel we all know a lot more about healthcare experiments than perhaps we’d like to know and the AstraZeneca/Oxford situation is especially interesting, for instance, <span class="citation"><a href="references-1.html#ref-OxfordAstraZeneca" role="doc-biblioref">Oxford-AstraZeneca</a> (<a href="references-1.html#ref-OxfordAstraZeneca" role="doc-biblioref">2020</a>)</span>, but see <span class="citation"><a href="references-1.html#ref-Bastian2020" role="doc-biblioref">Bastian</a> (<a href="references-1.html#ref-Bastian2020" role="doc-biblioref">2020</a>)</span> for how this is actually possibly more complicated.</p>
 <p>There are also well-known experiments that tried to see if big government programs are effective, such as:</p>
@@ -917,13 +866,13 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <li>The Oregon Health Study randomly gave health insurance in Oregon in 2008 <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>.</li>
 </ul>
 </div>
-<div id="exercises-and-tutorial-8" class="section level2" number="9.14">
+<div id="exercises-and-tutorial-8" class="section level2" number="9.13">
 <h2>
-<span class="header-section-number">9.14</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.13</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-8"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-8" class="section level3" number="9.14.1">
+<div id="exercises-8" class="section level3" number="9.13.1">
 <h3>
-<span class="header-section-number">9.14.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.13.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-8"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>In your own words, what is the role of randomisation in constructing a counterfactual (write two or three paragraphs)?</li>
@@ -945,7 +894,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </li>
 <li>If we have a dataset named ‘netflix_data,’ with the columns ‘person’ and ‘tv_show’ and ‘hours,’ (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
 </ol>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">netflix_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Rohan"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, 
@@ -1023,9 +972,9 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <li>What is power (in a statistical context)?</li>
 </ol>
 </div>
-<div id="tutorial-8" class="section level3" number="9.14.2">
+<div id="tutorial-8" class="section level3" number="9.13.2">
 <h3>
-<span class="header-section-number">9.14.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.13.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>The purpose of this tutorial is to ensure that it is clear in your mind how thoroughly you should know your dataset. It builds on the ‘memory palace’ technique used by professional memorisers, as described by <span class="citation"><a href="references-1.html#ref-moonwalkingwitheinstein" role="doc-biblioref">Foer</a> (<a href="references-1.html#ref-moonwalkingwitheinstein" role="doc-biblioref">2011</a>)</span>.</p>
 <p>Please think about your childhood home, or another building that you know intimately. Imagine yourself standing at the front of it. Describe what it looks like. Then ‘walk’ into the front and throughout the house, again describing each aspect in as much detail as you can imagine. What are each of the rooms used for and what are their distinguishing features? How does it smell? What does this all evoke in you? Please write a page or two.</p>
@@ -1044,7 +993,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <li><a class="nav-link" href="#hunt-data"><span class="header-section-number">9</span> Hunt data</a></li>
 <li>
 <a class="nav-link" href="#experiments-and-randomised-controlled-trials"><span class="header-section-number">9.1</span> Experiments and randomised controlled trials</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-11"><span class="header-section-number">9.1.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#introduction-6"><span class="header-section-number">9.1.1</span> Introduction</a></li>
 <li><a class="nav-link" href="#motivation-and-notation"><span class="header-section-number">9.1.2</span> Motivation and notation</a></li>
 <li><a class="nav-link" href="#randomised-sampling"><span class="header-section-number">9.1.3</span> Randomised sampling</a></li>
 <li><a class="nav-link" href="#anova"><span class="header-section-number">9.1.4</span> ANOVA</a></li>
@@ -1053,47 +1002,39 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 </li>
 <li><a class="nav-link" href="#case-study---fishers-tea-party"><span class="header-section-number">9.2</span> Case study - Fisher’s tea party</a></li>
 <li><a class="nav-link" href="#case-study---tuskegee-syphilis-study"><span class="header-section-number">9.3</span> Case study - Tuskegee Syphilis Study</a></li>
+<li><a class="nav-link" href="#case-study---the-oregon-health-insurance-experiment"><span class="header-section-number">9.4</span> Case study - The Oregon Health Insurance Experiment</a></li>
+<li><a class="nav-link" href="#case-study---student-coaching-how-far-can-technology-go"><span class="header-section-number">9.5</span> Case study - Student Coaching: How Far Can Technology Go?</a></li>
+<li><a class="nav-link" href="#case-study---civic-honesty-around-the-globe"><span class="header-section-number">9.6</span> Case study - Civic Honesty Around The Globe</a></li>
 <li>
-<a class="nav-link" href="#sampling-and-survey-essentials"><span class="header-section-number">9.4</span> Sampling and survey essentials</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-12"><span class="header-section-number">9.4.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#simple-random-sampling"><span class="header-section-number">9.4.2</span> Simple random sampling</a></li>
-<li><a class="nav-link" href="#stratified-and-cluster-sampling"><span class="header-section-number">9.4.3</span> Stratified and cluster sampling</a></li>
-<li><a class="nav-link" href="#snowball-sampling-and-confidant-methods"><span class="header-section-number">9.4.4</span> Snowball sampling and confidant methods</a></li>
+<a class="nav-link" href="#ab-testing"><span class="header-section-number">9.7</span> A/B testing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-7"><span class="header-section-number">9.7.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#delivery"><span class="header-section-number">9.7.2</span> Delivery</a></li>
+<li><a class="nav-link" href="#instrumentation"><span class="header-section-number">9.7.3</span> Instrumentation</a></li>
+<li><a class="nav-link" href="#randomisation-unit"><span class="header-section-number">9.7.4</span> Randomisation unit</a></li>
+<li><a class="nav-link" href="#partnerships"><span class="header-section-number">9.7.5</span> Partnerships</a></li>
+<li><a class="nav-link" href="#speed-vs-quality"><span class="header-section-number">9.7.6</span> Speed vs quality</a></li>
+<li><a class="nav-link" href="#conflicting-priorities"><span class="header-section-number">9.7.7</span> Conflicting priorities</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#case-study---the-oregon-health-insurance-experiment"><span class="header-section-number">9.5</span> Case study - The Oregon Health Insurance Experiment</a></li>
-<li><a class="nav-link" href="#case-study---student-coaching-how-far-can-technology-go"><span class="header-section-number">9.6</span> Case study - Student Coaching: How Far Can Technology Go?</a></li>
-<li><a class="nav-link" href="#case-study---civic-honesty-around-the-globe"><span class="header-section-number">9.7</span> Case study - Civic Honesty Around The Globe</a></li>
+<li><a class="nav-link" href="#case-study---upworthy"><span class="header-section-number">9.8</span> Case study - Upworthy</a></li>
 <li>
-<a class="nav-link" href="#ab-testing"><span class="header-section-number">9.8</span> A/B testing</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-13"><span class="header-section-number">9.8.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#delivery"><span class="header-section-number">9.8.2</span> Delivery</a></li>
-<li><a class="nav-link" href="#instrumentation"><span class="header-section-number">9.8.3</span> Instrumentation</a></li>
-<li><a class="nav-link" href="#randomisation-unit"><span class="header-section-number">9.8.4</span> Randomisation unit</a></li>
-<li><a class="nav-link" href="#partnerships"><span class="header-section-number">9.8.5</span> Partnerships</a></li>
-<li><a class="nav-link" href="#speed-vs-quality"><span class="header-section-number">9.8.6</span> Speed vs quality</a></li>
-<li><a class="nav-link" href="#conflicting-priorities"><span class="header-section-number">9.8.7</span> Conflicting priorities</a></li>
+<a class="nav-link" href="#implementing-surveys"><span class="header-section-number">9.9</span> Implementing surveys</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#google"><span class="header-section-number">9.9.1</span> Google</a></li>
+<li><a class="nav-link" href="#facebook"><span class="header-section-number">9.9.2</span> Facebook</a></li>
+<li><a class="nav-link" href="#survey-monkey"><span class="header-section-number">9.9.3</span> Survey Monkey</a></li>
+<li><a class="nav-link" href="#mechanical-turk"><span class="header-section-number">9.9.4</span> Mechanical Turk</a></li>
+<li><a class="nav-link" href="#prolific"><span class="header-section-number">9.9.5</span> Prolific</a></li>
+<li><a class="nav-link" href="#qualtrics"><span class="header-section-number">9.9.6</span> Qualtrics</a></li>
+<li><a class="nav-link" href="#other"><span class="header-section-number">9.9.7</span> Other</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#case-study---upworthy"><span class="header-section-number">9.9</span> Case study - Upworthy</a></li>
+<li><a class="nav-link" href="#sensor-data"><span class="header-section-number">9.10</span> Sensor data</a></li>
+<li><a class="nav-link" href="#foi"><span class="header-section-number">9.11</span> FOI</a></li>
+<li><a class="nav-link" href="#next-steps"><span class="header-section-number">9.12</span> Next steps</a></li>
 <li>
-<a class="nav-link" href="#implementing-surveys"><span class="header-section-number">9.10</span> Implementing surveys</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#google"><span class="header-section-number">9.10.1</span> Google</a></li>
-<li><a class="nav-link" href="#facebook"><span class="header-section-number">9.10.2</span> Facebook</a></li>
-<li><a class="nav-link" href="#survey-monkey"><span class="header-section-number">9.10.3</span> Survey Monkey</a></li>
-<li><a class="nav-link" href="#mechanical-turk"><span class="header-section-number">9.10.4</span> Mechanical Turk</a></li>
-<li><a class="nav-link" href="#prolific"><span class="header-section-number">9.10.5</span> Prolific</a></li>
-<li><a class="nav-link" href="#qualtrics"><span class="header-section-number">9.10.6</span> Qualtrics</a></li>
-<li><a class="nav-link" href="#other"><span class="header-section-number">9.10.7</span> Other</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#sensor-data"><span class="header-section-number">9.11</span> Sensor data</a></li>
-<li><a class="nav-link" href="#foi"><span class="header-section-number">9.12</span> FOI</a></li>
-<li><a class="nav-link" href="#next-steps"><span class="header-section-number">9.13</span> Next steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-and-tutorial-8"><span class="header-section-number">9.14</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-8"><span class="header-section-number">9.14.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-8"><span class="header-section-number">9.14.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-8"><span class="header-section-number">9.13</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-8"><span class="header-section-number">9.13.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-8"><span class="header-section-number">9.13.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -1113,7 +1054,7 @@ Figure 9.6: Comparison of the average number of clicks when a headline contains 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 27 January, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 January, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
