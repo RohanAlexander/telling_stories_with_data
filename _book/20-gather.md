@@ -1,23 +1,24 @@
 
 
 
-# (PART) Worlds become data {-}
+# (PART) Acquisition {-}
 
 # Gather data
 
-**STATUS: Under construction.**
 
 
 
 
 **Required material**
 
-<!-- - Read *M-F-E-O: postcards + distill*, [@hillpostcards]. -->
+- Read *Working-Class Households in Reading*, [@bowley1913working].
+- Read *Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection*, Parts I 'Introduction', III 'Different Aspects of the Representative Method', V 'Conclusion' and Bowley's discussion p. 607 - 610, [@neyman1934two].
+- Read *Turning History into Data: Data Collection, Measurement, and Inference in HPE*, [@cirone].
+
 
 
 
 <!-- - Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/. -->
-<!-- - Bryan, Jennifer, and Jim Hester, 2020, *What They Forgot to Teach You About R*, Chapter 7, https://rstats.wtf/index.html. -->
 <!-- - Cardoso, Tom, 2019, 'Introduction to scraping', https://github.com/tomcardoso/intro-to-scraping. -->
 <!-- - Clavelle, Tyler, 2017, 'Using R to extract data from web APIs', 5 June, https://www.tylerclavelle.com/code/2017/randapis/. -->
 <!-- - Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/. -->
@@ -37,7 +38,6 @@
 <!-- - Silge, Julia and David Robinson, 2020, *Text Mining with R*, Chapters 1, 3, and 6, https://www.tidytextmining.com/. -->
 <!-- - Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/. -->
 <!-- - Smale, David, 2020, 'Daniel Johnston', https://davidsmale.netlify.com/portfolio/daniel-johnston/.  -->
-<!-- - Taddy, Matt, 2019, *Business Data Science*, Chapter 8, pp. 231-259. -->
 <!-- - Wickham, Hadley, 'Managing Secrets', https://cran.r-project.org/web/packages/httr/vignettes/secrets.html. -->
 <!-- - Wickham, Hadley, 2014, 'rvest: easy web scraping with R', 24 November, https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/. -->
 <!-- - Wickham, Hadley, nd, 'Getting started with httr', https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html. -->
@@ -68,56 +68,44 @@
 **Key libraries**
 
 - `babynames`
-- `broom`
 - `dplyr`
-- `ggplot2`
-- `gutenbergr`
-- `janitor`
+- `httr`
 - `jsonlite`
+- `lubridate`
 - `pdftools`
 - `purrr`
 - `rtweet`
 - `rvest`
 - `spotifyr`
-- `stringi`
-- `tidymodels`
+- `tesseract`
 - `tidytext`
 - `tidyverse`
 - `usethis`
+- `xml2`
 
 
 **Key functions**
 
-- `as_factor()`
-- `as_tibble()`
-- `bind_tf_idf()`
-- `c()`
-- `case_when()`
-- `cat()`
-- `edit_r_environ()`
-- `file()`
-- `fromJSON()`
+- `download.file()`
+- `dplyr::row_number()`
+- `dplyr::slice_sample()`
+- `factor()`
 - `function()`
-- `GET()`
-- `get_artist_audio_features()`
-- `get_favorites()`
-- `get_my_top_artists_or_tracks()`
-- `html_node()`
-- `html_nodes()`
-- `html_text()`
-- `pdf_data()`
-- `pdf_text()`
-- `pmap_dfr()`
-- `read_html()`
-- `readRDS()`
-- `safely()`
-- `search_tweets()`
-- `sleep()`
-- `tesseract()`
-- `unnest_tokens()`
-- `walk2()`
-- `write_html()`
-- `write_lines()`
+- `httr::GET()`
+- `pdftools::pdf_text()`
+- `purrr::walk2()`
+- `rtweet::get_favorites()`
+- `rtweet::get_friends()`
+- `rtweet::get_timelines()`
+- `rtweet::search_tweets()`
+- `rvest::html_nodes()`
+- `rvest::html_text()`
+- `set.seed()`
+- `spotifyr::get_artist_audio_features()`
+- `sys.sleep()`
+- `tesseract::ocr()`
+- `usethis::edit_r_environ()`
+
 
 
 
@@ -126,70 +114,425 @@
 As we think about our world and telling stories about it, one of the most difficult aspects is to reduce the beautiful complexity of it into a dataset that we can use. We need to know what we are giving up when we do this. Often we are interested in understanding the implications of some dataset, making forecasts based on it, or using that dataset to make claims about the broader world. Regardless of how we turn our world into data, we will only ever have a sample of the data that we need. Statistics provides formal approaches that we use to keep these issues front of mind.
 
 In this chapter we first 
-<!-- introduce statistical notions around sampling to provide a framework that we use to guide our data gathering. We then  -->
-go through a variety of approaches for gathering data, including the use of APIs, web scraping, converting PDFs, 
-<!-- semi-structured data, such as JSON and XML,  -->
+introduce statistical notions around sampling to provide a framework that we use to guide our data gathering. We then
+go through a variety of approaches for gathering data, including the use of APIs and semi-structured data, such as JSON and XML, web scraping, converting PDFs,
 and using optical character recognition, especially to obtain text data.
 
 
-<!-- ## Sampling essentials -->
+## Sampling essentials
 
-<!-- Statistics is at the heart of telling stories with data. Statisticians have spent considerable time and effort thinking about the properties that various samples of data will have and how they enable us to speak to implications for the broader population. -->
+Statistics is at the heart of telling stories with data. Statisticians have spent considerable time and effort thinking about the properties that various samples of data will have and how they enable us to speak to implications for the broader population.
 
-<!-- Let us say that we have some data. For instance, a particular toddler goes to sleep at 6:00pm every night. We might be interested to know whether that bedtime is common among all toddlers, or if we have an unusual toddler. We only have one toddler so our ability to use his bedtime to speak about all toddlers is limited.  -->
+Let us say that we have some data. For instance, a particular toddler goes to sleep at 6:00pm every night. We might be interested to know whether that bedtime is common among all toddlers, or if we have an unusual toddler. We only have one toddler so our ability to use his bedtime to speak about all toddlers is limited.
 
-<!-- One approach would be to talk to friends who also have toddlers. And then talk to friends of friends. How many friends, and friends of friends, do we have to ask because we can begin to feel comfortable speaking about some underlying truth of toddler bedtime? -->
+One approach would be to talk to friends who also have toddlers. And then talk to friends of friends. How many friends, and friends of friends, do we have to ask because we can begin to feel comfortable speaking about some underlying truth of toddler bedtime?
 
-<!-- @wuandthompson [p. 3] describe statistics as 'the science of how to collect and analyze data and draw statements and conclusions about unknown populations.' Here 'population' refers to some infinite group that we can never know exactly, but that we can use the probability distributions of random variables to describe the characteristics of. Another way to say this is that statistics involves getting some data and trying to say something sensible based on it.  -->
+@wuandthompson [p. 3] describe statistics as 'the science of how to collect and analyze data and draw statements and conclusions about unknown populations.' Here 'population' refers to some infinite group that we can never know exactly, but that we can use the probability distributions of random variables to describe the characteristics of. Another way to say this is that statistics involves getting some data and trying to say something sensible based on it.
 
-<!-- Some of the critical terminology that we will use include:  -->
+Some of the critical terminology includes:
 
-<!-- - 'Target population': The collection of all items about which we would like to speak. -->
-<!-- - 'Sampling frame': A list of all the items from the target population that we could get data about. -->
-<!-- - 'Sample': The items from the sampling frame that we get data about. -->
+- 'Target population': The collection of all items about which we would like to speak.
+- 'Sampling frame': A list of all the items from the target population that we could get data about.
+- 'Sample': The items from the sampling frame that we get data about.
 
-<!-- A target population is a finite set of labelled items, of size $N$. For instance, we could hypothetically add a label to all the books in the world: 'Book 1', 'Book 2', 'Book 3', ..., 'Book $N$'. There is a difference between use of the term population here, and that of everyday usage. For instance, one sometimes hears those who work with census data say that they do not need to worry about sampling because they have the whole population of the country. This is a conflation of the terms, as what they actually have is the sample gathered by the census of the population of a country. -->
+A target population is a finite set of labelled items, of size $N$. For instance, we could hypothetically add a label to all the books in the world: 'Book 1', 'Book 2', 'Book 3', ..., 'Book $N$'. There is a difference between use of the term population here, and that of everyday usage. For instance, one sometimes hears those who work with census data say that they do not need to worry about sampling because they have the whole population of the country. This is a conflation of the terms, as what they actually have is the sample gathered by the census of the population of a country.
 
-<!-- It can be difficult to define a target population. For instance, say we have been asked to find out about the consumption habits of hipsters. How can we define that target population? If someone regularly eats avocado toast, but has never drunk bullet coffee, then are they in the population? Some aspects that we might be interested in are formally defined to an extent that is not always commonly realized. For instance, whether an area is classified as rural is often formally defined by a country's statistical agency. But other aspects are less clear. For instance, how do we classify someone as a 'smoker'? If a 15-year-old has had 100 cigarettes over their lifetime, then we need to treat them differently than if they have had none. But if a 90-year-old has had 100 cigarettes over their lifetime, then are they likely to different to a 90-year-old who has had none? At what age, and number of cigarettes do these answers change? -->
+It can be difficult to define a target population. For instance, say we have been asked to find out about the consumption habits of hipsters. How can we define that target population? If someone regularly eats avocado toast, but has never drunk bullet coffee, then are they in the population? Some aspects that we might be interested in are formally defined to an extent that is not always commonly realized. For instance, whether an area is classified as rural is often formally defined by a country's statistical agency. But other aspects are less clear. For instance, how do we classify someone as a 'smoker'? If a 15-year-old has had 100 cigarettes over their lifetime, then we need to treat them differently than if they have had none. But if a 90-year-old has had 100 cigarettes over their lifetime, then are they likely to different to a 90-year-old who has had none? At what age, and number of cigarettes do these answers change?
 
-<!-- Consider if we want to speak to the titles of all the books ever written. Our target population is all books ever written. But it is almost impossible for us to imagine that we could get information about the title of a book that was written in the nineteenth century, but that the author locked in their desk and never told anyone about. One sampling frame could be all books in the Library of Congress Online Catalog, another could be the 25 million that were digitized by Google [@somers2017torching]. And then finally, our sample may be the tens of thousands that are available through Project Gutenberg, and that we can access using `gutenbergr` [@gutenbergr]. -->
+Consider if we want to speak to the titles of all the books ever written. Our target population is all books ever written. But it is almost impossible for us to imagine that we could get information about the title of a book that was written in the nineteenth century, but that the author locked in their desk and never told anyone about. One sampling frame could be all books in the Library of Congress Online Catalog, another could be the 25 million that were digitized by Google [@somers2017torching]. And then finally, our sample may be the tens of thousands that are available through Project Gutenberg, and that we can access using `gutenbergr` [@gutenbergr].
 
-<!-- To consider another example, consider wanting to speak of the attitudes of all Brazilians who live in Germany. The target population is all Brazilians who live in Germany. One possible source of information would be Facebook and so in that case, the sampling frame might be all Brazilians who live in Germany who have Facebook. And then our sample be might all Brazilians who live in Germany who have Facebook who we can gather data about. The target population and the sampling frame will be different because not all Brazilians who live in Germany will have Facebook. And the sampling frame will be different to the sample because we will likely not be able to gather data about all Brazilians who live in Germany and have Facebook.  -->
+To consider another example, consider wanting to speak of the attitudes of all Brazilians who live in Germany. The target population is all Brazilians who live in Germany. One possible source of information would be Facebook and so in that case, the sampling frame might be all Brazilians who live in Germany who have Facebook. And then our sample be might all Brazilians who live in Germany who have Facebook who we can gather data about. The target population and the sampling frame will be different because not all Brazilians who live in Germany will have Facebook. And the sampling frame will be different to the sample because we will likely not be able to gather data about all Brazilians who live in Germany and have Facebook.
 
-<!-- Having identified a target population and a sampling frame, we need to distinguish between probability and non-probability sampling: -->
 
-<!-- - 'Probability sampling': Every unit in the sampling frame has some, known, chance of being sampled and the specific sample is obtained randomly based on these chances. Note that these chances do not necessarily need to be same for each unit. -->
-<!-- - 'Non-probability sampling': Units from the sampling frame are sampled based on convenience, quotas, judgement, or other non-random processes. -->
+### Sampling in Dublin and Reading
 
-<!-- Often the difference between probability and non-probability sampling is one of degree. For instance, we cannot often forcibly obtain data and so there is almost always an aspect of volunteering. Even when there are penalties for not providing data, such as the case for completing a census form in many countries, it is difficult for even a government to force people to fill it out completely or truthfully. One reason that the Randomized Control Trial revolution, discussed in Chapter \@ref(hunt-data), was needed was due to a lack of probability sampling. The most important aspect to be clear about with probability sampling is the role of uncertainty. This allows us to make claims about the population, based on our sample, with known amounts of error. The trade-off is that probability sampling is often expensive and difficult.  -->
+To be more clear, we will consider two examples: a 1798 count of the number of inhabitants of Dublin, Ireland [@whatasurvey], and a 1912 count of working-class households in Reading, England [@bowley1913working].
 
-<!-- While acknowledging that it is a spectrum, much of statistics was developed based on probability sampling. But much of modern sampling is done using non-probability sampling. A common approach is to use Facebook and other advertisements to recruit a panel of respondents in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this. For instance, what type of people are likely to respond to such an advertisement? Is the richest person in the world likely to respond? Are especially young or especially old people likely to respond? In some cases, it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them---they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be.  -->
+In 1798 the Reverend James Whitelaw conducted a survey of Dublin, Ireland, to count its population. @whatasurvey describes how population estimates had a wide variation, for instance the estimated size of London at the time ranged from 128,570 to 300,000. Reverend Whitelaw expected that the Lord Mayor of Dublin could compel the person in charge of each house to affix a list of the inhabitants of that house to the door, and then Reverend Whitelaw could simply use this. 
 
-<!-- When we consider our population, it will typically have some ordering. This may be as simple as a country having states/provinces. We consider a stratified structure to be one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata. Examples of strata in @wuandthompson [p. 8] include provinces, federal electoral districts, or health regions. But strata need not be geographic, and it may be possible to use different majors. We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, if we surveyed provinces in proportion to their population, then even a survey of 10,000 responses would only expect to have 10 responses from the Yukon.  -->
+Instead, he found that the lists were 'frequently illegible, and generally short of the actual number by a third, or even one-half'. And so instead he recruited assistants, and they went door-to-door making their own counts. The resulting estimates are particularly informative (Figure \@ref(fig:whitelawsresults)). And the total population of Dublin in 1798 was estimated at 182,370.
 
-<!-- The other word that is used that takes advantage of the ordering of some population is clusters. Again, these are collectively exhaustive and mutually exclusive. Again, they may be geographically based, but need not be. The difference between stratified sampling and cluster sampling, is that 'under stratified sampling, sample data are collected from every stratum, (whereas) under cluster sampling, only a portion of the clusters has members in the final sample' @wuandthompson [p. 8]. That all said, this difference can become less clear in practice, especially *ex post* - what if you stratify then randomly sample within that strata, but no one is selected - but in terms of intention the difference is clear. -->
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/whitelaw.png" alt="Extract of the results that Reverend Whitelaw found in 1798" width="85%" />
+<p class="caption">(\#fig:whitelawsresults)Extract of the results that Reverend Whitelaw found in 1798</p>
+</div>
+
+One aspect worth noticing is that Reverend Whitelaw includes information about class. It is difficult to know how that was determined, but it played a large role in the data collection. Reverend Whitelaw describes how the houses of 'the middle and upper classes always contained some individual who was competent to the task [of making a list]'. But that 'among the lower class, which forms the great mass of the population of this city, the case was very different'. It is difficult to know how Reverend Whitelaw could have known that the upper and middle classes were not representing their number, while the lower class was. It is also difficult to imagine Reverend Whitelaw going into the houses of the upper class and counting their number, as he and his assistants did for the lower classes. As always, the issue of defining the target population is a difficult one, and it seems that there may have been slightly different approaches to each class. 
+
+A little over one hundred years later, @bowley1913working was interested in counting the number of working-class households in Reading, England. Bowley selects the sample using the following procedure [@bowley1913working, p. 672]:
+
+> One building in ten was marked throughout the local directory in alphabetical order of streets, making about 1,950 in all. Of those about 300 were marked as shops, factories, institutions and non-residential buildings, and about 300 were found to be indexed among Principal Residents, and were so marked. The remaining 1,350 were working-class houses, and a number of volunteers set out to visit every one of these... [I]t was decided to take only one house in 20, rejecting the incomplete information as to the intermediate tenths. The visitors were instructed never to substitute another house for that marked, however difficult it proved to get information, or whatever the type of house.
+
+@bowley1913working continues that they ended up with information about 622 working-class households. And, having judged, on the basis of the census that there were about 18,000 households in Reading, @bowley1913working applies '[t]he multiplier twenty-one... to all the sample data to give estimates for the whole of Reading.' @bowley1913working explains that the reasonableness of the estimates depends 'not on its proportion to the whole, but on its own magnitude, if the conditions of random sampling are secured, as it is believed they have been in this inquiry'. Bowley is, for instance, able to furnish information about the rent paid per week (Figure \@ref(fig:bowleyrents)).
+
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/bowleyrents.png" alt="Extract of the results that Bowley found with regard to rent paid by the working-class in Reading" width="85%" />
+<p class="caption">(\#fig:bowleyrents)Extract of the results that Bowley found with regard to rent paid by the working-class in Reading</p>
+</div>
+
+
+
+### Probabilistic sampling
+
+Having identified a target population and a sampling frame, we need to distinguish between probability and non-probability sampling, which @neyman1934two describes as 'random sampling' and 'purposive selection':
+
+- 'Probability sampling': Every unit in the sampling frame has some, known, chance of being sampled and the specific sample is obtained randomly based on these chances. Note that these chances do not necessarily need to be same for each unit.
+- 'Non-probability sampling': Units from the sampling frame are sampled based on convenience, quotas, judgement, or other non-random processes.
+
+Often the difference between probability and non-probability sampling is one of degree. For instance, we cannot often forcibly obtain data and so there is almost always an aspect of volunteering. Even when there are penalties for not providing data, such as the case for completing a census form in many countries, it is difficult for even a government to force people to fill it out completely or truthfully. One reason that the Randomized Control Trial revolution, discussed in Chapter \@ref(hunt-data), was needed was due to a lack of probability sampling. The most important aspect to be clear about with probability sampling is the role of uncertainty. This allows us to make claims about the population, based on our sample, with known amounts of error. The trade-off is that probability sampling is often expensive and difficult.
+
+
+To add some more specificity to our discussion, following @lohr [p. 27] it may help to consider the numbers 1 to 100 and let us define that as our target population. With simple random sampling, every unit has the same chance of being included. In this case it is 20 per cent. We would expect to have around 20 units in our sample, or around 1 in 5 compared with our target population.
+
+
+```r
+library(tidyverse)
+#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
+#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#> ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+#> ✓ readr   2.1.1     ✓ forcats 0.5.1
+#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
+#> x dplyr::filter() masks stats::filter()
+#> x dplyr::lag()    masks stats::lag()
+
+set.seed(853)
+
+illustrative_sampling <-
+  tibble(unit = 1:100,
+         simple_random_sampling = 
+           sample(
+             x = c("Included", "Not included"),
+             size = 100,
+             replace = TRUE,
+             prob = c(0.2, 0.8)
+             ))
+
+illustrative_sampling
+#> # A tibble: 100 × 2
+#>     unit simple_random_sampling
+#>    <int> <chr>                 
+#>  1     1 Not included          
+#>  2     2 Not included          
+#>  3     3 Not included          
+#>  4     4 Not included          
+#>  5     5 Not included          
+#>  6     6 Not included          
+#>  7     7 Not included          
+#>  8     8 Not included          
+#>  9     9 Not included          
+#> 10    10 Not included          
+#> # … with 90 more rows
+```
+
+With systematic sampling, as was used by @bowley1913working, we proceed by selecting some value, say 5. We randomly pick a starting point in units 1 to 5, say 3. And we then include every fifth unit. That starting point is usually randomly selecting.
+
+
+```r
+set.seed(853)
+
+starting_point <- sample(x = c(1:5), 
+                         size = 1)
+
+illustrative_sampling <-
+  illustrative_sampling |>
+  mutate(systematic_sampling = 
+           if_else(row_number() %in% seq.int(from = starting_point, 
+                                             to = 100, 
+                                             by = 5), 
+                   "Included", 
+                   "Not included")
+         )
+
+illustrative_sampling
+#> # A tibble: 100 × 3
+#>     unit simple_random_sampling systematic_sampling
+#>    <int> <chr>                  <chr>              
+#>  1     1 Not included           Included           
+#>  2     2 Not included           Not included       
+#>  3     3 Not included           Not included       
+#>  4     4 Not included           Not included       
+#>  5     5 Not included           Not included       
+#>  6     6 Not included           Included           
+#>  7     7 Not included           Not included       
+#>  8     8 Not included           Not included       
+#>  9     9 Not included           Not included       
+#> 10    10 Not included           Not included       
+#> # … with 90 more rows
+```
+
+When we consider our population, it will typically have some grouping. This may be as straight-forward as a country having states, provinces, counties, or statistical districts; a university having faculties and departments; and humans having age-groups. A stratified structure is one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata.
+
+We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, the population of the US is around 335 million, with 40 million being in California, while Wyoming as around half a million. So even a survey of 10,000 responses would only expect to have 15 responses from Wyoming, which could make inference about Wyoming difficult. We could use stratification to ensure there are 200 responses from each of the 50 US states.
+
+In our case, we will stratify our illustration, we will consider that our strata are the 10s, that is, 1 to 10 is one strata, 11 to 20 is another, and so on. We will use simple random sampling within these strata to select two units.
+
+
+```r
+set.seed(853)
+
+selected_within_strata <-
+  illustrative_sampling |>
+  mutate(strata = (row_number() - 1) %/% 10) |>
+  group_by(strata) |>
+  slice_sample(n = 2) |>
+  pull(unit)
+
+illustrative_sampling <-
+  illustrative_sampling |>
+  mutate(
+    stratified_sampling = if_else(
+      row_number() %in% selected_within_strata,
+      "Included",
+      "Not included"
+    )
+  )
+
+illustrative_sampling
+#> # A tibble: 100 × 4
+#>     unit simple_random_sa… systematic_samp… stratified_samp…
+#>    <int> <chr>             <chr>            <chr>           
+#>  1     1 Not included      Included         Included        
+#>  2     2 Not included      Not included     Not included    
+#>  3     3 Not included      Not included     Not included    
+#>  4     4 Not included      Not included     Not included    
+#>  5     5 Not included      Not included     Not included    
+#>  6     6 Not included      Included         Not included    
+#>  7     7 Not included      Not included     Not included    
+#>  8     8 Not included      Not included     Not included    
+#>  9     9 Not included      Not included     Included        
+#> 10    10 Not included      Not included     Not included    
+#> # … with 90 more rows
+```
+
+And finally, we can also take advantage of some clusters that may exist in our dataset. Like strata, clusters are collectively exhaustive and mutually exclusive. Our examples from earlier, of states, departments, and age-groups remain valid as clusters. However, it is our intentions toward these groups that is different. Specific, with cluster sampling, we do not intend to collect data from every cluster, whereas with stratified sampling we do. With stratified sampling we look at every strata and conduct simple random sampling within each strata to select the sample. With cluster sampling we conduct simple random sampling to select clusters of interest. We can then either sample every unit in those selected clusters or use simple random sampling, within the selected clusters, to select units. That all said, this difference can become less clear in practice, especially *ex post*.
+
+In our case, we will cluster our illustration again on the basis of the 10s. We will use simple random sampling to select two clusters for which we will use the entire cluster.
+
+
+```r
+set.seed(853)
+
+selected_clusters <- 
+  sample(x = c(0:9),
+         size = 2)
+
+illustrative_sampling <-
+  illustrative_sampling |>
+  mutate(cluster = (row_number() - 1) %/% 10, 
+         cluster_sampling = if_else(
+           cluster %in% selected_clusters,
+           "Included",
+           "Not included"
+           )
+         ) %>% 
+  select(-cluster)
+
+illustrative_sampling
+#> # A tibble: 100 × 5
+#>     unit simple_random_sa… systematic_samp… stratified_samp…
+#>    <int> <chr>             <chr>            <chr>           
+#>  1     1 Not included      Included         Included        
+#>  2     2 Not included      Not included     Not included    
+#>  3     3 Not included      Not included     Not included    
+#>  4     4 Not included      Not included     Not included    
+#>  5     5 Not included      Not included     Not included    
+#>  6     6 Not included      Included         Not included    
+#>  7     7 Not included      Not included     Not included    
+#>  8     8 Not included      Not included     Not included    
+#>  9     9 Not included      Not included     Included        
+#> 10    10 Not included      Not included     Not included    
+#> # … with 90 more rows, and 1 more variable:
+#> #   cluster_sampling <chr>
+```
+
+At this point we can illustrate the differences between our approaches (Figure \@ref(fig:samplingexamples)).
+
+
+```r
+new_labels <- c(simple_random_sampling = "Simple random sampling", 
+                systematic_sampling = "Systematic sampling",
+                stratified_sampling = "Stratified sampling",
+                cluster_sampling = "Cluster sampling")
+
+illustrative_sampling_long <- 
+  illustrative_sampling |>
+  pivot_longer(
+    cols = c(
+      simple_random_sampling,
+      systematic_sampling,
+      stratified_sampling,
+      cluster_sampling),
+    names_to = "sampling_method",
+    values_to = "in_sample"
+  ) |>
+  mutate(sampling_method = factor(sampling_method,
+                                  levels = c("simple_random_sampling",
+                                             "systematic_sampling",
+                                             "stratified_sampling",
+                                             "cluster_sampling"))
+         ) 
+
+illustrative_sampling_long |>
+  filter(in_sample == "Included") |>
+  ggplot(aes(x = unit, y = in_sample)) +
+  geom_point() +
+  facet_wrap(vars(sampling_method),
+             dir = "v",
+             ncol = 1,
+             labeller = labeller(sampling_method = new_labels)
+             ) +
+  theme_minimal() +
+  labs(x = "Unit",
+       y = "Is included in sample") +
+  theme(axis.text.y = element_blank())
+```
+
+<div class="figure">
+<img src="20-gather_files/figure-html/samplingexamples-1.png" alt="Illustrative example of simple random sampling, systematic sampling, stratified sampling, and cluster sampling over the numbers from 1 to 100" width="672" />
+<p class="caption">(\#fig:samplingexamples)Illustrative example of simple random sampling, systematic sampling, stratified sampling, and cluster sampling over the numbers from 1 to 100</p>
+</div>
+
+Having established our sample, we typically want to use it to make claims about the population. @neyman1934two [p. 561] goes further and says that '[o]bviously the problem of the representative method is *par excellence* the problem of statistical estimation. We are interested in characteristics of a certain population, such $\pi$, which it is either impossible or at least very difficult to study in detail, and we try to estimate these characteristics basing our judgment on the sample.'
+
+In particular, we would typically be interested to estimate a population mean and variance.
+
+
+<!-- ADD estimators of population mean and variances, etc -->
+
+
+Scaling up can be used when we are interested in using a count from our sample to imply some total count for the population. We saw this in @bowley1913working where the ratio of the number of households in the sample, compared with the number of households known from the census, is 21, and this information is used to scale up the sample. 
+
+To consider an example, perhaps we were interested in the sum of the numbers from 1 to 100. We know that our samples are of size 20, and so need to be scaled up five times (Table \@ref(tab:scaleup)).
+
+
+```r
+illustrative_sampling_long |>
+  filter(in_sample == "Included") |>
+  group_by(sampling_method) |>
+  summarize(sum_from_sample = sum(unit)) |>
+  mutate(scaled_by_five = sum_from_sample * 5) |>
+  knitr::kable(
+    caption = "Sum of the numbers in each sample, and implied sum of population",
+    col.names = c("Sampling method", "Sum of sample", "Implied population sum"),
+    format.args = list(big.mark = ",")
+  )
+```
+
+
+
+Table: (\#tab:scaleup)Sum of the numbers in each sample, and implied sum of population
+
+|Sampling method        | Sum of sample| Implied population sum|
+|:----------------------|-------------:|----------------------:|
+|simple_random_sampling |           840|                  4,200|
+|systematic_sampling    |           970|                  4,850|
+|stratified_sampling    |           979|                  4,895|
+|cluster_sampling       |           910|                  4,550|
+
+The actual sum of the population is 5,050. We can obtain this using a trick, attributed to Euler, who noticed that the sum of 1 to any number can be quickly obtained by finding the middle number and then multiplying that by one plus the number. So in this case, it `50*101`. Alternatively we can use R: `sum(1:100)`.
+
+Our estimate of the population sum, based on the scaling, are especially revealing. The closest is stratified sample, closely followed by systematic sampling. Cluster sampling is a little over 10 per cent off, while simple random sampling is a little further away. In order to get closest, it is important that our sampling method gets as many of the higher values as possible. And so stratified and systematic sampling, both of which ensured that we had unit from the larger numbers did particularly well. The performance of cluster and simple random sampling would depend on the particular clusters, and units, selected. In this case, stratified and systematic sampling ensured that our estimate of the sum of the population, would not be too far away from the actual population sum.
+
+
+This approach has a long history. For instance, Adolphe Quetelet, the nineteenth century astronomer, mathematician, statistician, and sociologist proposed one. @stigler [p. 163] describes how by 1826 Quetelet had become involved in the statistical bureau, and they were planning for a census. Quetelet argued that births and deaths were well known, but migration was not. He proposed an approach based on counts in specific geographies, which could then be scaled up to the whole country. The criticism of the plan focused on the difficulty of selecting appropriate geographies, which we saw also in our example of cluster sampling. The criticism was reasonable, and even today, some two hundred years later, something that we should keep front of mind, [@stigler]:
+
+> He [Quetelet] was acutely aware of the infinite number of factors that could affect the quantities he wished to measure, and he lacked the information that could tell him which were indeed important. He... was reluctant to group together as homogenous, data that he had reason to believe was not... To be aware of a myriad of potentially important factors, without knowing which are truly important and how their effect may be felt, is often to fear the worst'.... He [Quetelet] could not bring himself to treat large regions as homogeneous, [and so] he could not think of a single rate as applying to a large area
+
+We are able to do this scaling up when we know the population total, but if we do not know that, or we have concerns around the precision of that approach then we may use a ratio estimator.
+
+Ratio estimators also have a long history. For instance, in 1802 they were used by Pierre-Simon Laplace to estimate the total population of France, on the basis of the ratio of the number of registered births, which was known throughout the country, to the number of inhabitants, which was only know for certain communes. He calculated this ratio for the three communes, and then scaled it, based on knowing the number of births across the whole country to produce an estimate of the population of France [@lohr].
+
+
+<!-- For instance, Adolphe Quetelet, the nineteenth century astronomer, mathematician, statistician and sociologist describes them [@quetelet2013treatise, p. 11]: -->
+
+<!-- > Some calculations which I shall advance will make this easily understood. Let $f$ be the fecundity of a country, $n$ the annual number of births, $m$ that of marriages, $c$ the remainder of the population, and $f'$, $n'$, $m'$, and $c'$, respectively, the same numbers for another country; we shall have for the fecundity of marriages the proportion -->
+<!-- $$f:f'::\frac{n}{m}:\frac{n'}{m'}$$ -->
+<!-- Now if the populations be homogenous, as in the case which we are supposing, we shall also have -->
+<!-- $$\frac{m}{c+m} = \frac{m'}{c'+m'}$$ -->
+<!-- Now, if we multiply both terms of the latter ratio of the proportion by this equality, we shall have -->
+<!-- $$f:f'::\frac{n}{c+m}:\frac{n'}{c'+m'}$$ -->
+<!-- ---a result agreeable to what is advanced in the text, since the terms of the latter ratio represent the fecundity of the population. -->
+
+In particular, a ratio estimator of some population parameter is the ratio of two means. For instance, we may have some information on the number of hours that a toddler sleeps overnight, $x$, and the number of hours their parents sleep overnight $y$ over a 30 day period.
+
+
+```r
+set.seed(853)
+
+sleep <- 
+  tibble(
+    toddler_sleep = sample(x = c(2:14), size = 30, replace = TRUE),
+    difference = sample(x = c(0:3), size = 30, replace = TRUE),
+    parent_sleep = toddler_sleep - difference
+  )
+
+sleep
+#> # A tibble: 30 × 3
+#>    toddler_sleep difference parent_sleep
+#>            <int>      <int>        <int>
+#>  1            10          1            9
+#>  2            11          0           11
+#>  3            14          2           12
+#>  4             2          2            0
+#>  5             6          1            5
+#>  6            14          2           12
+#>  7             3          0            3
+#>  8             5          2            3
+#>  9             4          3            1
+#> 10             4          1            3
+#> # … with 20 more rows
+```
+
+And the average of each is:
+
+
+```r
+sleep %>% 
+  summarize(toddler_sleep_average = mean(toddler_sleep),
+            parent_sleep_average = mean(parent_sleep))
+#> # A tibble: 1 × 2
+#>   toddler_sleep_average parent_sleep_average
+#>                   <dbl>                <dbl>
+#> 1                  6.17                  4.9
+```
+
+Then the ratio estimate of the proportion of sleep that a parent gets compared with their toddler is:
+
+$$\hat{B} = \frac{\bar{y}}{\bar{x}} = \frac{4.9}{6.16} \approx 0.8$$
+
+
+
+
+
+
+
+<!-- # Turn to measurement errors here??? -->
+
+<!-- '... Astronomers had overcome a similar case of intellectual cold feet in the previous century by comparing observations with fact, by comparing prediction with realization. Success had bolstered confidence in the combination of observations. Social scientists were to require massive empirical data gathered under a wide variety of circumstances before they gained the astronomers' confidence that the quantities they measured were of sufficient stability that the uncertainty of the estimates was itself susceptible to measurement. -->
+
+
+
 
 <!-- We now turn to the first of our claims, which is that if we have a perfect frame and no non-response, then our sample results will match that of the population. We would be very worried if that were not the case, but it is nice to have it stated. We establish some type of population mean for the study variable, $\mu_y$, and population means for the auxiliary variables $\mu_x$, which could be things like age, gender, etc. Remembering that when we do this in the real world, we may have many study variables, and indeed, some overlap. If a variable is an indicator then in this set-up all we have to do is to work out the proportion in order to estimate it, which is $P$. And finally, we get a rule of thumb for large samples whereby the variance in this binary and perfect setting becomes $\sigma_y^2 = P/(1-P)$. -->
 
+While acknowledging that it is a spectrum, much of statistics was developed based on probability sampling. But a considerable amount of modern sampling is done using non-probability sampling. A common approach is to use Facebook and other advertisements to recruit a panel of respondents in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this. For instance, what type of people are likely to respond to such an advertisement? Is the richest person in the world likely to respond? Are especially young or especially old people likely to respond? In some cases, it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them---they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be.
 
+<!-- ### Non-probability samples -->
 
-<!-- ### Simple random sampling -->
+<!-- Non-probability samples have an important role to play because they are typically cheaper and quicker to obtain than probability samples. Further, as we have discussed, the difference is sometimes one of degree, rather than dichotomy. In any case, non-probability samples are entirely legitimate and appropriate for some tasks provided one is clear about the trade-offs. -->
 
-<!-- TBD -->
+<!-- Convenience sampling -->
 
+<!-- Quota sampling, p. 96 Lohr -->
 
-<!-- ### Stratified and cluster sampling -->
-
-<!-- TBD -->
-
-
-<!-- ### Snowball sampling and confidant methods -->
+<!-- Snowball sampling and confidant methods -->
 
 <!-- TBD -->
 
 
 
-<!-- Having established the foundations of sampling, which should remain front of mind, we turn to describe some approaches to gathering data. These will largely represent convenience samples.  -->
+Having established the foundations of sampling, which should remain front of mind, we turn to describe some approaches to gathering data. These will largely represent convenience samples.
 
 ## APIs
 
@@ -228,7 +571,7 @@ content(arxiv, as = "text") |>
 #>   <link href="http://arxiv.org/api/query?search_query%3D%26id_list%3D2111.09299%26start%3D0%26max_results%3D10" rel="self" type="application/atom+xml"/>
 #>   <title type="html">ArXiv Query: search_query=&amp;id_list=2111.09299&amp;start=0&amp;max_results=10</title>
 #>   <id>http://arxiv.org/api/S0tYR79542S0H4eFocbnNrlnZB4</id>
-#>   <updated>2022-01-29T00:00:00-05:00</updated>
+#>   <updated>2022-01-30T00:00:00-05:00</updated>
 #>   <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">1</opensearch:totalResults>
 #>   <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
 #>   <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">10</opensearch:itemsPerPage>
@@ -283,7 +626,7 @@ We get a variety of information about this paper including the title, abstract, 
 <!-- We could also use this to get a photo of the Astronomy Picture of the Day from NASA. -->
 
 <!-- ```{r} -->
-<!-- NASA_APOD <-  -->
+<!-- NASA_APOD <- -->
 <!--   GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY") -->
 
 <!-- content(NASA_APOD) -->
@@ -294,6 +637,7 @@ We get a variety of information about this paper including the title, abstract, 
 <!-- ```{r} -->
 <!-- content(NASA_APOD)$url -->
 <!-- ``` -->
+
 
 
 
@@ -887,6 +1231,7 @@ We load `rvest` and then download the page using `read_html()`. Saving it locall
 
 ```r
 library(rvest)
+library(tidyverse)
 ```
 
 
@@ -918,6 +1263,7 @@ raw_data <- read_html("pms.html")
 
 
 
+
 ```r
 # We can parse tags in order
 parse_data_selector_gadget <- 
@@ -943,22 +1289,23 @@ parsed_data <-
   filter(raw_text != "—\n") |>
   filter(
     !raw_text %in% c(
-      "1868\n",
-      "1874\n",
-      "1880\n",
-      "1885\n",
-      "1892\n",
-      "1979\n",
-      "1997\n",
-      "2010\n"
+      "\n1868\n",
+      "\n1874\n",
+      "\n1880\n",
+      "\n1885\n",
+      "\n1892\n",
+      "\n1979\n",
+      "\n1997\n",
+      "\n2010\n"
     )
   ) |>
   filter(
     !raw_text %in% c(
-      "National Labour\n",
-      "William Pulteney1st Earl of Bath(1684–1764)\n",
-      "James Waldegrave2nd Earl Waldegrave(1715–1763)\n",
-      "Edward VII\n\n1901–1910\n\n", "George V\n\n1910–1936\n\n"
+      "\nNational Labour\n",
+      "\nWilliam Pulteney1st Earl of Bath(1684–1764)\n",
+      "\nJames Waldegrave2nd Earl Waldegrave(1715–1763)\n",
+      "\nEdward VII\n\n\n1901–1910\n\n", 
+      "\nGeorge V\n\n\n1910–1936\n\n"
     )
   )
 
@@ -990,8 +1337,6 @@ initial_clean <-
             into = c("Date", "all_the_rest"), 
             sep = "\\)",
             remove = FALSE)
-#> Warning: Expected 2 pieces. Missing pieces filled with `NA`
-#> in 11 rows [42, 44, 46, 49, 52, 55, 59, 66, 80, 83, 86].
 
 head(initial_clean)
 #> # A tibble: 6 × 5
@@ -1116,19 +1461,15 @@ Table: (\#tab:canadianpmscleanddata)UK Prime Ministers, by how old they were whe
 |John Russell                 |       1792|       1878|           86|
 |Benjamin Disraeli            |       1804|       1881|           77|
 |William Ewart Gladstone      |       1809|       1898|           89|
-|                             |         NA|         NA|           NA|
 |Robert Gascoyne-Cecil        |       1830|       1903|           73|
 |Archibald Primrose           |       1847|       1929|           82|
-|Edward VII                   |         NA|         NA|           NA|
 |Arthur Balfour               |       1848|       1930|           82|
 |Sir Henry Campbell-Bannerman |       1836|       1908|           72|
 |H. H. Asquith                |       1852|       1928|           76|
-|George V                     |         NA|         NA|           NA|
 |David Lloyd George           |       1863|       1945|           82|
 |Bonar Law                    |       1858|       1923|           65|
 |Stanley Baldwin              |       1867|       1947|           80|
 |Ramsay MacDonald             |       1866|       1937|           71|
-|National Labour              |         NA|         NA|           NA|
 |Neville Chamberlain          |       1869|       1940|           71|
 |Winston Churchill            |       1874|       1965|           91|
 |Clement Attlee               |       1883|       1967|           84|
@@ -1146,8 +1487,6 @@ Table: (\#tab:canadianpmscleanddata)UK Prime Ministers, by how old they were whe
 |David Cameron                |       1966|         NA|           NA|
 |Theresa May                  |       1956|         NA|           NA|
 |Boris Johnson                |       1964|         NA|           NA|
-|William Pulteney             |       1684|       1764|           80|
-|James Waldegrave             |       1715|       1763|           48|
 
 
 At this point we would like to make a graph that illustrates how long each prime minister lived. If they are still alive then we would like them to run to the end, but we would like to color them differently.
@@ -1170,13 +1509,78 @@ cleaned_data |>
        title = "How long each UK Prime Minister lived, by year of birth") +
   theme_minimal() +
   scale_color_brewer(palette = "Set1")
-#> Warning: Removed 4 rows containing missing values
-#> (geom_segment).
 ```
 
-<img src="20-gather_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+<img src="20-gather_files/figure-html/unnamed-chunk-45-1.png" width="672" />
 
 
+### Case study: Downloading multiple files
+
+Considering text as data is exciting and opens up a lot of different research questions. Many guides assume that we already have a nicely formatted text dataset, but that is rarely actually the case. In this case study we will download files from a few different pages. While we have already seen two examples of web scraping, those were focused on just one page, whereas we often need many. Here we will focus on this iteration. We will use `download.file()` to do the download, and `purrr` [@citepurrr] to apply this function across multiple sites.
+
+The Reserve Bank of Australia (RBA) is Australia's central bank and sets monetary policy. It has responsibility for setting the cash rate, which is the interest rate used for loans between banks. This interest rate is an especially important one, and has a large impact on the other interest rates in the economy. Four times a year -- February, May, August, and November -- the RBA publishes a statement on monetary policy, and these are available as PDFs. In this example we will download the four statements published in 2021.
+
+First we set-up a dataframe that has the information that we need.
+
+
+```r
+library(tidyverse)
+
+statements_of_interest <- 
+  tibble(
+    address = c("https://www.rba.gov.au/publications/smp/2021/nov/pdf/00-overview.pdf",
+                "https://www.rba.gov.au/publications/smp/2021/aug/pdf/00-overview.pdf",
+                "https://www.rba.gov.au/publications/smp/2021/may/pdf/00-overview.pdf",
+                "https://www.rba.gov.au/publications/smp/2021/feb/pdf/00-overview.pdf"
+                ),
+    local_save_name = c(
+      "2021-11.pdf",
+      "2021-08.pdf",
+      "2021-05.pdf",
+      "2021-02.pdf"
+    )
+  )
+
+statements_of_interest
+#> # A tibble: 4 × 2
+#>   address                                    local_save_name
+#>   <chr>                                      <chr>          
+#> 1 https://www.rba.gov.au/publications/smp/2… 2021-11.pdf    
+#> 2 https://www.rba.gov.au/publications/smp/2… 2021-08.pdf    
+#> 3 https://www.rba.gov.au/publications/smp/2… 2021-05.pdf    
+#> 4 https://www.rba.gov.au/publications/smp/2… 2021-02.pdf
+```
+
+Then we can apply the function `download.files()` to these four 
+
+Then we can write a function that will download the file, let us know that it was downloaded, wait a polite amount of time, and then go get the next file. 
+
+
+
+```r
+visit_download_and_wait <-
+  function(the_address_to_visit, where_to_save_it_locally) {
+    
+    download.file(url = the_address_to_visit,
+                  destfile = where_to_save_it_locally
+                  )
+
+    print(paste("Done with", the_address_to_visit, "at", Sys.time()))
+    
+    Sys.sleep(sample(5:10, 1))
+  }
+```
+
+We now apply that function to our list of URLs.
+
+
+```r
+walk2(statements_of_interest$address,
+      statements_of_interest$local_save_name,
+      ~visit_download_and_wait(.x, .y))
+```
+
+The result is that we have downloaded these four PDFs and saved them to our computer. In the next section we will build on this to discuss getting information from these PDFs.
 
 
 ## PDFs
@@ -2351,71 +2755,7 @@ cat(text)
 
 
 
-<!-- ### Getting text data -->
 
-<!-- Text as data is an exciting tool to apply. But many guides assume that you already have a nice dataset. Because we have focused on data in this book, we know that is not likely to be true. In this section we will scrape some text from a website. We've already seen examples of scraping, but in general those were focused on exploiting tables in the website. Here we're going to instead focus on paragraphs of text, hence we'll focus on different html/css tags.  -->
-
-<!-- We are going to us the `rvest` package to make it easier to scrape data. We are also going to use the `purrr` package to apply a function to a bunch of different URLs. For those of you with a little bit of programming, this is an alternative to using a for loop. For those of you with a bit of CS, this is a package that adds functional programming to R.  -->
-
-<!-- ```{r, message=FALSE, eval = FALSE} -->
-<!-- library(rvest) -->
-<!-- library(tidyverse) -->
-
-<!-- # Some websites -->
-<!-- address_to_visit <- c("https://www.rba.gov.au/monetary-policy/rba-board-minutes/2020/2020-03-03.html", -->
-<!--                     "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2020/2020-02-04.html", -->
-<!--                     "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-12-03.html", -->
-<!--                     "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-11-05.html", -->
-<!--                     "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-10-01.html", -->
-<!--                     "https://www.rba.gov.au/monetary-policy/rba-board-minutes/2019/2019-09-03.html" -->
-<!--                     ) -->
-
-<!-- # Save names -->
-<!-- save_name <- address_to_visit |>  -->
-<!--   str_remove("https://www.rba.gov.au/monetary-policy/rba-board-minutes/") |>  -->
-<!--   str_remove(".html") |> -->
-<!--   str_remove("20[:digit:]{2}/") |>  -->
-<!--   str_c("inputs/rba/", ., ".csv") -->
-<!-- ``` -->
-
-
-<!-- Create the function that will visit address_to_visit and save to save_name files. -->
-
-<!-- ```{r, eval = FALSE} -->
-<!-- visit_address_and_save_content <- -->
-<!--   function(name_of_address_to_visit, -->
-<!--            name_of_file_to_save_as) { -->
-<!--     # The function takes two inputs -->
-<!--     name_of_address_to_visit <- address_to_visit[1] -->
-<!--     name_of_file_to_save_as <- save_name[1] -->
-
-<!--     read_html(name_of_address_to_visit) |> # Go to the website and read the html -->
-<!--       html_node("#content") |> # Find the content part -->
-<!--       html_text() |> # Extract the text of the content part -->
-<!--       write_lines(name_of_file_to_save_as) # Save as a text file -->
-<!--     print(paste("Done with", name_of_address_to_visit, "at", Sys.time()))   -->
-<!--     # Helpful so that you know progress when running it on all the records -->
-<!--     Sys.sleep(sample(30:60, 1)) # Space out each request by somewhere between  -->
-<!--     # 30 and 60 seconds each so that we do not overwhelm their server -->
-<!--   } -->
-
-<!-- # If there is an error then ignore it and move to the next one -->
-<!-- visit_address_and_save_content <- -->
-<!--   safely(visit_address_and_save_content) -->
-<!-- ``` -->
-
-<!-- We now apply that function to our list of URLs. -->
-
-<!-- ```{r, eval = FALSE} -->
-<!-- # Walk through the addresses and apply the function to each -->
-<!-- walk2(address_to_visit, -->
-<!--       save_name, -->
-<!--       ~ visit_address_and_save_content(.x, .y)) -->
-<!-- ``` -->
-
-<!-- The result is a bunch of files with saved text data.  -->
-
-<!-- In this case we used scraping, but there are, of course, many ways. We may be able to use APIs, for instance, In the case of the Airbnb dataset that we examined earlier in the notes. If you are lucky then it may simply be that there is a column that contains text data in your dataset.  -->
 
 
 <!-- ### Preparing text datasets -->
@@ -2531,43 +2871,40 @@ cat(text)
 ### Exercises
 
 1. In your own words, what is an API (write a paragraph or two)?
-2. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each). 
-3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories? (Write a paragraph or two for each.)
+2. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?
+3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?
 4. What is the main argument to `httr::GET()` (pick one)?
     a. 'url'
     b. 'website'
     c. 'domain'
     d. 'location'
-5. Name three reasons why we should be respectful when getting scraping data from websites (write a paragraph or two).
-6. What features of a website do we typically take advantage of when we parse the code (select all)?
+5. What are three reasons why we should be respectful when getting scraping data from websites  (write a paragraph or two)?
+6. What features of a website do we typically take advantage of when we parse the code (select all that apply)?
     a. HTML/CSS mark-up.
     b. Cookies.
     c. Facebook beacons.
     d. Code comments.
 7. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
 8. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
-9. What do I need to put inside "SOMETHING_HERE" if I want to match regular expressions for a full stop i.e. "." (hint: see the 'strings' cheat sheet) (pick one)? 
-    a. `.`
-    b. `\.`
-    c. `\\.`
-    d. `\\\.`
-10. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each).
-11. If you are interested in demographic data then what are three checks that you might like to do? What are three if you are interested in economic data such as GDP, interest rates, and exchange rates?  (Write an explanation for each.)
-12. What does the `purrr` package do (select all)?
+9. Which of the following, used as part of a regular expression, would match a full stop (hint: see the 'strings' cheat sheet) (pick one)? 
+    a. '.'
+    b. '\.'
+    c. '\\.'
+    d. '\\\.'
+10. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each)?
+11. What are three checks that we might like to use for demographic data, such as the number of births in a country in a particular year (write a paragraph or two for check)?
+12. What are three checks that we might like to use for economic data, such as GDP for a particular country in a particular year (write a paragraph or two for check)?
+13. What does the `purrr` package do (select all that apply)?
     a. Enhances R's functional programming toolkit.
     b. Makes loops easier to code and read.
     c. Checks the consistency of datasets.
     d. Identifies issues in data structures and proposes replacements.
-13. Which of these are functions from the `purrr` package (select all)?
+14. Which of these are functions from the `purrr` package (select all that apply)?
     a. `map()`
     b. `walk()`
     c. `run()`
     d. `safely()`
-14. Why should we use `safely()` when scraping data (pick one)?
-    a. To protect us from hackers.
-    b. To avoid side effects of pages with issues.
-    c. To slow down our scraping to an appropriate speed.
-15. What are some principles to follow when scraping (select all)?
+15. What are some principles to follow when scraping (select all that apply)?
     a. Avoid it if possible
     b. Follow the site’s guidance
     c. Slow down
@@ -2580,14 +2917,19 @@ cat(text)
     b. `body`
     c. `b`
     d. `em`
-18. If I have the following text data 'rohan_alexander' in a column called ‘names’ and want to split it into first name and surname based on the underbar what function should I use (pick one)?
+18. Which function should we use if we have the following text data: 'rohan_alexander' in a column called 'names' and want to split it into first name and surname based on the underbar (pick one)?
     a. `separate()`
     b. `slice()`
     c. `spacing()`
     d. `text_to_columns()`
 
 
+
 ### Tutorial
 
-Gather some data yourself using a method that is introduced here - APIs directly or via a wrapper package, web scraping, PDF parsing, OCR, or text. Write a few paragraphs about the data source, what you gathered, and how you went about it. What took longer than you expected? When did it become fun? What would you do differently next time you do this? Please include a link to your GitHub repo so I can see the code, but it won't be strictly marked - this is more about encouraging you to have a go. (Start with something tiny and very specific, get that working, and then increase the scope - almost everything will be more difficult and time-consuming than you think - and do not forget to plan it out before you start.)
+Please redo the web scraping example, but for one of: [Australia](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Australia), [Canada](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Canada), [India](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_India), or [New Zealand](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_New_Zealand). 
+
+Plan, gather, and clean the data, and then use it to create a similar table to the one created above. Write a few paragraphs about your findings. Then write a few paragraphs about the data source, what you gathered, and how you went about it. What took longer than you expected? When did it become fun? What would you do differently next time you do this? 
+
+Please submit a link to a PDF produced using R Markdown that includes a link to the GitHub repo.
 

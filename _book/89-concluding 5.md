@@ -54,7 +54,7 @@ This book has covered much ground, and while we are toward the end of it, as the
 
 Chances are there are aspects that you want to explore further, building on the foundation that you have established. If so, then I've accomplished what I set out to do. 
 
-If you were new to data science at the start of this book, then the next step would be to backfill that which I skipped over, and I would recommend @timbersandfriends. After that, you should learn more about R in terms of data science by going through @r4ds. To deepen your understanding of R itself, go next to @advancedr.
+If you were new to data science at the start of this book, then the next step would be to backfill that which I skipped over, and I would recommend @tiffanytimbers. After that, you should learn more about R in terms of data science by going through @r4ds. To deepen your understanding of R itself, go next to @advancedr.
 
 If you're interested in learning more about causality then start with @Cunningham2021 and @theeffect.
 

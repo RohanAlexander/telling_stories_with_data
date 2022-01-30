@@ -92,6 +92,10 @@ fig:canhasbaseandmoney
 fig:canhasbaseandmoneymapdeck
 fig:babynames
 fig:shinyone
+fig:whitelawsresults
+fig:bowleyrents
+fig:samplingexamples
+tab:scaleup
 fig:focuson2020
 fig:rtweetlogin
 fig:spotifyaccept
@@ -288,6 +292,9 @@ tutorial-6
 paper-1
 gather-data
 introduction-5
+sampling-essentials
+sampling-in-dublin-and-reading
+probabilistic-sampling
 apis
 case-study-gathering-data-from-arxiv
 case-study-gathering-data-from-twitter
@@ -295,6 +302,7 @@ case-study-gathering-data-from-spotify
 web-scraping
 case-study-web-scraping-book-information
 case-study-web-scraping-uk-prime-ministers-from-wikipedia
+case-study-downloading-multiple-files
 pdfs
 case-study-gathering-data-on-the-us-total-fertility-rate
 optical-character-recognition
