@@ -114,17 +114,16 @@
 
 ### Introduction
 
-*First a note on Ronald Fisher and Francis Galton. Fisher and Galton are the intellectual grandfathers of much of the work that we cover. In some cases it is directly their work, in other cases it is work that built on their contributions. Both of these men believed in eugenics, amongst other things that are generally reprehensible.*
+Ronald Fisher and Francis Galton are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both of these men believed in eugenics, amongst other things that are generally reprehensible. 
+<!-- In the same way that art history must acknowledge, say Caravaggio as a murderer, while also  -->
 
-This chapter is about experiments. This is a situation in which we can explicitly control and vary some aspects. The advantage of this is that identification should be clear. There is a treatment group that is treated and a control group that is not. These are randomly split. And so if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely, because our ability to speak to internal validity affects our ability to speak to external validity.
+This chapter is about experiments. This is a situation in which we can explicitly control and vary some aspects. The advantage of this is that identification should be clear. There is a treatment group that is treated, and a control group that is not. These are randomly split. And so if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely, because our ability to speak to internal validity affects our ability to speak to external validity.
 
-It's also important to note that the statistics of this were designed in agricultural settings 'does fertilizer work?', etc. In those settings you can more easily divide a field into 'treated' and 'non-treated', and the magnitude of the effect is large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about 'having enough power' and similar phrases, then it's *not* necessarily that they're *not* right, but it usually pays to take a step back and really think about what is being done and whether they really know what they're doing.
+It is also important to note that the statistics of this were designed in agricultural settings 'does fertilizer work?', etc. In those settings you can more easily divide a field into 'treated' and 'non-treated', and the magnitude of the effect tends to be large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about 'having enough power' and similar phrases, then it's *not* necessarily that they're *not* right, but it usually pays to take a step back and really think about what is being done and whether they really know what they're doing.
+
+In this chapter we cover ...
 
 ### Motivation and notation
-
-> Never forget: if your sampling is in any way non-representative, your observe[d] data is not sufficient for population estimates. You *must* deal with design, sampling issues, data quality, and misclassification. Otherwise you'll just be wrong.
->
-> Dan Simpson, [30 January 2020](https://twitter.com/dan_p_simpson/status/1222924987667046400).
 
 When Monica and I moved to San Francisco, the Giants immediately won the baseball, and the Warriors began a historic streak. We moved to Chicago and the Cubs won the baseball for the first time in a hundred years. We then moved to Massachusetts, and the Patriots won the Super Bowl again and again and again. Finally, we moved to Toronto, and the Raptors won the basketball. Should a city pay us to live there or could their funds be better spent elsewhere? 
 

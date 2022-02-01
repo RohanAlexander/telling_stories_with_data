@@ -701,7 +701,7 @@ raw_data <- readr::read_csv("inputs/data/raw_data.csv")
     a.  `echo = FALSE`
     b. `include = FALSE`
     c. `eval = FALSE`
-    d.  `warning = FALSE`
+    d. `warning = FALSE`
     e. `message = FALSE`
 11. Why are R Projects important (select all that apply)?
     a.  They help with reproducibility.
@@ -710,7 +710,7 @@ raw_data <- readr::read_csv("inputs/data/raw_data.csv")
     d. They ensure reproducibility.
 12. Please discuss a circumstance in which an R Project would be useful.
 13. Consider this sequence: '`git pull`, `git status`, ________, `git status`, `git commit -m "My message"`, `git push`'. What is the missing step (pick one)?
-    a. `git add -A`. 
+    a.  `git add -A`. 
     b. `git status`.
     c. `git pull`.
     d. `git push`.

@@ -34,25 +34,63 @@ Chapter 2:
 
 > **Shoulders of giants** Robert Gentleman and Ross Ihaka
 
+Chapter 3: 
+
+> **Shoulders of giants** Hadley Wickham
+
 Chapter 5:
 
 > **Shoulders of giants** Xiao-Li Meng
 
+Chapter 8:
 
-- Andrew Gelman
-- Barbara Bailar
-- Daniela Witten
+> **Shoulders of giants** Leo Goodman
+
+Chapter 10:
+
+> **Shoulders of giants** Barbara Bailar
+
+Chapter 12:
+
+> **Shoulders of giants** Timnit Gebru
+
+Chapter 13:
+
+> **Shoulders of giants** Katherine Wallman
+
+Chapter 14
+
+> **Shoulders of giants** John Tukey
+
+Chapter 15:
+
+> **Shoulders of giants** Daniela Witten
+
+Chapter 15:
+
+> **Shoulders of giants** Nancy Reid
+
+Chapter 15:
+
+> **Shoulders of giants** Rob Tibshirani
+
+Chapter 16:
+
+> **Shoulders of giants** Evelyn Kitagawa
+
+Chapter 17:
+
+> **Shoulders of giants** Andrew Gelman
+
+
+
 - Elizabeth Scott
-- Evelyn Kitagawa
 - Gertrude Mary Cox
-- Hadley Wickham
-- John Tukey
-- Katherine Wallman
-- Nancy Reid
 - Simon Kuznets
 - Stella Cunliffe
-- Rob Tibshirani
-- Timnit Gebru
+
+
+
 
 
 

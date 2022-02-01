@@ -3,6 +3,12 @@
 
 **STATUS: Under construction.**
 
+
+**Required material**
+
+- Watch *Wrong Again! 30+ Years of Statistical Mistakes*, [@gelmansmistakes].
+
+
 ## Concluding remarks
 
 There's an old saying, something along the lines of 'may you live in interesting times'. I'm not sure if every generation feels this, but we sure live in interesting times. In this book, I have tried to convey some essentials that I think would allow you to contribute. But we are just getting started.
@@ -15,9 +21,7 @@ I'm 35 and so I am in the 'data science didn't exist when I was an undergraduate
 
 I'm just someone who likes to play with data using R. A decade ago I wouldn't have fit into any particular department. I'm lucky that these days there is space in data science for someone like me.  And the nice thing about what we now call data science is that there's space for you as well.
 
-
 Data science needs diversity. Data science needs your intelligence and enthusiasm. It needs you to be in the room, and able to make contributions. We live in interesting times and it's just such an exciting time to be enthusiastic about data. I can't wait to see what you build.
-
 
 
 ## Some issues

@@ -7,18 +7,16 @@
 
 
 
-
-
 **Required material**
 
 - Read *Working-Class Households in Reading*, [@bowley1913working].
 - Read *Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection*, Parts I 'Introduction', III 'Different Aspects of the Representative Method', V 'Conclusion' and Bowley's discussion p. 607 - 610, [@neyman1934two].
 - Read *Turning History into Data: Data Collection, Measurement, and Inference in HPE*, [@cirone].
+- Read *Two Regimes of Prison Data Collection*, [@Johnson2021Two].
 
 
 
 
-<!-- - Bolton, Liza, 2019, 'A quick look at museums per capita', 26 March, http://blog.dataembassy.co.nz/museums-per-capita/. -->
 <!-- - Cardoso, Tom, 2019, 'Introduction to scraping', https://github.com/tomcardoso/intro-to-scraping. -->
 <!-- - Clavelle, Tyler, 2017, 'Using R to extract data from web APIs', 5 June, https://www.tylerclavelle.com/code/2017/randapis/. -->
 <!-- - Cooksey, Brian, 2014, 'An Introduction to APIs', Zapier, 22 April, https://zapier.com/learn/apis/. -->
@@ -37,7 +35,6 @@
 <!-- - Pavlik, Kaylin, 2020, 'How do fiber types appear together in yarn blends?', 17 February, https://www.kaylinpavlik.com/ravelry-yarn-fibers/. -->
 <!-- - Silge, Julia and David Robinson, 2020, *Text Mining with R*, Chapters 1, 3, and 6, https://www.tidytextmining.com/. -->
 <!-- - Silge, Julia, 2017, 'Scraping CRAN with rvest', 5 March, https://juliasilge.com/blog/scraping-cran/. -->
-<!-- - Smale, David, 2020, 'Daniel Johnston', https://davidsmale.netlify.com/portfolio/daniel-johnston/.  -->
 <!-- - Wickham, Hadley, 'Managing Secrets', https://cran.r-project.org/web/packages/httr/vignettes/secrets.html. -->
 <!-- - Wickham, Hadley, 2014, 'rvest: easy web scraping with R', 24 November, https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/. -->
 <!-- - Wickham, Hadley, nd, 'Getting started with httr', https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html. -->
@@ -49,39 +46,32 @@
 
 **Key concepts and skills**
 
-
-- Use APIs where possible because the data provider has specified the data they would like to make available to you, and the conditions under which they are making it available.
-- Often R packages have been written to make it easier to use APIs.
-- Use R environments to manage your keys.
-- Using the verb GET ('a GET request') means providing a URL and the server will return something, using the verb POST (a POST request') means providing some data and the server will deal with that data.
-- Cleaning data
-- Graphing data to tell a story
-- Respectfully scraping data
-- Approaching extracting text from PDFs as a workflow.
-- Planning what is needed at the start.
-- Starting small and then iterating.
-- Putting in place checks.
-- Gathering text data.
-- Preparing text datasets.
+- Why we conduct sampling and the two approaches: probability and non-probability.
+- Terminology and concepts including: target population, sampling frame, sample, simple random sampling, systematic sampling, stratified sampling, and cluster sampling.
+- Ratio and regression estimators.
+- Non-probability sampling including convenience and quota sampling and also snowball and respondent-driven sampling.
+- Initial usage of APIs, both directly, including dealing with semi-structured data, and indirectly through R Packages. 
+- Use R environments to manage keys.
+- Web scraping, especially reasonable use and ethical concerns.
+- Cleaning data from unstructured data to structured, tidy, data.
+- Extracting data from PDFs, both those that are able to be parsed and those that are an image and require OCR.
 
 
 **Key libraries**
 
-- `babynames`
-- `dplyr`
-- `httr`
-- `jsonlite`
-- `lubridate`
-- `pdftools`
-- `purrr`
-- `rtweet`
-- `rvest`
-- `spotifyr`
-- `tesseract`
-- `tidytext`
-- `tidyverse`
-- `usethis`
-- `xml2`
+- `babynames` [@citebabynames]
+- `httr` [@citehttr]
+- `jsonlite` [@jsonlite]
+- `lubridate` [@GrolemundWickham2011]
+- `pdftools` [@Ooms2018pdftools]
+- `purrr` [@citepurrr]
+- `rtweet` [@rtweet]
+- `rvest` [@citervest]
+- `spotifyr` [@spotifyr]
+- `tesseract` [@Ooms2018tesseract]
+- `tidyverse` [@citetidyverse]
+- `usethis` [@citeusethis]
+- `xml2` [@xml2]
 
 
 **Key functions**
@@ -111,7 +101,7 @@
 
 ## Introduction
 
-As we think about our world and telling stories about it, one of the most difficult aspects is to reduce the beautiful complexity of it into a dataset that we can use. We need to know what we are giving up when we do this. Often we are interested in understanding the implications of some dataset, making forecasts based on it, or using that dataset to make claims about the broader world. Regardless of how we turn our world into data, we will only ever have a sample of the data that we need. Statistics provides formal approaches that we use to keep these issues front of mind.
+As we think about our world and telling stories about it, one of the most difficult aspects is to reduce the beautiful complexity of it into a dataset that we can use. We need to know what we are giving up when we do this. Often, we are interested in understanding the implications of some dataset, making forecasts based on it, or using that dataset to make claims about the broader world. Regardless of how we turn our world into data, we will only ever have a sample of the data that we need. Statistics provides formal approaches that we use to keep these issues front of mind.
 
 In this chapter we first 
 introduce statistical notions around sampling to provide a framework that we use to guide our data gathering. We then
@@ -120,6 +110,10 @@ and using optical character recognition, especially to obtain text data.
 
 
 ## Sampling essentials
+
+<!-- > By a small sample we may judge the whole piece. -->
+<!-- >  -->
+<!-- >  -->
 
 Statistics is at the heart of telling stories with data. Statisticians have spent considerable time and effort thinking about the properties that various samples of data will have and how they enable us to speak to implications for the broader population.
 
@@ -135,7 +129,7 @@ Some of the critical terminology includes:
 - 'Sampling frame': A list of all the items from the target population that we could get data about.
 - 'Sample': The items from the sampling frame that we get data about.
 
-A target population is a finite set of labelled items, of size $N$. For instance, we could hypothetically add a label to all the books in the world: 'Book 1', 'Book 2', 'Book 3', ..., 'Book $N$'. There is a difference between use of the term population here, and that of everyday usage. For instance, one sometimes hears those who work with census data say that they do not need to worry about sampling because they have the whole population of the country. This is a conflation of the terms, as what they actually have is the sample gathered by the census of the population of a country.
+A target population is a finite set of labelled items, of size $N$. For instance, we could hypothetically add a label to all the books in the world: 'Book 1', 'Book 2', 'Book 3', ..., 'Book $N$'. There is a difference between use of the term population here, and that of everyday usage. For instance, one sometimes hears those who work with census data say that they do not need to worry about sampling because they have the whole population of the country. This is a conflation of the terms, as what they have is the sample gathered by the census of the population of a country.
 
 It can be difficult to define a target population. For instance, say we have been asked to find out about the consumption habits of hipsters. How can we define that target population? If someone regularly eats avocado toast, but has never drunk bullet coffee, then are they in the population? Some aspects that we might be interested in are formally defined to an extent that is not always commonly realized. For instance, whether an area is classified as rural is often formally defined by a country's statistical agency. But other aspects are less clear. For instance, how do we classify someone as a 'smoker'? If a 15-year-old has had 100 cigarettes over their lifetime, then we need to treat them differently than if they have had none. But if a 90-year-old has had 100 cigarettes over their lifetime, then are they likely to different to a 90-year-old who has had none? At what age, and number of cigarettes do these answers change?
 
@@ -146,7 +140,7 @@ To consider another example, consider wanting to speak of the attitudes of all B
 
 ### Sampling in Dublin and Reading
 
-To be more clear, we will consider two examples: a 1798 count of the number of inhabitants of Dublin, Ireland [@whatasurvey], and a 1912 count of working-class households in Reading, England [@bowley1913working].
+To be clearer, we will consider two examples: a 1798 count of the number of inhabitants of Dublin, Ireland [@whatasurvey], and a 1912 count of working-class households in Reading, England [@bowley1913working].
 
 In 1798 the Reverend James Whitelaw conducted a survey of Dublin, Ireland, to count its population. @whatasurvey describes how population estimates had a wide variation, for instance the estimated size of London at the time ranged from 128,570 to 300,000. Reverend Whitelaw expected that the Lord Mayor of Dublin could compel the person in charge of each house to affix a list of the inhabitants of that house to the door, and then Reverend Whitelaw could simply use this. 
 
@@ -163,11 +157,11 @@ A little over one hundred years later, @bowley1913working was interested in coun
 
 > One building in ten was marked throughout the local directory in alphabetical order of streets, making about 1,950 in all. Of those about 300 were marked as shops, factories, institutions and non-residential buildings, and about 300 were found to be indexed among Principal Residents, and were so marked. The remaining 1,350 were working-class houses, and a number of volunteers set out to visit every one of these... [I]t was decided to take only one house in 20, rejecting the incomplete information as to the intermediate tenths. The visitors were instructed never to substitute another house for that marked, however difficult it proved to get information, or whatever the type of house.
 
-@bowley1913working continues that they ended up with information about 622 working-class households. And, having judged, on the basis of the census that there were about 18,000 households in Reading, @bowley1913working applies '[t]he multiplier twenty-one... to all the sample data to give estimates for the whole of Reading.' @bowley1913working explains that the reasonableness of the estimates depends 'not on its proportion to the whole, but on its own magnitude, if the conditions of random sampling are secured, as it is believed they have been in this inquiry'. Bowley is, for instance, able to furnish information about the rent paid per week (Figure \@ref(fig:bowleyrents)).
+@bowley1913working continues that they ended up with information about 622 working-class households. And, having judged, based on the census that there were about 18,000 households in Reading, @bowley1913working applies '[t]he multiplier twenty-one... to all the sample data to give estimates for the whole of Reading.' @bowley1913working explains that the reasonableness of the estimates depends 'not on its proportion to the whole, but on its own magnitude, if the conditions of random sampling are secured, as it is believed they have been in this inquiry'. Bowley is, for instance, able to furnish information about the rent paid per week (Figure \@ref(fig:bowleyrents)).
 
 <div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/bowleyrents.png" alt="Extract of the results that Bowley found with regard to rent paid by the working-class in Reading" width="85%" />
-<p class="caption">(\#fig:bowleyrents)Extract of the results that Bowley found with regard to rent paid by the working-class in Reading</p>
+<img src="/Users/rohanalexander/Documents/book/figures/bowleyrents.png" alt="Extract of the results that Bowley found about rent paid by the working-class in Reading" width="85%" />
+<p class="caption">(\#fig:bowleyrents)Extract of the results that Bowley found about rent paid by the working-class in Reading</p>
 </div>
 
 
@@ -187,14 +181,6 @@ To add some more specificity to our discussion, following @lohr [p. 27] it may h
 
 ```r
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-#> ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-#> ✓ readr   2.1.1     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
 
 set.seed(853)
 
@@ -263,9 +249,9 @@ illustrative_sampling
 
 When we consider our population, it will typically have some grouping. This may be as straight-forward as a country having states, provinces, counties, or statistical districts; a university having faculties and departments; and humans having age-groups. A stratified structure is one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata.
 
-We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, the population of the US is around 335 million, with 40 million being in California, while Wyoming as around half a million. So even a survey of 10,000 responses would only expect to have 15 responses from Wyoming, which could make inference about Wyoming difficult. We could use stratification to ensure there are 200 responses from each of the 50 US states.
+We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, the population of the US is around 335 million, with 40 million being in California, while Wyoming as around half a million. So even a survey of 10,000 responses would only expect to have 15 responses from Wyoming, which could make inference about Wyoming difficult. We could use stratification to ensure there are 200 responses from each of the 50 US states. We would use random sampling within each state to select the person about whom data will be gathered.
 
-In our case, we will stratify our illustration, we will consider that our strata are the 10s, that is, 1 to 10 is one strata, 11 to 20 is another, and so on. We will use simple random sampling within these strata to select two units.
+In our case, we will stratify our illustration, we will consider that our strata are the 10s, that is, 1 to 10 is one stratum, 11 to 20 is another, and so on. We will use simple random sampling within these strata to select two units.
 
 
 ```r
@@ -305,9 +291,9 @@ illustrative_sampling
 #> # … with 90 more rows
 ```
 
-And finally, we can also take advantage of some clusters that may exist in our dataset. Like strata, clusters are collectively exhaustive and mutually exclusive. Our examples from earlier, of states, departments, and age-groups remain valid as clusters. However, it is our intentions toward these groups that is different. Specific, with cluster sampling, we do not intend to collect data from every cluster, whereas with stratified sampling we do. With stratified sampling we look at every strata and conduct simple random sampling within each strata to select the sample. With cluster sampling we conduct simple random sampling to select clusters of interest. We can then either sample every unit in those selected clusters or use simple random sampling, within the selected clusters, to select units. That all said, this difference can become less clear in practice, especially *ex post*.
+And finally, we can also take advantage of some clusters that may exist in our dataset. Like strata, clusters are collectively exhaustive and mutually exclusive. Our examples from earlier, of states, departments, and age-groups remain valid as clusters. However, it is our intentions toward these groups that is different. Specific, with cluster sampling, we do not intend to collect data from every cluster, whereas with stratified sampling we do. With stratified sampling we look at every stratum and conduct simple random sampling within each strata to select the sample. With cluster sampling we conduct simple random sampling to select clusters of interest. We can then either sample every unit in those selected clusters or use simple random sampling, within the selected clusters, to select units. That all said, this difference can become less clear in practice, especially *ex post*.
 
-In our case, we will cluster our illustration again on the basis of the 10s. We will use simple random sampling to select two clusters for which we will use the entire cluster.
+In our case, we will cluster our illustration again based on the 10s. We will use simple random sampling to select two clusters for which we will use the entire cluster.
 
 
 ```r
@@ -430,9 +416,9 @@ Table: (\#tab:scaleup)Sum of the numbers in each sample, and implied sum of popu
 |stratified_sampling    |           979|                  4,895|
 |cluster_sampling       |           910|                  4,550|
 
-The actual sum of the population is 5,050. We can obtain this using a trick, attributed to Euler, who noticed that the sum of 1 to any number can be quickly obtained by finding the middle number and then multiplying that by one plus the number. So in this case, it `50*101`. Alternatively we can use R: `sum(1:100)`.
+The actual sum of the population is 5,050. We can obtain this using a trick, attributed to Euler, who noticed that the sum of 1 to any number can be quickly obtained by finding the middle number and then multiplying that by one plus the number. So, in this case, it `50*101`. Alternatively we can use R: `sum(1:100)`.
 
-Our estimate of the population sum, based on the scaling, are especially revealing. The closest is stratified sample, closely followed by systematic sampling. Cluster sampling is a little over 10 per cent off, while simple random sampling is a little further away. In order to get closest, it is important that our sampling method gets as many of the higher values as possible. And so stratified and systematic sampling, both of which ensured that we had unit from the larger numbers did particularly well. The performance of cluster and simple random sampling would depend on the particular clusters, and units, selected. In this case, stratified and systematic sampling ensured that our estimate of the sum of the population, would not be too far away from the actual population sum.
+Our estimate of the population sum, based on the scaling, are especially revealing. The closest is stratified sample, closely followed by systematic sampling. Cluster sampling is a little over 10 per cent off, while simple random sampling is a little further away. To get close, it is important that our sampling method gets as many of the higher values as possible. And so stratified and systematic sampling, both of which ensured that we had unit from the larger numbers did particularly well. The performance of cluster and simple random sampling would depend on the particular clusters, and units, selected. In this case, stratified and systematic sampling ensured that our estimate of the sum of the population, would not be too far away from the actual population sum.
 
 
 This approach has a long history. For instance, Adolphe Quetelet, the nineteenth century astronomer, mathematician, statistician, and sociologist proposed one. @stigler [p. 163] describes how by 1826 Quetelet had become involved in the statistical bureau, and they were planning for a census. Quetelet argued that births and deaths were well known, but migration was not. He proposed an approach based on counts in specific geographies, which could then be scaled up to the whole country. The criticism of the plan focused on the difficulty of selecting appropriate geographies, which we saw also in our example of cluster sampling. The criticism was reasonable, and even today, some two hundred years later, something that we should keep front of mind, [@stigler]:
@@ -441,7 +427,7 @@ This approach has a long history. For instance, Adolphe Quetelet, the nineteenth
 
 We are able to do this scaling up when we know the population total, but if we do not know that, or we have concerns around the precision of that approach then we may use a ratio estimator.
 
-Ratio estimators also have a long history. For instance, in 1802 they were used by Pierre-Simon Laplace to estimate the total population of France, on the basis of the ratio of the number of registered births, which was known throughout the country, to the number of inhabitants, which was only know for certain communes. He calculated this ratio for the three communes, and then scaled it, based on knowing the number of births across the whole country to produce an estimate of the population of France [@lohr].
+Ratio estimators also have a long history. For instance, in 1802 they were used by Pierre-Simon Laplace to estimate the total population of France, based on the ratio of the number of registered births, which was known throughout the country, to the number of inhabitants, which was only know for certain communes. He calculated this ratio for the three communes, and then scaled it, based on knowing the number of births across the whole country to produce an estimate of the population of France [@lohr].
 
 
 <!-- For instance, Adolphe Quetelet, the nineteenth century astronomer, mathematician, statistician and sociologist describes them [@quetelet2013treatise, p. 11]: -->
@@ -518,18 +504,20 @@ $$\hat{B} = \frac{\bar{y}}{\bar{x}} = \frac{4.9}{6.16} \approx 0.8$$
 
 While acknowledging that it is a spectrum, much of statistics was developed based on probability sampling. But a considerable amount of modern sampling is done using non-probability sampling. A common approach is to use Facebook and other advertisements to recruit a panel of respondents in exchange for compensation. This panel is then the group that is sent various surveys as necessary. But think for a moment about the implications of this. For instance, what type of people are likely to respond to such an advertisement? Is the richest person in the world likely to respond? Are especially young or especially old people likely to respond? In some cases, it is possible to do a census. Nation-states typically do one every five to ten years. But there is a reason that it is only nation states that do them---they are expensive, time-consuming, and surprisingly, they are sometimes not as accurate as we may hope because of how general they need to be.
 
-<!-- ### Non-probability samples -->
 
-<!-- Non-probability samples have an important role to play because they are typically cheaper and quicker to obtain than probability samples. Further, as we have discussed, the difference is sometimes one of degree, rather than dichotomy. In any case, non-probability samples are entirely legitimate and appropriate for some tasks provided one is clear about the trade-offs. -->
+### Non-probability samples
 
-<!-- Convenience sampling -->
+Non-probability samples have an important role to play because they are typically cheaper and quicker to obtain than probability samples. Further, as we have discussed, the difference between probability and non-probability samples is sometimes one of degree, rather than dichotomy. In any case, non-probability samples are legitimate and appropriate for some tasks provided one is clear about the trade-offs and ensure transparency [@nonprobabilitysmaples].
 
-<!-- Quota sampling, p. 96 Lohr -->
+Convenience sampling involves gathering data from a sample that is easy to access. For instance, one often asks one's friends and family to fill out a survey as a way of testing it before more wide-scale distribution. If instead we were to analyze such a sample, then we would likely be using convenience sampling. 
 
-<!-- Snowball sampling and confidant methods -->
+The main issue with convenience sampling is that it is unlikely to be able to speak to much of a broader population than those who filled out the survey. There are also tricky ethical considerations, and typically a lack of anonymity which may further bias the results. On the other hand, it can be useful to cheaply get a quick sense of a situation while rolling out sampling approaches likely to be more broadly useful.
 
-<!-- TBD -->
+Quota sampling occurs when we have strata, but we do not use random sampling within those strata to select the unit. For instance, if we again stratified the US based on state, but then instead of ensuring that everyone in Wyoming had the chance to be chosen for that stratum, just picked people at Jackson Hole. Again, there are some advantages to this approach, especially in terms of speed and cost, but the resulting sample is likely biased in various ways. 
 
+As the saying goes, birds of a feather flock together. And we can take advantage of that in our sampling. Although @handcock2011comment describe various uses before this, and it is notoriously difficult to define attribution in multidisciplinary work, snowball sampling is nicely defined by @goodman1961snowball. Following @goodman1961snowball, to conduct snowball sampling, we first draw a random sample from the sampling frame. Each of these is asked to name $k$ others also in the sample population, but not in that initial draw, and these form the 'first stage'. Each individual in the first stage is then similarly asked to name $k$ others who are also in the sample population, but again not in the random draw or the first stage, and these form the 'second stage'. We need to have specified the number of stages, $s$, and also $k$ ahead of time.
+
+Respondent-driven sampling was developed by @heckathorn1997respondent to focus on hidden populations, which are those for which: 1) there is no sampling frame and 2) being known to be in the sampling population could have a negative effect. For instance, we could imagine various countries in which it would be difficult to sample from the gay population or those who have had abortions because it is illegal. Respondent-driven sampling differs from snowball sampling in two ways: 1) In addition to compensation for their own response, as is the case with snowball sampling, respondent-driven sampling typically also involves compensation for recruiting others. 2) Respondents are not asked to provide information about others to the investigator, but instead recruit them into the study. Selection into the sample occurs not from sampling frame, but instead from the networks of those already in the sample [@salganik2004sampling].
 
 
 Having established the foundations of sampling, which should remain front of mind, we turn to describe some approaches to gathering data. These will largely represent convenience samples.
@@ -538,7 +526,7 @@ Having established the foundations of sampling, which should remain front of min
 
 In everyday language, and for our purposes, an Application Programming Interface (API) is a situation in which someone has set up specific files on their computer such that we can follow their instructions to get them. For instance, when we use a gif on Slack, Slack asks Giphy's server for the appropriate gif, Giphy's server gives that gif to Slack and then Slack inserts it into your chat. The way in which Slack and Giphy interact is determined by Giphy's API. More strictly, an API is just an application that runs on a server that we access using the HTTP protocol. 
 
-We focus on using APIs for gathering data. And so with that focus, an API is a website that is set-up for another computer to be able to access, rather than a person. For instance, we could go to Google Maps: https://www.google.com/maps. And we could then scroll and click and drag to center the map on Canberra, Australia. Or, we could paste this into the browser: https://www.google.com/maps/@-35.2812958,149.1248113,16z. We just used the Google Maps API, and the result should be a map similar to Figure \@ref(fig:focuson2020).
+We focus on using APIs for gathering data. And so, with that focus, an API is a website that is set-up for another computer to be able to access, rather than a person. For instance, we could go to Google Maps: https://www.google.com/maps. And we could then scroll and click and drag to center the map on Canberra, Australia. Or we could paste this into the browser: https://www.google.com/maps/@-35.2812958,149.1248113,16z. We just used the Google Maps API, and the result should be a map similar to Figure \@ref(fig:focuson2020).
 
 <div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/googlemaps.png" alt="Example of Google Maps, as at 29 January 2022" width="90%" />
@@ -551,92 +539,175 @@ We will now go through a few case studies of using APIs. In the first we deal di
 
 
 
-### Case study: Gathering data from arXiv
+### Case study: Gathering data from arXiv, NASA, and Dataverse
 
 We use `GET()` from `httr` [@citehttr] to obtain data from an API directly. This will try to get some specific data and the main argument is 'url'. In a way, this is very similar to the earlier Google Maps example. In that example, the specific information that we were interested in was a map. 
 
-In this case study we will use an API provided by arXiv: https://arxiv.org. arXiv is an online repository for academic papers before they go through peer-review, and these are typically referred to as 'pre-prints'. After installing and loading `httr`, we use `GET()` to ask arXiv to obtain some information about the pre-print of @Alexander2020. We then use `content()` to display the information.
+In this case study we will use an API provided by arXiv: https://arxiv.org. arXiv is an online repository for academic papers before they go through peer-review, and these are typically referred to as 'pre-prints'. After installing and loading `httr`, we use `GET()` to ask arXiv to obtain some information about the pre-print of @Alexander2020. 
 
 
 ```r
 library(httr)
+library(tidyverse)
+library(xml2)
 
 arxiv <-
   GET("http://export.arxiv.org/api/query?id_list=2111.09299")
 
-content(arxiv, as = "text") |>
-  cat("\n")
-#> <?xml version="1.0" encoding="UTF-8"?>
-#> <feed xmlns="http://www.w3.org/2005/Atom">
-#>   <link href="http://arxiv.org/api/query?search_query%3D%26id_list%3D2111.09299%26start%3D0%26max_results%3D10" rel="self" type="application/atom+xml"/>
-#>   <title type="html">ArXiv Query: search_query=&amp;id_list=2111.09299&amp;start=0&amp;max_results=10</title>
-#>   <id>http://arxiv.org/api/S0tYR79542S0H4eFocbnNrlnZB4</id>
-#>   <updated>2022-01-30T00:00:00-05:00</updated>
-#>   <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">1</opensearch:totalResults>
-#>   <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
-#>   <opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">10</opensearch:itemsPerPage>
-#>   <entry>
-#>     <id>http://arxiv.org/abs/2111.09299v1</id>
-#>     <updated>2021-11-17T18:55:07Z</updated>
-#>     <published>2021-11-17T18:55:07Z</published>
-#>     <title>The Increased Effect of Elections and Changing Prime Ministers on Topics
-#>   Discussed in the Australian Federal Parliament between 1901 and 2018</title>
-#>     <summary>  Politics and discussion in parliament is likely to be influenced by the party
-#> in power and associated election cycles. However, little is known about the
-#> extent to which these events affect discussion and how this has changed over
-#> time. We systematically analyse how discussion in the Australian Federal
-#> Parliament changes in response to two types of political events: elections and
-#> changed prime ministers. We use a newly constructed dataset of what was said in
-#> the Australian Federal Parliament from 1901 through to 2018 based on extracting
-#> and cleaning available public records. We reduce the dimensionality of
-#> discussion in this dataset by using a correlated topic model to obtain a set of
-#> comparable topics over time. We then relate those topics to the Comparative
-#> Agendas Project, and then analyse the effect of these two types of events using
-#> a Bayesian hierarchical Dirichlet model. We find that: changes in prime
-#> minister tend to be associated with topic changes even when the party in power
-#> does not change; and the effect of elections has been increasing since the
-#> 1980s, regardless of whether the election results in a change of prime
-#> minister.
-#> </summary>
-#>     <author>
-#>       <name>Rohan Alexander</name>
-#>     </author>
-#>     <author>
-#>       <name>Monica Alexander</name>
-#>     </author>
-#>     <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">50 pages, 20 figures, 6 tables</arxiv:comment>
-#>     <link href="http://arxiv.org/abs/2111.09299v1" rel="alternate" type="text/html"/>
-#>     <link title="pdf" href="http://arxiv.org/pdf/2111.09299v1" rel="related" type="application/pdf"/>
-#>     <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="stat.AP" scheme="http://arxiv.org/schemas/atom"/>
-#>     <category term="stat.AP" scheme="http://arxiv.org/schemas/atom"/>
-#>   </entry>
-#> </feed>
-#> 
+status_code(arxiv)
+#> [1] 200
 ```
 
-We get a variety of information about this paper including the title, abstract, and authors. 
-
-<!-- For instance, we could use this information to identify a URL that we could use to download the paper. -->
-
-<!-- ```{r} -->
-
-<!-- ``` -->
+We can use `status_code()` to check whether we received an error from the server. And assuming we received something back from the server, we can use `content()` to display the information. In this case we have received XML formatted data, which we can read using `read_xml()` from `xml2` [@xml2]. XML is a semi-formatted structure, and it can be useful to start by having a look at it using `html_structure()`.
 
 
-<!-- We could also use this to get a photo of the Astronomy Picture of the Day from NASA. -->
+```r
+content(arxiv) |>
+  read_xml() |>
+  html_structure()
+#> <feed [xmlns]>
+#>   <link [href, rel, type]>
+#>   <title [type]>
+#>     {text}
+#>   <id>
+#>     {text}
+#>   <updated>
+#>     {text}
+#>   <totalResults [xmlns:opensearch]>
+#>     {text}
+#>   <startIndex [xmlns:opensearch]>
+#>     {text}
+#>   <itemsPerPage [xmlns:opensearch]>
+#>     {text}
+#>   <entry>
+#>     <id>
+#>       {text}
+#>     <updated>
+#>       {text}
+#>     <published>
+#>       {text}
+#>     <title>
+#>       {text}
+#>     <summary>
+#>       {text}
+#>     <author>
+#>       <name>
+#>         {text}
+#>     <author>
+#>       <name>
+#>         {text}
+#>     <comment [xmlns:arxiv]>
+#>       {text}
+#>     <link [href, rel, type]>
+#>     <link [title, href, rel, type]>
+#>     <primary_category [term, scheme, xmlns:arxiv]>
+#>     <category [term, scheme]>
+```
 
-<!-- ```{r} -->
-<!-- NASA_APOD <- -->
-<!--   GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY") -->
+Or we might be interested to create a dataset based on extracting various aspects of this XML tree. For instance, we might be interested to look at the 'entry', which is the eighth item, and in particular to obtain the title and the URL, which are the fourth and ninth items, respectively, within entry. 
 
-<!-- content(NASA_APOD) -->
-<!-- ``` -->
 
-<!-- And we could use that to display the picture. -->
+```r
+data_from_arxiv <-
+  tibble(
+    title = content(arxiv) |>
+      read_xml() |>
+      xml_child(search = 8) |>
+      xml_child(search = 4) |>
+      xml_text(),
+    link = content(arxiv) |>
+      read_xml() |>
+      xml_child(search = 8) |>
+      xml_child(search = 9) |>
+      xml_attr("href")
+  )
+data_from_arxiv
+#> # A tibble: 1 × 2
+#>   title                                link                 
+#>   <chr>                                <chr>                
+#> 1 "The Increased Effect of Elections … http://arxiv.org/abs…
+```
 
-<!-- ```{r} -->
-<!-- content(NASA_APOD)$url -->
-<!-- ``` -->
+Each day NASA provides the Astronomy Picture of the Day (APOD) through its APOD API. We can again use `GET()` to obtain the URL for the photo on particular dates and then display it. 
+
+
+```r
+NASA_APOD_20211226 <-
+  GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2021-12-26")
+
+NASA_APOD_20190719 <-
+  GET("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2019-07-19")
+```
+
+Examining the returned data using `content()`, we can see that we are provided with various fields, such as date, title, explanation, and a URL. And we can provide that URL to `include_graphics()` from `knitr` to display it (Figure \@ref(fig:nasaone)).
+
+
+```r
+content(NASA_APOD_20211226)$date
+#> [1] "2021-12-26"
+content(NASA_APOD_20211226)$title
+#> [1] "James Webb Space Telescope over Earth"
+content(NASA_APOD_20211226)$explanation
+#> [1] "There's a big new telescope in space. This one, the James Webb Space Telescope (JWST), not only has a mirror over five times larger than Hubble's in area, but can see better in infrared light. The featured picture shows JWST high above the Earth just after being released by the upper stage of an Ariane V rocket, launched yesterday from French Guiana. Over the next month, JWST will move out near the Sun-Earth L2 point where it will co-orbit the Sun with the Earth. During this time and for the next five months, JWST will unravel its segmented mirror and an array of sophisticated scientific instruments -- and test them. If all goes well, JWST will start examining galaxies across the universe and planets orbiting stars across our Milky Way Galaxy in the summer of 2022.   APOD Gallery: Webb Space Telescope Launch"
+content(NASA_APOD_20211226)$url
+#> [1] "https://apod.nasa.gov/apod/image/2112/JwstLaunch_Arianespace_1080.jpg"
+
+content(NASA_APOD_20190719)$date
+#> [1] "2019-07-19"
+content(NASA_APOD_20190719)$title
+#> [1] "Tranquility Base Panorama"
+content(NASA_APOD_20190719)$explanation
+#> [1] "On July 20, 1969 the Apollo 11 lunar module Eagle safely touched down on the Moon. It landed near the southwestern corner of the Moon's Mare Tranquillitatis at a landing site dubbed Tranquility Base. This panoramic view of Tranquility Base was constructed from the historic photos taken from the lunar surface. On the far left astronaut Neil Armstrong casts a long shadow with Sun is at his back and the Eagle resting about 60 meters away ( AS11-40-5961). He stands near the rim of 30 meter-diameter Little West crater seen here to the right ( AS11-40-5954). Also visible in the foreground is the top of the camera intended for taking stereo close-ups of the lunar surface."
+content(NASA_APOD_20190719)$url
+#> [1] "https://apod.nasa.gov/apod/image/1907/apollo11TranquilitybasePan600h.jpg"
+```
+
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/JwstLaunch_Arianespace_1080.jpg" alt="Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API" width="50%" /><img src="/Users/rohanalexander/Documents/book/figures/apollo11TranquilitybasePan.jpg" alt="Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API" width="50%" />
+<p class="caption">(\#fig:nasaone)Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API</p>
+</div>
+
+Finally, another common API response in semi-structured form is JSON. We can parse JSON with `jsonlite` [@jsonlite]. A Dataverse is a web application that makes it easier to share dataset. We can use an API go query a demonstration dataverse. For instance we might be interested in datasets related to politics.
+
+
+```r
+library(jsonlite)
+
+politics_datasets <- fromJSON("https://demo.dataverse.org/api/search?q=politics")
+```
+
+We can also look at the dataset using `View(politics_datasets)`, which allows us to expand the tree based on what we are interested in and even get the code that we need to focus on different aspects by hovering on the item and then clicking the icon with the green arrow (Figure \@ref(fig:jsonfirst)).
+
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/jsonlite.png" alt="Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element" width="90%" />
+<p class="caption">(\#fig:jsonfirst)Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element</p>
+</div>
+
+This tells us how to obtain the dataset of interest.
+
+
+```r
+as_tibble(politics_datasets[["data"]][["items"]])
+#> # A tibble: 10 × 18
+#>    name   type   url    identifier description  published_at
+#>    <chr>  <chr>  <chr>  <chr>      <chr>        <chr>       
+#>  1 China… datav… https… china-arc… Introductio… 2016-12-09T…
+#>  2 cc16_… file   https… <NA>       Alaska subs… 2021-12-26T…
+#>  3 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  4 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  5 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  6 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  7 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  8 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>  9 cc16_… file   https… <NA>       DC subset    2021-12-27T…
+#> 10 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#> # … with 12 more variables: file_id <chr>, file_type <chr>,
+#> #   file_content_type <chr>, size_in_bytes <int>,
+#> #   md5 <chr>, checksum <df[,2]>, unf <chr>,
+#> #   file_persistent_id <chr>, dataset_name <chr>,
+#> #   dataset_id <chr>, dataset_persistent_id <chr>,
+#> #   dataset_citation <chr>
+```
 
 
 
@@ -746,14 +817,14 @@ For the final case study, we will use `spotifyr` [@spotifyr], which is a wrapper
 library(spotifyr)
 ```
 
-In order to access the Spotify API, we need a Spotify Developer Account: https://developer.spotify.com/dashboard/. This will require logging in with a Spotify account and then accepting the Developer Terms (Figure \@ref(fig:spotifyaccept)).
+To access the Spotify API, we need a Spotify Developer Account: https://developer.spotify.com/dashboard/. This will require logging in with a Spotify account and then accepting the Developer Terms (Figure \@ref(fig:spotifyaccept)).
 
 <div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/spotify.png" alt="Spotify Developer Account Terms agreement page" width="90%" />
 <p class="caption">(\#fig:spotifyaccept)Spotify Developer Account Terms agreement page</p>
 </div>
 
-Continuing with the registration process, in our case, we 'do not know' what we are building and so Spotify requires us to use a non-commercial agreement. In order to use the Spotify API we need a 'Client ID' and a 'Client Secret'. These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our 'System Environment'. In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter \@ref(interactive-communication) when we used `mapdeck`.) We will use `usethis` [@citeusethis] to modify our System Environment. In particular, there is a file called '.Renviron' which we will open using `edit_r_environ()` and add our 'Client ID' and 'Client Secret' to.
+Continuing with the registration process, in our case, we 'do not know' what we are building and so Spotify requires us to use a non-commercial agreement. To use the Spotify API we need a 'Client ID' and a 'Client Secret'. These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our 'System Environment'. In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter \@ref(interactive-communication) when we used `mapdeck`.) We will use `usethis` [@citeusethis] to modify our System Environment. In particular, there is a file called '.Renviron' which we will open using `edit_r_environ()` and add our 'Client ID' and 'Client Secret' to.
 
 
 ```r
@@ -868,7 +939,7 @@ three_artists |>
 <p class="caption">(\#fig:swiftyvsnationalvsradiohead)Comparing valence, over time, for Radiohead, Taylor Swift, and The National</p>
 </div>
 
-How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, @kaylinpavlik uses an expanded dataset to classify musical genres. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is. 
+How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, @kaylinpavlik uses an expanded dataset to classify musical genres and @salganik2006experimental had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is. 
 
 
 <!-- ## NBA statistics -->
@@ -1020,7 +1091,7 @@ books_data
 #> [2] <body>\n\n<!--radix_placeholder_front_matter-->\n\n<s ...
 ```
 
-In order to get the data into a tibble we first need to identify the data that we are interested in using html tags. If we look at the website then we need to focus on list items (Figure \@ref(fig:rohansbooks)). And we can look at the source, focusing particularly on looking for a list (Figure \@ref(fig:rohanssourceone)).
+To get the data into a tibble we first need to identify the data that we are interested in using html tags. If we look at the website then we need to focus on list items (Figure \@ref(fig:rohansbooks)). And we can look at the source, focusing particularly on looking for a list (Figure \@ref(fig:rohanssourceone)).
 
 <div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/rohansbooks.png" alt="Books website as displayed" width="90%" />
@@ -1220,7 +1291,7 @@ simulated_dataset <-
 One of the advantages of generating a simulated dataset is that if we are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we are aiming for something like Figure \@ref(fig:pmsgraphexample).
 
 <div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/IMG_4185.jpeg" alt="Sketch of planned graph showing how long UK prime ministers lived" width="90%" />
+<img src="/Users/rohanalexander/Documents/book/figures/pms_graph_plan.png" alt="Sketch of planned graph showing how long UK prime ministers lived" width="90%" />
 <p class="caption">(\#fig:pmsgraphexample)Sketch of planned graph showing how long UK prime ministers lived</p>
 </div>
 
@@ -1511,7 +1582,7 @@ cleaned_data |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="20-gather_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+<img src="20-gather_files/figure-html/unnamed-chunk-51-1.png" width="672" />
 
 
 ### Case study: Downloading multiple files
@@ -1715,8 +1786,8 @@ For instance, in the case of the year 2000 the table that we are interested in i
 The first step when getting data out of a PDF is to sketch out what we eventually want. A PDF typically contains a lot of information, and so it is handy to be very clear about what you need. This helps keep you focused, and prevents scope creep, but it is also helpful when thinking about data checks. We literally write down on paper what we have in mind. In this case, what is needed is a table with a column for state, year and TFR (Figure \@ref(fig:tfrdesired)). 
 
 <div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/tfr_desired.jpeg" alt="Desired output from the PDF" width="90%" />
-<p class="caption">(\#fig:tfrdesired)Desired output from the PDF</p>
+<img src="/Users/rohanalexander/Documents/book/figures/tfr_dataset_sketch.png" alt="Planned dataset of TFR for each year and US state" width="40%" />
+<p class="caption">(\#fig:tfrdesired)Planned dataset of TFR for each year and US state</p>
 </div>
 
 There are 19 different PDFs, and we are interested in a particular column in a particular table in each of them. Unfortunately, there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.
@@ -2929,7 +3000,7 @@ cat(text)
 
 Please redo the web scraping example, but for one of: [Australia](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Australia), [Canada](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_Canada), [India](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_India), or [New Zealand](https://en.wikipedia.org/wiki/List_of_prime_ministers_of_New_Zealand). 
 
-Plan, gather, and clean the data, and then use it to create a similar table to the one created above. Write a few paragraphs about your findings. Then write a few paragraphs about the data source, what you gathered, and how you went about it. What took longer than you expected? When did it become fun? What would you do differently next time you do this? 
+Plan, gather, and clean the data, and then use it to create a similar table to the one created above. Write a few paragraphs about your findings. Then write a few paragraphs about the data source, what you gathered, and how you went about it. What took longer than you expected? When did it become fun? What would you do differently next time you do this? Your submission should be at least two pages and likely more.
 
 Please submit a link to a PDF produced using R Markdown that includes a link to the GitHub repo.
 

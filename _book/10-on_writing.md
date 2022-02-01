@@ -225,6 +225,8 @@ The journal *Nature* provides a guide for constructing an abstract. They recomme
 5) A sentence about general context.
 6) And finally, a sentence about the broader perspective. 
 
+It is critical that the first sentence of an abstract is not vacuous. Assuming the reader continued past the title, this first sentence is the next opportunity that we have to implore them to keep reading our paper. And then the second sentence of the abstract, and so on. Work and re-work the abstract until it is so good that you would be fine if that is the only thing that was read.
+
 
 ### Introduction
 
@@ -383,32 +385,32 @@ A variety of authors have established rules for writing, including famously, @po
 
 ### Exercises
 
-1. According to @zinsser, whose picture hangs in Zinsser's office?
+1. According to the Introduction of @zinsser, whose picture hangs in Zinsser's office?
     a. Charlotte Bronte
     b. E. M. Forster
     c.  E. B. White
     d. Stephen King
-2. According to @zinsser, what is the secret to good writing?
+2. According to Chapter 2 of @zinsser, what is the secret to good writing?
     a. Correct sentence structure and grammar.
     b. The use of long words, adverbs, and passive voice.
     c. Thorough planning.
     d.  Strip every sentence to its cleanest components.
-3. According to @zinsser, what must a writer constantly ask?
+3. According to Chapter 2 of @zinsser, what must a writer constantly ask?
     a.  What am I trying to say?
     b. Who am I writing for?
     c. How can this be re-written?
     d. Why does this matter?
-4. Which two repeated words, characterize the advice of @zinsser?
+4. Which two repeated words, for instance in Chapter 3, characterize the advice of @zinsser?
     a. Re-write, re-write.
     b. Remove, remove.
     c.  Simplify, simplify.
     d. Less, less.
-5. According to @zinsser, a writer should never say anything in writing that they wouldn't say in?
+5. According to Chapter 5 of @zinsser, a writer should never say anything in writing that they wouldn't say in?
     a. Private
     b. Public
     c.  Conversation
     d. Speeches
-6. According to @zinsser, what are the only tools that a writer has?
+6. According to Chapter 6 of @zinsser, what are the only tools that a writer has?
     a. Papers
     b.  Words
     c. Paragraphs
@@ -458,7 +460,7 @@ A variety of authors have established rules for writing, including famously, @po
     a.  If-then statements in which the if does not happen.
     b. If-then statements in which the if happens.
     c. Statements that are either true or false.
-    c. Statements that are neither true or false.
+    d. Statements that are neither true or false.
 18. Which of the following is the best title (pick one)?
     a. "Problem Set 1"
     b. "Unemployment"
@@ -468,7 +470,7 @@ A variety of authors have established rules for writing, including famously, @po
     a. "Problem Set 2"
     b. "Standard errors"
     c.  "On standard errors with small samples"
-20. Which word/s can be removed from the following sentence without affecting its meaning (select all that apply)? 'Like many parents, when our children were born, one of the first things that my wife and I did regularly was read stories to them.' 
+20. Which word/s can be removed from the following sentence without substantially affecting its meaning (select all that apply)? 'Like many parents, when our children were born, one of the first things that my wife and I did regularly was read stories to them.' 
     a.  first
     b.  regularly
     c.  stories
@@ -489,7 +491,7 @@ A variety of authors have established rules for writing, including famously, @po
 
 ### Tutorial
 
-@caroonworking [p. xii] writes at least one thousand words almost every day. In this tutorial we will write every day for a week. Begin by picking seven of the well-written papers specified above. Each day complete the following tasks: 
+@caroonworking [p. xii] writes at least one thousand words almost every day. In this tutorial we will write every day for a week. Each day pick one of the papers specified in the required materials and complete the following tasks:
 
 - Transcribe, by writing each word yourself, the entire introduction.
 - (This idea comes from @draftnumberfour [p. 186].) Re-write the introduction so that it is five lines (or 10 per cent, whichever is less) shorter.
@@ -499,5 +501,4 @@ A variety of authors have established rules for writing, including famously, @po
 - Detail three points about the way the paper is written that you like
 - Detail one point about the way the paper is written that you do not like.
 
-Submit all seven papers.
-
+Please use R Markdown to produce a single PDF for the whole week. Make judicious use of headings and sub-headings to structure your submission. Submit the PDF.

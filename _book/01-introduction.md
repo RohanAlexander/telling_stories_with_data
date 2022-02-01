@@ -32,7 +32,7 @@ When using data, we try to tell a convincing story. It may be as exciting as pre
 4. What are we hoping others will see from this dataset, and how can we convince them of this? How much work must we do to convince them? To what extent can we share how we came to believe this?
 5. Who is affected by the processes and outcomes related to this dataset? To what extent are they represented in the dataset, and have they been part of conducting the analysis?
 
-In the past, certain elements of telling stories with data were easier. For instance, experimental design has a long and robust tradition within agricultural and medical sciences, physics, and chemistry. Student's t-distribution was identified in the early 1900s by a chemist, William Sealy Gosset, who was working at Guinness, a beer manufacturer, and needed to assess the quality of the beer [@boland1984biographical]! It would have been possible for him to randomly sample the beer and change one aspect at a time. 
+In the past, certain elements of telling stories with data were easier. For instance, experimental design has a long and robust tradition within agricultural and medical sciences, physics, and chemistry. Student's t-distribution was identified in the early 1900s by a chemist, William Sealy Gosset, who was working at Guinness, a beer manufacturer [@boland1984biographical]! It would have been possible for him to randomly sample the beer and change one aspect at a time. 
 
 Many of the fundamentals of the statistical methods that we use today were developed in such settings. There, it was typically possible to establish control groups and randomize; and in these settings there were fewer ethical concerns. A story told with the resulting data is likely to be fairly convincing.
 

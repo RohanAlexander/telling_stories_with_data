@@ -97,6 +97,8 @@ fig:bowleyrents
 fig:samplingexamples
 tab:scaleup
 fig:focuson2020
+fig:nasaone
+fig:jsonfirst
 fig:rtweetlogin
 fig:spotifyaccept
 fig:readioovertime
@@ -295,8 +297,9 @@ introduction-5
 sampling-essentials
 sampling-in-dublin-and-reading
 probabilistic-sampling
+non-probability-samples
 apis
-case-study-gathering-data-from-arxiv
+case-study-gathering-data-from-arxiv-nasa-and-dataverse
 case-study-gathering-data-from-twitter
 case-study-gathering-data-from-spotify
 web-scraping

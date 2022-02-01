@@ -3568,7 +3568,7 @@ ggplot() +
 9. If there is a dataset that contains the heights of 100 birds each from one of three different species. If we are interested in understanding the distribution of these heights, then in a paragraph or two, please explain which type of graph should be used and why?
 10. Assume the dataset and columns exist. Would this code work? `data |> ggplot(aes(x = col_one)) |> geom_point()` (pick one)?
     a. Yes
-    b. No
+    b.  No
 11. Which geom should be used to plot categorical data (pick one)?
     a.  `geom_bar()`
     b. `geom_point()`
@@ -3595,10 +3595,10 @@ ggplot() +
 
 ### Tutorial
 
-Using R Markdown, please create a graph using `ggplot2` and a map using `ggmap` and add explanatory text to accompany both. This should take one to two pages for each of them. 
+Using R Markdown, please create a graph using `ggplot2` and a map using `ggmap` and add explanatory text to accompany both. Be sure to include cross-references and captions, etc. This should take one to two pages for each of them. 
 
-For the graph, please reflect on @vanderplas2020testing and add a few paragraphs about the different options that you considered that the graph more effective. 
+Then, for the graph, please reflect on @vanderplas2020testing and add a few paragraphs about the different options that you considered that the graph more effective. (If you've not now got at least two pages about your graph you've likely written too little.)
 
-For the map, please reflect on the following quote from Heather Krause: 'maps only show people who aren't invisible to the makers' as well as Chapter 3 from @datafeminism2020 and add a few paragraphs related to this.
+And finally, for the map, please reflect on the following quote from Heather Krause: 'maps only show people who aren't invisible to the makers' as well as Chapter 3 from @datafeminism2020 and add a few paragraphs related to this. (Again, if you've not now got at least two pages about your map you've likely written too little.)
 
 Please submit a PDF.
