@@ -770,6 +770,6 @@ Please put together a small R Markdown file that downloads a dataset using `open
 
 ### Paper
 
-At about this point, Paper 1 (Appendix \@ref(paper-1)) would be appropriate.
+At about this point, Paper One (Appendix \@ref(paper-one)) would be appropriate.
 
 

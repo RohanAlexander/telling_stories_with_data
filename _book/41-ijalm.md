@@ -163,11 +163,10 @@ In `R` we can simulate $n$ data points from the Normal distribution with `rnorm(
 
 ```r
 rnorm(n = 20, mean = 0, sd = 1)
-#>  [1] -1.462946870 -0.060574881  1.539565439 -0.139379191
-#>  [5] -0.235857140  0.242097004  0.425278519 -0.245277464
-#>  [9] -1.002947171  2.075238070  0.006448374  1.224129059
-#> [13] -0.145285851 -1.476632921 -0.154779429 -0.471279342
-#> [17]  0.862712456 -1.019165116  1.034261492  0.370444732
+#>  [1]  1.4702487  1.5617528  0.6367222 -0.3378642 -0.3183929
+#>  [6]  0.6224433 -1.7524849 -1.4234762  0.2305120 -1.4088379
+#> [11] -0.3785834  0.7611241  1.0888011  0.8385650  0.5948106
+#> [16] -0.7897059  1.1729463 -1.8409704  0.1324802  1.1811748
 ```
 
 It will take a few draws before we get the expected shape.
@@ -955,7 +954,7 @@ white_gold_model_tidymodels <-
 white_gold_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  3ms 
+#> Fit time:  2ms 
 #> 
 #> Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
 #>     data = data)
@@ -1097,7 +1096,7 @@ a_plus_model_tidymodels <-
 a_plus_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  1ms 
+#> Fit time:  3ms 
 #> 
 #> Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 #>     data = data)
@@ -1126,4 +1125,10 @@ a_plus_model_tidymodels
 ### Tutorial
 
 
+
+
+
+### Paper
+
+At about this point, Paper Four (Appendix \@ref(paper-four)) would be appropriate.
 

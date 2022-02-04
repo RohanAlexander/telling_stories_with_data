@@ -12,7 +12,7 @@
 **Required material**
 
 - Read *On Writing Well*, (any edition is fine) Parts I 'Principles', and II 'Methods', [@zinsser].
-- Read *Publication, publication*, [@king2006publication]
+- Read *Publication, publication*, [@king2006publication].
 - Read two of the following well-written quantitative papers:
     - *Asset prices in an exchange economy*, [@lucas1978asset].
     - *Individuals, institutions, and innovation in the debates of the French Revolution*, [@barron2018individuals].

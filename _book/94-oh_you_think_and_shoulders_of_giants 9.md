@@ -46,10 +46,6 @@ Chapter 8:
 
 > **Shoulders of giants** Leo Goodman
 
-Chapter 9:
-
-> **Shoulders of giants** Donald B. Rubin
-
 Chapter 10:
 
 > **Shoulders of giants** Barbara Bailar

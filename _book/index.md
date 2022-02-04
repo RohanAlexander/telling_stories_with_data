@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "01 February, 2022"
+date: "04 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike

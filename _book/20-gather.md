@@ -9,7 +9,7 @@
 
 **Required material**
 
-- Read *Working-Class Households in Reading*, [@bowley1913working].
+- Read *Working-Class Households in Reading*, (focus on the method and approach, not necessarily the specific results) [@bowley1913working].
 - Read *Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection*, Parts I 'Introduction', III 'Different Aspects of the Representative Method', V 'Conclusion' and Bowley's discussion p. 607 - 610, [@neyman1934two].
 - Read *Turning History into Data: Data Collection, Measurement, and Inference in HPE*, [@cirone].
 - Read *Two Regimes of Prison Data Collection*, [@Johnson2021Two].
@@ -939,7 +939,7 @@ three_artists |>
 <p class="caption">(\#fig:swiftyvsnationalvsradiohead)Comparing valence, over time, for Radiohead, Taylor Swift, and The National</p>
 </div>
 
-How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, @kaylinpavlik uses an expanded dataset to classify musical genres and @salganik2006experimental had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is. 
+How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, @kaylinpavlik uses an expanded dataset to classify musical genres and @theeconomistonspotify looks at how language is associated with music streaming on Spotify. Our ability to gather such data enables us to answer questions that had to be considered experimentally in the past, for instance @salganik2006experimental had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is. 
 
 
 <!-- ## NBA statistics -->

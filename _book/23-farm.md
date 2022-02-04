@@ -175,3 +175,9 @@ Lol, just use IPUMS.
 
 
 
+
+
+### Paper
+
+At about this point, Paper Three (Appendix \@ref(paper-three)) would be appropriate.
+

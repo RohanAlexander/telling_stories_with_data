@@ -56,12 +56,12 @@ Additional points:
 
 
 ```{=html}
-<div id="bmqavfrhli" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="fzaertcflw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#bmqavfrhli .gt_table {
+#fzaertcflw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -86,7 +86,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_heading {
+#fzaertcflw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -98,7 +98,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_title {
+#fzaertcflw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -108,7 +108,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#bmqavfrhli .gt_subtitle {
+#fzaertcflw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -118,13 +118,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#bmqavfrhli .gt_bottom_border {
+#fzaertcflw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_col_headings {
+#fzaertcflw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -139,7 +139,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_col_heading {
+#fzaertcflw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -159,7 +159,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#bmqavfrhli .gt_column_spanner_outer {
+#fzaertcflw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -171,15 +171,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#bmqavfrhli .gt_column_spanner_outer:first-child {
+#fzaertcflw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bmqavfrhli .gt_column_spanner_outer:last-child {
+#fzaertcflw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bmqavfrhli .gt_column_spanner {
+#fzaertcflw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -191,7 +191,7 @@ Additional points:
   width: 100%;
 }
 
-#bmqavfrhli .gt_group_heading {
+#fzaertcflw .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,7 +213,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#bmqavfrhli .gt_empty_group_heading {
+#fzaertcflw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -228,15 +228,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#bmqavfrhli .gt_from_md > :first-child {
+#fzaertcflw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bmqavfrhli .gt_from_md > :last-child {
+#fzaertcflw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bmqavfrhli .gt_row {
+#fzaertcflw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +255,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#bmqavfrhli .gt_stub {
+#fzaertcflw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -267,7 +267,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#bmqavfrhli .gt_summary_row {
+#fzaertcflw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -277,7 +277,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#bmqavfrhli .gt_first_summary_row {
+#fzaertcflw .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -287,7 +287,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_grand_summary_row {
+#fzaertcflw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -297,7 +297,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#bmqavfrhli .gt_first_grand_summary_row {
+#fzaertcflw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -307,11 +307,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_striped {
+#fzaertcflw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bmqavfrhli .gt_table_body {
+#fzaertcflw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -320,7 +320,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_footnotes {
+#fzaertcflw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -334,13 +334,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_footnote {
+#fzaertcflw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#bmqavfrhli .gt_sourcenotes {
+#fzaertcflw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -354,41 +354,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#bmqavfrhli .gt_sourcenote {
+#fzaertcflw .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#bmqavfrhli .gt_left {
+#fzaertcflw .gt_left {
   text-align: left;
 }
 
-#bmqavfrhli .gt_center {
+#fzaertcflw .gt_center {
   text-align: center;
 }
 
-#bmqavfrhli .gt_right {
+#fzaertcflw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bmqavfrhli .gt_font_normal {
+#fzaertcflw .gt_font_normal {
   font-weight: normal;
 }
 
-#bmqavfrhli .gt_font_bold {
+#fzaertcflw .gt_font_bold {
   font-weight: bold;
 }
 
-#bmqavfrhli .gt_font_italic {
+#fzaertcflw .gt_font_italic {
   font-style: italic;
 }
 
-#bmqavfrhli .gt_super {
+#fzaertcflw .gt_super {
   font-size: 65%;
 }
 
-#bmqavfrhli .gt_footnote_marks {
+#fzaertcflw .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -462,7 +462,7 @@ Some examples of papers that well in the past include those by: [Amy Farrow](inp
 
 - Working as part of a small team of 1-3 people, and in an entirely reproducible way, please pick a paper with code and data, published anytime since 2019, in an American Economic Association journal. These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'. And then can be seen here: https://www.aeaweb.org/journals.
 - Following the [*Guide for Accelerating Computational Reproducibility in the Social Sciences*](https://bitss.github.io/ACRE/), please conduct a **replication**^[Note that our language follows @barba2018terminologies, however it is the opposite of that used by BITSS.] of at least three graphs or tables using the [Social Science Reproduction Platform](https://www.socialsciencereproduction.org). Submit the DOI of your replication.
-- Then conduct a **reproduction** of a few aspects and write a short paper about that.
+- Then conduct a **reproduction** of a few aspects, and write a short paper about that.
 
 ### Guidance
 
@@ -482,17 +482,17 @@ Other points:
 - In the discussion section and any other relevant section, please be sure to discuss ethics and bias with reference to relevant literature.
 - Thoroughly think about, and discuss, what you are doing. 
 - Your paper must be well-written, draw on relevant literature, and show your statistical skills by explaining all statistical concepts that you draw on. 
-- You are welcome to use appendices for supporting, but not critical, material. Your discussion must include sub-sections that focus on three or four interesting points, and sub-sections on weaknesses and next steps.
-- In your paper you must provide a link to a GitHub repo that fully contains your analysis and include the DOI to your replication. 
+- You are welcome to use appendices for supporting, but not critical, material. Your discussion must include sub-sections that focus on three or four interesting points, and also sub-sections on weaknesses and next steps.
+- In your paper you must provide a link to a GitHub repo that fully contains your analysis and also include the DOI to your replication. 
 - Code must be entirely reproducible, documented, and readable. The repository must be well-organized and appropriately use folders.
-- Your graphs and tables must be of a high standard. Graphs and tables should be well formatted and report ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
+- Your graphs and tables must be of a high standard. Graphs and tables should be well formatted and report-ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
 
 
 - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, provided it is consistent.
 - As a team, via Quercus, submit a PDF of your paper. Again, in your paper you must have a link to the associated GitHub repository and the DOI of the Social Science Reproduction Platform replication. 
 - The repository must be well-organized and have a detailed README.
 - A good way to work as a team would be to split up the work, so that one person is doing each section. The people doing the sections that rely on data (such as the analysis and the graphs) could just simulate it while they are waiting for the person putting together the data to finish.
-- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
+- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses and next steps without confusion. 
 - Everyone in the team receives the same mark.
 - There should be no evidence that this is a class assignment.
 
@@ -510,12 +510,12 @@ Other points:
 
 
 ```{=html}
-<div id="fuhbogckpl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="eelszoxshx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fuhbogckpl .gt_table {
+#eelszoxshx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -540,7 +540,7 @@ Other points:
   border-left-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_heading {
+#eelszoxshx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -552,7 +552,7 @@ Other points:
   border-right-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_title {
+#eelszoxshx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -562,7 +562,7 @@ Other points:
   border-bottom-width: 0;
 }
 
-#fuhbogckpl .gt_subtitle {
+#eelszoxshx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -572,13 +572,13 @@ Other points:
   border-top-width: 0;
 }
 
-#fuhbogckpl .gt_bottom_border {
+#eelszoxshx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_col_headings {
+#eelszoxshx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -593,7 +593,7 @@ Other points:
   border-right-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_col_heading {
+#eelszoxshx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -613,7 +613,7 @@ Other points:
   overflow-x: hidden;
 }
 
-#fuhbogckpl .gt_column_spanner_outer {
+#eelszoxshx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -625,15 +625,15 @@ Other points:
   padding-right: 4px;
 }
 
-#fuhbogckpl .gt_column_spanner_outer:first-child {
+#eelszoxshx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fuhbogckpl .gt_column_spanner_outer:last-child {
+#eelszoxshx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fuhbogckpl .gt_column_spanner {
+#eelszoxshx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -645,7 +645,7 @@ Other points:
   width: 100%;
 }
 
-#fuhbogckpl .gt_group_heading {
+#eelszoxshx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -667,7 +667,7 @@ Other points:
   vertical-align: middle;
 }
 
-#fuhbogckpl .gt_empty_group_heading {
+#eelszoxshx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -682,15 +682,15 @@ Other points:
   vertical-align: middle;
 }
 
-#fuhbogckpl .gt_from_md > :first-child {
+#eelszoxshx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fuhbogckpl .gt_from_md > :last-child {
+#eelszoxshx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fuhbogckpl .gt_row {
+#eelszoxshx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -709,7 +709,7 @@ Other points:
   overflow-x: hidden;
 }
 
-#fuhbogckpl .gt_stub {
+#eelszoxshx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -721,7 +721,7 @@ Other points:
   padding-left: 12px;
 }
 
-#fuhbogckpl .gt_summary_row {
+#eelszoxshx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -731,7 +731,7 @@ Other points:
   padding-right: 5px;
 }
 
-#fuhbogckpl .gt_first_summary_row {
+#eelszoxshx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -741,7 +741,7 @@ Other points:
   border-top-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_grand_summary_row {
+#eelszoxshx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -751,7 +751,7 @@ Other points:
   padding-right: 5px;
 }
 
-#fuhbogckpl .gt_first_grand_summary_row {
+#eelszoxshx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -761,11 +761,11 @@ Other points:
   border-top-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_striped {
+#eelszoxshx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fuhbogckpl .gt_table_body {
+#eelszoxshx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -774,7 +774,7 @@ Other points:
   border-bottom-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_footnotes {
+#eelszoxshx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -788,13 +788,13 @@ Other points:
   border-right-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_footnote {
+#eelszoxshx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#fuhbogckpl .gt_sourcenotes {
+#eelszoxshx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -808,41 +808,41 @@ Other points:
   border-right-color: #D3D3D3;
 }
 
-#fuhbogckpl .gt_sourcenote {
+#eelszoxshx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#fuhbogckpl .gt_left {
+#eelszoxshx .gt_left {
   text-align: left;
 }
 
-#fuhbogckpl .gt_center {
+#eelszoxshx .gt_center {
   text-align: center;
 }
 
-#fuhbogckpl .gt_right {
+#eelszoxshx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fuhbogckpl .gt_font_normal {
+#eelszoxshx .gt_font_normal {
   font-weight: normal;
 }
 
-#fuhbogckpl .gt_font_bold {
+#eelszoxshx .gt_font_bold {
   font-weight: bold;
 }
 
-#fuhbogckpl .gt_font_italic {
+#eelszoxshx .gt_font_italic {
   font-style: italic;
 }
 
-#fuhbogckpl .gt_super {
+#eelszoxshx .gt_super {
   font-size: 65%;
 }
 
-#fuhbogckpl .gt_footnote_marks {
+#eelszoxshx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -984,12 +984,12 @@ Working in teams of one to three  people, please consider this scenario:
 
 
 ```{=html}
-<div id="xhkivttfgj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="povldjxrvs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xhkivttfgj .gt_table {
+#povldjxrvs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1014,7 +1014,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-left-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_heading {
+#povldjxrvs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1026,7 +1026,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_title {
+#povldjxrvs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1036,7 +1036,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-width: 0;
 }
 
-#xhkivttfgj .gt_subtitle {
+#povldjxrvs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1046,13 +1046,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-width: 0;
 }
 
-#xhkivttfgj .gt_bottom_border {
+#povldjxrvs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_col_headings {
+#povldjxrvs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1067,7 +1067,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_col_heading {
+#povldjxrvs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1087,7 +1087,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#xhkivttfgj .gt_column_spanner_outer {
+#povldjxrvs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1099,15 +1099,15 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 4px;
 }
 
-#xhkivttfgj .gt_column_spanner_outer:first-child {
+#povldjxrvs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xhkivttfgj .gt_column_spanner_outer:last-child {
+#povldjxrvs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xhkivttfgj .gt_column_spanner {
+#povldjxrvs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1119,7 +1119,7 @@ Working in teams of one to three  people, please consider this scenario:
   width: 100%;
 }
 
-#xhkivttfgj .gt_group_heading {
+#povldjxrvs .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1141,7 +1141,7 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#xhkivttfgj .gt_empty_group_heading {
+#povldjxrvs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1156,15 +1156,15 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#xhkivttfgj .gt_from_md > :first-child {
+#povldjxrvs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xhkivttfgj .gt_from_md > :last-child {
+#povldjxrvs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xhkivttfgj .gt_row {
+#povldjxrvs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1183,7 +1183,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#xhkivttfgj .gt_stub {
+#povldjxrvs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1195,7 +1195,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-left: 12px;
 }
 
-#xhkivttfgj .gt_summary_row {
+#povldjxrvs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1205,7 +1205,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#xhkivttfgj .gt_first_summary_row {
+#povldjxrvs .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1215,7 +1215,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_grand_summary_row {
+#povldjxrvs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1225,7 +1225,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#xhkivttfgj .gt_first_grand_summary_row {
+#povldjxrvs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1235,11 +1235,11 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_striped {
+#povldjxrvs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xhkivttfgj .gt_table_body {
+#povldjxrvs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1248,7 +1248,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_footnotes {
+#povldjxrvs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1262,13 +1262,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_footnote {
+#povldjxrvs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#xhkivttfgj .gt_sourcenotes {
+#povldjxrvs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1282,41 +1282,41 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#xhkivttfgj .gt_sourcenote {
+#povldjxrvs .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#xhkivttfgj .gt_left {
+#povldjxrvs .gt_left {
   text-align: left;
 }
 
-#xhkivttfgj .gt_center {
+#povldjxrvs .gt_center {
   text-align: center;
 }
 
-#xhkivttfgj .gt_right {
+#povldjxrvs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xhkivttfgj .gt_font_normal {
+#povldjxrvs .gt_font_normal {
   font-weight: normal;
 }
 
-#xhkivttfgj .gt_font_bold {
+#povldjxrvs .gt_font_bold {
   font-weight: bold;
 }
 
-#xhkivttfgj .gt_font_italic {
+#povldjxrvs .gt_font_italic {
   font-style: italic;
 }
 
-#xhkivttfgj .gt_super {
+#povldjxrvs .gt_super {
   font-size: 65%;
 }
 
-#xhkivttfgj .gt_footnote_marks {
+#povldjxrvs .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1416,7 +1416,7 @@ Some examples of papers that well in the past include those by:
 - Your paper must have the following sections: title, name/s, and date, abstract, introduction, data, model, results, discussion, and references. 
 - You are welcome to use appendices for supporting, but not critical, material. Your discussion must include sub-sections on weaknesses and next steps.
 - In your report you must provide a link to a GitHub repo that fully contains your analysis. Your code must be entirely reproducible, documented, and readable. Your repo must be well-organized and appropriately use folders.
-- Graphs and tables must be of a high standard. Graphs and tables should be well formatted and report ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
+- Graphs and tables must be of a high standard. Graphs and tables should be well formatted and report-ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
 - When you discuss the dataset (in the data section) you should make sure to discuss (at least): 
     - Its key features, strengths, and weaknesses generally. 
     - A discussion of the questionnaire - what is good and bad about it? 
@@ -1428,7 +1428,7 @@ Some examples of papers that well in the past include those by:
 - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, provided it is consistent.
 - As a team, via Quercus, submit a PDF of your paper. Again, in your paper you must have a link to the associated GitHub repo in an appendix. And you must include the R Markdown file that produced the PDF in that repo.
 - A good way to work as a team would be to split up the work, so that one person is doing each section. The people doing the sections that rely on data (such as the analysis and the graphs) could just simulate it while they are waiting for the person putting together the data to finish.
-- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
+- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses and next steps without confusion. 
 
 ### Checks
 
@@ -1442,12 +1442,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="ainrnijyei" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="sfartyxzws" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ainrnijyei .gt_table {
+#sfartyxzws .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1472,7 +1472,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_heading {
+#sfartyxzws .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1484,7 +1484,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_title {
+#sfartyxzws .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1494,7 +1494,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#ainrnijyei .gt_subtitle {
+#sfartyxzws .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1504,13 +1504,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#ainrnijyei .gt_bottom_border {
+#sfartyxzws .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_col_headings {
+#sfartyxzws .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1525,7 +1525,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_col_heading {
+#sfartyxzws .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1545,7 +1545,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#ainrnijyei .gt_column_spanner_outer {
+#sfartyxzws .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1557,15 +1557,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#ainrnijyei .gt_column_spanner_outer:first-child {
+#sfartyxzws .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ainrnijyei .gt_column_spanner_outer:last-child {
+#sfartyxzws .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ainrnijyei .gt_column_spanner {
+#sfartyxzws .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1577,7 +1577,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#ainrnijyei .gt_group_heading {
+#sfartyxzws .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1599,7 +1599,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#ainrnijyei .gt_empty_group_heading {
+#sfartyxzws .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1614,15 +1614,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#ainrnijyei .gt_from_md > :first-child {
+#sfartyxzws .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ainrnijyei .gt_from_md > :last-child {
+#sfartyxzws .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ainrnijyei .gt_row {
+#sfartyxzws .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1641,7 +1641,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#ainrnijyei .gt_stub {
+#sfartyxzws .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1653,7 +1653,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#ainrnijyei .gt_summary_row {
+#sfartyxzws .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1663,7 +1663,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#ainrnijyei .gt_first_summary_row {
+#sfartyxzws .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1673,7 +1673,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_grand_summary_row {
+#sfartyxzws .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1683,7 +1683,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#ainrnijyei .gt_first_grand_summary_row {
+#sfartyxzws .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1693,11 +1693,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_striped {
+#sfartyxzws .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ainrnijyei .gt_table_body {
+#sfartyxzws .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1706,7 +1706,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_footnotes {
+#sfartyxzws .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1720,13 +1720,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_footnote {
+#sfartyxzws .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ainrnijyei .gt_sourcenotes {
+#sfartyxzws .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1740,41 +1740,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#ainrnijyei .gt_sourcenote {
+#sfartyxzws .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ainrnijyei .gt_left {
+#sfartyxzws .gt_left {
   text-align: left;
 }
 
-#ainrnijyei .gt_center {
+#sfartyxzws .gt_center {
   text-align: center;
 }
 
-#ainrnijyei .gt_right {
+#sfartyxzws .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ainrnijyei .gt_font_normal {
+#sfartyxzws .gt_font_normal {
   font-weight: normal;
 }
 
-#ainrnijyei .gt_font_bold {
+#sfartyxzws .gt_font_bold {
   font-weight: bold;
 }
 
-#ainrnijyei .gt_font_italic {
+#sfartyxzws .gt_font_italic {
   font-style: italic;
 }
 
-#ainrnijyei .gt_super {
+#sfartyxzws .gt_super {
   font-size: 65%;
 }
 
-#ainrnijyei .gt_footnote_marks {
+#sfartyxzws .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1890,9 +1890,9 @@ Some examples of papers that well in the past include those by:
     - The paper must be well-written, draw on relevant literature, and show your statistical skills by explaining all statistical concepts that you draw on. 
     - The paper must have the following sections: title, name/s, and date, abstract and keywords, introduction, data, model, results, discussion, and references. 
     - The paper may use appendices for supporting, but not critical, material. 
-    - The discussion needs to be substantial. For instance, if the paper were 10 pages long then a discussion should be at least 2.5 pages. In the discussion, the paper must include subsections on weaknesses, and next steps - but these must be in proportion.
+    - The discussion needs to be substantial. For instance, if the paper were 10 pages long then a discussion should be at least 2.5 pages. In the discussion, the paper must include subsections on weaknesses and next steps - but these must be in proportion.
     - The report must provide a link to a GitHub repo that contains everything (apart from the raw data that you git ignored because it is not yours to share). The code must be entirely reproducible, documented, and readable. The repo must be well-organized and appropriately use folders and README files.
-    - The graphs and tables must be of a high standard, well formatted, and report ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
+    - The graphs and tables must be of a high standard, well formatted, and report-ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
     - When you discuss the datasets (in the data section) (remember there will be at least two datasets to discuss) you should make sure to discuss (at least): 
         - Their key features, strengths, and weaknesses generally. 
         - The survey questionnaire - what is good and bad about it? 
@@ -1911,7 +1911,7 @@ Some examples of papers that well in the past include those by:
 
 ### Checks
 
-- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. The average person doesn't know what a p-value is nor what a confidence interval is. You need to explain all of this in plain language the first time you use it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
+- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. The average person doesn't know what a p-value is nor what a confidence interval is. You need to explain all of this in plain language the first time you use it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses and next steps without confusion. 
 - It is recommended that you (informally) proofread one another's work - why not exchange papers with another group? 
 - Everyone in the team receives the same mark.
 - There should be no evidence that this is a class assignment.
@@ -1924,12 +1924,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="mnvdxnkxhz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mswcpygcbq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#mnvdxnkxhz .gt_table {
+#mswcpygcbq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1954,7 +1954,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_heading {
+#mswcpygcbq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1966,7 +1966,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_title {
+#mswcpygcbq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1976,7 +1976,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#mnvdxnkxhz .gt_subtitle {
+#mswcpygcbq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1986,13 +1986,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#mnvdxnkxhz .gt_bottom_border {
+#mswcpygcbq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_col_headings {
+#mswcpygcbq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2007,7 +2007,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_col_heading {
+#mswcpygcbq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2027,7 +2027,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#mnvdxnkxhz .gt_column_spanner_outer {
+#mswcpygcbq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2039,15 +2039,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#mnvdxnkxhz .gt_column_spanner_outer:first-child {
+#mswcpygcbq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mnvdxnkxhz .gt_column_spanner_outer:last-child {
+#mswcpygcbq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mnvdxnkxhz .gt_column_spanner {
+#mswcpygcbq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2059,7 +2059,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#mnvdxnkxhz .gt_group_heading {
+#mswcpygcbq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2081,7 +2081,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#mnvdxnkxhz .gt_empty_group_heading {
+#mswcpygcbq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2096,15 +2096,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#mnvdxnkxhz .gt_from_md > :first-child {
+#mswcpygcbq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mnvdxnkxhz .gt_from_md > :last-child {
+#mswcpygcbq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mnvdxnkxhz .gt_row {
+#mswcpygcbq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2123,7 +2123,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#mnvdxnkxhz .gt_stub {
+#mswcpygcbq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2135,7 +2135,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#mnvdxnkxhz .gt_summary_row {
+#mswcpygcbq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2145,7 +2145,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#mnvdxnkxhz .gt_first_summary_row {
+#mswcpygcbq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2155,7 +2155,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_grand_summary_row {
+#mswcpygcbq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2165,7 +2165,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#mnvdxnkxhz .gt_first_grand_summary_row {
+#mswcpygcbq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2175,11 +2175,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_striped {
+#mswcpygcbq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mnvdxnkxhz .gt_table_body {
+#mswcpygcbq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2188,7 +2188,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_footnotes {
+#mswcpygcbq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2202,13 +2202,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_footnote {
+#mswcpygcbq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#mnvdxnkxhz .gt_sourcenotes {
+#mswcpygcbq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2222,41 +2222,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mnvdxnkxhz .gt_sourcenote {
+#mswcpygcbq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#mnvdxnkxhz .gt_left {
+#mswcpygcbq .gt_left {
   text-align: left;
 }
 
-#mnvdxnkxhz .gt_center {
+#mswcpygcbq .gt_center {
   text-align: center;
 }
 
-#mnvdxnkxhz .gt_right {
+#mswcpygcbq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mnvdxnkxhz .gt_font_normal {
+#mswcpygcbq .gt_font_normal {
   font-weight: normal;
 }
 
-#mnvdxnkxhz .gt_font_bold {
+#mswcpygcbq .gt_font_bold {
   font-weight: bold;
 }
 
-#mnvdxnkxhz .gt_font_italic {
+#mswcpygcbq .gt_font_italic {
   font-style: italic;
 }
 
-#mnvdxnkxhz .gt_super {
+#mswcpygcbq .gt_super {
   font-size: 65%;
 }
 
-#mnvdxnkxhz .gt_footnote_marks {
+#mswcpygcbq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2351,7 +2351,7 @@ Some examples of papers that well in the past include those by:
     - Title, date, author, keywords, abstract, introduction, data, model, results, discussion, appendix (optional, for supporting, but not critical, material), and a reference list. 
     - It must also include an enhancement, and this would either be contained or linked in the appendix.
 - The paper must be well-written, draw on relevant literature, and show statistical skills by explaining all statistical concepts.
-- The discussion needs to be substantial. For instance, if the paper were 10 pages long then a discussion should be at least 2.5 pages. In the discussion, the paper must include subsections on weaknesses, and next steps - but these must be in proportion.
+- The discussion needs to be substantial. For instance, if the paper were 10 pages long then a discussion should be at least 2.5 pages. In the discussion, the paper must include subsections on weaknesses and next steps - but these must be in proportion.
 - The report must provide a link to a GitHub repo that contains everything (apart from any raw data that you git ignored if it is not yours to share). The code must be entirely reproducible, documented, and readable. The repo must be well-organized and appropriately use folders and README files. 
 
 ### Peer review submission 
@@ -2392,12 +2392,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="peunndqeak" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="sheyaagxyl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#peunndqeak .gt_table {
+#sheyaagxyl .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2422,7 +2422,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#peunndqeak .gt_heading {
+#sheyaagxyl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2434,7 +2434,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#peunndqeak .gt_title {
+#sheyaagxyl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2444,7 +2444,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#peunndqeak .gt_subtitle {
+#sheyaagxyl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2454,13 +2454,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#peunndqeak .gt_bottom_border {
+#sheyaagxyl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#peunndqeak .gt_col_headings {
+#sheyaagxyl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2475,7 +2475,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#peunndqeak .gt_col_heading {
+#sheyaagxyl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2495,7 +2495,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#peunndqeak .gt_column_spanner_outer {
+#sheyaagxyl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2507,15 +2507,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#peunndqeak .gt_column_spanner_outer:first-child {
+#sheyaagxyl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#peunndqeak .gt_column_spanner_outer:last-child {
+#sheyaagxyl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#peunndqeak .gt_column_spanner {
+#sheyaagxyl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2527,7 +2527,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#peunndqeak .gt_group_heading {
+#sheyaagxyl .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2549,7 +2549,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#peunndqeak .gt_empty_group_heading {
+#sheyaagxyl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2564,15 +2564,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#peunndqeak .gt_from_md > :first-child {
+#sheyaagxyl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#peunndqeak .gt_from_md > :last-child {
+#sheyaagxyl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#peunndqeak .gt_row {
+#sheyaagxyl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2591,7 +2591,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#peunndqeak .gt_stub {
+#sheyaagxyl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2603,7 +2603,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#peunndqeak .gt_summary_row {
+#sheyaagxyl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2613,7 +2613,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#peunndqeak .gt_first_summary_row {
+#sheyaagxyl .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2623,7 +2623,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#peunndqeak .gt_grand_summary_row {
+#sheyaagxyl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2633,7 +2633,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#peunndqeak .gt_first_grand_summary_row {
+#sheyaagxyl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2643,11 +2643,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#peunndqeak .gt_striped {
+#sheyaagxyl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#peunndqeak .gt_table_body {
+#sheyaagxyl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2656,7 +2656,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#peunndqeak .gt_footnotes {
+#sheyaagxyl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2670,13 +2670,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#peunndqeak .gt_footnote {
+#sheyaagxyl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#peunndqeak .gt_sourcenotes {
+#sheyaagxyl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2690,41 +2690,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#peunndqeak .gt_sourcenote {
+#sheyaagxyl .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#peunndqeak .gt_left {
+#sheyaagxyl .gt_left {
   text-align: left;
 }
 
-#peunndqeak .gt_center {
+#sheyaagxyl .gt_center {
   text-align: center;
 }
 
-#peunndqeak .gt_right {
+#sheyaagxyl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#peunndqeak .gt_font_normal {
+#sheyaagxyl .gt_font_normal {
   font-weight: normal;
 }
 
-#peunndqeak .gt_font_bold {
+#sheyaagxyl .gt_font_bold {
   font-weight: bold;
 }
 
-#peunndqeak .gt_font_italic {
+#sheyaagxyl .gt_font_italic {
   font-style: italic;
 }
 
-#peunndqeak .gt_super {
+#sheyaagxyl .gt_super {
   font-size: 65%;
 }
 
-#peunndqeak .gt_footnote_marks {
+#sheyaagxyl .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;

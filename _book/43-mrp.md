@@ -2490,5 +2490,5 @@ More generally, we could pretty much use MRP anywhere we have samples. Determini
 
 ### Paper
 
-At about this point, the Paper Six (Appendix \@ref(paper-6)) would be appropriate.
+At about this point, the Paper Five (Appendix \@ref(paper-five)) would be appropriate.
 
