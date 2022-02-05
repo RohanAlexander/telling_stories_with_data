@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "04 February, 2022"
+date: "05 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -105,7 +105,7 @@ Some chapters additionally feature:
 - A section called 'Oh, you think we have good data on that!' which focuses on a particular setting, such as cause of death, in which it is often assumed that there is unimpeachable and unambiguous data but the reality tends to be quite far from that.
 - A section called 'Shoulders of giants', which focuses on some of those who created the intellectual foundation on which we build.
 
-Finally, a set of six papers is included in the appendix. If you write these, you will be conducting original research on a topic that is of interest to you. Although open-ended research may be new to you, the extent to which you are able to: develop your own questions, use quantitative methods to explore them, and communicates your findings, is the measure of the success of this book.
+Finally, a set of six papers is included in Appendix \@ref(papers). If you write these, you will be conducting original research on a topic that is of interest to you. Although open-ended research may be new to you, the extent to which you are able to: develop your own questions, use quantitative methods to explore them, and communicates your findings, is the measure of the success of this book.
 
 
 
@@ -146,6 +146,8 @@ Thank you to my PhD supervisory panel John Tang, Martine Mariotti, Tim Hatton, a
 Thank you to Elle Côtè for enabling this book to be written.
 
 This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail, Scott Cunningham, Andrew Heiss, Lisa Lendway, Grant McDermott, Nathan Matias, David Mimno, and Ed Rubin. Thank you to these folks. The changed norm of academics making their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.
+
+Aspects of the rubrics used in Appendix \@ref(papers) were based on rubrics developed by Lisa Romkey and Alan Chong. I am grateful they allowed me to build on their foundation.
 
 Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 

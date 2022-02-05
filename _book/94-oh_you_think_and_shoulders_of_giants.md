@@ -50,6 +50,8 @@ Chapter 9:
 
 > **Shoulders of giants** Donald B. Rubin
 
+> **Shoulders of giants** Marcella Alsan
+
 Chapter 10:
 
 > **Shoulders of giants** Barbara Bailar

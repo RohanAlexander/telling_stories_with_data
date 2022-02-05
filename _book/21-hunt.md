@@ -1,16 +1,12 @@
 
 # Hunt data
 
-**STATUS: Under construction.**
-
-
-
 **Required material**
 
 - Read *Big tech is testing you*, [@fry2020big].
 - Read *Inventing the randomized double-blind trial: the Nuremberg salt test of 1835*, [@stolberg2006inventing].
-- @gertler2016impact ???
-- @holland1986statistics parts 1-3.
+- Read *Impact evaluation in practice*, Chapters 3 and 4, [@gertler2016impact].
+- Read *Statistics and causal inference*, Parts 1-3, [@holland1986statistics].
 
 <!-- **Required reading** -->
 
@@ -88,51 +84,76 @@
 - Internal and external validity.
 - Average treatment effect.
 - Generating simulated datasets.
-- Defining populations, frames and samples.
-- Distinguishing probability and non-probability sampling
-- Distinguishing strata and clusters.
+- Informed consent and establishing the need for an experiment.
+- A/B testing
 
 
 **Key libraries**
 
-- `broom`
-- `ggplot2`
 - `tidyverse`
 
 **Key functions/etc**
 
-- `aov()`
+- `count()`
+- `filter()`
+- `ggplot()`
+- `group_by()`
+- `head()`
+- `here()`
+- `if_else()`
+- `left_join()`
+- `length()`
+- `mean()`
+- `mutate()`
+- `names()`
+- `nrow()`
+- `pivot_wider()`
+- `read_csv()`
+- `ref()`
+- `rename()`
 - `rnorm()`
+- `rowwise()`
 - `sample()`
-- `t.test()`
-
+- `scale_fill_brewer()`
+- `seed()`
+- `select()`
+- `str_detect()`
+- `sum()`
+- `summarize()`
+- `test()`
+- `theme_classic()`
+- `theme_minimal()`
+- `tibble()`
+- `ungroup()`
 
 
 
 
 ## Experiments and randomized controlled trials
 
-Ronald Fisher and Francis Galton are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both of these men believed in eugenics, amongst other things that are generally reprehensible. 
+Ronald Fisher, the twentieth century statistician, and Francis Galton, the nineteenth century statistician, are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both men believed in eugenics, amongst other things that are generally reprehensible. 
 In the same way that art history must acknowledge, say Caravaggio as a murderer, while also considering his work and influence, so to must statistics and the data sciences more generally concern themselves with this past, at the same time as we try to build a better future.
 
-This chapter is about experiments. This is a situation in which we can explicitly control and vary that which we are interested in. The advantage of this is that identification should be clear. There is a treatment group that is subject to that which we are interested in, and a control group that is not. These are randomly split before treatment. And so if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely, because our ability to speak to whether we have measured the effect of the treatment, affects our ability to speak to what effect that treatment could have.
+This chapter is about experiments. This is a situation in which we can explicitly control and vary that which we are interested in. The advantage of this is that identification should be clear. There is a treatment group that is subject to that which we are interested in, and a control group that is not. These are randomly split before treatment. And so, if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely. Our ability to speak to whether we have measured the effect of the treatment, affects our ability to speak to what effect that treatment could have.
 
 <!-- It is also important to note that the statistics of this were designed in agricultural settings 'does fertilizer work?', etc. In those settings one can more easily divide a field into 'treated' and 'non-treated', and the magnitude of the effect tends to be large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about 'having enough power' and similar phrases, then it is *not* necessarily that they are *not* right, but it usually pays to take a step back and really think about what is being done and whether they really know what they are doing. -->
 
-In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We go through various case studies, including the abhorrent Tuskegee Syphilis experiments. We then turn to A/B testing, which is extensively used in industry, before turning to implementing surveys, more automated forms such as sensor data, and finally, the notoriously slow, but crucial Freedom of Information request.
+In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We go through various case studies, including the abhorrent Tuskegee Syphilis experiments. We then turn to A/B testing, which is extensively used in industry.
+<!-- , and then discuss the actual implementation of surveys.  -->
+<!-- Finally, we compare automated approaches such as obtaining data from sensors, with the notoriously slow, but crucial approach of making Freedom of Information requests. -->
 
 
 ### Motivation and notation
 
-Professional sports are a big deal in North America. Consider the situation of someone who moves to San Francisco in 2014, such that as soon as they moved the Giants win the World Series and the Golden State Warriors begin a historic streak of World Championships. They move to Chicago, and immediately the Cubs win the World Series for the first time in a hundred years. They move to Massachusetts, where the Patriots win the Super Bowl again, and again, and again. And finally they move to Toronto, where the Raptors immediately win the World Championship. Should a city pay them to move, or could municipal funds be better spent elsewhere? 
+Professional sports are a big deal in North America. Consider the situation of someone who moves to San Francisco in 2014, such that as soon as they moved the Giants win the World Series and the Golden State Warriors begin a historic streak of World Championships. They move to Chicago, and immediately the Cubs win the World Series for the first time in a hundred years. They move to Massachusetts, where the Patriots win the Super Bowl again, and again, and again. And finally, they move to Toronto, where the Raptors immediately win the World Championship. Should a city pay them to move, or could municipal funds be better spent elsewhere? 
 
-One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send them to live there for a year. With enough lifetimes, we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. This is the fundamental problem of causal inference: a person cannot be both treated and untreated. Experiments and randomized controlled trials are circumstances in which we try to randomly allocate some treatment, so as to have a belief that everything else was the same (or at least ignorable). The framework that we use to formalize the situation is the Neyman-Rubin model.
+One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send them to live there for a year. With enough lifetimes, we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. This is the fundamental problem of causal inference: a person cannot be both treated and untreated. Experiments and randomized controlled trials are circumstances in which we try to randomly allocate some treatment, to have a belief that everything else was the same (or at least ignorable). The framework that we use to formalize the situation is the Neyman-Rubin model [@holland1986statistics].
 
 A treatment, $t$, will often be a binary variable that is either 0 or 1. It is 0 if the person, $i$, is not treated, which is to say they are in the control group, and 1 if they are treated. We will typically have some outcome, $Y_i$, of interest for that person, and that could be binary, multinomial, or continuous. For instance, it could be vote choice, in which case we could measure whether the person is: 'Conservative' or 'Not Conservative'; which party they support, say: 'Conservative', 'Liberal', 'Democratic', 'Green'; or maybe a probability of support.
 
-A treatment is causal if $(Y_i|t=0) \neq (Y_i|t=1)$. That is to say, that the outcome for person $i$, given they were treated, is different to their outcome given they were treated. If we could both treat and control the one individual at the one time, then we would know that it was only the treatment that had caused any change in outcome -- there is no other factor that could explain it. But the fundamental problem of causal inference is that we cannot both treat and control the one individual at the one time. So when we want to know the effect of the treatment, we need to compare it with a counterfactual. The counterfactual is what would have happened if the individual were not treated. As it turns out, this means one way to think of causal inference is as a missing data problem, where we are missing the counterfactual.
+A treatment is causal if $(Y_i|t=0) \neq (Y_i|t=1)$. That is to say, that the outcome for person $i$, given they were not treated, is different to their outcome given they were treated. If we could both treat and control the one individual at the one time, then we would know that it was only the treatment that had caused any change in outcome, as there is no other factor that could explain it. But the fundamental problem of causal inference is that we cannot both treat and control the one individual at the one time. So when we want to know the effect of the treatment, we need to compare it with a counterfactual. The counterfactual is what would have happened if the individual were not treated. As it turns out, this means one way to think of causal inference is as a missing data problem, where we are missing the counterfactual.
 
-As we cannot compared treatment and control in one particular individual, we instead compare the average of two groups---all those treated and all those not. We are looking to estimate the counterfactual at a group level because of the impossibility of doing it at an individual level. Making this trade-off allows us to move forward, but comes at the cost of certainty
+As we cannot compared treatment and control in one individual, we instead compare the average of two groups---all those treated and all those not. We are looking to estimate the counterfactual at a group level because of the impossibility of doing it at an individual level. Making this trade-off allows us to move forward but comes at the cost of certainty. We must instead rely on randomization, probabilities, and expectations.
 
 We usually consider a default of there being no effect and we look for evidence that would cause us to change our mind. As we are interested in what is happening in groups, we turn to expectations, and notions of probability to express ourselves. Hence, we will make claims that talk, on average. Maybe wearing fun socks really does make you have a lucky day, but on average, across the group, it is probably not the case.
 
@@ -142,7 +163,7 @@ It is worth pointing out that we do not just have to be interested in the averag
 2. sum the column, then divide it by the length of the column; and
 3. then look at the ratio.
 
-This is an estimator, touched on in Chapter \@ref(on-writing), which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. 
+This is an estimator, touched on in Chapter \@ref(on-writing), which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. We can simulate data to illustrate the situation.
 
 
 ```r
@@ -180,19 +201,17 @@ estimate
 #> [1] 0.4
 ```
 
-More broadly, to tell causal stories we need to bring together both theory and a detailed knowledge of what we are interested in [@Cunningham2021, p. 4]. In Chapter \@ref(gather-data) we discussed gathering data which we observed about the world. In this chapter we are going to be more active about turning the world into the data that we need. As the researcher we will decide what to measure and how, and we will need to define what we are interested in and what we are not. We will be active participants in the data generating process. That is, if we want to use this data then as researchers we have to go out and hunt it, if you like.
+More broadly, to tell causal stories we need to bring together both theory and a detailed knowledge of what we are interested in [@Cunningham2021, p. 4]. In Chapter \@ref(gather-data) we discussed gathering data that we observed about the world. In this chapter we are going to be more active about turning the world into the data that we need. As the researcher we will decide what to measure and how, and we will need to define what we are interested in and what we are not. We will be active participants in the data generating process. That is, if we want to use this data, then as researchers we must go out and hunt it, if you like.
 
 
 
-### Randomized sampling
+### Randomization
 
-Correlation can be enough in some settings, but in order to be able to make forecasts when things change and the circumstances are slightly different we need to understand causation. The key is the counterfactual: what would have happened in the absence of the treatment. Ideally we could keep everything else constant, randomly divide the world into two groups, and then treat one and not the other. Then we can be pretty confident that any difference between the two groups is due to that treatment. The reason for this is that if we have some population and we randomly select two groups from it, then our two groups (provided they are both big enough) should have the same characteristics as the population. Randomized controlled trials (RCTs) and A/B testing attempt to get us as close to this 'gold standard' as we can hope. When we, and others such as @athey2017state, use language like gold standard to refer to these approaches, we do not mean to imply that they are perfect. Just that they are generally better than most of the other options.
+Correlation can be enough in some settings, but in order to be able to make forecasts when things change, and the circumstances are slightly different we need to understand causation. The key is the counterfactual: what would have happened in the absence of the treatment. Ideally, we could keep everything else constant, randomly divide the world into two groups, and treat one and not the other. Then we can be pretty confident that any difference between the two groups is due to that treatment. The reason for this is that if we have some population and we randomly select two groups from it, then our two groups (provided they are both big enough) should have the same characteristics as the population. Randomized controlled trials (RCTs) and A/B testing attempt to get us as close to this 'gold standard' as we can hope. When we, and others such as @athey2017state, use language like gold standard to refer to these approaches, we do not mean to imply that they are perfect. Just that they can be better than most of the other options.
 
-What we hope to be able to do is to find treatment and control groups that are the same, but for the treatment. This means that establishing the control is critical because when we do that we establish the counterfactual.
+What we hope to be able to do is to find treatment and control groups that are the same, but for the treatment. This means that establishing the control group is critical because when we do that, we establish the counterfactual. We might be worried about, say, underlying trends, which is one issue with a before-and-after comparison, or selection bias, which could occur when we allow self-selection. Either of these issues could result in biased estimators. We use randomization to go some way to addressing these.
 
-We might be worried about underlying trends, which is one issue with a before-and-after comparison, or selection bias, which could occur when we allow self-selection. Either of these issues could result in biased estimators. We use randomization to go some way to addressing these.
-
-To get started, we generate a simulated dataset and then randomly sample from it. We will set it up so that 25 per cent of people like blue and 75 per cent like white. And further that 80 per cent of people like dogs and 20 per cent like cats. Simulation is a critical part of the workflow advocated in this book. This is because we know roughly what the outcomes should be from the analysis of simulated data. Whereas if we go straight to analyzing the real data then we do not know if unexpected outcomes are due to our own analysis errors, or actual results. Another good reason it is useful to take this approach of simulation is that when you are working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.
+To get started, we simulate a population, and then randomly sample from it. We will set it up so that half the population likes blue, and the other half likes white. And further, if someone likes blue then they almost surely prefer dogs, but if they like white then they almost surely prefer cats. The approach of heavily using simulation is a critical part of the workflow advocated in this book. This is because we know roughly what the outcomes should be from the analysis of simulated data. Whereas if we go straight to analyzing the real data then we do not know if unexpected outcomes are due to our own analysis errors, or actual results. Another good reason it is useful to take this approach of simulation is that when you are working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.
 
 
 ```r
@@ -207,17 +226,41 @@ population <-
       x = c("Blue", "White"),
       size  = number_of_people,
       replace = TRUE
-    ),
-    prefers_dogs_to_cats = sample(
-      x = c("Yes", "No"),
-      size  = number_of_people,
-      replace = TRUE,
-      prob = c(0.80, 0.20)
     )
-  ) 
+  ) |>
+  mutate(
+    prefers_dogs_to_cats =
+      if_else(favorite_color == "Blue", "Yes", "No"),
+    noise = sample(1:10, size = 1),
+    prefers_dogs_to_cats =
+      if_else(
+        noise <= 8,
+        prefers_dogs_to_cats,
+        sample(c("Yes", "No"), 
+               size = 1)
+        )
+  ) |> 
+  select(-noise)
 
-population %>%
-  group_by(favorite_color) %>% 
+
+population
+#> # A tibble: 5,000 × 3
+#>    person favorite_color prefers_dogs_to_cats
+#>     <int> <chr>          <chr>               
+#>  1      1 Blue           Yes                 
+#>  2      2 White          No                  
+#>  3      3 White          No                  
+#>  4      4 Blue           Yes                 
+#>  5      5 Blue           Yes                 
+#>  6      6 Blue           Yes                 
+#>  7      7 Blue           Yes                 
+#>  8      8 Blue           Yes                 
+#>  9      9 White          No                  
+#> 10     10 White          No                  
+#> # … with 4,990 more rows
+
+population |>
+  group_by(favorite_color) |> 
   count()
 #> # A tibble: 2 × 2
 #> # Groups:   favorite_color [2]
@@ -226,6 +269,8 @@ population %>%
 #> 1 Blue            2547
 #> 2 White           2453
 ```
+
+We will now construct a frame, assuming that we have a frame that contains 80 per cent of the population.
 
 
 ```r
@@ -242,8 +287,8 @@ frame <-
   )) |>
   filter(in_frame == 1)
 
-frame %>%
-  group_by(favorite_color) %>% 
+frame |>
+  group_by(favorite_color) |> 
   count()
 #> # A tibble: 2 × 2
 #> # Groups:   favorite_color [2]
@@ -253,7 +298,7 @@ frame %>%
 #> 2 White           1980
 ```
 
-For now we will set aside dog or cat preferences and focus on distributing the treatment on the basis of favorite color.
+For now, we will set aside dog or cat preferences and focus on creating treatment and control groups on the basis of favorite color only.
 
 
 ```r
@@ -321,7 +366,7 @@ Table: (\#tab:bluetowhite)Proportion of the treatment and control group that pre
 <!-- t.test(treatment, control) -->
 <!-- ``` -->
 
-We randomized on the basis of favorite color. But we should also find that we took dog or cat preferences along at the same time and will have a 'representative' share of people who prefer dogs to cats. Why should that happen when we have not randomized on these variables? Let's start by looking at our dataset (Table \@ref(tab:dogstocats)). 
+We randomized based on favorite color. But we should also find that we took dog or cat preferences along at the same time and will have a 'representative' share of people who prefer dogs to cats. Why should that happen when we have not randomized on these variables? Let's start by looking at our dataset (Table \@ref(tab:dogstocats)). 
 
 
 ```r
@@ -348,76 +393,72 @@ Table: (\#tab:dogstocats)Proportion of the treatment and control group that pref
 
 |Group     |Prefers dogs to cats | Number| Proportion|
 |:---------|:--------------------|------:|----------:|
-|Control   |No                   |    372|       0.19|
-|Control   |Yes                  |   1612|       0.81|
-|Treatment |No                   |    394|       0.20|
-|Treatment |Yes                  |   1625|       0.80|
+|Control   |No                   |    997|       0.50|
+|Control   |Yes                  |    987|       0.50|
+|Treatment |No                   |    983|       0.49|
+|Treatment |Yes                  |   1036|       0.51|
 
 
-This is very exciting. We have a representative share on 'unobservables' (in this case we do 'observe' them - to illustrate the point - but we did not select on them). We get this because they were correlated. But it will break down in a number of ways that we will discuss. It also assumes large enough groups - if we sampled in Toronto are we likely to get a 'representative' share of people who support the Canadiens? What about, say, F.C. Hansa Rostock? If we want to check that the two groups are the same then what can we do? Exactly what we did above---just check if we can identify a difference between the two groups based on observables (we looked at the mean, but we could look at other aspects as well). 
+It is exciting to have a representative share on 'unobservables'. In this case, we do 'observe' them---to illustrate the point---but we did not select on them. We get this because the variables were correlated. But it will break down in several ways that we will discuss. It also assumes large enough groups. For instance, if we considered specific dog breeds, instead of dogs as an entity, we may not find ourselves in this situation. To check that the two groups are the same we look to see if we can identify a difference between the two groups based on observables. In this case we looked at the mean, but we could look at other aspects as well. 
 
-This all brings us to Analysis of Variation (ANOVA). ANOVA was introduced by Fisher while he was working on statistical problems in agriculture. This is less unexpected than it may seem and historically agricultural research has been closely tied to statistical innovation.
+This all brings us to Analysis of Variation (ANOVA). ANOVA was introduced by Fisher while he was working on statistical problems in agriculture. This is less unexpected than it may seem as historically agricultural research has been closely tied to statistical innovation. We mention ANOVA here because of its importance historically, but it is a variant of linear regression which we cover in some detail in Chapter \@ref(ijalm). Further, in general, we would usually not use ANOVA day-to-day. There is nothing wrong with it in the right circumstances. But it is more than a hundred years old and the number of modern use-case where it is the best option is small. 
 
-We mention ANOVA here because of its importance historically, but it is just linear regression and we cover linear models in some detail in Chapter \@ref(ijalm). Further, in general, we should almost surely not actually use ANOVA day-to-day. There is nothing wrong with it, in the right circumstances, it is more just that it is a hundred years old and the number of modern use-case where it is is the best option is small. 
-
-In any case, we approach ANOVA with the expectation that the groups are from the same distribution and could conduct it using `aov()`. In this case, we would fail to reject the null that the samples are the same. 
+In any case, we approach ANOVA with the expectation that the groups are from the same distribution and could conduct it using `aov()`. In this case, we would fail to reject our default hypothesis that the samples are the same.
 
 
 
 ### Treatment and control
 
-If the treated and control groups are the same in all ways and remain that way, but for the treatment, then we have internal validity, which is to say that our control will work as a counterfactual and our results can speak to a difference between these groups in that study. Internal validity means that our estimates of the effect of the treatment are speaking to the treatment and not some other aspect. They mean that we can use our results to make claims about what happened in the experiment.
+If the treated and control groups are the same in all ways and remain that way, but for the treatment, then we have internal validity, which is to say that our control will work as a counterfactual and our results can speak to a difference between the groups in that study. Internal validity means that our estimates of the effect of the treatment are speaking to the treatment and not some other aspect. They mean that we can use our results to make claims about what happened in the experiment.
 
-If the group to which we applied our randomization were representative of the broader population, and the experimental set-up were fairly similar to outside conditions, then we further could have external validity. That would mean that the difference we find does not just apply in our own experiment, but also in the broader population. External validity means that the we can use our experiment to make claims about what would happen outside the experiment. It is randomization that has allowed that to happen. 
+If the group to which we applied our randomization were representative of the broader population, and the experimental set-up were fairly similar to outside conditions, then we further could have external validity. That would mean that the difference we find does not just apply in our own experiment, but also in the broader population. External validity means that we can use our experiment to make claims about what would happen outside the experiment. It is randomization that has allowed that to happen. 
 
-But this means we need randomization twice. How does this trade-off happen and to what extent does it matter?
+But this means we need randomization twice. Firstly, into the group that was subject to the experiment, and then secondly, between treatment and control. How do we think about this randomization, and to what extent does it matter?
 
-We are interested in the effect of being treated. It may be that we charge different prices (continuous treatment variable), or that we compare different colors on a website (discrete treatment variable). Either way, we need to make sure that all of the groups are otherwise the same. How can we be convinced of this? One way is to ignore the treatment variable and to examine all other variables, searching to detect a difference between the groups based on any other variables? For instance, if we are conducting an experiment on a website, then are there a similar number of:
+We are interested in the effect of being treated. It may be that we charge different prices, which would be a continuous treatment variable, or that we compare different colors on a website, which would be a discrete treatment variable. Either way, we need to make sure that all the groups are otherwise the same. How can we be convinced of this? One way is to ignore the treatment variable and to examine all other variables, looking for whether we can detect a difference between the groups based on any other variables. For instance, if we are conducting an experiment on a website, then are the groups roughly similar in terms of, say:
 
 - Microsoft and Apple users?
-- Safari, Chrome and Firefox users?
+- Safari, Chrome, and Firefox users?
 - Mobile and desktop users?
 - Users from certain locations?
 
-These are all threats to the validity of our claims.
+Further, are the groups representative of the broader population? These are all threats to the validity of our claims.
 
-But if done properly, that is if the treatment is truly independent, then we can estimate the average treatment effect (ATE), which in a binary treatment variable setting is:
+But if done properly, that is if the treatment is truly independent, then we can estimate the average treatment effect (ATE). In a binary treatment variable setting this is:
 
 $$\mbox{ATE} = \mathbb{E}[Y|t=1] - \mathbb{E}[Y|t=0].$$
 
 That is, the difference between the treated group, $t = 1$, and the control group, $t = 0$, when measured by the expected value of the outcome, $Y$. The ATE becomes the difference between the two expectations.
 
-To illustrate this concept, we first simulate some data that shows a difference between the treatment and control groups of one.
+To illustrate this concept, we first simulate some data that shows a difference of one between the treatment and control groups.
 
 
 ```r
 set.seed(853)
 
-example_of_ate <- tibble(person = c(1:1000),
-                       was_treated = sample(
-                         x = c("Yes", "No"),
-                         size  = 1000,
-                         replace = TRUE
-                         ))
+ate_example <- tibble(person = c(1:1000),
+                      was_treated = sample(
+                        x = c("Yes", "No"),
+                        size  = 1000,
+                        replace = TRUE
+                      ))
 
-# We want to make the outcome slightly more likely if they were treated than if not.
-example_of_ate <-
-  example_of_ate |>
+# Make outcome a bit more likely if treated.
+ate_example <-
+  ate_example |>
   rowwise() |>
-  mutate(outcome = if_else(was_treated == "No",
-                           rnorm(
-                             n = 1, mean = 5, sd = 1
-                             ),
-                           rnorm(
-                             n = 1, mean = 6, sd = 1
-                             )))
+  mutate(outcome = if_else(
+    was_treated == "No",
+    rnorm(n = 1, mean = 5, sd = 1),
+    rnorm(n = 1, mean = 6, sd = 1)
+  ))
 ```
 
-We are able to see the difference, which we simulated to be one, between the two groups in Figure (Figure \@ref(fig:exampleatefig)). And we can compute the average between the groups and then the difference to see also that we get back the result that we put in (Table \@ref(tab:exampleatetable)).
+We can see the difference, which we simulated to be one, between the two groups in Figure (Figure \@ref(fig:exampleatefig)). And we can compute the average between the groups and then the difference to see also that we get back the result that we put in (Table \@ref(tab:exampleatetable)).
 
 
 ```r
-example_of_ate |>
+ate_example |>
   ggplot(aes(x = outcome,
              fill = was_treated)) +
   geom_histogram(position = "dodge",
@@ -437,7 +478,7 @@ example_of_ate |>
 
 
 ```r
-example_of_ate |>
+ate_example |>
   group_by(was_treated) |>
   summarize(mean = mean(outcome)) |>
   pivot_wider(names_from = was_treated, values_from = mean) |>
@@ -459,24 +500,17 @@ Table: (\#tab:exampleatetable)Average difference between the treatment and contr
 |-------------------:|-----------------------:|----------:|
 |                   5|                    6.06|       1.06|
 
-Unfortunately, there tends to be a difference between simulated data and reality. For instance, the experiment cannot run for too long otherwise people may be treated many times, or become inured to the treatment; but it cannot be too short otherwise we cannot measure longer term outcomes. We cannot have a 'representative' sample on every cross-tab, but if not, then the treatment and control will be different. Practical difficulties may make it difficult to follow up with certain groups and so we end up with a biased collection. Some questions to explore when working with real experimental data include: 
+Unfortunately, there is often a difference between simulated data and reality. For instance, an experiment cannot run for too long otherwise people may be treated many times, or become inured to the treatment; but it cannot be too short otherwise we cannot measure longer term outcomes. We cannot have a 'representative' sample across every facet of a population, but if not, then the treatment and control will be different. Practical difficulties may make it difficult to follow up with certain groups and so we end up with a biased collection. Some questions to explore when working with real experimental data include: 
 
 - How are the participants being selected into the frame for consideration? 
-- How are they being selected for treatment? We would hope this is a lottery, but this term is applied to a variety of situations. Additionally, early 'success' can lead to pressure to treat everyone. 
+- How are they being selected for treatment? We would hope this is being done randomly, but this term is applied to a variety of situations. Additionally, early 'success' can lead to pressure to treat everyone, especially in medical settings.
 - How is treatment being assessed?
-- To what extent is random allocation ethical and fair? Some argue that shortages mean it is reasonable to randomly allocate, but that may depend on how linear the benefits are. It may also be difficult to establish boundaries. If we only want to include people in Ontario then that may be clear, but what about 'students' in Ontario - who is a student, and who is making the decision?
+- To what extent is random allocation ethical and fair? Some argue that shortages mean it is reasonable to randomly allocate, but that may depend on how linear the benefits are. It may also be difficult to establish definitions, and the power imbalance between those making these decisions and those being treated should be considered.
 
-Bias and other issues are not the end of the world. But we need to think about it carefully. In a well-known example, Abraham Wald was given data on the planes that came back to Britain after being shot at in WW2. The question is where to place the armor. One option is to place it over the bullet holes. Wald recognized that there is a selection effect here - these are the planes that made it back - they did not need the armor., but instead we should put the armor. where there were no bullet holes.
+Bias and other issues are not the end of the world. But we need to think about them carefully. In a well-known example, Abraham Wald, the twentieth century Hungarian mathematician, was given data on the planes that came back to Britain after being shot at in WW2. The question was where to place the armor. One option was to place it over the bullet holes. Wald recognized that there is a selection effect here---these are the planes that made it back to be examined---so those holes did not necessarily need the armor. Arguably armor would be better placed where there were no bullet holes.
 
-To consider an example that may be closer to home - how would the results of a survey differ if I only asked students who completed this course what was difficult about it and not those who dropped out? While, as Dan suggests, we should work to try to make the dataset as good as possible, it may be possible to use the model to control for some of the bias. If there is a variable that is correlated with say, attrition, then we can add it to the model. Either by itself, or as an interaction.
+For instance, how would the results of a survey about the difficulty of a university course differ if only students who completed the course were surveyed, and not those who dropped out? While we should work to try to make our dataset as good as possible, it may be possible to use the model to control for some of the bias.  For instance, if there was a variable that was correlated with say, attrition, then it could be added to the model either by-itself, or as an interaction. Similarly, if there was correlation between the individuals. For instance, if there was some 'hidden variable' that we did not know about that meant some individuals were correlated, then we could use 'wider' standard errors. This needs to be done carefully and we discuss this further in Chapter \@ref(causality). That said, if such issues can be anticipated, then it can be better to change the experiment. For instance, perhaps it would be possibly to stratify by that hidden variable.
 
-<!-- **Add code** -->
-
-What if there is a correlation between the individuals? For instance, what if there were some 'hidden variable' that we did not know about, such as province, and it turned out that people from the same province were similar? In that case we could use 'wider' standard errors.
-
-<!-- **Add code** -->
-
-But a better way to deal with this may be to change the experiment. For instance, we discussed stratified sampling - perhaps we should stratify by province? How would we implement this? And of course, these days we'd not really use a 100-year-old method but would instead use Bayes-based approaches.
 
 
 <!-- **TBD: Add code** -->
@@ -484,282 +518,205 @@ But a better way to deal with this may be to change the experiment. For instance
 
 ### Fisher's tea party
 
-Fisher introduced a, now, famous example of an experiment designed to see if a person can distinguish between a cup of tea where the milk was added first, or last. 
-
-Fisher begins by preparing eight cups of tea: four with milk added first and the other four with milk added last. He then randomizes the order of all eight cups. He tells the taster about the experimental set-up: there are eight cups of tea, four of each type, she will be given cups of tea in a random order, and is to group them into two groups of like.
+Fisher introduced an experiment designed to see if a person can distinguish between a cup of tea where the milk was added first, or last. We begin by preparing eight cups of tea: four with milk added first and the other four with milk added last. We then randomize the order of all eight cups. We tell the taster, whom we will call 'Ian', about the experimental set-up: there are eight cups of tea, four of each type, he will be given cups of tea in a random order, and the task is to group them into two groups.
 
 One of the nice aspects of this experiment is that we can do it ourselves. There are a few things to be careful of in practice, including that: the quantities of milk and tea and consistent; the groups are marked in some way that the taster cannot see; and the order is randomized. 
 
-Another nice aspect of this experiment is that we can calculate the chance that taster is able to randomly get the groupings correct.
+Another nice aspect of this experiment is that we can calculate the chance that Ian is able to randomly get the groupings correct. To decide if his groupings were likely to have occurred at random, we need to calculate the probability this could happen. First, we count the number of successes out of the four that were chosen. @fisherdesignofexperiments [p. 14] says there are: ${8 \choose 4} = \frac{8!}{4!(8-4)!}=70$ possible outcomes.
 
-To decide if the taster's choices were likely to have occurred at random, we need to calculate the probability that could happen. First we count the number of successes out of the four that were chosen. @fisherdesignofexperiments [p. 14] claims there are: ${8 \choose 4} = \frac{8!}{4!(8-4)!}=70$ possible outcomes.
+We are asking Ian to group the cups, not to identify which is which, and so there are two ways for him to be perfectly correct. He could either correctly identify all the ones that were milk-first (one outcome out of 70) or correctly identify all the ones that were tea-first (one outcome out of 70). This means the probability of this event is: $\frac{2}{70} \approx 0.028$ or about 3 per cent. 
 
-We are asking them to group the cups, not to identify which is which, and so there are two ways for the taster to be perfectly correct. They could either correctly identify all the ones that were milk-first (one outcome out of 70) or correctly identify all the ones that were tea-first (one outcome out of 70). This means the probability of this event is $\frac{2}{70} \approx 0.028$ or about 3 per cent. 
+As @fisherdesignofexperiments [p.15] makes clear, this now becomes a judgement call. We need to consider the weight of evidence that we require before we accept the groupings did not occur by chance and that Ian was well-aware of what he was doing. We need to decide what evidence it takes for us to be convinced. If there is no possible evidence that would dissuade us from the view that we held coming into the experiment, say, that there is no difference between milk-first and tea-first, then what is the point of doing an experiment? We would expect that if Ian got it completely right, then most would accept that he was able to tell the difference. 
 
-As @fisherdesignofexperiments [p.15] makes clear, this now becomes a judgement call. We need to consider the weight of evidence that we require before we accept the groupings did not occur by chance and that the taster was well-aware of what they were doing. We need to decide what evidence it takes to be convinced. If there is no possible evidence that would dissuade us from a particular view that we held coming into the experiment, say, that there is no difference between milk-first and tea-first, then what is the point of doing an experiment? We would expect that if the taster got it completely right that, then most would accept that they were able to tell the difference. 
+What if he is almost perfect? By chance, there are 16 ways for a person to be 'off-by-one'. Either Ian thinks there was one cup that was milk-first when it was tea-first---there are, ${4 \choose 1} = 4$, four ways this could happen---or he thinks there was one cup that was tea-first when it was milk-first---again, there are, ${4 \choose 1}$ = 4, four ways this could happen. These outcomes are independent, so the probability is $\frac{4\times 4}{70} \approx 0.228$. And so on. Given there is an almost 23 per cent chance of being off-by-one just be randomly grouping the teacups, this outcome probably would not convince us that Ian can tell the difference between tea-first and milk-first.
 
-HERE 
+What we are looking for, in order to claim something is experimentally demonstrable is the results of not just it being shown once, but instead we know the features of an experiment where such a result is reliably found [@fisherdesignofexperiments p. 16]. We are looking to thoroughly interrogate our data and our experiments, and to think precisely about the analysis methods we are using. Rather than searching for meaning in constellations of stars, we want to make it as easy as possible for others to reproduce our work. It is only in that way that our conclusions stand a chance of holding up in the long-term.
 
-What if they miss one? Similarly, by chance there are 16 ways for a person to be 'off-by-one'. Either they think there was one that was milk-first when it was tea-first - there are, ${4 \choose 1}$, four ways this could happen - or they think there was one that was tea-first when it was milk-first - again, there are, ${4 \choose 1}$, four ways this could happen. But these outcomes are independent, so the probability is $\frac{4\times 4}{70} \approx 0.228$. And so on. So, we fail to reject the null.
 
-Finally, an aside on this magical '5 per cent'. Fisher himself describes this as merely 'usual and convenient' [@fisherdesignofexperiments p.15]. @fisherdesignofexperiments [p.16] continues:
 
-> In order to assert that a natural phenomenon is experimentally demonstrable we need, not an isolated record, but a reliable method of procedure. In relation to the test of significance, we may say that a phenomenon is experimentally demonstrable when we know how to conduct an experiment which will rarely fail to give us a statistically significant result.
 
-At the start of these notes, I said that Fisher held views that we would consider reprehensible today. My guess is, were he around today, he would think our use of p-values as discrediting. Do not just go searching for meaning in constellations of stars. Thoroughly interrogate your data and think precisely about the statistical methods you are applying. For conclusions that you want to hold up in the long-run, aim to use as simple, and as understandable, statistical methods as you can. Ensure that you can explain and justify your statistical decisions without recourse to astrology.
+### Informed consent and the need for an experiment
 
+One of the foundations of ethical experimental practice is informed consent and ensuring that an experiment is actually needed. We will now detail two cases where human life was potentially lost due to these issues. One issue with experiments in medical settings is that the weight of evidence is measured in lost lives. Ethical practice in experiments develops because of the many people who may have unnecessarily lost their life due to experiments. Two cases that have dramatically informed practice are the Tuskegee Syphilis Study and ECMO.
 
+The Tuskegee Syphilis Study is an infamous medical trial that began in 1932. As part of this experiment 400 Black Americans with syphilis, and a control group without, were not given appropriate treatment, nor even told they had syphilis (in the case of the treatment group), well after a standard treatment for syphilis was established and widely available sometime between the mid-1940s and early 1950s [@brandt1978racism; @tuskegeeandthehealthofblackmen]. Like the treatment group, the control group were also given non-effective drugs. These financially-poor Black Americans in the US South were identified and offered compensation including 'hot meals, the guise of treatment, and burial payments' [@tuskegeeandthehealthofblackmen]. The men were not actually treated for syphilis [@brandt1978racism; @tuskegeeandthehealthofblackmen]. The men were not told they were part of an experiment [@brandt1978racism; @tuskegeeandthehealthofblackmen]. Further, extensive work was undertaken to ensure the men would not receive treatment from anywhere including writing to local doctors, the local health department, and, incredibly, after some of the men were drafted and told to immediately get treatment, the draft board complied with a request to have the men excluded from treatment [@brandt1978racism, p. 25]. By the time the study was stopped in 1972, more than half of the men were deceased and many of deaths were from syphilis-related causes [@tuskegeeandthehealthofblackmen].
 
+The effect of the Tuskegee Syphilis Study was felt not just by the men in the study, but more broadly. @tuskegeeandthehealthofblackmen found that it is associated with a decrease in life expectancy at age 45 of up to 1.5 years for Black men. In response the US established requirements for Institutional Review Boards and President Clinton made a formal apology in 1997. @brandt1978racism [p. 27] says:
 
+> In retrospect the Tuskegee Study revealed more about the pathology of racism than the pathology of syphilis; more about the nature of scientific inquiry than the nature of the disease process... [T]he notion that science is a value-free discipline must be rejected. The need for greater vigilance in assessing the specific ways in which social values and attitudes affect professional behavior is clearly indicated.
 
-### Case study: Tuskegee Syphilis Study
+Turning to the evaluation of extracorporeal membrane oxygenation (ECMO), @ware1989investigating describes how they viewed ECMO as a possible treatment for persistent pulmonary hypertension in newborns (PPHN). They enrolled 19 patients and used conventional medical therapy on ten of them, and ECMO on nine of them. It was found that six of the ten in the control group survived while all in the treatment group survived. @ware1989investigating used randomized consent whereby only the parents of infants randomly selected to be treated with ECMO were asked to consent. 
 
-The Tuskegee Syphilis Study is an infamous medical trial in which Black Americans with syphilis (and a 'control group' without) were not given appropriate treatment, nor even told they had syphilis, well after standard syphilis treatments were established in the mid-1940s [@marcella]. The study began in 1932 when poor Black Americans in the South were identified and offered compensation including 'hot meals, the guise of treatment, and burial payments' [@marcella]. The men were not treated for syphilis. Further, and this is almost unbelievable, some of the men were drafted, told they had syphilis, and ordered to get treatment. This treatment was blocked. By the time the study was stopped, 'the majority of the study's victims were deceased, many from syphilis-related causes.' [@marcella]. 
+@ware1989investigating are concerned with 'equipoise', by which they refer to a situation in which there is genuine uncertainty about whether the treatment is more effective than existing procedures. They further note that in medical settings even if there is initial equipoise it could be undermined if the treatment is found to be effective early in the study. @ware1989investigating describe how after the results of these first 19 patients, randomization stopped and only ECMO was used. The recruiters and those treating the patients were initially not told that randomization had stopped. It was decided that this complete allocation to ECMO would continue 'until either the 28th survivor or the 4th death was observed'. After 19 of 20 additional patients survived ECMO the trial was terminated. So, the actual result of the experiment was divided into two phases: in the first there was randomized use of ECMO, and in the second only ECMO was used.
 
-The study continued through to 1972, only stopping when it was leaked and published in newspapers. In response the US established requirements for Institutional Review Boards and President Clinton made a formal apology in 1997. @brandt1978racism as quoted by @marcella says '"In retrospect the Tuskegee Study revealed more about the pathology of racism than the pathology of syphilis; more about the nature of scientific inquiry than the nature of the disease process.... The degree of deception and the damages have been severely underestimated."'
+One approach in these settings is a 'randomized play-the-winner' rule following @wei1978randomized. Treatment is still randomized, but the weight of probability shifts with each successful treatment to make treatment more likely and there is some stopping rule. @berry1989investigating argues that the stopping rule in the case of @ware1989investigating occurred before the study started and that there was no need for the study at all because equipoise never existed. @berry1989investigating re-visit the literature mentioned by @ware1989investigating and find extensive evidence that ECMO was known to be effective. @berry1989investigating points out that there is almost never complete consensus and so one could almost always argue for the existence of equipoise even in the face of a substantial weight of evidence. @berry1989investigating further criticizes @ware1989investigating for the use of randomized consent because of the potential that there may have been different outcomes for the infants subject to conventional therapy had their parents known there were other options. And instead, @berry1989investigating argues for the need for comprehensive patient registries, enabling the analysis of large datasets.
 
-On the Tuskegee Syphilis Study [Professor Monica Alexander](https://www.monicaalexander.com) says:
+While the Tuskegee Syphilis Study and ECMO may seem quite far from our present circumstances, Monica Alexander, Assistant Professor, University of Toronto explains that while it may be illegal to do this exact research these days, it does not mean that unethical research does not still happen. We see it all the time in machine learning applications in health and other areas. While we are not meant to explicitly discriminate and we are meant to get consent, it does not mean that we cannot implicitly discriminate without any type of buy-in at all. For instance, @obermeyer2019dissecting describes how US health care systems use algorithms to score the severity of how sick a patient is. They show that for the same score, 'Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses' and that if Black patients were scored in the same way as White patients, then they would receive considerably more help than they do now. They find that the discrimination occurs because the algorithm is based on health care costs, rather than sickness. But because access to healthcare is unequally distributed between Black and White patients, the algorithm, however inadvertently, perpetuates racial bias.
 
-> While it may be illegal to do this exact research these days, it doesn't mean that unethical research doesn't still happen, and we see it all the time in ML and health. Just because you can't explicitly discriminate when you design experiments, doesn't mean you can't implicitly discriminate.
 
-For an example of this, start with @obermeyer2019dissecting:
+<!-- ### Case study: The Oregon Health Insurance Experiment -->
 
-> Health systems rely on commercial prediction algorithms to identify and help patients with complex health needs. We show that a widely used algorithm, typical of this industry-wide approach and affecting millions of patients, exhibits significant racial bias: At a given risk score, Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses. Remedying this disparity would increase the percentage of Black patients receiving additional help from 17.7 to 46.5%. The bias arises because the algorithm predicts health care costs rather than illness, but unequal access to care means that we spend less money caring for Black patients than for White patients. Thus, despite health care cost appearing to be an effective proxy for health by some measures of predictive accuracy, large racial biases arise. We suggest that the choice of convenient, seemingly effective proxies for ground truth can be an important source of algorithmic bias in many contexts.
+<!-- The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that [@finkelstein2012oregon]:  -->
 
+<!-- > In the year after random assignment, the treatment group selected by the lottery was about 25 percentage points more likely to have insurance than the control group that was not selected. We find that in this first year, the treatment group had substantively and statistically significantly higher health care utilization (including primary and preventive care as well as hospitalizations), lower out-of-pocket medical expenditures and medical debt (including fewer bills sent to collection), and better self-reported physical and mental health than the control group. -->
 
+<!-- A lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid. This random allocation of insurance allowed the researchers to understand the effect of health insurance. it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not - that decision is 'confounded' with other variables. They use administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is actually fairly restrained and so they included a survey conducted via mail. -->
 
+<!-- Turning to external validity, the authors restrain themselves and say [@finkelstein2012oregon]: -->
 
+<!-- > Our estimates of the impact of public health insurance apply to able-bodied uninsured adults below 100 percent of poverty who express interest in insurance coverage. This is a population of considerable policy interest. -->
 
+<!-- A lottery was used to allocate 10,000 places in the state-run Medicaid. A lottery was judged fair because 'the state (correctly) anticipated that the demand for the program among eligible individuals would far exceed the 10,000 available new enrollment slots' [@finkelstein2012oregon]. People had a month to sign up to enter the draw. The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely. -->
 
-### Case study: The Oregon Health Insurance Experiment
+<!-- The model they consider is [@finkelstein2012oregon]: -->
 
-The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that [@finkelstein2012oregon]: 
+<!-- \begin{equation} -->
+<!-- y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} (\#eq:oregon) -->
+<!-- \end{equation} -->
 
-> In the year after random assignment, the treatment group selected by the lottery was about 25 percentage points more likely to have insurance than the control group that was not selected. We find that in this first year, the treatment group had substantively and statistically significantly higher health care utilization (including primary and preventive care as well as hospitalizations), lower out-of-pocket medical expenditures and medical debt (including fewer bills sent to collection), and better self-reported physical and mental health than the control group.
+<!-- Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an individual $i$ in household $h$ as a function of an indicator variable as to whether household $h$ was selected by the lottery. Hence, '(t)he coefficient on Lottery, $\beta_1$, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).' -->
 
-A lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid. This random allocation of insurance allowed the researchers to understand the effect of health insurance. it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not - that decision is 'confounded' with other variables. They use administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is actually fairly restrained and so they included a survey conducted via mail.
+<!-- To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw. -->
 
-Turning to external validity, the authors restrain themselves and say [@finkelstein2012oregon]:
+<!-- There is a wide range of literature related to this intervention. More papers are available [here](https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states). -->
 
-> Our estimates of the impact of public health insurance apply to able-bodied uninsured adults below 100 percent of poverty who express interest in insurance coverage. This is a population of considerable policy interest.
 
-A lottery was used to allocate 10,000 places in the state-run Medicaid. A lottery was judged fair because 'the state (correctly) anticipated that the demand for the program among eligible individuals would far exceed the 10,000 available new enrollment slots' [@finkelstein2012oregon]. People had a month to sign up to enter the draw. The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely.
 
-The model they consider is [@finkelstein2012oregon]:
+<!-- ### Case study: Student Coaching: How Far Can Technology Go? -->
 
-\begin{equation}
-y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} (\#eq:oregon)
-\end{equation}
+<!-- There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn't scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015. -->
 
-Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an individual $i$ in household $h$ as a function of an indicator variable as to whether household $h$ was selected by the lottery. Hence, '(t)he coefficient on Lottery, $\beta_1$, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).'
+<!-- The intervention was administered to students as part of an economics class. Students received 2 per cent of their grade for completing the exercise. The specific exercise depended on the group of the student. The intervention involved three treatments as well as a control group that was just given a Big Five personality traits test. Additional information that was obtained included 'the highest level of education obtained by students’ parents, the amount of education they expect to obtain, whether they are first-year or international students, and their work and study time plans for the upcoming year.' [@Oreopoulos2018, p. 6]. -->
 
-To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.
+<!-- The treatments were [@Oreopoulos2018, p. 4]: -->
 
-There is a wide range of literature related to this intervention. More papers are available [here](https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states).
+<!-- 1. '[A] one-time, online exercise completed during the first two weeks of class in the fall'. This exercise was 'designed to get them thinking about the future they envision and the steps they could take in the upcoming year at U of T to help make that future a reality. They were told that the exercise was designed for their benefit and to take their time while completing it. The online module lasted approximately 60 to 90 minutes and led students through a series of writing exercises in which they wrote about their ideal futures, both at work and at home, what they would like to accomplish in the current year at U of T, how they intend on following certain study strategies to meet their goals, and whether they want to get involved with extracurricular activities at the university' [@Oreopoulos2018, p. 6]. -->
+<!-- 2. '[T]he online intervention plus text and email messaging throughout the full academic year'. This involved the students being given 'the opportunity to provide their phone numbers and participate in a text and email messaging campaign lasting throughout both the fall semester in 2015 and the winter semester in 2016' [@Oreopoulos2018, p. 8]. All students in this group got the emails, but only those that provided phone numbers got the messages. They were able to opt out, but 'few chose to do so' [@Oreopoulos2018, p. 8]. This was a two-way interaction in which students could ask questions. Some asked for the 'locations of certain facilities on campus or how to stay on residence during the holiday break, while others said they need help with English skills or specific courses. Some students expressed relatively deep emotions, such as feeling anxious about family pressure to succeed in school or from doing poorly on an evaluation' [@Oreopoulos2018, p. 9]. A response was usually given within an hour. -->
+<!-- 3. '[T]he online intervention plus one-on-one coaching in which students are assigned to upper-year undergraduate coaches'. 'Coaches were available to meet with students to answer any questions via Skype, phone, or in person, and would send their students regular text and email messages of advice, encouragement, and motivation, much like the You@UofT program described above. In contrast to the messaging program, however, coaches were instructed to be proactive and regularly monitor their students’ progress. Whereas the You@UofT program attempts to “nudge” students in the right direction with academic advice, coaches play a greater “support” role, sensitively guiding students through problems.' [@Oreopoulos2018, p. 11]. This coaching program was only available at UTM. 'Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined.' -->
 
+<!-- > Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined.  -->
+<!-- > -->
+<!-- > [@Oreopoulos2018, p. 14] -->
 
+<!-- The model they consider is [@Oreopoulos2018, p. 15]: -->
 
-### Case study:  Student Coaching: How Far Can Technology Go?
+<!-- \begin{equation} -->
+<!-- y_{ij} = \alpha + \beta_1\mbox{Online}_i + \beta_2\mbox{Text}_i + + \beta_3\mbox{Coach}_i + \delta_j + \mu \mbox{First year}_i + \epsilon_{ij} (\#eq:toronto) -->
+<!-- \end{equation} -->
 
-There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn't scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015.
+<!-- Equation \@ref(eq:toronto) explains the outcome of student $i$ at campus $j$ based on 'indicators for each of the three treatment exercises students were given, campus fixed effects, and a first-year student indicator.' The main parameters of interest are $\beta_1$, $\beta_2$ and $\beta_3$. The main outcomes were course grades, GPA, credits earned and failed. -->
 
-The intervention was administered to students as part of an economics class. Students received 2 per cent of their grade for completing the exercise. The specific exercise depended on the group of the student. The intervention involved three treatments as well as a control group that was just given a Big Five personality traits test. Additional information that was obtained included 'the highest level of education obtained by students’ parents, the amount of education they expect to obtain, whether they are first-year or international students, and their work and study time plans for the upcoming year.' [@Oreopoulos2018, p. 6].
+<!-- It was found, that the one-on-one coaching 'increased grades by approximately 5 percentage points', while the other treatments had 'had no detectable impact'. One set of results are summarised in Figure \@ref(fig:torontointervention). -->
 
-The treatments were [@Oreopoulos2018, p. 4]:
+<!-- ```{r torontointervention, echo=FALSE, fig.cap = "Example of the results of the intervention.", out.width = '90%'} -->
+<!-- knitr::include_graphics(here::here("figures/toronto_intervention.png")) -->
+<!-- ``` -->
 
-1. '[A] one-time, online exercise completed during the first two weeks of class in the fall'. This exercise was 'designed to get them thinking about the future they envision and the steps they could take in the upcoming year at U of T to help make that future a reality. They were told that the exercise was designed for their benefit and to take their time while completing it. The online module lasted approximately 60 to 90 minutes and led students through a series of writing exercises in which they wrote about their ideal futures, both at work and at home, what they would like to accomplish in the current year at U of T, how they intend on following certain study strategies to meet their goals, and whether they want to get involved with extracurricular activities at the university' [@Oreopoulos2018, p. 6].
-2. '[T]he online intervention plus text and email messaging throughout the full academic year'. This involved the students being given 'the opportunity to provide their phone numbers and participate in a text and email messaging campaign lasting throughout both the fall semester in 2015 and the winter semester in 2016' [@Oreopoulos2018, p. 8]. All students in this group got the emails, but only those that provided phone numbers got the messages. They were able to opt out, but 'few chose to do so' [@Oreopoulos2018, p. 8]. This was a two-way interaction in which students could ask questions. Some asked for the 'locations of certain facilities on campus or how to stay on residence during the holiday break, while others said they need help with English skills or specific courses. Some students expressed relatively deep emotions, such as feeling anxious about family pressure to succeed in school or from doing poorly on an evaluation' [@Oreopoulos2018, p. 9]. A response was usually given within an hour.
-3. '[T]he online intervention plus one-on-one coaching in which students are assigned to upper-year undergraduate coaches'. 'Coaches were available to meet with students to answer any questions via Skype, phone, or in person, and would send their students regular text and email messages of advice, encouragement, and motivation, much like the You@UofT program described above. In contrast to the messaging program, however, coaches were instructed to be proactive and regularly monitor their students’ progress. Whereas the You@UofT program attempts to “nudge” students in the right direction with academic advice, coaches play a greater “support” role, sensitively guiding students through problems.' [@Oreopoulos2018, p. 11]. This coaching program was only available at UTM. 'Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined.'
+<!-- The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available [here](https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go). -->
 
-> Our coaching treatment group was established by randomly drawing twenty-four students from the group of students that were randomly assigned into the text message campaign treatment. At the conclusion of the online exercise, instead of being invited to provide a phone number for the purpose of receiving text messages, these twenty-four students were given the opportunity to participate in a pilot coaching program. A total of seventeen students agreed to participate in the coaching program, while seven students declined. 
->
-> [@Oreopoulos2018, p. 14]
 
-The model they consider is [@Oreopoulos2018, p. 15]:
 
-\begin{equation}
-y_{ij} = \alpha + \beta_1\mbox{Online}_i + \beta_2\mbox{Text}_i + + \beta_3\mbox{Coach}_i + \delta_j + \mu \mbox{First year}_i + \epsilon_{ij} (\#eq:toronto)
-\end{equation}
 
-Equation \@ref(eq:toronto) explains the outcome of student $i$ at campus $j$ based on 'indicators for each of the three treatment exercises students were given, campus fixed effects, and a first-year student indicator.' The main parameters of interest are $\beta_1$, $\beta_2$ and $\beta_3$. The main outcomes were course grades, GPA, credits earned and failed.
+<!-- ### Case study: Civic Honesty Around The Globe -->
 
-It was found, that the one-on-one coaching 'increased grades by approximately 5 percentage points', while the other treatments had 'had no detectable impact'. One set of results are summarised in Figure \@ref(fig:torontointervention).
+<!-- Trust isn't something that we think regularly about, but it is actually fairly fundamental to most interactions, both economic and personal. For instance, many of us get paid after we do some work - we are trusting our employer will make good; and vice versa - if you get paid in advance then they are trusting you. In a strictly naive, one-shot, transaction-cost-less world, this doesn't make sense. If you get paid in advance, the incentive is for you to take the money and run in the last pay period before you quit, and through backward induction everything falls apart. Of course, we do not live in such a world. For one thing there are transaction costs, for another generally we have repeated interactions, and finally, in my experience, the world usually ends up being fairly small.  -->
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/toronto_intervention.png" alt="Example of the results of the intervention." width="90%" />
-<p class="caption">(\#fig:torontointervention)Example of the results of the intervention.</p>
-</div>
+<!-- Understanding the extent of honestly in different countries may help us to explain economic development and other aspects of interest such as tax compliance, but it is fairly hard to measure. We can't really ask people how honest they are - wouldn't the liars lie, resulting in a lemons problem [@akerlof1978market]? To get around, this @cohn2019civic conduct an experiment in 355 cities across 40 countries where they 'turn in' either: a wallet with the local equivalent of US$13.45 in it, or no money. They are interested in whether the 'recipient' attempts to return the wallet. They find that '[in virtually all countries, citizens were more likely to return wallets that contained more money' [@cohn2019civic, p. 1].  -->
 
-The results are important not only in a teaching context, but also for businesses hoping to retain customers. More papers are available [here](https://www.povertyactionlab.org/evaluation/student-coaching-how-far-can-technology-go).
+<!-- The set-up of the experiment is fascinating. They 'turn in' 17,303 wallets to various institutions including: '(i) banks; (ii) theaters, museums, or other cultural establishments; (iii) post offices; (iv) hotels; and (v) police stations, courts of law, or other public offices' [@cohn2019civic, p. 1]. These institutions were roughly equally sampled, although banks were slightly over sampled and post offices were slightly under-sampled. The importance of such institutions in the economy is generally well-accepted [@acemoglu2001colonial] and they are common across most countries. Importantly for the experiment, they 'typically have a public reception area where we could perform the drop-offs' [@cohn2019civic, p. 1]. -->
 
+<!-- The way the experiment worked is that a research assistant turned the wallet in to an employee at a counter in the public reception area, saying 'Hi, I found this [showing the wallet] on the street just around the corner. [Place wallet on counter.] Somebody must have lost it. I'm in a hurry and have to go. Can you please take care of it?' [@cohn2019civic, p. 2]. The outcome of interest is whether an email is sent to the unique address on a business card in the wallet within 100 days. The research assistant had to note various features of the setting, including features such as the gender, age-group, and busyness of the 'recipient'. -->
 
+<!-- The wallets were transparent, and the business card had a name and email contact details. It also had a key and a grocery list (Figure \@ref(fig:walletsexample)). -->
 
+<!-- ```{r walletsexample, echo=FALSE, fig.cap = "Example of the wallet.", out.width = '90%'} -->
+<!-- knitr::include_graphics(here::here("figures/wallet_example.png")) -->
+<!-- ```  -->
 
-### Case study: Civic Honesty Around The Globe
+<!-- The grocery list was an attempt to convince the 'recipient' that the 'owner' was a local. Language and currency were adapted to local conditions. The key is only useful to the 'owner', not to the 'recipient' of the wallet and was included to test for altruistic concerns. -->
 
-Trust isn't something that we think regularly about, but it is actually fairly fundamental to most interactions, both economic and personal. For instance, many of us get paid after we do some work - we are trusting our employer will make good; and vice versa - if you get paid in advance then they are trusting you. In a strictly naive, one-shot, transaction-cost-less world, this doesn't make sense. If you get paid in advance, the incentive is for you to take the money and run in the last pay period before you quit, and through backward induction everything falls apart. Of course, we do not live in such a world. For one thing there are transaction costs, for another generally we have repeated interactions, and finally, in my experience, the world usually ends up being fairly small. 
+<!-- The primary treatment in the experiment is whether the wallet contained money or not. The key outcome was whether the wallet was attempted to be returned or not. It was found that '[t]he median response time was roughly 26 minutes across all countries, and about 88% of emails arrived within 24 hours' [@cohn2019civicaddendum, p. 10]. If an email was received, then 3 hours later a response was sent, saying that the owner had left town, the contents were unimportant to them and that they could keep it or donate it to charity [@cohn2019civicaddendum, p. 9].  -->
 
-Understanding the extent of honestly in different countries may help us to explain economic development and other aspects of interest such as tax compliance, but it is fairly hard to measure. We can't really ask people how honest they are - wouldn't the liars lie, resulting in a lemons problem [@akerlof1978market]? To get around, this @cohn2019civic conduct an experiment in 355 cities across 40 countries where they 'turn in' either: a wallet with the local equivalent of US$13.45 in it, or no money. They are interested in whether the 'recipient' attempts to return the wallet. They find that '[in virtually all countries, citizens were more likely to return wallets that contained more money' [@cohn2019civic, p. 1]. 
+<!-- Considerable differences were found between countries (Figure \@ref(fig:wallets)). -->
 
-The set-up of the experiment is fascinating. They 'turn in' 17,303 wallets to various institutions including: '(i) banks; (ii) theaters, museums, or other cultural establishments; (iii) post offices; (iv) hotels; and (v) police stations, courts of law, or other public offices' [@cohn2019civic, p. 1]. These institutions were roughly equally sampled, although banks were slightly over sampled and post offices were slightly under-sampled. The importance of such institutions in the economy is generally well-accepted [@acemoglu2001colonial] and they are common across most countries. Importantly for the experiment, they 'typically have a public reception area where we could perform the drop-offs' [@cohn2019civic, p. 1].
+<!-- ```{r wallets, echo=FALSE, fig.cap = "Key finding as to wallet return rates.", out.width = '90%'} -->
+<!-- knitr::include_graphics(here::here("figures/wallet_results.png")) -->
+<!-- ```  -->
 
-The way the experiment worked is that a research assistant turned the wallet in to an employee at a counter in the public reception area, saying 'Hi, I found this [showing the wallet] on the street just around the corner. [Place wallet on counter.] Somebody must have lost it. I'm in a hurry and have to go. Can you please take care of it?' [@cohn2019civic, p. 2]. The outcome of interest is whether an email is sent to the unique address on a business card in the wallet within 100 days. The research assistant had to note various features of the setting, including features such as the gender, age-group, and busyness of the 'recipient'.
+<!-- Figure \@ref(fig:wallets) shows that in almost all countries wallets with money were more likely to be returned than wallets without. The authors further conducted the experiment with the equivalent of US$94.15 in three countries - Poland, the UK, and the US - and found that reporting rates further increased. In those same three countries further tests were done comparing the situation when the wallet always contained money, but the presence of the key was varied. The wallet was slightly more likely to be reported when there was a key. -->
 
-The wallets were transparent, and the business card had a name and email contact details. It also had a key and a grocery list (Figure \@ref(fig:walletsexample)).
+<!-- The full set of 40 countries were chosen based on having enough cities with populations of at least 100,000, as well as the ability for the research assistants to safely visit and withdraw cash. The cities were chosen starting with the largest ones and there were usually 400 observations in each country [@cohn2019civicaddendum, p. 5]. Real-world concerns affected the specifics of the experiment. For instance, in '...India, we made a last minute change by replacing Chennai with Coimbatore due to severe flooding that took place in February 2015. In Kenya we did not carry out data collection in the last city visited (Malindi) because the research assistant was arrested and interrogated by the military police for suspicious activity' [@cohn2019civicaddendum, p. 5]. -->
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/wallet_example.png" alt="Example of the wallet." width="90%" />
-<p class="caption">(\#fig:walletsexample)Example of the wallet.</p>
-</div>
+<!-- In addition to the experiments, @cohn2019civic conducted surveys that allowed them to understand some reasons for their findings. It also allowed them to be specific about the respondents. The survey involved 2,525 respondents (829 in the UK, 809 in Poland, and 887 in the US) [@cohn2019civicaddendum, p. 36]. 'To qualify for participation, individuals had to pass a simple attention check and meet the demographic quotas (based on age, gender, and residence) set by Qualtrics to construct the representative samples. Participants received a flat payment of US $4.00 for their participation' [@cohn2019civicaddendum, p. 36]. The participants were given one of the scenarios and then asked to answer questions.  -->
 
-The grocery list was an attempt to convince the 'recipient' that the 'owner' was a local. Language and currency were adapted to local conditions. The key is only useful to the 'owner', not to the 'recipient' of the wallet and was included to test for altruistic concerns.
+<!-- Annoyingly the authors do not explicitly specify the estimating equation. However they do say that important covariates about the 'recipient' include: gender, age-group, busyness, whether they were local, spoke English, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920.  -->
 
-The primary treatment in the experiment is whether the wallet contained money or not. The key outcome was whether the wallet was attempted to be returned or not. It was found that '[t]he median response time was roughly 26 minutes across all countries, and about 88% of emails arrived within 24 hours' [@cohn2019civicaddendum, p. 10]. If an email was received, then 3 hours later a response was sent, saying that the owner had left town, the contents were unimportant to them and that they could keep it or donate it to charity [@cohn2019civicaddendum, p. 9]. 
-
-Considerable differences were found between countries (Figure \@ref(fig:wallets)).
-
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/wallet_results.png" alt="Key finding as to wallet return rates." width="90%" />
-<p class="caption">(\#fig:wallets)Key finding as to wallet return rates.</p>
-</div>
-
-Figure \@ref(fig:wallets) shows that in almost all countries wallets with money were more likely to be returned than wallets without. The authors further conducted the experiment with the equivalent of US$94.15 in three countries - Poland, the UK, and the US - and found that reporting rates further increased. In those same three countries further tests were done comparing the situation when the wallet always contained money, but the presence of the key was varied. The wallet was slightly more likely to be reported when there was a key.
-
-The full set of 40 countries were chosen based on having enough cities with populations of at least 100,000, as well as the ability for the research assistants to safely visit and withdraw cash. The cities were chosen starting with the largest ones and there were usually 400 observations in each country [@cohn2019civicaddendum, p. 5]. Real-world concerns affected the specifics of the experiment. For instance, in '...India, we made a last minute change by replacing Chennai with Coimbatore due to severe flooding that took place in February 2015. In Kenya we did not carry out data collection in the last city visited (Malindi) because the research assistant was arrested and interrogated by the military police for suspicious activity' [@cohn2019civicaddendum, p. 5].
-
-In addition to the experiments, @cohn2019civic conducted surveys that allowed them to understand some reasons for their findings. It also allowed them to be specific about the respondents. The survey involved 2,525 respondents (829 in the UK, 809 in Poland, and 887 in the US) [@cohn2019civicaddendum, p. 36]. 'To qualify for participation, individuals had to pass a simple attention check and meet the demographic quotas (based on age, gender, and residence) set by Qualtrics to construct the representative samples. Participants received a flat payment of US $4.00 for their participation' [@cohn2019civicaddendum, p. 36]. The participants were given one of the scenarios and then asked to answer questions. 
-
-Annoyingly the authors do not explicitly specify the estimating equation. However they do say that important covariates about the 'recipient' include: gender, age-group, busyness, whether they were local, spoke English, understood the situation, friendliness, presence of: a computer, co-workers, bystanders, security cameras, security guards. Important covariates at a country-level include: country GDP, soil fertility, latitude, distance to water, temperature and its volatility, precipitation and its volatility, elevation, terrain roughness, pathogens, language features such as: pronouns, politeness, future time; share of protestants; family ties; state history; years of democracy; executive constraints; judicial independence; constitutional review; electoral rule; and primary school enrollment in 1920. 
-
-The code or data for the paper are available: @walletsdata.
+<!-- The code or data for the paper are available: @walletsdata. -->
 
 
 
 
 ## A/B testing
 
+The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Large tech companies typically have extensive infrastructure for these experiments, and they term them A/B tests because of the comparison of two groups: one that gets treatment A and the other that either gets treatment B or does not see any change [@Salganik2018 p. 185]. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While, at their heart, they are still just surveys that result in data that need to be analysed, they have several interesting features that we will discuss. 
 
-> Large companies, particularly tech companies, have developed incredibly sophisticated infrastructure for running complex experiments. In the tech industry, these experiments are often called A/B tests because they compare the effectiveness of two treatments: A and B. Such experiments are frequently run for things like increasing click-through rates on ads, but the same experimental infrastructure can also be used for research that advances scientific understanding.
-> 
-> @Salganik2018 [p. 185].
+For instance, @kohavi [p. 3] discusses the example of Microsoft's search engine Bing where they increased the amount of content displayed by their ads. The change triggered an alert that usually signaled a bug in the billing. But there was no bug, it was instead the case that revenue would increase by 12 per cent, or around $100 million annually in the US, without any significant trade-off being measured.
 
-The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While, at their heart, they are still just surveys that result in data that need to be analysed, they have several interesting features, which we will discuss. 
+We use the term A/B test to strictly refer to the situation in which we are primarily implementing an experiment through a technology stack about something that is primarily of the internet, for instance a change to a website or similar. While at their heart they are just experiments, A/B testing has a range of specific concerns. There is something different about doing tens of thousands of small experiments all the time, compared with our normal experimental set-up of conducting one experiment over the course of months. Additionally, tech firms have such distinct cultures that it can be difficult to shift toward an experimental set-up. Sometimes it can be easier to experiment by not delivering, or delaying, a change that has been decided to create a control group rather than a treatment group [@Salganik2018 p. 188]. Often the most difficult aspect of A/B testing and conducting experiments more generally, is not the statistics, it's the politics.
 
-The opening example of @kohavi [p. 3] is a particularly nice illustration.
+The first aspect of concern is the delivery of the A/B test [@kohavi, p. 153-161]. In the case of an experiment, it is usually clear how it is being delivered. For instance, we may have the person come to a doctor's clinic and then inject them with either a drug or a placebo. But in the case of A/B testing, it is less obvious. For instance, should it be run 'server-side', meaning to make a change to a website, or 'client-side', meaning to change an app. This decision affects our ability to both conduct the experiment and to gather data from it. 
 
-> In 2012, an employee working on Bing, Microsoft's search engine, suggested changing how ad headlines display (Kohavi and Thomke 2017). The idea was to lengthen the title line of ads by combining it with the text from the first line below the title, as shown in Figure 1.1.
-> 
-> Nobody thought this simple change, among the hundreds suggested, would be the best revenue-generating idea in Bing's history!
-> 
-> The feature was prioritized low and languished in the backlog for more than six months until a software developer decided to try the change, given how easy it was to code. He implemented the idea and began evaluating the idea on real users, randomly showing some of them the new title layout and others the old one. User interactions with the website were recorded, including ad clicks and the revenue generated from them. This is an example of an A/B test, the simplest type of controlled experiment that compares two variants: A and B, or a Control and a Treatment.
-> 
-> A few hours after starting the test, a revenue-too-high alert triggered, indicating that something was wrong with the experiment. The Treatment, that is, the new title layout, was generating too much money from ads. Such “too good to be true” alerts are very useful, as they usually indicate a serious bug, such as cases where revenue was logged twice (double billing) or where only ads displayed, and the rest of the web page was broken.
-> 
-> For this experiment, however, the revenue increase was valid. Bing's revenue increased by a whopping 12%, which at the time translated to over $100M annually in the US alone, without significantly hurting key user-experience metrics. The experiment was replicated multiple times over a long period.
-> 
-> The example typifies several key themes in online controlled experiments:
->
-> - It is hard to assess the value of an idea. In this case, a simple change worth over $100M/year was delayed for months.
-> - Small changes can have a big impact. A $100M/year return-on-investment (ROI) on a few days' work for one engineer is about as extreme as it gets.
-> - Experiments with big impact are rare. Bing runs over 10,000 experiments a year, but simple features resulting in such a big improvement happen only once every few years.
-> - The overhead of running an experiment must be small. Bing's engineers had access to ExP, Microsoft's experimentation system, which made it easy to scientifically evaluate the idea.
-> - The overall evaluation criterion (OEC, described more later in this chapter) must be clear. In this case, revenue was a key component of the OEC, but revenue alone is insufficient as an OEC. It could lead to plastering the web site with ads, which is known to hurt the user experience. Bing uses an OEC that weighs revenue against user-experience metrics, including Sessions per user (are users abandoning or increasing engagement) and several other components. The key point is that user-experience metrics did not significantly degrade even though revenue increased dramatically.
+In the case of the effect of conducting the experiment, it is relatively easy and normal to update a website all the time. This means that small changes can be easily implemented if the experiment is conducted server-side. But in the case of a client-side implementation of an app, then conducting an experiment becomes a bigger deal. For instance, the release may need to go through an app store, and this usually does not happen all the time. Instead, it would need to be part of a regular release cycle. There is also a selection concern because some users will not update their app and there is the possibility that they are different to those that do regularly update the app. 
 
-In these notes, I'm going to use A/B testing to strictly refer to the situation in which we are dealing with a tech firm, and some type of change in code. If we are dealing with the physical world then we will stick with RCTs. 
+Turning to the effect of the delivery decision on our ability to gather data from the experiment. Again, server-side is less of a big deal because we get the data anyway as part of the user interacting with the website. But in the case of an app, the user may use the app offline or with limited data upload, which then requires a data transmission protocol or caching, but this then could affect user experience, especially as some phones place limits are various aspects.
 
-I'm usually fairly dismissive of the CS folks who adopt different language for concepts that have been around for a long time. However, in the case of A/B testing I think that it is possibly justified. There is something different about doing tens of thousands of small experiments all the time, compared with our normal RCT set-up of one experiment conducted over months. And finally, if you do not work in a tech firm, then do not discount the difficulty of shifting to an experimental set-up. You may think that it is easy to go to a workplace and say 'hey, let's test stuff before we spend thousands/millions of dollars'. You'd be wrong. In my opinion, the hardest part of A/B testing isn't the science, it is the politics.
+The effect of all this is that we need to plan. For instance, results are unlikely to be available the day after a change to an app, whereas they are likely available the day after a change to a website. Further, we may need to consider our results in the context of different devices and platforms, potentially using, say, multilevel regression which will be covered in Chapter \@ref(ijalm).
 
+The second aspect of concern is 'instrumentation' or the method of measurement [@kohavi, p. 162 - 165]. When we conduct a traditional experiment then we might, for instance, ask respondents to fill out a survey. But this is usually not done with A/B testing. One approach is to put a cookie on the user's device, but different users will clear these at different rates. Another approach is to use a beacon, such as forcing the user to download a tiny image from our server, so that we know when they have completed some action. For instance, this is a commonly used approach to know when a user has opened an email. There are practical concerns around when the beacon loads, for instance, if it is before the main content loads then the user experience may be worse, but if it is after then our sample may be biased.
 
+The third aspect of concern is what are we randomizing over [@kohavi, p. 162 - 165]. In the case of traditional experiments, this is usually clear and it is often a person, but sometimes various groups of people. But in the case of A/B testing it can be less clear. For instance, are we randomizing over the page, the session, or the user? 
 
-Drawing on @kohavi [p. 153-161], we first consider how we will be delivering the A/B test. In the case of a RCT it is fairly obvious how we deliver it - for instance, make a person come to a doctor's clinic and inject them with a drug or a placebo. In the case of A/B testing, it is less obvious - do you run it 'server-side' or 'client-side'? What this means is, do you just change the website - 'server side', or do you change an app - 'client side'. This may seem like a silly issue, but it affects: 1) release; and 2) data transmission.
+To think about this, let us consider color. For instance, say we are interested in whether we should change our logo from red to blue on the homepage. If we are randomizing at the page level, then if the user goes to some other page of our website, and then back to the homepage the logo could be back to red. If we are randomizing at the session level, then while it could be blue while they use the website this time, if they close it and come back then it could be red. Finally, if we are randomizing at a user level then possibly it would always be red for one used, but always blue for another.
 
-In the case of the effect on release, it is easy and normal to update a website all the time, so small changes can be easily implemented in the case of server-side. However, in the case of client-side, let's say an app, it is likely a much bigger deal. 
+The extent to which this matters depends on a trade-off between consistency and importance. For instance, if we are A/B testing product prices then consistency is likely a feature. But if we are A/B testing background colors then consistency might not be as important. On the other hand, if we are A/B testing the position of a log-in button then it might be important that we not move that around too much for the one user, but between users it might matter less.
 
-1. It needs to get through an app store (a bigger or lesser deal depending on which one).
-2. It need to go through a release cycle (a bigger or lesser deal depending on the specifics of the company and how it ships).
-3. Users have the opportunity to not upgrade. Are they likely different to those that do upgrade? (Yes.)
+Interestingly, in A/B testing, as in traditional experiments, we are concerned that our treatment and control groups are the same, but for the treatment. In the case of traditional experiments, we satisfy ourselves of this by making conducting analysis on the basis of the data that we have after the experiment is conducted. That is usually all we can do because it would be weird to treat or control both groups. But in the case of A/B testing, the pace of experimentation allows us to randomly create the treatment and control groups, and then check, before we subject the treatment group to the treatment, that the groups are the same. For instance, if we were to show each group the same website, then we would expect the same outcomes across the two groups. If we found different outcomes then we would know that we may have a randomization issue [@taddy2019, p. 129].
 
-Now, in the case of the effect on data transmission, again server-side is less of a big deal - you kind of get the data as part of the user interacting. But in the case of client-side - it is not necessarily the case that the user will have the internet at the time they are using your application, and if they do, they may have limitations on the data uploads. The phone may limit data transmission depending on its effect on battery, CPU, general performance, etc. Then maybe you decide to cache, but then the user may find it weird that some minor app takes up as much size as their photos. 
+One of the interesting aspects of A/B testing is that we are usually running them not because we desperately care about the specific outcome, but because that feeds into some other measure that we care about. For instance, do we care whether the website is quite-dark-blue or slightly-dark-blue? Probably not, but we probably care a lot about the company share price. But then what if picking the best blue comes at a cost to the share price? That example is a bit contrived, so let us pretend that we work at a food delivery app and we are concerned with driver retention. Say we do some A/B tests and find that drivers are always more likely to be retained when they can deliver food to the customer faster. Our finding is that faster is better, for driver retention, always. But one way to achieve faster deliveries, is for them to not put the food into a hot box that would maintain the food's temperature. Something like that might save 30 seconds, which is significant on a 10-15 minute delivery. Unfortunately, although we would decide to encourage that that on the basis of A/B tests designed to optimize driver-retention, such a decision would likely make the customer experience worse. If customers receive cold food, when it is meant to be hot, then they may stop using the app, which would ultimately be very bad for the business.
 
-The effect of all this is that you need to plan and build this into your expectations - do not promise results the day after a release if you are evaluating a client-side change. Adjust for the fact that your results are conditional and gather data on those conditions e.g. battery level or whatever. Adjust in your analysis for different devices and platforms, etc. This is a lovely opportunity for multilevel regression.
-
-
-
-Drawing on @kohavi [p. 162 - 165], I'll now discuss instrumentation. @kohavi use the name 'instrumentation'. I'd prefer something like 'measurement methods' so that we do not confuse this with the entirely different concept of instrumental variables later in the course, but instrumentation is what is used in industry, so we will use that here too. 
-
-Regardless of what it is called, the point of this is that you need to consider how you are getting your data in the first place. For instance, if we put a cookie on your device then different types of users will remove that at different rates. Using things like beacons can be great (this is when you force the user to 'download' some tiny thing they do not notice so that you know they've gone somewhere - see 'email' etc). But again, there are practical issues - do we force the beacon before the main content loads - which makes for a worse customer experience; or do we allow the beacon to load after the main content, in which case we may get a biased sample?
-
-There are likely different servers and databases for different faces of the product. For instance, Twitter in Australia, compared with Twitter in Canada, compared with Twitter on my phone's app, compared with Twitter accessed via the browser. Joining these different datasets can be difficult and requires either a unique id or some probabilistic approach.
-
-@kohavi [p. 165] recommend changing the culture of your workplace to ensure instrumentation is normalised, which I mean, yeah, good luck.
-
-
-
-Again, drawing on @kohavi[p. 162 - 165], we need to be very aware of what are we actually randomizing over? Again, this is something that's kind of obvious in normal RCTs, but gets like really interesting in the case of A/B testing. Let's consider the malaria netting experiments - either a person/village/state gets a net or it doesn't. Easy (relatively). But in the case of server-side A/B testing - are we randomizing the page, the session, or the user? 
-
-To think about this, let's think about color. Let's say that we change our logo from red to blue on the 'home' page. If we are randomizing at the page level, then when the user goes to the 'about' page the logo could be back to red. If we are randomizing at the session level, then it'll be blue while they are using the website that time, but if they close it and come back then it'll be red. Finally, if we are randomizing at a user level then it'll always be red for me, but always blue for my friend. That last bit assumes perfect identity tracking, which might be generally okay if you are Google or Facebook, but for anyone else is going to be a challenge - what if you visit cbc.ca on your phone and then on your laptop? You're likely considered a different 'user'.
-
-Does this matter? it is a trade-off between consistency and importance.
-
-We are always interested in whether the treatment and control groups have been created randomly. One way to test it is an A/A test. @taddy2019 [p. 129] describes how 'AB platforms typically run "AA" tests that show the same website in groups A and B. If you see a significant difference between groups in an AA trial, then something is likely wrong in your randomization.'. 
-
-@kohavi[p.201] says similarly, that '(w)e highly recommend running continuous A/A tests in parallel with other experiments to uncover problems, including distribution mismatches and plat- form anomalies.'
+This trade-off may be obvious when we run the driver experiment if we were to look at customer complaints. It is possible that on a small team we would be exposed to those tickets, but on a larger team we may not be. Ensuring that A/B tests are not resulting in false optimization is especially important. And not something that we typically have to worry about in normal experiments.
 
 
 
 
-Unless we work at a Facebook/Twitter type firm, it may not be possible to run A/B tests ourselves at scale. While we can randomize our own personal website fairly easily, for most of us there won't be many visitors. Hence it can be important to partner with such firms. @Salganik2018 [p. 187] draws our attention to the fact that there may be tension between 'the researchers and the partners'. 
+### Case study: Upworthy
 
-As an example, @Salganik2018 discusses a situation where one treatment (out of the three that were possible) accounted for 98 per cent of the sample because Facebook wanted to treat everyone. The researchers were only able to convince 'them to hold back 1 per cent for a related treatment and 1 per cent for a control group.' He continues: 
+The trouble with much of A/B testing is that it is done by firms and so we typically do not have datasets that we can use. But @upworthy provide access to a dataset of A/B tests from Upworthy, a clickbait media website that used A/B testing to optimize their content. @aboutupworthy provides more background information about Upworthy. And the datasets of A/B tests are available: https://osf.io/jd64p/.
 
-> without the control group, it would have been basically impossible to measure the effect of the Info + Social treatment because it would have been a "perturb and observe" experiment, rather than a randomized controlled experiment. This example provides a valuable practical lesson for working with partners: sometimes you create an experiment by convincing someone to deliver a treatment and sometimes you create an experiment by convincing someone not to deliver a treatment (i.e. to create a control group).
->
-> @Salganik2018 [p. 188].
-
-In order to identify such opportunities, @Salganik2018 [p. 188] advises us 'to notice a real problem that you can solve while you are doing interesting science'. @Salganik2018 closes with four other pieces of advice:
-
-1) '(Y)ou should think as much as possible before any data have been collected' @Salganik2018 [p. 189].
-2) '(Y)ou should consider designing a series of experiments that reinforce each other' @Salganik2018 [p. 190].
-3) You should '(c)reate zero variable cost data', by: 1) trying to replace human work with computer work; and 2) creating fun experiments that participants want to participate in [@Salganik2018 p. 191].
-4) You should '(b)uild ethics into your design: replace, refine, and reduce', that is '(m)ake your experiment more humane by replacing experiments with non-experimental studies, refining the treatments [to be as harmless as possible], and reducing the number of participants' [@Salganik2018 p. 196]. 
-
-
-
-
-do not peek at your results early and then call off the rest of the experiment if you've got significance. You essentially ruin everything that underpins statistics if you do that.
-
-
-One of the interesting aspects of A/B testing is that we are usually running them not because we desperately care about the specific outcome, but because that feeds into some other measure that we care about. For instance, do we care whether the website is quite-dark-blue or slightly-darker-blue or white? Probably not, but we probably care a lot about the company share price. But then what if picking the best blue comes at a cost to the share price? 
-
-Obviously, this is a bit contrived, so let's pretend that we work at a food delivery app and that we are the junior data scientist in charge of driver satisfaction. We do some A/B tests and we find that drivers are always happier when they are able to deliver food to the customer faster. Faster is better, always. But one way to achieve faster deliveries, is for them to not put the food into a hot box that will maintain the temperature. Something like that might save 30 seconds, which is significant on a 10-15 minute deliver. Unfortunately, although making a decision like that on the basis of A/B tests designed to optimize driver-satisfaction, would ultimately likely make the customer experience worse. If customers receive cold food, (when it is meant to be hot) then they may stop using the service and so this is likely bad for the app in the longer term.
-
-This trade-off may be obvious if you are running the driver-experiment and you are looking at the customer complaints. Maybe on a small team or in a start-up you would be. But if you work for a larger team, you'd likely not and so ensuring that A/B tests aren't resulting in false optimization is something that is especially interesting, and not a typical trade-off in a normal RCT.
-
-
-
-
-
-## Case study: Upworthy
-
-The trouble with much of A/B testing is that because it is done by firms we typically do not have datasets that we can use. However, J. Nathan Matias (Cornell), Kevin Munger (Penn State), and Marianne Aubin Le Quere (Cornell) obtained a dataset of A/B tests from Upworthy that they provide access to [@upworthy]. You are able to request access to the dataset here: https://upworthy.natematias.com (this request may take a couple of weeks to be processed). Upworthy was a click-bait news company that used A/B testing to optimize their content. More details are provided by @aboutupworthy. 
-
-Let's have a quick look at the data.
+We can look at what the dataset looks like, and get a sense for it by looking at the names and an extract. 
 
 
 ```r
-upworthy <- read_csv(here::here("dont_push/upworthy-archive-exploratory-packages-03.12.2020.csv"))
-#> New names:
-#> * `` -> ...1
-#> Rows: 22666 Columns: 17
-#> ── Column specification ────────────────────────────────────
-#> Delimiter: ","
-#> chr  (8): clickability_test_id, excerpt, headline, lede,...
-#> dbl  (5): ...1, impressions, clicks, significance, test_...
-#> lgl  (2): first_place, winner
-#> dttm (2): created_at, updated_at
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+upworthy <- read_csv("https://osf.io/vy8mj/download")
+```
+
+
+
+
+
+
+```r
+upworthy |> 
+  names()
+#>  [1] "...1"                 "created_at"          
+#>  [3] "updated_at"           "clickability_test_id"
+#>  [5] "excerpt"              "headline"            
+#>  [7] "lede"                 "slug"                
+#>  [9] "eyecatcher_id"        "impressions"         
+#> [11] "clicks"               "significance"        
+#> [13] "first_place"          "winner"              
+#> [15] "share_text"           "square"              
+#> [17] "test_week"
 
 upworthy |> 
   head()
@@ -777,23 +734,19 @@ upworthy |>
 #> #   eyecatcher_id <chr>, impressions <dbl>, clicks <dbl>,
 #> #   significance <dbl>, first_place <lgl>, winner <lgl>,
 #> #   share_text <chr>, square <chr>, test_week <dbl>
-
-upworthy |> 
-  names()
-#>  [1] "...1"                 "created_at"          
-#>  [3] "updated_at"           "clickability_test_id"
-#>  [5] "excerpt"              "headline"            
-#>  [7] "lede"                 "slug"                
-#>  [9] "eyecatcher_id"        "impressions"         
-#> [11] "clicks"               "significance"        
-#> [13] "first_place"          "winner"              
-#> [15] "share_text"           "square"              
-#> [17] "test_week"
 ```
 
-From the documentation: 'The Upworthy Research Archive contains packages within tests. On Upworthy, packages are bundles of headlines and images that were randomly assigned to people on the website as part of a test. Tests can include many packages.' So each row is a package and it should be part of a test 'clickability_test_id'.
+It is also useful to look at the documentation for the dataset. This describes the structure of the dataset, which is that there are packages within tests. A package is a collection of headlines and images that were shown randomly to different visitors to the website, as part of a test. A test can include many packages. Each row in the dataset is a package and the test that it is part of is specified by the 'clickability_test_id' column.
 
-We have a variety of variables. we will focus on 'created_at', 'clickability_test_id' so that we can create comparison groups, 'headline', 'impressions' which is the number of people that saw the package, and 'clicks' which is the number that clicked on that package. So within each batch of tests, we are interested in the effect of varied headlines on impressions and clicks.
+There are a variety of variables. We will focus on: 
+
+- 'created_at', 
+- 'clickability_test_id' so that we can create comparison groups, 
+- 'headline', 
+- 'impressions' which is the number of people that saw the package, and 
+- 'clicks' which is the number that clicked on that package. 
+
+Within each batch of tests, we are interested in the effect of the varied headlines on impressions and clicks.
 
 
 ```r
@@ -814,17 +767,16 @@ head(upworthy_restricted)
 #> # … with 1 more variable: clicks <dbl>
 ```
 
-We are going to focus on the text contained in headlines. We also want to remove the effect of different pictures, by comparing on the same image. I'm interested in whether headlines that asked a question got more clicks than those that did not.
-
-To identify whether a headline asks a question, I'm going to just search for a question mark. Although there are more complicated constructions that we could use, this will be enough to get started.
+We will focus on the text contained in headlines, and look at whether headlines that asked a question got more clicks than those that did not. We want to remove the effect of different images and so will focus on those tests that have the same image. To identify whether a headline asks a question, we search for a question mark. Although there are more complicated constructions that we could use, this is enough to get started.
 
 
 ```r
-upworthy_restricted <- 
-  upworthy_restricted |> 
-  mutate(asks_question = stringr::str_detect(string = headline, pattern = "\\?"))
+upworthy_restricted <-
+  upworthy_restricted |>
+  mutate(asks_question = str_detect(string = headline, pattern = "\\?"))
 
-upworthy_restricted |> count(asks_question)
+upworthy_restricted |> 
+  count(asks_question)
 #> # A tibble: 2 × 2
 #>   asks_question     n
 #>   <lgl>         <int>
@@ -832,14 +784,14 @@ upworthy_restricted |> count(asks_question)
 #> 2 TRUE           3536
 ```
 
-Now for every test, for every picture, we want to know whether asking a question affected the number of clicks.
+For every test, and for every picture, we want to know whether asking a question affected the number of clicks.
 
 
 ```r
 to_question_or_not_to_question <- 
   upworthy_restricted |> 
   group_by(clickability_test_id, asks_question) |> 
-  summarise(ave_clicks = mean(clicks)) |> 
+  summarize(ave_clicks = mean(clicks)) |> 
   ungroup()
 #> `summarise()` has grouped output by 'clickability_test_id'. You can override using the `.groups` argument.
 
@@ -858,63 +810,53 @@ look_at_differences$difference_in_clicks |> mean()
 #> [1] -4.890435
 ```
 
-So we find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure \@ref(fig:upworthy)).
+We find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure \@ref(fig:upworthy)).
 
 <div class="figure">
-<img src="21-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not." width="672" />
-<p class="caption">(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not.</p>
+<img src="21-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not" width="672" />
+<p class="caption">(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not</p>
 </div>
 
 
 
 
+<!-- ## Implementing surveys -->
+
+<!-- ### Google -->
+
+<!-- ### Facebook -->
+
+<!-- ### Survey Monkey -->
+
+<!-- ### Mechanical Turk -->
+
+<!-- ### Prolific -->
+
+<!-- ### Qualtrics -->
+
+<!-- ### Other -->
 
 
 
 
 
 
+<!-- ## Sensor data -->
 
 
+<!-- ## FOI -->
+
+<!-- - Walby, Kevin and Alex Luscombe, eds. Freedom of Information and Social Science Research Design. New York: Routledge. -->
 
 
-## Implementing surveys
+<!-- ## Next steps -->
 
-### Google
+<!-- Large scale experiments are happening all around us. These days I feel we all know a lot more about healthcare experiments than perhaps we'd like to know and the AstraZeneca/Oxford situation is especially interesting, for instance, @OxfordAstraZeneca, but see @Bastian2020 for how this is actually possibly more complicated. -->
 
-### Facebook
+<!-- There are also well-known experiments that tried to see if big government programs are effective, such as: -->
 
-### Survey Monkey
-
-### Mechanical Turk
-
-### Prolific
-
-### Qualtrics
-
-### Other
-
-
-
-
-
-
-## Sensor data
-
-
-## FOI
-
-- 2019. Walby, Kevin and Alex Luscombe, eds. Freedom of Information and Social Science Research Design. New York: Routledge.
-
-
-## Next steps
-
-Large scale experiments are happening all around us. These days I feel we all know a lot more about healthcare experiments than perhaps we'd like to know and the AstraZeneca/Oxford situation is especially interesting, for instance, @OxfordAstraZeneca, but see @Bastian2020 for how this is actually possibly more complicated.
-
-There are also well-known experiments that tried to see if big government programs are effective, such as:
-
-- The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 [@randhealth].
-- The Oregon Health Study randomly gave health insurance in Oregon in 2008 [@finkelstein2012oregon].
+<!-- - The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 [@randhealth]. -->
+<!-- - The Oregon Health Study randomly gave health insurance in Oregon in 2008 [@finkelstein2012oregon]. -->
 
 
 
@@ -1004,10 +946,4 @@ netflix_data <-
 
 ### Tutorial
 
-The purpose of this tutorial is to ensure that it is clear in your mind how thoroughly you should know your dataset. It builds on the 'memory palace' technique used by professional memorisers, as described by @moonwalkingwitheinstein.
-
-Please think about your childhood home, or another building that you know intimately. Imagine yourself standing at the front of it. Describe what it looks like. Then 'walk' into the front and throughout the house, again describing each aspect in as much detail as you can imagine. What are each of the rooms used for and what are their distinguishing features? How does it smell? What does this all evoke in you? Please write a page or two. 
-
-Now think about a dataset that you are interested in. Please do this same exercise, but for the dataset.
-
-
+Please build a website using `postcards` [@citepostcards]. Add Google Analytics. Deploy it using Netlify. Change some aspect of the website, add a different tracker, and push it to a new branch. Then use Netlify to conduct an A/B test. Write a one-to-two page paper about what you did and what you found.

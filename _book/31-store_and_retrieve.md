@@ -100,3 +100,10 @@ If you have done a lot of work to create the dataset that you analyze, then it m
 Look into how IQ tests are conducted and what goes into them. To what extent do you think they measure intelligence? Some aspects that you may like to think about in answering that question include: Who decides what is intelligence? How is this updated? What is missing from that definition? To what extent is this generalisable? You should write a page or two.
 
 
+<!-- The purpose of this tutorial is to ensure that it is clear in your mind how thoroughly you should know your dataset. It builds on the 'memory palace' technique used by professional memorisers, as described by @moonwalkingwitheinstein. -->
+
+<!-- Please think about your childhood home, or another building that you know intimately. Imagine yourself standing at the front of it. Describe what it looks like. Then 'walk' into the front and throughout the house, again describing each aspect in as much detail as you can imagine. What are each of the rooms used for and what are their distinguishing features? How does it smell? What does this all evoke in you? Please write a page or two.  -->
+
+<!-- Now think about a dataset that you are interested in. Please do this same exercise, but for the dataset. -->
+
+
