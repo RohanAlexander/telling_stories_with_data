@@ -666,18 +666,18 @@ We could modify `arrange()` with `desc()` to change from ascending to descending
 australian_politicians |> 
   arrange(desc(birthDate))
 #> # A tibble: 1,783 × 10
-#>    uniqueID   surname  firstName gender birthDate  birthYear
-#>    <chr>      <chr>    <chr>     <chr>  <date>         <dbl>
-#>  1 SteeleJoh… Steele-… Jordon    male   1994-10-14        NA
-#>  2 Chandler1… Chandler Claire    female 1990-06-01        NA
-#>  3 Roy1990    Roy      Wyatt     male   1990-05-22        NA
-#>  4 Thompson1… Thompson Phillip   male   1988-05-07        NA
-#>  5 Paterson1… Paterson James     male   1987-11-21        NA
-#>  6 Burns1987  Burns    Joshua    male   1987-02-06        NA
-#>  7 Smith1986  Smith    Marielle  female 1986-12-30        NA
-#>  8 Kakoschke… Kakosch… Skye      female 1985-12-19        NA
-#>  9 Simmonds1… Simmonds Julian    male   1985-08-29        NA
-#> 10 Gorman1984 Gorman   Patrick   male   1984-12-12        NA
+#>    uniqueID    surname firstName gender birthDate  birthYear
+#>    <chr>       <chr>   <chr>     <chr>  <date>         <dbl>
+#>  1 SteeleJohn… Steele… Jordon    male   1994-10-14        NA
+#>  2 Chandler19… Chandl… Claire    female 1990-06-01        NA
+#>  3 Roy1990     Roy     Wyatt     male   1990-05-22        NA
+#>  4 Thompson19… Thomps… Phillip   male   1988-05-07        NA
+#>  5 Paterson19… Paters… James     male   1987-11-21        NA
+#>  6 Burns1987   Burns   Joshua    male   1987-02-06        NA
+#>  7 Smith1986   Smith   Marielle  female 1986-12-30        NA
+#>  8 KakoschkeM… Kakosc… Skye      female 1985-12-19        NA
+#>  9 Simmonds19… Simmon… Julian    male   1985-08-29        NA
+#> 10 Gorman1984  Gorman  Patrick   male   1984-12-12        NA
 #> # … with 1,773 more rows, and 4 more variables:
 #> #   deathDate <date>, member <dbl>, senator <dbl>,
 #> #   wasPrimeMinister <dbl>
@@ -764,14 +764,14 @@ australian_politicians |>
   arrange(across(c(firstName, birthYear))) |> 
   head()
 #> # A tibble: 6 × 10
-#>   uniqueID    surname  firstName gender birthDate  birthYear
-#>   <chr>       <chr>    <chr>     <chr>  <date>         <dbl>
-#> 1 Blain1894   Blain    Adair     male   1894-11-21        NA
-#> 2 Armstrong1… Armstro… Adam      male   1909-07-01        NA
-#> 3 Bandt1972   Bandt    Adam      male   1972-03-11        NA
-#> 4 Dein1889    Dein     Adam      male   1889-03-04        NA
-#> 5 Ridgeway19… Ridgeway Aden      male   1962-09-18        NA
-#> 6 Bennett1933 Bennett  Adrian    male   1933-01-21        NA
+#>   uniqueID     surname firstName gender birthDate  birthYear
+#>   <chr>        <chr>   <chr>     <chr>  <date>         <dbl>
+#> 1 Blain1894    Blain   Adair     male   1894-11-21        NA
+#> 2 Armstrong19… Armstr… Adam      male   1909-07-01        NA
+#> 3 Bandt1972    Bandt   Adam      male   1972-03-11        NA
+#> 4 Dein1889     Dein    Adam      male   1889-03-04        NA
+#> 5 Ridgeway1962 Ridgew… Aden      male   1962-09-18        NA
+#> 6 Bennett1933  Bennett Adrian    male   1933-01-21        NA
 #> # … with 4 more variables: deathDate <date>, member <dbl>,
 #> #   senator <dbl>, wasPrimeMinister <dbl>
 
@@ -1588,7 +1588,7 @@ write_csv(oecd_gdp, 'inputs/data/oecd_gdp.csv')
 #> 4 OECD     QGDP      TOT     PC_CHGPP A         1965   5.35
 #> 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
 #> 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
-#> # … with 1 more variable: Flag Codes <chr>
+#> # … with 1 more variable: `Flag Codes` <chr>
 ```
 
 We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for ten countries: Australia, Canada, Chile, Indonesia, Germany, Great Britain, New Zealand, South Africa, Spain, and the US.
@@ -1910,8 +1910,7 @@ Occasionally, we need to go from long data to wide data. We use `pivot_wider()` 
 ```r
 data_pivoted_wider <- 
   data_pivoted_longer |> 
-  tidyr::pivot_wider(id_cols = c("year", "person"),
-                     names_from = "person",
+  tidyr::pivot_wider(names_from = "person",
                      values_from = "position")
 
 head(data_pivoted_wider)

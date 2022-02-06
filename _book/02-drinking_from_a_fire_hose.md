@@ -186,15 +186,15 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 Green         
+#>  1      1 New Democratic
 #>  2      2 Liberal       
-#>  3      3 Green         
-#>  4      4 Conservative  
-#>  5      5 Liberal       
-#>  6      6 Green         
-#>  7      7 New Democratic
-#>  8      8 New Democratic
-#>  9      9 Green         
+#>  3      3 Bloc Québécois
+#>  4      4 Bloc Québécois
+#>  5      5 Conservative  
+#>  6      6 Liberal       
+#>  7      7 Other         
+#>  8      8 Liberal       
+#>  9      9 Bloc Québécois
 #> 10     10 Other         
 #> # … with 328 more rows
 ```
@@ -234,38 +234,38 @@ We can take a quick look at the dataset using `head()` which will show the first
 ```r
 head(raw_elections_data)
 #> # A tibble: 6 × 13
-#>   Province   `Electoral Distri… `Electoral Distr… Population
-#>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 Newfoundl… Avalon                         10001      86494
-#> 2 Newfoundl… Bonavista--Burin-…             10002      74116
-#> 3 Newfoundl… Coast of Bays--Ce…             10003      77680
-#> 4 Newfoundl… Labrador                       10004      27197
-#> 5 Newfoundl… Long Range Mounta…             10005      86553
-#> 6 Newfoundl… St. John's East/S…             10006      85697
-#> # … with 9 more variables: Electors/Électeurs <dbl>,
-#> #   Polling Stations/Bureaux de scrutin <dbl>,
-#> #   Valid Ballots/Bulletins valides <dbl>,
-#> #   Percentage of Valid Ballots /Pourcentage des bulletins valides <dbl>,
-#> #   Rejected Ballots/Bulletins rejetés <dbl>,
-#> #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés <dbl>,
-#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, …
+#>   Province      `Electoral Dis…` `Electoral Dis…` Population
+#>   <chr>         <chr>                       <dbl>      <dbl>
+#> 1 Newfoundland… Avalon                      10001      86494
+#> 2 Newfoundland… Bonavista--Buri…            10002      74116
+#> 3 Newfoundland… Coast of Bays--…            10003      77680
+#> 4 Newfoundland… Labrador                    10004      27197
+#> 5 Newfoundland… Long Range Moun…            10005      86553
+#> 6 Newfoundland… St. John's East…            10006      85697
+#> # … with 9 more variables: `Electors/Électeurs` <dbl>,
+#> #   `Polling Stations/Bureaux de scrutin` <dbl>,
+#> #   `Valid Ballots/Bulletins valides` <dbl>,
+#> #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` <dbl>,
+#> #   `Rejected Ballots/Bulletins rejetés` <dbl>,
+#> #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` <dbl>,
+#> #   `Total Ballots Cast/Total des bulletins déposés` <dbl>, …
 tail(raw_elections_data)
 #> # A tibble: 6 × 13
-#>   Province   `Electoral Distri… `Electoral Distr… Population
-#>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 British C… Vancouver South/V…             59040     102927
-#> 2 British C… Victoria                       59041     117133
-#> 3 British C… West Vancouver--S…             59042     119113
-#> 4 Yukon      Yukon                          60001      35874
-#> 5 Northwest… Northwest Territo…             61001      41786
-#> 6 Nunavut    Nunavut                        62001      35944
-#> # … with 9 more variables: Electors/Électeurs <dbl>,
-#> #   Polling Stations/Bureaux de scrutin <dbl>,
-#> #   Valid Ballots/Bulletins valides <dbl>,
-#> #   Percentage of Valid Ballots /Pourcentage des bulletins valides <dbl>,
-#> #   Rejected Ballots/Bulletins rejetés <dbl>,
-#> #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés <dbl>,
-#> #   Total Ballots Cast/Total des bulletins déposés <dbl>, …
+#>   Province      `Electoral Dis…` `Electoral Dis…` Population
+#>   <chr>         <chr>                       <dbl>      <dbl>
+#> 1 British Colu… Vancouver South…            59040     102927
+#> 2 British Colu… Victoria                    59041     117133
+#> 3 British Colu… West Vancouver-…            59042     119113
+#> 4 Yukon         Yukon                       60001      35874
+#> 5 Northwest Te… Northwest Terri…            61001      41786
+#> 6 Nunavut       Nunavut                     62001      35944
+#> # … with 9 more variables: `Electors/Électeurs` <dbl>,
+#> #   `Polling Stations/Bureaux de scrutin` <dbl>,
+#> #   `Valid Ballots/Bulletins valides` <dbl>,
+#> #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` <dbl>,
+#> #   `Rejected Ballots/Bulletins rejetés` <dbl>,
+#> #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` <dbl>,
+#> #   `Total Ballots Cast/Total des bulletins déposés` <dbl>, …
 ```
 
 We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using `clean_names()` from `janitor` [@janitor] which changes the names into 'snake_case'.
@@ -290,14 +290,14 @@ cleaned_elections_data <-
 # Have a look at the first six rows
 head(cleaned_elections_data)
 #> # A tibble: 6 × 13
-#>   province   electoral_distric… electoral_distri… population
-#>   <chr>      <chr>                          <dbl>      <dbl>
-#> 1 Newfoundl… Avalon                         10001      86494
-#> 2 Newfoundl… Bonavista--Burin-…             10002      74116
-#> 3 Newfoundl… Coast of Bays--Ce…             10003      77680
-#> 4 Newfoundl… Labrador                       10004      27197
-#> 5 Newfoundl… Long Range Mounta…             10005      86553
-#> 6 Newfoundl… St. John's East/S…             10006      85697
+#>   province      electoral_distr… electoral_distr… population
+#>   <chr>         <chr>                       <dbl>      <dbl>
+#> 1 Newfoundland… Avalon                      10001      86494
+#> 2 Newfoundland… Bonavista--Buri…            10002      74116
+#> 3 Newfoundland… Coast of Bays--…            10003      77680
+#> 4 Newfoundland… Labrador                    10004      27197
+#> 5 Newfoundland… Long Range Moun…            10005      86553
+#> 6 Newfoundland… St. John's East…            10006      85697
 #> # … with 9 more variables: electors_electeurs <dbl>,
 #> #   polling_stations_bureaux_de_scrutin <dbl>,
 #> #   valid_ballots_bulletins_valides <dbl>,
@@ -323,14 +323,14 @@ cleaned_elections_data <-
 # Have a look at the first six rows
 head(cleaned_elections_data)
 #> # A tibble: 6 × 2
-#>   electoral_district_name_no… elected_candidate_candidat_elu
-#>   <chr>                       <chr>                         
-#> 1 Avalon                      McDonald, Kenneth Liberal/Lib…
-#> 2 Bonavista--Burin--Trinity   Rogers, Churence Liberal/Libé…
-#> 3 Coast of Bays--Central--No… Simms, Scott Liberal/Libéral  
-#> 4 Labrador                    Jones, Yvonne Liberal/Libéral 
-#> 5 Long Range Mountains        Hutchings, Gudie Liberal/Libé…
-#> 6 St. John's East/St. John's… Harris, Jack NDP-New Democrat…
+#>   electoral_district_name_nom_de_circonscr… elected_candida…
+#>   <chr>                                     <chr>           
+#> 1 Avalon                                    McDonald, Kenne…
+#> 2 Bonavista--Burin--Trinity                 Rogers, Churenc…
+#> 3 Coast of Bays--Central--Notre Dame        Simms, Scott Li…
+#> 4 Labrador                                  Jones, Yvonne L…
+#> 5 Long Range Mountains                      Hutchings, Gudi…
+#> 6 St. John's East/St. John's-Est            Harris, Jack ND…
 ```
 
 Some of the names of the columns are still quite long because they have both English and French in them. We can look at the names of the columns with `names()`. And we can change the names using `rename()` from `dplyr` [@citedplyr].
@@ -1041,7 +1041,7 @@ We can take a quick look to get a better sense of it. We might be interested in 
 ```r
 head(raw_igme_data)
 #> # A tibble: 6 × 29
-#>   `Geographic area` Indicator         Sex   `Wealth Quintil…
+#>   `Geographic area` Indicator         Sex   `Wealth Quinti…`
 #>   <chr>             <chr>             <chr> <chr>           
 #> 1 Afghanistan       Neonatal mortali… Total Total           
 #> 2 Afghanistan       Neonatal mortali… Total Total           
@@ -1049,13 +1049,13 @@ head(raw_igme_data)
 #> 4 Afghanistan       Neonatal mortali… Total Total           
 #> 5 Afghanistan       Neonatal mortali… Total Total           
 #> 6 Afghanistan       Neonatal mortali… Total Total           
-#> # … with 25 more variables: Series Name <chr>,
-#> #   Series Year <chr>, Regional group <chr>,
+#> # … with 25 more variables: `Series Name` <chr>,
+#> #   `Series Year` <chr>, `Regional group` <chr>,
 #> #   TIME_PERIOD <chr>, OBS_VALUE <dbl>,
 #> #   COUNTRY_NOTES <chr>, CONNECTION <lgl>,
 #> #   DEATH_CATEGORY <lgl>, CATEGORY <chr>,
-#> #   Observation Status <chr>, Unit of measure <chr>,
-#> #   Series Category <chr>, Series Type <chr>, …
+#> #   `Observation Status` <chr>, `Unit of measure` <chr>,
+#> #   `Series Category` <chr>, `Series Type` <chr>, …
 names(raw_igme_data)
 #>  [1] "Geographic area"        "Indicator"             
 #>  [3] "Sex"                    "Wealth Quintile"       

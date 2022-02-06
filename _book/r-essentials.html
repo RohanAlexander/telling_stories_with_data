@@ -658,18 +658,18 @@ Figure 3.3: After running an R Script
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">birthDate</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,783 × 10</span>
-<span class="co">#&gt;    uniqueID   surname  firstName gender birthDate  birthYear</span>
-<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;date&gt;         &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 SteeleJoh… Steele-… Jordon    male   1994-10-14        NA</span>
-<span class="co">#&gt;  2 Chandler1… Chandler Claire    female 1990-06-01        NA</span>
-<span class="co">#&gt;  3 Roy1990    Roy      Wyatt     male   1990-05-22        NA</span>
-<span class="co">#&gt;  4 Thompson1… Thompson Phillip   male   1988-05-07        NA</span>
-<span class="co">#&gt;  5 Paterson1… Paterson James     male   1987-11-21        NA</span>
-<span class="co">#&gt;  6 Burns1987  Burns    Joshua    male   1987-02-06        NA</span>
-<span class="co">#&gt;  7 Smith1986  Smith    Marielle  female 1986-12-30        NA</span>
-<span class="co">#&gt;  8 Kakoschke… Kakosch… Skye      female 1985-12-19        NA</span>
-<span class="co">#&gt;  9 Simmonds1… Simmonds Julian    male   1985-08-29        NA</span>
-<span class="co">#&gt; 10 Gorman1984 Gorman   Patrick   male   1984-12-12        NA</span>
+<span class="co">#&gt;    uniqueID    surname firstName gender birthDate  birthYear</span>
+<span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;date&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 SteeleJohn… Steele… Jordon    male   1994-10-14        NA</span>
+<span class="co">#&gt;  2 Chandler19… Chandl… Claire    female 1990-06-01        NA</span>
+<span class="co">#&gt;  3 Roy1990     Roy     Wyatt     male   1990-05-22        NA</span>
+<span class="co">#&gt;  4 Thompson19… Thomps… Phillip   male   1988-05-07        NA</span>
+<span class="co">#&gt;  5 Paterson19… Paters… James     male   1987-11-21        NA</span>
+<span class="co">#&gt;  6 Burns1987   Burns   Joshua    male   1987-02-06        NA</span>
+<span class="co">#&gt;  7 Smith1986   Smith   Marielle  female 1986-12-30        NA</span>
+<span class="co">#&gt;  8 KakoschkeM… Kakosc… Skye      female 1985-12-19        NA</span>
+<span class="co">#&gt;  9 Simmonds19… Simmon… Julian    male   1985-08-29        NA</span>
+<span class="co">#&gt; 10 Gorman1984  Gorman  Patrick   male   1984-12-12        NA</span>
 <span class="co">#&gt; # … with 1,773 more rows, and 4 more variables:</span>
 <span class="co">#&gt; #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   wasPrimeMinister &lt;dbl&gt;</span></code></pre></div>
@@ -740,14 +740,14 @@ Figure 3.3: After running an R Script
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">firstName</span>, <span class="va">birthYear</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 10</span>
-<span class="co">#&gt;   uniqueID    surname  firstName gender birthDate  birthYear</span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;date&gt;         &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Blain1894   Blain    Adair     male   1894-11-21        NA</span>
-<span class="co">#&gt; 2 Armstrong1… Armstro… Adam      male   1909-07-01        NA</span>
-<span class="co">#&gt; 3 Bandt1972   Bandt    Adam      male   1972-03-11        NA</span>
-<span class="co">#&gt; 4 Dein1889    Dein     Adam      male   1889-03-04        NA</span>
-<span class="co">#&gt; 5 Ridgeway19… Ridgeway Aden      male   1962-09-18        NA</span>
-<span class="co">#&gt; 6 Bennett1933 Bennett  Adrian    male   1933-01-21        NA</span>
+<span class="co">#&gt;   uniqueID     surname firstName gender birthDate  birthYear</span>
+<span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;date&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Blain1894    Blain   Adair     male   1894-11-21        NA</span>
+<span class="co">#&gt; 2 Armstrong19… Armstr… Adam      male   1909-07-01        NA</span>
+<span class="co">#&gt; 3 Bandt1972    Bandt   Adam      male   1972-03-11        NA</span>
+<span class="co">#&gt; 4 Dein1889     Dein    Adam      male   1889-03-04        NA</span>
+<span class="co">#&gt; 5 Ridgeway1962 Ridgew… Aden      male   1962-09-18        NA</span>
+<span class="co">#&gt; 6 Bennett1933  Bennett Adrian    male   1933-01-21        NA</span>
 <span class="co">#&gt; # … with 4 more variables: deathDate &lt;date&gt;, member &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;</span>
 
@@ -1428,7 +1428,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 #&gt; 4 OECD     QGDP      TOT     PC_CHGPP A         1965   5.35
 #&gt; 5 OECD     QGDP      TOT     PC_CHGPP A         1966   5.75
 #&gt; 6 OECD     QGDP      TOT     PC_CHGPP A         1967   3.96
-#&gt; # … with 1 more variable: Flag Codes &lt;chr&gt;</code></pre>
+#&gt; # … with 1 more variable: `Flag Codes` &lt;chr&gt;</code></pre>
 <p>We are interested, firstly, in making a bar chart of GDP change in the third quarter of 2021 for ten countries: Australia, Canada, Chile, Indonesia, Germany, Great Britain, New Zealand, South Africa, Spain, and the US.</p>
 <div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> <span class="op">&lt;-</span> 
@@ -1745,8 +1745,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_pivoted_wider</span> <span class="op">&lt;-</span> 
   <span class="va">data_pivoted_longer</span> |&gt; 
-  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span>, <span class="st">"person"</span><span class="op">)</span>,
-                     names_from <span class="op">=</span> <span class="st">"person"</span>,
+  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="st">"person"</span>,
                      values_from <span class="op">=</span> <span class="st">"position"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_pivoted_wider</span><span class="op">)</span>
@@ -2087,7 +2086,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

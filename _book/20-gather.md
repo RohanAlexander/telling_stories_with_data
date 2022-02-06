@@ -623,9 +623,9 @@ data_from_arxiv <-
   )
 data_from_arxiv
 #> # A tibble: 1 × 2
-#>   title                                link                 
-#>   <chr>                                <chr>                
-#> 1 "The Increased Effect of Elections … http://arxiv.org/abs…
+#>   title                                                link 
+#>   <chr>                                                <chr>
+#> 1 "The Increased Effect of Elections and Changing Pri… http…
 ```
 
 Each day NASA provides the Astronomy Picture of the Day (APOD) through its APOD API. We can again use `GET()` to obtain the URL for the photo on particular dates and then display it. 
@@ -689,18 +689,18 @@ This tells us how to obtain the dataset of interest.
 ```r
 as_tibble(politics_datasets[["data"]][["items"]])
 #> # A tibble: 10 × 18
-#>    name   type   url    identifier description  published_at
-#>    <chr>  <chr>  <chr>  <chr>      <chr>        <chr>       
-#>  1 China… datav… https… china-arc… Introductio… 2016-12-09T…
-#>  2 cc16_… file   https… <NA>       Alaska subs… 2021-12-26T…
-#>  3 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  4 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  5 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  6 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  7 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  8 cc16_… file   https… <NA>       <NA>         2021-12-26T…
-#>  9 cc16_… file   https… <NA>       DC subset    2021-12-27T…
-#> 10 cc16_… file   https… <NA>       <NA>         2021-12-26T…
+#>    name      type  url   identifier description published_at
+#>    <chr>     <chr> <chr> <chr>      <chr>       <chr>       
+#>  1 China Ar… data… http… china-arc… Introducti… 2016-12-09T…
+#>  2 cc16_AK.… file  http… <NA>       Alaska sub… 2021-12-26T…
+#>  3 cc16_AL.… file  http… <NA>       <NA>        2021-12-26T…
+#>  4 cc16_AR.… file  http… <NA>       <NA>        2021-12-26T…
+#>  5 cc16_AZ.… file  http… <NA>       <NA>        2021-12-26T…
+#>  6 cc16_CA.… file  http… <NA>       <NA>        2021-12-26T…
+#>  7 cc16_CO.… file  http… <NA>       <NA>        2021-12-26T…
+#>  8 cc16_CT.… file  http… <NA>       <NA>        2021-12-26T…
+#>  9 cc16_DC.… file  http… <NA>       DC subset   2021-12-27T…
+#> 10 cc16_DE.… file  http… <NA>       <NA>        2021-12-26T…
 #> # … with 12 more variables: file_id <chr>, file_type <chr>,
 #> #   file_content_type <chr>, size_in_bytes <int>,
 #> #   md5 <chr>, checksum <df[,2]>, unf <chr>,
@@ -1411,14 +1411,14 @@ initial_clean <-
 
 head(initial_clean)
 #> # A tibble: 6 × 5
-#>   raw_text          Name         not_name Date  all_the_rest
-#>   <chr>             <chr>        <chr>    <chr> <chr>       
-#> 1 Sir Robert Walpo… Sir Robert … 1676–17… 1676… ""          
-#> 2 Spencer Compton1… Spencer Com… 1673–17… 1673… ""          
-#> 3 Henry Pelham(169… Henry Pelham 1694–17… 1694… ""          
-#> 4 Thomas Pelham-Ho… Thomas Pelh… 1693–17… 1693… ""          
-#> 5 William Cavendis… William Cav… 1720–17… 1720… ""          
-#> 6 Thomas Pelham-Ho… Thomas Pelh… 1693–17… 1693… ""
+#>   raw_text                 Name  not_name Date  all_the_rest
+#>   <chr>                    <chr> <chr>    <chr> <chr>       
+#> 1 Sir Robert Walpole(1676… Sir … 1676–17… 1676… ""          
+#> 2 Spencer Compton1st Earl… Spen… 1673–17… 1673… ""          
+#> 3 Henry Pelham(1694–1754)  Henr… 1694–17… 1694… ""          
+#> 4 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""          
+#> 5 William Cavendish4th Du… Will… 1720–17… 1720… ""          
+#> 6 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""
 ```
 
 Finally, we need to clean up the columns.
@@ -1441,14 +1441,14 @@ initial_clean <-
 
 head(initial_clean)
 #> # A tibble: 6 × 6
-#>   raw_text        Name     Title not_name Date  all_the_rest
-#>   <chr>           <chr>    <chr> <chr>    <chr> <chr>       
-#> 1 Sir Robert Wal… Sir Rob… <NA>  1676–17… 1676… ""          
-#> 2 Spencer Compto… Spencer… <NA>  1673–17… 1673… ""          
-#> 3 Henry Pelham(1… Henry P… <NA>  1694–17… 1694… ""          
-#> 4 Thomas Pelham-… Thomas … <NA>  1693–17… 1693… ""          
-#> 5 William Cavend… William… <NA>  1720–17… 1720… ""          
-#> 6 Thomas Pelham-… Thomas … <NA>  1693–17… 1693… ""
+#>   raw_text           Name  Title not_name Date  all_the_rest
+#>   <chr>              <chr> <chr> <chr>    <chr> <chr>       
+#> 1 Sir Robert Walpol… Sir … <NA>  1676–17… 1676… ""          
+#> 2 Spencer Compton1s… Spen… <NA>  1673–17… 1673… ""          
+#> 3 Henry Pelham(1694… Henr… <NA>  1694–17… 1694… ""          
+#> 4 Thomas Pelham-Hol… Thom… <NA>  1693–17… 1693… ""          
+#> 5 William Cavendish… Will… <NA>  1720–17… 1720… ""          
+#> 6 Thomas Pelham-Hol… Thom… <NA>  1693–17… 1693… ""
 ```
 
 
@@ -2383,14 +2383,14 @@ dhs_2000 <-
 
 head(dhs_2000)
 #> # A tibble: 6 × 3
-#>   raw_data                    state                    data 
-#>   <chr>                       <chr>                    <chr>
-#> 1 "40 National Vital Statist… "40 National Vital Stat… <NA> 
-#> 2 ""                          ""                       <NA> 
-#> 3 "Table 10. Number of birth… "Table 10. Number of bi… <NA> 
-#> 4 "United States, each State… "United States, each St… <NA> 
-#> 5 "[By place of residence. B… "[By place of residence… <NA> 
-#> 6 "estimated in each area; t… "estimated in each area… <NA>
+#>   raw_data                                       state data 
+#>   <chr>                                          <chr> <chr>
+#> 1 "40 National Vital Statistics Report, Vol. 50… "40 … <NA> 
+#> 2 ""                                             ""    <NA> 
+#> 3 "Table 10. Number of births, birth rates, fer… "Tab… <NA> 
+#> 4 "United States, each State and territory, 200… "Uni… <NA> 
+#> 5 "[By place of residence. Birth rates are live… "[By… <NA> 
+#> 6 "estimated in each area; total fertility rate… "est… <NA>
 ```
 
 We get the expected warnings about the top and the bottom as they do not have multiple dots. (Another option here is to use `pdf_data()` which would allow us to use location rather than delimiters.)
@@ -2416,14 +2416,14 @@ dhs_2000 <-
 
 head(dhs_2000)
 #> # A tibble: 6 × 10
-#>   raw_data      state      data  number_of_births birth_rate
-#>   <chr>         <chr>      <chr> <chr>            <chr>     
-#> 1 "40 National… "40 Natio… <NA>  <NA>             <NA>      
-#> 2 ""            ""         <NA>  <NA>             <NA>      
-#> 3 "Table 10. N… "Table 10… <NA>  <NA>             <NA>      
-#> 4 "United Stat… "United S… <NA>  <NA>             <NA>      
-#> 5 "[By place o… "[By plac… <NA>  <NA>             <NA>      
-#> 6 "estimated i… "estimate… <NA>  <NA>             <NA>      
+#>   raw_data           state data  number_of_births birth_rate
+#>   <chr>              <chr> <chr> <chr>            <chr>     
+#> 1 "40 National Vita… "40 … <NA>  <NA>             <NA>      
+#> 2 ""                 ""    <NA>  <NA>             <NA>      
+#> 3 "Table 10. Number… "Tab… <NA>  <NA>             <NA>      
+#> 4 "United States, e… "Uni… <NA>  <NA>             <NA>      
+#> 5 "[By place of res… "[By… <NA>  <NA>             <NA>      
+#> 6 "estimated in eac… "est… <NA>  <NA>             <NA>      
 #> # … with 5 more variables: fertility_rate <chr>, TFR <chr>,
 #> #   teen_births_all <chr>, teen_births_15_17 <chr>,
 #> #   teen_births_18_19 <chr>
@@ -2441,18 +2441,18 @@ dhs_2000 <-
 
 dhs_2000
 #> # A tibble: 57 × 3
-#>    state                                        TFR     year
-#>    <chr>                                        <chr>  <dbl>
-#>  1 "                                  State   … <NA>    2000
-#>  2 "                                          … <NA>    2000
-#>  3 "                                          … <NA>    2000
-#>  4 ""                                           <NA>    2000
-#>  5 ""                                           <NA>    2000
-#>  6 "United States 1 "                           2,130…  2000
-#>  7 ""                                           <NA>    2000
-#>  8 "Alabama "                                   2,021…  2000
-#>  9 "Alaska "                                    2,437…  2000
-#> 10 "Arizona "                                   2,652…  2000
+#>    state                                         TFR    year
+#>    <chr>                                         <chr> <dbl>
+#>  1 "                                  State    … <NA>   2000
+#>  2 "                                           … <NA>   2000
+#>  3 "                                           … <NA>   2000
+#>  4 ""                                            <NA>   2000
+#>  5 ""                                            <NA>   2000
+#>  6 "United States 1 "                            2,13…  2000
+#>  7 ""                                            <NA>   2000
+#>  8 "Alabama "                                    2,02…  2000
+#>  9 "Alaska "                                     2,43…  2000
+#> 10 "Arizona "                                    2,65…  2000
 #> # … with 47 more rows
 ```
 
@@ -2594,14 +2594,14 @@ raw_dhs_data <- purrr::pmap_dfr(summary_tfr_dataset |> select(pdf_name, page, ye
 
 head(raw_dhs_data)
 #> # A tibble: 6 × 4
-#>   raw_data              state             data  year_of_data
-#>   <chr>                 <chr>             <chr>        <dbl>
-#> 1 "40 National Vital S… "40 National Vit… 50, …         2000
-#> 2 ""                    ""                <NA>          2000
-#> 3 "Table 10. Number of… "Table 10. Numbe… <NA>          2000
-#> 4 "United States, each… "United States, … <NA>          2000
-#> 5 "[By place of reside… "[By place of re… <NA>          2000
-#> 6 "estimated in each a… "estimated in ea… <NA>          2000
+#>   raw_data                          state data  year_of_data
+#>   <chr>                             <chr> <chr>        <dbl>
+#> 1 "40 National Vital Statistics Re… "40 … 50, …         2000
+#> 2 ""                                ""    <NA>          2000
+#> 3 "Table 10. Number of births, bir… "Tab… <NA>          2000
+#> 4 "United States, each State and t… "Uni… <NA>          2000
+#> 5 "[By place of residence. Birth r… "[By… <NA>          2000
+#> 6 "estimated in each area; total f… "est… <NA>          2000
 ```
 
 Now we need to clean up the state names and then filter on them.
@@ -2635,14 +2635,14 @@ raw_dhs_data <-
 
 head(raw_dhs_data)
 #> # A tibble: 6 × 4
-#>   raw_data               state   data           year_of_data
-#>   <chr>                  <chr>   <chr>                 <dbl>
-#> 1 Alabama .............… Alabama 63,299 14.4 6…         2000
-#> 2 Alaska ..............… Alaska  9,974 16.0 74…         2000
-#> 3 Arizona .............… Arizona 85,273 17.5 8…         2000
-#> 4 Arkansas ............… Arkans… 37,783 14.7 6…         2000
-#> 5 California ..........… Califo… 531,959 15.8 …         2000
-#> 6 Colorado ............… Colora… 65,438 15.8 7…         2000
+#>   raw_data                          state data  year_of_data
+#>   <chr>                             <chr> <chr>        <dbl>
+#> 1 Alabama ........................… Alab… 63,2…         2000
+#> 2 Alaska .........................… Alas… 9,97…         2000
+#> 3 Arizona ........................… Ariz… 85,2…         2000
+#> 4 Arkansas .......................… Arka… 37,7…         2000
+#> 5 California .....................… Cali… 531,…         2000
+#> 6 Colorado .......................… Colo… 65,4…         2000
 ```
 
 The next step is to separate the data and get the correct column from it. We are going to separate based on spaces once it is cleaned up.
@@ -2941,6 +2941,21 @@ cat(text)
 
 ### Exercises
 
+1. What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?
+2. There have been some substantial political polling 'misses' in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?
+3. It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
+    a. Cluster sampling.
+    b. Systematic sampling.
+    c. Stratified sampling.
+    d. Simple random sampling.
+    e. Convenience sampling.
+16. Please name some reasons why you may wish to use cluster sampling (select all)?
+    a. Balance in responses.
+    b. Administrative convenience.
+    c. Efficiency in terms of money.
+    d. Underlying systematic concerns.
+    e. Estimation of sub-populations.
+17. Please consider Beaumont, 2020, 'Are probability surveys bound to disappear for the production of official statistics?'. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?
 1. In your own words, what is an API (write a paragraph or two)?
 2. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?
 3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?

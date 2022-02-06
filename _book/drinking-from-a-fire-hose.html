@@ -276,15 +276,15 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Green         </span>
+<span class="co">#&gt;  1      1 New Democratic</span>
 <span class="co">#&gt;  2      2 Liberal       </span>
-<span class="co">#&gt;  3      3 Green         </span>
-<span class="co">#&gt;  4      4 Conservative  </span>
-<span class="co">#&gt;  5      5 Liberal       </span>
-<span class="co">#&gt;  6      6 Green         </span>
-<span class="co">#&gt;  7      7 New Democratic</span>
-<span class="co">#&gt;  8      8 New Democratic</span>
-<span class="co">#&gt;  9      9 Green         </span>
+<span class="co">#&gt;  3      3 Bloc Québécois</span>
+<span class="co">#&gt;  4      4 Bloc Québécois</span>
+<span class="co">#&gt;  5      5 Conservative  </span>
+<span class="co">#&gt;  6      6 Liberal       </span>
+<span class="co">#&gt;  7      7 Other         </span>
+<span class="co">#&gt;  8      8 Liberal       </span>
+<span class="co">#&gt;  9      9 Bloc Québécois</span>
 <span class="co">#&gt; 10     10 Other         </span>
 <span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
 </div>
@@ -312,38 +312,38 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   Province   `Electoral Distri… `Electoral Distr… Population</span>
-<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                          &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Newfoundl… Avalon                         10001      86494</span>
-<span class="co">#&gt; 2 Newfoundl… Bonavista--Burin-…             10002      74116</span>
-<span class="co">#&gt; 3 Newfoundl… Coast of Bays--Ce…             10003      77680</span>
-<span class="co">#&gt; 4 Newfoundl… Labrador                       10004      27197</span>
-<span class="co">#&gt; 5 Newfoundl… Long Range Mounta…             10005      86553</span>
-<span class="co">#&gt; 6 Newfoundl… St. John's East/S…             10006      85697</span>
-<span class="co">#&gt; # … with 9 more variables: Electors/Électeurs &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Polling Stations/Bureaux de scrutin &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Valid Ballots/Bulletins valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Percentage of Valid Ballots /Pourcentage des bulletins valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Rejected Ballots/Bulletins rejetés &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Total Ballots Cast/Total des bulletins déposés &lt;dbl&gt;, …</span>
+<span class="co">#&gt;   Province      `Electoral Dis…` `Electoral Dis…` Population</span>
+<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Newfoundland… Avalon                      10001      86494</span>
+<span class="co">#&gt; 2 Newfoundland… Bonavista--Buri…            10002      74116</span>
+<span class="co">#&gt; 3 Newfoundland… Coast of Bays--…            10003      77680</span>
+<span class="co">#&gt; 4 Newfoundland… Labrador                    10004      27197</span>
+<span class="co">#&gt; 5 Newfoundland… Long Range Moun…            10005      86553</span>
+<span class="co">#&gt; 6 Newfoundland… St. John's East…            10006      85697</span>
+<span class="co">#&gt; # … with 9 more variables: `Electors/Électeurs` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Polling Stations/Bureaux de scrutin` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Valid Ballots/Bulletins valides` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Rejected Ballots/Bulletins rejetés` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Total Ballots Cast/Total des bulletins déposés` &lt;dbl&gt;, …</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">raw_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   Province   `Electoral Distri… `Electoral Distr… Population</span>
-<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                          &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 British C… Vancouver South/V…             59040     102927</span>
-<span class="co">#&gt; 2 British C… Victoria                       59041     117133</span>
-<span class="co">#&gt; 3 British C… West Vancouver--S…             59042     119113</span>
-<span class="co">#&gt; 4 Yukon      Yukon                          60001      35874</span>
-<span class="co">#&gt; 5 Northwest… Northwest Territo…             61001      41786</span>
-<span class="co">#&gt; 6 Nunavut    Nunavut                        62001      35944</span>
-<span class="co">#&gt; # … with 9 more variables: Electors/Électeurs &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Polling Stations/Bureaux de scrutin &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Valid Ballots/Bulletins valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Percentage of Valid Ballots /Pourcentage des bulletins valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Rejected Ballots/Bulletins rejetés &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Percentage of Rejected Ballots /Pourcentage des bulletins rejetés &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   Total Ballots Cast/Total des bulletins déposés &lt;dbl&gt;, …</span></code></pre></div>
+<span class="co">#&gt;   Province      `Electoral Dis…` `Electoral Dis…` Population</span>
+<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 British Colu… Vancouver South…            59040     102927</span>
+<span class="co">#&gt; 2 British Colu… Victoria                    59041     117133</span>
+<span class="co">#&gt; 3 British Colu… West Vancouver-…            59042     119113</span>
+<span class="co">#&gt; 4 Yukon         Yukon                       60001      35874</span>
+<span class="co">#&gt; 5 Northwest Te… Northwest Terri…            61001      41786</span>
+<span class="co">#&gt; 6 Nunavut       Nunavut                     62001      35944</span>
+<span class="co">#&gt; # … with 9 more variables: `Electors/Électeurs` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Polling Stations/Bureaux de scrutin` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Valid Ballots/Bulletins valides` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Rejected Ballots/Bulletins rejetés` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   `Total Ballots Cast/Total des bulletins déposés` &lt;dbl&gt;, …</span></code></pre></div>
 <p>We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> which changes the names into ‘snake_case.’</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Basic cleaning ####</span>
@@ -359,14 +359,14 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co"># Have a look at the first six rows</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   province   electoral_distric… electoral_distri… population</span>
-<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                          &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Newfoundl… Avalon                         10001      86494</span>
-<span class="co">#&gt; 2 Newfoundl… Bonavista--Burin-…             10002      74116</span>
-<span class="co">#&gt; 3 Newfoundl… Coast of Bays--Ce…             10003      77680</span>
-<span class="co">#&gt; 4 Newfoundl… Labrador                       10004      27197</span>
-<span class="co">#&gt; 5 Newfoundl… Long Range Mounta…             10005      86553</span>
-<span class="co">#&gt; 6 Newfoundl… St. John's East/S…             10006      85697</span>
+<span class="co">#&gt;   province      electoral_distr… electoral_distr… population</span>
+<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Newfoundland… Avalon                      10001      86494</span>
+<span class="co">#&gt; 2 Newfoundland… Bonavista--Buri…            10002      74116</span>
+<span class="co">#&gt; 3 Newfoundland… Coast of Bays--…            10003      77680</span>
+<span class="co">#&gt; 4 Newfoundland… Labrador                    10004      27197</span>
+<span class="co">#&gt; 5 Newfoundland… Long Range Moun…            10005      86553</span>
+<span class="co">#&gt; 6 Newfoundland… St. John's East…            10006      85697</span>
 <span class="co">#&gt; # … with 9 more variables: electors_electeurs &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   polling_stations_bureaux_de_scrutin &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   valid_ballots_bulletins_valides &lt;dbl&gt;,</span>
@@ -387,14 +387,14 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co"># Have a look at the first six rows</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   electoral_district_name_no… elected_candidate_candidat_elu</span>
-<span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt;                         </span>
-<span class="co">#&gt; 1 Avalon                      McDonald, Kenneth Liberal/Lib…</span>
-<span class="co">#&gt; 2 Bonavista--Burin--Trinity   Rogers, Churence Liberal/Libé…</span>
-<span class="co">#&gt; 3 Coast of Bays--Central--No… Simms, Scott Liberal/Libéral  </span>
-<span class="co">#&gt; 4 Labrador                    Jones, Yvonne Liberal/Libéral </span>
-<span class="co">#&gt; 5 Long Range Mountains        Hutchings, Gudie Liberal/Libé…</span>
-<span class="co">#&gt; 6 St. John's East/St. John's… Harris, Jack NDP-New Democrat…</span></code></pre></div>
+<span class="co">#&gt;   electoral_district_name_nom_de_circonscr… elected_candida…</span>
+<span class="co">#&gt;   &lt;chr&gt;                                     &lt;chr&gt;           </span>
+<span class="co">#&gt; 1 Avalon                                    McDonald, Kenne…</span>
+<span class="co">#&gt; 2 Bonavista--Burin--Trinity                 Rogers, Churenc…</span>
+<span class="co">#&gt; 3 Coast of Bays--Central--Notre Dame        Simms, Scott Li…</span>
+<span class="co">#&gt; 4 Labrador                                  Jones, Yvonne L…</span>
+<span class="co">#&gt; 5 Long Range Mountains                      Hutchings, Gudi…</span>
+<span class="co">#&gt; 6 St. John's East/St. John's-Est            Harris, Jack ND…</span></code></pre></div>
 <p>Some of the names of the columns are still quite long because they have both English and French in them. We can look at the names of the columns with <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>. And we can change the names using <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
@@ -1029,7 +1029,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 29</span>
-<span class="co">#&gt;   `Geographic area` Indicator         Sex   `Wealth Quintil…</span>
+<span class="co">#&gt;   `Geographic area` Indicator         Sex   `Wealth Quinti…`</span>
 <span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;           </span>
 <span class="co">#&gt; 1 Afghanistan       Neonatal mortali… Total Total           </span>
 <span class="co">#&gt; 2 Afghanistan       Neonatal mortali… Total Total           </span>
@@ -1037,13 +1037,13 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 4 Afghanistan       Neonatal mortali… Total Total           </span>
 <span class="co">#&gt; 5 Afghanistan       Neonatal mortali… Total Total           </span>
 <span class="co">#&gt; 6 Afghanistan       Neonatal mortali… Total Total           </span>
-<span class="co">#&gt; # … with 25 more variables: Series Name &lt;chr&gt;,</span>
-<span class="co">#&gt; #   Series Year &lt;chr&gt;, Regional group &lt;chr&gt;,</span>
+<span class="co">#&gt; # … with 25 more variables: `Series Name` &lt;chr&gt;,</span>
+<span class="co">#&gt; #   `Series Year` &lt;chr&gt;, `Regional group` &lt;chr&gt;,</span>
 <span class="co">#&gt; #   TIME_PERIOD &lt;chr&gt;, OBS_VALUE &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   COUNTRY_NOTES &lt;chr&gt;, CONNECTION &lt;lgl&gt;,</span>
 <span class="co">#&gt; #   DEATH_CATEGORY &lt;lgl&gt;, CATEGORY &lt;chr&gt;,</span>
-<span class="co">#&gt; #   Observation Status &lt;chr&gt;, Unit of measure &lt;chr&gt;,</span>
-<span class="co">#&gt; #   Series Category &lt;chr&gt;, Series Type &lt;chr&gt;, …</span>
+<span class="co">#&gt; #   `Observation Status` &lt;chr&gt;, `Unit of measure` &lt;chr&gt;,</span>
+<span class="co">#&gt; #   `Series Category` &lt;chr&gt;, `Series Type` &lt;chr&gt;, …</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "Geographic area"        "Indicator"             </span>
 <span class="co">#&gt;  [3] "Sex"                    "Wealth Quintile"       </span>
@@ -1371,7 +1371,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

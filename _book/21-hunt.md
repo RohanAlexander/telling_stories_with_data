@@ -86,11 +86,12 @@
 - Generating simulated datasets.
 - Informed consent and establishing the need for an experiment.
 - A/B testing
+- Putting together surveys with Google Forms
 
 
 **Key libraries**
 
-- `tidyverse`
+- `tidyverse` [@citetidyverse]
 
 **Key functions/etc**
 
@@ -131,6 +132,8 @@
 
 ## Experiments and randomized controlled trials
 
+### Introduction
+
 Ronald Fisher, the twentieth century statistician, and Francis Galton, the nineteenth century statistician, are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both men believed in eugenics, amongst other things that are generally reprehensible. 
 In the same way that art history must acknowledge, say Caravaggio as a murderer, while also considering his work and influence, so to must statistics and the data sciences more generally concern themselves with this past, at the same time as we try to build a better future.
 
@@ -138,8 +141,7 @@ This chapter is about experiments. This is a situation in which we can explicitl
 
 <!-- It is also important to note that the statistics of this were designed in agricultural settings 'does fertilizer work?', etc. In those settings one can more easily divide a field into 'treated' and 'non-treated', and the magnitude of the effect tends to be large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about 'having enough power' and similar phrases, then it is *not* necessarily that they are *not* right, but it usually pays to take a step back and really think about what is being done and whether they really know what they are doing. -->
 
-In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We go through various case studies, including the abhorrent Tuskegee Syphilis experiments. We then turn to A/B testing, which is extensively used in industry.
-<!-- , and then discuss the actual implementation of surveys.  -->
+In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We discuss some aspects of ethical behaviour in experiments through reference to the abhorrent Tuskegee Syphilis Study and ECMO. And we go through the Oregon Health Insurance Experiment as a case study. We then turn to A/B testing, which is extensively used in industry, and consider a case study based on Upworthy data. Finally, we go through actually implementing a survey using Google Forms.
 <!-- Finally, we compare automated approaches such as obtaining data from sensors, with the notoriously slow, but crucial approach of making Freedom of Information requests. -->
 
 
@@ -554,32 +556,29 @@ One approach in these settings is a 'randomized play-the-winner' rule following 
 While the Tuskegee Syphilis Study and ECMO may seem quite far from our present circumstances, Monica Alexander, Assistant Professor, University of Toronto explains that while it may be illegal to do this exact research these days, it does not mean that unethical research does not still happen. We see it all the time in machine learning applications in health and other areas. While we are not meant to explicitly discriminate and we are meant to get consent, it does not mean that we cannot implicitly discriminate without any type of buy-in at all. For instance, @obermeyer2019dissecting describes how US health care systems use algorithms to score the severity of how sick a patient is. They show that for the same score, 'Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses' and that if Black patients were scored in the same way as White patients, then they would receive considerably more help than they do now. They find that the discrimination occurs because the algorithm is based on health care costs, rather than sickness. But because access to healthcare is unequally distributed between Black and White patients, the algorithm, however inadvertently, perpetuates racial bias.
 
 
-<!-- ### Case study: The Oregon Health Insurance Experiment -->
+### Case study: The Oregon Health Insurance Experiment
 
-<!-- The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that [@finkelstein2012oregon]:  -->
+In the US, unlike many developed countries, basic health insurance is not necessarily available to all residents even those on low incomes. The Oregon Health Insurance Experiment involved low-income adults in Oregon, a state in the north-west of the US, from 2008 to 2010 [@finkelstein2012oregon]. 
 
-<!-- > In the year after random assignment, the treatment group selected by the lottery was about 25 percentage points more likely to have insurance than the control group that was not selected. We find that in this first year, the treatment group had substantively and statistically significantly higher health care utilization (including primary and preventive care as well as hospitalizations), lower out-of-pocket medical expenditures and medical debt (including fewer bills sent to collection), and better self-reported physical and mental health than the control group. -->
+Oregon funded 10,000 places in the state-run Medicaid program, which provides health insurance for people with low incomes. A lottery was used to allocate these places and was judged fair because it was expected, correctly as it turned out, that demand for places would exceed the supply. People had a month to sign up to enter the draw. Then a lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid.
 
-<!-- A lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid. This random allocation of insurance allowed the researchers to understand the effect of health insurance. it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not - that decision is 'confounded' with other variables. They use administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is actually fairly restrained and so they included a survey conducted via mail. -->
+The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely. This random allocation of insurance allowed the researchers to understand the effect of health insurance. 
 
-<!-- Turning to external validity, the authors restrain themselves and say [@finkelstein2012oregon]: -->
+The reason that this random allocation is important is that it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not. That decision is 'confounded' with other variables and results in a selection effect. 
 
-<!-- > Our estimates of the impact of public health insurance apply to able-bodied uninsured adults below 100 percent of poverty who express interest in insurance coverage. This is a population of considerable policy interest. -->
+As the opportunity to apply for health insurance was randomly allocated, the researchers were able to evaluate the health and earnings of those who received health insurance and compare them to those who did not. To do this they used administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is fairly restrained and so they included a survey conducted via mail.
 
-<!-- A lottery was used to allocate 10,000 places in the state-run Medicaid. A lottery was judged fair because 'the state (correctly) anticipated that the demand for the program among eligible individuals would far exceed the 10,000 available new enrollment slots' [@finkelstein2012oregon]. People had a month to sign up to enter the draw. The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely. -->
+The specifics of this are not important, and we will have more to say in Chapter \@ref(ijalm), but they use a statistical model to analyze the results [@finkelstein2012oregon]:
 
-<!-- The model they consider is [@finkelstein2012oregon]: -->
+\begin{equation}
+y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} (\#eq:oregon)
+\end{equation}
 
-<!-- \begin{equation} -->
-<!-- y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} (\#eq:oregon) -->
-<!-- \end{equation} -->
+Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an individual $i$ in household $h$ as a function of an indicator variable as to whether household $h$ was selected by the lottery. Hence, '(t)he coefficient on Lottery, $\beta_1$, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).'
 
-<!-- Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an individual $i$ in household $h$ as a function of an indicator variable as to whether household $h$ was selected by the lottery. Hence, '(t)he coefficient on Lottery, $\beta_1$, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).' -->
+To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.
 
-<!-- To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw. -->
-
-<!-- There is a wide range of literature related to this intervention. More papers are available [here](https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states). -->
-
+As has been found in earlier studies such as @randhealth, @finkelstein2012oregon found that, the treatment group was 25 per cent more likely to have insurance than the control group. The treatment group used more health care including both primary and preventive care as well as hospitalizations but had lower out-of-pocket medical expenditures. More generally, the treatment group reported better physical and mental health.
 
 
 <!-- ### Case study: Student Coaching: How Far Can Technology Go? -->
@@ -793,7 +792,8 @@ to_question_or_not_to_question <-
   group_by(clickability_test_id, asks_question) |> 
   summarize(ave_clicks = mean(clicks)) |> 
   ungroup()
-#> `summarise()` has grouped output by 'clickability_test_id'. You can override using the `.groups` argument.
+#> `summarise()` has grouped output by 'clickability_test_id'.
+#> You can override using the `.groups` argument.
 
 look_at_differences <- 
   to_question_or_not_to_question |> 
@@ -820,25 +820,44 @@ We find that in general, having a question in the headline may slightly decrease
 
 
 
-<!-- ## Implementing surveys -->
+## Implementing surveys
 
-<!-- ### Google -->
+There are many ways to implement surveys. For instance, there are dedicated survey platforms such as Survey Monkey and Qualtrics. In general, the focus of those platforms is on putting together the survey form and they expect that we already have contact details for the sample of interest. Some other platforms, such as Mechanical Turk and Prolific, focus on providing that audience, and we can then ask that audience to do more than just take a survey. While that is useful, it usually comes with higher costs. Finally, platforms such as Facebook also provide the ability to run a survey. One especially common approach, because it is free, is to use Google Forms.
 
-<!-- ### Facebook -->
+To create a survey with Google Forms, sign into your Google Account, go to Google Drive, and then click 'New' then 'Google Form'. By default, the form is largely empty (Figure \@ref(fig:googleformfirst)), and we should add a title and description.
 
-<!-- ### Survey Monkey -->
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/googleformfirst.png" alt="The default view when a new Google Form is created contains many empty fields" width="85%" />
+<p class="caption">(\#fig:googleformfirst)The default view when a new Google Form is created contains many empty fields</p>
+</div>
 
-<!-- ### Mechanical Turk -->
+By default, an multiple-choice question is included, and we can update the content of this by clicking in the question field. Helpfully, there are often suggestions that can help provide the options. We can make the question required by toggling (Figure \@ref(fig:googleformsecond)).
 
-<!-- ### Prolific -->
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/googleformsecond.png" alt="Updating the multiple-choice question that is included by default" width="85%" />
+<p class="caption">(\#fig:googleformsecond)Updating the multiple-choice question that is included by default</p>
+</div>
 
-<!-- ### Qualtrics -->
+We can add another question, by clicking on the plus with a circle around it, and select different types of question, for instance, 'Short answer', 'Checkboxes', or 'Linear scale' (Figure \@ref(fig:googleformthird)). It can be especially useful to use 'Short answer' for aspect such as name and email address, checkboxes and linear scale to understand preferences.
 
-<!-- ### Other -->
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/googleformthird.png" alt="Different options for questions include short answer, checkboxes, and linear scale" width="85%" />
+<p class="caption">(\#fig:googleformthird)Different options for questions include short answer, checkboxes, and linear scale</p>
+</div>
 
+When we are happy with our survey, we make like to preview it ourselves, by clicking on the icon that looks like an eye. After checking it that way, we can click on 'Send'. Usually it is especially useful to use the second option, which is to send via a link, and it can be handy to shorten the URL (Figure \@ref(fig:googleformfourth)).
 
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/googleformfourth.png" alt="There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL" width="85%" />
+<p class="caption">(\#fig:googleformfourth)There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL</p>
+</div>
 
+After you share your survey, results will accrue in the 'Responses' tab and it can be especially useful to create a spreadsheet to view these responses, by clicking on the 'Sheets' icon. After you have collected enough responses then you can turn off 'Accepting responds' (Figure \@ref(fig:googleformfifth))
 
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/googleformfifth.png" alt="Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet" width="85%" />
+<p class="caption">(\#fig:googleformfifth)Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet</p>
+</div>
 
 
 <!-- ## Sensor data -->
@@ -856,7 +875,7 @@ We find that in general, having a question in the headline may slightly decrease
 <!-- There are also well-known experiments that tried to see if big government programs are effective, such as: -->
 
 <!-- - The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 [@randhealth]. -->
-<!-- - The Oregon Health Study randomly gave health insurance in Oregon in 2008 [@finkelstein2012oregon]. -->
+
 
 
 
@@ -899,10 +918,8 @@ netflix_data <-
 
 5. In the context of randomization, what does stratification mean to you (write a paragraph or two)?
 6. How could you check that your randomization had been done appropriately (write two or three paragraphs)?
-7. Identify three companies that conduct A/B testing commercially and write a short paper about how they work and the trade-offs of each. Are there any notable Toronto-based or Canadian companies? Why do you think this might be the case?
+7. Identify three companies that conduct A/B testing commercially and write one paragraph for each of them about how they work and the trade-offs involved.
 8. Pretend that you work as a junior analyst for a large consulting firm. Further, pretend that your consulting firm has taken a contract to put together a facial recognition model for the Canada Border Services Agency's Inland Enforcement branch. Taking a page or two, please discuss your thoughts on this matter. What would you do and why?
-9. What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?
-10. There have been some substantial political polling 'misses' in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?
 11. What is an estimate (pick one)?
     a. A rule for calculating an estimate of a given quantity based on observed data.
     b. The quantity of interest.
@@ -923,19 +940,6 @@ netflix_data <-
     b. The quantity of interest.
     c. The result.
     d. Unknown numbers that determine a statistical model.
-15. It seems like a lot of businesses have closed in downtown Toronto since the pandemic. To investigate this, I decide to walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, I open a map of Toronto, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
-    a. Cluster sampling.
-    b. Systematic sampling.
-    c. Stratified sampling.
-    d. Simple random sampling.
-    e. Convenience sampling.
-16. Please name some reasons why you may wish to use cluster sampling (select all)?
-    a. Balance in responses.
-    b. Administrative convenience.
-    c. Efficiency in terms of money.
-    d. Underlying systematic concerns.
-    e. Estimation of sub-populations.
-17. Please consider Beaumont, 2020, 'Are probability surveys bound to disappear for the production of official statistics?'. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?
 18. @ware1989 [p. 298] mentions 'a randomized play the winner design'. What is it?
 19. @ware1989 [p. 299] mentions 'adaptive randomization'. What is it, in your own words?
 20. @ware1989 [p. 299] mentions 'randomized-consent'. He continues that it was 'attractive in this setting because a standard approach to informed consent would require that parents of infants near death be approached to give informed consent for an invasive surgical procedure that would then, in some instances, not be administered. Those familiar with the agonizing experience of having a child in a neonatal intensive care unit can appreciate that the process of obtaining informed consent would be both frightening and stressful to parents'. To what extent do you agree with this position, especially given, as Ware (1989), p. 305, mentions 'the need to withhold information about the study from parents of infants receiving CMT'?

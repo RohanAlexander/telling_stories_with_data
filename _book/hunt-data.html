@@ -110,10 +110,13 @@
 <li>Generating simulated datasets.</li>
 <li>Informed consent and establishing the need for an experiment.</li>
 <li>A/B testing</li>
+<li>Putting together surveys with Google Forms</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
-<li><code>tidyverse</code></li>
+<li>
+<code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span>
+</li>
 </ul>
 <p><strong>Key functions/etc</strong></p>
 <ul>
@@ -153,16 +156,20 @@
 <h2>
 <span class="header-section-number">9.1</span> Experiments and randomized controlled trials<a class="anchor" aria-label="anchor" href="#experiments-and-randomized-controlled-trials"><i class="fas fa-link"></i></a>
 </h2>
+<div id="introduction-6" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-6"><i class="fas fa-link"></i></a>
+</h3>
 <p>Ronald Fisher, the twentieth century statistician, and Francis Galton, the nineteenth century statistician, are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both men believed in eugenics, amongst other things that are generally reprehensible.
 In the same way that art history must acknowledge, say Caravaggio as a murderer, while also considering his work and influence, so to must statistics and the data sciences more generally concern themselves with this past, at the same time as we try to build a better future.</p>
 <p>This chapter is about experiments. This is a situation in which we can explicitly control and vary that which we are interested in. The advantage of this is that identification should be clear. There is a treatment group that is subject to that which we are interested in, and a control group that is not. These are randomly split before treatment. And so, if they end up different then it must be because of the treatment. Unfortunately, life is rarely so smooth. Arguing about how similar the treatment and control groups were tends to carry on indefinitely. Our ability to speak to whether we have measured the effect of the treatment, affects our ability to speak to what effect that treatment could have.</p>
 <!-- It is also important to note that the statistics of this were designed in agricultural settings 'does fertilizer work?', etc. In those settings one can more easily divide a field into 'treated' and 'non-treated', and the magnitude of the effect tends to be large. In general, these same statistical approaches are still used today (especially in the social sciences) but often inappropriately. If you hear someone talking about 'having enough power' and similar phrases, then it is *not* necessarily that they are *not* right, but it usually pays to take a step back and really think about what is being done and whether they really know what they are doing. -->
-<p>In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We go through various case studies, including the abhorrent Tuskegee Syphilis experiments. We then turn to A/B testing, which is extensively used in industry.
-<!-- , and then discuss the actual implementation of surveys.  -->
+<p>In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We discuss some aspects of ethical behaviour in experiments through reference to the abhorrent Tuskegee Syphilis Study and ECMO. And we go through the Oregon Health Insurance Experiment as a case study. We then turn to A/B testing, which is extensively used in industry, and consider a case study based on Upworthy data. Finally, we go through actually implementing a survey using Google Forms.
 <!-- Finally, we compare automated approaches such as obtaining data from sensors, with the notoriously slow, but crucial approach of making Freedom of Information requests. --></p>
-<div id="motivation-and-notation" class="section level3" number="9.1.1">
+</div>
+<div id="motivation-and-notation" class="section level3" number="9.1.2">
 <h3>
-<span class="header-section-number">9.1.1</span> Motivation and notation<a class="anchor" aria-label="anchor" href="#motivation-and-notation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.2</span> Motivation and notation<a class="anchor" aria-label="anchor" href="#motivation-and-notation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Professional sports are a big deal in North America. Consider the situation of someone who moves to San Francisco in 2014, such that as soon as they moved the Giants win the World Series and the Golden State Warriors begin a historic streak of World Championships. They move to Chicago, and immediately the Cubs win the World Series for the first time in a hundred years. They move to Massachusetts, where the Patriots win the Super Bowl again, and again, and again. And finally, they move to Toronto, where the Raptors immediately win the World Championship. Should a city pay them to move, or could municipal funds be better spent elsewhere?</p>
 <p>One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send them to live there for a year. With enough lifetimes, we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. This is the fundamental problem of causal inference: a person cannot be both treated and untreated. Experiments and randomized controlled trials are circumstances in which we try to randomly allocate some treatment, to have a belief that everything else was the same (or at least ignorable). The framework that we use to formalize the situation is the Neyman-Rubin model <span class="citation">(<a href="references-1.html#ref-holland1986statistics" role="doc-biblioref">Holland 1986</a>)</span>.</p>
@@ -208,9 +215,9 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <span class="co">#&gt; [1] 0.4</span></code></pre></div>
 <p>More broadly, to tell causal stories we need to bring together both theory and a detailed knowledge of what we are interested in <span class="citation">(<a href="references-1.html#ref-Cunningham2021" role="doc-biblioref">Cunningham 2021, 4</a>)</span>. In Chapter <a href="gather-data.html#gather-data">8</a> we discussed gathering data that we observed about the world. In this chapter we are going to be more active about turning the world into the data that we need. As the researcher we will decide what to measure and how, and we will need to define what we are interested in and what we are not. We will be active participants in the data generating process. That is, if we want to use this data, then as researchers we must go out and hunt it, if you like.</p>
 </div>
-<div id="randomization" class="section level3" number="9.1.2">
+<div id="randomization" class="section level3" number="9.1.3">
 <h3>
-<span class="header-section-number">9.1.2</span> Randomization<a class="anchor" aria-label="anchor" href="#randomization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.3</span> Randomization<a class="anchor" aria-label="anchor" href="#randomization"><i class="fas fa-link"></i></a>
 </h3>
 <p>Correlation can be enough in some settings, but in order to be able to make forecasts when things change, and the circumstances are slightly different we need to understand causation. The key is the counterfactual: what would have happened in the absence of the treatment. Ideally, we could keep everything else constant, randomly divide the world into two groups, and treat one and not the other. Then we can be pretty confident that any difference between the two groups is due to that treatment. The reason for this is that if we have some population and we randomly select two groups from it, then our two groups (provided they are both big enough) should have the same characteristics as the population. Randomized controlled trials (RCTs) and A/B testing attempt to get us as close to this ‘gold standard’ as we can hope. When we, and others such as <span class="citation"><a href="references-1.html#ref-athey2017state" role="doc-biblioref">Athey and Imbens</a> (<a href="references-1.html#ref-athey2017state" role="doc-biblioref">2017</a>)</span>, use language like gold standard to refer to these approaches, we do not mean to imply that they are perfect. Just that they can be better than most of the other options.</p>
 <p>What we hope to be able to do is to find treatment and control groups that are the same, but for the treatment. This means that establishing the control group is critical because when we do that, we establish the counterfactual. We might be worried about, say, underlying trends, which is one issue with a before-and-after comparison, or selection bias, which could occur when we allow self-selection. Either of these issues could result in biased estimators. We use randomization to go some way to addressing these.</p>
@@ -413,9 +420,9 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <p>This all brings us to Analysis of Variation (ANOVA). ANOVA was introduced by Fisher while he was working on statistical problems in agriculture. This is less unexpected than it may seem as historically agricultural research has been closely tied to statistical innovation. We mention ANOVA here because of its importance historically, but it is a variant of linear regression which we cover in some detail in Chapter <a href="ijalm.html#ijalm">15</a>. Further, in general, we would usually not use ANOVA day-to-day. There is nothing wrong with it in the right circumstances. But it is more than a hundred years old and the number of modern use-case where it is the best option is small.</p>
 <p>In any case, we approach ANOVA with the expectation that the groups are from the same distribution and could conduct it using <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. In this case, we would fail to reject our default hypothesis that the samples are the same.</p>
 </div>
-<div id="treatment-and-control" class="section level3" number="9.1.3">
+<div id="treatment-and-control" class="section level3" number="9.1.4">
 <h3>
-<span class="header-section-number">9.1.3</span> Treatment and control<a class="anchor" aria-label="anchor" href="#treatment-and-control"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.4</span> Treatment and control<a class="anchor" aria-label="anchor" href="#treatment-and-control"><i class="fas fa-link"></i></a>
 </h3>
 <p>If the treated and control groups are the same in all ways and remain that way, but for the treatment, then we have internal validity, which is to say that our control will work as a counterfactual and our results can speak to a difference between the groups in that study. Internal validity means that our estimates of the effect of the treatment are speaking to the treatment and not some other aspect. They mean that we can use our results to make claims about what happened in the experiment.</p>
 <p>If the group to which we applied our randomization were representative of the broader population, and the experimental set-up were fairly similar to outside conditions, then we further could have external validity. That would mean that the difference we find does not just apply in our own experiment, but also in the broader population. External validity means that we can use our experiment to make claims about what would happen outside the experiment. It is randomization that has allowed that to happen.</p>
@@ -507,9 +514,9 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>For instance, how would the results of a survey about the difficulty of a university course differ if only students who completed the course were surveyed, and not those who dropped out? While we should work to try to make our dataset as good as possible, it may be possible to use the model to control for some of the bias. For instance, if there was a variable that was correlated with say, attrition, then it could be added to the model either by-itself, or as an interaction. Similarly, if there was correlation between the individuals. For instance, if there was some ‘hidden variable’ that we did not know about that meant some individuals were correlated, then we could use ‘wider’ standard errors. This needs to be done carefully and we discuss this further in Chapter <a href="causality.html#causality">16</a>. That said, if such issues can be anticipated, then it can be better to change the experiment. For instance, perhaps it would be possibly to stratify by that hidden variable.</p>
 <!-- **TBD: Add code** -->
 </div>
-<div id="fishers-tea-party" class="section level3" number="9.1.4">
+<div id="fishers-tea-party" class="section level3" number="9.1.5">
 <h3>
-<span class="header-section-number">9.1.4</span> Fisher’s tea party<a class="anchor" aria-label="anchor" href="#fishers-tea-party"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.5</span> Fisher’s tea party<a class="anchor" aria-label="anchor" href="#fishers-tea-party"><i class="fas fa-link"></i></a>
 </h3>
 <p>Fisher introduced an experiment designed to see if a person can distinguish between a cup of tea where the milk was added first, or last. We begin by preparing eight cups of tea: four with milk added first and the other four with milk added last. We then randomize the order of all eight cups. We tell the taster, whom we will call ‘Ian,’ about the experimental set-up: there are eight cups of tea, four of each type, he will be given cups of tea in a random order, and the task is to group them into two groups.</p>
 <p>One of the nice aspects of this experiment is that we can do it ourselves. There are a few things to be careful of in practice, including that: the quantities of milk and tea and consistent; the groups are marked in some way that the taster cannot see; and the order is randomized.</p>
@@ -519,9 +526,9 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>What if he is almost perfect? By chance, there are 16 ways for a person to be ‘off-by-one.’ Either Ian thinks there was one cup that was milk-first when it was tea-first—there are, <span class="math inline">\({4 \choose 1} = 4\)</span>, four ways this could happen—or he thinks there was one cup that was tea-first when it was milk-first—again, there are, <span class="math inline">\({4 \choose 1}\)</span> = 4, four ways this could happen. These outcomes are independent, so the probability is <span class="math inline">\(\frac{4\times 4}{70} \approx 0.228\)</span>. And so on. Given there is an almost 23 per cent chance of being off-by-one just be randomly grouping the teacups, this outcome probably would not convince us that Ian can tell the difference between tea-first and milk-first.</p>
 <p>What we are looking for, in order to claim something is experimentally demonstrable is the results of not just it being shown once, but instead we know the features of an experiment where such a result is reliably found <span class="citation">(<a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">Fisher 1935, 16</a>)</span>. We are looking to thoroughly interrogate our data and our experiments, and to think precisely about the analysis methods we are using. Rather than searching for meaning in constellations of stars, we want to make it as easy as possible for others to reproduce our work. It is only in that way that our conclusions stand a chance of holding up in the long-term.</p>
 </div>
-<div id="informed-consent-and-the-need-for-an-experiment" class="section level3" number="9.1.5">
+<div id="informed-consent-and-the-need-for-an-experiment" class="section level3" number="9.1.6">
 <h3>
-<span class="header-section-number">9.1.5</span> Informed consent and the need for an experiment<a class="anchor" aria-label="anchor" href="#informed-consent-and-the-need-for-an-experiment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.1.6</span> Informed consent and the need for an experiment<a class="anchor" aria-label="anchor" href="#informed-consent-and-the-need-for-an-experiment"><i class="fas fa-link"></i></a>
 </h3>
 <p>One of the foundations of ethical experimental practice is informed consent and ensuring that an experiment is actually needed. We will now detail two cases where human life was potentially lost due to these issues. One issue with experiments in medical settings is that the weight of evidence is measured in lost lives. Ethical practice in experiments develops because of the many people who may have unnecessarily lost their life due to experiments. Two cases that have dramatically informed practice are the Tuskegee Syphilis Study and ECMO.</p>
 <p>The Tuskegee Syphilis Study is an infamous medical trial that began in 1932. As part of this experiment 400 Black Americans with syphilis, and a control group without, were not given appropriate treatment, nor even told they had syphilis (in the case of the treatment group), well after a standard treatment for syphilis was established and widely available sometime between the mid-1940s and early 1950s <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. Like the treatment group, the control group were also given non-effective drugs. These financially-poor Black Americans in the US South were identified and offered compensation including ‘hot meals, the guise of treatment, and burial payments’ <span class="citation">(<a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. The men were not actually treated for syphilis <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. The men were not told they were part of an experiment <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. Further, extensive work was undertaken to ensure the men would not receive treatment from anywhere including writing to local doctors, the local health department, and, incredibly, after some of the men were drafted and told to immediately get treatment, the draft board complied with a request to have the men excluded from treatment <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978, 25</a>)</span>. By the time the study was stopped in 1972, more than half of the men were deceased and many of deaths were from syphilis-related causes <span class="citation">(<a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>.</p>
@@ -533,20 +540,23 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p><span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> are concerned with ‘equipoise,’ by which they refer to a situation in which there is genuine uncertainty about whether the treatment is more effective than existing procedures. They further note that in medical settings even if there is initial equipoise it could be undermined if the treatment is found to be effective early in the study. <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> describe how after the results of these first 19 patients, randomization stopped and only ECMO was used. The recruiters and those treating the patients were initially not told that randomization had stopped. It was decided that this complete allocation to ECMO would continue ‘until either the 28th survivor or the 4th death was observed.’ After 19 of 20 additional patients survived ECMO the trial was terminated. So, the actual result of the experiment was divided into two phases: in the first there was randomized use of ECMO, and in the second only ECMO was used.</p>
 <p>One approach in these settings is a ‘randomized play-the-winner’ rule following <span class="citation"><a href="references-1.html#ref-wei1978randomized" role="doc-biblioref">Wei and Durham</a> (<a href="references-1.html#ref-wei1978randomized" role="doc-biblioref">1978</a>)</span>. Treatment is still randomized, but the weight of probability shifts with each successful treatment to make treatment more likely and there is some stopping rule. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> argues that the stopping rule in the case of <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> occurred before the study started and that there was no need for the study at all because equipoise never existed. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> re-visit the literature mentioned by <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> and find extensive evidence that ECMO was known to be effective. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> points out that there is almost never complete consensus and so one could almost always argue for the existence of equipoise even in the face of a substantial weight of evidence. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> further criticizes <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> for the use of randomized consent because of the potential that there may have been different outcomes for the infants subject to conventional therapy had their parents known there were other options. And instead, <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> argues for the need for comprehensive patient registries, enabling the analysis of large datasets.</p>
 <p>While the Tuskegee Syphilis Study and ECMO may seem quite far from our present circumstances, Monica Alexander, Assistant Professor, University of Toronto explains that while it may be illegal to do this exact research these days, it does not mean that unethical research does not still happen. We see it all the time in machine learning applications in health and other areas. While we are not meant to explicitly discriminate and we are meant to get consent, it does not mean that we cannot implicitly discriminate without any type of buy-in at all. For instance, <span class="citation"><a href="references-1.html#ref-obermeyer2019dissecting" role="doc-biblioref">Obermeyer et al.</a> (<a href="references-1.html#ref-obermeyer2019dissecting" role="doc-biblioref">2019</a>)</span> describes how US health care systems use algorithms to score the severity of how sick a patient is. They show that for the same score, ‘Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses’ and that if Black patients were scored in the same way as White patients, then they would receive considerably more help than they do now. They find that the discrimination occurs because the algorithm is based on health care costs, rather than sickness. But because access to healthcare is unequally distributed between Black and White patients, the algorithm, however inadvertently, perpetuates racial bias.</p>
-<!-- ### Case study: The Oregon Health Insurance Experiment -->
-<!-- The Oregon Health Insurance Experiment involved 74,922 adults in Oregon from 2008 to 2010. The opportunity to apply for health insurance was randomly allocated and then health and earnings evaluated. It was found that [@finkelstein2012oregon]:  -->
-<!-- > In the year after random assignment, the treatment group selected by the lottery was about 25 percentage points more likely to have insurance than the control group that was not selected. We find that in this first year, the treatment group had substantively and statistically significantly higher health care utilization (including primary and preventive care as well as hospitalizations), lower out-of-pocket medical expenditures and medical debt (including fewer bills sent to collection), and better self-reported physical and mental health than the control group. -->
-<!-- A lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid. This random allocation of insurance allowed the researchers to understand the effect of health insurance. it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not - that decision is 'confounded' with other variables. They use administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is actually fairly restrained and so they included a survey conducted via mail. -->
-<!-- Turning to external validity, the authors restrain themselves and say [@finkelstein2012oregon]: -->
-<!-- > Our estimates of the impact of public health insurance apply to able-bodied uninsured adults below 100 percent of poverty who express interest in insurance coverage. This is a population of considerable policy interest. -->
-<!-- A lottery was used to allocate 10,000 places in the state-run Medicaid. A lottery was judged fair because 'the state (correctly) anticipated that the demand for the program among eligible individuals would far exceed the 10,000 available new enrollment slots' [@finkelstein2012oregon]. People had a month to sign up to enter the draw. The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely. -->
-<!-- The model they consider is [@finkelstein2012oregon]: -->
-<!-- \begin{equation} -->
-<!-- y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} (\#eq:oregon) -->
-<!-- \end{equation} -->
-<!-- Equation \@ref(eq:oregon) explains various $j$ outcomes (such as health) for an individual $i$ in household $h$ as a function of an indicator variable as to whether household $h$ was selected by the lottery. Hence, '(t)he coefficient on Lottery, $\beta_1$, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).' -->
-<!-- To complete the specification of Equation \@ref(eq:oregon), $X_{ih}$ is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, $V_{ih}$ is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw. -->
-<!-- There is a wide range of literature related to this intervention. More papers are available [here](https://www.povertyactionlab.org/evaluation/oregon-health-insurance-experiment-united-states). -->
+</div>
+<div id="case-study-the-oregon-health-insurance-experiment" class="section level3" number="9.1.7">
+<h3>
+<span class="header-section-number">9.1.7</span> Case study: The Oregon Health Insurance Experiment<a class="anchor" aria-label="anchor" href="#case-study-the-oregon-health-insurance-experiment"><i class="fas fa-link"></i></a>
+</h3>
+<p>In the US, unlike many developed countries, basic health insurance is not necessarily available to all residents even those on low incomes. The Oregon Health Insurance Experiment involved low-income adults in Oregon, a state in the north-west of the US, from 2008 to 2010 <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>.</p>
+<p>Oregon funded 10,000 places in the state-run Medicaid program, which provides health insurance for people with low incomes. A lottery was used to allocate these places and was judged fair because it was expected, correctly as it turned out, that demand for places would exceed the supply. People had a month to sign up to enter the draw. Then a lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid.</p>
+<p>The draws were conducted over a six-month period and those who were selected had the opportunity to sign up. 35,169 individuals were selected (the household of those who actually won the draw was given the opportunity) but only 30 per cent of them completed the paperwork and were eligible (typically they earned too much). The insurance lasted indefinitely. This random allocation of insurance allowed the researchers to understand the effect of health insurance.</p>
+<p>The reason that this random allocation is important is that it is not usually possible to compare those with and without insurance because the type of people that sign up to get health insurance differ to those who do not. That decision is ‘confounded’ with other variables and results in a selection effect.</p>
+<p>As the opportunity to apply for health insurance was randomly allocated, the researchers were able to evaluate the health and earnings of those who received health insurance and compare them to those who did not. To do this they used administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is fairly restrained and so they included a survey conducted via mail.</p>
+<p>The specifics of this are not important, and we will have more to say in Chapter <a href="ijalm.html#ijalm">15</a>, but they use a statistical model to analyze the results <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>:</p>
+<p><span class="math display" id="eq:oregon">\[\begin{equation}
+y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} \tag{9.1}
+\end{equation}\]</span></p>
+<p>Equation <a href="hunt-data.html#eq:oregon">(9.1)</a> explains various <span class="math inline">\(j\)</span> outcomes (such as health) for an individual <span class="math inline">\(i\)</span> in household <span class="math inline">\(h\)</span> as a function of an indicator variable as to whether household <span class="math inline">\(h\)</span> was selected by the lottery. Hence, ‘(t)he coefficient on Lottery, <span class="math inline">\(\beta_1\)</span>, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).’</p>
+<p>To complete the specification of Equation <a href="hunt-data.html#eq:oregon">(9.1)</a>, <span class="math inline">\(X_{ih}\)</span> is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, <span class="math inline">\(V_{ih}\)</span> is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.</p>
+<p>As has been found in earlier studies such as <span class="citation"><a href="references-1.html#ref-randhealth" role="doc-biblioref">Brook et al.</a> (<a href="references-1.html#ref-randhealth" role="doc-biblioref">1984</a>)</span>, <span class="citation"><a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al.</a> (<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span> found that, the treatment group was 25 per cent more likely to have insurance than the control group. The treatment group used more health care including both primary and preventive care as well as hospitalizations but had lower out-of-pocket medical expenditures. More generally, the treatment group reported better physical and mental health.</p>
 <!-- ### Case study: Student Coaching: How Far Can Technology Go? -->
 <!-- There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn't scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015. -->
 <!-- The intervention was administered to students as part of an economics class. Students received 2 per cent of their grade for completing the exercise. The specific exercise depended on the group of the student. The intervention involved three treatments as well as a control group that was just given a Big Five personality traits test. Additional information that was obtained included 'the highest level of education obtained by students’ parents, the amount of education they expect to obtain, whether they are first-year or international students, and their work and study time plans for the upcoming year.' [@Oreopoulos2018, p. 6]. -->
@@ -690,7 +700,8 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>ave_clicks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">clicks</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; `summarise()` has grouped output by 'clickability_test_id'. You can override using the `.groups` argument.</span>
+<span class="co">#&gt; `summarise()` has grouped output by 'clickability_test_id'.</span>
+<span class="co">#&gt; You can override using the `.groups` argument.</span>
 
 <span class="va">look_at_differences</span> <span class="op">&lt;-</span> 
   <span class="va">to_question_or_not_to_question</span> |&gt; 
@@ -712,14 +723,48 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 Figure 9.2: Comparison of the average number of clicks when a headline contains a question mark or not
 </p>
 </div>
-<!-- ## Implementing surveys -->
-<!-- ### Google -->
-<!-- ### Facebook -->
-<!-- ### Survey Monkey -->
-<!-- ### Mechanical Turk -->
-<!-- ### Prolific -->
-<!-- ### Qualtrics -->
-<!-- ### Other -->
+</div>
+</div>
+<div id="implementing-surveys" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Implementing surveys<a class="anchor" aria-label="anchor" href="#implementing-surveys"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are many ways to implement surveys. For instance, there are dedicated survey platforms such as Survey Monkey and Qualtrics. In general, the focus of those platforms is on putting together the survey form and they expect that we already have contact details for the sample of interest. Some other platforms, such as Mechanical Turk and Prolific, focus on providing that audience, and we can then ask that audience to do more than just take a survey. While that is useful, it usually comes with higher costs. Finally, platforms such as Facebook also provide the ability to run a survey. One especially common approach, because it is free, is to use Google Forms.</p>
+<p>To create a survey with Google Forms, sign into your Google Account, go to Google Drive, and then click ‘New’ then ‘Google Form.’ By default, the form is largely empty (Figure <a href="hunt-data.html#fig:googleformfirst">9.3</a>), and we should add a title and description.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:googleformfirst"></span>
+<img src="figures/googleformfirst.png" alt="The default view when a new Google Form is created contains many empty fields" width="85%"><p class="caption">
+Figure 9.3: The default view when a new Google Form is created contains many empty fields
+</p>
+</div>
+<p>By default, an multiple-choice question is included, and we can update the content of this by clicking in the question field. Helpfully, there are often suggestions that can help provide the options. We can make the question required by toggling (Figure <a href="hunt-data.html#fig:googleformsecond">9.4</a>).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:googleformsecond"></span>
+<img src="figures/googleformsecond.png" alt="Updating the multiple-choice question that is included by default" width="85%"><p class="caption">
+Figure 9.4: Updating the multiple-choice question that is included by default
+</p>
+</div>
+<p>We can add another question, by clicking on the plus with a circle around it, and select different types of question, for instance, ‘Short answer,’ ‘Checkboxes,’ or ‘Linear scale’ (Figure <a href="hunt-data.html#fig:googleformthird">9.5</a>). It can be especially useful to use ‘Short answer’ for aspect such as name and email address, checkboxes and linear scale to understand preferences.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:googleformthird"></span>
+<img src="figures/googleformthird.png" alt="Different options for questions include short answer, checkboxes, and linear scale" width="85%"><p class="caption">
+Figure 9.5: Different options for questions include short answer, checkboxes, and linear scale
+</p>
+</div>
+<p>When we are happy with our survey, we make like to preview it ourselves, by clicking on the icon that looks like an eye. After checking it that way, we can click on ‘Send.’ Usually it is especially useful to use the second option, which is to send via a link, and it can be handy to shorten the URL (Figure <a href="hunt-data.html#fig:googleformfourth">9.6</a>).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:googleformfourth"></span>
+<img src="figures/googleformfourth.png" alt="There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL" width="85%"><p class="caption">
+Figure 9.6: There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL
+</p>
+</div>
+<p>After you share your survey, results will accrue in the ‘Responses’ tab and it can be especially useful to create a spreadsheet to view these responses, by clicking on the ‘Sheets’ icon. After you have collected enough responses then you can turn off ‘Accepting responds’ (Figure <a href="hunt-data.html#fig:googleformfifth">9.7</a>)</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:googleformfifth"></span>
+<img src="figures/googleformfifth.png" alt="Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet" width="85%"><p class="caption">
+Figure 9.7: Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet
+</p>
+</div>
 <!-- ## Sensor data -->
 <!-- ## FOI -->
 <!-- - Walby, Kevin and Alex Luscombe, eds. Freedom of Information and Social Science Research Design. New York: Routledge. -->
@@ -727,16 +772,14 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <!-- Large scale experiments are happening all around us. These days I feel we all know a lot more about healthcare experiments than perhaps we'd like to know and the AstraZeneca/Oxford situation is especially interesting, for instance, @OxfordAstraZeneca, but see @Bastian2020 for how this is actually possibly more complicated. -->
 <!-- There are also well-known experiments that tried to see if big government programs are effective, such as: -->
 <!-- - The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 [@randhealth]. -->
-<!-- - The Oregon Health Study randomly gave health insurance in Oregon in 2008 [@finkelstein2012oregon]. -->
 </div>
-</div>
-<div id="exercises-and-tutorial-8" class="section level2" number="9.3">
+<div id="exercises-and-tutorial-8" class="section level2" number="9.4">
 <h2>
-<span class="header-section-number">9.3</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-8"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-8" class="section level3" number="9.3.1">
+<div id="exercises-8" class="section level3" number="9.4.1">
 <h3>
-<span class="header-section-number">9.3.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-8"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>In your own words, what is the role of randomization in constructing a counterfactual (write two or three paragraphs)?</li>
@@ -770,10 +813,8 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <ol start="5" style="list-style-type: decimal">
 <li>In the context of randomization, what does stratification mean to you (write a paragraph or two)?</li>
 <li>How could you check that your randomization had been done appropriately (write two or three paragraphs)?</li>
-<li>Identify three companies that conduct A/B testing commercially and write a short paper about how they work and the trade-offs of each. Are there any notable Toronto-based or Canadian companies? Why do you think this might be the case?</li>
+<li>Identify three companies that conduct A/B testing commercially and write one paragraph for each of them about how they work and the trade-offs involved.</li>
 <li>Pretend that you work as a junior analyst for a large consulting firm. Further, pretend that your consulting firm has taken a contract to put together a facial recognition model for the Canada Border Services Agency’s Inland Enforcement branch. Taking a page or two, please discuss your thoughts on this matter. What would you do and why?</li>
-<li>What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?</li>
-<li>There have been some substantial political polling ‘misses’ in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?</li>
 <li>What is an estimate (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>A rule for calculating an estimate of a given quantity based on observed data.</li>
@@ -806,25 +847,6 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <li>Unknown numbers that determine a statistical model.</li>
 </ol>
 </li>
-<li>It seems like a lot of businesses have closed in downtown Toronto since the pandemic. To investigate this, I decide to walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, I open a map of Toronto, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
-<ol style="list-style-type: lower-alpha">
-<li>Cluster sampling.</li>
-<li>Systematic sampling.</li>
-<li>Stratified sampling.</li>
-<li>Simple random sampling.</li>
-<li>Convenience sampling.</li>
-</ol>
-</li>
-<li>Please name some reasons why you may wish to use cluster sampling (select all)?
-<ol style="list-style-type: lower-alpha">
-<li>Balance in responses.</li>
-<li>Administrative convenience.</li>
-<li>Efficiency in terms of money.</li>
-<li>Underlying systematic concerns.</li>
-<li>Estimation of sub-populations.</li>
-</ol>
-</li>
-<li>Please consider Beaumont, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’ With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?</li>
 <li>
 <span class="citation"><a href="references-1.html#ref-ware1989" role="doc-biblioref">J. Ware</a> (<a href="references-1.html#ref-ware1989" role="doc-biblioref">1989, 298</a>)</span> mentions ‘a randomized play the winner design.’ What is it?</li>
 <li>
@@ -836,9 +858,9 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <li>What is power (in a statistical context)?</li>
 </ol>
 </div>
-<div id="tutorial-8" class="section level3" number="9.3.2">
+<div id="tutorial-8" class="section level3" number="9.4.2">
 <h3>
-<span class="header-section-number">9.3.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please build a website using <code>postcards</code> <span class="citation">(<a href="references-1.html#ref-citepostcards" role="doc-biblioref">Kross 2021</a>)</span>. Add Google Analytics. Deploy it using Netlify. Change some aspect of the website, add a different tracker, and push it to a new branch. Then use Netlify to conduct an A/B test. Write a one-to-two page paper about what you did and what you found.</p>
 
@@ -854,20 +876,23 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <li><a class="nav-link" href="#hunt-data"><span class="header-section-number">9</span> Hunt data</a></li>
 <li>
 <a class="nav-link" href="#experiments-and-randomized-controlled-trials"><span class="header-section-number">9.1</span> Experiments and randomized controlled trials</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#motivation-and-notation"><span class="header-section-number">9.1.1</span> Motivation and notation</a></li>
-<li><a class="nav-link" href="#randomization"><span class="header-section-number">9.1.2</span> Randomization</a></li>
-<li><a class="nav-link" href="#treatment-and-control"><span class="header-section-number">9.1.3</span> Treatment and control</a></li>
-<li><a class="nav-link" href="#fishers-tea-party"><span class="header-section-number">9.1.4</span> Fisher’s tea party</a></li>
-<li><a class="nav-link" href="#informed-consent-and-the-need-for-an-experiment"><span class="header-section-number">9.1.5</span> Informed consent and the need for an experiment</a></li>
+<li><a class="nav-link" href="#introduction-6"><span class="header-section-number">9.1.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#motivation-and-notation"><span class="header-section-number">9.1.2</span> Motivation and notation</a></li>
+<li><a class="nav-link" href="#randomization"><span class="header-section-number">9.1.3</span> Randomization</a></li>
+<li><a class="nav-link" href="#treatment-and-control"><span class="header-section-number">9.1.4</span> Treatment and control</a></li>
+<li><a class="nav-link" href="#fishers-tea-party"><span class="header-section-number">9.1.5</span> Fisher’s tea party</a></li>
+<li><a class="nav-link" href="#informed-consent-and-the-need-for-an-experiment"><span class="header-section-number">9.1.6</span> Informed consent and the need for an experiment</a></li>
+<li><a class="nav-link" href="#case-study-the-oregon-health-insurance-experiment"><span class="header-section-number">9.1.7</span> Case study: The Oregon Health Insurance Experiment</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#ab-testing"><span class="header-section-number">9.2</span> A/B testing</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#case-study-upworthy"><span class="header-section-number">9.2.1</span> Case study: Upworthy</a></li></ul>
 </li>
+<li><a class="nav-link" href="#implementing-surveys"><span class="header-section-number">9.3</span> Implementing surveys</a></li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-8"><span class="header-section-number">9.3</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-8"><span class="header-section-number">9.3.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-8"><span class="header-section-number">9.3.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-8"><span class="header-section-number">9.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-8"><span class="header-section-number">9.4.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-8"><span class="header-section-number">9.4.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -887,7 +912,7 @@ Figure 9.2: Comparison of the average number of clicks when a headline contains 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

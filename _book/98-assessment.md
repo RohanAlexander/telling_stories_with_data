@@ -56,12 +56,12 @@ Additional points:
 
 
 ```{=html}
-<div id="ymegjusdyd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qoqtjzrvwy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ymegjusdyd .gt_table {
+#qoqtjzrvwy .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -86,7 +86,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_heading {
+#qoqtjzrvwy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -98,7 +98,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_title {
+#qoqtjzrvwy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -108,7 +108,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#ymegjusdyd .gt_subtitle {
+#qoqtjzrvwy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -118,13 +118,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#ymegjusdyd .gt_bottom_border {
+#qoqtjzrvwy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_col_headings {
+#qoqtjzrvwy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -139,7 +139,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_col_heading {
+#qoqtjzrvwy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -159,7 +159,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#ymegjusdyd .gt_column_spanner_outer {
+#qoqtjzrvwy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -171,15 +171,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#ymegjusdyd .gt_column_spanner_outer:first-child {
+#qoqtjzrvwy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ymegjusdyd .gt_column_spanner_outer:last-child {
+#qoqtjzrvwy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ymegjusdyd .gt_column_spanner {
+#qoqtjzrvwy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -191,7 +191,7 @@ Additional points:
   width: 100%;
 }
 
-#ymegjusdyd .gt_group_heading {
+#qoqtjzrvwy .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,7 +213,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#ymegjusdyd .gt_empty_group_heading {
+#qoqtjzrvwy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -228,15 +228,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#ymegjusdyd .gt_from_md > :first-child {
+#qoqtjzrvwy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ymegjusdyd .gt_from_md > :last-child {
+#qoqtjzrvwy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ymegjusdyd .gt_row {
+#qoqtjzrvwy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +255,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#ymegjusdyd .gt_stub {
+#qoqtjzrvwy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -267,7 +267,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#ymegjusdyd .gt_summary_row {
+#qoqtjzrvwy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -277,7 +277,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#ymegjusdyd .gt_first_summary_row {
+#qoqtjzrvwy .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -287,7 +287,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_grand_summary_row {
+#qoqtjzrvwy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -297,7 +297,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#ymegjusdyd .gt_first_grand_summary_row {
+#qoqtjzrvwy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -307,11 +307,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_striped {
+#qoqtjzrvwy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ymegjusdyd .gt_table_body {
+#qoqtjzrvwy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -320,7 +320,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_footnotes {
+#qoqtjzrvwy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -334,13 +334,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_footnote {
+#qoqtjzrvwy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ymegjusdyd .gt_sourcenotes {
+#qoqtjzrvwy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -354,41 +354,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#ymegjusdyd .gt_sourcenote {
+#qoqtjzrvwy .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ymegjusdyd .gt_left {
+#qoqtjzrvwy .gt_left {
   text-align: left;
 }
 
-#ymegjusdyd .gt_center {
+#qoqtjzrvwy .gt_center {
   text-align: center;
 }
 
-#ymegjusdyd .gt_right {
+#qoqtjzrvwy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ymegjusdyd .gt_font_normal {
+#qoqtjzrvwy .gt_font_normal {
   font-weight: normal;
 }
 
-#ymegjusdyd .gt_font_bold {
+#qoqtjzrvwy .gt_font_bold {
   font-weight: bold;
 }
 
-#ymegjusdyd .gt_font_italic {
+#qoqtjzrvwy .gt_font_italic {
   font-style: italic;
 }
 
-#ymegjusdyd .gt_super {
+#qoqtjzrvwy .gt_super {
   font-size: 65%;
 }
 
-#ymegjusdyd .gt_footnote_marks {
+#qoqtjzrvwy .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -406,32 +406,32 @@ Additional points:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
@@ -460,17 +460,17 @@ Some examples of papers that well in the past include those by: [Amy Farrow](inp
 
 ### Task
 
-- Working as part of a small team of 1-3 people, please pick a paper of interest to you that has code and data that are available, published anytime since 2019, in an American Economic Association journal. These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'. And then can be seen here: https://www.aeaweb.org/journals.
-- Following the [*Guide for Accelerating Computational Reproducibility in the Social Sciences*](https://bitss.github.io/ACRE/), please conduct a **replication**^[This terminology is used following @barba2018terminologies, but it is the opposite of that used by BITSS.] of at least three graphs or tables using the [Social Science Reproduction Platform](https://www.socialsciencereproduction.org). Note the DOI of the replication.
-- Working in an entirely reproducible way then conduct a **reproduction** of two to three aspects and write a short paper about that. 
-  - Include the DOI of your replication in your paper and a link to the GitHub repo that underpins the paper.
-  - Make sure you create a folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this starter folder: https://github.com/RohanAlexander/starter_folder): title, author, date, abstract, introduction, data, results, discussion, and references.
-  - The aspects that you focus on in your paper could be the same aspects that you replicated. Follow the lead of the paper, but make it your own. That means you should ask a slightly different question, or answer the same question in a slightly different way.
+- Working as part of a small team of 1-3 people, please pick a paper of interest to you that has code and data that are available, published anytime since 2019, in an American Economic Association journal. These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'. And they can be seen here: https://www.aeaweb.org/journals.
+- Following the [*Guide for Accelerating Computational Reproducibility in the Social Sciences*](https://bitss.github.io/ACRE/), please conduct a **replication**^[This terminology is used following @barba2018terminologies, but it is the opposite of that used by BITSS.] of at least three graphs or tables using the [Social Science Reproduction Platform](https://www.socialsciencereproduction.org). Note the DOI of your replication.
+- Working in an entirely reproducible way then conduct a **reproduction** of two or three aspects and write a short paper about that. 
+  - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, and references.
+  - The aspects that you focus on in your paper could be the same aspects that you replicated. Follow the direction of the paper, but make it your own. That means you should ask a slightly different question, or answer the same question in a slightly different way, but still use the same dataset.
+  - Include the DOI of your replication in your paper and a link to the GitHub repo that underpins your paper.
+  - The discussion must include sub-sections that focus on three or four interesting points, and sub-sections on weaknesses and next steps.
   - In the discussion section and any other relevant section, please be sure to discuss ethics and bias with reference to relevant literature.
-  - The paper should be well-written, draw on relevant literature, and explain all technical concepts. That is to say, it is aimed at an educated, but non-specialist, audience
-  - You are welcome to use appendices for supporting, but not critical, material. Your discussion must include sub-sections that focus on three or four interesting points, and sub-sections on weaknesses and next steps.
-  - Code must be entirely reproducible, documented, and readable. The repository must be well-organized and appropriately use folders.
-  - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, provided it is consistent.
+  - The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience
+  - Use appendices for supporting, but not critical, material. 
+  - Code should be entirely reproducible, well-documented, and readable.
   - Submit a PDF of your paper. 
   - There should be no evidence that this is a class assignment.
 
@@ -481,6 +481,8 @@ Check that:
 
 - For your paper you have not just copy/pasted the code from the original paper, but have instead used that as a foundation to work from.
 - Your paper has a link to the associated GitHub repository and the DOI of the Social Science Reproduction Platform replication that you conducted. 
+- You have referenced everything, including R. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, provided it is consistent.
+
 
 ### FAQ
 
@@ -490,12 +492,12 @@ Check that:
 
 
 ```{=html}
-<div id="gemndocnka" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vxsmqohsen" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#gemndocnka .gt_table {
+#vxsmqohsen .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -520,7 +522,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#gemndocnka .gt_heading {
+#vxsmqohsen .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -532,7 +534,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#gemndocnka .gt_title {
+#vxsmqohsen .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -542,7 +544,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#gemndocnka .gt_subtitle {
+#vxsmqohsen .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -552,13 +554,13 @@ Check that:
   border-top-width: 0;
 }
 
-#gemndocnka .gt_bottom_border {
+#vxsmqohsen .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gemndocnka .gt_col_headings {
+#vxsmqohsen .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -573,7 +575,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#gemndocnka .gt_col_heading {
+#vxsmqohsen .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -593,7 +595,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#gemndocnka .gt_column_spanner_outer {
+#vxsmqohsen .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -605,15 +607,15 @@ Check that:
   padding-right: 4px;
 }
 
-#gemndocnka .gt_column_spanner_outer:first-child {
+#vxsmqohsen .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gemndocnka .gt_column_spanner_outer:last-child {
+#vxsmqohsen .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gemndocnka .gt_column_spanner {
+#vxsmqohsen .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -625,7 +627,7 @@ Check that:
   width: 100%;
 }
 
-#gemndocnka .gt_group_heading {
+#vxsmqohsen .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -647,7 +649,7 @@ Check that:
   vertical-align: middle;
 }
 
-#gemndocnka .gt_empty_group_heading {
+#vxsmqohsen .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -662,15 +664,15 @@ Check that:
   vertical-align: middle;
 }
 
-#gemndocnka .gt_from_md > :first-child {
+#vxsmqohsen .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gemndocnka .gt_from_md > :last-child {
+#vxsmqohsen .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gemndocnka .gt_row {
+#vxsmqohsen .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -689,7 +691,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#gemndocnka .gt_stub {
+#vxsmqohsen .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -701,7 +703,7 @@ Check that:
   padding-left: 12px;
 }
 
-#gemndocnka .gt_summary_row {
+#vxsmqohsen .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -711,7 +713,7 @@ Check that:
   padding-right: 5px;
 }
 
-#gemndocnka .gt_first_summary_row {
+#vxsmqohsen .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -721,7 +723,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#gemndocnka .gt_grand_summary_row {
+#vxsmqohsen .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -731,7 +733,7 @@ Check that:
   padding-right: 5px;
 }
 
-#gemndocnka .gt_first_grand_summary_row {
+#vxsmqohsen .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -741,11 +743,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#gemndocnka .gt_striped {
+#vxsmqohsen .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gemndocnka .gt_table_body {
+#vxsmqohsen .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -754,7 +756,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#gemndocnka .gt_footnotes {
+#vxsmqohsen .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -768,13 +770,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#gemndocnka .gt_footnote {
+#vxsmqohsen .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#gemndocnka .gt_sourcenotes {
+#vxsmqohsen .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -788,41 +790,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#gemndocnka .gt_sourcenote {
+#vxsmqohsen .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#gemndocnka .gt_left {
+#vxsmqohsen .gt_left {
   text-align: left;
 }
 
-#gemndocnka .gt_center {
+#vxsmqohsen .gt_center {
   text-align: center;
 }
 
-#gemndocnka .gt_right {
+#vxsmqohsen .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gemndocnka .gt_font_normal {
+#vxsmqohsen .gt_font_normal {
   font-weight: normal;
 }
 
-#gemndocnka .gt_font_bold {
+#vxsmqohsen .gt_font_bold {
   font-weight: bold;
 }
 
-#gemndocnka .gt_font_italic {
+#vxsmqohsen .gt_font_italic {
   font-style: italic;
 }
 
-#gemndocnka .gt_super {
+#vxsmqohsen .gt_super {
   font-size: 65%;
 }
 
-#gemndocnka .gt_footnote_marks {
+#vxsmqohsen .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -840,19 +842,22 @@ Check that:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
+    <tr><td class="gt_row gt_left">Replication</td>
+<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
+<td class="gt_row gt_left">If replication is poor or not done, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
@@ -865,13 +870,13 @@ Check that:
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
@@ -964,12 +969,12 @@ Working in teams of one to three  people, please consider this scenario:
 
 
 ```{=html}
-<div id="rpmitottfe" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vprscagzdg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#rpmitottfe .gt_table {
+#vprscagzdg .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -994,7 +999,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-left-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_heading {
+#vprscagzdg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1006,7 +1011,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_title {
+#vprscagzdg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1016,7 +1021,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-width: 0;
 }
 
-#rpmitottfe .gt_subtitle {
+#vprscagzdg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1026,13 +1031,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-width: 0;
 }
 
-#rpmitottfe .gt_bottom_border {
+#vprscagzdg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_col_headings {
+#vprscagzdg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1047,7 +1052,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_col_heading {
+#vprscagzdg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1067,7 +1072,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#rpmitottfe .gt_column_spanner_outer {
+#vprscagzdg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1079,15 +1084,15 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 4px;
 }
 
-#rpmitottfe .gt_column_spanner_outer:first-child {
+#vprscagzdg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rpmitottfe .gt_column_spanner_outer:last-child {
+#vprscagzdg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rpmitottfe .gt_column_spanner {
+#vprscagzdg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1099,7 +1104,7 @@ Working in teams of one to three  people, please consider this scenario:
   width: 100%;
 }
 
-#rpmitottfe .gt_group_heading {
+#vprscagzdg .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1121,7 +1126,7 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#rpmitottfe .gt_empty_group_heading {
+#vprscagzdg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1136,15 +1141,15 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#rpmitottfe .gt_from_md > :first-child {
+#vprscagzdg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rpmitottfe .gt_from_md > :last-child {
+#vprscagzdg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rpmitottfe .gt_row {
+#vprscagzdg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1163,7 +1168,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#rpmitottfe .gt_stub {
+#vprscagzdg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1175,7 +1180,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-left: 12px;
 }
 
-#rpmitottfe .gt_summary_row {
+#vprscagzdg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1185,7 +1190,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#rpmitottfe .gt_first_summary_row {
+#vprscagzdg .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1195,7 +1200,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_grand_summary_row {
+#vprscagzdg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1205,7 +1210,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#rpmitottfe .gt_first_grand_summary_row {
+#vprscagzdg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1215,11 +1220,11 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_striped {
+#vprscagzdg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rpmitottfe .gt_table_body {
+#vprscagzdg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1228,7 +1233,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_footnotes {
+#vprscagzdg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1242,13 +1247,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_footnote {
+#vprscagzdg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#rpmitottfe .gt_sourcenotes {
+#vprscagzdg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1262,41 +1267,41 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#rpmitottfe .gt_sourcenote {
+#vprscagzdg .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#rpmitottfe .gt_left {
+#vprscagzdg .gt_left {
   text-align: left;
 }
 
-#rpmitottfe .gt_center {
+#vprscagzdg .gt_center {
   text-align: center;
 }
 
-#rpmitottfe .gt_right {
+#vprscagzdg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rpmitottfe .gt_font_normal {
+#vprscagzdg .gt_font_normal {
   font-weight: normal;
 }
 
-#rpmitottfe .gt_font_bold {
+#vprscagzdg .gt_font_bold {
   font-weight: bold;
 }
 
-#rpmitottfe .gt_font_italic {
+#vprscagzdg .gt_font_italic {
   font-style: italic;
 }
 
-#rpmitottfe .gt_super {
+#vprscagzdg .gt_super {
   font-size: 65%;
 }
 
-#rpmitottfe .gt_footnote_marks {
+#vprscagzdg .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1314,19 +1319,19 @@ Working in teams of one to three  people, please consider this scenario:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
@@ -1339,13 +1344,13 @@ Working in teams of one to three  people, please consider this scenario:
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
@@ -1422,12 +1427,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="twywrtqjjg" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="vhgdqpzanb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#twywrtqjjg .gt_table {
+#vhgdqpzanb .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1452,7 +1457,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_heading {
+#vhgdqpzanb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1464,7 +1469,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_title {
+#vhgdqpzanb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1474,7 +1479,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#twywrtqjjg .gt_subtitle {
+#vhgdqpzanb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1484,13 +1489,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#twywrtqjjg .gt_bottom_border {
+#vhgdqpzanb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_col_headings {
+#vhgdqpzanb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1505,7 +1510,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_col_heading {
+#vhgdqpzanb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1525,7 +1530,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#twywrtqjjg .gt_column_spanner_outer {
+#vhgdqpzanb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1537,15 +1542,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#twywrtqjjg .gt_column_spanner_outer:first-child {
+#vhgdqpzanb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#twywrtqjjg .gt_column_spanner_outer:last-child {
+#vhgdqpzanb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#twywrtqjjg .gt_column_spanner {
+#vhgdqpzanb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1557,7 +1562,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#twywrtqjjg .gt_group_heading {
+#vhgdqpzanb .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1579,7 +1584,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#twywrtqjjg .gt_empty_group_heading {
+#vhgdqpzanb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1594,15 +1599,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#twywrtqjjg .gt_from_md > :first-child {
+#vhgdqpzanb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#twywrtqjjg .gt_from_md > :last-child {
+#vhgdqpzanb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#twywrtqjjg .gt_row {
+#vhgdqpzanb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1621,7 +1626,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#twywrtqjjg .gt_stub {
+#vhgdqpzanb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1633,7 +1638,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#twywrtqjjg .gt_summary_row {
+#vhgdqpzanb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1643,7 +1648,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#twywrtqjjg .gt_first_summary_row {
+#vhgdqpzanb .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1653,7 +1658,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_grand_summary_row {
+#vhgdqpzanb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1663,7 +1668,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#twywrtqjjg .gt_first_grand_summary_row {
+#vhgdqpzanb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1673,11 +1678,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_striped {
+#vhgdqpzanb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#twywrtqjjg .gt_table_body {
+#vhgdqpzanb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1686,7 +1691,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_footnotes {
+#vhgdqpzanb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1700,13 +1705,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_footnote {
+#vhgdqpzanb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#twywrtqjjg .gt_sourcenotes {
+#vhgdqpzanb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1720,41 +1725,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#twywrtqjjg .gt_sourcenote {
+#vhgdqpzanb .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#twywrtqjjg .gt_left {
+#vhgdqpzanb .gt_left {
   text-align: left;
 }
 
-#twywrtqjjg .gt_center {
+#vhgdqpzanb .gt_center {
   text-align: center;
 }
 
-#twywrtqjjg .gt_right {
+#vhgdqpzanb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#twywrtqjjg .gt_font_normal {
+#vhgdqpzanb .gt_font_normal {
   font-weight: normal;
 }
 
-#twywrtqjjg .gt_font_bold {
+#vhgdqpzanb .gt_font_bold {
   font-weight: bold;
 }
 
-#twywrtqjjg .gt_font_italic {
+#vhgdqpzanb .gt_font_italic {
   font-style: italic;
 }
 
-#twywrtqjjg .gt_super {
+#vhgdqpzanb .gt_super {
   font-size: 65%;
 }
 
-#twywrtqjjg .gt_footnote_marks {
+#vhgdqpzanb .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1772,19 +1777,19 @@ Some examples of papers that well in the past include those by:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
@@ -1800,13 +1805,13 @@ Some examples of papers that well in the past include those by:
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
@@ -1904,12 +1909,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="mhhldbrcae" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wsiwqaorfs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#mhhldbrcae .gt_table {
+#wsiwqaorfs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1934,7 +1939,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_heading {
+#wsiwqaorfs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1946,7 +1951,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_title {
+#wsiwqaorfs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1956,7 +1961,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#mhhldbrcae .gt_subtitle {
+#wsiwqaorfs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1966,13 +1971,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#mhhldbrcae .gt_bottom_border {
+#wsiwqaorfs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_col_headings {
+#wsiwqaorfs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1987,7 +1992,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_col_heading {
+#wsiwqaorfs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2007,7 +2012,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#mhhldbrcae .gt_column_spanner_outer {
+#wsiwqaorfs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2019,15 +2024,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#mhhldbrcae .gt_column_spanner_outer:first-child {
+#wsiwqaorfs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mhhldbrcae .gt_column_spanner_outer:last-child {
+#wsiwqaorfs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mhhldbrcae .gt_column_spanner {
+#wsiwqaorfs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2039,7 +2044,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#mhhldbrcae .gt_group_heading {
+#wsiwqaorfs .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2061,7 +2066,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#mhhldbrcae .gt_empty_group_heading {
+#wsiwqaorfs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2076,15 +2081,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#mhhldbrcae .gt_from_md > :first-child {
+#wsiwqaorfs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mhhldbrcae .gt_from_md > :last-child {
+#wsiwqaorfs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mhhldbrcae .gt_row {
+#wsiwqaorfs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2103,7 +2108,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#mhhldbrcae .gt_stub {
+#wsiwqaorfs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2115,7 +2120,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#mhhldbrcae .gt_summary_row {
+#wsiwqaorfs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2125,7 +2130,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#mhhldbrcae .gt_first_summary_row {
+#wsiwqaorfs .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2135,7 +2140,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_grand_summary_row {
+#wsiwqaorfs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2145,7 +2150,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#mhhldbrcae .gt_first_grand_summary_row {
+#wsiwqaorfs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2155,11 +2160,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_striped {
+#wsiwqaorfs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mhhldbrcae .gt_table_body {
+#wsiwqaorfs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2168,7 +2173,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_footnotes {
+#wsiwqaorfs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2182,13 +2187,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_footnote {
+#wsiwqaorfs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#mhhldbrcae .gt_sourcenotes {
+#wsiwqaorfs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2202,41 +2207,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#mhhldbrcae .gt_sourcenote {
+#wsiwqaorfs .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#mhhldbrcae .gt_left {
+#wsiwqaorfs .gt_left {
   text-align: left;
 }
 
-#mhhldbrcae .gt_center {
+#wsiwqaorfs .gt_center {
   text-align: center;
 }
 
-#mhhldbrcae .gt_right {
+#wsiwqaorfs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mhhldbrcae .gt_font_normal {
+#wsiwqaorfs .gt_font_normal {
   font-weight: normal;
 }
 
-#mhhldbrcae .gt_font_bold {
+#wsiwqaorfs .gt_font_bold {
   font-weight: bold;
 }
 
-#mhhldbrcae .gt_font_italic {
+#wsiwqaorfs .gt_font_italic {
   font-style: italic;
 }
 
-#mhhldbrcae .gt_super {
+#wsiwqaorfs .gt_super {
   font-size: 65%;
 }
 
-#mhhldbrcae .gt_footnote_marks {
+#wsiwqaorfs .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2254,19 +2259,19 @@ Some examples of papers that well in the past include those by:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
@@ -2282,13 +2287,13 @@ Some examples of papers that well in the past include those by:
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
@@ -2372,12 +2377,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="lzqstyxtzb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ghyvdaskjn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lzqstyxtzb .gt_table {
+#ghyvdaskjn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2402,7 +2407,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_heading {
+#ghyvdaskjn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2414,7 +2419,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_title {
+#ghyvdaskjn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2424,7 +2429,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#lzqstyxtzb .gt_subtitle {
+#ghyvdaskjn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2434,13 +2439,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#lzqstyxtzb .gt_bottom_border {
+#ghyvdaskjn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_col_headings {
+#ghyvdaskjn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2455,7 +2460,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_col_heading {
+#ghyvdaskjn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2475,7 +2480,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#lzqstyxtzb .gt_column_spanner_outer {
+#ghyvdaskjn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2487,15 +2492,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#lzqstyxtzb .gt_column_spanner_outer:first-child {
+#ghyvdaskjn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lzqstyxtzb .gt_column_spanner_outer:last-child {
+#ghyvdaskjn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lzqstyxtzb .gt_column_spanner {
+#ghyvdaskjn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2507,7 +2512,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#lzqstyxtzb .gt_group_heading {
+#ghyvdaskjn .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2529,7 +2534,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#lzqstyxtzb .gt_empty_group_heading {
+#ghyvdaskjn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2544,15 +2549,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#lzqstyxtzb .gt_from_md > :first-child {
+#ghyvdaskjn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lzqstyxtzb .gt_from_md > :last-child {
+#ghyvdaskjn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lzqstyxtzb .gt_row {
+#ghyvdaskjn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2571,7 +2576,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#lzqstyxtzb .gt_stub {
+#ghyvdaskjn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2583,7 +2588,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#lzqstyxtzb .gt_summary_row {
+#ghyvdaskjn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2593,7 +2598,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#lzqstyxtzb .gt_first_summary_row {
+#ghyvdaskjn .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2603,7 +2608,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_grand_summary_row {
+#ghyvdaskjn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2613,7 +2618,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#lzqstyxtzb .gt_first_grand_summary_row {
+#ghyvdaskjn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2623,11 +2628,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_striped {
+#ghyvdaskjn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lzqstyxtzb .gt_table_body {
+#ghyvdaskjn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2636,7 +2641,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_footnotes {
+#ghyvdaskjn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2650,13 +2655,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_footnote {
+#ghyvdaskjn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lzqstyxtzb .gt_sourcenotes {
+#ghyvdaskjn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2670,41 +2675,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#lzqstyxtzb .gt_sourcenote {
+#ghyvdaskjn .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lzqstyxtzb .gt_left {
+#ghyvdaskjn .gt_left {
   text-align: left;
 }
 
-#lzqstyxtzb .gt_center {
+#ghyvdaskjn .gt_center {
   text-align: center;
 }
 
-#lzqstyxtzb .gt_right {
+#ghyvdaskjn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lzqstyxtzb .gt_font_normal {
+#ghyvdaskjn .gt_font_normal {
   font-weight: normal;
 }
 
-#lzqstyxtzb .gt_font_bold {
+#ghyvdaskjn .gt_font_bold {
   font-weight: bold;
 }
 
-#lzqstyxtzb .gt_font_italic {
+#ghyvdaskjn .gt_font_italic {
   font-style: italic;
 }
 
-#lzqstyxtzb .gt_super {
+#ghyvdaskjn .gt_super {
   font-size: 65%;
 }
 
-#lzqstyxtzb .gt_footnote_marks {
+#ghyvdaskjn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2722,19 +2727,19 @@ Some examples of papers that well in the past include those by:
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">R is appropriately cited</td>
 <td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Both referred to in the main content and included in the reference list. If not, no need to continue marking, just give paper 0 overall.</td></tr>
+<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
     <tr><td class="gt_row gt_left">Title</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included. Tell the reader what your story is don't waste their time. Ideally tell them what happens at the end of the story. 'Problem Set X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
+<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
     <tr><td class="gt_row gt_left">Author, date, and repo</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">The author, date of submission, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
     <tr><td class="gt_row gt_left">Abstract</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a general audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). If your abstract is longer than four sentences then you need to think a lot about whether it is too long. It may be fine (there are always exceptions) but you should probably have a good reason. Your abstract must tell the reader your top-level finding. What is the one thing that we learn about the world because of your paper?</td></tr>
+<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely not longer than four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. Your introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what you're interested in, what you did, what you found, why it's important, etc. A reader should be able to read only your introduction and have a good idea about the research that you carried out. It would be rare that you would have tables or figures in your introduction (again there are always exceptions but think deeply about whether yours is one). It must outline the structure of the paper. For instance (and this is just a rough guide) an introduction for a 10 page paper, should probably be about 3 or 4 paragraphs, or 10 per cent, but it depends on specifics.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know, including putting it into a broader context. The introduction should provide a bit of broader context to motivate the reader, as well as providing a bit more detail about what the paper is about, what was done, what was found, and why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. An introduction for a 10-page paper, should be about 3 or 4 paragraphs, or 10 per cent. The introduction should establish a clear gap that needs to be filled.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
@@ -2750,13 +2755,13 @@ Some examples of papers that well in the past include those by:
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Proofreading</td>
+    <tr><td class="gt_row gt_left">Prose</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission are free of noticeable typos.</td></tr>
+<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and coloured (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">References</td>
+<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data/software/literature/etc are appropriately noted and cited. You must cite the software and software packages that you use. You must cite the datasets that you use. You must cite literature that you refer to (and you should refer to literature). If you take a small chunk of code from Stack Overflow then add the page in a comment next to the code. If you take a large chunk of code then cite it fully. 3 means one minor issue. More than one minor issue receives 0.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>

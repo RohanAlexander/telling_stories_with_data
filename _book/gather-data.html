@@ -633,9 +633,9 @@ Figure 8.4: Example of Google Maps, as at 29 January 2022
   <span class="op">)</span>
 <span class="va">data_from_arxiv</span>
 <span class="co">#&gt; # A tibble: 1 × 2</span>
-<span class="co">#&gt;   title                                link                 </span>
-<span class="co">#&gt;   &lt;chr&gt;                                &lt;chr&gt;                </span>
-<span class="co">#&gt; 1 "The Increased Effect of Elections … http://arxiv.org/abs…</span></code></pre></div>
+<span class="co">#&gt;   title                                                link </span>
+<span class="co">#&gt;   &lt;chr&gt;                                                &lt;chr&gt;</span>
+<span class="co">#&gt; 1 "The Increased Effect of Elections and Changing Pri… http…</span></code></pre></div>
 <p>Each day NASA provides the Astronomy Picture of the Day (APOD) through its APOD API. We can again use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> to obtain the URL for the photo on particular dates and then display it.</p>
 <div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">NASA_APOD_20211226</span> <span class="op">&lt;-</span>
@@ -684,18 +684,18 @@ Figure 8.6: Example of hovering over an JSON element, ‘items,’ where the ico
 <div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">politics_datasets</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"items"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 10 × 18</span>
-<span class="co">#&gt;    name   type   url    identifier description  published_at</span>
-<span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 China… datav… https… china-arc… Introductio… 2016-12-09T…</span>
-<span class="co">#&gt;  2 cc16_… file   https… &lt;NA&gt;       Alaska subs… 2021-12-26T…</span>
-<span class="co">#&gt;  3 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  4 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  5 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  6 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  7 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  8 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
-<span class="co">#&gt;  9 cc16_… file   https… &lt;NA&gt;       DC subset    2021-12-27T…</span>
-<span class="co">#&gt; 10 cc16_… file   https… &lt;NA&gt;       &lt;NA&gt;         2021-12-26T…</span>
+<span class="co">#&gt;    name      type  url   identifier description published_at</span>
+<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
+<span class="co">#&gt;  1 China Ar… data… http… china-arc… Introducti… 2016-12-09T…</span>
+<span class="co">#&gt;  2 cc16_AK.… file  http… &lt;NA&gt;       Alaska sub… 2021-12-26T…</span>
+<span class="co">#&gt;  3 cc16_AL.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  4 cc16_AR.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  5 cc16_AZ.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  6 cc16_CA.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  7 cc16_CO.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  8 cc16_CT.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
+<span class="co">#&gt;  9 cc16_DC.… file  http… &lt;NA&gt;       DC subset   2021-12-27T…</span>
+<span class="co">#&gt; 10 cc16_DE.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
 <span class="co">#&gt; # … with 12 more variables: file_id &lt;chr&gt;, file_type &lt;chr&gt;,</span>
 <span class="co">#&gt; #   file_content_type &lt;chr&gt;, size_in_bytes &lt;int&gt;,</span>
 <span class="co">#&gt; #   md5 &lt;chr&gt;, checksum &lt;df[,2]&gt;, unf &lt;chr&gt;,</span>
@@ -1295,14 +1295,14 @@ Figure 8.14: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">initial_clean</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 5</span>
-<span class="co">#&gt;   raw_text          Name         not_name Date  all_the_rest</span>
-<span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span>
-<span class="co">#&gt; 1 Sir Robert Walpo… Sir Robert … 1676–17… 1676… ""          </span>
-<span class="co">#&gt; 2 Spencer Compton1… Spencer Com… 1673–17… 1673… ""          </span>
-<span class="co">#&gt; 3 Henry Pelham(169… Henry Pelham 1694–17… 1694… ""          </span>
-<span class="co">#&gt; 4 Thomas Pelham-Ho… Thomas Pelh… 1693–17… 1693… ""          </span>
-<span class="co">#&gt; 5 William Cavendis… William Cav… 1720–17… 1720… ""          </span>
-<span class="co">#&gt; 6 Thomas Pelham-Ho… Thomas Pelh… 1693–17… 1693… ""</span></code></pre></div>
+<span class="co">#&gt;   raw_text                 Name  not_name Date  all_the_rest</span>
+<span class="co">#&gt;   &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span>
+<span class="co">#&gt; 1 Sir Robert Walpole(1676… Sir … 1676–17… 1676… ""          </span>
+<span class="co">#&gt; 2 Spencer Compton1st Earl… Spen… 1673–17… 1673… ""          </span>
+<span class="co">#&gt; 3 Henry Pelham(1694–1754)  Henr… 1694–17… 1694… ""          </span>
+<span class="co">#&gt; 4 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""          </span>
+<span class="co">#&gt; 5 William Cavendish4th Du… Will… 1720–17… 1720… ""          </span>
+<span class="co">#&gt; 6 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""</span></code></pre></div>
 <p>Finally, we need to clean up the columns.</p>
 <div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">initial_clean</span> <span class="op">&lt;-</span> 
@@ -1321,14 +1321,14 @@ Figure 8.14: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">initial_clean</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 6</span>
-<span class="co">#&gt;   raw_text        Name     Title not_name Date  all_the_rest</span>
-<span class="co">#&gt;   &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span>
-<span class="co">#&gt; 1 Sir Robert Wal… Sir Rob… &lt;NA&gt;  1676–17… 1676… ""          </span>
-<span class="co">#&gt; 2 Spencer Compto… Spencer… &lt;NA&gt;  1673–17… 1673… ""          </span>
-<span class="co">#&gt; 3 Henry Pelham(1… Henry P… &lt;NA&gt;  1694–17… 1694… ""          </span>
-<span class="co">#&gt; 4 Thomas Pelham-… Thomas … &lt;NA&gt;  1693–17… 1693… ""          </span>
-<span class="co">#&gt; 5 William Cavend… William… &lt;NA&gt;  1720–17… 1720… ""          </span>
-<span class="co">#&gt; 6 Thomas Pelham-… Thomas … &lt;NA&gt;  1693–17… 1693… ""</span></code></pre></div>
+<span class="co">#&gt;   raw_text           Name  Title not_name Date  all_the_rest</span>
+<span class="co">#&gt;   &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span>
+<span class="co">#&gt; 1 Sir Robert Walpol… Sir … &lt;NA&gt;  1676–17… 1676… ""          </span>
+<span class="co">#&gt; 2 Spencer Compton1s… Spen… &lt;NA&gt;  1673–17… 1673… ""          </span>
+<span class="co">#&gt; 3 Henry Pelham(1694… Henr… &lt;NA&gt;  1694–17… 1694… ""          </span>
+<span class="co">#&gt; 4 Thomas Pelham-Hol… Thom… &lt;NA&gt;  1693–17… 1693… ""          </span>
+<span class="co">#&gt; 5 William Cavendish… Will… &lt;NA&gt;  1720–17… 1720… ""          </span>
+<span class="co">#&gt; 6 Thomas Pelham-Hol… Thom… &lt;NA&gt;  1693–17… 1693… ""</span></code></pre></div>
 <div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_data</span> <span class="op">&lt;-</span> 
   <span class="va">initial_clean</span> |&gt; 
@@ -2482,14 +2482,14 @@ Figure 8.18: Planned dataset of TFR for each year and US state
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dhs_2000</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
-<span class="co">#&gt;   raw_data                    state                    data </span>
-<span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt;                    &lt;chr&gt;</span>
-<span class="co">#&gt; 1 "40 National Vital Statist… "40 National Vital Stat… &lt;NA&gt; </span>
-<span class="co">#&gt; 2 ""                          ""                       &lt;NA&gt; </span>
-<span class="co">#&gt; 3 "Table 10. Number of birth… "Table 10. Number of bi… &lt;NA&gt; </span>
-<span class="co">#&gt; 4 "United States, each State… "United States, each St… &lt;NA&gt; </span>
-<span class="co">#&gt; 5 "[By place of residence. B… "[By place of residence… &lt;NA&gt; </span>
-<span class="co">#&gt; 6 "estimated in each area; t… "estimated in each area… &lt;NA&gt;</span></code></pre></div>
+<span class="co">#&gt;   raw_data                                       state data </span>
+<span class="co">#&gt;   &lt;chr&gt;                                          &lt;chr&gt; &lt;chr&gt;</span>
+<span class="co">#&gt; 1 "40 National Vital Statistics Report, Vol. 50… "40 … &lt;NA&gt; </span>
+<span class="co">#&gt; 2 ""                                             ""    &lt;NA&gt; </span>
+<span class="co">#&gt; 3 "Table 10. Number of births, birth rates, fer… "Tab… &lt;NA&gt; </span>
+<span class="co">#&gt; 4 "United States, each State and territory, 200… "Uni… &lt;NA&gt; </span>
+<span class="co">#&gt; 5 "[By place of residence. Birth rates are live… "[By… &lt;NA&gt; </span>
+<span class="co">#&gt; 6 "estimated in each area; total fertility rate… "est… &lt;NA&gt;</span></code></pre></div>
 <p>We get the expected warnings about the top and the bottom as they do not have multiple dots. (Another option here is to use <code><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_data()</a></code> which would allow us to use location rather than delimiters.)</p>
 <p>We can now separate the data based on spaces. There is an inconsistent number of spaces, so we first squish any example of more than one space into just one.</p>
 <div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
@@ -2510,14 +2510,14 @@ Figure 8.18: Planned dataset of TFR for each year and US state
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dhs_2000</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 10</span>
-<span class="co">#&gt;   raw_data      state      data  number_of_births birth_rate</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
-<span class="co">#&gt; 1 "40 National… "40 Natio… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
-<span class="co">#&gt; 2 ""            ""         &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
-<span class="co">#&gt; 3 "Table 10. N… "Table 10… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
-<span class="co">#&gt; 4 "United Stat… "United S… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
-<span class="co">#&gt; 5 "[By place o… "[By plac… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
-<span class="co">#&gt; 6 "estimated i… "estimate… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt;   raw_data           state data  number_of_births birth_rate</span>
+<span class="co">#&gt;   &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;     </span>
+<span class="co">#&gt; 1 "40 National Vita… "40 … &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt; 2 ""                 ""    &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt; 3 "Table 10. Number… "Tab… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt; 4 "United States, e… "Uni… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt; 5 "[By place of res… "[By… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
+<span class="co">#&gt; 6 "estimated in eac… "est… &lt;NA&gt;  &lt;NA&gt;             &lt;NA&gt;      </span>
 <span class="co">#&gt; # … with 5 more variables: fertility_rate &lt;chr&gt;, TFR &lt;chr&gt;,</span>
 <span class="co">#&gt; #   teen_births_all &lt;chr&gt;, teen_births_15_17 &lt;chr&gt;,</span>
 <span class="co">#&gt; #   teen_births_18_19 &lt;chr&gt;</span></code></pre></div>
@@ -2531,18 +2531,18 @@ Figure 8.18: Planned dataset of TFR for each year and US state
 
 <span class="va">dhs_2000</span>
 <span class="co">#&gt; # A tibble: 57 × 3</span>
-<span class="co">#&gt;    state                                        TFR     year</span>
-<span class="co">#&gt;    &lt;chr&gt;                                        &lt;chr&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 "                                  State   … &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  2 "                                          … &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  3 "                                          … &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  4 ""                                           &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  5 ""                                           &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  6 "United States 1 "                           2,130…  2000</span>
-<span class="co">#&gt;  7 ""                                           &lt;NA&gt;    2000</span>
-<span class="co">#&gt;  8 "Alabama "                                   2,021…  2000</span>
-<span class="co">#&gt;  9 "Alaska "                                    2,437…  2000</span>
-<span class="co">#&gt; 10 "Arizona "                                   2,652…  2000</span>
+<span class="co">#&gt;    state                                         TFR    year</span>
+<span class="co">#&gt;    &lt;chr&gt;                                         &lt;chr&gt; &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 "                                  State    … &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  2 "                                           … &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  3 "                                           … &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  4 ""                                            &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  5 ""                                            &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  6 "United States 1 "                            2,13…  2000</span>
+<span class="co">#&gt;  7 ""                                            &lt;NA&gt;   2000</span>
+<span class="co">#&gt;  8 "Alabama "                                    2,02…  2000</span>
+<span class="co">#&gt;  9 "Alaska "                                     2,43…  2000</span>
+<span class="co">#&gt; 10 "Arizona "                                    2,65…  2000</span>
 <span class="co">#&gt; # … with 47 more rows</span></code></pre></div>
 <p>And we’re done for that year. Now we want to take these pieces, put them into a function and then run that function over all 19 years.</p>
 <p>The first part is downloading each of the 19 PDFs that we need. We are going to build on the code that we used before. That code was:</p>
@@ -2657,14 +2657,14 @@ Figure 8.18: Planned dataset of TFR for each year and US state
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_dhs_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;   raw_data              state             data  year_of_data</span>
-<span class="co">#&gt;   &lt;chr&gt;                 &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 "40 National Vital S… "40 National Vit… 50, …         2000</span>
-<span class="co">#&gt; 2 ""                    ""                &lt;NA&gt;          2000</span>
-<span class="co">#&gt; 3 "Table 10. Number of… "Table 10. Numbe… &lt;NA&gt;          2000</span>
-<span class="co">#&gt; 4 "United States, each… "United States, … &lt;NA&gt;          2000</span>
-<span class="co">#&gt; 5 "[By place of reside… "[By place of re… &lt;NA&gt;          2000</span>
-<span class="co">#&gt; 6 "estimated in each a… "estimated in ea… &lt;NA&gt;          2000</span></code></pre></div>
+<span class="co">#&gt;   raw_data                          state data  year_of_data</span>
+<span class="co">#&gt;   &lt;chr&gt;                             &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 "40 National Vital Statistics Re… "40 … 50, …         2000</span>
+<span class="co">#&gt; 2 ""                                ""    &lt;NA&gt;          2000</span>
+<span class="co">#&gt; 3 "Table 10. Number of births, bir… "Tab… &lt;NA&gt;          2000</span>
+<span class="co">#&gt; 4 "United States, each State and t… "Uni… &lt;NA&gt;          2000</span>
+<span class="co">#&gt; 5 "[By place of residence. Birth r… "[By… &lt;NA&gt;          2000</span>
+<span class="co">#&gt; 6 "estimated in each area; total f… "est… &lt;NA&gt;          2000</span></code></pre></div>
 <p>Now we need to clean up the state names and then filter on them.</p>
 <div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alabama"</span>, <span class="st">"Alaska"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, 
@@ -2694,14 +2694,14 @@ Figure 8.18: Planned dataset of TFR for each year and US state
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_dhs_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;   raw_data               state   data           year_of_data</span>
-<span class="co">#&gt;   &lt;chr&gt;                  &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Alabama .............… Alabama 63,299 14.4 6…         2000</span>
-<span class="co">#&gt; 2 Alaska ..............… Alaska  9,974 16.0 74…         2000</span>
-<span class="co">#&gt; 3 Arizona .............… Arizona 85,273 17.5 8…         2000</span>
-<span class="co">#&gt; 4 Arkansas ............… Arkans… 37,783 14.7 6…         2000</span>
-<span class="co">#&gt; 5 California ..........… Califo… 531,959 15.8 …         2000</span>
-<span class="co">#&gt; 6 Colorado ............… Colora… 65,438 15.8 7…         2000</span></code></pre></div>
+<span class="co">#&gt;   raw_data                          state data  year_of_data</span>
+<span class="co">#&gt;   &lt;chr&gt;                             &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 Alabama ........................… Alab… 63,2…         2000</span>
+<span class="co">#&gt; 2 Alaska .........................… Alas… 9,97…         2000</span>
+<span class="co">#&gt; 3 Arizona ........................… Ariz… 85,2…         2000</span>
+<span class="co">#&gt; 4 Arkansas .......................… Arka… 37,7…         2000</span>
+<span class="co">#&gt; 5 California .....................… Cali… 531,…         2000</span>
+<span class="co">#&gt; 6 Colorado .......................… Colo… 65,4…         2000</span></code></pre></div>
 <p>The next step is to separate the data and get the correct column from it. We are going to separate based on spaces once it is cleaned up.</p>
 <div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_dhs_data</span> <span class="op">&lt;-</span> 
@@ -2956,6 +2956,27 @@ Figure 8.19: Scan of first page of Jane Eyre
 <span class="header-section-number">8.6.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-7"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
+<li>What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?</li>
+<li>There have been some substantial political polling ‘misses’ in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?</li>
+<li>It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>Cluster sampling.</li>
+<li>Systematic sampling.</li>
+<li>Stratified sampling.</li>
+<li>Simple random sampling.</li>
+<li>Convenience sampling.</li>
+</ol>
+</li>
+<li>Please name some reasons why you may wish to use cluster sampling (select all)?
+<ol style="list-style-type: lower-alpha">
+<li>Balance in responses.</li>
+<li>Administrative convenience.</li>
+<li>Efficiency in terms of money.</li>
+<li>Underlying systematic concerns.</li>
+<li>Estimation of sub-populations.</li>
+</ol>
+</li>
+<li>Please consider Beaumont, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’ With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?</li>
 <li>In your own words, what is an API (write a paragraph or two)?</li>
 <li>Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?</li>
 <li>Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?</li>
@@ -3107,7 +3128,7 @@ Figure 8.19: Scan of first page of Jane Eyre
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 05 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 06 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
