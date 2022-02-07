@@ -697,7 +697,7 @@ raw_data <- readr::read_csv("inputs/data/raw_data.csv")
     c. `eval = FALSE`
     d.  `warning = FALSE`
     e. `message = FALSE`
-10. Which options would run the R code chunk, but not display the code in a R Markdown R chunk (pick one)?
+10. Which options would run the R code chunk and display the results, but not show the code in a R Markdown R chunk (pick one)?
     a.  `echo = FALSE`
     b. `include = FALSE`
     c. `eval = FALSE`
