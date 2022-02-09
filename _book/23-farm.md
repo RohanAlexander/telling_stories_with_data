@@ -172,16 +172,10 @@ ontario_population <-
              regions = list(PR=c('35')
                             )
              )
-#> Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B     Downloading: 170 B
+#> Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B
 
 ontario_population
-#> # A tibble: 1 × 9
-#>   GeoUID Type  `Region Name` `Area (sq km)` Population
-#>   <chr>  <fct> <fct>                  <dbl>      <dbl>
-#> 1 35     PR    Ontario              986722.   13448494
-#> # … with 4 more variables: Dwellings <dbl>,
-#> #   Households <dbl>, C_UID <chr>,
-#> #   `v_CA16_1: Age Stats` <dbl>
+#> # A tibble: 0 × 0
 ```
 
 Data from the 1996, 2001, 2006, 2011, and 2016 censuses are available, and `list_census_datasets()` provides the metadata that we need to provide to `get_census()` to access these. Data are available based on a variety of regions, and `list_census_regions()` provides the metadata that we need. And finally, `list_census_vectors()` provides the metadata about the variables that available.
