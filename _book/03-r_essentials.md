@@ -1691,7 +1691,7 @@ We have focused on two aspects of the `tidyverse`: `dplyr`, and `ggplot2`. Howev
 - String manipulation and `stringr`.
 - Factor variables and `forcats`.
 
-However, the first task is to deal with the nomenclature, and in particular to be specific about what is 'tidy' about the 'tidyverse'. The name refers to tidy data, and the benefit of that is that while there are a variety of ways for data to be messy, tidy data satisfy three rules. This means the structure of the datasets consistent regardless of the specifics, and makes it easier to apply functions that expect certain types of input. Tidy data refers to a dataset where [@r4ds]:
+However, the first task is to deal with the nomenclature, and in particular to be specific about what is 'tidy' about the 'tidyverse'. The name refers to tidy data, and the benefit of that is that while there are a variety of ways for data to be messy, tidy data satisfy three rules. This means the structure of the datasets consistent regardless of the specifics, and makes it easier to apply functions that expect certain types of input. Tidy data refers to a dataset where [@r4ds; @wickham2014tidy, p. 4]:
 
 - Every variable is in a column of its own.
 - Every observation is in its own row.

@@ -56,12 +56,12 @@ Additional points:
 
 
 ```{=html}
-<div id="rmyvpsjynd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="llmvzojmgq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#rmyvpsjynd .gt_table {
+#llmvzojmgq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -86,7 +86,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_heading {
+#llmvzojmgq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -98,7 +98,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_title {
+#llmvzojmgq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -108,7 +108,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#rmyvpsjynd .gt_subtitle {
+#llmvzojmgq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -118,13 +118,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#rmyvpsjynd .gt_bottom_border {
+#llmvzojmgq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_col_headings {
+#llmvzojmgq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -139,7 +139,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_col_heading {
+#llmvzojmgq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -159,7 +159,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#rmyvpsjynd .gt_column_spanner_outer {
+#llmvzojmgq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -171,15 +171,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#rmyvpsjynd .gt_column_spanner_outer:first-child {
+#llmvzojmgq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rmyvpsjynd .gt_column_spanner_outer:last-child {
+#llmvzojmgq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rmyvpsjynd .gt_column_spanner {
+#llmvzojmgq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -191,7 +191,7 @@ Additional points:
   width: 100%;
 }
 
-#rmyvpsjynd .gt_group_heading {
+#llmvzojmgq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,7 +213,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#rmyvpsjynd .gt_empty_group_heading {
+#llmvzojmgq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -228,15 +228,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#rmyvpsjynd .gt_from_md > :first-child {
+#llmvzojmgq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rmyvpsjynd .gt_from_md > :last-child {
+#llmvzojmgq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rmyvpsjynd .gt_row {
+#llmvzojmgq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +255,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#rmyvpsjynd .gt_stub {
+#llmvzojmgq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -267,7 +267,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#rmyvpsjynd .gt_summary_row {
+#llmvzojmgq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -277,7 +277,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#rmyvpsjynd .gt_first_summary_row {
+#llmvzojmgq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -287,7 +287,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_grand_summary_row {
+#llmvzojmgq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -297,7 +297,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#rmyvpsjynd .gt_first_grand_summary_row {
+#llmvzojmgq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -307,11 +307,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_striped {
+#llmvzojmgq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rmyvpsjynd .gt_table_body {
+#llmvzojmgq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -320,7 +320,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_footnotes {
+#llmvzojmgq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -334,13 +334,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_footnote {
+#llmvzojmgq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#rmyvpsjynd .gt_sourcenotes {
+#llmvzojmgq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -354,41 +354,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#rmyvpsjynd .gt_sourcenote {
+#llmvzojmgq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#rmyvpsjynd .gt_left {
+#llmvzojmgq .gt_left {
   text-align: left;
 }
 
-#rmyvpsjynd .gt_center {
+#llmvzojmgq .gt_center {
   text-align: center;
 }
 
-#rmyvpsjynd .gt_right {
+#llmvzojmgq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rmyvpsjynd .gt_font_normal {
+#llmvzojmgq .gt_font_normal {
   font-weight: normal;
 }
 
-#rmyvpsjynd .gt_font_bold {
+#llmvzojmgq .gt_font_bold {
   font-weight: bold;
 }
 
-#rmyvpsjynd .gt_font_italic {
+#llmvzojmgq .gt_font_italic {
   font-style: italic;
 }
 
-#rmyvpsjynd .gt_super {
+#llmvzojmgq .gt_super {
   font-size: 65%;
 }
 
-#rmyvpsjynd .gt_footnote_marks {
+#llmvzojmgq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -452,7 +452,9 @@ Additional points:
 Some examples of papers that did well include: 
 
 - 2021: [Amy Farrow](inputs/pdfs/paper_one-2021-Amy_Farrow.pdf), [Morgaine Westin](inputs/pdfs/paper_one-2021-Morgaine_Westin.pdf), and [Rachel Lam](inputs/pdfs/paper_one-2021-Rachel_Lam.pdf).
-- 2022: [Adam Labas](inputs/pdfs/paper_one-2022-adam_labas.pdf), [Alicia Yang](inputs/pdfs/paper_one-2022-alicia_yang.pdf), [Alyssa Schleifer](inputs/pdfs/paper_one-2022-alyssa_schleifer.pdf), [Hudson Yuen](inputs/pdfs/paper_one-2022-hudson_yuen.pdf), [Jack McKay](inputs/pdfs/paper_one-2022-jack_mckay.pdf), [Roy Chan](inputs/pdfs/paper_one-2022-roy_chan.pdf), [Thomas D'Onofrio](inputs/pdfs/paper_one-2022-thomas_donofrio.pdf), and [William Gerecke](inputs/pdfs/paper_one-2022-william_gerecke.pdf).
+- 2022: [Adam Labas](inputs/pdfs/paper_one-2022-adam_labas.pdf), [Alicia Yang](inputs/pdfs/paper_one-2022-alicia_yang.pdf), [Alyssa Schleifer](inputs/pdfs/paper_one-2022-alyssa_schleifer.pdf), [Ethan Sansom](inputs/pdfs/paper_one-2022-ethan_sansom.pdf), [Hudson Yuen](inputs/pdfs/paper_one-2022-hudson_yuen.pdf), [Jack McKay](inputs/pdfs/paper_one-2022-jack_mckay.pdf), [Roy Chan](inputs/pdfs/paper_one-2022-roy_chan.pdf), [Thomas D'Onofrio](inputs/pdfs/paper_one-2022-thomas_donofrio.pdf), and [William Gerecke](inputs/pdfs/paper_one-2022-william_gerecke.pdf).
+
+
 
 \newpage
 
@@ -592,12 +594,12 @@ Working in teams of one to three  people, please consider this scenario:
 
 
 ```{=html}
-<div id="wkeoceqcoi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jwulcbuvrs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wkeoceqcoi .gt_table {
+#jwulcbuvrs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -622,7 +624,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-left-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_heading {
+#jwulcbuvrs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -634,7 +636,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_title {
+#jwulcbuvrs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -644,7 +646,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-width: 0;
 }
 
-#wkeoceqcoi .gt_subtitle {
+#jwulcbuvrs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -654,13 +656,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-width: 0;
 }
 
-#wkeoceqcoi .gt_bottom_border {
+#jwulcbuvrs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_col_headings {
+#jwulcbuvrs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -675,7 +677,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_col_heading {
+#jwulcbuvrs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -695,7 +697,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#wkeoceqcoi .gt_column_spanner_outer {
+#jwulcbuvrs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -707,15 +709,15 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 4px;
 }
 
-#wkeoceqcoi .gt_column_spanner_outer:first-child {
+#jwulcbuvrs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wkeoceqcoi .gt_column_spanner_outer:last-child {
+#jwulcbuvrs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wkeoceqcoi .gt_column_spanner {
+#jwulcbuvrs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -727,7 +729,7 @@ Working in teams of one to three  people, please consider this scenario:
   width: 100%;
 }
 
-#wkeoceqcoi .gt_group_heading {
+#jwulcbuvrs .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -749,7 +751,7 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#wkeoceqcoi .gt_empty_group_heading {
+#jwulcbuvrs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -764,15 +766,15 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#wkeoceqcoi .gt_from_md > :first-child {
+#jwulcbuvrs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wkeoceqcoi .gt_from_md > :last-child {
+#jwulcbuvrs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wkeoceqcoi .gt_row {
+#jwulcbuvrs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -791,7 +793,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#wkeoceqcoi .gt_stub {
+#jwulcbuvrs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -803,7 +805,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-left: 12px;
 }
 
-#wkeoceqcoi .gt_summary_row {
+#jwulcbuvrs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -813,7 +815,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#wkeoceqcoi .gt_first_summary_row {
+#jwulcbuvrs .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -823,7 +825,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_grand_summary_row {
+#jwulcbuvrs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -833,7 +835,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#wkeoceqcoi .gt_first_grand_summary_row {
+#jwulcbuvrs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -843,11 +845,11 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_striped {
+#jwulcbuvrs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wkeoceqcoi .gt_table_body {
+#jwulcbuvrs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -856,7 +858,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_footnotes {
+#jwulcbuvrs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -870,13 +872,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_footnote {
+#jwulcbuvrs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#wkeoceqcoi .gt_sourcenotes {
+#jwulcbuvrs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -890,41 +892,41 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#wkeoceqcoi .gt_sourcenote {
+#jwulcbuvrs .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#wkeoceqcoi .gt_left {
+#jwulcbuvrs .gt_left {
   text-align: left;
 }
 
-#wkeoceqcoi .gt_center {
+#jwulcbuvrs .gt_center {
   text-align: center;
 }
 
-#wkeoceqcoi .gt_right {
+#jwulcbuvrs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wkeoceqcoi .gt_font_normal {
+#jwulcbuvrs .gt_font_normal {
   font-weight: normal;
 }
 
-#wkeoceqcoi .gt_font_bold {
+#jwulcbuvrs .gt_font_bold {
   font-weight: bold;
 }
 
-#wkeoceqcoi .gt_font_italic {
+#jwulcbuvrs .gt_font_italic {
   font-style: italic;
 }
 
-#wkeoceqcoi .gt_super {
+#jwulcbuvrs .gt_super {
   font-size: 65%;
 }
 
-#wkeoceqcoi .gt_footnote_marks {
+#jwulcbuvrs .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1050,12 +1052,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="rvyyhtxcjs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hirhtodykd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#rvyyhtxcjs .gt_table {
+#hirhtodykd .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1080,7 +1082,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_heading {
+#hirhtodykd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1092,7 +1094,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_title {
+#hirhtodykd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1102,7 +1104,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#rvyyhtxcjs .gt_subtitle {
+#hirhtodykd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1112,13 +1114,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#rvyyhtxcjs .gt_bottom_border {
+#hirhtodykd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_col_headings {
+#hirhtodykd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1133,7 +1135,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_col_heading {
+#hirhtodykd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1153,7 +1155,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#rvyyhtxcjs .gt_column_spanner_outer {
+#hirhtodykd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1165,15 +1167,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#rvyyhtxcjs .gt_column_spanner_outer:first-child {
+#hirhtodykd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rvyyhtxcjs .gt_column_spanner_outer:last-child {
+#hirhtodykd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rvyyhtxcjs .gt_column_spanner {
+#hirhtodykd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1185,7 +1187,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#rvyyhtxcjs .gt_group_heading {
+#hirhtodykd .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1207,7 +1209,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#rvyyhtxcjs .gt_empty_group_heading {
+#hirhtodykd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1222,15 +1224,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#rvyyhtxcjs .gt_from_md > :first-child {
+#hirhtodykd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rvyyhtxcjs .gt_from_md > :last-child {
+#hirhtodykd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rvyyhtxcjs .gt_row {
+#hirhtodykd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1249,7 +1251,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#rvyyhtxcjs .gt_stub {
+#hirhtodykd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1261,7 +1263,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#rvyyhtxcjs .gt_summary_row {
+#hirhtodykd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1271,7 +1273,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#rvyyhtxcjs .gt_first_summary_row {
+#hirhtodykd .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1281,7 +1283,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_grand_summary_row {
+#hirhtodykd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1291,7 +1293,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#rvyyhtxcjs .gt_first_grand_summary_row {
+#hirhtodykd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1301,11 +1303,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_striped {
+#hirhtodykd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rvyyhtxcjs .gt_table_body {
+#hirhtodykd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1314,7 +1316,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_footnotes {
+#hirhtodykd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1328,13 +1330,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_footnote {
+#hirhtodykd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#rvyyhtxcjs .gt_sourcenotes {
+#hirhtodykd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1348,41 +1350,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#rvyyhtxcjs .gt_sourcenote {
+#hirhtodykd .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#rvyyhtxcjs .gt_left {
+#hirhtodykd .gt_left {
   text-align: left;
 }
 
-#rvyyhtxcjs .gt_center {
+#hirhtodykd .gt_center {
   text-align: center;
 }
 
-#rvyyhtxcjs .gt_right {
+#hirhtodykd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rvyyhtxcjs .gt_font_normal {
+#hirhtodykd .gt_font_normal {
   font-weight: normal;
 }
 
-#rvyyhtxcjs .gt_font_bold {
+#hirhtodykd .gt_font_bold {
   font-weight: bold;
 }
 
-#rvyyhtxcjs .gt_font_italic {
+#hirhtodykd .gt_font_italic {
   font-style: italic;
 }
 
-#rvyyhtxcjs .gt_super {
+#hirhtodykd .gt_super {
   font-size: 65%;
 }
 
-#rvyyhtxcjs .gt_footnote_marks {
+#hirhtodykd .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1532,12 +1534,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="pcylwmfies" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gtvhucyoma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pcylwmfies .gt_table {
+#gtvhucyoma .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1562,7 +1564,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_heading {
+#gtvhucyoma .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1574,7 +1576,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_title {
+#gtvhucyoma .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1584,7 +1586,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#pcylwmfies .gt_subtitle {
+#gtvhucyoma .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1594,13 +1596,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#pcylwmfies .gt_bottom_border {
+#gtvhucyoma .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_col_headings {
+#gtvhucyoma .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1615,7 +1617,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_col_heading {
+#gtvhucyoma .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1635,7 +1637,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#pcylwmfies .gt_column_spanner_outer {
+#gtvhucyoma .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1647,15 +1649,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#pcylwmfies .gt_column_spanner_outer:first-child {
+#gtvhucyoma .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pcylwmfies .gt_column_spanner_outer:last-child {
+#gtvhucyoma .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pcylwmfies .gt_column_spanner {
+#gtvhucyoma .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1667,7 +1669,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#pcylwmfies .gt_group_heading {
+#gtvhucyoma .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1689,7 +1691,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#pcylwmfies .gt_empty_group_heading {
+#gtvhucyoma .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1704,15 +1706,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#pcylwmfies .gt_from_md > :first-child {
+#gtvhucyoma .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pcylwmfies .gt_from_md > :last-child {
+#gtvhucyoma .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pcylwmfies .gt_row {
+#gtvhucyoma .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1731,7 +1733,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#pcylwmfies .gt_stub {
+#gtvhucyoma .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1743,7 +1745,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#pcylwmfies .gt_summary_row {
+#gtvhucyoma .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1753,7 +1755,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#pcylwmfies .gt_first_summary_row {
+#gtvhucyoma .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1763,7 +1765,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_grand_summary_row {
+#gtvhucyoma .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1773,7 +1775,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#pcylwmfies .gt_first_grand_summary_row {
+#gtvhucyoma .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1783,11 +1785,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_striped {
+#gtvhucyoma .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pcylwmfies .gt_table_body {
+#gtvhucyoma .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1796,7 +1798,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_footnotes {
+#gtvhucyoma .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1810,13 +1812,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_footnote {
+#gtvhucyoma .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#pcylwmfies .gt_sourcenotes {
+#gtvhucyoma .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1830,41 +1832,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcylwmfies .gt_sourcenote {
+#gtvhucyoma .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#pcylwmfies .gt_left {
+#gtvhucyoma .gt_left {
   text-align: left;
 }
 
-#pcylwmfies .gt_center {
+#gtvhucyoma .gt_center {
   text-align: center;
 }
 
-#pcylwmfies .gt_right {
+#gtvhucyoma .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pcylwmfies .gt_font_normal {
+#gtvhucyoma .gt_font_normal {
   font-weight: normal;
 }
 
-#pcylwmfies .gt_font_bold {
+#gtvhucyoma .gt_font_bold {
   font-weight: bold;
 }
 
-#pcylwmfies .gt_font_italic {
+#gtvhucyoma .gt_font_italic {
   font-style: italic;
 }
 
-#pcylwmfies .gt_super {
+#gtvhucyoma .gt_super {
   font-size: 65%;
 }
 
-#pcylwmfies .gt_footnote_marks {
+#gtvhucyoma .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2000,12 +2002,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="pcjhyygieu" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="epilnescyw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pcjhyygieu .gt_table {
+#epilnescyw .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2030,7 +2032,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_heading {
+#epilnescyw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2042,7 +2044,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_title {
+#epilnescyw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2052,7 +2054,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#pcjhyygieu .gt_subtitle {
+#epilnescyw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2062,13 +2064,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#pcjhyygieu .gt_bottom_border {
+#epilnescyw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_col_headings {
+#epilnescyw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2083,7 +2085,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_col_heading {
+#epilnescyw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2103,7 +2105,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#pcjhyygieu .gt_column_spanner_outer {
+#epilnescyw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2115,15 +2117,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#pcjhyygieu .gt_column_spanner_outer:first-child {
+#epilnescyw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pcjhyygieu .gt_column_spanner_outer:last-child {
+#epilnescyw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pcjhyygieu .gt_column_spanner {
+#epilnescyw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2135,7 +2137,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#pcjhyygieu .gt_group_heading {
+#epilnescyw .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2157,7 +2159,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#pcjhyygieu .gt_empty_group_heading {
+#epilnescyw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2172,15 +2174,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#pcjhyygieu .gt_from_md > :first-child {
+#epilnescyw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pcjhyygieu .gt_from_md > :last-child {
+#epilnescyw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pcjhyygieu .gt_row {
+#epilnescyw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2199,7 +2201,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#pcjhyygieu .gt_stub {
+#epilnescyw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2211,7 +2213,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#pcjhyygieu .gt_summary_row {
+#epilnescyw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2221,7 +2223,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#pcjhyygieu .gt_first_summary_row {
+#epilnescyw .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2231,7 +2233,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_grand_summary_row {
+#epilnescyw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2241,7 +2243,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#pcjhyygieu .gt_first_grand_summary_row {
+#epilnescyw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2251,11 +2253,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_striped {
+#epilnescyw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pcjhyygieu .gt_table_body {
+#epilnescyw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2264,7 +2266,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_footnotes {
+#epilnescyw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2278,13 +2280,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_footnote {
+#epilnescyw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#pcjhyygieu .gt_sourcenotes {
+#epilnescyw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2298,41 +2300,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#pcjhyygieu .gt_sourcenote {
+#epilnescyw .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#pcjhyygieu .gt_left {
+#epilnescyw .gt_left {
   text-align: left;
 }
 
-#pcjhyygieu .gt_center {
+#epilnescyw .gt_center {
   text-align: center;
 }
 
-#pcjhyygieu .gt_right {
+#epilnescyw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pcjhyygieu .gt_font_normal {
+#epilnescyw .gt_font_normal {
   font-weight: normal;
 }
 
-#pcjhyygieu .gt_font_bold {
+#epilnescyw .gt_font_bold {
   font-weight: bold;
 }
 
-#pcjhyygieu .gt_font_italic {
+#epilnescyw .gt_font_italic {
   font-style: italic;
 }
 
-#pcjhyygieu .gt_super {
+#epilnescyw .gt_super {
   font-size: 65%;
 }
 
-#pcjhyygieu .gt_footnote_marks {
+#epilnescyw .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;

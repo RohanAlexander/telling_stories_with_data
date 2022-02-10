@@ -2,9 +2,6 @@
 
 
 
-
-
-
 # Static communication
 
 **Required material**

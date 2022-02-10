@@ -163,11 +163,10 @@ In `R` we can simulate $n$ data points from the Normal distribution with `rnorm(
 
 ```r
 rnorm(n = 20, mean = 0, sd = 1)
-#>  [1]  0.990870071 -1.419585413  1.671278308 -1.934130399
-#>  [5] -0.139606397  1.325874963  1.082950275 -0.286795245
-#>  [9] -0.449557207 -0.898532207  0.104355087 -1.389714063
-#> [13]  0.342834946 -0.060896069 -0.009743389 -0.393670694
-#> [17]  0.234703894  0.521611631 -0.585625114  1.200447878
+#>  [1]  0.8109641 -1.2413441  0.3226278  0.2593750 -2.8139277
+#>  [6]  0.2065877 -0.3620050 -1.5601559  0.6271881 -0.1508680
+#> [11] -1.2891360  2.2046113  0.6935426  1.1297001  0.7447210
+#> [16]  0.7565508 -0.6412778  0.6897686 -0.2006363  1.2799506
 ```
 
 It will take a few draws before we get the expected shape.
@@ -955,7 +954,7 @@ white_gold_model_tidymodels <-
 white_gold_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  3ms 
+#> Fit time:  4ms 
 #> 
 #> Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
 #>     data = data)

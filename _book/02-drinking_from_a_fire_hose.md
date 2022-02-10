@@ -73,8 +73,8 @@ You will be guided thoroughly here. Hopefully by experiencing the power of telli
 
 To get started, go to R Studio Cloud -- https://rstudio.cloud/ -- and create an account. As we are not doing anything too involved the free version will be fine for now. Once you have an account and log in, then it should look something like Figure \@ref(fig:second).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="100%" />
+<div class="figure" style="text-align: center">
+<img src="/Users/rohanalexander/Documents/book/figures/01-03_r_essentials/02.png" alt="Opening R Studio Cloud for the first time" width="90%" />
 <p class="caption">(\#fig:second)Opening R Studio Cloud for the first time</p>
 </div>
 
@@ -186,16 +186,16 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 New Democratic
+#>  1      1 Green         
 #>  2      2 Other         
-#>  3      3 Conservative  
-#>  4      4 Liberal       
-#>  5      5 Liberal       
-#>  6      6 New Democratic
-#>  7      7 Other         
-#>  8      8 Bloc Québécois
-#>  9      9 Bloc Québécois
-#> 10     10 Bloc Québécois
+#>  3      3 Liberal       
+#>  4      4 Conservative  
+#>  5      5 New Democratic
+#>  6      6 Green         
+#>  7      7 Liberal       
+#>  8      8 Green         
+#>  9      9 Other         
+#> 10     10 New Democratic
 #> # … with 328 more rows
 ```
 
