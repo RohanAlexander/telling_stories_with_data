@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 12 Storing and retrieving data | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="STATUS: Under construction. Required reading Recommended reading Key concepts/skills/etc Key libraries Key functions/etc  12.1 Introduction After you’ve put together a dataset, an important part...">
+<meta name="description" content="Required material Read Datasheets for datasets, (Gebru et al. 2021). Key concepts and skills FAIR principles for data sharing and management. Sharing data using GitHub Creating R data packages...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 12 Storing and retrieving data | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="STATUS: Under construction. Required reading Recommended reading Key concepts/skills/etc Key libraries Key functions/etc  12.1 Introduction After you’ve put together a dataset, an important part...">
+<meta property="og:description" content="Required material Read Datasheets for datasets, (Gebru et al. 2021). Key concepts and skills FAIR principles for data sharing and management. Sharing data using GitHub Creating R data packages...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 12 Storing and retrieving data | Telling Stories With Data">
-<meta name="twitter:description" content="STATUS: Under construction. Required reading Recommended reading Key concepts/skills/etc Key libraries Key functions/etc  12.1 Introduction After you’ve put together a dataset, an important part...">
+<meta name="twitter:description" content="Required material Read Datasheets for datasets, (Gebru et al. 2021). Key concepts and skills FAIR principles for data sharing and management. Sharing data using GitHub Creating R data packages...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -79,7 +79,7 @@
 <li><a class="" href="using-the-cloud.html"><span class="header-section-number">19</span> Using the cloud</a></li>
 <li><a class="" href="deploying-models.html"><span class="header-section-number">20</span> Deploying models</a></li>
 <li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
-<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks, open issues, next steps</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
@@ -95,75 +95,525 @@
 <h1>
 <span class="header-section-number">12</span> Storing and retrieving data<a class="anchor" aria-label="anchor" href="#storing-and-retrieving-data"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>STATUS: Under construction.</strong></p>
-<p><strong>Required reading</strong></p>
-<p><strong>Recommended reading</strong></p>
-<p><strong>Key concepts/skills/etc</strong></p>
+<p><strong>Required material</strong></p>
 <ul>
-<li>
+<li>Read <em>Datasheets for datasets</em>, <span class="citation">(<a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>)</span>.</li>
 </ul>
-<p><strong>Key libraries</strong></p>
+<p><strong>Key concepts and skills</strong></p>
 <ul>
-<li>
+<li>FAIR principles for data sharing and management.</li>
+<li>Sharing data using GitHub</li>
+<li>Creating R data packages</li>
+<li>Depositing data</li>
+<li>Data documentation and especially datasheets for datasets</li>
 </ul>
-<p><strong>Key functions/etc</strong></p>
-<ul>
-<li>
-</ul>
-<!-- Lee, Benjamin, 2018, 'Ten simple rules for documenting scientific software' --><div id="introduction-9" class="section level2" number="12.1">
+<!-- **Key libraries** --><!-- -  --><!-- **Key functions** --><!-- -  --><div id="introduction-9" class="section level2" number="12.1">
 <h2>
 <span class="header-section-number">12.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-9"><i class="fas fa-link"></i></a>
 </h2>
-<p>After you’ve put together a dataset, an important part of being responsible is storing it appropriately and enabling easy retrieval. While it is certainly possible to be especially concerned about this, and entire careers are based on the storage and retrieval of data, to a certain extent, the baseline here is not onerous. If you can get it off your own computer then you are half-way there! Confirming that someone else can retrieve it and use it, puts you much further than most.</p>
-<p>That said, the FAIR principles are especially useful to be more formal about data management. These are <span class="citation">(<a href="references-1.html#ref-wilkinson2016fair" role="doc-biblioref">M. D. Wilkinson et al. 2016</a>)</span>:</p>
+<p>After we have put together a dataset, an important part of being responsible is storing it appropriately and enabling easy retrieval. While it is certainly possible to be especially concerned about this, and entire careers are based on the storage and retrieval of data, to a certain extent, the baseline is not onerous. If we can get our dataset off our own computer, then we are much of the way there. Further confirming that someone else can retrieve it and use it, puts us much further than most.</p>
+<p>That said, the FAIR principles are useful when we come to think more formally about data sharing and management. These are <span class="citation">(<a href="references-1.html#ref-wilkinson2016fair" role="doc-biblioref">M. D. Wilkinson et al. 2016</a>)</span>:</p>
 <ol style="list-style-type: decimal">
-<li>Findable. This means that there is one, unchanging, identifier for the dataset and the dataset has high-quality descriptions and explanations.</li>
-<li>Accessible.</li>
-<li>Interoperable.</li>
-<li>Reusable.</li>
+<li>Findable. There is one, unchanging, identifier for the dataset and the dataset has high-quality descriptions and explanations.</li>
+<li>Accessible. Standardized approaches can be used to retrieve the data, and these are open and free, possibly with authentication, and that the metadata persists even if the dataset is removed.</li>
+<li>Interoperable. The dataset and its metadata use a broadly applicable language, and vocabulary.</li>
+<li>Reusable. There is plenty of description of the dataset and the usage conditions are made clear along with provenance.</li>
 </ol>
-<p>It’s important to recognise that just because a dataset is FAIR, it is not necessarily an unbiased representation of the world.</p>
-<blockquote>
-<p><strong>Oh, you think we have good data on that!</strong> One representation of reality that is commonplace is in chess. A chess board (see Figure X - add photo of a chess board) is a 8 x 8 board of alternating black and white squares. The squares are denonated by a unique combination of a letter (A-G) and a number (1-8). And each piece has a unique abbreviation, for instance pawns are X, and knights are Y. A game is recorded by each player noting the move. In this way the entire game can be recreated. The 2021 World Championship was contested by Magnus Carlsen and Ian Nepomniachtchi. Figure X shows a score sheet from Game 6. There were a variety of reasons this game was particularly noteworthy, but one the uncharactertic mistakes that both Carlsen and Nepomniachtchi made. For instance, at Move 32 Carlsen did not exploit an opportunity; and Move 36 a different move would have provided Nepomniachtchi with a promising endgame (CITATION). One reason for this may have been that both players at that point in the game had very little time remaining—they had to decide on their moves very quickly. But there is no sense of that in the representation provided by the game sheet. It is a ‘correct’ representation of what happened in the game, but not necessarily why it happened.</p>
-</blockquote>
+<p>It is important to recognize that just because a dataset is FAIR, it is not necessarily an unbiased representation of the world. FAIR reflects whether a dataset is appropriately available, not whether it is appropriate.</p>
+<p>In this chapter we will consider how we plan and organize our datasets to meet essential requirements. To a large extent we put these in place to make our own life easier when we come back to use our dataset later. We then go through putting our dataset on GitHub, building R packages for data, and finally depositing it in various archives. Finally, we documentation, and in particular focus on datasheets.</p>
 </div>
 <div id="plan-3" class="section level2" number="12.2">
 <h2>
 <span class="header-section-number">12.2</span> Plan<a class="anchor" aria-label="anchor" href="#plan-3"><i class="fas fa-link"></i></a>
 </h2>
-<p><span class="citation"><a href="references-1.html#ref-michener2015ten" role="doc-biblioref">Michener</a> (<a href="references-1.html#ref-michener2015ten" role="doc-biblioref">2015</a>)</span></p>
-<p>Information Science and libraries</p>
-<p><span class="citation"><a href="references-1.html#ref-hart2016ten" role="doc-biblioref">Hart et al.</a> (<a href="references-1.html#ref-hart2016ten" role="doc-biblioref">2016</a>)</span></p>
+<p>The storage and retrieval of information has a long history. This is especially connected with libraries which have existed since antiquity and have established protocols for deciding what information to store and what to discard, as well as its retrieval. One of the defining aspects of libraries is that deliberate curation and organization. The cataloging system ensures that books on similar topics are located close to each other, and there are typically also deliberate plans for ensuring the collection is up-to-date.</p>
+<p>Vannevar Bush defines a ‘memex’ in 1945 as a device used to store books, records and communications, in a way that supplements memory <span class="citation">(<a href="references-1.html#ref-vannevarbush" role="doc-biblioref">Bush 1945</a>)</span>. And the key is the indexing, or linking together of items. We can see this concept echoed in Tim Berners-Lee proposal for hypertext <span class="citation">(<a href="references-1.html#ref-berners1989information" role="doc-biblioref">Berners-Lee 1989</a>)</span>, which led to the World Wide Web. This is the way that resources are identified. They are then transported over the Internet, using HTTP.</p>
+<p>At its most fundamental, this is about storing and retrieving data. For instance, we make various files on our computer available to others. The internet is famously brittle, but when we are considering the storage and retrieval of our datasets we want to consider especially, for how long it is important that the data are stored and for whom <span class="citation">(<a href="references-1.html#ref-michener2015ten" role="doc-biblioref">Michener 2015</a>)</span>. For instance, if we want some data to be available for a decade and widely available then it becomes important to store data in open and persistent formats, such as CSVs <span class="citation">(<a href="references-1.html#ref-hart2016ten" role="doc-biblioref">Hart et al. 2016</a>)</span>. But if we are just using some data as part of an intermediate step, we have the raw data, and the scripts to create it, then it might be fine to not worry too much about such considerations.</p>
+<p>Storing raw data is important and there are many cases where raw data have revealed or hinted at fraud <span class="citation">(<a href="references-1.html#ref-simonsohn2013just" role="doc-biblioref">Simonsohn 2013</a>)</span>. Shared data also enhances the credibility of our work, by enabling others to verify it, and can lead to the generation of new knowledge as others use it to answer different questions <span class="citation">(<a href="references-1.html#ref-christensen2019transparent" role="doc-biblioref">Christensen, Freese, and Miguel 2019</a>)</span>. Finally, research that shares its data may be more highly cited <span class="citation">(<a href="references-1.html#ref-christensen2019study" role="doc-biblioref">Christensen et al. 2019</a>)</span>.</p>
 </div>
-<div id="r-packages-for-data" class="section level2" number="12.3">
+<div id="github-1" class="section level2" number="12.3">
 <h2>
-<span class="header-section-number">12.3</span> R Packages for data<a class="anchor" aria-label="anchor" href="#r-packages-for-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3</span> GitHub<a class="anchor" aria-label="anchor" href="#github-1"><i class="fas fa-link"></i></a>
 </h2>
+<p>The easiest place to store our datasets will be GitHub because that is already built into our workflow. For instance, when we push, our dataset becomes available. One great benefit of this is that, if we have set-up our workspace appropriately, then we likely store our raw data, and the tidy data, as well as the scripts that are needed to transform one to the other.</p>
+<p>As an example of how we have stored some data, we can access the ‘raw_data.csv’ file from the ‘starter_folder.’ To get the file that we pass to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> we navigate to the file in GitHub, and then click ‘Raw.’</p>
+<div class="sourceCode" id="cb392"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="va">starter_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/RohanAlexander/starter_folder/main/inputs/data/raw_data.csv"</span><span class="op">)</span>
+
+<span class="va">starter_data</span>
+<span class="co">#&gt; # A tibble: 1 × 3</span>
+<span class="co">#&gt;   first_col second_col third_col</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;    </span>
+<span class="co">#&gt; 1 some      raw        data</span></code></pre></div>
+<p>One issue with this is that the dataset does not have much documentation. While we can store and retrieve the dataset easily in this way, it lacks much explanation, a formal dictionary, and aspects such as a license that would bring our dataset closer to aligning with the FAIR principles.</p>
 </div>
-<div id="documentation" class="section level2" number="12.4">
+<div id="r-packages-for-data" class="section level2" number="12.4">
 <h2>
-<span class="header-section-number">12.4</span> Documentation<a class="anchor" aria-label="anchor" href="#documentation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.4</span> R Packages for data<a class="anchor" aria-label="anchor" href="#r-packages-for-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Datasheets <span class="citation">(<a href="references-1.html#ref-gebru2020datasheets" role="doc-biblioref">Gebru et al. 2020</a>)</span> are an increasingly critical aspect of data science. Datasheets are basically nutrition labels for datasets. The process of creating them enables us to think more carefully about what we will feed our model. More importantly, they enable others to better understand what we fed our model. Recently researchers went back and wrote a datasheet for one of the most popular datasets in computer science, and they found that around 30 per cent of the data were duplicated <span class="citation">(<a href="references-1.html#ref-bandy2021addressing" role="doc-biblioref">Bandy and Vincent 2021</a>)</span>.</p>
-<p>Instead of telling you how unhealthy various foods are, a datasheet tells you things like:</p>
+<p>To this point we have largely used R packages for their code, although we have seen a few that were focused on sharing data, for instance, <span class="citation"><a href="references-1.html#ref-troopdata" role="doc-biblioref">Flynn</a> (<a href="references-1.html#ref-troopdata" role="doc-biblioref">2021</a>)</span>. We can build an R Package for our dataset and then add it to GitHub. This will make it easy to store and retrieve because we can obtain the dataset by loading the package. This will be the first R package that we build. In Chapter <a href="deploying-models.html#deploying-models">20</a>, will return to R packages and use them to deploy models.</p>
+<p>To get started, create a new package (‘File’ -&gt; ‘New project’ -&gt; ‘New Directory’ -&gt; ‘R Package’). Give the package a name, such as ‘favcolordata’ and select ‘Open in new session.’ Create a new folder called ‘data.’ We will simulate a dataset that we will include.</p>
+<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
+
+<span class="va">color_data</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+        name <span class="op">=</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Edward"</span>,
+              <span class="st">"Helen"</span>,
+              <span class="st">"Hugo"</span>,
+              <span class="st">"Ian"</span>,
+              <span class="st">"Monica"</span>,
+              <span class="st">"Myles"</span>,
+              <span class="st">"Patricia"</span>,
+              <span class="st">"Roger"</span>,
+              <span class="st">"Rohan"</span>,
+              <span class="st">"Ruth"</span>
+            <span class="op">)</span>,
+        fav_color <span class="op">=</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
+                x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Black"</span>, <span class="st">"White"</span>, <span class="st">"Rainbow"</span><span class="op">)</span>,
+                size <span class="op">=</span> <span class="fl">10</span>,
+                replace <span class="op">=</span> <span class="cn">TRUE</span>
+            <span class="op">)</span>
+    <span class="op">)</span></code></pre></div>
+<p>To this point we have largely been trying to use CSV files for our datasets. To include our data in this R package, we will save our dataset in a particular format, ‘rda,’ using <code><a href="https://rdrr.io/r/base/save.html">save()</a></code>.</p>
+<div class="sourceCode" id="cb394"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">color_data</span>, file<span class="op">=</span><span class="st">"data/color_data.rda"</span><span class="op">)</span></code></pre></div>
+<p>Then create an R file ‘data.R’ in the ‘R’ folder. This R file will only contain documentation using <code>roxygen2</code> comments, which start with <code>#'</code>, and we follow the documentation for <code>troopdata</code> closely.</p>
+<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#' Favorite color of various people data</span>
+<span class="co">#'</span>
+<span class="co">#' @description \code{favcolordata} returns a dataframe of the favorite color of various people.</span>
+<span class="co">#' </span>
+<span class="co">#' @return Returns a dataframe of the favorite color of various people.</span>
+<span class="co">#' </span>
+<span class="co">#' @docType data</span>
+<span class="co">#'</span>
+<span class="co">#' @usage data(color_data)</span>
+<span class="co">#'</span>
+<span class="co">#' @format An dataframe of individual-level observations with the following variables: </span>
+<span class="co">#'</span>
+<span class="co">#' \describe{</span>
+<span class="co">#' \item{\code{name}}{A character vector of individual names.}</span>
+<span class="co">#' \item{\code{fav_color}}{A character vector of one of: black, white, rainbow.}</span>
+<span class="co">#' }</span>
+<span class="co">#'</span>
+<span class="co">#' @keywords datasets</span>
+<span class="co">#'</span>
+<span class="co">#' @source \url{https://www.tellingstorieswithdata.com/storing-and-retrieving-data.html}</span>
+<span class="co">#'</span>
+<span class="st">"color_data"</span></code></pre></div>
+<p>Finally, we should add a README which provides a summary of all of this for someone coming to the project from the outside.</p>
+<p>At this we can go to the ‘Build’ tab and then ‘Install and Restart.’ After this happens, the package ‘favcolordata,’ is loaded and the data can be accessed using ‘color_data.’ If we were to push this to GitHub, then anyone would be able to install the package using <code>devtools</code> <span class="citation">(<a href="references-1.html#ref-citeDevtools" role="doc-biblioref">Wickham, Hester, and Chang 2020</a>)</span> and then use our dataset.</p>
+<div class="sourceCode" id="cb396"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"RohanAlexander/favcolordata"</span><span class="op">)</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">favcolordata</span><span class="op">)</span>
+
+<span class="va">color_data</span></code></pre></div>
+<p>This has addressed many of the issues that we faced earlier. For instance, we have included a README and a data dictionary of sorts in terms of the descriptions that we added. But if we were to try to put this package onto CRAN, then we might face some issues. For instance, the maximum size of a package is 5MB and we would quickly come up against that. We have also largely forced users to use R, and while there are considerable benefits of that, we may like to be more language agnostic <span class="citation">(<a href="references-1.html#ref-tierney2020realistic" role="doc-biblioref">N. J. Tierney and Ram 2020</a>)</span>.</p>
+</div>
+<div id="depositing-data" class="section level2" number="12.5">
+<h2>
+<span class="header-section-number">12.5</span> Depositing data<a class="anchor" aria-label="anchor" href="#depositing-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>While it is possible that a dataset will be cited if it is available through GitHub or an R package, this becomes more likely if the dataset is deposited somewhere. There are a number of reasons for this, but one is that it seems a bit more formal. Zenodo and Open Science Framework (OSF) are two that are commonly used. For instance, <span class="citation"><a href="references-1.html#ref-chris_carleton_2021_4550688" role="doc-biblioref">C. Carleton</a> (<a href="references-1.html#ref-chris_carleton_2021_4550688" role="doc-biblioref">2021</a>)</span> use Zenodo to share the dataset and analysis supporting <span class="citation"><a href="references-1.html#ref-carleton2021reassessment" role="doc-biblioref">W. C. Carleton, Campbell, and Collard</a> (<a href="references-1.html#ref-carleton2021reassessment" role="doc-biblioref">2021</a>)</span>. Similarly <span class="citation"><a href="references-1.html#ref-geuenich_michael_2021_5156049" role="doc-biblioref">Michael et al.</a> (<a href="references-1.html#ref-geuenich_michael_2021_5156049" role="doc-biblioref">2021</a>)</span> use Zenodo to share the dataset that underpins <span class="citation"><a href="references-1.html#ref-geuenich2021automated" role="doc-biblioref">Geuenich et al.</a> (<a href="references-1.html#ref-geuenich2021automated" role="doc-biblioref">2021</a>)</span>.
+<!-- And Y use OSF to share all files. --></p>
+<p>Another option is a dataverse, such as the Harvard Dataverse, which is a common requirement for journal publications. One nice aspect of this is that we can use <code>dataverse</code> <span class="citation">(<a href="references-1.html#ref-dataverse" role="doc-biblioref">Kuriwaki, Beasley, and Leeper 2022</a>)</span> to retrieve the dataset as part of a reproducible workflow.</p>
+</div>
+<div id="documentation" class="section level2" number="12.6">
+<h2>
+<span class="header-section-number">12.6</span> Documentation<a class="anchor" aria-label="anchor" href="#documentation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Datasheets <span class="citation">(<a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>)</span> are an increasingly critical aspect of data science. Datasheets are basically nutrition labels for datasets. The process of creating them enables us to think more carefully about what we will feed our model. More importantly, they enable others to better understand what we fed our model. One important task is going back and putting together datasheets for datasets that are widely used. For instance, researchers went back and wrote a datasheet for one of the most popular datasets in computer science, and they found that around 30 per cent of the data were duplicated <span class="citation">(<a href="references-1.html#ref-bandy2021addressing" role="doc-biblioref">Bandy and Vincent 2021</a>)</span>.</p>
+<p>Instead of telling us how unhealthy various foods are, a datasheet tells us things like:</p>
 <ul>
-<li>‘Who created the dataset and on behalf of which entity?’</li>
-<li>‘Who funded the creation of the dataset?’</li>
-<li>Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set?’</li>
-<li>‘Is any information missing from individual instances?’</li>
+<li>Who put the dataset together?</li>
+<li>Who paid for the dataset to be created?</li>
+<li>How complete is the dataset?</li>
+<li>What fields are present, and equally not present, for particular observations?</li>
 </ul>
-<p>If you have done a lot of work to create the dataset that you analyze, then it may make sense to try to publish and share it on its own. But typically a datasheet might live in an appendix to the main work.</p>
+<p>Sometimes we have done a lot of work to create a dataset. In that case, we may like to publish and share it on its own, for instance <span class="citation"><a href="references-1.html#ref-biderman2022datasheet" role="doc-biblioref">Biderman, Bicheno, and Gao</a> (<a href="references-1.html#ref-biderman2022datasheet" role="doc-biblioref">2022</a>)</span> and <span class="citation"><a href="references-1.html#ref-bandy2021addressing" role="doc-biblioref">Bandy and Vincent</a> (<a href="references-1.html#ref-bandy2021addressing" role="doc-biblioref">2021</a>)</span>. But typically a datasheet might live in an appendix to the paper, or be included in a file adjacent to the dataset.</p>
+<p>We will put together a datasheet for the dataset that underpins <span class="citation"><a href="references-1.html#ref-citeaustralianpoliticians" role="doc-biblioref">R. Alexander and Hodgetts</a> (<a href="references-1.html#ref-citeaustralianpoliticians" role="doc-biblioref">2021</a>)</span>. The text of the questions directly comes from <span class="citation"><a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al.</a> (<a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">2021</a>)</span>. When we create datasheets for a dataset, especially a dataset that we did not put together ourselves, it is possible that the answer to some questions will simply be “Unknown.”</p>
+<p><strong>Motivation</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>For what purpose was the dataset created? Was there a specific task in mind? Was there a specific gap that needed to be filled? Please provide a description.</em>
+<ul>
+<li>The dataset was created to enable analysis of Australian politicians. We were unable to find a publicly available dataset in a structured format that had the biographical and political information on Australian politicians that was needed for modelling.</li>
+</ul>
+</li>
+<li>
+<em>Who created the dataset (for example, which team, research group) and on behalf of which entity (for example, company, institution, organization)?</em>
+<ul>
+<li>Rohan Alexander, while working at the Australian National University and the University of Toronto</li>
+</ul>
+</li>
+<li>
+<em>Who funded the creation of the dataset? If there is an associated grant, please provide the name of the grantor and the grant name and number.</em>
+<ul>
+<li>No direct funding was received for this project, but Rohan received a salary from University of Toronto.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Composition</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>What do the instances that comprise the dataset represent (for example, documents, photos, people, countries)? Are there multiple types of instances (for example, movies, users, and ratings; people and interactions between them; nodes and edges)? Please provide a description.</em>
+<ul>
+<li>Each row of the main dataset is an individual, and these then link to other datasets where each row refers to various information about that person.</li>
+</ul>
+</li>
+<li>
+<em>How many instances are there in total (of each type, if appropriate)?</em>
+<ul>
+<li>A little more than 1700.</li>
+</ul>
+</li>
+<li>
+<em>Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (for example, geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (for example, to cover a more diverse range of instances, because instances were withheld or unavailable).</em>
+<ul>
+<li>All individuals elected or appointed to the Australian Federal Parliament are in the dataset.</li>
+</ul>
+</li>
+<li>
+<em>What data does each instance consist of? “Raw” data (for example, unprocessed text or images) or features? In either case, please provide a description.</em>
+<ul>
+<li>Each instance consists of biographical information such as birthdate, or political information, such as political party membership.</li>
+</ul>
+</li>
+<li>
+<em>Is there a label or target associated with each instance? If so, please provide a description.</em>
+<ul>
+<li>Yes there is a unique key comprising the surname and year of birth, with a few individuals needing additional demarcation.</li>
+</ul>
+</li>
+<li>
+<em>Is any information missing from individual instances? If so, please provide a description, explaining why this information is missing (for example, because it was unavailable). This does not include intentionally removed information, but might include, for example, redacted text.</em>
+<ul>
+<li>Birthdate is not available in all cases, especially earlier in the dataset.</li>
+</ul>
+</li>
+<li>
+<em>Are relationships between individual instances made explicit (for example, users’ movie ratings, social network links)? If so, please describe how these relationships are made explicit.</em>
+<ul>
+<li>Yes, through the uniqueID.</li>
+</ul>
+</li>
+<li>
+<em>Are there recommended data splits (for example, training, development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Are there any errors, sources of noise, or redundancies in the dataset? If so, please provide a description.</em>
+<ul>
+<li>There is some uncertainty about cabinet and ministries. For instance, different sources differ. There is also a little bit of uncertainty about birthdates.</li>
+</ul>
+</li>
+<li>
+<em>Is the dataset self-contained, or does it link to or otherwise rely on external resources (for example, websites, tweets, other datasets)? If it links to or relies on external resources, a) are there guarantees that they will exist, and remain constant, over time; b) are there official archival versions of the complete dataset (that is, including the external resources as they existed at the time the dataset was created); c) are there any restrictions (for example, licenses, fees) associated with any of the external resources that might apply to a dataset consumer? Please provide descriptions of all external resources and any restrictions associated with them, as well as links or other access points, as appropriate.</em>
+<ul>
+<li>Self-contained.</li>
+</ul>
+</li>
+<li>
+<em>Does the dataset contain data that might be considered confidential (for example, data that is protected by legal privilege or by doctor-patient confidentiality, data that includes the content of individuals’ non-public communications)? If so, please provide a description.</em>
+<ul>
+<li>No, all data were gathered from public sources.</li>
+</ul>
+</li>
+<li>
+<em>Does the dataset contain data that, if viewed directly, might be offensive, insulting, threatening, or might otherwise cause anxiety? If so, please describe why.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Does the dataset identify any sub-populations (for example, by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset.</em>
+<ul>
+<li>Yes, age and gender.</li>
+</ul>
+</li>
+<li>
+<em>Is it possible to identify individuals (that is, one or more natural persons), either directly or indirectly (that is, in combination with other data) from the dataset? If so, please describe how.</em>
+<ul>
+<li>Yes, individuals are identified by name.</li>
+</ul>
+</li>
+<li>
+<em>Does the dataset contain data that might be considered sensitive in any way (for example, data that reveals race or ethnic origins, sexual orientations, religious beliefs, political opinions or union memberships, or locations; financial or health data; biometric or genetic data; forms of government identification, such as social security numbers; criminal history)? If so, please provide a description.</em>
+<ul>
+<li>The dataset contains sensitive information, such as political membership, however this is all public knowledge as they are federal politicians.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Collection process</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>How was the data associated with each instance acquired? Was the data directly observable (for example, raw text, movie ratings), reported by subjects (for example, survey responses), or indirectly inferred/derived from other data (for example, part-of-speech tags, model-based guesses for age or language)? If the data was reported by subjects or indirectly inferred/derived from other data, was the data validated/verified? If so, please describe how.</em>
+<ul>
+<li>The data were gathered from the Australian Parliamentary Handbook in the first instance, and this was augmented with information from other parliaments, especially Victoria and New South Wales, and Wikipedia.</li>
+</ul>
+</li>
+<li>
+<em>What mechanisms or procedures were used to collect the data (for example, hardware apparatuses or sensors, manual human curation, software programs, software APIs)? How were these mechanisms or procedures validated?</em>
+<ul>
+<li>Scraping and parsing using R.</li>
+</ul>
+</li>
+<li>
+<em>If the dataset is a sample from a larger set, what was the sampling strategy (for example, deterministic, probabilistic with specific sampling probabilities)?</em>
+<ul>
+<li>The dataset is not a sample.</li>
+</ul>
+</li>
+<li>
+<em>Who was involved in the data collection process (for example, students, crowdworkers, contractors) and how were they compensated (for example, how much were crowdworkers paid)?</em>
+<ul>
+<li>Rohan Alexander. Paid as a post-doc and an assistant professor, although this was not tied to this specific project.</li>
+</ul>
+</li>
+<li>
+<em>Over what timeframe was the data collected? Does this timeframe match the creation timeframe of the data associated with the instances (for example, recent crawl of old news articles)? If not, please describe the timeframe in which the data associated with the instances was created.</em>
+<ul>
+<li>Three years, and then updated from time to time.</li>
+</ul>
+</li>
+<li>
+<em>Were any ethical review processes conducted (for example, by an institutional review board)? If so, please provide a description of these review processes, including the outcomes, as well as a link or other access point to any supporting documentation.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Did you collect the data from the individuals in question directly, or obtain it via third parties or other sources (for example, websites)?</em>
+<ul>
+<li>Third parties in almost all cases.</li>
+</ul>
+</li>
+<li>
+<em>Were the individuals in question notified about the data collection? If so, please describe (or show with screenshots or other information) how notice was provided, and provide a link or other access point to, or otherwise reproduce, the exact language of the notification itself.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Did the individuals in question consent to the collection and use of their data? If so, please describe (or show with screenshots or other information) how consent was requested and provided, and provide a link or other access point to, or otherwise reproduce, the exact language to which the individuals consented.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>If consent was obtained, were the consenting individuals provided with a mechanism to revoke their consent in the future or for certain uses? If so, please provide a description, as well as a link or other access point to the mechanism (if appropriate).</em>
+<ul>
+<li>Consent was not obtained.</li>
+</ul>
+</li>
+<li>
+<em>Has an analysis of the potential impact of the dataset and its use on data subjects (for example, a data protection impact analysis) been conducted? If so, please provide a description of this analysis, including the outcomes, as well as a link or other access point to any supporting documentation.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Preprocessing/cleaning/labeling</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Was any preprocessing/cleaning/labeling of the data done (for example, discretization or bucketing, tokenization, part-of-speech tagging, SIFT feature extraction, removal of instances, processing of missing values)? If so, please provide a description. If not, you may skip the remaining questions in this section.</em>
+<ul>
+<li>Yes cleaning of the data was done.</li>
+</ul>
+</li>
+<li>
+<em>Was the “raw” data saved in addition to the preprocessed/cleaned/labeled data (for example, to support unanticipated future uses)? If so, please provide a link or other access point to the “raw” data.</em>
+<ul>
+<li>In general, no. The scripts that got the data from the parliamentary handbook to CSV are not available. There are scripts that go through Wikipedia and check things and these are available.</li>
+</ul>
+</li>
+<li>
+<em>Is the software that was used to preprocess/clean/label the data available? If so, please provide a link or other access point.</em>
+<ul>
+<li>R was used.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No</li>
+</ul>
+</li>
+</ol>
+<p><strong>Uses</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Has the dataset been used for any tasks already? If so, please provide a description.</em>
+<ul>
+<li>Yes, a few papers about Australian politics, for instance, <a href="https://arxiv.org/abs/2111.09299" class="uri">https://arxiv.org/abs/2111.09299</a>.</li>
+</ul>
+</li>
+<li>
+<em>Is there a repository that links to any or all papers or systems that use the dataset? If so, please provide a link or other access point.</em>
+<ul>
+<li>No</li>
+</ul>
+</li>
+<li>
+<em>What (other) tasks could the dataset be used for?</em>
+<ul>
+<li>Linking with elections would be interesting.</li>
+</ul>
+</li>
+<li>
+<em>Is there anything about the composition of the dataset or the way it was collected and preprocessed/cleaned/labeled that might impact future uses? For example, is there anything that a dataset consumer might need to know to avoid uses that could result in unfair treatment of individuals or groups (for example, stereotyping, quality of service issues) or other risks or harms (for example, legal risks, financial harms)? If so, please provide a description. Is there anything a dataset consumer could do to mitigate these risks or harms?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Are there tasks for which the dataset should not be used? If so, please provide a description.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Distribution</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Will the dataset be distributed to third parties outside of the entity (for example, company, institution, organization) on behalf of which the dataset was created? If so, please provide a description.</em>
+<ul>
+<li>The dataset is available through GitHub.</li>
+</ul>
+</li>
+<li>
+<em>How will the dataset be distributed (for example, tarball on website, API, GitHub)? Does the dataset have a digital object identifier (DOI)?</em>
+<ul>
+<li>GitHub for now, and eventually a deposit.</li>
+</ul>
+</li>
+<li>
+<em>When will the dataset be distributed?</em>
+<ul>
+<li>The dataset is available now.</li>
+</ul>
+</li>
+<li>
+<em>Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use (ToU)? If so, please describe this license and/ or ToU, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms or ToU, as well as any fees associated with these restrictions.</em>
+<ul>
+<li>No. MIT license.</li>
+</ul>
+</li>
+<li>
+<em>Have any third parties imposed IP-based or other restrictions on the data associated with the instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any relevant licensing terms, as well as any fees associated with these restrictions.</em>
+<ul>
+<li>None that are known.</li>
+</ul>
+</li>
+<li>
+<em>Do any export controls or other regulatory restrictions apply to the dataset or to individual instances? If so, please describe these restrictions, and provide a link or other access point to, or otherwise reproduce, any supporting documentation.</em>
+<ul>
+<li>None that are known.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Maintenance</strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Who will be supporting/hosting/maintaining the dataset?</em>
+<ul>
+<li>Rohan Alexander</li>
+</ul>
+</li>
+<li>
+<em>How can the owner/curator/manager of the dataset be contacted (for example, email address)?</em>
+<ul>
+<li><a href="mailto:rohan.alexander@utoronto" class="email">rohan.alexander@utoronto</a></li>
+</ul>
+</li>
+<li>
+<em>Is there an erratum? If so, please provide a link or other access point.</em>
+<ul>
+<li>No, the dataset is just updated.</li>
+</ul>
+</li>
+<li>
+<em>Will the dataset be updated (for example, to correct labeling errors, add new instances, delete instances)? If so, please describe how often, by whom, and how updates will be communicated to dataset consumers (for example, mailing list, GitHub)?</em>
+<ul>
+<li>Yes, roughly quarterly.</li>
+</ul>
+</li>
+<li>
+<em>If the dataset relates to people, are there applicable limits on the retention of the data associated with the instances (for example, were the individuals in question told that their data would be retained for a fixed period of time and then deleted)? If so, please describe these limits and explain how they will be enforced.</em>
+<ul>
+<li>No.</li>
+</ul>
+</li>
+<li>
+<em>Will older versions of the dataset continue to be supported/hosted/maintained? If so, please describe how. If not, please describe how its obsolescence will be communicated to dataset consumers.</em>
+<ul>
+<li>No the dataset is just updated. Although a history is available through GitHub.</li>
+</ul>
+</li>
+<li>
+<em>If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so? If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to dataset consumers? If so, please provide a description.</em>
+<ul>
+<li>Pull request on GitHub.</li>
+</ul>
+</li>
+<li>
+<em>Any other comments?</em>
+<ul>
+<li>No</li>
+</ul>
+</li>
+</ol>
 </div>
-<div id="exercises-and-tutorial-11" class="section level2" number="12.5">
+<div id="exercises-and-tutorial-11" class="section level2" number="12.7">
 <h2>
-<span class="header-section-number">12.5</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.7</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-11"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-11" class="section level3" number="12.5.1">
+<div id="exercises-11" class="section level3" number="12.7.1">
 <h3>
-<span class="header-section-number">12.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.7.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-11"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li>According to <span class="citation"><a href="references-1.html#ref-gebru2020datasheets" role="doc-biblioref">Gebru et al.</a> (<a href="references-1.html#ref-gebru2020datasheets" role="doc-biblioref">2020, 2</a>)</span>, a datasheet should document a dataset’s (please select all that apply):
+<li>According to <span class="citation"><a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al.</a> (<a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">2021</a>)</span>, a datasheet should document a dataset’s (please select all that apply):
 <ol style="list-style-type: lower-alpha">
 <li>composition.</li>
 <li>recommended uses.</li>
@@ -183,13 +633,15 @@
 <li>Accessible.</li>
 </ol>
 </li>
+<li>Please create an R package for a simulated dataset, push it to GitHub, and submit the link.</li>
 </ol>
 </div>
-<div id="tutorial-11" class="section level3" number="12.5.2">
+<div id="tutorial-11" class="section level3" number="12.7.2">
 <h3>
-<span class="header-section-number">12.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.7.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-11"><i class="fas fa-link"></i></a>
 </h3>
-<p>Look into how IQ tests are conducted and what goes into them. To what extent do you think they measure intelligence? Some aspects that you may like to think about in answering that question include: Who decides what is intelligence? How is this updated? What is missing from that definition? To what extent is this generalisable? You should write a page or two.</p>
+<p>Please identify an important dataset that does not have a datasheet <span class="citation">(<a href="references-1.html#ref-gebru2021datasheets" role="doc-biblioref">Gebru et al. 2021</a>)</span>. As a reminder, datasheets accompany datasets and document ‘motivation, composition, collection process, recommended uses,’ among other aspects. Please put together a datasheet for this dataset. You are welcome to use the template <a href="https://github.com/RohanAlexander/starter_folder/blob/main/inputs/data/datasheet_template.Rmd">here</a> as a starting point. The datasheet should be completely contained in its own GitHub repository. Please submit a PDF.</p>
+<!-- Look into how IQ tests are conducted and what goes into them. To what extent do you think they measure intelligence? Some aspects that you may like to think about in answering that question include: Who decides what is intelligence? How is this updated? What is missing from that definition? To what extent is this generalisable? You should write a page or two. -->
 <!-- The purpose of this tutorial is to ensure that it is clear in your mind how thoroughly you should know your dataset. It builds on the 'memory palace' technique used by professional memorisers, as described by @moonwalkingwitheinstein. -->
 <!-- Please think about your childhood home, or another building that you know intimately. Imagine yourself standing at the front of it. Describe what it looks like. Then 'walk' into the front and throughout the house, again describing each aspect in as much detail as you can imagine. What are each of the rooms used for and what are their distinguishing features? How does it smell? What does this all evoke in you? Please write a page or two.  -->
 <!-- Now think about a dataset that you are interested in. Please do this same exercise, but for the dataset. -->
@@ -206,12 +658,14 @@
 <li><a class="nav-link" href="#storing-and-retrieving-data"><span class="header-section-number">12</span> Storing and retrieving data</a></li>
 <li><a class="nav-link" href="#introduction-9"><span class="header-section-number">12.1</span> Introduction</a></li>
 <li><a class="nav-link" href="#plan-3"><span class="header-section-number">12.2</span> Plan</a></li>
-<li><a class="nav-link" href="#r-packages-for-data"><span class="header-section-number">12.3</span> R Packages for data</a></li>
-<li><a class="nav-link" href="#documentation"><span class="header-section-number">12.4</span> Documentation</a></li>
+<li><a class="nav-link" href="#github-1"><span class="header-section-number">12.3</span> GitHub</a></li>
+<li><a class="nav-link" href="#r-packages-for-data"><span class="header-section-number">12.4</span> R Packages for data</a></li>
+<li><a class="nav-link" href="#depositing-data"><span class="header-section-number">12.5</span> Depositing data</a></li>
+<li><a class="nav-link" href="#documentation"><span class="header-section-number">12.6</span> Documentation</a></li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-11"><span class="header-section-number">12.5</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-11"><span class="header-section-number">12.5.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-11"><span class="header-section-number">12.5.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-11"><span class="header-section-number">12.7</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-11"><span class="header-section-number">12.7.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-11"><span class="header-section-number">12.7.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -231,7 +685,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 10 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 12 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

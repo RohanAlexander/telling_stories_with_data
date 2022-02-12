@@ -10,10 +10,6 @@
 
 Working individually and in an entirely reproducible way, please find a dataset of interest on [Open Data Toronto](https://open.toronto.ca) and write a short paper telling a story about the data.
 
-### Guidance
-
-Recommended steps:
-
 1. Find a dataset of interest on [Open Data Toronto](https://open.toronto.ca) and download it in a reproducible way using `opendatatoronto` [@citeSharla]. 
 2. Create a folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use the [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, and references. 
 3. In the data section thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text and at least one graph and one table. Graphs must be made with `ggplot2` [@citeggplot] and tables must be made with `knitr` [@citeknitr] or `gt` [@citegt]. Graphs must show the actual data, or as close to it as possible, not summary statistics. Make sure to cross-reference graphs and tables.
@@ -56,12 +52,12 @@ Additional points:
 
 
 ```{=html}
-<div id="llmvzojmgq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wpezosmhjx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#llmvzojmgq .gt_table {
+#wpezosmhjx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -86,7 +82,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_heading {
+#wpezosmhjx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -98,7 +94,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_title {
+#wpezosmhjx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -108,7 +104,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#llmvzojmgq .gt_subtitle {
+#wpezosmhjx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -118,13 +114,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#llmvzojmgq .gt_bottom_border {
+#wpezosmhjx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_col_headings {
+#wpezosmhjx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -139,7 +135,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_col_heading {
+#wpezosmhjx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -159,7 +155,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#llmvzojmgq .gt_column_spanner_outer {
+#wpezosmhjx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -171,15 +167,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#llmvzojmgq .gt_column_spanner_outer:first-child {
+#wpezosmhjx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#llmvzojmgq .gt_column_spanner_outer:last-child {
+#wpezosmhjx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#llmvzojmgq .gt_column_spanner {
+#wpezosmhjx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -191,7 +187,7 @@ Additional points:
   width: 100%;
 }
 
-#llmvzojmgq .gt_group_heading {
+#wpezosmhjx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -213,7 +209,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#llmvzojmgq .gt_empty_group_heading {
+#wpezosmhjx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -228,15 +224,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#llmvzojmgq .gt_from_md > :first-child {
+#wpezosmhjx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#llmvzojmgq .gt_from_md > :last-child {
+#wpezosmhjx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#llmvzojmgq .gt_row {
+#wpezosmhjx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -255,7 +251,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#llmvzojmgq .gt_stub {
+#wpezosmhjx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -267,7 +263,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#llmvzojmgq .gt_summary_row {
+#wpezosmhjx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -277,7 +273,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#llmvzojmgq .gt_first_summary_row {
+#wpezosmhjx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -287,7 +283,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_grand_summary_row {
+#wpezosmhjx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -297,7 +293,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#llmvzojmgq .gt_first_grand_summary_row {
+#wpezosmhjx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -307,11 +303,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_striped {
+#wpezosmhjx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#llmvzojmgq .gt_table_body {
+#wpezosmhjx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -320,7 +316,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_footnotes {
+#wpezosmhjx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -334,13 +330,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_footnote {
+#wpezosmhjx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#llmvzojmgq .gt_sourcenotes {
+#wpezosmhjx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -354,41 +350,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#llmvzojmgq .gt_sourcenote {
+#wpezosmhjx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#llmvzojmgq .gt_left {
+#wpezosmhjx .gt_left {
   text-align: left;
 }
 
-#llmvzojmgq .gt_center {
+#wpezosmhjx .gt_center {
   text-align: center;
 }
 
-#llmvzojmgq .gt_right {
+#wpezosmhjx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#llmvzojmgq .gt_font_normal {
+#wpezosmhjx .gt_font_normal {
   font-weight: normal;
 }
 
-#llmvzojmgq .gt_font_bold {
+#wpezosmhjx .gt_font_bold {
   font-weight: bold;
 }
 
-#llmvzojmgq .gt_font_italic {
+#wpezosmhjx .gt_font_italic {
   font-style: italic;
 }
 
-#llmvzojmgq .gt_super {
+#wpezosmhjx .gt_super {
   font-size: 65%;
 }
 
-#llmvzojmgq .gt_footnote_marks {
+#wpezosmhjx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -465,7 +461,7 @@ Some examples of papers that did well include:
 
 ### Task
 
-- Working as part of a team of 1-3 people, please pick a paper of interest to you, with code and data that are available, published anytime since 2019, in an American Economic Association [journal](https://www.aeaweb.org/journals). These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'.
+- Working as part of a team of up to three people, please pick a paper of interest to you, with code and data that are available, published anytime since 2019, in an American Economic Association [journal](https://www.aeaweb.org/journals). These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'.
 - Following the [*Guide for Accelerating Computational Reproducibility in the Social Sciences*](https://bitss.github.io/ACRE/), please complete a **replication**^[This terminology is used following @barba2018terminologies, but it is the opposite of that used by BITSS.] of at least three graphs, tables, or a combination, from that paper, using the [Social Science Reproduction Platform](https://www.socialsciencereproduction.org). Note the DOI of your replication.
 - Working in an entirely reproducible way then conduct a **reproduction** based on two or three aspects of the paper, and write a short paper about that. 
   - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, and references.
@@ -473,7 +469,7 @@ Some examples of papers that did well include:
   - Include the DOI of your replication in your paper and a link to the GitHub repo that underpins your paper.
   - The discussion should include three or four sub-sections that each focus on a point you find interesting, and there should be another sub-section on the weaknesses of your paper and next steps for your paper.
   - In the discussion section, and any other relevant section, please be sure to discuss ethics and bias, with reference to relevant literature.
-  - The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience
+  - The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience.
   - Use appendices for supporting, but not critical, material. 
   - Code should be entirely reproducible, well-documented, and readable.
 - Submit a PDF of your paper. 
@@ -530,76 +526,141 @@ Some examples of papers that well in the past include those by: [Amy Farrow](inp
 
 
 
-## Paper Three
+<!-- ## Paper Three -->
 
+
+<!-- ### Task -->
+
+<!-- Working in teams of one to three  people, please consider this scenario: -->
+
+<!-- - 'You are employed as a junior statistician at Petit Poll - a Canadian polling company. Petit Poll has a contract with a Canadian political party to provide them with monthly polling updates.' -->
+<!-- - Working as part of a small team of 1-3 people, and in an entirely reproducible way, please write a short paper that tells the client a story about their standing. -->
+
+
+<!-- ### Recommended steps -->
+
+<!-- - Please pick a political party that you are 'working for', and pick a geographic focus: 1) the overall election, 2) a particular province, or 3) a specific riding.  -->
+<!-- - Then decide on a survey methodology (hint: p. 13 of Wu & Thompson provides a handy checklist). Some questions you should address include:  -->
+<!-- - What is the population, frame, and sample?  -->
+<!-- - What sampling methods will you use and why (e.g. you could choose SRSWOR, stratified, etc).  -->
+<!-- - What are some of the statistical properties that the method brings to the table (e.g. for SRSWOR you could discuss Wu & Thompson, Theorem 2.2, etc, as appropriate)?  -->
+<!-- - How are you going to reach your desired respondents? -->
+<!-- - How much do you estimate this will cost? -->
+<!-- - What steps will you take to deal with non-response and how will non-response affect your survey?  -->
+<!-- - How are you going to protect respondent privacy?  -->
+<!-- - Remember to consider all of this in the context of your 'client' - for instance, who would be more interested in Alberta ridings: Bloc Québécois or the Conservatives? Who likely has more money to spend - the Liberals or the Greens? -->
+<!-- - Develop a survey on a platform that was introduced in class. Be sure to test it yourselves. You will want to test this as much as possible, maybe even swap informally with another group? -->
+<!-- - Now release the surveys into the (simulated) 'field'. Please do this by simulating an appropriate number of responses to your survey in R. Don't forget to simulate in relation to the survey methodology that you proposed. Show the results and discuss your 'findings'. Everything must be entirely reproducible. You may like to consider linking your survey 'responses' with other data such as the census or GSS. -->
+<!-- - Use R Markdown to write a PDF report about all of this. Discuss your results and findings, your survey design and motivations, etc - all of it. You are writing a report that will eventually go to the 'client', so you must set the scene, and use language that demonstrates your command of statistical concepts but brings the reader along with you. Be sure to include graphs and tables and reference them in your discussion. Be sure to be clear about weaknesses and biases, and opportunities for future work.  -->
+<!-- - Your report must be well written. You are allowed to, and should, use mathematical notation, but you must explain all of it in plain English. Similarly, you can, and should, use surveys/sampling/observational data terminology, but again, you need to explain it.  -->
+<!-- - Your report must include at least the following aspects: title, date, authorship, non-technical executive summary, introduction, survey methodology, results, discussion, appendices that detail the survey, and references. Your 'client' has stats graduates working for it who need to be impressed by the main content of the report, but also has people who barely know what an average is and these people need to be impressed also. This is why your report should include a non-technical executive summary. In terms of length, this would typically be roughly 10 per cent of the report. It would be more detailed than an introduction, but still at a high level.  -->
+<!-- - Your graphs must be of an extremely high standard. -->
+<!-- - Check that you have referenced everything. Strong submissions will draw on related literature in the discussion and would be sure to also reference those. The style of references does not matter, provided it is consistent. -->
+<!-- - Via Quercus, submit a link to your PDF report which is hosted on GitHub. At some point in the introduction to your report, you must provide a link to the GitHub repo where the code that you used for this assignment lives (Hint: Comment. Your. Code.). Your entire workflow must be entirely reproducible. -->
+<!-- - Please be sure to include a link to your survey in your report and screenshots of the survey in the appendix of your report.  -->
+<!-- - There should be no evidence that this is a class assignment. -->
+
+<!-- ### Checks -->
+
+<!-- - Check you have not included any R code or raw R output in the final PDF. -->
+<!-- - Check you have cited R and any R packages used. -->
+<!-- - Check that although you will probably have most of your code in the R Markdown, make sure that you have at least one R script in the `scripts` folder. -->
+<!-- - Check there is thoroughly commented code that directly creates your PDF. Do not knit to html and then save as a PDF. Do not knit to Word and then save as a PDF -->
+<!-- - Check that your graph and discussion are extremely clear, and of comparable quality to those of FiveThirtyEight. -->
+<!-- - Check that the date is updated to the date of submission. -->
+<!-- - Check your entire workflow is entirely reproducible. -->
+<!-- - Check for typos. -->
+<!-- - Check that you have got an appendix that details the survey/s and a link to the live survey. -->
+
+
+<!-- ### FAQ -->
+
+<!-- - Can I work by myself? Yes. But the workload assumes you will work as part of a group. -->
+<!-- - Can we switch groups for the third paper? Yes. -->
+<!-- - How can I find a group? I will randomly create groups of three  in Quercus. You are welcome to shift out of those groups and form your own groups if you'd like. -->
+<!-- - Can I get a different mark to the rest of my group? No. Everyone in the group gets the same mark. -->
+<!-- - I wrote my paper by myself, so can I be graded on a different scale? No. All papers are graded in the same way. -->
+<!-- - How much should I write? Most students submit something in the 10-to-15-page range, but it is up to you. Be precise and thorough. -->
+<!-- - How do students collaborate successfully? Groups that split up the work typically seem to do the best. So one student worries about the survey, one about simulating and analyzing data, and another about the write-up. If you're worried about using GitHub to collaborate, then just create different folders in GitHub to place your separate bits of work, and then have one person bring it together at the end. -->
+<!-- - What intervention should we use? The intention is that you do something of interest to you. A well-written introduction would make the intervention clear. -->
+
+
+<!-- ### Rubric -->
+
+
+<!-- ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE} -->
+<!-- rubric |> -->
+<!--   filter(!Component %in% c("Replication", "Model", "Enhancements")) |> -->
+<!--   gt() -->
+<!-- ``` -->
+
+<!-- ### Previous examples -->
+
+<!-- Some examples of papers that well in the past include those by:  -->
+
+
+<!-- \newpage -->
+
+
+
+
+
+
+
+
+
+
+## Paper Three
 
 ### Task
 
-Working in teams of one to three  people, please consider this scenario:
-
-- 'You are employed as a junior statistician at Petit Poll - a Canadian polling company. Petit Poll has a contract with a Canadian political party to provide them with monthly polling updates.'
-- Working as part of a small team of 1-3 people, and in an entirely reproducible way, please write a short paper that tells the client a story about their standing.
-
-
-### Recommended steps
-
-- Please pick a political party that you are 'working for', and pick a geographic focus: 1) the overall election, 2) a particular province, or 3) a specific riding. 
-- Then decide on a survey methodology (hint: p. 13 of Wu & Thompson provides a handy checklist). Some questions you should address include: 
-- What is the population, frame, and sample? 
-- What sampling methods will you use and why (e.g. you could choose SRSWOR, stratified, etc). 
-- What are some of the statistical properties that the method brings to the table (e.g. for SRSWOR you could discuss Wu & Thompson, Theorem 2.2, etc, as appropriate)? 
-- How are you going to reach your desired respondents?
-- How much do you estimate this will cost?
-- What steps will you take to deal with non-response and how will non-response affect your survey? 
-- How are you going to protect respondent privacy? 
-- Remember to consider all of this in the context of your 'client' - for instance, who would be more interested in Alberta ridings: Bloc Québécois or the Conservatives? Who likely has more money to spend - the Liberals or the Greens?
-- Develop a survey on a platform that was introduced in class. Be sure to test it yourselves. You will want to test this as much as possible, maybe even swap informally with another group?
-- Now release the surveys into the (simulated) 'field'. Please do this by simulating an appropriate number of responses to your survey in R. Don't forget to simulate in relation to the survey methodology that you proposed. Show the results and discuss your 'findings'. Everything must be entirely reproducible. You may like to consider linking your survey 'responses' with other data such as the census or GSS.
-- Use R Markdown to write a PDF report about all of this. Discuss your results and findings, your survey design and motivations, etc - all of it. You are writing a report that will eventually go to the 'client', so you must set the scene, and use language that demonstrates your command of statistical concepts but brings the reader along with you. Be sure to include graphs and tables and reference them in your discussion. Be sure to be clear about weaknesses and biases, and opportunities for future work. 
-- Your report must be well written. You are allowed to, and should, use mathematical notation, but you must explain all of it in plain English. Similarly, you can, and should, use surveys/sampling/observational data terminology, but again, you need to explain it. 
-- Your report must include at least the following aspects: title, date, authorship, non-technical executive summary, introduction, survey methodology, results, discussion, appendices that detail the survey, and references. Your 'client' has stats graduates working for it who need to be impressed by the main content of the report, but also has people who barely know what an average is and these people need to be impressed also. This is why your report should include a non-technical executive summary. In terms of length, this would typically be roughly 10 per cent of the report. It would be more detailed than an introduction, but still at a high level. 
-- Your graphs must be of an extremely high standard.
-- Check that you have referenced everything. Strong submissions will draw on related literature in the discussion and would be sure to also reference those. The style of references does not matter, provided it is consistent.
-- Via Quercus, submit a link to your PDF report which is hosted on GitHub. At some point in the introduction to your report, you must provide a link to the GitHub repo where the code that you used for this assignment lives (Hint: Comment. Your. Code.). Your entire workflow must be entirely reproducible.
-- Please be sure to include a link to your survey in your report and screenshots of the survey in the appendix of your report. 
+- Working in teams of one to three people, and in an entirely reproducible way, please pick one of the following: [Australian General Social Survey](https://www.abs.gov.au/statistics/people/people-and-communities/general-social-survey-summary-results-australia), [Canadian General Social Survey](https://www150.statcan.gc.ca/n1/pub/89f0115x/89f0115x2013001-eng.htm), [European Social Survey](http://www.europeansocialsurvey.org), [German General Social Survey](https://www.gesis.org/en/allbus/allbus-home), [US General Social Survey](https://gss.norc.org/Get-The-Data).
+- Focus on one aspect of the survey, obtain the data, and then use it to tell a story.
+  - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, an appendix containing a survey, and references.
+  - In addition to conveying a sense of the dataset of interest, the data section should include, but not be limited to:
+      - A detailed discussion of survey methodology, and its key features, strengths, and weaknesses. Including how they find people to take the survey; what their population, frame, and sample were; what sampling approach they took and what some of the trade-offs may be; what they do about non-response; the cost.
+      - A discussion of the questionnaire: what is good and bad about it?
+      - A discussion of the methodology.
+      - If this becomes too detailed then you should push some of this to an appendix. 
+  - The discussion should include three or four sub-sections that each focus on a point you find interesting, and there should be another sub-section on the weaknesses of your paper and next steps for your paper.
+  - In the discussion section, and any other relevant section, please be sure to discuss ethics and bias, with reference to relevant literature.
+  - Use appendices for supporting, but not critical, material.
+  - In the appendix, please include a survey that you could use to augment the general social survey of your choice. Your survey will be distributed in the same manner as the general social survey, but needs to stand independently. You survey should be put together using a survey platform, and a link to this should be included in the appendix, as well as details of the survey. The purpose of your survey to gain additional information on the topic that is the focus of your paper, beyond that gathered by the general social survey.
+  - Code should be entirely reproducible, well-documented, and readable.
+- Submit a PDF of your paper. 
+- The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience. You should use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
 - There should be no evidence that this is a class assignment.
+
+
+
+ 
+
+
 
 ### Checks
 
-- Check you have not included any R code or raw R output in the final PDF.
-- Check you have cited R and any R packages used.
-- Check that although you will probably have most of your code in the R Markdown, make sure that you have at least one R script in the `scripts` folder.
-- Check there is thoroughly commented code that directly creates your PDF. Do not knit to html and then save as a PDF. Do not knit to Word and then save as a PDF
-- Check that your graph and discussion are extremely clear, and of comparable quality to those of FiveThirtyEight.
-- Check that the date is updated to the date of submission.
-- Check your entire workflow is entirely reproducible.
-- Check for typos.
-- Check that you have got an appendix that details the survey/s and a link to the live survey.
+Check that: 
 
+- In an appendix you have both included a link to your survey and included the details of it.
+ 
 
 ### FAQ
 
-- Can I work by myself? Yes. But the workload assumes you will work as part of a group.
-- Can we switch groups for the third paper? Yes.
-- How can I find a group? I will randomly create groups of three  in Quercus. You are welcome to shift out of those groups and form your own groups if you'd like.
-- Can I get a different mark to the rest of my group? No. Everyone in the group gets the same mark.
-- I wrote my paper by myself, so can I be graded on a different scale? No. All papers are graded in the same way.
-- How much should I write? Most students submit something in the 10-to-15-page range, but it is up to you. Be precise and thorough.
-- How do students collaborate successfully? Groups that split up the work typically seem to do the best. So one student worries about the survey, one about simulating and analyzing data, and another about the write-up. If you're worried about using GitHub to collaborate, then just create different folders in GitHub to place your separate bits of work, and then have one person bring it together at the end.
-- What intervention should we use? The intention is that you do something of interest to you. A well-written introduction would make the intervention clear.
+- What should I focus on? You may focus on any year, aspect, or geography that is reasonable given the focus and constraints of the general social survey that you are interested in. Please consider the year and topics that you are interested in together, as some years surveys tend to focus on particular topics.
+<!-- - The Canadian GSS is available to University of Toronto students via the library. In order to use it you need to clean and prepare it. Code to do this for one year is being distributed alongside this problem set and was discussed in lectures.  -->
+<!-- - You are welcome to simply use this code and this year, but the topic of that year will constrain your focus. Naturally, you are welcome to adapt the code to other years. If you use the code exactly as is then you must cite it. If you adapt the code then you don't have to cite it, as it has a MIT license, but it would be appropriate to at least mention and acknowledge it, depending on how close your adaption is. -->
 
 
 ### Rubric
 
 
-
 ```{=html}
-<div id="jwulcbuvrs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nmbxjxelhq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jwulcbuvrs .gt_table {
+#nmbxjxelhq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -624,7 +685,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-left-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_heading {
+#nmbxjxelhq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -636,7 +697,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_title {
+#nmbxjxelhq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -646,7 +707,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-width: 0;
 }
 
-#jwulcbuvrs .gt_subtitle {
+#nmbxjxelhq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -656,13 +717,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-width: 0;
 }
 
-#jwulcbuvrs .gt_bottom_border {
+#nmbxjxelhq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_col_headings {
+#nmbxjxelhq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -677,7 +738,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_col_heading {
+#nmbxjxelhq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -697,7 +758,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#jwulcbuvrs .gt_column_spanner_outer {
+#nmbxjxelhq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -709,15 +770,15 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 4px;
 }
 
-#jwulcbuvrs .gt_column_spanner_outer:first-child {
+#nmbxjxelhq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jwulcbuvrs .gt_column_spanner_outer:last-child {
+#nmbxjxelhq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jwulcbuvrs .gt_column_spanner {
+#nmbxjxelhq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -729,7 +790,7 @@ Working in teams of one to three  people, please consider this scenario:
   width: 100%;
 }
 
-#jwulcbuvrs .gt_group_heading {
+#nmbxjxelhq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -751,7 +812,7 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#jwulcbuvrs .gt_empty_group_heading {
+#nmbxjxelhq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -766,15 +827,15 @@ Working in teams of one to three  people, please consider this scenario:
   vertical-align: middle;
 }
 
-#jwulcbuvrs .gt_from_md > :first-child {
+#nmbxjxelhq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jwulcbuvrs .gt_from_md > :last-child {
+#nmbxjxelhq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jwulcbuvrs .gt_row {
+#nmbxjxelhq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -793,7 +854,7 @@ Working in teams of one to three  people, please consider this scenario:
   overflow-x: hidden;
 }
 
-#jwulcbuvrs .gt_stub {
+#nmbxjxelhq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -805,7 +866,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-left: 12px;
 }
 
-#jwulcbuvrs .gt_summary_row {
+#nmbxjxelhq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -815,7 +876,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#jwulcbuvrs .gt_first_summary_row {
+#nmbxjxelhq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -825,7 +886,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_grand_summary_row {
+#nmbxjxelhq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -835,7 +896,7 @@ Working in teams of one to three  people, please consider this scenario:
   padding-right: 5px;
 }
 
-#jwulcbuvrs .gt_first_grand_summary_row {
+#nmbxjxelhq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -845,11 +906,11 @@ Working in teams of one to three  people, please consider this scenario:
   border-top-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_striped {
+#nmbxjxelhq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jwulcbuvrs .gt_table_body {
+#nmbxjxelhq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -858,7 +919,7 @@ Working in teams of one to three  people, please consider this scenario:
   border-bottom-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_footnotes {
+#nmbxjxelhq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -872,13 +933,13 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_footnote {
+#nmbxjxelhq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#jwulcbuvrs .gt_sourcenotes {
+#nmbxjxelhq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -892,41 +953,41 @@ Working in teams of one to three  people, please consider this scenario:
   border-right-color: #D3D3D3;
 }
 
-#jwulcbuvrs .gt_sourcenote {
+#nmbxjxelhq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#jwulcbuvrs .gt_left {
+#nmbxjxelhq .gt_left {
   text-align: left;
 }
 
-#jwulcbuvrs .gt_center {
+#nmbxjxelhq .gt_center {
   text-align: center;
 }
 
-#jwulcbuvrs .gt_right {
+#nmbxjxelhq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jwulcbuvrs .gt_font_normal {
+#nmbxjxelhq .gt_font_normal {
   font-weight: normal;
 }
 
-#jwulcbuvrs .gt_font_bold {
+#nmbxjxelhq .gt_font_bold {
   font-weight: bold;
 }
 
-#jwulcbuvrs .gt_font_italic {
+#nmbxjxelhq .gt_font_italic {
   font-style: italic;
 }
 
-#jwulcbuvrs .gt_super {
+#nmbxjxelhq .gt_super {
   font-size: 65%;
 }
 
-#jwulcbuvrs .gt_footnote_marks {
+#nmbxjxelhq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -975,6 +1036,9 @@ Working in teams of one to three  people, please consider this scenario:
     <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
 <td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
+    <tr><td class="gt_row gt_left">Survey</td>
+<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
+<td class="gt_row gt_left">The survey should have an introductory section and include details of a contact, and then the survey questions should be well constructed and appropriate to the task</td></tr>
     <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
 <td class="gt_row gt_left">All data, software, literature, and any other relevant material, are cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
@@ -1001,458 +1065,11 @@ Some examples of papers that well in the past include those by:
 
 
 
-
-
-
-
-
-
 ## Paper Four
 
 ### Task
 
-- Working in teams of one to three  people, and in an entirely reproducible way, please use the Canadian General Social Survey (GSS) and a regression model to tell a story. 
-
-
-### Recommended steps
-
-- You must include a DAG (probably in the model section).
-- Depending on your focus and background, you may like to use a Bayesian hierarchical model, but regardless of the particular model that you use it must be well explained, thoroughly justified, appropriate to the task at hand, and the results must be beautifully described.
-- You may focus on any year, aspect, or geography that is reasonable given the focus and constraints of the GSS. As a reminder, the GSS 'program was designed as a series of independent, annual, cross-sectional surveys, each covering one topic in-depth.' So please consider the topic and the year.
-- The GSS is available to University of Toronto students via the library. In order to use it you need to clean and prepare it. Code to do this for one year is being distributed alongside this problem set and was discussed in lectures. 
-- You are welcome to simply use this code and this year, but the topic of that year will constrain your focus. Naturally, you are welcome to adapt the code to other years. If you use the code exactly as is then you must cite it. If you adapt the code then you don't have to cite it, as it has a MIT license, but it would be appropriate to at least mention and acknowledge it, depending on how close your adaption is.
-- Using R Markdown, please write a paper about your analysis and compile it into a PDF.
-- Your paper must be well-written, draw on relevant literature, and show your statistical skills by explaining all statistical concepts that you draw on. 
-- Your paper must have the following sections: title, name/s, and date, abstract, introduction, data, model, results, discussion, and references. 
-- You are welcome to use appendices for supporting, but not critical, material. Your discussion must include sub-sections on weaknesses and next steps.
-- In your report you must provide a link to a GitHub repo that fully contains your analysis. Your code must be entirely reproducible, documented, and readable. Your repo must be well-organized and appropriately use folders.
-- Graphs and tables must be of a high standard. Graphs and tables should be well formatted and report ready. They should be clean and digestible. Furthermore, you should label and describe each table/figure.
-- When you discuss the dataset (in the data section) you should make sure to discuss (at least): 
-    - Its key features, strengths, and weaknesses generally. 
-    - A discussion of the questionnaire - what is good and bad about it? 
-    - A discussion of the methodology including how they find people to take the survey; what their population, frame, and sample were; what sampling approach they took and what some of the trade-offs may be; what they do about non-response; the cost. 
-    - This is just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed then you should push some of this to footnotes or an appendix. 
-- When you discuss your model (in the model section), you must be extremely careful to spell out the statistical model that you are using, defining and explaining each aspect and why it is important. (For a Bayesian model, a discussion of priors and regularization is almost always important.) You should mention the software that you used to run the model. You should be clear about model convergence, model checks, and diagnostic issues. How do the sampling and survey aspects that you discussed assert themselves in the modelling decisions that you make? Again, if it becomes too detailed then push some of the details to footnotes or an appendix.
-- You should present model results, graphs, figures, etc, in the results section. This section should strictly relay results. Interpretation of these results and conclusions drawn from the results should be left for the discussion section.
-- Your discussion should focus on your model results. Interpret them and explain what they mean. Put them in context. What do we learn about the world having understood your model and its results? What caveats could apply? To what extent does your model represent the small world and the large world (to use the language of McElreath, Ch 2)? What are some weaknesses and opportunities for future work?
-- Check that you have referenced everything. Strong submissions will draw on related literature in the discussion (and other sections) and would be sure to also reference those. The style of references does not matter, provided it is consistent.
-- As a team, via Quercus, submit a PDF of your paper. Again, in your paper you must have a link to the associated GitHub repo in an appendix. And you must include the R Markdown file that produced the PDF in that repo.
-- A good way to work as a team would be to split up the work, so that one person is doing each section. The people doing the sections that rely on data (such as the analysis and the graphs) could just simulate it while they are waiting for the person putting together the data to finish.
-- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
-
-### Checks
-
-- It is recommended that you (informally) proofread one another's sections - why not exchange papers with another group? 
-- Everyone in the team receives the same mark.
-- There should be no evidence that this is a class assignment.
-
-### FAQ
-
-### Rubric
-
-
-```{=html}
-<div id="hirhtodykd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#hirhtodykd .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#hirhtodykd .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#hirhtodykd .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#hirhtodykd .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#hirhtodykd .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#hirhtodykd .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#hirhtodykd .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#hirhtodykd .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hirhtodykd .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hirhtodykd .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#hirhtodykd .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#hirhtodykd .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#hirhtodykd .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#hirhtodykd .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hirhtodykd .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hirhtodykd .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#hirhtodykd .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#hirhtodykd .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hirhtodykd .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#hirhtodykd .gt_left {
-  text-align: left;
-}
-
-#hirhtodykd .gt_center {
-  text-align: center;
-}
-
-#hirhtodykd .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#hirhtodykd .gt_font_normal {
-  font-weight: normal;
-}
-
-#hirhtodykd .gt_font_bold {
-  font-weight: bold;
-}
-
-#hirhtodykd .gt_font_italic {
-  font-style: italic;
-}
-
-#hirhtodykd .gt_super {
-  font-size: 65%;
-}
-
-#hirhtodykd .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Component</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Range</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Requirement</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">R is appropriately cited</td>
-<td class="gt_row gt_left">0 - 'No'; 1 - 'Yes'</td>
-<td class="gt_row gt_left">Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.</td></tr>
-    <tr><td class="gt_row gt_left">Title</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'</td>
-<td class="gt_row gt_left">An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.</td></tr>
-    <tr><td class="gt_row gt_left">Author, date, and repo</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">The author, date of submission in unambiguous format, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').</td></tr>
-    <tr><td class="gt_row gt_left">Abstract</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.</td></tr>
-    <tr><td class="gt_row gt_left">Introduction</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; and 6) why it is important. A reader should be able to read only the introduction and have a good idea about the research that was carried out. Tables and figures are likely not included. It outlines the structure of the paper. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
-    <tr><td class="gt_row gt_left">Data</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">You should thoroughly discuss the variables in the dataset that you use. Are there any that are very similar that you nonetheless don't use? Did you construct any variables by combining various ones? What do the data look like? Plot the actual data that you're using (or as close as you can get to it). Discuss these plots and the other features of these data. These are just some of the issues strong submissions will consider. Show off your knowledge. If this becomes too detailed, then you should push some of this to footnotes or an appendix. 'Exceptional' means that when I read your submission I learn something about the dataset that I don't learn from any other submission (within a reasonable measure of course).</td></tr>
-    <tr><td class="gt_row gt_left">Model</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">The model is nicely written out, well-explained, justified, and appropriate. When you discuss your model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and also the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what your model is and what is going on with it.</td></tr>
-    <tr><td class="gt_row gt_left">Results</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. To be clear, you should also have text associated with all these aspects. Show the reader the results by plotting them. Talk about them. Explain them. That said, this section should strictly relay results.</td></tr>
-    <tr><td class="gt_row gt_left">Discussion</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): What is done in this this paper? What is something that we learn about the world? What is another thing that we learn about the world? What are some weaknesses of what was done? What is left to learn or how should we proceed in the future?</td></tr>
-    <tr><td class="gt_row gt_left">Cross-references</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All figures, tables, equations, etc are numbered, cross-referenced, and referred to in the text.</td></tr>
-    <tr><td class="gt_row gt_left">Prose</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
-<td class="gt_row gt_left">All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.</td></tr>
-    <tr><td class="gt_row gt_left">Graphs/tables/etc</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">You must include graphs and tables in your paper and they must be to a high standard. They must be well formatted and camera-ready They should be clear and digestible. They must: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of labels/explanations, etc; and 3) appropriately sized and colored (or appropriate significant figures in the case of stats).</td></tr>
-    <tr><td class="gt_row gt_left">Reference list</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
-<td class="gt_row gt_left">All data, software, literature, and any other relevant material, are cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
-    <tr><td class="gt_row gt_left">Reproducibility</td>
-<td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The paper and analysis must be fully reproducible. A detailed README is included. All code should be thoroughly documented. An R project must be used. Do not use setwd(). The code must appropriately read data, prepare it, create plots, conduct analysis, generate documents, etc. Seeds are used where needed. Code must have a preamble etc. You must appropriately document your scripts such that someone coming in could follow them. Your repo must be thoroughly organized and not contain extraneous files.</td></tr>
-    <tr><td class="gt_row gt_left">General excellence</td>
-<td class="gt_row gt_left">0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'</td>
-<td class="gt_row gt_left">There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
-
-### Previous examples
+- Paper about data cleaning and preparation: include a data sheet.
 
 
 \newpage
@@ -1461,6 +1078,21 @@ Some examples of papers that well in the past include those by:
 
 
 ## Paper Five
+
+### Task
+
+- Paper about causal inference.
+
+
+- You must include a DAG (probably in the model section).
+
+
+\newpage
+
+
+
+
+## Paper Six
 
 ### Task
 
@@ -1534,12 +1166,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="gtvhucyoma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="nlfbzulfat" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#gtvhucyoma .gt_table {
+#nlfbzulfat .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1564,7 +1196,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_heading {
+#nlfbzulfat .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1576,7 +1208,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_title {
+#nlfbzulfat .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1586,7 +1218,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#gtvhucyoma .gt_subtitle {
+#nlfbzulfat .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1596,13 +1228,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#gtvhucyoma .gt_bottom_border {
+#nlfbzulfat .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_col_headings {
+#nlfbzulfat .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1617,7 +1249,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_col_heading {
+#nlfbzulfat .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1637,7 +1269,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#gtvhucyoma .gt_column_spanner_outer {
+#nlfbzulfat .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1649,15 +1281,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#gtvhucyoma .gt_column_spanner_outer:first-child {
+#nlfbzulfat .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gtvhucyoma .gt_column_spanner_outer:last-child {
+#nlfbzulfat .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gtvhucyoma .gt_column_spanner {
+#nlfbzulfat .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1669,7 +1301,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#gtvhucyoma .gt_group_heading {
+#nlfbzulfat .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1691,7 +1323,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#gtvhucyoma .gt_empty_group_heading {
+#nlfbzulfat .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1706,15 +1338,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#gtvhucyoma .gt_from_md > :first-child {
+#nlfbzulfat .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gtvhucyoma .gt_from_md > :last-child {
+#nlfbzulfat .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gtvhucyoma .gt_row {
+#nlfbzulfat .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1733,7 +1365,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#gtvhucyoma .gt_stub {
+#nlfbzulfat .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1745,7 +1377,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#gtvhucyoma .gt_summary_row {
+#nlfbzulfat .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1755,7 +1387,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#gtvhucyoma .gt_first_summary_row {
+#nlfbzulfat .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1765,7 +1397,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_grand_summary_row {
+#nlfbzulfat .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1775,7 +1407,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#gtvhucyoma .gt_first_grand_summary_row {
+#nlfbzulfat .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1785,11 +1417,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_striped {
+#nlfbzulfat .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gtvhucyoma .gt_table_body {
+#nlfbzulfat .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1798,7 +1430,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_footnotes {
+#nlfbzulfat .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1812,13 +1444,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_footnote {
+#nlfbzulfat .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#gtvhucyoma .gt_sourcenotes {
+#nlfbzulfat .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1832,41 +1464,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#gtvhucyoma .gt_sourcenote {
+#nlfbzulfat .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#gtvhucyoma .gt_left {
+#nlfbzulfat .gt_left {
   text-align: left;
 }
 
-#gtvhucyoma .gt_center {
+#nlfbzulfat .gt_center {
   text-align: center;
 }
 
-#gtvhucyoma .gt_right {
+#nlfbzulfat .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gtvhucyoma .gt_font_normal {
+#nlfbzulfat .gt_font_normal {
   font-weight: normal;
 }
 
-#gtvhucyoma .gt_font_bold {
+#nlfbzulfat .gt_font_bold {
   font-weight: bold;
 }
 
-#gtvhucyoma .gt_font_italic {
+#nlfbzulfat .gt_font_italic {
   font-style: italic;
 }
 
-#gtvhucyoma .gt_super {
+#nlfbzulfat .gt_super {
   font-size: 65%;
 }
 
-#gtvhucyoma .gt_footnote_marks {
+#nlfbzulfat .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2002,12 +1634,12 @@ Some examples of papers that well in the past include those by:
 
 
 ```{=html}
-<div id="epilnescyw" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aaxgomwrmj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#epilnescyw .gt_table {
+#aaxgomwrmj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2032,7 +1664,7 @@ Some examples of papers that well in the past include those by:
   border-left-color: #D3D3D3;
 }
 
-#epilnescyw .gt_heading {
+#aaxgomwrmj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2044,7 +1676,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#epilnescyw .gt_title {
+#aaxgomwrmj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2054,7 +1686,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-width: 0;
 }
 
-#epilnescyw .gt_subtitle {
+#aaxgomwrmj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2064,13 +1696,13 @@ Some examples of papers that well in the past include those by:
   border-top-width: 0;
 }
 
-#epilnescyw .gt_bottom_border {
+#aaxgomwrmj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#epilnescyw .gt_col_headings {
+#aaxgomwrmj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2085,7 +1717,7 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#epilnescyw .gt_col_heading {
+#aaxgomwrmj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2105,7 +1737,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#epilnescyw .gt_column_spanner_outer {
+#aaxgomwrmj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2117,15 +1749,15 @@ Some examples of papers that well in the past include those by:
   padding-right: 4px;
 }
 
-#epilnescyw .gt_column_spanner_outer:first-child {
+#aaxgomwrmj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#epilnescyw .gt_column_spanner_outer:last-child {
+#aaxgomwrmj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#epilnescyw .gt_column_spanner {
+#aaxgomwrmj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2137,7 +1769,7 @@ Some examples of papers that well in the past include those by:
   width: 100%;
 }
 
-#epilnescyw .gt_group_heading {
+#aaxgomwrmj .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2159,7 +1791,7 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#epilnescyw .gt_empty_group_heading {
+#aaxgomwrmj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2174,15 +1806,15 @@ Some examples of papers that well in the past include those by:
   vertical-align: middle;
 }
 
-#epilnescyw .gt_from_md > :first-child {
+#aaxgomwrmj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#epilnescyw .gt_from_md > :last-child {
+#aaxgomwrmj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#epilnescyw .gt_row {
+#aaxgomwrmj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2201,7 +1833,7 @@ Some examples of papers that well in the past include those by:
   overflow-x: hidden;
 }
 
-#epilnescyw .gt_stub {
+#aaxgomwrmj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2213,7 +1845,7 @@ Some examples of papers that well in the past include those by:
   padding-left: 12px;
 }
 
-#epilnescyw .gt_summary_row {
+#aaxgomwrmj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2223,7 +1855,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#epilnescyw .gt_first_summary_row {
+#aaxgomwrmj .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2233,7 +1865,7 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#epilnescyw .gt_grand_summary_row {
+#aaxgomwrmj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2243,7 +1875,7 @@ Some examples of papers that well in the past include those by:
   padding-right: 5px;
 }
 
-#epilnescyw .gt_first_grand_summary_row {
+#aaxgomwrmj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2253,11 +1885,11 @@ Some examples of papers that well in the past include those by:
   border-top-color: #D3D3D3;
 }
 
-#epilnescyw .gt_striped {
+#aaxgomwrmj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#epilnescyw .gt_table_body {
+#aaxgomwrmj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2266,7 +1898,7 @@ Some examples of papers that well in the past include those by:
   border-bottom-color: #D3D3D3;
 }
 
-#epilnescyw .gt_footnotes {
+#aaxgomwrmj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2280,13 +1912,13 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#epilnescyw .gt_footnote {
+#aaxgomwrmj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#epilnescyw .gt_sourcenotes {
+#aaxgomwrmj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2300,41 +1932,41 @@ Some examples of papers that well in the past include those by:
   border-right-color: #D3D3D3;
 }
 
-#epilnescyw .gt_sourcenote {
+#aaxgomwrmj .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#epilnescyw .gt_left {
+#aaxgomwrmj .gt_left {
   text-align: left;
 }
 
-#epilnescyw .gt_center {
+#aaxgomwrmj .gt_center {
   text-align: center;
 }
 
-#epilnescyw .gt_right {
+#aaxgomwrmj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#epilnescyw .gt_font_normal {
+#aaxgomwrmj .gt_font_normal {
   font-weight: normal;
 }
 
-#epilnescyw .gt_font_bold {
+#aaxgomwrmj .gt_font_bold {
   font-weight: bold;
 }
 
-#epilnescyw .gt_font_italic {
+#aaxgomwrmj .gt_font_italic {
   font-style: italic;
 }
 
-#epilnescyw .gt_super {
+#aaxgomwrmj .gt_super {
   font-size: 65%;
 }
 
-#epilnescyw .gt_footnote_marks {
+#aaxgomwrmj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;

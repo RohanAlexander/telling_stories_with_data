@@ -5,7 +5,6 @@
 
 **STATUS: Under construction.**
 
-
 **Required reading**
 
 - Barocas, Solon, and Danah Boyd, 2017, 'Engaging the ethics of data science in practice', *Communications of the ACM*, 60.11 (2017): 23-25.
@@ -14,14 +13,15 @@
 - Tukey, John W., 1961, 'The Future of Data Analysis', *The annals of mathematical statistics*, Part 1 'General Considerations', https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-33/issue-1/The-Future-of-Data-Analysis/10.1214/aoms/1177704711.full.
 - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapters 3 and 7, https://r4ds.had.co.nz/.
 
-**Recommended reading**
 
-- Hall, Megan, 2019, 'Exploratory Data Analysis Using Tidyverse', https://hockey-graphs.com/2019/10/08/exploratory-data-analysis-using-tidyverse/.
-- Kommenda, Niko, Helen Pidd and Libby Brooks, 2020, 'Revealed: the areas in the UK with one Airbnb for every four homes', *The Guardian*, 20 February, https://www.theguardian.com/technology/2020/feb/20/revealed-the-areas-in-the-uk-with-one-airbnb-for-every-four-homes.
-- Silge, Julia, 2018, 'Understanding PCA using Stack Overflow data', https://juliasilge.com/blog/stack-overflow-pca/.
-- Soetewey, Antoine, 2020, 'Descriptive statistics in R', https://www.statsandr.com/blog/descriptive-statistics-in-r/.
-- Stodulka, Jiri, 2019, 'Toronto Crime and Folium', https://www.jiristodulka.com/post/toronto-crime/.
-- Wong, Julia Carrie, 2020, 'One year inside Trump's monumental Facebook campaign', The Guardian, 29 January, https://www.theguardian.com/us-news/2020/jan/28/donald-trump-facebook-ad-campaign-2020-election.
+<!-- **Recommended reading** -->
+
+<!-- - Hall, Megan, 2019, 'Exploratory Data Analysis Using Tidyverse', https://hockey-graphs.com/2019/10/08/exploratory-data-analysis-using-tidyverse/. -->
+<!-- - Kommenda, Niko, Helen Pidd and Libby Brooks, 2020, 'Revealed: the areas in the UK with one Airbnb for every four homes', *The Guardian*, 20 February, https://www.theguardian.com/technology/2020/feb/20/revealed-the-areas-in-the-uk-with-one-airbnb-for-every-four-homes. -->
+<!-- - Silge, Julia, 2018, 'Understanding PCA using Stack Overflow data', https://juliasilge.com/blog/stack-overflow-pca/. -->
+<!-- - Soetewey, Antoine, 2020, 'Descriptive statistics in R', https://www.statsandr.com/blog/descriptive-statistics-in-r/. -->
+<!-- - Stodulka, Jiri, 2019, 'Toronto Crime and Folium', https://www.jiristodulka.com/post/toronto-crime/. -->
+<!-- - Wong, Julia Carrie, 2020, 'One year inside Trump's monumental Facebook campaign', The Guardian, 29 January, https://www.theguardian.com/us-news/2020/jan/28/donald-trump-facebook-ad-campaign-2020-election. -->
 
 
 
@@ -93,29 +93,7 @@
 - `vis_miss()`
 
 
-**Quiz**
 
-1. In your own words what is exploratory data analysis (this will be difficult, but please write only one nuanced paragraph)?
-2. In Tukey's words, what is exploratory data analysis (please write one paragraph)?
-3. Who was Tukey (please write a paragraph or two)? 
-4. What is Tukey's link to DoSS (hint: he was an advisor on someone's PhD - who was that person)?
-5. Can you identify a female equivalent to Tukey who we (as historians of statistics) may have overlooked?
-6. If you have a dataset called 'my_data', which has two columns: 'first_col' and 'second_col', then could you please write some rough R code that would generate a graph (the type of graph doesn't matter).
-7. Consider a dataset that has 500 rows and 3 columns, so there are 1,500 cells. If 100 of the cells are missing data for at least one of the columns, then would you remove the whole row your dataset or try to run your analysis on the data as is, or some other procedure? What if your dataset had 10,000 rows instead, but the same number of missing cells?
-8. Please note three ways of identifying unusual values.
-9. What is the difference between a categorical and continuous variable?
-10. What is the difference between a factor and an integer variable?
-11. How can we think about who is systematically excluded from a dataset?
-12. Using the `opendatatoronto` package, download the data on mayoral campaign contributions for 2014. (note: the 2014 file you will get from `get_resource`, so just keep the sheet that relates to the Mayor election). 
-    1. Clean up the data format (fixing the parsing issue and standardizing the column names using `janitor`)
-    2. Summarize the variables in the dataset. Are there missing values, and if so, should we be worried about them? Is every variable in the format it should be? If not, create new variable(s) that are in the right format.
-    3. Visually explore the distribution of values of the contributions. What contributions are notable outliers? Do they share a similar characteristic(s)? It may be useful to plot the distribution of contributions without these outliers to get a better sense of the majority of the data. 
-    4. List the top five candidates in each of these categories: 1) total contributions; 2) mean contribution; and 3) number of contributions.
-    5. Repeat that process, but without contributions from the candidates themselves.
-    6. How many contributors gave money to more than one candidate?
-13. Name three geoms that produce graphs that have bars on them `ggplot()`.
-14. Consider a dataset 10,000 observations and 27 variables. For each observation, there is at least one missing variable. Please discuss, in a paragraph or two, the steps that you would take to understand what is going on.
-15. Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at McClelland, Alexander, 2019, ‘“Lock This Whore Up”: Legal Violence and Flows of Information Precipitating Personal Violence against People Criminalised for HIV-Related Crimes in Canada’, European Journal of Risk Regulation, 10 (1), pp. 132-147. Then look at Policing the Pandemic - https://www.policingthepandemic.ca/. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about? 
 
 
 ## Introduction
@@ -163,16 +141,16 @@ all_data
 #> # A tibble: 425 × 11
 #>    title         id    topics civic_issues publisher excerpt
 #>    <chr>         <chr> <chr>  <chr>        <chr>     <chr>  
-#>  1 Toronto Cent… 1d07… City … Mobility     Informat… "Linea…
-#>  2 Building Per… 8219… Devel… <NA>         Toronto … "Provi…
-#>  3 Building Per… 108c… Devel… Affordable … Toronto … "Provi…
-#>  4 Municipal Li… 5da2… City … Affordable … Municipa… "This …
-#>  5 Toronto's Da… 5da3… <NA>   <NA>         City Man… "This …
-#>  6 EarlyON Chil… 2619… Commu… Poverty red… Children… "Early…
-#>  7 Licensed Chi… 059d… Commu… <NA>         Children… "Licen…
-#>  8 Short Term R… 2ab2… Permi… Affordable … Municipa… "This …
-#>  9 Polls conduc… 7bce… City … <NA>         City Cle… "Polls…
-#> 10 COVID-19 Imm… d3f2… Health <NA>         Toronto … "This …
+#>  1 EarlyON Chil… 2619… Commu… Poverty red… Children… "Early…
+#>  2 Short Term R… 2ab2… Permi… Affordable … Municipa… "This …
+#>  3 Polls conduc… 7bce… City … <NA>         City Cle… "Polls…
+#>  4 COVID-19 Imm… d3f2… Health <NA>         Toronto … "This …
+#>  5 COVID-19 Tes… cd61… Health <NA>         Toronto … "This …
+#>  6 Rain Gauge L… f293… Locat… Climate cha… Toronto … "This …
+#>  7 Street Furni… 99b1… City … <NA>         Transpor… "Infor…
+#>  8 Automated Sp… a154… Trans… Mobility     Transpor… "This …
+#>  9 BodySafe      c405… City … <NA>         Toronto … "This …
+#> 10 Street Furni… 1db3… City … Mobility     Transpor… "Trans…
 #> # … with 415 more rows, and 5 more variables:
 #> #   dataset_category <chr>, num_resources <int>,
 #> #   formats <chr>, refresh_rate <chr>,
@@ -2488,6 +2466,31 @@ both %>%
 
 
 ### Exercises
+
+
+1. In your own words what is exploratory data analysis (this will be difficult, but please write only one nuanced paragraph)?
+2. In Tukey's words, what is exploratory data analysis (please write one paragraph)?
+3. Who was Tukey (please write a paragraph or two)? 
+4. What is Tukey's link to DoSS (hint: he was an advisor on someone's PhD - who was that person)?
+5. Can you identify a female equivalent to Tukey who we (as historians of statistics) may have overlooked?
+6. If you have a dataset called 'my_data', which has two columns: 'first_col' and 'second_col', then could you please write some rough R code that would generate a graph (the type of graph doesn't matter).
+7. Consider a dataset that has 500 rows and 3 columns, so there are 1,500 cells. If 100 of the cells are missing data for at least one of the columns, then would you remove the whole row your dataset or try to run your analysis on the data as is, or some other procedure? What if your dataset had 10,000 rows instead, but the same number of missing cells?
+8. Please note three ways of identifying unusual values.
+9. What is the difference between a categorical and continuous variable?
+10. What is the difference between a factor and an integer variable?
+11. How can we think about who is systematically excluded from a dataset?
+12. Using the `opendatatoronto` package, download the data on mayoral campaign contributions for 2014. (note: the 2014 file you will get from `get_resource`, so just keep the sheet that relates to the Mayor election). 
+    1. Clean up the data format (fixing the parsing issue and standardizing the column names using `janitor`)
+    2. Summarize the variables in the dataset. Are there missing values, and if so, should we be worried about them? Is every variable in the format it should be? If not, create new variable(s) that are in the right format.
+    3. Visually explore the distribution of values of the contributions. What contributions are notable outliers? Do they share a similar characteristic(s)? It may be useful to plot the distribution of contributions without these outliers to get a better sense of the majority of the data. 
+    4. List the top five candidates in each of these categories: 1) total contributions; 2) mean contribution; and 3) number of contributions.
+    5. Repeat that process, but without contributions from the candidates themselves.
+    6. How many contributors gave money to more than one candidate?
+13. Name three geoms that produce graphs that have bars on them `ggplot()`.
+14. Consider a dataset 10,000 observations and 27 variables. For each observation, there is at least one missing variable. Please discuss, in a paragraph or two, the steps that you would take to understand what is going on.
+15. Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at McClelland, Alexander, 2019, ‘“Lock This Whore Up”: Legal Violence and Flows of Information Precipitating Personal Violence against People Criminalised for HIV-Related Crimes in Canada’, European Journal of Risk Regulation, 10 (1), pp. 132-147. Then look at Policing the Pandemic - https://www.policingthepandemic.ca/. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about? 
+
+
 
 ### Tutorial
 

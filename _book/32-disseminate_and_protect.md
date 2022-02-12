@@ -4,20 +4,11 @@
 **STATUS: Under construction.**
 
 
-- Hawes, M. B. (2020). Implementing Differential Privacy: Seven Lessons From the 2020 United States Census. Harvard Data Science Review. https://doi.org/10.1162/99608f92.353c6f99
 
-- https://hdsr.mitpress.mit.edu/pub/g9o4z8au/release/2
-
-- https://www.census.gov/newsroom/blogs/research-matters/2020/02/census_bureau_works.html
-
-**Required reading**
+**Required material**
 
 
-**Recommended reading**
-
-
-
-**Key concepts/skills/etc**
+**Key concepts and skills**
 
 - 
 
@@ -25,10 +16,9 @@
 
 - 
 
-**Key functions/etc**
+**Key functions**
 
-- 
-
+-
 
 
 
@@ -56,7 +46,6 @@
 
 
 
-
 ## Exercises and tutorial
 
 
@@ -68,4 +57,9 @@
 ### Tutorial
 
 
+
+
+### Paper
+
+At about this point, Paper Four (Appendix \@ref(paper-four)) would be appropriate.
 
