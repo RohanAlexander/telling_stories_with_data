@@ -188,14 +188,14 @@ simulated_data
 #>     <int> <chr>         
 #>  1      1 Other         
 #>  2      2 Liberal       
-#>  3      3 Liberal       
-#>  4      4 Bloc Québécois
-#>  5      5 Liberal       
-#>  6      6 Bloc Québécois
-#>  7      7 Bloc Québécois
-#>  8      8 Conservative  
-#>  9      9 Green         
-#> 10     10 Liberal       
+#>  3      3 Green         
+#>  4      4 Liberal       
+#>  5      5 New Democratic
+#>  6      6 Green         
+#>  7      7 Other         
+#>  8      8 New Democratic
+#>  9      9 Other         
+#> 10     10 Bloc Québécois
 #> # … with 328 more rows
 ```
 

@@ -383,10 +383,10 @@ exercises-11
 tutorial-11
 disseminating-and-protecting-data
 introduction-10
-what-is-personally-identifying-information
+personally-identifying-information
 hashing-and-salting
 gdpr-and-hipaa
-making-fake-data-to-distribute-when-you-cant-share-the-real-stuff
+data-simulation
 differential-privacy
 exercises-and-tutorial-12
 exercises-12

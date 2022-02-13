@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 Disseminating and protecting data | Telling Stories With Data</title>
+<meta name="author" content="Rohan Alexander">
+<meta name="description" content="Required material Read ‘Ten simple rules for responsible big data research,’ (Zook et al. 2017). Read ‘How Data Can Be Used Against People: A Classification of Personal Data Misuses,’ (Kröger,...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 13 Disseminating and protecting data | Telling Stories With Data">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/tellingstorieswithdatapainting.png">
+<meta property="og:description" content="Required material Read ‘Ten simple rules for responsible big data research,’ (Zook et al. 2017). Read ‘How Data Can Be Used Against People: A Classification of Personal Data Misuses,’ (Kröger,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 Disseminating and protecting data | Telling Stories With Data">
+<meta name="twitter:description" content="Required material Read ‘Ten simple rules for responsible big data research,’ (Zook et al. 2017). Read ‘How Data Can Be Used Against People: A Classification of Personal Data Misuses,’ (Kröger,...">
+<meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Telling Stories With Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 13</span> Disseminating and protecting data</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="disseminating-and-protecting-data" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> Disseminating and protecting data<a class="anchor" aria-label="anchor" href="#disseminating-and-protecting-data"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>Required material</strong></p>
+<ul>
+<li>Read ‘Ten simple rules for responsible big data research,’ <span class="citation">(<a href="papers.html#ref-zook2017ten" role="doc-biblioref">Zook et al. 2017</a>)</span>.</li>
+<li>Read ‘How Data Can Be Used Against People: A Classification of Personal Data Misuses,’ <span class="citation">(<a href="papers.html#ref-kroger2021data" role="doc-biblioref">Kröger, Miceli, and Müller 2021</a>)</span>.</li>
+</ul>
+<p><strong>Key concepts and skills</strong></p>
+<ul>
+<li>Understanding what is personally identifying information, and how this depends on context.</li>
+<li>Implementing data simulation to share data.</li>
+<li>Know what differential privacy is and some of its likely effect on data science</li>
+</ul>
+<p><strong>Key libraries</strong></p>
+<ul>
+<li>
+<code>openssl</code> <span class="citation">(<a href="papers.html#ref-openssl" role="doc-biblioref">Ooms 2021</a>)</span>
+</li>
+</ul>
+<p><strong>Key functions</strong></p>
+<ul>
+<li><code><a href="https://rdrr.io/pkg/openssl/man/hash.html">openssl::md5()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/openssl/man/hash.html">openssl::sha512()</a></code></li>
+</ul>
+<div id="introduction-10" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-10"><i class="fas fa-link"></i></a>
+</h2>
+<p>One reason for the rise of data science is that humans are at the heart of it. And often the data that we are interested in directly concern humans. This means there is a tension between sharing the data to facilitate reproducibility, and maintaining privacy. Medicine has developed approaches to this over a long time. And out of that we have seen Health Insurance Portability and Accountability Act (HIPAA) in the US, and the related General Data Protection Regulation (GDPR) in Europe. Our concerns in data science tend to be about personally identifying information (PII). We have a variety of ways to protect especially private information in our datasets, such as emails, including hashing. And sometimes we simulate data and distribute that instead of sharing the actual dataset. More recently, differential privacy is being implemented. But this is usually an inappropriate choice, for anything other than the most massive of datasets and ensures a level of privacy, only at the expense of population minorities.</p>
+</div>
+<div id="personally-identifying-information" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Personally identifying information<a class="anchor" aria-label="anchor" href="#personally-identifying-information"><i class="fas fa-link"></i></a>
+</h2>
+<p>Personally identifying information (PII) is that which enables us to link a row in our dataset with an actual person. For instance, email addresses are often PII, as are names and addresses. Interestingly, sometimes the combination of several variables, none of which are PII in and of themselves, can be PII. For instance, age is unlikely PII by itself, but age combined with city, education, and a few other variables could be. One concern is that this re-identification can occur across datasets. Another interesting aspect is that again while some variable may not be PII for almost everyone in the dataset, it can become PII in the extreme. For instance, if we have age, then there are many people of most ages, but there are fewer people in ages over 100 and it likely becomes PII. The same scenario happens with both income and wealth. One response to this is for data to be censored. For instance, we may record age between 0 and 100, and then group everyone over that into ‘101+.’</p>
+<p><span class="citation"><a href="papers.html#ref-zook2017ten" role="doc-biblioref">Zook et al.</a> (<a href="papers.html#ref-zook2017ten" role="doc-biblioref">2017</a>)</span> recommend considering whether data even need to be gathered in the first place. For instance, if a phone number is not absolutely required then it might be better to not gather it in the first place, rather than need to worry about protecting it before data dissemination.</p>
+</div>
+<div id="hashing-and-salting" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Hashing and salting<a class="anchor" aria-label="anchor" href="#hashing-and-salting"><i class="fas fa-link"></i></a>
+</h2>
+<p>A hash is a one-way transformation of data, such that the same input always provides the same output, but given the output, it is not reasonably possible to obtain the input. For instance, a function that doubled its input always gives the same output, for the same input, but is also easy to reverse.</p>
+<p><span class="citation"><a href="papers.html#ref-knuth" role="doc-biblioref">Knuth</a> (<a href="papers.html#ref-knuth" role="doc-biblioref">1998, 514</a>)</span> relates an interesting etymology for ‘hash’ by first defining ‘to hash’ as relating to chop up or make a mess, and then explaining that hashing relates to scrambling the input and using this partial information to define the output. A collision is when different inputs map to the same output, and one feature of a good hashing algorithm is that collisions are reduced. One simple approach is to rely on the modulo operator. For instance if we were interested in 10 different groupings for the integers 1 through to 10. A better approach would be for the number of groupings to be a prime number, such as 11 or 853.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="va">hashing</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ppi_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,
+         modulo_ten <span class="op">=</span> <span class="va">ppi_data</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">10</span>,
+         modulo_eleven <span class="op">=</span> <span class="va">ppi_data</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">11</span>,
+         modulo_eightfivethree <span class="op">=</span> <span class="va">ppi_data</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">853</span><span class="op">)</span>
+
+<span class="va">hashing</span>
+<span class="co">#&gt; # A tibble: 10 × 4</span>
+<span class="co">#&gt;    ppi_data modulo_ten modulo_eleven modulo_eightfivethree</span>
+<span class="co">#&gt;       &lt;int&gt;      &lt;dbl&gt;         &lt;dbl&gt;                 &lt;dbl&gt;</span>
+<span class="co">#&gt;  1        1          1             1                     1</span>
+<span class="co">#&gt;  2        2          2             2                     2</span>
+<span class="co">#&gt;  3        3          3             3                     3</span>
+<span class="co">#&gt;  4        4          4             4                     4</span>
+<span class="co">#&gt;  5        5          5             5                     5</span>
+<span class="co">#&gt;  6        6          6             6                     6</span>
+<span class="co">#&gt;  7        7          7             7                     7</span>
+<span class="co">#&gt;  8        8          8             8                     8</span>
+<span class="co">#&gt;  9        9          9             9                     9</span>
+<span class="co">#&gt; 10       10          0            10                    10</span></code></pre></div>
+<p>Rather than worry about things ourselves, we can use various hash functions from <code>openssl</code> <span class="citation">(<a href="papers.html#ref-openssl" role="doc-biblioref">Ooms 2021</a>)</span> including <code><a href="https://rdrr.io/pkg/openssl/man/hash.html">sha512()</a></code> and <code><a href="https://rdrr.io/pkg/openssl/man/hash.html">md5()</a></code>.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeroen/openssl">openssl</a></span><span class="op">)</span>
+
+<span class="va">openssl_hashing</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>names <span class="op">=</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Edward"</span>,
+              <span class="st">"Helen"</span>,
+              <span class="st">"Hugo"</span>,
+              <span class="st">"Ian"</span>,
+              <span class="st">"Monica"</span>,
+              <span class="st">"Myles"</span>,
+              <span class="st">"Patricia"</span>,
+              <span class="st">"Roger"</span>,
+              <span class="st">"Rohan"</span>,
+              <span class="st">"Ruth"</span>
+            <span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sha512 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/openssl/man/hash.html">sha512</a></span><span class="op">(</span><span class="va">names</span><span class="op">)</span>,
+         md5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/openssl/man/hash.html">md5</a></span><span class="op">(</span><span class="va">names</span><span class="op">)</span>
+  <span class="op">)</span>
+
+<span class="va">openssl_hashing</span>
+<span class="co">#&gt; # A tibble: 10 × 3</span>
+<span class="co">#&gt;    names    sha512                                     md5  </span>
+<span class="co">#&gt;    &lt;chr&gt;    &lt;hash&gt;                                     &lt;has&gt;</span>
+<span class="co">#&gt;  1 Edward   5759ada975e7cb87c28fe1b6ea5f6a1d51dbcf120… 243f…</span>
+<span class="co">#&gt;  2 Helen    6ee4156ca7e8e9a5acc42704363f35e278eda738e… 29e0…</span>
+<span class="co">#&gt;  3 Hugo     b1e441a54866906727d842e6a064ba8fb9bf1a0cb… 1b38…</span>
+<span class="co">#&gt;  4 Ian      d3cf9cdaea6ffdfd8b8d143fe609bc35b937ef139… 245a…</span>
+<span class="co">#&gt;  5 Monica   84250b971b87728aa4ab24cec405864ed9dee1343… 0908…</span>
+<span class="co">#&gt;  6 Myles    4eae7c19d5c5d4ffffd8c2f97ed7df69f792c74d7… fafd…</span>
+<span class="co">#&gt;  7 Patricia e511593a2db805e51ed0bb74c96d0db6521e2a907… 54a7…</span>
+<span class="co">#&gt;  8 Roger    f63ab236a5b0135f71c32ee39517001b21ddaa81a… efc5…</span>
+<span class="co">#&gt;  9 Rohan    5111e18391d41fbabd9005b85dc2413f2af60c61c… 02df…</span>
+<span class="co">#&gt; 10 Ruth     d7e7d23b69e37208002cdfa7dc7a0fa6f6a928539… 8e06…</span></code></pre></div>
+<p>We could share either of these and be comfortable that, in general, it would be difficult for someone to use only that information to recover the names of our respondents. That is not to say that it is impossible. If we made a mistake, such as accidentally committing the original dataset to GitHub then they could be recovered. And of course it is likely that various governments have the ability to reverse the cryptographic hashes used here.</p>
+<p>One issue that remains is that anyone can take advantage of the key feature of hashing being that the same input always gets the same output, to test various options for inputs. For instance they could, themselves try to has ‘Rohan,’ and then noticing that the hash is the same as the one that we published in our dataset, know that data relates to that particular individual. We could try to keep our hashing approach secret, but that is difficult as there are only a few that was widely used. One approach is to add a salt that we keep secret. This slightly changes the input. For instance, we could add the salt ’_is_a_person’ to all our names and then hash that, although a large random number might be a better option. Provided the salt is not shared, then it would be difficult for most folks to reverse our approach in that way.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">openssl_hashing_with_salt</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>names <span class="op">=</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Edward"</span>,
+              <span class="st">"Helen"</span>,
+              <span class="st">"Hugo"</span>,
+              <span class="st">"Ian"</span>,
+              <span class="st">"Monica"</span>,
+              <span class="st">"Myles"</span>,
+              <span class="st">"Patricia"</span>,
+              <span class="st">"Roger"</span>,
+              <span class="st">"Rohan"</span>,
+              <span class="st">"Ruth"</span>
+            <span class="op">)</span>
+         <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">"_is_a_person"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sha512 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/openssl/man/hash.html">sha512</a></span><span class="op">(</span><span class="va">names</span><span class="op">)</span>,
+         md5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/openssl/man/hash.html">md5</a></span><span class="op">(</span><span class="va">names</span><span class="op">)</span>
+         <span class="op">)</span>
+
+<span class="va">openssl_hashing_with_salt</span>
+<span class="co">#&gt; # A tibble: 10 × 3</span>
+<span class="co">#&gt;    names                sha512                         md5  </span>
+<span class="co">#&gt;    &lt;chr&gt;                &lt;hash&gt;                         &lt;has&gt;</span>
+<span class="co">#&gt;  1 Edward_is_a_person   e8ce00d98d5d2f22f7c2bf63a63c6… 9845…</span>
+<span class="co">#&gt;  2 Helen_is_a_person    b066b72ebafcb77c765de724f5cae… 7e4a…</span>
+<span class="co">#&gt;  3 Hugo_is_a_person     07c18ebb565cc86b84a523e823318… b9b8…</span>
+<span class="co">#&gt;  4 Ian_is_a_person      eb9928f62e7004aa0a6ef7e17af6f… 9b1a…</span>
+<span class="co">#&gt;  5 Monica_is_a_person   ef429119529d22b72aedbd28d06a5… 50bb…</span>
+<span class="co">#&gt;  6 Myles_is_a_person    795dce5816cf5a070ac87cc6021f0… 3635…</span>
+<span class="co">#&gt;  7 Patricia_is_a_person 1b44649bc13fa3c505a29c68dff69… 4e4a…</span>
+<span class="co">#&gt;  8 Roger_is_a_person    2f753bc3f871d60889c6d51471623… ea1d…</span>
+<span class="co">#&gt;  9 Rohan_is_a_person    cc9c7c3d9da05da52f394e2782f9d… 3ab0…</span>
+<span class="co">#&gt; 10 Ruth_is_a_person     6d329fde75a259b7de137e70b8615… 8b83…</span></code></pre></div>
+</div>
+<div id="gdpr-and-hipaa" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> GDPR and HIPAA<a class="anchor" aria-label="anchor" href="#gdpr-and-hipaa"><i class="fas fa-link"></i></a>
+</h2>
+<p>GDPR and HIPAA are two legal structures that govern data in Europe and the US, respectively. Due to the influence of these regions, they have a significant effect outside those regions also. GDPR concerns data generally, while HIPAA is focused on healthcare. GDPR applies to all personal data, which is defined as:</p>
+<blockquote>
+<p>‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;</p>
+<p><span class="citation"><a href="papers.html#ref-gdpr" role="doc-biblioref">Council of European Union</a> (<a href="papers.html#ref-gdpr" role="doc-biblioref">2016</a>)</span>, Article 4, ‘Definitions’</p>
+</blockquote>
+<p>HIPAA refers to the privacy of medical records in the US and codify the idea that the patient should have access to their medical records, and that only the patient should be able to authorize access to their medical records <span class="citation">(<a href="papers.html#ref-annas2003hipaa" role="doc-biblioref">Annas 2003</a>)</span>. While it only applies to covered entities, it sets a standard that informs practice, yet is piecemeal given the variety of applications. For instance, a person’s social media posts about their health is generally not subject to it, nor is knowledge about a person’s location and how active they are, even though based on that information we may be able to get some idea of their health <span class="citation">(<a href="papers.html#ref-Cohen2018" role="doc-biblioref">Cohen and Mello 2018</a>)</span>. Such data are hugely valuable <span class="citation">(<a href="papers.html#ref-ibmdataset" role="doc-biblioref">Ross 2022</a>)</span>.</p>
+</div>
+<div id="data-simulation" class="section level2" number="13.5">
+<h2>
+<span class="header-section-number">13.5</span> Data simulation<a class="anchor" aria-label="anchor" href="#data-simulation"><i class="fas fa-link"></i></a>
+</h2>
+<p>One common approach to deal with the issue of being unable to share the actual data that underpins an analysis, is to use data simulation. We have used data simulation throughout this book toward the start of the workflow to help us to think more deeply about our dataset before we turn to it. We can use data simulation again at the end, to ensure that others cannot think about our actual dataset. The workflow advocated in this book makes this relatively straight-forward.</p>
+<p>The approach is to understand the critical features of the dataset and the appropriate distribution. For instance, if our data were the ages of some population, then we may want to use the Poisson distribution and experiment with different parameters for lambda. Having simulated a dataset, we conduct our analysis using this simulated dataset and ensure that the results are broadly similar to when we use the real data. We can then release the simulated dataset along with our code.</p>
+<p>For more nuanced situations, <span class="citation"><a href="papers.html#ref-koenecke2020synthetic" role="doc-biblioref">Koenecke and Varian</a> (<a href="papers.html#ref-koenecke2020synthetic" role="doc-biblioref">2020</a>)</span> recommend using the synthetic data vault <span class="citation">(<a href="papers.html#ref-patki2016synthetic" role="doc-biblioref">Patki, Wedge, and Veeramachaneni 2016</a>)</span> and then the use of Generative Adversarial Networks, such as implemented by <span class="citation"><a href="papers.html#ref-athey2021using" role="doc-biblioref">Athey et al.</a> (<a href="papers.html#ref-athey2021using" role="doc-biblioref">2021</a>)</span>.</p>
+</div>
+<div id="differential-privacy" class="section level2" number="13.6">
+<h2>
+<span class="header-section-number">13.6</span> Differential privacy<a class="anchor" aria-label="anchor" href="#differential-privacy"><i class="fas fa-link"></i></a>
+</h2>
+<p>Differential privacy implements a mathematical definition of privacy, that means that even if datasets are combined, a certain level of privacy will be maintained. A dataset is differentially private to different levels, based on how much it changes when one person’s results are removed.</p>
+<p>A variant of differential privacy has recently been implemented by the US census. This has been shown to not universally protect respondent privacy, and yet it is expected to have a significant effect on redistricting <span class="citation">(<a href="papers.html#ref-kenny2021impact" role="doc-biblioref">Kenny et al. 2021</a>)</span>. <span class="citation"><a href="papers.html#ref-Suriyakumar2021" role="doc-biblioref">Suriyakumar et al.</a> (<a href="papers.html#ref-Suriyakumar2021" role="doc-biblioref">2021</a>)</span> found that such model will be disproportionately affected by large demographic groups. The implementation of differential privacy is expected to result in publicly available data that are unusable in the social sciences <span class="citation">(<a href="papers.html#ref-ruggles2019differential" role="doc-biblioref">Ruggles et al. 2019</a>)</span>.</p>
+</div>
+<div id="exercises-and-tutorial-12" class="section level2" number="13.7">
+<h2>
+<span class="header-section-number">13.7</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-12"><i class="fas fa-link"></i></a>
+</h2>
+<div id="exercises-12" class="section level3" number="13.7.1">
+<h3>
+<span class="header-section-number">13.7.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-12"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="tutorial-12" class="section level3" number="13.7.2">
+<h3>
+<span class="header-section-number">13.7.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-12"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="paper-3" class="section level3" number="13.7.3">
+<h3>
+<span class="header-section-number">13.7.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>At about this point, Paper Four (Appendix <a href="papers.html#paper-four">B.4</a>) would be appropriate.</p>
+
+</div>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 13 February, 2022.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

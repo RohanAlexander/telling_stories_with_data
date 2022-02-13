@@ -4,6 +4,7 @@
 **Required material**
 
 - Read *Datasheets for datasets*, [@gebru2021datasheets].
+- Read *Data and its (dis)contents: A survey of dataset development and use in machine learning research*, [@Paullada2021].
 
 **Key concepts and skills**
 
