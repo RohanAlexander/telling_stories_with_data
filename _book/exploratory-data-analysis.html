@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 Exploratory data analysis | Telling Stories With Data</title>
+<title>Chapter 13 Exploratory data analysis | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
 <meta name="description" content="STATUS: Under construction. Required reading Barocas, Solon, and Danah Boyd, 2017, ‘Engaging the ethics of data science in practice,’ Communications of the ACM, 60.11 (2017): 23-25. DiCiccio,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 14 Exploratory data analysis | Telling Stories With Data">
+<meta property="og:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
 <meta property="og:description" content="STATUS: Under construction. Required reading Barocas, Solon, and Danah Boyd, 2017, ‘Engaging the ethics of data science in practice,’ Communications of the ACM, 60.11 (2017): 23-25. DiCiccio,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 Exploratory data analysis | Telling Stories With Data">
+<meta name="twitter:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data">
 <meta name="twitter:description" content="STATUS: Under construction. Required reading Barocas, Solon, and Danah Boyd, 2017, ‘Engaging the ethics of data science in practice,’ Communications of the ACM, 60.11 (2017): 23-25. DiCiccio,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -66,20 +66,19 @@
 <li><a class="" href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></li>
 <li><a class="" href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></li>
 <li class="book-part">Preparation</li>
-<li><a class="" href="cleaning-and-preparing-data.html"><span class="header-section-number">11</span> Cleaning and preparing data</a></li>
-<li><a class="" href="storing-and-retrieving-data.html"><span class="header-section-number">12</span> Storing and retrieving data</a></li>
-<li><a class="" href="disseminating-and-protecting-data.html"><span class="header-section-number">13</span> Disseminating and protecting data</a></li>
+<li><a class="" href="clean-and-prepare.html"><span class="header-section-number">11</span> Clean and prepare</a></li>
+<li><a class="" href="store-and-share.html"><span class="header-section-number">12</span> Store and share</a></li>
 <li class="book-part">Modelling</li>
-<li><a class="active" href="exploratory-data-analysis.html"><span class="header-section-number">14</span> Exploratory data analysis</a></li>
-<li><a class="" href="ijalm.html"><span class="header-section-number">15</span> It’s Just A Linear Model</a></li>
-<li><a class="" href="causality.html"><span class="header-section-number">16</span> Causality from observational data</a></li>
-<li><a class="" href="mrp.html"><span class="header-section-number">17</span> Multilevel regression with post-stratification</a></li>
-<li><a class="" href="text-as-data.html"><span class="header-section-number">18</span> Text as data</a></li>
+<li><a class="active" href="exploratory-data-analysis.html"><span class="header-section-number">13</span> Exploratory data analysis</a></li>
+<li><a class="" href="ijalm.html"><span class="header-section-number">14</span> It’s Just A Linear Model</a></li>
+<li><a class="" href="causality.html"><span class="header-section-number">15</span> Causality from observational data</a></li>
+<li><a class="" href="mrp.html"><span class="header-section-number">16</span> Multilevel regression with post-stratification</a></li>
+<li><a class="" href="text-as-data.html"><span class="header-section-number">17</span> Text as data</a></li>
 <li class="book-part">Enrichment</li>
-<li><a class="" href="using-the-cloud.html"><span class="header-section-number">19</span> Using the cloud</a></li>
-<li><a class="" href="deploying-models.html"><span class="header-section-number">20</span> Deploying models</a></li>
-<li><a class="" href="efficiency.html"><span class="header-section-number">21</span> Efficiency</a></li>
-<li><a class="" href="concludingremarks.html"><span class="header-section-number">22</span> Concluding remarks</a></li>
+<li><a class="" href="using-the-cloud.html"><span class="header-section-number">18</span> Using the cloud</a></li>
+<li><a class="" href="deploying-models.html"><span class="header-section-number">19</span> Deploying models</a></li>
+<li><a class="" href="efficiency.html"><span class="header-section-number">20</span> Efficiency</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">21</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
@@ -91,9 +90,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="exploratory-data-analysis" class="section level1" number="14">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="exploratory-data-analysis" class="section level1" number="13">
 <h1>
-<span class="header-section-number">14</span> Exploratory data analysis<a class="anchor" aria-label="anchor" href="#exploratory-data-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13</span> Exploratory data analysis<a class="anchor" aria-label="anchor" href="#exploratory-data-analysis"><i class="fas fa-link"></i></a>
 </h1>
 <p><strong>STATUS: Under construction.</strong></p>
 <p><strong>Required reading</strong></p>
@@ -167,9 +166,9 @@
 <li><code><a href="https://docs.ropensci.org/visdat/reference/vis_dat.html">vis_dat()</a></code></li>
 <li><code><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss()</a></code></li>
 </ul>
-<div id="introduction-11" class="section level2" number="14.1">
+<div id="introduction-10" class="section level2" number="13.1">
 <h2>
-<span class="header-section-number">14.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-11"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-10"><i class="fas fa-link"></i></a>
 </h2>
 <blockquote>
 <p>The future of data analysis can involve great progress, the overcoming of real difficulties, and the provision of a great service to all fields of science and technology. Will it? That remains to us, to our willingness to take up the rocky road of real problems in preference to the smooth road of unreal assumptions, arbitrary criteria, and abstract results without real attachments. Who is for the challenge?</p>
@@ -180,14 +179,14 @@
 <p>EDA draws on everything that you know as an analyst. Every tool is fair game and should be considered. Look at the raw data, make some tables, some plots, some summary statistics, make some models. The key here is to iterate, move quickly not perfectly, and come to understand your data.</p>
 <p>In this chapter we will working with real data that has many issues so that you can understand the main characteristics and potential issues. We will use the <code>opendatatoronto</code> package <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, among other sources. There are a lot of options for EDA <span class="citation">(<a href="references-1.html#ref-staniak2019landscape" role="doc-biblioref">Staniak and Biecek 2019</a>)</span> and here I focus on a few of them.</p>
 </div>
-<div id="case-study---ttc-subway-delays" class="section level2" number="14.2">
+<div id="case-study---ttc-subway-delays" class="section level2" number="13.2">
 <h2>
-<span class="header-section-number">14.2</span> Case study - TTC subway delays<a class="anchor" aria-label="anchor" href="#case-study---ttc-subway-delays"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2</span> Case study - TTC subway delays<a class="anchor" aria-label="anchor" href="#case-study---ttc-subway-delays"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>This section was written with <a href="https://www.monicaalexander.com/">Monica Alexander</a>.</strong></p>
-<div id="introduction-12" class="section level3" number="14.2.1">
+<div id="introduction-11" class="section level3" number="13.2.1">
 <h3>
-<span class="header-section-number">14.2.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-11"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <code>opendatatoronto</code> package <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span> provides an interface to all data available on the <a href="https://open.toronto.ca/">Open Data Portal</a> provided by the City of Toronto. We are going to use that to take a quick look at the subway delays. We’re additionally going to especially draw on the <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span>, as well as the <code>ggrepel</code> <span class="citation">(<a href="references-1.html#ref-citeggrepel" role="doc-biblioref">Slowikowski 2021</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, and <code>visdat</code> <span class="citation">(<a href="references-1.html#ref-citevisdat" role="doc-biblioref">N. Tierney 2017</a>)</span> packages.</p>
 <div class="sourceCode" id="cb400"><pre class="downlit sourceCode r">
@@ -198,9 +197,9 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://visdat.njtierney.com/">visdat</a></span><span class="op">)</span></code></pre></div>
 </div>
-<div id="gather-the-data" class="section level3" number="14.2.2">
+<div id="gather-the-data" class="section level3" number="13.2.2">
 <h3>
-<span class="header-section-number">14.2.2</span> Gather the data<a class="anchor" aria-label="anchor" href="#gather-the-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.2</span> Gather the data<a class="anchor" aria-label="anchor" href="#gather-the-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>To begin with, use <code><a href="https://sharlagelfand.github.io/opendatatoronto//reference/list_packages.html">opendatatoronto::list_packages()</a></code> to look at some of the datasets that available.</p>
 <div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
@@ -209,16 +208,16 @@
 <span class="co">#&gt; # A tibble: 425 × 11</span>
 <span class="co">#&gt;    title         id    topics civic_issues publisher excerpt</span>
 <span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;  </span>
-<span class="co">#&gt;  1 Short Term R… 2ab2… Permi… Affordable … Municipa… "This …</span>
-<span class="co">#&gt;  2 Polls conduc… 7bce… City … &lt;NA&gt;         City Cle… "Polls…</span>
-<span class="co">#&gt;  3 COVID-19 Tes… cd61… Health &lt;NA&gt;         Toronto … "This …</span>
-<span class="co">#&gt;  4 COVID-19 Imm… d3f2… Health &lt;NA&gt;         Toronto … "This …</span>
-<span class="co">#&gt;  5 Rain Gauge L… f293… Locat… Climate cha… Toronto … "This …</span>
-<span class="co">#&gt;  6 Street Furni… 99b1… City … &lt;NA&gt;         Transpor… "Infor…</span>
-<span class="co">#&gt;  7 Automated Sp… a154… Trans… Mobility     Transpor… "This …</span>
-<span class="co">#&gt;  8 BodySafe      c405… City … &lt;NA&gt;         Toronto … "This …</span>
-<span class="co">#&gt;  9 Street Furni… 1db3… City … Mobility     Transpor… "Trans…</span>
-<span class="co">#&gt; 10 Street Furni… 74f6… City … &lt;NA&gt;         Transpor… "Publi…</span>
+<span class="co">#&gt;  1 Building Per… 8219… Devel… &lt;NA&gt;         Toronto … "Provi…</span>
+<span class="co">#&gt;  2 Building Per… 108c… Devel… Affordable … Toronto … "Provi…</span>
+<span class="co">#&gt;  3 Municipal Li… 5da2… City … Affordable … Municipa… "This …</span>
+<span class="co">#&gt;  4 Licensed Chi… 059d… Commu… &lt;NA&gt;         Children… "Licen…</span>
+<span class="co">#&gt;  5 Short Term R… 2ab2… Permi… Affordable … Municipa… "This …</span>
+<span class="co">#&gt;  6 Neighbourhoo… 4def… Locat… Affordable … Social D… "Bound…</span>
+<span class="co">#&gt;  7 Polls conduc… 7bce… City … &lt;NA&gt;         City Cle… "Polls…</span>
+<span class="co">#&gt;  8 COVID-19 Imm… d3f2… Health &lt;NA&gt;         Toronto … "This …</span>
+<span class="co">#&gt;  9 COVID-19 Tes… cd61… Health &lt;NA&gt;         Toronto … "This …</span>
+<span class="co">#&gt; 10 Rain Gauge L… f293… Locat… Climate cha… Toronto … "This …</span>
 <span class="co">#&gt; # … with 415 more rows, and 5 more variables:</span>
 <span class="co">#&gt; #   dataset_category &lt;chr&gt;, num_resources &lt;int&gt;,</span>
 <span class="co">#&gt; #   formats &lt;chr&gt;, refresh_rate &lt;chr&gt;,</span>
@@ -285,9 +284,9 @@
 <li>Be as lazy as possible.</li>
 </ol>
 </div>
-<div id="sanity-checks" class="section level3" number="14.2.3">
+<div id="sanity-checks" class="section level3" number="13.2.3">
 <h3>
-<span class="header-section-number">14.2.3</span> Sanity Checks<a class="anchor" aria-label="anchor" href="#sanity-checks"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.3</span> Sanity Checks<a class="anchor" aria-label="anchor" href="#sanity-checks"><i class="fas fa-link"></i></a>
 </h3>
 <p>We need to check that the variables are what they say they are. If they aren’t, the natural next question is to what to do with any issues. Should we recode them, or even remove them? It’s important to distinguish between factors and characters, as well as between factors and numerics.</p>
 <p>For instance, have a look at the column that claims to be the days of week using <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>.</p>
@@ -320,9 +319,9 @@
 <span class="co">#&gt; [23] "100 FLEMINGDON PARK"    "YU LINE"</span></code></pre></div>
 <p>It looks like we have many issues here, and some of them have an obvious re-code, but some do not. Should we drop them? There’s no absolute right answer here, it depends on what you’re using the data for, but you need to be aware of these issues in the data.</p>
 </div>
-<div id="missing-values" class="section level3" number="14.2.4">
+<div id="missing-values" class="section level3" number="13.2.4">
 <h3>
-<span class="header-section-number">14.2.4</span> Missing values<a class="anchor" aria-label="anchor" href="#missing-values"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.4</span> Missing values<a class="anchor" aria-label="anchor" href="#missing-values"><i class="fas fa-link"></i></a>
 </h3>
 <p>Exploring missing data is a course in itself, but the main point is that their presence (or lack thereof) will haunt your analysis. Insert joke about ghostbusters here.</p>
 <p>To get started look at known-unknowns, which are the NAs for each variable.</p>
@@ -347,9 +346,9 @@
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-10-2.png" width="672"></div>
 <p>For these known-unknowns, what we are interested in is whether the they are missing at random. We want to, ideally, show that data happened to just drop out. Of course, this is unlikely the case, and so we are looking to see what is systematic about how our data are missing.</p>
 </div>
-<div id="duplicate-rows" class="section level3" number="14.2.5">
+<div id="duplicate-rows" class="section level3" number="13.2.5">
 <h3>
-<span class="header-section-number">14.2.5</span> Duplicate rows<a class="anchor" aria-label="anchor" href="#duplicate-rows"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.5</span> Duplicate rows<a class="anchor" aria-label="anchor" href="#duplicate-rows"><i class="fas fa-link"></i></a>
 </h3>
 <p>Sometime data happen to be duplicated. If we didn’t notice this then our analysis would be wrong in ways that we’d not be able to consistently expect. There are a variety of ways to look for duplicated rows, but the <code><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">janitor::get_dupes()</a></code> function from the <code>janitor</code> package <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> is especially useful.</p>
 <div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
@@ -377,9 +376,9 @@
   <span class="va">delay_2019</span> <span class="op"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="visualizing-distributions" class="section level3" number="14.2.6">
+<div id="visualizing-distributions" class="section level3" number="13.2.6">
 <h3>
-<span class="header-section-number">14.2.6</span> Visualizing distributions<a class="anchor" aria-label="anchor" href="#visualizing-distributions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.6</span> Visualizing distributions<a class="anchor" aria-label="anchor" href="#visualizing-distributions"><i class="fas fa-link"></i></a>
 </h3>
 <p>You need to see your data in its most raw form to understand it, and histograms, barplots, and density plots are your friends here. We’re not looking for beauty here, we’re looking to get a look at the data as quickly as possible.</p>
 <p>Let’s look at one outcome of interest: ‘min_delay.’ First of all let’s just look at a histogram of all the data.</p>
@@ -451,9 +450,9 @@
 <span class="co">#&gt; # … with 18,687 more rows, and 1 more variable:</span>
 <span class="co">#&gt; #   code_desc &lt;chr&gt;</span></code></pre></div>
 </div>
-<div id="groups-and-small-counts" class="section level3" number="14.2.7">
+<div id="groups-and-small-counts" class="section level3" number="13.2.7">
 <h3>
-<span class="header-section-number">14.2.7</span> Groups and small counts<a class="anchor" aria-label="anchor" href="#groups-and-small-counts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.7</span> Groups and small counts<a class="anchor" aria-label="anchor" href="#groups-and-small-counts"><i class="fas fa-link"></i></a>
 </h3>
 <p>Another thing that we’re looking for is various groupings of the data, especially where sub-groups may end up with small numbers of observations in them (because any analysis could be easily influenced by them). A quick way to do this is to group the data by a variable that is of interest, for instance ‘line,’ using colour.</p>
 <div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
@@ -512,9 +511,9 @@
 <span class="co">#&gt; using the `.groups` argument.</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
 </div>
-<div id="visualizing-time-series" class="section level3" number="14.2.8">
+<div id="visualizing-time-series" class="section level3" number="13.2.8">
 <h3>
-<span class="header-section-number">14.2.8</span> Visualizing time series<a class="anchor" aria-label="anchor" href="#visualizing-time-series"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.8</span> Visualizing time series<a class="anchor" aria-label="anchor" href="#visualizing-time-series"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dates are a pain to work with. They always go wrong and give issues, and so they are a critical aspect to explore during EDA. The daily plot of this data is, well, very messy (you can check for yourself). Instead, let’s look by week to see if there’s any seasonality. The <code>lubridate</code> package <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span> has a lot of helpful functions that deal with date variables. It’s essentially indispensable.</p>
 <p>To get started, let’s look at mean delay (of those that were delayed more than zero minutes).</p>
@@ -546,9 +545,9 @@
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
 <p>Again, and it’s important to be clear here. These charts and tables and analyse have no place in a final report, but what they are doing is allowing you to become comfortable with the data. If you were doing this yourself, you should additionally be making notes about each plot and table as you go, noting the warnings and any implications or aspects to return to.</p>
 </div>
-<div id="visualizing-relationships" class="section level3" number="14.2.9">
+<div id="visualizing-relationships" class="section level3" number="13.2.9">
 <h3>
-<span class="header-section-number">14.2.9</span> Visualizing relationships<a class="anchor" aria-label="anchor" href="#visualizing-relationships"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.9</span> Visualizing relationships<a class="anchor" aria-label="anchor" href="#visualizing-relationships"><i class="fas fa-link"></i></a>
 </h3>
 <p>We are also interested in looking at the relationship between two variables. Scatter plots are especially useful here for continuous variables, and are a good precursor to modeling. We saw a little of that with ‘mean_delay’ and ‘week.’</p>
 <div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
@@ -580,9 +579,9 @@
 <span class="co">#&gt; using the `.groups` argument.</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-25-1.png" width="672"></div>
 </div>
-<div id="principal-components-analysis" class="section level3" number="14.2.10">
+<div id="principal-components-analysis" class="section level3" number="13.2.10">
 <h3>
-<span class="header-section-number">14.2.10</span> Principal components analysis<a class="anchor" aria-label="anchor" href="#principal-components-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.10</span> Principal components analysis<a class="anchor" aria-label="anchor" href="#principal-components-analysis"><i class="fas fa-link"></i></a>
 </h3>
 <p>Principal components analysis (PCA) is another powerful exploratory tool. It allows you to pick up potential clusters and/or outliers that can help to inform model building. To see this let’s do a quick (and imperfect) example looking at types of delays by station.</p>
 <p>The delay categories are a bit of a mess, and there’s hundreds of them. As a simple start, remembering that our task is to come to terms with the dataset as quickly as possible, let’s just take the first word.</p>
@@ -690,14 +689,14 @@
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-30-1.png" width="672"></div>
 </div>
 </div>
-<div id="case-study---opinions-about-a-casino-in-toronto" class="section level2" number="14.3">
+<div id="case-study---opinions-about-a-casino-in-toronto" class="section level2" number="13.3">
 <h2>
-<span class="header-section-number">14.3</span> Case study - Opinions about a casino in Toronto<a class="anchor" aria-label="anchor" href="#case-study---opinions-about-a-casino-in-toronto"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3</span> Case study - Opinions about a casino in Toronto<a class="anchor" aria-label="anchor" href="#case-study---opinions-about-a-casino-in-toronto"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>This was written by <a href="https://michael-chong.github.io">Michael Chong</a>.</strong></p>
-<div id="data-preparation" class="section level3" number="14.3.1">
+<div id="data-preparation" class="section level3" number="13.3.1">
 <h3>
-<span class="header-section-number">14.3.1</span> Data preparation<a class="anchor" aria-label="anchor" href="#data-preparation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3.1</span> Data preparation<a class="anchor" aria-label="anchor" href="#data-preparation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Here we use the <code>opendatatoronto</code> package again. See the previous case study for a deeper explanation of how the code below works.</p>
 <p>The dataset I’m extracting below are the results from a survey in 2012 regarding the establishment of a casino in Toronto. More info available by following <a href="https://open.toronto.ca/dataset/casino-survey-results/">this link</a>. In this analysis, we’ll be hoping to address the question: which demographic (age/gender) groups are more likely to be supportive of a new casino in Toronto?</p>
@@ -813,9 +812,9 @@
 <span class="co">#&gt; 5 Neutral or Mixed Feelings 25-34 Female</span>
 <span class="co">#&gt; 6 Strongly Opposed          45-54 Female</span></code></pre></div>
 </div>
-<div id="some-visual-exploration-and-more-cleanup-of-course" class="section level3" number="14.3.2">
+<div id="some-visual-exploration-and-more-cleanup-of-course" class="section level3" number="13.3.2">
 <h3>
-<span class="header-section-number">14.3.2</span> Some visual exploration (and more cleanup, of course)<a class="anchor" aria-label="anchor" href="#some-visual-exploration-and-more-cleanup-of-course"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3.2</span> Some visual exploration (and more cleanup, of course)<a class="anchor" aria-label="anchor" href="#some-visual-exploration-and-more-cleanup-of-course"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let’s first do some quick exploration to get a feel for what’s going on in the data. We’ll first calculate proportions of casino support for each age-gender combination:</p>
 <div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
@@ -845,9 +844,9 @@
 <li>there are <code>NA</code> values in <code>opinion</code>, <code>age</code>, and <code>gender</code>, as well as “Prefer not to disclose” responses</li>
 </ul>
 </div>
-<div id="getting-the-data-into-a-more-model-suitable-format" class="section level3" number="14.3.3">
+<div id="getting-the-data-into-a-more-model-suitable-format" class="section level3" number="13.3.3">
 <h3>
-<span class="header-section-number">14.3.3</span> Getting the data into a more model-suitable format<a class="anchor" aria-label="anchor" href="#getting-the-data-into-a-more-model-suitable-format"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3.3</span> Getting the data into a more model-suitable format<a class="anchor" aria-label="anchor" href="#getting-the-data-into-a-more-model-suitable-format"><i class="fas fa-link"></i></a>
 </h3>
 <p>First we need to get rid of responses that aren’t suitable. For simplicity we’ll assume that <code>NA</code> values and “Prefer not to disclose” responses occur randomly, and remove them from our dataset (note in reality this assumption might not hold up and we might want to be more careful). Let’s check how many rows are in the original dataset:</p>
 <div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
@@ -927,9 +926,9 @@
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-44-1.png" width="672"></div>
 <p>We can sort of see some difference in the distribution between different panels. To formalize this, we can run a logistic regression.</p>
 </div>
-<div id="logistic-regression" class="section level3" number="14.3.4">
+<div id="logistic-regression" class="section level3" number="13.3.4">
 <h3>
-<span class="header-section-number">14.3.4</span> Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.3.4</span> Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now, we’re set up to feed it to the regression. We can do this with <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code>, which allows us to fit generalized linear models.</p>
 <p>We use <code>family = "binomial"</code> to specify a logistic regression, and our formula is <code>supportive ~ age_group + gender</code>, which indicates that <code>supportive</code> is the (binary) response variable since it’s on the LHS, and <code>age_group</code> and <code>gender</code> are our predictor variables.</p>
@@ -1102,19 +1101,19 @@
 <!-- ``` -->
 </div>
 </div>
-<div id="case-study---airbnb-listing-in-toronto" class="section level2" number="14.4">
+<div id="case-study---airbnb-listing-in-toronto" class="section level2" number="13.4">
 <h2>
-<span class="header-section-number">14.4</span> Case study - Airbnb listing in Toronto<a class="anchor" aria-label="anchor" href="#case-study---airbnb-listing-in-toronto"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4</span> Case study - Airbnb listing in Toronto<a class="anchor" aria-label="anchor" href="#case-study---airbnb-listing-in-toronto"><i class="fas fa-link"></i></a>
 </h2>
-<div id="essentials" class="section level3" number="14.4.1">
+<div id="essentials" class="section level3" number="13.4.1">
 <h3>
-<span class="header-section-number">14.4.1</span> Essentials<a class="anchor" aria-label="anchor" href="#essentials"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.1</span> Essentials<a class="anchor" aria-label="anchor" href="#essentials"><i class="fas fa-link"></i></a>
 </h3>
 <p>In this case study we look at Airbnb listings in Toronto.</p>
 </div>
-<div id="set-up" class="section level3" number="14.4.2">
+<div id="set-up" class="section level3" number="13.4.2">
 <h3>
-<span class="header-section-number">14.4.2</span> Set up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.2</span> Set up<a class="anchor" aria-label="anchor" href="#set-up"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span> <span class="co"># Helps with model outputs etc</span>
@@ -1124,9 +1123,9 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://visdat.njtierney.com/">visdat</a></span><span class="op">)</span> <span class="co"># Helps check missing values</span></code></pre></div>
 </div>
-<div id="get-data" class="section level3" number="14.4.3">
+<div id="get-data" class="section level3" number="13.4.3">
 <h3>
-<span class="header-section-number">14.4.3</span> Get data<a class="anchor" aria-label="anchor" href="#get-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.3</span> Get data<a class="anchor" aria-label="anchor" href="#get-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>The dataset is from Inside Airbnb <span class="citation">(<a href="references-1.html#ref-airbnbdata" role="doc-biblioref">Cox 2021</a>)</span>. The <code>here</code> package will help <span class="citation">(<a href="references-1.html#ref-citehere" role="doc-biblioref">Müller 2017</a>)</span>.</p>
 <p>We can give <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> a link to where the dataset is and it will download it. This helps with reproducibility because the source is clear. But, as that link could change at any time, longer-term reproducibility, as well as wanting to minimise the effect on the Inside Airbnb servers, suggest that we should also save a local copy of the data and then use that. (As the original data is not ours, we should not make that public without first getting written permission.)</p>
@@ -1140,9 +1139,9 @@
 
 <span class="co"># The guess_max option in read_csv helps us avoid having to specify the column types. Usually read_csv takes a best guess at the column types based on the first few rows. But sometimes those first ones are misleading and so guess_max forces it to look at a larger number of rows to try to work out what is going on.</span></code></pre></div>
 </div>
-<div id="clean-data" class="section level3" number="14.4.4">
+<div id="clean-data" class="section level3" number="13.4.4">
 <h3>
-<span class="header-section-number">14.4.4</span> Clean data<a class="anchor" aria-label="anchor" href="#clean-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4</span> Clean data<a class="anchor" aria-label="anchor" href="#clean-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are an enormous number of columns, so we’ll just select a few.</p>
 <div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
@@ -1186,9 +1185,9 @@
 <li>The reviews seem really skewed.</li>
 <li>There is someone who has 328 properties on Airbnb.</li>
 </ol>
-<div id="price" class="section level4" number="14.4.4.1">
+<div id="price" class="section level4" number="13.4.4.1">
 <h4>
-<span class="header-section-number">14.4.4.1</span> Price<a class="anchor" aria-label="anchor" href="#price"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.1</span> Price<a class="anchor" aria-label="anchor" href="#price"><i class="fas fa-link"></i></a>
 </h4>
 <p>First we need to convert to a numeric. This is a common problem, and you need to be a little careful that it doesn’t all just convert to NAs. In our case if we just force the price data to be a numeric then it will go to NA because there are a lot of characters that R doesn’t know how to convert, e.g. what is the numeric for ‘$?’ So we need to remove those characters first.</p>
 <div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
@@ -1296,9 +1295,9 @@
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-64-1.png" width="672"></div>
 </div>
-<div id="superhosts" class="section level4" number="14.4.4.2">
+<div id="superhosts" class="section level4" number="13.4.4.2">
 <h4>
-<span class="header-section-number">14.4.4.2</span> Superhosts<a class="anchor" aria-label="anchor" href="#superhosts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.2</span> Superhosts<a class="anchor" aria-label="anchor" href="#superhosts"><i class="fas fa-link"></i></a>
 </h4>
 <p>Airbnb <a href="https://www.airbnb.ca/help/article/828/what-is-a-superhost">says</a> that:</p>
 <blockquote>
@@ -1344,9 +1343,9 @@
   <span class="op">)</span>
 <span class="va">airbnb_data_selected</span><span class="op">$</span><span class="va">host_is_superhost_binary</span><span class="op">[</span><span class="va">airbnb_data_selected</span><span class="op">$</span><span class="va">host_is_superhost_binary</span> <span class="op">==</span> <span class="fl">999</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></code></pre></div>
 </div>
-<div id="reviews" class="section level4" number="14.4.4.3">
+<div id="reviews" class="section level4" number="13.4.4.3">
 <h4>
-<span class="header-section-number">14.4.4.3</span> Reviews<a class="anchor" aria-label="anchor" href="#reviews"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.3</span> Reviews<a class="anchor" aria-label="anchor" href="#reviews"><i class="fas fa-link"></i></a>
 </h4>
 <p>Airbnb <a href="https://www.airbnb.ca/help/article/1257/how-do-star-ratings-work-for-stays">says</a> that:</p>
 <blockquote>
@@ -1437,9 +1436,9 @@
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-71-1.png" width="672"></div>
 </div>
-<div id="response-time" class="section level4" number="14.4.4.4">
+<div id="response-time" class="section level4" number="13.4.4.4">
 <h4>
-<span class="header-section-number">14.4.4.4</span> Response time<a class="anchor" aria-label="anchor" href="#response-time"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.4</span> Response time<a class="anchor" aria-label="anchor" href="#response-time"><i class="fas fa-link"></i></a>
 </h4>
 <p>Airbnb <a href="https://www.airbnb.ca/help/article/75/how-much-time-does-a-host-have-to-respond-to-my-reservation-request">says</a> that:</p>
 <blockquote>
@@ -1494,9 +1493,9 @@
 <span class="co">#&gt; #   price &lt;int&gt;, number_of_reviews &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   has_availability &lt;lgl&gt;, review_scores_rating &lt;dbl&gt;, …</span></code></pre></div>
 </div>
-<div id="host-number-of-listings" class="section level4" number="14.4.4.5">
+<div id="host-number-of-listings" class="section level4" number="13.4.4.5">
 <h4>
-<span class="header-section-number">14.4.4.5</span> Host number of listings<a class="anchor" aria-label="anchor" href="#host-number-of-listings"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.5</span> Host number of listings<a class="anchor" aria-label="anchor" href="#host-number-of-listings"><i class="fas fa-link"></i></a>
 </h4>
 <p>There are two versions of a variable telling you how many properties a host has on Airbnb, so to start just check whether there’s a difference.</p>
 <div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
@@ -1572,9 +1571,9 @@
 <span class="co">#&gt; 6    846505    46</span></code></pre></div>
 <p>Again this makes it clear that there are many with multiple properties listed.</p>
 </div>
-<div id="decisions" class="section level4" number="14.4.4.6">
+<div id="decisions" class="section level4" number="13.4.4.6">
 <h4>
-<span class="header-section-number">14.4.4.6</span> Decisions<a class="anchor" aria-label="anchor" href="#decisions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.4.6</span> Decisions<a class="anchor" aria-label="anchor" href="#decisions"><i class="fas fa-link"></i></a>
 </h4>
 <p>The purpose of this document is to just give a quick introduction to using real-world data, so we’ll just remove anything that is annoying, but if you’re using this for research then you’d need to justify these decisions and/or possibly make different ones.</p>
 <p>Get rid of prices more than $999.</p>
@@ -1645,14 +1644,14 @@
 <span class="co">#&gt; [1] 2304   21</span></code></pre></div>
 </div>
 </div>
-<div id="explore-data" class="section level3" number="14.4.5">
+<div id="explore-data" class="section level3" number="13.4.5">
 <h3>
-<span class="header-section-number">14.4.5</span> Explore data<a class="anchor" aria-label="anchor" href="#explore-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.5</span> Explore data<a class="anchor" aria-label="anchor" href="#explore-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>We might like to make some graphs to see if we can any relationships jump out. Some aspects that come to mind is looking at prices and reviews and super hosts, and number of properties and neighbourhood.</p>
-<div id="price-and-reviews" class="section level4" number="14.4.5.1">
+<div id="price-and-reviews" class="section level4" number="13.4.5.1">
 <h4>
-<span class="header-section-number">14.4.5.1</span> Price and reviews<a class="anchor" aria-label="anchor" href="#price-and-reviews"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.5.1</span> Price and reviews<a class="anchor" aria-label="anchor" href="#price-and-reviews"><i class="fas fa-link"></i></a>
 </h4>
 <p>Look at the relationship between price and reviews, and whether they are a super-host.</p>
 <div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
@@ -1667,9 +1666,9 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-88-1.png" width="672"></div>
 </div>
-<div id="superhost-and-response-time" class="section level4" number="14.4.5.2">
+<div id="superhost-and-response-time" class="section level4" number="13.4.5.2">
 <h4>
-<span class="header-section-number">14.4.5.2</span> Superhost and response-time<a class="anchor" aria-label="anchor" href="#superhost-and-response-time"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.5.2</span> Superhost and response-time<a class="anchor" aria-label="anchor" href="#superhost-and-response-time"><i class="fas fa-link"></i></a>
 </h4>
 <p>One of the aspects that may make someone a super host is how quickly they respond to enquiries. One could imagine that being a superhost involves quickly saying yes or no to enquiries. Let’s look at the data. First, we want to look at the possible values of superhost by their response times.</p>
 <div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
@@ -1722,9 +1721,9 @@
 <span class="co">#&gt;      within an hour         45% (557) 55% (683)</span></code></pre></div>
 <p>So if someone doesn’t respond within an hour then it’s unlikely that they are a super host.</p>
 </div>
-<div id="neighbourhood" class="section level4" number="14.4.5.3">
+<div id="neighbourhood" class="section level4" number="13.4.5.3">
 <h4>
-<span class="header-section-number">14.4.5.3</span> Neighbourhood<a class="anchor" aria-label="anchor" href="#neighbourhood"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.5.3</span> Neighbourhood<a class="anchor" aria-label="anchor" href="#neighbourhood"><i class="fas fa-link"></i></a>
 </h4>
 <p>Finally, let’s look at neighbourhood. The data provider has attempted to clean the neighbourhood variable for us, so we’ll just use this for now. If we were doing this analysis properly, we’d need to check whether they’d made any mistakes.</p>
 <div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
@@ -1749,9 +1748,9 @@
 <span class="co">#&gt;                              Total 510       -</span></code></pre></div>
 </div>
 </div>
-<div id="model-data" class="section level3" number="14.4.6">
+<div id="model-data" class="section level3" number="13.4.6">
 <h3>
-<span class="header-section-number">14.4.6</span> Model data<a class="anchor" aria-label="anchor" href="#model-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.6</span> Model data<a class="anchor" aria-label="anchor" href="#model-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will now run some models on our dataset. We will first split the data into test/training groups, we do this using functions from the tidymodels package <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> (which like the tidyverse package <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span> is a package of packages).</p>
 <div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
@@ -1803,9 +1802,9 @@
 <!--   facet_wrap(vars(type)) -->
 <!-- ``` -->
 <!-- The poor old model is really struggling, which is to be expected given we've imposed a linear relationship and there is such little scope for reviews to mode (as they are bounded by 100). There are various things that we could do here. -->
-<div id="logistic-regression-1" class="section level4" number="14.4.6.1">
+<div id="logistic-regression-1" class="section level4" number="13.4.6.1">
 <h4>
-<span class="header-section-number">14.4.6.1</span> Logistic regression<a class="anchor" aria-label="anchor" href="#logistic-regression-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.4.6.1</span> Logistic regression<a class="anchor" aria-label="anchor" href="#logistic-regression-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>We may like to look at whether we can forecast whether someone is a super host, and the factors that go into explaining that. As the dependent variable is binary, this is a good opportunity to look at logistic regression. We expect that better reviews will be associated with faster responses and higher reviews. Specifically, the model that we estimate is:</p>
 <p><span class="math display">\[\mbox{Prob(Is super host} = 1) = \beta_0 + \beta_1 \mbox{Response time} + \beta_2 \mbox{Reviews} + \epsilon\]</span></p>
@@ -2020,13 +2019,13 @@
 </div>
 </div>
 </div>
-<div id="exercises-and-tutorial-13" class="section level2" number="14.5">
+<div id="exercises-and-tutorial-12" class="section level2" number="13.5">
 <h2>
-<span class="header-section-number">14.5</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.5</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-12"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-13" class="section level3" number="14.5.1">
+<div id="exercises-12" class="section level3" number="13.5.1">
 <h3>
-<span class="header-section-number">14.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-12"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>In your own words what is exploratory data analysis (this will be difficult, but please write only one nuanced paragraph)?</li>
@@ -2055,58 +2054,58 @@
 <li>Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at McClelland, Alexander, 2019, ‘“Lock This Whore Up”: Legal Violence and Flows of Information Precipitating Personal Violence against People Criminalised for HIV-Related Crimes in Canada,’ European Journal of Risk Regulation, 10 (1), pp. 132-147. Then look at Policing the Pandemic - <a href="https://www.policingthepandemic.ca/" class="uri">https://www.policingthepandemic.ca/</a>. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about?</li>
 </ol>
 </div>
-<div id="tutorial-13" class="section level3" number="14.5.2">
+<div id="tutorial-12" class="section level3" number="13.5.2">
 <h3>
-<span class="header-section-number">14.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-12"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="disseminating-and-protecting-data.html"><span class="header-section-number">13</span> Disseminating and protecting data</a></div>
-<div class="next"><a href="ijalm.html"><span class="header-section-number">15</span> It’s Just A Linear Model</a></div>
+<div class="prev"><a href="store-and-share.html"><span class="header-section-number">12</span> Store and share</a></div>
+<div class="next"><a href="ijalm.html"><span class="header-section-number">14</span> It’s Just A Linear Model</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exploratory-data-analysis"><span class="header-section-number">14</span> Exploratory data analysis</a></li>
-<li><a class="nav-link" href="#introduction-11"><span class="header-section-number">14.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#exploratory-data-analysis"><span class="header-section-number">13</span> Exploratory data analysis</a></li>
+<li><a class="nav-link" href="#introduction-10"><span class="header-section-number">13.1</span> Introduction</a></li>
 <li>
-<a class="nav-link" href="#case-study---ttc-subway-delays"><span class="header-section-number">14.2</span> Case study - TTC subway delays</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-12"><span class="header-section-number">14.2.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#gather-the-data"><span class="header-section-number">14.2.2</span> Gather the data</a></li>
-<li><a class="nav-link" href="#sanity-checks"><span class="header-section-number">14.2.3</span> Sanity Checks</a></li>
-<li><a class="nav-link" href="#missing-values"><span class="header-section-number">14.2.4</span> Missing values</a></li>
-<li><a class="nav-link" href="#duplicate-rows"><span class="header-section-number">14.2.5</span> Duplicate rows</a></li>
-<li><a class="nav-link" href="#visualizing-distributions"><span class="header-section-number">14.2.6</span> Visualizing distributions</a></li>
-<li><a class="nav-link" href="#groups-and-small-counts"><span class="header-section-number">14.2.7</span> Groups and small counts</a></li>
-<li><a class="nav-link" href="#visualizing-time-series"><span class="header-section-number">14.2.8</span> Visualizing time series</a></li>
-<li><a class="nav-link" href="#visualizing-relationships"><span class="header-section-number">14.2.9</span> Visualizing relationships</a></li>
-<li><a class="nav-link" href="#principal-components-analysis"><span class="header-section-number">14.2.10</span> Principal components analysis</a></li>
+<a class="nav-link" href="#case-study---ttc-subway-delays"><span class="header-section-number">13.2</span> Case study - TTC subway delays</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-11"><span class="header-section-number">13.2.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#gather-the-data"><span class="header-section-number">13.2.2</span> Gather the data</a></li>
+<li><a class="nav-link" href="#sanity-checks"><span class="header-section-number">13.2.3</span> Sanity Checks</a></li>
+<li><a class="nav-link" href="#missing-values"><span class="header-section-number">13.2.4</span> Missing values</a></li>
+<li><a class="nav-link" href="#duplicate-rows"><span class="header-section-number">13.2.5</span> Duplicate rows</a></li>
+<li><a class="nav-link" href="#visualizing-distributions"><span class="header-section-number">13.2.6</span> Visualizing distributions</a></li>
+<li><a class="nav-link" href="#groups-and-small-counts"><span class="header-section-number">13.2.7</span> Groups and small counts</a></li>
+<li><a class="nav-link" href="#visualizing-time-series"><span class="header-section-number">13.2.8</span> Visualizing time series</a></li>
+<li><a class="nav-link" href="#visualizing-relationships"><span class="header-section-number">13.2.9</span> Visualizing relationships</a></li>
+<li><a class="nav-link" href="#principal-components-analysis"><span class="header-section-number">13.2.10</span> Principal components analysis</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#case-study---opinions-about-a-casino-in-toronto"><span class="header-section-number">14.3</span> Case study - Opinions about a casino in Toronto</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-preparation"><span class="header-section-number">14.3.1</span> Data preparation</a></li>
-<li><a class="nav-link" href="#some-visual-exploration-and-more-cleanup-of-course"><span class="header-section-number">14.3.2</span> Some visual exploration (and more cleanup, of course)</a></li>
-<li><a class="nav-link" href="#getting-the-data-into-a-more-model-suitable-format"><span class="header-section-number">14.3.3</span> Getting the data into a more model-suitable format</a></li>
-<li><a class="nav-link" href="#logistic-regression"><span class="header-section-number">14.3.4</span> Logistic Regression</a></li>
+<a class="nav-link" href="#case-study---opinions-about-a-casino-in-toronto"><span class="header-section-number">13.3</span> Case study - Opinions about a casino in Toronto</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-preparation"><span class="header-section-number">13.3.1</span> Data preparation</a></li>
+<li><a class="nav-link" href="#some-visual-exploration-and-more-cleanup-of-course"><span class="header-section-number">13.3.2</span> Some visual exploration (and more cleanup, of course)</a></li>
+<li><a class="nav-link" href="#getting-the-data-into-a-more-model-suitable-format"><span class="header-section-number">13.3.3</span> Getting the data into a more model-suitable format</a></li>
+<li><a class="nav-link" href="#logistic-regression"><span class="header-section-number">13.3.4</span> Logistic Regression</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#case-study---airbnb-listing-in-toronto"><span class="header-section-number">14.4</span> Case study - Airbnb listing in Toronto</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#essentials"><span class="header-section-number">14.4.1</span> Essentials</a></li>
-<li><a class="nav-link" href="#set-up"><span class="header-section-number">14.4.2</span> Set up</a></li>
-<li><a class="nav-link" href="#get-data"><span class="header-section-number">14.4.3</span> Get data</a></li>
-<li><a class="nav-link" href="#clean-data"><span class="header-section-number">14.4.4</span> Clean data</a></li>
-<li><a class="nav-link" href="#explore-data"><span class="header-section-number">14.4.5</span> Explore data</a></li>
-<li><a class="nav-link" href="#model-data"><span class="header-section-number">14.4.6</span> Model data</a></li>
+<a class="nav-link" href="#case-study---airbnb-listing-in-toronto"><span class="header-section-number">13.4</span> Case study - Airbnb listing in Toronto</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#essentials"><span class="header-section-number">13.4.1</span> Essentials</a></li>
+<li><a class="nav-link" href="#set-up"><span class="header-section-number">13.4.2</span> Set up</a></li>
+<li><a class="nav-link" href="#get-data"><span class="header-section-number">13.4.3</span> Get data</a></li>
+<li><a class="nav-link" href="#clean-data"><span class="header-section-number">13.4.4</span> Clean data</a></li>
+<li><a class="nav-link" href="#explore-data"><span class="header-section-number">13.4.5</span> Explore data</a></li>
+<li><a class="nav-link" href="#model-data"><span class="header-section-number">13.4.6</span> Model data</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-13"><span class="header-section-number">14.5</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-13"><span class="header-section-number">14.5.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-13"><span class="header-section-number">14.5.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-12"><span class="header-section-number">13.5</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-12"><span class="header-section-number">13.5.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-12"><span class="header-section-number">13.5.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -2126,7 +2125,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 13 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 14 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

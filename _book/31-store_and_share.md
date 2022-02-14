@@ -1,27 +1,30 @@
 
-# Storing and retrieving data
+# Store and share
 
 **Required material**
 
 - Read *Datasheets for datasets*, [@gebru2021datasheets].
 - Read *Data and its (dis)contents: A survey of dataset development and use in machine learning research*, [@Paullada2021].
+- Read *Ten simple rules for responsible big data research*, [@zook2017ten].
+- Read *How Data Can Be Used Against People: A Classification of Personal Data Misuses*, [@kroger2021data].
 
 **Key concepts and skills**
 
 - FAIR principles for data sharing and management.
-- Sharing data using GitHub
-- Creating R data packages
-- Depositing data
-- Data documentation and especially datasheets for datasets
+- Sharing data using: GitHub, R data packages, and depositing data.
+- Data documentation and especially datasheets for datasets.
+- Understanding what is personally identifying information, and how this depends on context.
+- Implementing data simulation to share data.
+- Know what differential privacy is and some of its likely effect on data science.
 
-<!-- **Key libraries** -->
+**Key libraries**
 
-<!-- -  -->
+- `openssl` [@openssl]
 
-<!-- **Key functions** -->
+**Key functions**
 
-<!-- -  -->
-
+- `openssl::md5()`
+- `openssl::sha512()`
 
 ## Introduction
 
@@ -36,14 +39,17 @@ That said, the FAIR principles are useful when we come to think more formally ab
 
 It is important to recognize that just because a dataset is FAIR, it is not necessarily an unbiased representation of the world. FAIR reflects whether a dataset is appropriately available, not whether it is appropriate.
 
-In this chapter we will consider how we plan and organize our datasets to meet essential requirements. To a large extent we put these in place to make our own life easier when we come back to use our dataset later. We then go through putting our dataset on GitHub, building R packages for data, and finally depositing it in various archives. Finally, we documentation, and in particular focus on datasheets.
+
+One reason for the rise of data science is that humans are at the heart of it. And often the data that we are interested in directly concern humans. This means there is a tension between sharing the data to facilitate reproducibility and maintaining privacy. Medicine has developed approaches to this over a long time. And out of that we have seen Health Insurance Portability and Accountability Act (HIPAA) in the US, and the related General Data Protection Regulation (GDPR) in Europe. Our concerns in data science tend to be about personally identifying information (PII). We have a variety of ways to protect especially private information in our datasets, such as emails, including hashing. And sometimes we simulate data and distribute that instead of sharing the actual dataset. More recently, differential privacy is being implemented. But this is usually an inappropriate choice, for anything other than the most massive of datasets and ensures a level of privacy, only at the expense of population minorities.
+
+In this chapter we will consider how we plan and organize our datasets to meet essential requirements. To a large extent we put these in place to make our own life easier when we come back to use our dataset later. We then go through putting our dataset on GitHub, building R packages for data, and finally depositing it in various archives. Then we consider documentation, and in particular focus on datasheets.
 
 
 ## Plan
 
 The storage and retrieval of information has a long history. This is especially connected with libraries which have existed since antiquity and have established protocols for deciding what information to store and what to discard, as well as its retrieval. One of the defining aspects of libraries is that deliberate curation and organization. The cataloging system ensures that books on similar topics are located close to each other, and there are typically also deliberate plans for ensuring the collection is up-to-date.
 
-Vannevar Bush defines a 'memex' in 1945 as a device used to store books, records and communications, in a way that supplements memory [@vannevarbush]. And the key is the indexing, or linking together of items. We can see this concept echoed in Tim Berners-Lee proposal for hypertext [@berners1989information], which led to the World Wide Web. This is the way that resources are identified. They are then transported over the Internet, using HTTP.
+Vannevar Bush defines a 'memex' in 1945 as a device used to store books, records, and communications, in a way that supplements memory [@vannevarbush]. And the key is the indexing, or linking together of items. We can see this concept echoed in Tim Berners-Lee proposal for hypertext [@berners1989information], which led to the World Wide Web. This is the way that resources are identified. They are then transported over the Internet, using HTTP.
 
 At its most fundamental, this is about storing and retrieving data. For instance, we make various files on our computer available to others. The internet is famously brittle, but when we are considering the storage and retrieval of our datasets we want to consider especially, for how long it is important that the data are stored and for whom [@michener2015ten]. For instance, if we want some data to be available for a decade and widely available then it becomes important to store data in open and persistent formats, such as CSVs [@hart2016ten]. But if we are just using some data as part of an intermediate step, we have the raw data, and the scripts to create it, then it might be fine to not worry too much about such considerations.
 
@@ -51,8 +57,9 @@ Storing raw data is important and there are many cases where raw data have revea
 
 
 
+## Share data
 
-## GitHub
+### GitHub
 
 The easiest place to store our datasets will be GitHub because that is already built into our workflow. For instance, when we push, our dataset becomes available. One great benefit of this is that, if we have set-up our workspace appropriately, then we likely store our raw data, and the tidy data, as well as the scripts that are needed to transform one to the other. 
 
@@ -76,7 +83,7 @@ One issue with this is that the dataset does not have much documentation. While 
 
 
 
-## R Packages for data
+### R Packages for data
 
 To this point we have largely used R packages for their code, although we have seen a few that were focused on sharing data, for instance, @troopdata. We can build an R Package for our dataset and then add it to GitHub. This will make it easy to store and retrieve because we can obtain the dataset by loading the package. This will be the first R package that we build. In Chapter \@ref(deploying-models), will return to R packages and use them to deploy models.
 
@@ -163,9 +170,9 @@ color_data
 This has addressed many of the issues that we faced earlier. For instance, we have included a README and a data dictionary of sorts in terms of the descriptions that we added. But if we were to try to put this package onto CRAN, then we might face some issues. For instance, the maximum size of a package is 5MB and we would quickly come up against that. We have also largely forced users to use R, and while there are considerable benefits of that, we may like to be more language agnostic [@tierney2020realistic].
 
 
-## Depositing data
+### Depositing data
 
-While it is possible that a dataset will be cited if it is available through GitHub or an R package, this becomes more likely if the dataset is deposited somewhere. There are a number of reasons for this, but one is that it seems a bit more formal. Zenodo and Open Science Framework (OSF) are two that are commonly used. For instance, @chris_carleton_2021_4550688 use Zenodo to share the dataset and analysis supporting @carleton2021reassessment. Similarly @geuenich_michael_2021_5156049 use Zenodo to share the dataset that underpins @geuenich2021automated.
+While it is possible that a dataset will be cited if it is available through GitHub or an R package, this becomes more likely if the dataset is deposited somewhere. There are several reasons for this, but one is that it seems a bit more formal. Zenodo and Open Science Framework (OSF) are two that are commonly used. For instance, @chris_carleton_2021_4550688 use Zenodo to share the dataset and analysis supporting @carleton2021reassessment. Similarly @geuenich_michael_2021_5156049 use Zenodo to share the dataset that underpins @geuenich2021automated.
 <!-- And Y use OSF to share all files. -->
 
 Another option is a dataverse, such as the Harvard Dataverse, which is a common requirement for journal publications. One nice aspect of this is that we can use `dataverse` [@dataverse] to retrieve the dataset as part of a reproducible workflow.
@@ -182,7 +189,7 @@ Instead of telling us how unhealthy various foods are, a datasheet tells us thin
 - How complete is the dataset?
 - What fields are present, and equally not present, for particular observations?
 
-Sometimes we have done a lot of work to create a dataset. In that case, we may like to publish and share it on its own, for instance @biderman2022datasheet and @bandy2021addressing. But typically a datasheet might live in an appendix to the paper, or be included in a file adjacent to the dataset.
+Sometimes we have done a lot of work to create a dataset. In that case, we may like to publish and share it on its own, for instance, @biderman2022datasheet and @bandy2021addressing. But typically a datasheet might live in an appendix to the paper, or be included in a file adjacent to the dataset.
 
 We will put together a datasheet for the dataset that underpins @citeaustralianpoliticians. The text of the questions directly comes from @gebru2021datasheets. When we create datasheets for a dataset, especially a dataset that we did not put together ourselves, it is possible that the answer to some questions will simply be "Unknown".
 
@@ -321,6 +328,152 @@ We will put together a datasheet for the dataset that underpins @citeaustralianp
 8. *Any other comments?*
 	- No
 
+## Personally identifying information
+
+Personally identifying information (PII) is that which enables us to link a row in our dataset with an actual person. For instance, email addresses are often PII, as are names and addresses. Interestingly, sometimes the combination of several variables, none of which are PII in and of themselves, can be PII. For instance, age is unlikely PII by itself, but age combined with city, education, and a few other variables could be. One concern is that this re-identification can occur across datasets. Another interesting aspect is that again while some variable may not be PII for almost everyone in the dataset, it can become PII in the extreme. For instance, if we have age, then there are many people of most ages, but there are fewer people in ages over 100 and it likely becomes PII. The same scenario happens with both income and wealth. One response to this is for data to be censored. For instance, we may record age between 0 and 100, and then group everyone over that into '101+'.
+
+@zook2017ten recommend considering whether data even need to be gathered in the first place. For instance, if a phone number is not absolutely required then it might be better to not gather it in the first place, rather than need to worry about protecting it before data dissemination.
+
+
+GDPR and HIPAA are two legal structures that govern data in Europe and the US, respectively. Due to the influence of these regions, they have a significant effect outside those regions also. GDPR concerns data generally, while HIPAA is focused on healthcare. GDPR applies to all personal data, which is defined as:
+
+> 'personal data' means any information relating to an identified or identifiable natural person ('data subject'); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;
+>
+> @gdpr, Article 4, 'Definitions'
+
+HIPAA refers to the privacy of medical records in the US and codify the idea that the patient should have access to their medical records, and that only the patient should be able to authorize access to their medical records [@annas2003hipaa]. While it only applies to covered entities, it sets a standard that informs practice, yet is piecemeal given the variety of applications. For instance, a person's social media posts about their health is generally not subject to it, nor is knowledge about a person's location and how active they are, even though based on that information we may be able to get some idea of their health [@Cohen2018]. Such data are hugely valuable [@ibmdataset].
+
+There are a variety of ways of protecting PII, while sharing data, that we will now go through.
+
+### Hashing and salting
+
+A hash is a one-way transformation of data, such that the same input always provides the same output, but given the output, it is not reasonably possible to obtain the input. For instance, a function that doubled its input always gives the same output, for the same input, but is also easy to reverse. 
+
+@knuth [p. 514] relates an interesting etymology for 'hash' by first defining 'to hash' as relating to chop up or make a mess, and then explaining that hashing relates to scrambling the input and using this partial information to define the output. A collision is when different inputs map to the same output, and one feature of a good hashing algorithm is that collisions are reduced. One simple approach is to rely on the modulo operator. For instance, if we were interested in 10 different groupings for the integers 1 through to 10. A better approach would be for the number of groupings to be a prime number, such as 11 or 853.
+
+
+```r
+library(tidyverse)
+
+hashing <- 
+  tibble(ppi_data = c(1:10),
+         modulo_ten = ppi_data %% 10,
+         modulo_eleven = ppi_data %% 11,
+         modulo_eightfivethree = ppi_data %% 853)
+
+hashing
+#> # A tibble: 10 × 4
+#>    ppi_data modulo_ten modulo_eleven modulo_eightfivethree
+#>       <int>      <dbl>         <dbl>                 <dbl>
+#>  1        1          1             1                     1
+#>  2        2          2             2                     2
+#>  3        3          3             3                     3
+#>  4        4          4             4                     4
+#>  5        5          5             5                     5
+#>  6        6          6             6                     6
+#>  7        7          7             7                     7
+#>  8        8          8             8                     8
+#>  9        9          9             9                     9
+#> 10       10          0            10                    10
+```
+
+Rather than worry about things ourselves, we can use various hash functions from `openssl` [@openssl] including `sha512()` and `md5()`.
+
+
+```r
+library(openssl)
+
+openssl_hashing <- 
+  tibble(names =
+            c("Edward",
+              "Helen",
+              "Hugo",
+              "Ian",
+              "Monica",
+              "Myles",
+              "Patricia",
+              "Roger",
+              "Rohan",
+              "Ruth"
+            )) |> 
+  mutate(md5 = md5(names),
+         sha512 = sha512(names)
+  )
+
+openssl_hashing
+#> # A tibble: 10 × 3
+#>    names    md5                              sha512         
+#>    <chr>    <hash>                           <hash>         
+#>  1 Edward   243f63354f4c1cc25d50f6269b844369 5759ada975e7cb…
+#>  2 Helen    29e00d3659d1c5e75f99e892f0c1a1f1 6ee4156ca7e8e9…
+#>  3 Hugo     1b3840b0b70d91c17e70014c8537dbba b1e441a5486690…
+#>  4 Ian      245a58a5dc42397caf57bc06c2c0afd2 d3cf9cdaea6ffd…
+#>  5 Monica   09084cc0cda34fd80bfa3cc0ae8fe3dc 84250b971b8772…
+#>  6 Myles    fafdf519cb5877d4751b4cbe6f3f534a 4eae7c19d5c5d4…
+#>  7 Patricia 54a7b18f26374fc200ddedde0844f8ec e511593a2db805…
+#>  8 Roger    efc5c58b9a85926a31587140cbeb0220 f63ab236a5b013…
+#>  9 Rohan    02df8936eee3d4d2568857ed530671b2 5111e18391d41f…
+#> 10 Ruth     8e06843ec162b74a7902867dd4bca8c8 d7e7d23b69e372…
+```
+
+We could share either of these and be comfortable that, in general, it would be difficult for someone to use only that information to recover the names of our respondents. That is not to say that it is impossible. If we made a mistake, such as accidentally committing the original dataset to GitHub then they could be recovered. And of course, it is likely that various governments have the ability to reverse the cryptographic hashes used here.
+
+One issue that remains is that anyone can take advantage of the key feature of hashing being that the same input always gets the same output, to test various options for inputs. For instance, they could, themselves try to has 'Rohan', and then noticing that the hash is the same as the one that we published in our dataset, know that data relates to that particular individual. We could try to keep our hashing approach secret, but that is difficult as there are only a few that was widely used. One approach is to add a salt that we keep secret. This slightly changes the input. For instance, we could add the salt '_is_a_person' to all our names and then hash that, although a large random number might be a better option. Provided the salt is not shared, then it would be difficult for most folks to reverse our approach in that way.
+
+
+```r
+openssl_hashing_with_salt <- 
+  tibble(names =
+            c("Edward",
+              "Helen",
+              "Hugo",
+              "Ian",
+              "Monica",
+              "Myles",
+              "Patricia",
+              "Roger",
+              "Rohan",
+              "Ruth"
+            )
+         ) |> 
+  mutate(names = paste0(names, "_is_a_person")) |> 
+  mutate(md5 = md5(names),
+         sha512 = sha512(names)
+         )
+
+openssl_hashing_with_salt
+#> # A tibble: 10 × 3
+#>    names                md5                           sha512
+#>    <chr>                <hash>                        <hash>
+#>  1 Edward_is_a_person   9845500d4070c0cbba7c6b81ed30… e8ce0…
+#>  2 Helen_is_a_person    7e4a77b41fb6e108618f93fb9f47… b066b…
+#>  3 Hugo_is_a_person     b9b8c4e9870aca482cf062da4681… 07c18…
+#>  4 Ian_is_a_person      9b1ad8fbbc190c2e3ce74372029f… eb992…
+#>  5 Monica_is_a_person   50bb9dfffa926c855b830845ac61… ef429…
+#>  6 Myles_is_a_person    3635be5fe758ed1fc0d9c78fc0b2… 795dc…
+#>  7 Patricia_is_a_person 4e4a5ed8842fd7caad320c3a92bf… 1b446…
+#>  8 Roger_is_a_person    ea1d56e89771d8b0a7b598132442… 2f753…
+#>  9 Rohan_is_a_person    3ab064d7f746fde604122d072fd4… cc9c7…
+#> 10 Ruth_is_a_person     8b83f4285ac30a3efa5ede3636b7… 6d329…
+```
+
+
+### Data simulation
+
+One common approach to deal with the issue of being unable to share the actual data that underpins an analysis, is to use data simulation. We have used data simulation throughout this book toward the start of the workflow to help us to think more deeply about our dataset before we turn to it. We can use data simulation again at the end, to ensure that others cannot think about our actual dataset. The workflow advocated in this book makes this relatively straight-forward.
+
+The approach is to understand the critical features of the dataset and the appropriate distribution. For instance, if our data were the ages of some population, then we may want to use the Poisson distribution and experiment with different parameters for lambda. Having simulated a dataset, we conduct our analysis using this simulated dataset and ensure that the results are broadly similar to when we use the real data. We can then release the simulated dataset along with our code.
+
+For more nuanced situations, @koenecke2020synthetic recommend using the synthetic data vault [@patki2016synthetic] and then the use of Generative Adversarial Networks, such as implemented by @athey2021using.
+
+
+
+### Differential privacy
+
+Differential privacy implements a mathematical definition of privacy, that means that even if datasets are combined, a certain level of privacy will be maintained. A dataset is differentially private to different levels, based on how much it changes when one person's results are removed.
+
+A variant of differential privacy has recently been implemented by the US census. This has been shown to not universally protect respondent privacy, and yet it is expected to have a significant effect on redistricting [@kenny2021impact]. @Suriyakumar2021 found that such model will be disproportionately affected by large demographic groups. The implementation of differential privacy is expected to result in publicly available data that are unusable in the social sciences [@ruggles2019differential].
+
 
 
 
@@ -329,12 +482,7 @@ We will put together a datasheet for the dataset that underpins @citeaustralianp
 
 ### Exercises
 
-1. According to @gebru2021datasheets, a datasheet should document a dataset's (please select all that apply):
-    a. composition.
-    b. recommended uses.
-    c. motivation.
-    d. collection process.
-2. Following @wilkinson2016fair, which of the following are FAIR principles (please select all that apply)?
+1. Following @wilkinson2016fair, which of the following are FAIR principles (please select all that apply)?
     a. Findable.
     b. Approachable.
     c. Interoperable.
@@ -343,12 +491,32 @@ We will put together a datasheet for the dataset that underpins @citeaustralianp
     f. Fungible.
     g. Reduced.
     h. Accessible.
-3. Please create an R package for a simulated dataset, push it to GitHub, and submit the link.
+2. Please create an R package for a simulated dataset, push it to GitHub, and submit the link.
+3. Please simulate some data, add it to a GitHub repository and then submit the link.
+4. According to @gebru2021datasheets, a datasheet should document a dataset's (please select all that apply):
+    a. composition.
+    b. recommended uses.
+    c. motivation.
+    d. collection process.
+5. Do you think that a person's name is PII? 
+  a.  Yes.
+  b. No.
+6. Under what circumstances do you think income is PII (please write a paragraph or two)?
+7. Using `openssl::md5()` what is the hash of "Rohan" (pick one)?
+    a. 243f63354f4c1cc25d50f6269b844369
+    b. 09084cc0cda34fd80bfa3cc0ae8fe3dc
+    c.  02df8936eee3d4d2568857ed530671b2
+    d. 1b3840b0b70d91c17e70014c8537dbba
 
 
 ### Tutorial
 
-Please identify an important dataset that does not have a datasheet [@gebru2021datasheets]. As a reminder, datasheets accompany datasets and document 'motivation, composition, collection process, recommended uses,' among other aspects. Please put together a datasheet for this dataset. You are welcome to use the template [here](https://github.com/RohanAlexander/starter_folder/blob/main/inputs/data/datasheet_template.Rmd) as a starting point. The datasheet should be completely contained in its own GitHub repository. Please submit a PDF.
+Please identify a dataset you consider interesting and important, that does not have a datasheet [@gebru2021datasheets]. As a reminder, datasheets accompany datasets and document 'motivation, composition, collection process, recommended uses,' among other aspects. Please put together a datasheet for this dataset. You are welcome to use the template [here](https://github.com/RohanAlexander/starter_folder/blob/main/inputs/data/datasheet_template.Rmd) as a starting point. The datasheet should be completely contained in its own GitHub repository. Please submit a PDF.
+
+
+### Paper
+
+At about this point, Paper Four (Appendix \@ref(paper-four)) would be appropriate.
 
 
 

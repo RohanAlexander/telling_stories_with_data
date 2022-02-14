@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "13 February, 2022"
+date: "14 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -64,7 +64,7 @@ Part II -- Communication -- considers three types of communication: written, sta
 
 Part III -- Acquisition -- focuses on three aspects: gathering data, hunting data, and farming data. Gathering data in Chapter \@ref(gather-data) covers things like using Application Programming Interface (APIs), scraping data, getting data from PDFs, and Optical Character Recognition (OCR). The idea is that data are available, but not necessarily designed to be datasets, and that we must go and get them. Hunting data in Chapter \@ref(hunt-data) covers aspects where more is expected of us. For instance, we may need to conduct an experiment, run an A/B test, or do some surveys. Finally, farming data in Chapter \@ref(farm-data) covers datasets that are explicitly provided for us to use as data, for instance censuses and other government statistics. These are typically clean, pre-packaged datasets.
 
-Part IV -- Preparation -- covers how to respectfully transform raw data into something that can be explored and shared. Chapter \@ref(cleaning-and-preparing-data) begins by detailing some principles to follow when approaching the task of cleaning and preparing data, and then goes through specific steps to take and checks to implement. Chapter \@ref(storing-and-retrieving-data) focuses on methods of storing and retrieving those datasets, including the use of R packages. Chapter \@ref(disseminating-and-protecting-data) discusses considerations and steps to take when wanting to disseminate datasets as broadly as possible, while at the same time respecting those whose data they are based on.
+Part IV -- Preparation -- covers how to respectfully transform raw data into something that can be explored and shared. Chapter \@ref(clean-and-prepare) begins by detailing some principles to follow when approaching the task of cleaning and preparing data, and then goes through specific steps to take and checks to implement. Chapter \@ref(store-and-share) focuses on methods of storing and retrieving those datasets, including the use of R packages, and then continues onto considerations and steps to take when wanting to disseminate datasets as broadly as possible, while at the same time respecting those whose data they are based on.
 
 Part V -- Modelling -- begins with exploratory data analysis in Chapter \@ref(exploratory-data-analysis). This is the critical process of coming to understand the nature of a dataset, but not something that typically finds itself into the final product. In Chapter \@ref(ijalm) the use of statistical models to explore data is introduced. Chapter \@ref(causality) is the first of three applications of modelling. It focuses on attempts to make causal claims from observational data and covers approaches such as difference-in-differences, regression discontinuity, and instrumental variables. Chapter \@ref(mrp) is the second of the modelling applications chapters and focuses on multilevel regression with post-stratification where we use a statistical model to adjust a sample for known biases. Chapter \@ref(text-as-data) is the third and final modelling application and is focused on text-as-data.
 
@@ -147,7 +147,7 @@ Thank you to Elle Côtè for enabling this book to be written.
 
 This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail, Scott Cunningham, Andrew Heiss, Lisa Lendway, Grant McDermott, Nathan Matias, David Mimno, and Ed Rubin. Thank you to these folks. The changed norm of academics making their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.
 
-Aspects of the rubrics used in Appendix \@ref(papers) were based on rubrics developed by Lisa Romkey and Alan Chong. I am grateful they allowed me to build on their foundation.
+Thank you to Lisa Romkey and Alan Chong who allowed me to draw on and adapt aspects of the rubric they put together.
 
 Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 

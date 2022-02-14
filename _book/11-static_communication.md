@@ -704,8 +704,8 @@ world_bank_data |>
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        title = "Relationship between inflation and GDP growth",
        caption = "Data source: World Bank.")
@@ -727,8 +727,8 @@ RColorBrewerBrBG <-
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.") +
   scale_color_brewer(palette = "Blues")
@@ -738,8 +738,8 @@ RColorBrewerSet2 <-
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.") +
   scale_color_brewer(palette = "Set1")
@@ -749,8 +749,8 @@ viridis <-
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.") +
   scale_colour_viridis_d()
@@ -760,8 +760,8 @@ viridismagma <-
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.") +
   scale_colour_viridis_d(option = "magma")
@@ -788,8 +788,8 @@ world_bank_data |>
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_point(alpha = 0.5) +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.")
 ```
@@ -805,8 +805,8 @@ world_bank_data |>
   ggplot(mapping = aes(x = gdp_growth, y = inflation, color = country)) +
   geom_jitter() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.")
 ```
@@ -826,8 +826,8 @@ defaults <-
   geom_jitter() +
   geom_smooth() +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.")
 
@@ -837,8 +837,8 @@ straightline <-
   geom_jitter() +
   geom_smooth(method = lm, se = FALSE) +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.")
 
@@ -848,8 +848,8 @@ onestraightline <-
   geom_jitter() +
   geom_smooth(method = lm, color = "black", se = FALSE) +
   theme_minimal() +
-  labs(x = "Inflation",
-       y = "GDP growth",
+  labs(x = "GDP growth",
+       y = "Inflation",
        color = "Country",
        caption = "Data source: World Bank.")
 
