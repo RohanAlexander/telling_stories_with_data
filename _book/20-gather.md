@@ -535,7 +535,7 @@ We focus on using APIs for gathering data. And so, with that focus, an API is a 
 
 The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include aspects such as rate limits (i.e. how often we can ask for data), and what we can do with the data, for instance, we might not be allowed to use it for commercial purposes, or to republish it. Additionally, because the API is being provided specifically for us to use it, it is less likely to be subject to unexpected changes or legal issues. Because of this it is ethically and legally clear that when an API is available we should try to use it rather than web scraping.
 
-We will now go through a few case studies of using APIs. In the first we deal directly with an API using `httr` [@citehttr]. In the second we access data from Twitter using `rtweet` [@rtweet]. And in the third we access data from Spotify using `spotifyr` [@spotifyr].
+We will now go through a few case studies of using APIs. In the first we deal directly with an API using `httr` [@citehttr]. In the second we access data from Twitter using `rtweet` [@rtweet]. And in the third we access data from Spotify using `spotifyr` [@spotifyr]. Developing comfort with gathering data through APIs enables access to exciting datasets. For instance, @facebookapitrump use the Facebook Political Ad API to gather all 218,100 of the Trump 2020 campaign ads to better understand the campaign.
 
 
 

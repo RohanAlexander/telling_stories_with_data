@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "14 February, 2022"
+date: "15 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -147,7 +147,7 @@ Thank you to Elle Côtè for enabling this book to be written.
 
 This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail, Scott Cunningham, Andrew Heiss, Lisa Lendway, Grant McDermott, Nathan Matias, David Mimno, and Ed Rubin. Thank you to these folks. The changed norm of academics making their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.
 
-Thank you to Lisa Romkey and Alan Chong who allowed me to draw on and adapt aspects of the rubric they put together.
+Thank you to Samantha-Jo Caetano, who helped develop some of the assessment items. And also to Lisa Romkey and Alan Chong who allowed me to adapt some aspects of their rubric.
 
 Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 

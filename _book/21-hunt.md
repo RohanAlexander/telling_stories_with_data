@@ -78,7 +78,7 @@
 
 
 
-**Key concepts/skills/etc**
+**Key concepts and skills**
 
 - Treatment and control groups.
 - Internal and external validity.
@@ -93,7 +93,7 @@
 
 - `tidyverse` [@citetidyverse]
 
-**Key functions/etc**
+**Key functions**
 
 - `count()`
 - `filter()`
