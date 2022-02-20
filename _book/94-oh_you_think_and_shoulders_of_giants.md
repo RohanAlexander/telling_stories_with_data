@@ -33,6 +33,9 @@ Chapter 10:
 
 
 
+Chapter 1:
+
+> **Shoulders of giants** Dr Michael Jordan is Pehong Chen Distinguished Professor at the University of California, Berkeley. After taking a PhD in Cognitive Science from University of California, San Diego, in 1985, he was appointed as an assistant professor at MIT, being promoted to full professor in 1997, and in 1998 he moved to Berkeley. One area of his research is statistical machine learning. One particularly important paper is @Blei2003latent, which enables text to be grouped together to define topics, and we cover this in Chapter \@ref(text-as-data).
 
 Chapter 2: 
 
@@ -64,31 +67,36 @@ Chapter 12:
 
 > **Shoulders of giants** Timnit Gebru
 
-Chapter 13:
+Chapter 12:
 
 > **Shoulders of giants** Katherine Wallman
 
-Chapter 14
+Chapter 13
 
 > **Shoulders of giants** John Tukey
 
-Chapter 15:
+Chapter 14:
 
-> **Shoulders of giants** Daniela Witten
+> **Shoulders of giants** Dr Daniela Witten
 
-Chapter 15:
+Chapter 14:
 
-> **Shoulders of giants** Nancy Reid
+> **Shoulders of giants** Dr Nancy Reid is University Professor of Statistical Sciences, University of Toronto. After taking a PhD in Statistics from Stanford University in 1979, she was appointed as an assistant professor at UBC, and moved to the University of Toronto in 1986, where she was promoted to full professor in 1988 and serving as chair between 1997 and 2002. One area of her research is conditional inference and higher order asymptotics. One particularly important paper is:
 
-Chapter 15:
+<!-- @cox1987parameter -->
+<!-- '1987 JRSSB paper with Sir David Cox on parameter orthogonality and approximate conditional inference' -->
+
+
+
+Chapter 14:
 
 > **Shoulders of giants** Rob Tibshirani
 
-Chapter 16:
+Chapter 15:
 
 > **Shoulders of giants** Evelyn Kitagawa
 
-Chapter 17:
+Chapter 16:
 
 > **Shoulders of giants** Andrew Gelman
 

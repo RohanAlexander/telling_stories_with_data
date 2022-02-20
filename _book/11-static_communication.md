@@ -3527,7 +3527,7 @@ ggplot() +
 ### Exercises
 
 1. Assume `tidyverse` and `datasauRus` are installed and loaded. What would be the outcome of the following code?
-`datasaurus_dozen |> filter(dataset == "high_lines") |> ggplot(aes(x=x, y=y)) + geom_point()`
+`datasaurus_dozen |> filter(dataset == "v_lines") |> ggplot(aes(x=x, y=y)) + geom_point()`
     a.  Four vertical lines
     b. Five vertical lines
     c. Three vertical lines

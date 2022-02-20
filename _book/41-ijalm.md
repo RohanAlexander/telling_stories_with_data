@@ -3,36 +3,36 @@
 
 **STATUS: Under construction.**
 
+**Required material**
 
-**Required reading**
-
-- Greenland, Sander, Stephen J. Senn, Kenneth J. Rothman, John B. Carlin, Charles Poole, Steven N. Goodman, and Douglas G. Altman, 2016, 'Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations', *European journal of epidemiology*, 31, no. 4, pp. 337-350.
-- James, Gareth, Daniela Witten, Trevor Hastie and Robert Tibshirani, 2017, *An Introduction to Statistical Learning with Applications in R*, 1st Edition, Chapters 3 and 4.1-4.3., https://www.statlearning.com.
-- Obermeyer, Z., Powers, B., Vogeli, C., & Sendhill, M., 2019, 'Dissecting racial bias in an algorithm used to manage the health of populations', *Science*, (366): 447-453.
-- Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/.
-- Zook M, Barocas S, boyd d, Crawford K, Keller E, Gangadharan SP, et al. (2017) 'Ten simple rules for responsible big data research', *PLoS Comput Biol* 13(3): e1005399. https://doi.org/10.1371/journal.pcbi.1005399
+- Read *An Introduction to Statistical Learning with Applications in R*, Chapters 3 'Linear Regression', and 4 'Classification', [@islr]
 
 
-**Recommended reading**
+<!-- **Required reading** -->
 
-- Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 3.4.3.
-- Cunningham, Scott, *Causal Inference: The Mixtape*, Chapter 2, Yale University Press, https://mixtape.scunning.com.
-- ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/.
-- Ioannidis, John PA, 2005, 'Why most published research findings are false', *PLoS medicine*, 2, no. 8, e124.
-- Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', https://www.kaylinpavlik.com/dog-names-tfidf/.
-- Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', https://www.kaylinpavlik.com/classifying-songs-genres/.
-- Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', https://juliasilge.com/blog/salary-gender/.
-- Silge, Julia, 2019, 'Opioid prescribing habits in Texas', https://juliasilge.com/blog/texas-opioids/.
-- Silge, Julia, 2019, 'Tidymodels', https://juliasilge.com/blog/intro-tidymodels/.
-- Silge, Julia, 2020, '#TidyTuesday hotel bookings and recipes', https://juliasilge.com/blog/hotels-recipes/.
-- Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', https://juliasilge.com/blog/food-hyperparameter-tune/.
-- Taddy, Matt, 2019, *Business Data Science*, Chapters 2 and 4.
-- Wasserstein, Ronald L. and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108.
+<!-- - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/. -->
 
 
-**Fun reading**
+<!-- **Recommended reading** -->
 
-- Chellel, Kit, 2018, 'The Gambler Who Cracked the Horse-Racing Code', *Bloomberg Businessweek*, 3 May, https://www.bloomberg.com/news/features/2018-05-03/the-gambler-who-cracked-the-horse-racing-code.
+<!-- - Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 3.4.3. -->
+<!-- - Cunningham, Scott, *Causal Inference: The Mixtape*, Chapter 2, Yale University Press, https://mixtape.scunning.com. -->
+<!-- - ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/. -->
+<!-- - Ioannidis, John PA, 2005, 'Why most published research findings are false', *PLoS medicine*, 2, no. 8, e124. -->
+<!-- - Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', https://www.kaylinpavlik.com/dog-names-tfidf/. -->
+<!-- - Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', https://www.kaylinpavlik.com/classifying-songs-genres/. -->
+<!-- - Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', https://juliasilge.com/blog/salary-gender/. -->
+<!-- - Silge, Julia, 2019, 'Opioid prescribing habits in Texas', https://juliasilge.com/blog/texas-opioids/. -->
+<!-- - Silge, Julia, 2019, 'Tidymodels', https://juliasilge.com/blog/intro-tidymodels/. -->
+<!-- - Silge, Julia, 2020, '#TidyTuesday hotel bookings and recipes', https://juliasilge.com/blog/hotels-recipes/. -->
+<!-- - Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', https://juliasilge.com/blog/food-hyperparameter-tune/. -->
+<!-- - Taddy, Matt, 2019, *Business Data Science*, Chapters 2 and 4. -->
+<!-- - Wasserstein, Ronald L. and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108. -->
+
+
+<!-- **Fun reading** -->
+
+<!-- - Chellel, Kit, 2018, 'The Gambler Who Cracked the Horse-Racing Code', *Bloomberg Businessweek*, 3 May, https://www.bloomberg.com/news/features/2018-05-03/the-gambler-who-cracked-the-horse-racing-code. -->
 
 
 <!-- https://rviews.rstudio.com/2020/03/10/comparing-machine-learning-algorithms-for-predicting-clothing-classes-part-3/ -->
@@ -42,21 +42,21 @@
 <!-- https://easystats.github.io/performance/index.html -->
 
 
-**Key concepts/skills/etc**
+**Key concepts and skills**
 
 - Simple and multiple linear regression.
 - Logistic and Poisson regression.
 - The key role of uncertainty.
-- Threats to validity of inferences
+- Threats to validity of inference.
 - Overfitting.
 
 **Key libraries**
 
-- `broom`
-- `huxtable`
-- `rstanarm`
-- `tidymodels`
-- `tidyverse`
+- `broom` [@broom]
+- `modelsummary` [@citemodelsummary]
+- `rstanarm` [@citerstanarm]
+- `tidymodels` [@citeTidymodels]
+- `tidyverse` [@citetidyverse]
 
 **Key functions**
 
@@ -64,8 +64,8 @@
 - `broom::glance()`
 - `broom::tidy()`
 - `glm()`
-- `huxtable::huxreg()`
 - `lm()`
+- `modelsummary::modelsummary()`
 - `parsnip::fit()`
 - `parsnip::linear_reg()`
 - `parsnip::logistic_reg()`
@@ -81,101 +81,114 @@
 - `summary()`
 
 
-**Quiz**
-
-1. Please write a linear relationship between some response variable, Y, and some predictor, X. What is the intercept term? What is the slope term? What would adding a hat to these indicate?
-2. What is the least squares criterion? Similarly, what is RSS and what are we trying to do when we run least squares regression?
-3. What is statistical bias?
-4. If there were three variables: Snow, Temperature, and Wind, please write R code that would fit a simple linear regression to explain Snow as a function of Temperature and Wind. What do you think about another explanatory variable - daily stock market returns - to your model?
-5. According to @greenland2016statistical, p-values test (pick one)?
-    a. All the assumptions about how the data were generated (the entire model), not just the targeted hypothesis it is supposed to test (such as a null hypothesis).
-    b. Whether the hypothesis targeted for testing is true or not.
-    c. A dichotomy whereby results can be declared 'statistically significant'.
-6. According to @greenland2016statistical, a p-value may be small because (select all)?
-    a. The targeted hypothesis is false.
-    b. The study protocols were violated.
-    c. It was selected for presentation based on its small size. 
-7. According to @obermeyer2019dissecting, why does racial bias occur in an algorithm used to guide health decisions in the US (pick one)?
-    a. The algorithm uses health costs as a proxy for health needs.
-    b. The algorithm was trained on Reddit data.
-8. When should we use logistic regression (pick one)?
-    a. Continuous dependent variable.
-    b. Binary dependent variable.
-    c. Count dependent variable.
-9. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
-    a. Whether the respondent is a US citizen (yes/no)
-    b. The respondent's personal income (high/low)
-    c. Whether the respondent is going to vote for Trump (yes/no)
-    d. Who the respondent voted for in 2016 (Trump/Clinton)
-10. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
-    a. The race of the respondent (white/not white)
-    b. The respondent's marital status (married/not)
-    c. Whether the respondent is registered to vote (yes/no)
-    d. Whether the respondent is going to vote for Biden (yes/no)
-11. Please explain what a p-value is, using only the term itself (i.e. 'p-value') and words that are amongst the 1,000 most common in the English language according to the XKCD Simple Writer - https://xkcd.com/simplewriter/. (Please write one or two paragraphs.)
-12. The mean of a Poisson distribution is equal to its?
-    a. Median.
-    b. Standard deviation.
-    c. Variance.
 
 
 
-## Overview
 
-> Words! Mere words! How terrible they were! How clear, and vivid, and cruel! One could not escape from them. And yet what a subtle magic there was in them! They seemed to be able to give a plastic form to formless things, and to have a music of their own as sweet as that of viol or of lute. Mere words! Was there anything so real as words?
->
-> Oscar Wilde, *The Picture of Dorian Gray*.
 
-> Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for asking bad questions.
-> 
-> @citemcelreath[p. 162].
+## Introduction
 
-Linear models have been around for a long time, at least since Galton and many others (some of whom were eugenicists) used linear regression in earnest. The generalized linear model framework came into being, in a formal sense, in the 70s with the seminal folks being Nelder and Wedderburn [@nelder1972generalized]. The idea of generalized linear models is that we broaden the types of outcomes that are allowed. You're still modelling things as a linear function, but you're not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family. A further, well, generalization of generalized linear models is generalized additive models where you're not generalizing anything to do with the outcome, but instead the structure of the explanatory side, as it were. We're still explaining the dependent variable as an additive function of bits, but those bits can be functions. This framework, in this way, came about in the 90s, with Hastie and Tibshirani [@hastie1990generalized] (fun fact, Tibshirani did a stats masters at Toronto, and was a professor here from 1985 through to 1998!).
+Linear models have been around for a long time. For instance, speaking about the development of least squares, which is one way to fit linear models, in the 1700s, @stigler [p.16] describes how it was associated with foundational problems in astronomy, such as determining the motion of the moon and reconciling the non-periodic motion of Jupiter and Saturn. The fundamental issue at the time with least squares was that of hesitancy to combine different observations. Astronomers were early to develop a comfort with doing this because they had typically gathered their observations themselves and knew that the conditions of the data gathering were similar, even though the value of the observation was different. It took longer for social scientists to become comfortable with linear models, possibly because they were hesitant to group together data they worried was not alike. In this sense, astronomers had an advantage because they could compare their predictions with what actually happened whereas this was more difficult for social scientists [@stigler, p. 163]. 
 
-It's important to recognise that when we build models we are not discovering 'the truth'. We are using the model to help us explore and understand the data that we have. There is no one best model, there are just useful models that help us learn something about the data that we have and hence, hopefully, something about the world from which the data were generated. Ben Rhodes, who was an Obama staffer, titled his White House memoirs 'The World as It Is: A Memoir of the Obama White House'. When we use models, we are similarly trying to understand the world, but as the second part of the title makes clear, there are enormous constraints on the perspective. In the same way that we'd not expect Rhodes to advocate an Australian, Canadian, or even US Republican, perspective about the world, it's silly to expect one model to be universal. 
+Galton and others of his generation, some of whom were eugenicists, used linear regression in earnest in the late 1800s and early 1900s. Binary outcomes quickly became of interest and needed special treatment, leading to the development and wide adaption of logistic regression and similar methods in the mid-1900s [@cramer2002origins]. The generalized linear model framework came into being, in a formal sense, in the 1970s with @nelder1972generalized who brought this all together. Generalized linear models (GLM) broaden the types of outcomes that are allowed. We still model outcomes as a linear function, but we are not constrained to an outcome that is normally distributed. The outcome can be anything in the exponential family, and popular choices include the logistic distribution, and the Poisson distribution. A further generalization of GLMs is generalized additive models where we broaden the structure of the explanatory side. We still explain the dependent variable as an additive function of various bits and pieces, but those bits and pieces can be functions. This framework, in this way, came about in the 1990s, with @hastie1990generalized.
 
-We use models to understand the world. We poke, push, and test them. We build them and rejoice in their beauty, and then seek to understand their limits and ultimately destroy them. It is this process that is important, it is this process that allows us to better understand the world. @citemcelreath[p. 19] talks about small and large worlds, saying '(a)ll statistical modeling has these two frames: the small world of the model itself and the large world we hope to deploy the model in'. To what extent does a model trained on the experiences of straight, cis, men, speak to the world as it is? It's not worthless, but it's also not unimpeachable. To what extent does the model teach us about the data that we have? To what extent do the data that we have reflect the world for which we would like to draw conclusions? Keep these questions front of mind.
+It is important to recognize that when we build models, we are not discovering 'the truth'. We are using the model to help us explore and understand the data that we have. There is no one best model, there are just useful models that help us learn something about the data that we have and hence, hopefully, something about the world from which the data were generated. When we use models, we are trying to understand the world, but there are enormous constraints on the perspective we bring to this. It is silly to expect one model to be universal. Further, we should not just blindly throw data into a regression model and hope that it will sort it out. 'Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for asking bad questions' [@citemcelreath, p. 162].
 
-Much of statistics was developed in a vacuum. And that’s reasonable because it was developed for situations in which X, Y and Z. The original statisticians were literally able to randomise the order of fields and planting because they literally worked in agricultural stations (CITE). However, almost all subsequent applications have not had those properties. We often teach undergraduates that science proceeds (ADD POINTS ABOUT NULL HYPOTHESIS AND POPPER). If you believe that’s how it works, then I have a bridge to sell you. Scientists react to incentives. They dabble, guess, and test, and then follow their guesses and backfill. They apply for grant funding for things that they did last time (because they know that’ll work) and then spend the money to conduct other things. All of this is fine. But it’s not a world in which a traditional null hypothesis holds, which means p-values and power lose their meaning. While you need to understand the ‘old world’, you also need to be sophisticated enough to understand when you need to move away from it. 
+We use models to understand the world. We poke, push, and test them. We build them and rejoice in their beauty, and then seek to understand their limits and ultimately destroy them. It is this process that is important, it is this process that allows us to better understand the world; not the outcome. When we build models, we need to keep in mind both the world of the model and the broader world that we want to be able to speak about. To what extent does a model trained on the experiences of straight, cis, men, speak to the world as it is? It is not worthless, but it is also not unimpeachable. To what extent does the model teach us about the data that we have? To what extent do the data that we have reflect the world about which we would like to draw conclusions? We need to keep such questions front of mind.
 
-In this chapter we... It is called 'It's Just A Linear Model' after a famous quote by Professor Daniela Witten, who identifies how far we can get with linear models and the huge extent to which they underpin statistics.
+Much of statistics was developed without concern for broader implications. And that was reasonable because it was developed for situations such as astronomy and agriculture. Folks were literally able to randomize the order of fields and planting because they literally worked at agricultural stations. But many of the subsequent applications in the twentieth and twenty-first centuries, do not have those properties. Statistical science is often taught as though it proceeds through some idealized process where a hypothesis appears, is tested, and is either confirmed or not. But that is not what happens. We react to incentives. We dabble, guess, and test, and then follow are intuition, backfilling as we need. All of this is fine. But it is not a world in which a traditional null hypothesis holds completely, which means concepts such as p-values and power lose some of their meaning. While we need to understand the 'old world', we also need to be sophisticated enough to know when we need to move away from it. We can appreciate the beauty and ingenuity of a Ford Model T, at the same time recognizing we could not use it to win Le Mans.
+
+In this chapter we begin with simple linear regression, and then move to multiple linear regression, the difference being the number of explanatory variables that we allow. We then consider logistic and Poisson regression. We consider three approaches for each of these: base R, which is useful when we want to quickly use the models in EDA; `tidymodels` [@citeTidymodels] which is useful when we are interested in forecasting; and `rstanarm` [@citerstanarm] when we are interested in understanding. Regardless of the approach we use, the important thing to remember is that modelling in this way is just fancy averaging. The chapter is named for a quote by Daniela Witten, Professor, University of Washington, who identifies how far we can get with linear models and the huge extent to which they underpin statistics. 
+
 
 
 
 
 ## Simple linear regression
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/lolregression.png" alt="Oh my." width="70%" />
-<p class="caption">(\#fig:logregression)Oh my.</p>
-</div>
-Source: [Mijke Rhemtulla](https://twitter.com/mijkenijk/status/1234899588311474176), 3 March 2020.
+When we are interested in the relationship between two continuous variables, say $y$ and $x$, we can use simple linear regression. This is based on the Normal, also 'Gaussian', distribution. The shape of the Normal distribution is determined by two parameters, the mean $\mu$ and the standard deviation, $\sigma$: 
 
-
-### Overview
-
-When we have two continuous variables we use simple linear regression. This is based on the Normal (also 'Gaussian') distribution. From @pitman[p. 94] 'The normal distribution with mean $\mu$ and standard deviation $\sigma$ is the distribution over the x-axis defined by areas under the normal curve with these parameters. The equation of the normal curve with parameters $\mu$ and $\sigma$, can be written as: 
 $$y = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}z^2},$$
-where $z = (x - \mu)/\sigma$ measures the number of standard deviations from the mean $\mu$ to the number $x$.'
+where $z = (x - \mu)/\sigma$ is the difference between the mean, $\mu$, and $x$ in terms of the standard deviation [@pitman, p. 94].
 
-In `R` we can simulate $n$ data points from the Normal distribution with `rnorm()`.
-
-
-```r
-rnorm(n = 20, mean = 0, sd = 1)
-#>  [1]  1.10581924  0.99895025 -0.80418494 -0.97664255
-#>  [5]  0.69809327 -2.71914792  0.18068090  0.56216166
-#>  [9] -0.65226835 -0.20485216  0.78396415  0.77100120
-#> [13]  0.09171666 -1.92147033 -0.48281340 -1.62930182
-#> [17]  0.39401808 -0.40068935 -0.08100738  1.97846395
-```
-
-It will take a few draws before we get the expected shape.
+As discussed in Chapter \@ref(r-essentials), we use `rnorm()` to simulate data from the Normal distribution. 
 
 
 ```r
 library(tidyverse)
+
 set.seed(853)
+
+twenty_draws_from_normal_distribution <- 
+  tibble(draws = rnorm(n = 20, mean = 0, sd = 1))
+  
+twenty_draws_from_normal_distribution
+#> # A tibble: 20 × 1
+#>      draws
+#>      <dbl>
+#>  1 -0.360 
+#>  2 -0.0406
+#>  3 -1.78  
+#>  4 -1.12  
+#>  5 -1.00  
+#>  6  1.78  
+#>  7 -1.39  
+#>  8 -0.497 
+#>  9 -0.558 
+#> 10 -0.824 
+#> 11  1.67  
+#> 12 -0.682 
+#> 13  0.0652
+#> 14 -0.260 
+#> 15  0.329 
+#> 16 -0.437 
+#> 17 -0.323 
+#> 18  0.115 
+#> 19  0.842 
+#> 20  0.342
+```
+
+Here we specified $n=20$ draws from a Normal distribution with mean of 0 and standard deviation of 1. When we deal with real data, we will not know these parameters and we want to use our data to estimate them. We can estimate the mean, $\bar{x}$, and standard deviation, $\hat{\sigma}_x$, with the following estimators:
+
+$$
+\begin{aligned}
+ \bar{x} &= \frac{1}{n} \times \sum_{i = 1}^{n}x_i\\
+ \hat{\sigma}_{x} &= \sqrt{\frac{1}{n} \times \sum_{i = 1}^{n}\left(x_i - \bar{x}\right)^2}
+\end{aligned}
+$$
+
+If $\hat{\sigma}_x$ is the standard deviation, then a standard error of an estimate, say, $\bar{x}$ is:
+$$\mbox{SE}(\bar{x})^2 = \frac{\sigma^2}{n}$$
+
+
+```r
+estimated_mean <-
+  sum(twenty_draws_from_normal_distribution$draws) / nrow(twenty_draws_from_normal_distribution)
+
+estimated_mean
+#> [1] -0.2069253
+
+estimated_mean <-
+  twenty_draws_from_normal_distribution |> 
+  mutate(draws_diff_square = (draws - estimated_mean)^2)
+
+estimated_standard_deviation <- 
+  sqrt(
+    sum(estimated_mean$draws_diff_square) / nrow(twenty_draws_from_normal_distribution)
+  )
+
+estimated_standard_deviation
+#> [1] 0.8832841
+```
+
+We should not be worried that our estimates are slightly off. It will typically take a larger number of draws before we get the expected shape, and our estimated parameters get close to the actual parameters, but it will happen (Figure \@ref(fig:normaldistributiontakingshape)). @wasserman [p. 76] describes our certainty of this, which is due to the Law of Large Numbers, as 'a crowning achievement in probability'.
+
+
+```r
+library(tidyverse)
+
+set.seed(853)
+
 tibble(
   number_of_draws = c(
     rep.int(x = "2 draws", times = 2),
@@ -186,7 +199,8 @@ tibble(
     rep.int(x = "500 draws", times = 500),
     rep.int(x = "1,000 draws", times = 1000),
     rep.int(x = "10,000 draws", times = 10000),
-    rep.int(x = "100,000 draws", times = 100000)),
+    rep.int(x = "100,000 draws", times = 100000)
+  ),
   draws = c(
     rnorm(n = 2, mean = 0, sd = 1),
     rnorm(n = 5, mean = 0, sd = 1),
@@ -196,50 +210,71 @@ tibble(
     rnorm(n = 500, mean = 0, sd = 1),
     rnorm(n = 1000, mean = 0, sd = 1),
     rnorm(n = 10000, mean = 0, sd = 1),
-    rnorm(n = 100000, mean = 0, sd = 1))
-  ) %>% 
-  mutate(number_of_draws = as_factor(number_of_draws)) %>% 
+    rnorm(n = 100000, mean = 0, sd = 1)
+  )
+) |>
+  mutate(number_of_draws = as_factor(number_of_draws)) |>
   ggplot(aes(x = draws)) +
   geom_density() +
-  theme_classic() +
+  theme_minimal() +
   facet_wrap(vars(number_of_draws),
              scales = "free_y") +
   labs(x = 'Draw',
        y = 'Density')
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/normaldistributiontakingshape-1.png" alt="The Normal distribution takes its familiar shape as the number of draws increases" width="672" />
+<p class="caption">(\#fig:normaldistributiontakingshape)The Normal distribution takes its familiar shape as the number of draws increases</p>
+</div>
 
-When we use simple linear regression, we assume that our relationship is characterised by the variables and the parameters, with any difference, often denoted by $\epsilon$, between the expectation and the reality being normally distributed.
+When we use simple linear regression, we assume that our relationship is characterized by the variables and the parameters. If we have two variables, $Y$ and $X$, then we could characterize a linear relationship between these as:
+$$Y \approx \beta_0 + \beta_1 X.$$
 
-If we have two variables, $Y$ and $X$, then we could characterise the relationship between these as:
-$$Y \sim \beta_0 + \beta_1 X.$$
+There are two coefficients, also 'parameters': the 'intercept', $\beta_0$, and the 'slope', $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. The language that we use is that 'X is being regressed on Y'. We may then take this relationship to the data that we have, in order to estimate these coefficients, for the particular data that we have.
 
-There are two coefficients/parameters: the 'intercept' is $\beta_0$, and the 'slope' is $\beta_1$. We are saying that $Y$ will have some value, $\beta_0$, even when $X$ is 0, and that $Y$ will change by $\beta_1$ units for every one unit change in $X$. The language that we use is that 'X is being regressed on Y'. 
-
-We may then take this relationship to the data that we have about the relationship in order to estimate these coefficients for those particular values that we have:
-$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x.$$
-
-The hats are used to indicate that these are estimated values. We are saying this is a linear regression because we assume that if $x$ doubles then $y$ would also double. Linear regressions considers how the average of a dependent variable changes based on the independent variables.
-
-
-I want to focus on data, so we'll make this example concrete, by generating some data and then discussing everything in the context of that. The example will be looking at someone's time for running five kilometers, compared with their time for running a marathon. 
+To make this example concrete, we will simulate some data and then discuss it in that context. For instance, we could consider the time it takes someone to run five kilometers, compared with the time it takes them to run a marathon (Figure \@ref(fig:fivekmvsmarathon)). We impute a relationship of 8.4, as that is roughly the ratio between the distance of a marathon and a five-kilometer race.
 
 
 ```r
 set.seed(853)
-number_of_observations <- 100
-running_data <- 
-  tibble(five_km_time = rnorm(number_of_observations, 20, 3),
-         noise = rnorm(number_of_observations, 0, 10),
-         marathon_time = five_km_time * 8.4 + noise,
-         was_raining = sample(c("Yes", "No"), 
-                              size = number_of_observations,
-                              replace = TRUE, 
-                              prob = c(0.2, 0.8)) 
-         )
 
-running_data %>% 
+number_of_observations <- 100
+expected_relationship <- 8.4
+
+simulated_running_data <- 
+  tibble(five_km_time = 
+           runif(n = number_of_observations, 
+                 min = 15, 
+                 max = 30),
+         noise = rnorm(number_of_observations, 0, 20),
+         marathon_time = five_km_time * expected_relationship + noise
+         ) |>
+  mutate(five_km_time = round(five_km_time),
+         marathon_time = round(marathon_time)) |>
+  select(-noise)
+
+simulated_running_data
+#> # A tibble: 100 × 2
+#>    five_km_time marathon_time
+#>           <dbl>         <dbl>
+#>  1           20           152
+#>  2           17           134
+#>  3           22           198
+#>  4           20           166
+#>  5           16           163
+#>  6           21           168
+#>  7           17           131
+#>  8           19           150
+#>  9           17           158
+#> 10           18           147
+#> # … with 90 more rows
+```
+
+
+
+```r
+simulated_running_data |> 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() +
   labs(x = "Five-kilometer time (minutes)",
@@ -247,22 +282,28 @@ running_data %>%
   theme_classic()
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/fivekmvsmarathon-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathon)Simulated data of the relationship between the time to run five kilometers and a marathon</p>
+</div>
 
-In this set-up we may like to use $x$, which is the five-kilometer time, to produce estimates of $y$, which is the marathon time. This would involve also estimating values of $\beta_0$ and $\beta_1$, which is why they have a hat on them.
+In this simulated example, we know what $\beta_0$ and $\beta_1$ are. But our challenge is to see if we can use only the data, and simple linear regression, to recover them. That is, can we use $x$, which is the five-kilometer time, to produce estimates of $y$, which is the marathon time, and which we will put a hat on to denote our estimate:
 
-But how should we estimate the coefficients? Even if we impose a linear relationship there are a lot of options (how many straight lines can you fit on a piece of paper?). But clearly some of the fits are not all that great. 
+$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x.$$
+The hats are used to indicate that these are estimated values.
 
-One way we may define being great would be to impose that they be as close as possible to each of the $x$ and $y$ combinations that we know. There are a lot of candidates for how we define 'as close as possible', but one is to minimise the sum of least squares. To do this we produce our estimates of $\hat{y}$ based on some estimates of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$, and then work out how 'wrong', for every point $i$, we were:
+This involves estimating values for $\beta_0$ and $\beta_1$, and again, our estimates will be denoted by a hat on them. But how should we estimate these coefficients? Even if we impose a linear relationship there are many options, because a large number of straight lines could be drawn. But some of those lines would fit the data better than others.
+
+One way we may define a line as being 'better' than another, is if it is as close as possible to each of the $x$ and $y$ combinations that we know. There are a lot of candidates for how we define 'as close as possible', but one is to minimize the residual sum of squares. To do this we produce estimates for $\hat{y}$ based on some guesses of $\hat{\beta}_0$ and $\hat{\beta}_1$, given the $x$. We then work out how 'wrong', for every point $i$, we were:
 $$e_i = y_i - \hat{y}_i.$$
 
-The residual sum of squares (RSS) then requires summing across all the points:
+To compute the residual sum of squares (RSS), we sum across all the points, taking the square to account for negative differences:
 $$\mbox{RSS} = e^2_1+ e^2_2 +\dots + e^2_n.$$
-This results in one 'linear best-fit' line, but it is worth thinking about all of the assumptions and decisions that it took to get us to this point.
- 
+This results in one 'linear best-fit' line (Figure \@ref(fig:fivekmvsmarathonwithbestfit)), but it is worth thinking about all the assumptions and decisions that it took to get us to this point.
+
 
 ```r
-running_data %>% 
+simulated_running_data |> 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() + 
   geom_smooth(method = "lm", 
@@ -275,133 +316,100 @@ running_data %>%
   theme_classic()
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonwithbestfit-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathonwithbestfit)Simulated data of the relationship between the time to run five kilometers and a marathon</p>
+</div>
 
-With the least squares criterion we want the values of $\hat{\beta}_0$ and $\hat{\beta}_1$ that result in the smallest RSS.
+Underpinning our use of simple linear regression is a belief that there is some 'true' relationship between $X$ and $Y$, that is: 
 
+$$Y = f(X) + \epsilon.$$
 
-### Implementation in base R
+We are going to say that function, $f()$, is linear, and so for simple linear regression:
 
-Within R, the main function for doing linear regression is `lm`. This is included in base R, so you don't need to call any packages, but in a moment, we will call a bunch of packages that will surround `lm` within an environment that we are more familiar with. You specify the relationship with the dependent variable first, then `~`, then the independent variables. Finally, you should specify the dataset (or you could pipe to it as usual).
+$$\hat{Y} = \beta_0 + \beta_1 X + \epsilon.$$
+
+There is some 'true' relationship between $X$ and $Y$, but we do not know what it is. All we can do is use our sample of data to estimate it. But because our understanding depends on that sample, for every possible sample, we would get a slightly different relationship, as measured by the coefficients. 
+
+That $\epsilon$ is a measure of our error---what does the model not know? There is going to be plenty that the model does not know, but we hope the error does not depend on $X$, and that the error is normally distributed.
+
+We can conduct simple linear regression with `lm()` from base R. We specify the dependent variable first, then `~`, followed by the independent variables. Finally, we specify the dataset. 
 
 
 ```r
-lm(y ~ x, data = dataset)
-```
-
-In general, you should assign this to an object:
-
-
-```r
-running_data_first_model <- 
+simulated_running_data_first_model <- 
   lm(marathon_time ~ five_km_time, 
-     data = running_data)
+     data = simulated_running_data)
 ```
 
-To see the result of your regression you can then call `summary()`.
+To see the result of the regression, we can use `summary()` from base R.
 
 
 ```r
-summary(running_data_first_model)
+summary(simulated_running_data_first_model)
 #> 
 #> Call:
-#> lm(formula = marathon_time ~ five_km_time, data = running_data)
+#> lm(formula = marathon_time ~ five_km_time, data = simulated_running_data)
 #> 
 #> Residuals:
 #>     Min      1Q  Median      3Q     Max 
-#> -24.763  -5.686   0.722   6.650  16.707 
+#> -47.189  -9.198  -0.195  13.783  58.745 
 #> 
 #> Coefficients:
 #>              Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)    0.4114     6.0610   0.068    0.946    
-#> five_km_time   8.3617     0.3058  27.343   <2e-16 ***
+#> (Intercept)    7.0806     9.0023   0.787    0.433    
+#> five_km_time   8.0060     0.4101  19.523   <2e-16 ***
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
-#> Residual standard error: 8.474 on 98 degrees of freedom
-#> Multiple R-squared:  0.8841,	Adjusted R-squared:  0.8829 
-#> F-statistic: 747.6 on 1 and 98 DF,  p-value: < 2.2e-16
+#> Residual standard error: 16.94 on 98 degrees of freedom
+#> Multiple R-squared:  0.7955,	Adjusted R-squared:  0.7934 
+#> F-statistic: 381.1 on 1 and 98 DF,  p-value: < 2.2e-16
 ```
 
-The first part of the result tells us the regression that we called, then information about the residuals, and the estimated coefficients. And then finally some useful diagnostics. 
+The first part of the result tells us the regression that we specified, then information about the residuals, and our estimated coefficients. And then finally some useful diagnostics. 
 
-We are considering that there is some relationship between $X$ and $Y$, that is: $Y = f(X) + \epsilon$. We are going to say that function, $f()$, is linear and so our relationship is:
-$$\hat{Y} = \beta_0 + \beta_1 X + \epsilon.$$
+The intercept is the marathon time that we would expect with a five-kilometer time of 0 minutes. Hopefully this example illustrates the need to carefully interpret the intercept coefficient! The coefficient on five-kilometer run time shows how we expect the marathon time to change if the five-kilometer run time changed by one unit. In this case it is about 8.4, which makes sense seeing as a marathon is roughly that many times longer than a five-kilometer run.
 
-There is some 'true' relationship between $X$ and $Y$, but we don't know what it is. All we can do is use our sample of data to try to estimate it. But because our understanding depends on that sample, for every possible sample, we would get a slightly different relationship (as measured by the coefficients). 
-
-That $\epsilon$ is a measure of our error - what does the model not know? There's going to be plenty that the model doesn't know, but we hope is that the error does not depend on $X$, and that the error is normally distributed.
-
-The intercept is marathon time that we would expect with a five-kilometer time of 0 minutes. Hopefully this example illustrates the need to carefully interpret the intercept coefficient! The coefficient on five-kilometer run time shows how we expect the marathon time to change if five-kilometer run time changed by one unit. In this case it's about 8.4, which makes sense seeing as a marathon is roughly that many times longer than a five-kilometer run.
-
-
-### Tidy up with broom
-
-While there is nothing wrong with the base approach, I want to introduce the `broom` package because that will provide us with outputs in a tidy framework [@citebroom]. There are three key functions:
-
-- `broom::tidy()`: Gives the coefficient estimates in a tidy output.
-- `broom::glance()`: Gives the diagnostics.
-- `broom::augment()`: Adds the forecast values, and hence, residuals, to your dataset.
-
+We use `augment()` from `broom` [@broom] to add the fitted values and residuals to our original dataset. This allows us to plot the residuals (Figure \@ref(fig:fivekmvsmarathonresids)).
 
 
 ```r
 library(broom)
-tidy(running_data_first_model)
-#> # A tibble: 2 × 5
-#>   term         estimate std.error statistic  p.value
-#>   <chr>           <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 (Intercept)     0.411     6.06     0.0679 9.46e- 1
-#> 2 five_km_time    8.36      0.306   27.3    1.17e-47
-glance(running_data_first_model)
-#> # A tibble: 1 × 12
-#>   r.squared adj.r.squared sigma statistic  p.value    df
-#>       <dbl>         <dbl> <dbl>     <dbl>    <dbl> <dbl>
-#> 1     0.884         0.883  8.47      748. 1.17e-47     1
-#> # … with 6 more variables: logLik <dbl>, AIC <dbl>,
-#> #   BIC <dbl>, deviance <dbl>, df.residual <int>,
-#> #   nobs <int>
-```
 
-Notice how the results are fairly similar to the base summary function.
+simulated_running_data <- 
+  augment(simulated_running_data_first_model,
+          data = simulated_running_data)
+
+simulated_running_data
+#> # A tibble: 100 × 8
+#>    five_km_time marathon_time .fitted .resid   .hat .sigma
+#>           <dbl>         <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
+#>  1           20           152    167. -15.2  0.0114   17.0
+#>  2           17           134    143.  -9.18 0.0222   17.0
+#>  3           22           198    183.  14.8  0.0101   17.0
+#>  4           20           166    167.  -1.20 0.0114   17.0
+#>  5           16           163    135.  27.8  0.0281   16.8
+#>  6           21           168    175.  -7.21 0.0102   17.0
+#>  7           17           131    143. -12.2  0.0222   17.0
+#>  8           19           150    159.  -9.19 0.0138   17.0
+#>  9           17           158    143.  14.8  0.0222   17.0
+#> 10           18           147    151.  -4.19 0.0174   17.0
+#> # … with 90 more rows, and 2 more variables: .cooksd <dbl>,
+#> #   .std.resid <dbl>
+```
 
 
 ```r
-running_data <- 
-  augment(running_data_first_model,
-          data = running_data)
-head(running_data)
-#> # A tibble: 6 × 10
-#>   five_km_time  noise marathon_time was_raining .fitted
-#>          <dbl>  <dbl>         <dbl> <chr>         <dbl>
-#> 1         18.9 -3.73           155. No             159.
-#> 2         19.9  8.42           175. No             167.
-#> 3         14.7  4.32           127. No             123.
-#> 4         16.6 -2.74           137. No             139.
-#> 5         17.0 -4.89           138. No             142.
-#> 6         25.3  0.648          213. No             212.
-#> # … with 5 more variables: .resid <dbl>, .hat <dbl>,
-#> #   .sigma <dbl>, .cooksd <dbl>, .std.resid <dbl>
-```
-
-We could now make plots of the residuals.
-
-
-```r
-ggplot(running_data, 
+ggplot(simulated_running_data, 
        aes(x = .resid)) + 
   geom_histogram(binwidth = 1) +
   theme_classic() +
   labs(y = "Number of occurrences",
        x = "Residuals")
-```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-
-```r
-
-ggplot(running_data, aes(five_km_time, .resid)) + 
+ggplot(simulated_running_data, aes(five_km_time, .resid)) + 
   geom_point() +
   geom_hline(yintercept = 0, linetype = "dotted", color = "grey") +
   theme_classic() +
@@ -409,17 +417,19 @@ ggplot(running_data, aes(five_km_time, .resid)) +
        x = "Five-kilometer time (minutes)")
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-10-2.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon" width="49%" />
+<p class="caption">(\#fig:fivekmvsmarathonresids)Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon</p>
+</div>
 
-When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. (A pro hockey player may sometimes shoot right of the net, and sometimes left of the net, but we'd hope that on average they'd be right in the middle of the net). In the words of @islr, 'an unbiased estimator does not systematically over- or under-estimate the true parameter.'
+We want our estimate to be unbiased. When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. An estimator is unbiased if it does not systematically over- or under-estimate [@islr, p. 65].
 
-But we want to try to speak to the 'true' relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyse. And this is where standard error comes in. It tells us how off our estimate is compared with the actual. 
-
-From standard errors, we can compute a confidence interval. A 95 per cent confidence interval means that there is a 0.95 probability that the interval happens to contain the population parameter (which is typically unknown).
+But we want to try to speak to the 'true' relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyze. And this is where standard error comes in. It tells us how off our estimate is compared with the actual (Figure \@ref(fig:fivekmvsmarathonses)).
 
 
 ```r
-running_data %>% 
+
+simulated_running_data |> 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() + 
   geom_smooth(method = "lm", 
@@ -432,263 +442,471 @@ running_data %>%
   theme_classic()
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathonses)Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors</p>
+</div>
 
-There are a bunch of different tests that you can use to understand how your model is performing given this data. One quick way to look at a whole bunch of different aspects is to use the `performance` package [@citePerformance].
+From standard errors, we can compute a confidence interval. A 95 per cent confidence interval is a range, such that there is roughly a 0.95 probability that the interval happens to contain the population parameter, which is typically unknown. The lower end of this range is: $\hat{\beta_1} - 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$ and the upper end of this range is: $\hat{\beta_1} + 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$.
 
+Now that we have a range, for which we can say there is a roughly 95 per cent probability that range contains the true population parameter, we could test claims. For instance, we could claim that there is no relationship between $X$ and $Y$, i.e. $\beta_1 = 0$, as an alternative to a claim that there is some relationship between $X$ and $Y$, i.e. $\beta_1 \neq 0$.
 
-```r
-library(performance)
-performance::check_model(running_data_first_model)
-```
-
-<img src="41-ijalm_files/figure-html/unnamed-chunk-12-1.png" width="672" />
-
-
-
-### Testing hypothesis
-
-Now that we have an interval for which we can say there is a 95 per cent probability it contains the true population parameter we can test claims. For instance, a null hypothesis that there is no relationship between $X$ and $Y$ (i.e. $\beta_1 = 0$), compared with an alternative hypothesis that there is some relationship between $X$ and $Y$ (i.e. $\beta_1 \neq 0$).
-
-We need to know whether our estimate of $\beta_1$, which is $\hat{\beta}_1$, is 'far enough' away from zero for us to be comfortable claiming that $\beta_1 \neq 0$. How far is 'far enough'? If we were very confident in our estimate of $\beta_1$ then it wouldn't have to be far, but if we were not then it would have to be substantial. So it depends on a bunch of things, but essentially the standard error of $\hat{\beta}_1$. 
+In the same way that in Chapter \@ref(hunt-data) we needed to decide how much evidence it would take to convince us that our tea taster could distinguish whether milk or tea had been added first, we need to decide whether our estimate of $\beta_1$, which is $\hat{\beta}_1$, is 'far enough' away from zero for us to be comfortable claiming that $\beta_1 \neq 0$. How far is 'far enough'? If we were very confident in our estimate of $\beta_1$ then it would not have to be far, but if we were not then it would have to be substantial. The standard error of $\hat{\beta}_1$ does an awful lot of work here in accounting for a variety of factors, only some of which it can actually account for. 
 
 We compare this standard error with $\hat{\beta}_1$ to get the t-statistic:
 $$t = \frac{\hat{\beta}_1 - 0}{\mbox{SE}(\hat{\beta}_1)}.$$ 
-And we then compare our t-statistic to the t-distribution to compute the probability of getting this absolute t-statistic or a larger one, if $\beta_1 = 0$. This is the p-value. A small p-value means it is unlikely that we would observe our association due to chance if there wasn't a relationship.
+And we then compare our t-statistic to the t-distribution to compute the probability of getting this absolute t-statistic or a larger one, if it was actually the case that $\beta_1 = 0$. This probability is the p-value. A smaller p-value means it is less likely that we would observe our data due to chance if there was not a relationship.
 
-### On p-values
-
-The p-value is a specific and subtle concept. It is easy to abuse. The main issue is that it embodies, and assumes correct, every assumption of the model. From @greenland2016statistical [p. 339]: 'The p-value is then the probability that the chosen test statistic would have been at least as large as its observed value if every model assumption were correct, including the test hypothesis.'. To provide background on the language used here in case you're unfamiliar, a test hypothesis is typically a 'null hypothesis', and a 'test statistic' is 'the distance between the data and the model prediction' [@greenland2016statistical].
-
-The following quote (minor edits for consistency with above) summarises the situation:
-
-> It is true that the smaller the p-value, the more unusual the data would be if every single assumption were correct; but a very small p-value does not tell us which assumption is incorrect. For example, the p-value may be very small because the targeted hypothesis is false; but it may instead (or in addition) be very small because the study protocols were violated, or because it was selected for presentation based on its small size. Conversely, a large p-value indicates only that the data are not unusual under the model, but does not imply that the model or any aspect of it (such as the targeted hypothesis) is correct; it may instead (or in addition) be large because (again) the study protocols were violated, or because it was selected for presentation based on its large size.
-> 
-> The general definition of a p-value may help one to understand why statistical tests tell us much less than what many think they do: Not only does a p-value not tell us whether the hypothesis targeted for testing is true or not; it says nothing specifically related to that hypothesis unless we can be completely assured that every other assumption used for its computation is correct—an assurance that is lacking in far too many studies.
+> Words! Mere words! How terrible they were! How clear, and vivid, and cruel! One could not escape from them. And yet what a subtle magic there was in them! They seemed to be able to give a plastic form to formless things, and to have a music of their own as sweet as that of viol or of lute. Mere words! Was there anything so real as words?
 >
-> @greenland2016statistical [p. 339].
+> *The Picture of Dorian Gray* [@wilde].
 
-There is nothing inherently wrong about using p-values, but it is important to use them in sophisticated and thoughtful ways.
+We will not make much use of p-values in this book because they are a specific and subtle concept. They are difficult to understand and easy to abuse. The main issue is that they embody, and assume correct, every assumption of the model, including everything that went into gathering and cleaning the data. While smaller p-values do imply the data are more unusual if all the assumptions were correct; when we consider the full data science workflow there are usually an awful lot of assumptions. And we do not get guidance from p-values about the reasonableness of specific assumptions [@greenland2016statistical p. 339]. A p-value may reject a null hypothesis because the null hypothesis is actually false, but it may also be that some data were incorrectly gathered or prepared. We can only be sure that the p-value speaks to the hypothesis we are interested in testing, if all the other assumptions are correct. There is nothing inherently wrong about using p-values, but it is important to use them in sophisticated and thoughtful ways. @coxtalks provides a lovely discussion of what this requires.
 
-Typically one application where it's easy to see abuse of p-values is in power analysis. As @gelmanandhill [p. 438] say, '[s]ample size is never large enough.... this is not a problem... [w]e are just emphasizing that, just as you never have enough money, because perceived needs increase with resources, your inferential needs with increase with your sample size.' Power refers to the probability of incorrectly failing to reject the null hypothesis. As @Imai2017 [p. 303] says:
-
-> We use power analysis in order to formalize the degree of informativeness of data in hypothesis tests. The power of a statistical hypothesis test is defined as one minus the probability of type II error:
->
-> power = 1-P(type II error)
-
-
-In a vacuum, we'd like to have high power and we can achieve that either by having really big effect sizes, or by having a larger number of observations.
-
+One application where it is easy to see abuse of p-values is in power analysis. Power, in a statistical sense, refers to probability of rejecting a null hypothesis that is actually false. As power relates to hypothesis testing, it also related to sample size. There is often a worry that a study is 'under-powered', meaning there was not a large enough sample, but rarely a worry that, say, the data were inappropriately cleaned, even though we cannot distinguish between these based only on a p-value.
 
 ## Multiple linear regression
 
-To this point we've just considered one explanatory variable. But we'll usually have more than one. One approach would be to run separate regressions for each explanatory variable. But compared with separate linear regressions for each, adding more explanatory variables allows us to have a better understanding of the intercept and accounts for interaction. Often the results will be quite different.
+To this point we have just considered one explanatory variable. But we will usually have more than one. One approach would be to run separate regressions for each explanatory variable. But compared with separate linear regressions for each, adding more explanatory variables allows us to have a better understanding of the intercept and accounts for interaction. Often the results will be quite different.
 
-> This slightly counterintuitive result is very common in many real life situations. Consider an absurd example to illustrate the point. Running a regression of shark attacks versus ice cream sales for data collected at a given beach community over a period of time would show a positive relationship, similar to that seen between sales and newspapers. Of course no one (yet) has suggested that ice creams should be banned at beaches to reduce shark attacks. In reality, higher temperatures cause more people to visit the beach, which in turn results in more ice cream sales and more shark attacks. A multiple regression of attacks versus ice cream sales and temperature reveals that, as intuition implies, the former predictor is no longer significant after adjusting for temperature.
->
-> [@islr, p. 74].
-
-We may also like to consider variables that do not have an inherent ordering. For instance, pregnant or not. When there are only two options then we can use a binary variable which is 0 or 1. If there are more than two levels then use a combination of binary variables, where the 'missing' outcome (baseline) gets pushed onto the intercept.
-
-In other languages you may need to explicitly construct dummy variables, but as R was designed as a language to do statistical programming, it does a lot of the work here for you and is fairly forgiving. For instance, if you have a column of character values that only had two values: `c("Monica", "Rohan", "Rohan", "Monica", "Monica", "Rohan")`, and you used this as a independent variable in your usual regression set up then R would treat it as a dummy variable.
+We may also like to consider explanatory variables that do not have an inherent ordering. For instance: pregnant or not; day or night. When there are only two options then we can use a binary variable, which is considered either 0 or 1. If we have a column of character values that only has two values, such as: `c("Myles", "Ruth", "Ruth", "Myles", "Myles", "Ruth")`, then using this as an explanatory variable in the usual regression set up, would mean that it is treated as a binary variable. If there are more than two levels then we can use a combination of binary variables, where the 'missing' outcome (baseline) gets pushed into the intercept. 
 
 
 ```r
-running_data_rain_model <- 
-  lm(marathon_time ~ five_km_time + was_raining, 
-     data = running_data)
-summary(running_data_rain_model)
+simulated_running_data <-
+  simulated_running_data |>
+  mutate(was_raining = sample(
+    c("Yes", "No"),
+    size = number_of_observations,
+    replace = TRUE,
+    prob = c(0.2, 0.8)
+  )) |> 
+  select(five_km_time, marathon_time, was_raining)
+
+simulated_running_data
+#> # A tibble: 100 × 3
+#>    five_km_time marathon_time was_raining
+#>           <dbl>         <dbl> <chr>      
+#>  1           20           152 No         
+#>  2           17           134 No         
+#>  3           22           198 No         
+#>  4           20           166 No         
+#>  5           16           163 No         
+#>  6           21           168 No         
+#>  7           17           131 No         
+#>  8           19           150 No         
+#>  9           17           158 No         
+#> 10           18           147 No         
+#> # … with 90 more rows
+```
+
+We can add additional explanatory variables to `lm()` with `+`.
+
+
+```r
+simulated_running_data_rain_model <-
+  lm(marathon_time ~ five_km_time + was_raining,
+     data = simulated_running_data)
+
+summary(simulated_running_data_rain_model)
 #> 
 #> Call:
-#> lm(formula = marathon_time ~ five_km_time + was_raining, data = running_data)
+#> lm(formula = marathon_time ~ five_km_time + was_raining, data = simulated_running_data)
 #> 
 #> Residuals:
-#>      Min       1Q   Median       3Q      Max 
-#> -24.6239  -5.5806   0.8377   6.7636  16.8671 
+#>     Min      1Q  Median      3Q     Max 
+#> -46.651 -10.652   0.157  11.613  60.164 
 #> 
 #> Coefficients:
 #>                Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)      0.1430     6.1476   0.023    0.981    
-#> five_km_time     8.3689     0.3081  27.166   <2e-16 ***
-#> was_rainingYes   0.7043     2.2220   0.317    0.752    
+#> (Intercept)      7.9852     9.0444   0.883    0.379    
+#> five_km_time     7.9259     0.4175  18.984   <2e-16 ***
+#> was_rainingYes   4.5689     4.4893   1.018    0.311    
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
-#> Residual standard error: 8.513 on 97 degrees of freedom
-#> Multiple R-squared:  0.8842,	Adjusted R-squared:  0.8818 
-#> F-statistic: 370.4 on 2 and 97 DF,  p-value: < 2.2e-16
+#> Residual standard error: 16.94 on 97 degrees of freedom
+#> Multiple R-squared:  0.7976,	Adjusted R-squared:  0.7935 
+#> F-statistic: 191.2 on 2 and 97 DF,  p-value: < 2.2e-16
 ```
 
-The result probably isn't too surprising if we look at a plot of the data.
+The result probably is not too surprising if we look at a plot of the data (Figure \@ref(fig:fivekmvsmarathonbinary)).
+
 
 ```r
-running_data %>%
+simulated_running_data |>
   ggplot(aes(x = five_km_time, y = marathon_time, color = was_raining)) +
   geom_point() +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  geom_smooth(method = "lm",
+              color = "black", 
+              linetype = "dashed",
+              formula = 'y ~ x') +
   labs(x = "Five-kilometer time (minutes)",
        y = "Marathon time (minutes)",
        color = "Was raining") +
   theme_classic() +
   scale_color_brewer(palette = "Set1")
-#> `geom_smooth()` using formula 'y ~ x'
 ```
-
-<img src="41-ijalm_files/figure-html/unnamed-chunk-14-1.png" width="672" />
-
-In addition to wanting to include additional explanatory variables we may think that they are related with one another. For instance, if we were wanting to explain the amount of snowfall in Toronto, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using `*` instead of `+` when we specify the model in R. If you do interact variables, then you should almost always also include the individual variables as well (Figure \@ref(fig:trump)).
 
 <div class="figure">
-<img src="figures/trump.jpg" alt="Don't leave out the main effects in an interactive model" width="90%" />
-<p class="caption">(\#fig:trump)Don't leave out the main effects in an interactive model</p>
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathonbinary)Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining</p>
 </div>
-Source: By [Kai Arzheimer](https://twitter.com/kai_arzheimer/status/1228998718646607876), 16 February 2020.
 
-
-
-### Threats to validity and aspects to think about 
-
-There are a variety of weaknesses and aspects that you should discuss when you use linear regression. A quick list includes [@islr, p. 92]:
-
-1. Non-linearity of the response-predictor relationships.
-2. Correlation of error terms.
-3. Non-constant variance of error terms.
-4. Outliers.
-5. High-leverage points.
-6. Collinearity
-
-These are also aspects that you should discuss if you use linear regression. Including plots tends to be handy here to illustrate your points. Other aspects that you may consider discussing include [@islr, p. 75]:
-
-1. Is at least one of the predictors $X_1, X_2, \dots, X_p$ useful in predicting the response?
-2. Do all the predictors help to explain $Y$, or is only a subset of the predictors useful?
-3. How well does the model fit the data?
-4. Given a set of predictor values, what response value should we predict, and how accurate is our prediction?
-
-
-
-### More credible outputs
-
-Finally, after creating beautiful graphs and tables you may want your regression output to look just as nice. There are a variety of packages in R that will automatically format your regression outputs. One that is particularly nice is `huxtable` [@citehuxtable].
+In addition to wanting to include additional explanatory variables, we may think that they are related with each another. For instance, if we were wanting to explain the amount of snowfall, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using `*` instead of `+` when we specify the model. When we interact variables in this way, then we almost always need to include the individual variables as well and `lm()` will do this by default.
 
 
 ```r
-library(huxtable)
-huxreg(running_data_first_model, running_data_rain_model)
+simulated_running_data <-
+  simulated_running_data |>
+  mutate(humidity = sample(
+    c("High", "Low"),
+    size = number_of_observations,
+    replace = TRUE,
+    prob = c(0.2, 0.8)
+  ))
+
+simulated_running_data
+#> # A tibble: 100 × 4
+#>    five_km_time marathon_time was_raining humidity
+#>           <dbl>         <dbl> <chr>       <chr>   
+#>  1           20           152 No          Low     
+#>  2           17           134 No          Low     
+#>  3           22           198 No          Low     
+#>  4           20           166 No          Low     
+#>  5           16           163 No          Low     
+#>  6           21           168 No          Low     
+#>  7           17           131 No          Low     
+#>  8           19           150 No          Low     
+#>  9           17           158 No          High    
+#> 10           18           147 No          Low     
+#> # … with 90 more rows
 ```
 
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-15">
-<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-15) </caption><col><col><col><tr>
-<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1)</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(2)</th></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.411&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.143&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(6.061)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(6.148)&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">five_km_time</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">8.362 ***</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">8.369 ***</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.306)&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.308)&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">was_rainingYes</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.704&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(2.222)&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.884&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.884&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">logLik</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-354.584&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-354.532&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AIC</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">715.168&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">717.064&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-<tr>
-<th colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
-</table>
-<!--/html_preserve-->
 
+```r
+simulated_running_data_rain_and_humidity_model <-
+  lm(marathon_time ~ five_km_time + was_raining*humidity,
+     data = simulated_running_data)
 
+summary(simulated_running_data_rain_and_humidity_model)
+#> 
+#> Call:
+#> lm(formula = marathon_time ~ five_km_time + was_raining * humidity, 
+#>     data = simulated_running_data)
+#> 
+#> Residuals:
+#>     Min      1Q  Median      3Q     Max 
+#> -46.360  -8.342   0.175  10.433  61.996 
+#> 
+#> Coefficients:
+#>                            Estimate Std. Error t value
+#> (Intercept)                 14.5425    10.3039   1.411
+#> five_km_time                 7.7859     0.4179  18.630
+#> was_rainingYes              15.6679     9.5816   1.635
+#> humidityLow                 -4.3283     4.9357  -0.877
+#> was_rainingYes:humidityLow -14.1917    10.7016  -1.326
+#>                            Pr(>|t|)    
+#> (Intercept)                   0.161    
+#> five_km_time                 <2e-16 ***
+#> was_rainingYes                0.105    
+#> humidityLow                   0.383    
+#> was_rainingYes:humidityLow    0.188    
+#> ---
+#> Signif. codes:  
+#> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> Residual standard error: 16.73 on 95 degrees of freedom
+#> Multiple R-squared:  0.8067,	Adjusted R-squared:  0.7986 
+#> F-statistic: 99.14 on 4 and 95 DF,  p-value: < 2.2e-16
+```
 
-### Implementation in `tidymodels`
+There are a variety of threats to the validity of linear regression estimates, and aspects to think about. We need to address these when we use it, and usually four graphs and associated text are sufficient to assuage most of these. Aspects of concern include:
 
-The reason that we went to all that trouble to do simple regression is that we often want to fit a bunch of models. One way is to copy/paste code a bunch of times. There's nothing wrong with that. And that's the way that most people get started, but you may want to take an approach that scales more easily. We also need to think more carefully about over-fitting, and being able to evaluate our models.
+**Fix these conditions.**
 
-The `tidymodels` package [@citeTidymodels] is what all the cool kids are using these days. It's an attempt to bring some order to the chaos that has been different modelling packages in R. (There have been other attempts in the past and they've crashed and burned, but hopefully this time is different.) The issue is that let's say you want to run a simple linear regression and then run a random forest. The language that you'd use to code these models is fairly different. The `tidymodels` package is the latest attempt to bring a coherent grammar to this. It's also a package of packages.
+1. Linearity. We are concerned with whether the independent variables enter in a linear way. Sometimes if we are concerned 
+2. Independence. 
+3. Homoscedasticity of errors.
+4. Normality of errors. We are concerned that our 
+5. Outliers and other high-impact observations.
 
-We'll create test and training datasets.
+Those aspects are statistical concerns and relate to whether the model is working. The most important threat to validity and hence the aspect that must be addressed at some length, is speaking to the fact that this model is appropriate to the circumstances and addresses the research question at hand.
+
+To this point, we have just had a quick look at the regression results using `summary()`. A better approach is to use `modelsummary()` from `modelsummary` [@citemodelsummary] (Table \@ref(tab:modelsummaryruntimes)).
 
 
 ```r
-set.seed(853)
+library(modelsummary)
+
+modelsummary(list(simulated_running_data_first_model,
+                  simulated_running_data_rain_model, 
+                  simulated_running_data_rain_and_humidity_model),
+             fmt = 2,
+             title = "Explaining marathon time based on five-kilometer run times and weather features")
+```
+
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>(\#tab:modelsummaryruntimes)Explaining marathon time based on five-kilometer run times and weather features</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Model 1 </th>
+   <th style="text-align:center;"> Model 2 </th>
+   <th style="text-align:center;"> Model 3 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> 7.08 </td>
+   <td style="text-align:center;"> 7.99 </td>
+   <td style="text-align:center;"> 14.54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (9.00) </td>
+   <td style="text-align:center;"> (9.04) </td>
+   <td style="text-align:center;"> (10.30) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> five_km_time </td>
+   <td style="text-align:center;"> 8.01 </td>
+   <td style="text-align:center;"> 7.93 </td>
+   <td style="text-align:center;"> 7.79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.41) </td>
+   <td style="text-align:center;"> (0.42) </td>
+   <td style="text-align:center;"> (0.42) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> was_rainingYes </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 4.57 </td>
+   <td style="text-align:center;"> 15.67 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (4.49) </td>
+   <td style="text-align:center;"> (9.58) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> humidityLow </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> −4.33 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> (4.94) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> was_rainingYes × humidityLow </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> −14.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (10.70) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 100 </td>
+   <td style="text-align:center;"> 100 </td>
+   <td style="text-align:center;"> 100 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.795 </td>
+   <td style="text-align:center;"> 0.798 </td>
+   <td style="text-align:center;"> 0.807 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> 0.793 </td>
+   <td style="text-align:center;"> 0.793 </td>
+   <td style="text-align:center;"> 0.799 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> AIC </td>
+   <td style="text-align:center;"> 853.7 </td>
+   <td style="text-align:center;"> 854.7 </td>
+   <td style="text-align:center;"> 854.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> BIC </td>
+   <td style="text-align:center;"> 861.5 </td>
+   <td style="text-align:center;"> 865.1 </td>
+   <td style="text-align:center;"> 869.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Log.Lik. </td>
+   <td style="text-align:center;"> −423.859 </td>
+   <td style="text-align:center;"> −423.328 </td>
+   <td style="text-align:center;"> −421.026 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> F </td>
+   <td style="text-align:center;"> 381.139 </td>
+   <td style="text-align:center;"> 191.157 </td>
+   <td style="text-align:center;"> 99.138 </td>
+  </tr>
+</tbody>
+</table>
+
+
+When we are focused on prediction, we will often want to fit many models. One way to do this is to copy and paste code many times. There is nothing wrong with that. And that is the way that most people get started. But we need an approach that: 
+
+1) scales more easily; 
+2) enables us to think carefully about over-fitting; and 
+3) adds model evaluation.
+
+The use of `tidymodels` [@citeTidymodels] satisfies these criteria by providing a coherent grammar that allows us to easily fit a variety of models. Like `tidyverse`, it is a package of packages.
+
+As we are focused on prediction, we are worried about over-fitting our data, which would limit our ability to make claims about other datasets. One way to partially address this is to split our dataset into training and test datasets using `initial_split()`. 
+
+
+```r
 library(tidymodels)
 
-running_data_split <- rsample::initial_split(running_data, prop = 0.80)
-running_data_split
+set.seed(853)
+
+simulated_running_data_split <- 
+  initial_split(data = simulated_running_data, 
+                prop = 0.80)
+
+simulated_running_data_split
 #> <Analysis/Assess/Total>
 #> <80/20/100>
 ```
 
-So we have 81 points in our training set, 19 in our test set and 100 in total.
-
-We can then make datasets for the test and training samples.
+Having split the data, we then create the training and test datasets.
 
 
 ```r
-running_data_train <- rsample::training(running_data_split)
-running_data_test  <-  rsample::testing(running_data_split)
+simulated_running_data_train <- training(simulated_running_data_split)
+
+simulated_running_data_train
+#> # A tibble: 80 × 4
+#>    five_km_time marathon_time was_raining humidity
+#>           <dbl>         <dbl> <chr>       <chr>   
+#>  1           17           158 No          High    
+#>  2           24           205 No          High    
+#>  3           23           198 Yes         Low     
+#>  4           22           175 No          Low     
+#>  5           19           158 No          Low     
+#>  6           24           204 No          High    
+#>  7           17           120 No          High    
+#>  8           19           178 No          Low     
+#>  9           22           198 No          Low     
+#> 10           21           166 No          Low     
+#> # … with 70 more rows
+
+simulated_running_data_test  <-  testing(simulated_running_data_split)
+
+simulated_running_data_test
+#> # A tibble: 20 × 4
+#>    five_km_time marathon_time was_raining humidity
+#>           <dbl>         <dbl> <chr>       <chr>   
+#>  1           17           131 No          Low     
+#>  2           17           118 No          Low     
+#>  3           20           165 No          Low     
+#>  4           21           164 Yes         Low     
+#>  5           21           180 No          Low     
+#>  6           28           246 No          Low     
+#>  7           24           198 No          High    
+#>  8           16           143 No          Low     
+#>  9           25           202 No          Low     
+#> 10           15           140 Yes         Low     
+#> 11           29           237 No          Low     
+#> 12           19           132 Yes         Low     
+#> 13           22           200 No          Low     
+#> 14           26           229 Yes         High    
+#> 15           25           222 Yes         High    
+#> 16           26           208 Yes         Low     
+#> 17           15           120 No          Low     
+#> 18           18           144 No          Low     
+#> 19           27           227 No          High    
+#> 20           21           201 No          Low
 ```
 
-If we have a look at the dataset that we made we can see that it's got fewer rows. We could have reached the same outcome with something like:
+When we look at the training and test datasets, we can see that we have placed most of our dataset into the training dataset. We will use that to estimate the parameters of our model. We have kept a small amount of it back, and we will use that to evaluate our model.
+
 
 
 ```r
-running_data <- 
-  running_data %>% 
-  mutate(magic_number = sample(x = c(1:nrow(running_data)), size = nrow(running_data), replace = FALSE))
+simulated_running_data_first_model_tidymodels <- 
+  linear_reg() |>
+  set_engine(engine = "lm") |> 
+  fit(marathon_time ~ five_km_time + was_raining, 
+      data = simulated_running_data_train
+      )
 
-running_data_test <- 
-  running_data %>% 
-  filter(magic_number <= 20)
-
-running_data_train <- 
-  running_data %>% 
-  filter(magic_number > 20)
+simulated_running_data_first_model_tidymodels
+#> parsnip model object
+#> 
+#> Fit time:  2ms 
+#> 
+#> Call:
+#> stats::lm(formula = marathon_time ~ five_km_time + was_raining, 
+#>     data = data)
+#> 
+#> Coefficients:
+#>    (Intercept)    five_km_time  was_rainingYes  
+#>         14.907           7.583           8.032
 ```
 
+We will use `tidymodels` for forecasting. But when we are focused on inference, instead, we will use Bayesian approaches. To do this we use the probabilistic programming language 'Stan', and interface with it using `rstanarm` package [@citerstanarm]. We keep these separate, rather than adapting Bayesian approaches within `tidymodels`, because to this point the ecosystems have developed separately, and so the best books to go onto next are also separate.
 
+In order to use Bayesian approaches we will need to specify a starting point, or prior. This is another reason for the workflow advocated in this book; the simulate stage leads directly to priors. We will also more thoroughly specify the model that we are interested in:
 
+$$
+Model
+$$
 
-```r
-first_go <- 
-  parsnip::linear_reg() %>%
-  parsnip::set_engine(engine = "lm") %>% 
-  parsnip::fit(marathon_time ~ five_km_time + was_raining, 
-               data = running_data_train
-               )
-```
-
-
-### Implementation in `rstanarm`
-
-The `tidymodels` package will be fine for specific types of tasks. For instance if you are doing machine learning then chances are you are interested in forecasting. That's the kind of thing that `tidymodels` is really built for. If you want equivalent firepower for explanatory modelling then one option is to use Bayesian approaches more directly. Yes, you can use Bayesian models within the `tidymodels` ecosystem, but as you start to move away from out-of-the-box solutions, it becomes important to start to understand what is going on under the hood.
-
-There are a variety of ways of getting started, but essentially what you need is a probabilistic programming language. That is one that is specifically designed for this sort of thing, in comparison to `R`, which is designed for more general statistical computing. We will use `Stan` in these notes within the context of our familiar R environment. We will interface with `Stan` using the `rstanarm` package [@citerstanarm].
-
+On a practical note, one aspect that different between Bayesian approaches and the way we have been doing modelling to this point, is that Bayesian models will usually take longer to run. Because of this, it can be useful to run the model, either within the R Markdown document or in a separate R script, and then save it with `saveRDS()`. With sensible R Markdown chunk options, the model can then be read into the R Markdown document with `readRDS()`. In this way, the model, and hence delay, is only imposed once for a given model. 
 
 
 ```r
 library(rstanarm)
 
-first_go_in_rstanarm <-
+simulated_running_data_first_model_rstanarm <-
   stan_lm(
     marathon_time ~ five_km_time + was_raining, 
-    data = running_data,
+    data = simulated_running_data,
     prior = NULL,
     seed = 853
   )
+
+# simulated_running_data_first_model_rstanarm <-
+#   stan_lm(
+#     marathon_time ~ five_km_time, 
+#     data = simulated_running_data,
+#     prior = normal(0, 3),
+#     prior_intercept = normal(0, 3),
+#     seed = 853
+#   )
+
+saveRDS(simulated_running_data_first_model_rstanarm,
+        file = "simulated_running_data_first_model_rstanarm.rds")
 ```
 
 
+
+
+
+
 ```r
-first_go_in_rstanarm
+simulated_running_data_first_model_rstanarm
 #> stan_lm
 #>  family:       gaussian [identity]
 #>  formula:      marathon_time ~ five_km_time + was_raining
@@ -696,21 +914,20 @@ first_go_in_rstanarm
 #>  predictors:   3
 #> ------
 #>                Median MAD_SD
-#> (Intercept)    0.4    6.0   
-#> five_km_time   8.4    0.3   
-#> was_rainingYes 0.7    2.2   
+#> (Intercept)    9.2    8.7   
+#> five_km_time   7.9    0.4   
+#> was_rainingYes 4.6    4.5   
 #> 
 #> Auxiliary parameter(s):
 #>               Median MAD_SD
-#> R2            0.9    0.0   
-#> log-fit_ratio 0.0    0.0   
-#> sigma         8.6    0.6   
+#> R2             0.8    0.0  
+#> log-fit_ratio  0.0    0.0  
+#> sigma         17.1    1.3  
 #> 
 #> ------
 #> * For help interpreting the printed output see ?print.stanreg
 #> * For info on the priors used see ?prior_summary.stanreg
 ```
-
 
 
 
@@ -734,17 +951,17 @@ first_go_in_rstanarm
 
 
 
-<!-- paspaley_data$keshi %>% table() -->
-<!-- paspaley_data$metal %>% table() -->
-<!-- paspaley_data$category %>% table() -->
+<!-- paspaley_data$keshi |> table() -->
+<!-- paspaley_data$metal |> table() -->
+<!-- paspaley_data$category |> table() -->
 <!-- ``` -->
 
 <!-- Clean up and remove some anonying other variables. -->
 
 <!-- ```{r} -->
 <!-- paspaley_data <-  -->
-<!--   paspaley_data %>%  -->
-<!--   filter(metal != "Other") %>%  -->
+<!--   paspaley_data |>  -->
+<!--   filter(metal != "Other") |>  -->
 <!--   filter(category != "Other") -->
 <!-- ``` -->
 
@@ -770,7 +987,7 @@ first_go_in_rstanarm
 <!-- broom::glance(model_4) -->
 <!-- broom::tidy(model_4) -->
 
-<!-- paspaley_data %>%  -->
+<!-- paspaley_data |>  -->
 <!--   ggplot(aes(x = price)) + -->
 <!--   geom_histogram() + -->
 <!--   facet_wrap(vars(metal), scales = "free_y") -->
@@ -797,140 +1014,117 @@ first_go_in_rstanarm
 
 ## Logistic regression
 
-### Overview
+Linear regression is a nice way to come to understand better our data. But it assumes a continuous outcome variable which can take any number on the real line. We would like some way to use this same machinery when we cannot satisfy this condition. We turn to logistic and Poisson regression for binary and count outcome variables, respectively.
 
-To steal a joke from someone, 'it's AI when you're fundraising, machine learning when you're hiring, and logistic regression when you're implementing.'
+Logistic regression is useful in a variety of settings. We use logistic regression when the dependent variable is a binary outcome, such as 0 or 1. Although the presence of a binary outcome variable may sound limiting, there are a lot of circumstances in which the outcome either naturally falls into this situation, or can be adjusted into it.
 
-When the dependent variable is a binary outcome, that is 0 or 1, then instead of linear regression we may like to use logistic regression. Although a binary outcome may sound limiting, there are a lot of circumstances in which your outcome either naturally falls into this situation, or can be adjusted into it (e.g. a voter supports the liberals or not the liberals). 
+The reason that we use logistic regression is that we will be modelling a probability and so it will be bounded between 0 and 1. Whereas with linear regression we may end up with values outside this. This all said, logistic regression, as Daniella Witten teaches us, is just a linear model. The foundation of logistic regression is the logit function:
 
-The reason that we use logistic regression is that we'll be modelling a probability and so it will be bounded between 0 and 1. Whereas with linear regression we may end up with values outside this. In practice it is usually fine to start with linear regression and then move to logistic regression as you build confidence.
+$$
+\mbox{logit}(x) = \log\left(\frac{x}{1-x}\right),
+$$
+which will transpose values between 0 and 1, onto the real line. For instance, `logit(0.1) = -2.2`, `logit(0.5) = 0`, and `logit(0.9) = 2.2`.
 
-This all said, logistic regression, as Daniella Witten teaches us, is just a linear model!
-
-### Implementation in base
-
-I'd like to consider a slightly more interesting example, which is a dataset of pearl jewellery, from the Australian retailer Paspaley.
+We will simulate data on whether it is day or night, based on the number of stars that we can see.
 
 
 ```r
-paspaley_dataset <- read_csv("https://raw.githubusercontent.com/RohanAlexander/paspaley/master/outputs/data/cleaned_dataset.csv")
-#> Rows: 1289 Columns: 13
-#> ── Column specification ────────────────────────────────────
-#> Delimiter: ","
-#> chr (10): product, name, description, availability, sku,...
-#> dbl  (2): price, year
-#> lgl  (1): keshi
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+set.seed(853)
 
-paspaley_dataset$metal %>% table()
-#> .
-#>       Other    Platinum   Rose gold  White gold Yellow gold 
-#>         134          23          89         475         568
+day_or_night <- 
+  tibble(
+    number_of_stars = runif(n = 1000, min = 0, 100),
+    noise = rnorm(n = 1000, mean = 0, sd = 2),
+    is_night = if_else(number_of_stars + noise > 50, 1, 0)
+  ) |> 
+  mutate(number_of_stars = round(number_of_stars)) |> 
+  select(-noise)
+  
+day_or_night
+#> # A tibble: 1,000 × 2
+#>    number_of_stars is_night
+#>              <dbl>    <dbl>
+#>  1              36        0
+#>  2              12        0
+#>  3              48        0
+#>  4              32        0
+#>  5               4        0
+#>  6              40        0
+#>  7              13        0
+#>  8              24        0
+#>  9              16        0
+#> 10              19        0
+#> # … with 990 more rows
 ```
 
-In this case we'll model whether some jewellery is made of white or yellow gold, based on their price and the year (Figure \@ref(fig:logisticgraph)).
-
-
-
-```r
-paspaley_logistic_dataset <- 
-  paspaley_dataset %>% 
-  filter(metal %in% c('White gold', 'Yellow gold')) %>% 
-  select(metal, price, year)
-```
-
-<div class="figure">
-<img src="41-ijalm_files/figure-html/logisticgraph-1.png" alt="Examining the type of gold some jewellery is made from." width="672" />
-<p class="caption">(\#fig:logisticgraph)Examining the type of gold some jewellery is made from.</p>
-</div>
-
-The graph suggests that we should filter any price higher than $100,000.
+As with linear regression, logistic regression with can use `glm()` from base to put together a quick model and `summary()` to look at it. In this case we will try to work out whether it is day or night, based on the number of stars we can see.
 
 
 ```r
-paspaley_logistic_dataset <- 
-  paspaley_logistic_dataset %>% 
-  filter(price < 100000)
-```
+day_or_night_model <- 
+  glm(is_night ~ number_of_stars,
+      data = day_or_night,
+      family = 'binomial')
+#> Warning: glm.fit: fitted probabilities numerically 0 or 1
+#> occurred
 
-As with linear regression, logistic regression is built into R, with the `glm` function. In this case, we'll try to work out if the jewellery was white gold. Although not strictly necessary for this particular function, we'll change it to a binary, that will be 1 if white gold and 0 if not.
-
-
-```r
-paspaley_logistic_dataset <- 
-  paspaley_logistic_dataset %>% 
-  mutate(is_white_gold = if_else(metal == "White gold", 1, 0))
-
-white_gold_model <- 
-  glm(is_white_gold ~ price + year, 
-    data = paspaley_logistic_dataset, 
-    family = 'binomial')
-
-summary(white_gold_model)
+summary(day_or_night_model)
 #> 
 #> Call:
-#> glm(formula = is_white_gold ~ price + year, family = "binomial", 
-#>     data = paspaley_logistic_dataset)
+#> glm(formula = is_night ~ number_of_stars, family = "binomial", 
+#>     data = day_or_night)
 #> 
 #> Deviance Residuals: 
-#>    Min      1Q  Median      3Q     Max  
-#> -1.250  -1.103  -1.015   1.247   1.353  
+#>      Min        1Q    Median        3Q       Max  
+#> -2.39419  -0.00002   0.00000   0.00002   2.33776  
 #> 
 #> Coefficients:
-#>               Estimate Std. Error z value Pr(>|z|)  
-#> (Intercept)  2.087e+02  8.674e+01   2.406   0.0161 *
-#> price        3.832e-06  5.405e-06   0.709   0.4783  
-#> year        -1.035e-01  4.296e-02  -2.408   0.0160 *
+#>                 Estimate Std. Error z value Pr(>|z|)    
+#> (Intercept)     -45.5353     7.3389  -6.205 5.48e-10 ***
+#> number_of_stars   0.9121     0.1470   6.205 5.47e-10 ***
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
 #> (Dispersion parameter for binomial family taken to be 1)
 #> 
-#>     Null deviance: 1411.6  on 1023  degrees of freedom
-#> Residual deviance: 1405.5  on 1021  degrees of freedom
-#> AIC: 1411.5
+#>     Null deviance: 1386.194  on 999  degrees of freedom
+#> Residual deviance:   77.243  on 998  degrees of freedom
+#> AIC: 81.243
 #> 
-#> Number of Fisher Scoring iterations: 4
+#> Number of Fisher Scoring iterations: 11
 ```
 
-One reason that logistic regression can be a bit of a pain initially is because the coefficients take a bit of work to interpret. In particular, our estimate on price is -3.170e-06. This is the odds. So the odds that it was white gold decrease by -3.170e-06 as the price increases. We can have our model make forecasts in terms of a probability, by asking for that.
+One reason that logistic regression can be a bit tricky initially, is because the coefficients take a bit of work to interpret. In particular, our estimate on price is 0.37. This is the odds. So, the odds that it is night, increase by 0.37 as the number of stars that we can see increases. We can translate the result into probabilities using `augment()` from `broom` [@broom].
 
 
 ```r
-paspaley_logistic_dataset <- 
-  broom::augment(white_gold_model,
-          data = paspaley_logistic_dataset,
+library(broom)
+
+day_or_night_model <-
+  augment(day_or_night_model,
+          data = day_or_night,
           type.predict = "response")
-head(paspaley_logistic_dataset)
+
+day_or_night_model
+#> # A tibble: 1,000 × 8
+#>    number_of_stars is_night  .fitted       .resid .std.resid
+#>              <dbl>    <dbl>    <dbl>        <dbl>      <dbl>
+#>  1              36        0 3.06e- 6     -2.47e-3   -2.47e-3
+#>  2              12        0 2.22e-16     -2.11e-8   -2.11e-8
+#>  3              48        0 1.48e- 1     -5.65e-1   -5.71e-1
+#>  4              32        0 7.95e- 8     -3.99e-4   -3.99e-4
+#>  5               4        0 2.22e-16     -2.11e-8   -2.11e-8
+#>  6              40        0 1.17e- 4     -1.53e-2   -1.53e-2
+#>  7              13        0 2.22e-16     -2.11e-8   -2.11e-8
+#>  8              24        0 5.39e-11     -1.04e-5   -1.04e-5
+#>  9              16        0 2.22e-16     -2.11e-8   -2.11e-8
+#> 10              19        0 5.63e-13     -1.06e-6   -1.06e-6
+#> # … with 990 more rows, and 3 more variables: .hat <dbl>,
+#> #   .sigma <dbl>, .cooksd <dbl>
 ```
 
-<!--html_preserve--><table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-26">
-<caption style="caption-side: top; text-align: center;">(#tab:unnamed-chunk-26) </caption><col><col><col><col><col><col><col><col><col><col><tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">metal</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">price</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">year</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">is_white_gold</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.fitted</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.resid</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.std.resid</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.hat</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.sigma</th><th style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: bold;">.cooksd</th></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Yellow gold</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.58e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.505</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0034&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00116</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Yellow gold</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.08e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.504</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1.18</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00344</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00118</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">Yellow gold</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.08e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.505</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">-1.19</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00335</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00115</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">White gold</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">7.38e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.509</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.16</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.16</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00313</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00101</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">White gold</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">3.08e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.505</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.00335</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: normal;">0.0011&nbsp;</td></tr>
-<tr>
-<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0.4pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">White gold</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">3.95e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.02e+03</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.506</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00329</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">1.17</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0.4pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.00108</td></tr>
-</table>
-<!--/html_preserve-->
-
-
-### Implementation in `tidymodels`
-
-<!-- https://jtcies.com/2020/03/when-does-garbage-time-start/ -->
-<!-- https://meghan.rbind.io/post/tidymodels-intro/ -->
-<!-- https://alison.rbind.io/post/2020-02-27-better-tidymodels/#tidymodels-101 -->
+ADD GRAPH THEN OF THIS.
 
 We can use `tidymodels` to run this if we wanted. In this case, we need it as a factor.
 
@@ -938,83 +1132,113 @@ We can use `tidymodels` to run this if we wanted. In this case, we need it as a 
 ```r
 set.seed(853)
 
-paspaley_logistic_dataset <- 
-  paspaley_logistic_dataset %>% 
-  mutate(is_white_gold = as_factor(is_white_gold))
+day_or_night <-
+  day_or_night |>
+  mutate(is_night = as_factor(is_night))
 
-paspaley_logistic_dataset_split <- rsample::initial_split(paspaley_logistic_dataset, prop = 0.80)
-paspaley_logistic_dataset_train <- rsample::training(paspaley_logistic_dataset_split)
-paspaley_logistic_dataset_test  <-  rsample::testing(paspaley_logistic_dataset_split)
+day_or_night_split <- initial_split(day_or_night, prop = 0.80)
+day_or_night_train <- training(day_or_night_split)
+day_or_night_test  <-  testing(day_or_night_split)
 
-white_gold_model_tidymodels <-
-  parsnip::logistic_reg(mode = "classification") %>%
-  parsnip::set_engine("glm") %>%
-  fit(is_white_gold ~ price + year, 
-      data = paspaley_logistic_dataset_train)
+day_or_night_tidymodels <-
+  logistic_reg(mode = "classification") |>
+  set_engine("glm") |>
+  fit(is_night ~ number_of_stars,
+      data = day_or_night_train)
+#> Warning: glm.fit: fitted probabilities numerically 0 or 1
+#> occurred
 
-white_gold_model_tidymodels
+day_or_night_tidymodels
 #> parsnip model object
 #> 
 #> Fit time:  4ms 
 #> 
-#> Call:  stats::glm(formula = is_white_gold ~ price + year, family = stats::binomial, 
+#> Call:  stats::glm(formula = is_night ~ number_of_stars, family = stats::binomial, 
 #>     data = data)
 #> 
 #> Coefficients:
-#> (Intercept)        price         year  
-#>   1.832e+02    5.245e-06   -9.082e-02  
+#>     (Intercept)  number_of_stars  
+#>        -44.4817           0.8937  
 #> 
-#> Degrees of Freedom: 818 Total (i.e. Null);  816 Residual
-#> Null Deviance:	    1130 
-#> Residual Deviance: 1125 	AIC: 1131
+#> Degrees of Freedom: 799 Total (i.e. Null);  798 Residual
+#> Null Deviance:	    1109 
+#> Residual Deviance: 62.5 	AIC: 66.5
 ```
 
 
-### Implementation in `rstanarm`
 
 
 ```r
-paspaley_in_rstanarm <-
-  rstanarm::stan_glm(
-    is_white_gold ~ price + year,
-    data = paspaley_logistic_dataset,
+day_or_night_rstanarm <-
+  stan_glm(
+    is_night ~ number_of_stars,
+    data = day_or_night,
     family = binomial(link = "logit"),
     prior = NULL,
     seed = 853
   )
+
+day_or_night_rstanarm
 ```
+
+
+**Fix the rstanarm for this.**
+
+
+
 
 
 
 ## Poisson regression
 
-### Overview
+When we have count data, we should initially think to use Poisson distribution. The Poisson distribution has the interesting feature that the mean is also the variance, and so as the mean increases, so does the variance. As such, the Poisson distribution is governed by the parameter, $\lambda$ and it distributes probabilities over the non-negative integers. The Poisson distribution is [@pitman, p. 121]: 
 
-When we have count data, we use Poisson distribution. From @pitman [p. 121] 'The Poisson distribution with parameter $\mu$ or Poisson ($\mu$) distribution is the distribution of probabilities  $P_{\mu}(k)$ over ${0, 1, 2, ...}$ defined by: 
-$$P_{\mu}(k) = e^{-\mu}\mu^k/k!\mbox{, for }k=0,1,2,...$$
-We can simulate $n$ data points from the Poisson distribution with `rpois()` where $\lambda$ is the mean and the variance.
+$$P_{\lambda}(k) = e^{-\lambda}\mu^k/k!\mbox{, for }k=0,1,2,...$$
+We can simulate $n=20$ draws from the Poisson distribution with `rpois()`, where $\lambda$ is both the mean and the variance. The $\lambda$ parameter governs the shape of the distribution (Figure \@ref(fig:poissondistributiontakingshape)).
 
 
 ```r
 rpois(n = 20, lambda = 3)
-#>  [1] 2 2 3 4 2 2 4 2 4 1 3 2 3 3 2 2 0 1 2 1
+#>  [1] 1 5 5 4 5 2 1 4 5 4 6 2 3 4 4 6 5 1 3 5
 ```
-
-That $\lambda$ parameter governs the shape of the distribution.
 
 
 ```r
 set.seed(853)
+
 number_of_each <- 1000
-tibble(lambda = c(rep(0, number_of_each), rep(1, number_of_each), rep(2, number_of_each), rep(5, number_of_each), rep(10, number_of_each)),
-       draw = c(rpois(n = number_of_each, lambda = 0), rpois(n = number_of_each, lambda = 1), rpois(n = number_of_each, lambda = 2), rpois(n = number_of_each, lambda = 5), rpois(n = number_of_each, lambda = 10))) %>% 
+
+tibble(
+  lambda = c(
+    rep(0, number_of_each),
+    rep(1, number_of_each),
+    rep(2, number_of_each),
+    rep(4, number_of_each),
+    rep(7, number_of_each),
+    rep(10, number_of_each)
+  ),
+  draw = c(
+    rpois(n = number_of_each, lambda = 0),
+    rpois(n = number_of_each, lambda = 1),
+    rpois(n = number_of_each, lambda = 2),
+    rpois(n = number_of_each, lambda = 4),
+    rpois(n = number_of_each, lambda = 7),
+    rpois(n = number_of_each, lambda = 10)
+  )
+) |>
   ggplot(aes(x = draw)) +
   geom_density() +
-  facet_wrap(vars(lambda)) +
-  theme_classic()
+  facet_wrap(vars(lambda),
+             scales = "free_y") +
+  theme_minimal() +
+  labs(x = 'Integer',
+       y = 'Density')
 ```
 
-<img src="41-ijalm_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+<div class="figure">
+<img src="41-ijalm_files/figure-html/poissondistributiontakingshape-1.png" alt="The Poisson distribution is governed by the value of the mean, which is the same as its variance" width="672" />
+<p class="caption">(\#fig:poissondistributiontakingshape)The Poisson distribution is governed by the value of the mean, which is the same as its variance</p>
+</div>
 
 For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.
 
@@ -1037,7 +1261,6 @@ count_of_A_plus <-
 ```
 
 
-### Implementation in base
 
 
 ```r
@@ -1073,25 +1296,23 @@ summary(grades_model)
 #> Number of Fisher Scoring iterations: 5
 ```
 
-
-### Implementation in `tidymodels`
-
-We can use `tidymodels` to run this if we wanted although we first need to install a helper package `poissonreg`.
+We can use `tidymodels` to estimate Poisson regression models with `poissonreg` [@poissonreg].
 
 
 ```r
-# install.packages("poissonreg")
+library(poissonreg)
 
 set.seed(853)
 
-count_of_A_plus_split <- rsample::initial_split(count_of_A_plus, prop = 0.80)
+count_of_A_plus_split <-
+  rsample::initial_split(count_of_A_plus, prop = 0.80)
 count_of_A_plus_train <- rsample::training(count_of_A_plus_split)
 count_of_A_plus_test  <-  rsample::testing(count_of_A_plus_split)
 
 a_plus_model_tidymodels <-
-  poissonreg::poisson_reg(mode = "regression") %>%
-  parsnip::set_engine("glm") %>%
-  parsnip::fit(number_of_A_plus ~ department, 
+  poisson_reg(mode = "regression") |>
+  set_engine("glm") |>
+  fit(number_of_A_plus ~ department,
       data = count_of_A_plus_train)
 
 a_plus_model_tidymodels
@@ -1112,8 +1333,7 @@ a_plus_model_tidymodels
 ```
 
 
-
-<!-- ### Implementation in `rstanarm` -->
+**TODO: Add tidymodels for this.**
 
 
 
@@ -1122,6 +1342,43 @@ a_plus_model_tidymodels
 
 
 ### Exercises
+
+1. Please write a linear relationship between some response variable, Y, and some predictor, X. What is the intercept term? What is the slope term? What would adding a hat to these indicate?
+2. What is the least squares criterion? Similarly, what is RSS and what are we trying to do when we run least squares regression?
+3. What is statistical bias?
+4. If there were three variables: Snow, Temperature, and Wind, please write R code that would fit a simple linear regression to explain Snow as a function of Temperature and Wind. What do you think about another explanatory variable - daily stock market returns - to your model?
+5. According to @greenland2016statistical, p-values test (pick one)?
+    a. All the assumptions about how the data were generated (the entire model), not just the targeted hypothesis it is supposed to test (such as a null hypothesis).
+    b. Whether the hypothesis targeted for testing is true or not.
+    c. A dichotomy whereby results can be declared 'statistically significant'.
+6. According to @greenland2016statistical, a p-value may be small because (select all)?
+    a. The targeted hypothesis is false.
+    b. The study protocols were violated.
+    c. It was selected for presentation based on its small size. 
+7. According to @obermeyer2019dissecting, why does racial bias occur in an algorithm used to guide health decisions in the US (pick one)?
+    a. The algorithm uses health costs as a proxy for health needs.
+    b. The algorithm was trained on Reddit data.
+8. When should we use logistic regression (pick one)?
+    a. Continuous dependent variable.
+    b. Binary dependent variable.
+    c. Count dependent variable.
+9. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
+    a. Whether the respondent is a US citizen (yes/no)
+    b. The respondent's personal income (high/low)
+    c. Whether the respondent is going to vote for Trump (yes/no)
+    d. Who the respondent voted for in 2016 (Trump/Clinton)
+10. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
+    a. The race of the respondent (white/not white)
+    b. The respondent's marital status (married/not)
+    c. Whether the respondent is registered to vote (yes/no)
+    d. Whether the respondent is going to vote for Biden (yes/no)
+11. Please explain what a p-value is, using only the term itself (i.e. 'p-value') and words that are amongst the 1,000 most common in the English language according to the XKCD Simple Writer - https://xkcd.com/simplewriter/. (Please write one or two paragraphs.)
+12. The mean of a Poisson distribution is equal to its?
+    a. Median.
+    b. Standard deviation.
+    c. Variance.
+22. What is power (in a statistical context)?
+
 
 ### Tutorial
 

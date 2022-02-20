@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 Hunt data | Telling Stories With Data</title>
+<title>Chapter 10 Hunt data | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
 <meta name="description" content="Required material Read Big tech is testing you, (Fry 2020). Read Inventing the randomized double-blind trial: the Nuremberg salt test of 1835, (Stolberg 2006). Read Impact evaluation in practice,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 9 Hunt data | Telling Stories With Data">
+<meta property="og:title" content="Chapter 10 Hunt data | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
 <meta property="og:description" content="Required material Read Big tech is testing you, (Fry 2020). Read Inventing the randomized double-blind trial: the Nuremberg salt test of 1835, (Stolberg 2006). Read Impact evaluation in practice,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 Hunt data | Telling Stories With Data">
+<meta name="twitter:title" content="Chapter 10 Hunt data | Telling Stories With Data">
 <meta name="twitter:description" content="Required material Read Big tech is testing you, (Fry 2020). Read Inventing the randomized double-blind trial: the Nuremberg salt test of 1835, (Stolberg 2006). Read Impact evaluation in practice,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,9 +62,9 @@
 <li><a class="" href="static-communication.html"><span class="header-section-number">6</span> Static communication</a></li>
 <li><a class="" href="interactive-communication.html"><span class="header-section-number">7</span> Interactive communication</a></li>
 <li class="book-part">Acquisition</li>
-<li><a class="" href="gather-data.html"><span class="header-section-number">8</span> Gather data</a></li>
-<li><a class="active" href="hunt-data.html"><span class="header-section-number">9</span> Hunt data</a></li>
-<li><a class="" href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></li>
+<li><a class="" href="farm-data.html"><span class="header-section-number">8</span> Farm data</a></li>
+<li><a class="" href="gather-data.html"><span class="header-section-number">9</span> Gather data</a></li>
+<li><a class="active" href="hunt-data.html"><span class="header-section-number">10</span> Hunt data</a></li>
 <li class="book-part">Preparation</li>
 <li><a class="" href="clean-and-prepare.html"><span class="header-section-number">11</span> Clean and prepare</a></li>
 <li><a class="" href="store-and-share.html"><span class="header-section-number">12</span> Store and share</a></li>
@@ -82,6 +82,7 @@
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
+<li><a class="" href="cocktails.html"><span class="header-section-number">C</span> Cocktails</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
 
@@ -90,9 +91,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hunt-data" class="section level1" number="9">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hunt-data" class="section level1" number="10">
 <h1>
-<span class="header-section-number">9</span> Hunt data<a class="anchor" aria-label="anchor" href="#hunt-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10</span> Hunt data<a class="anchor" aria-label="anchor" href="#hunt-data"><i class="fas fa-link"></i></a>
 </h1>
 <p><strong>Required material</strong></p>
 <ul>
@@ -151,13 +152,13 @@
 <li><code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code></li>
 <li><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code></li>
 </ul>
-<div id="experiments-and-randomized-controlled-trials" class="section level2" number="9.1">
+<div id="experiments-and-randomized-controlled-trials" class="section level2" number="10.1">
 <h2>
-<span class="header-section-number">9.1</span> Experiments and randomized controlled trials<a class="anchor" aria-label="anchor" href="#experiments-and-randomized-controlled-trials"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> Experiments and randomized controlled trials<a class="anchor" aria-label="anchor" href="#experiments-and-randomized-controlled-trials"><i class="fas fa-link"></i></a>
 </h2>
-<div id="introduction-6" class="section level3" number="9.1.1">
+<div id="introduction-7" class="section level3" number="10.1.1">
 <h3>
-<span class="header-section-number">9.1.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Ronald Fisher, the twentieth century statistician, and Francis Galton, the nineteenth century statistician, are the intellectual grandfathers of much of the work that we cover in this chapter. In some cases it is directly their work, in other cases it is work that built on their contributions. Both men believed in eugenics, amongst other things that are generally reprehensible.
 In the same way that art history must acknowledge, say Caravaggio as a murderer, while also considering his work and influence, so to must statistics and the data sciences more generally concern themselves with this past, at the same time as we try to build a better future.</p>
@@ -166,9 +167,9 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <p>In this chapter we cover experiments, especially constructing treatment and control groups, and appropriately considering their results. We discuss some aspects of ethical behaviour in experiments through reference to the abhorrent Tuskegee Syphilis Study and ECMO. And we go through the Oregon Health Insurance Experiment as a case study. We then turn to A/B testing, which is extensively used in industry, and consider a case study based on Upworthy data. Finally, we go through actually implementing a survey using Google Forms.
 <!-- Finally, we compare automated approaches such as obtaining data from sensors, with the notoriously slow, but crucial approach of making Freedom of Information requests. --></p>
 </div>
-<div id="motivation-and-notation" class="section level3" number="9.1.2">
+<div id="motivation-and-notation" class="section level3" number="10.1.2">
 <h3>
-<span class="header-section-number">9.1.2</span> Motivation and notation<a class="anchor" aria-label="anchor" href="#motivation-and-notation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.2</span> Motivation and notation<a class="anchor" aria-label="anchor" href="#motivation-and-notation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Professional sports are a big deal in North America. Consider the situation of someone who moves to San Francisco in 2014, such that as soon as they moved the Giants win the World Series and the Golden State Warriors begin a historic streak of World Championships. They move to Chicago, and immediately the Cubs win the World Series for the first time in a hundred years. They move to Massachusetts, where the Patriots win the Super Bowl again, and again, and again. And finally, they move to Toronto, where the Raptors immediately win the World Championship. Should a city pay them to move, or could municipal funds be better spent elsewhere?</p>
 <p>One way to get at the answer would be to run an experiment. Make a list of the North American cities with major sports teams, and then roll a dice and send them to live there for a year. With enough lifetimes, we could work it out. The fundamental issue is that we cannot both live in a city and not live in a city. This is the fundamental problem of causal inference: a person cannot be both treated and untreated. Experiments and randomized controlled trials are circumstances in which we try to randomly allocate some treatment, to have a belief that everything else was the same (or at least ignorable). The framework that we use to formalize the situation is the Neyman-Rubin model <span class="citation">(<a href="references-1.html#ref-holland1986statistics" role="doc-biblioref">Holland 1986</a>)</span>.</p>
@@ -183,7 +184,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <li>then look at the ratio.</li>
 </ol>
 <p>This is an estimator, touched on in Chapter <a href="on-writing.html#on-writing">5</a>, which is a way of putting together a guess of something of interest. The estimand is the thing of interest, in this case the average effect, and the estimate is whatever our guess turns out to be. We can simulate data to illustrate the situation.</p>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -207,21 +208,21 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <span class="co">#&gt;  8             0</span>
 <span class="co">#&gt;  9             1</span>
 <span class="co">#&gt; 10             1</span></code></pre></div>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">estimate</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">treatment_control</span><span class="op">$</span><span class="va">binary_effect</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">treatment_control</span><span class="op">$</span><span class="va">binary_effect</span><span class="op">)</span>
 <span class="va">estimate</span>
 <span class="co">#&gt; [1] 0.4</span></code></pre></div>
-<p>More broadly, to tell causal stories we need to bring together both theory and a detailed knowledge of what we are interested in <span class="citation">(<a href="references-1.html#ref-Cunningham2021" role="doc-biblioref">Cunningham 2021, 4</a>)</span>. In Chapter <a href="gather-data.html#gather-data">8</a> we discussed gathering data that we observed about the world. In this chapter we are going to be more active about turning the world into the data that we need. As the researcher we will decide what to measure and how, and we will need to define what we are interested in and what we are not. We will be active participants in the data generating process. That is, if we want to use this data, then as researchers we must go out and hunt it, if you like.</p>
+<p>More broadly, to tell causal stories we need to bring together both theory and a detailed knowledge of what we are interested in <span class="citation">(<a href="references-1.html#ref-Cunningham2021" role="doc-biblioref">Cunningham 2021, 4</a>)</span>. In Chapter <a href="gather-data.html#gather-data">9</a> we discussed gathering data that we observed about the world. In this chapter we are going to be more active about turning the world into the data that we need. As the researcher we will decide what to measure and how, and we will need to define what we are interested in and what we are not. We will be active participants in the data generating process. That is, if we want to use this data, then as researchers we must go out and hunt it, if you like.</p>
 </div>
-<div id="randomization" class="section level3" number="9.1.3">
+<div id="randomization" class="section level3" number="10.1.3">
 <h3>
-<span class="header-section-number">9.1.3</span> Randomization<a class="anchor" aria-label="anchor" href="#randomization"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.3</span> Randomization<a class="anchor" aria-label="anchor" href="#randomization"><i class="fas fa-link"></i></a>
 </h3>
 <p>Correlation can be enough in some settings, but in order to be able to make forecasts when things change, and the circumstances are slightly different we need to understand causation. The key is the counterfactual: what would have happened in the absence of the treatment. Ideally, we could keep everything else constant, randomly divide the world into two groups, and treat one and not the other. Then we can be pretty confident that any difference between the two groups is due to that treatment. The reason for this is that if we have some population and we randomly select two groups from it, then our two groups (provided they are both big enough) should have the same characteristics as the population. Randomized controlled trials (RCTs) and A/B testing attempt to get us as close to this ‘gold standard’ as we can hope. When we, and others such as <span class="citation"><a href="references-1.html#ref-athey2017state" role="doc-biblioref">Athey and Imbens</a> (<a href="references-1.html#ref-athey2017state" role="doc-biblioref">2017</a>)</span>, use language like gold standard to refer to these approaches, we do not mean to imply that they are perfect. Just that they can be better than most of the other options.</p>
 <p>What we hope to be able to do is to find treatment and control groups that are the same, but for the treatment. This means that establishing the control group is critical because when we do that, we establish the counterfactual. We might be worried about, say, underlying trends, which is one issue with a before-and-after comparison, or selection bias, which could occur when we allow self-selection. Either of these issues could result in biased estimators. We use randomization to go some way to addressing these.</p>
 <p>To get started, we simulate a population, and then randomly sample from it. We will set it up so that half the population likes blue, and the other half likes white. And further, if someone likes blue then they almost surely prefer dogs, but if they like white then they almost surely prefer cats. The approach of heavily using simulation is a critical part of the workflow advocated in this book. This is because we know roughly what the outcomes should be from the analysis of simulated data. Whereas if we go straight to analyzing the real data then we do not know if unexpected outcomes are due to our own analysis errors, or actual results. Another good reason it is useful to take this approach of simulation is that when you are working in teams the analysis can get started before the data collection and cleaning is completed. That simulation will also help the collection and cleaning team think about tests they should run on their data.</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_people</span> <span class="op">&lt;-</span> <span class="fl">5000</span>
@@ -276,7 +277,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <span class="co">#&gt; 1 Blue            2547</span>
 <span class="co">#&gt; 2 White           2453</span></code></pre></div>
 <p>We will now construct a frame, assuming that we have a frame that contains 80 per cent of the population.</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">frame</span> <span class="op">&lt;-</span>
@@ -300,7 +301,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <span class="co">#&gt; 1 Blue            2023</span>
 <span class="co">#&gt; 2 White           1980</span></code></pre></div>
 <p>For now, we will set aside dog or cat preferences and focus on creating treatment and control groups on the basis of favorite color only.</p>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">sample</span> <span class="op">&lt;-</span>
@@ -311,8 +312,8 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
     size  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">frame</span><span class="op">)</span>,
     replace <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>When we look at the mean for the two groups, we can see that the proportions that prefer blue or white are very similar to what we specified (Table <a href="hunt-data.html#tab:bluetowhite">9.1</a>).</p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<p>When we look at the mean for the two groups, we can see that the proportions that prefer blue or white are very similar to what we specified (Table <a href="hunt-data.html#tab:bluetowhite">10.1</a>).</p>
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">favorite_color</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> |&gt;
@@ -328,7 +329,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:bluetowhite">Table 9.1: </span>Proportion of the treatment and control group that prefer blue or white</caption>
+<span id="tab:bluetowhite">Table 10.1: </span>Proportion of the treatment and control group that prefer blue or white</caption>
 <thead><tr class="header">
 <th align="left">Group</th>
 <th align="left">Preferred color</th>
@@ -362,8 +363,8 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 </tr>
 </tbody>
 </table></div>
-<!-- We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we could use a t-test. --><!-- ```{r} --><!-- sample <-  --><!--   sample |> --><!--   mutate(color_as_integer =  --><!--            if_else(favorite_color == "White", 0, 1) --><!--   ) --><!-- treatment <-  --><!--   sample |>  --><!--   filter(group == "Treatment") |>  --><!--   select(color_as_integer) --><!-- control <-  --><!--   sample |>  --><!--   filter(group == "Control") |>  --><!--   select(color_as_integer) --><!-- t.test(treatment, control) --><!-- ``` --><p>We randomized based on favorite color. But we should also find that we took dog or cat preferences along at the same time and will have a ‘representative’ share of people who prefer dogs to cats. Why should that happen when we have not randomized on these variables? Let’s start by looking at our dataset (Table <a href="hunt-data.html#tab:dogstocats">9.2</a>).</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<!-- We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we could use a t-test. --><!-- ```{r} --><!-- sample <-  --><!--   sample |> --><!--   mutate(color_as_integer =  --><!--            if_else(favorite_color == "White", 0, 1) --><!--   ) --><!-- treatment <-  --><!--   sample |>  --><!--   filter(group == "Treatment") |>  --><!--   select(color_as_integer) --><!-- control <-  --><!--   sample |>  --><!--   filter(group == "Control") |>  --><!--   select(color_as_integer) --><!-- t.test(treatment, control) --><!-- ``` --><p>We randomized based on favorite color. But we should also find that we took dog or cat preferences along at the same time and will have a ‘representative’ share of people who prefer dogs to cats. Why should that happen when we have not randomized on these variables? Let’s start by looking at our dataset (Table <a href="hunt-data.html#tab:dogstocats">10.2</a>).</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">frame</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">person</span>, <span class="va">prefers_dogs_to_cats</span><span class="op">)</span>, 
             by <span class="op">=</span> <span class="st">"person"</span><span class="op">)</span> |&gt;
@@ -381,7 +382,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:dogstocats">Table 9.2: </span>Proportion of the treatment and control group that prefer dogs or cats</caption>
+<span id="tab:dogstocats">Table 10.2: </span>Proportion of the treatment and control group that prefer dogs or cats</caption>
 <thead><tr class="header">
 <th align="left">Group</th>
 <th align="left">Prefers dogs to cats</th>
@@ -419,9 +420,9 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <p>This all brings us to Analysis of Variation (ANOVA). ANOVA was introduced by Fisher while he was working on statistical problems in agriculture. This is less unexpected than it may seem as historically agricultural research has been closely tied to statistical innovation. We mention ANOVA here because of its importance historically, but it is a variant of linear regression which we cover in some detail in Chapter <a href="ijalm.html#ijalm">14</a>. Further, in general, we would usually not use ANOVA day-to-day. There is nothing wrong with it in the right circumstances. But it is more than a hundred years old and the number of modern use-case where it is the best option is small.</p>
 <p>In any case, we approach ANOVA with the expectation that the groups are from the same distribution and could conduct it using <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. In this case, we would fail to reject our default hypothesis that the samples are the same.</p>
 </div>
-<div id="treatment-and-control" class="section level3" number="9.1.4">
+<div id="treatment-and-control" class="section level3" number="10.1.4">
 <h3>
-<span class="header-section-number">9.1.4</span> Treatment and control<a class="anchor" aria-label="anchor" href="#treatment-and-control"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.4</span> Treatment and control<a class="anchor" aria-label="anchor" href="#treatment-and-control"><i class="fas fa-link"></i></a>
 </h3>
 <p>If the treated and control groups are the same in all ways and remain that way, but for the treatment, then we have internal validity, which is to say that our control will work as a counterfactual and our results can speak to a difference between the groups in that study. Internal validity means that our estimates of the effect of the treatment are speaking to the treatment and not some other aspect. They mean that we can use our results to make claims about what happened in the experiment.</p>
 <p>If the group to which we applied our randomization were representative of the broader population, and the experimental set-up were fairly similar to outside conditions, then we further could have external validity. That would mean that the difference we find does not just apply in our own experiment, but also in the broader population. External validity means that we can use our experiment to make claims about what would happen outside the experiment. It is randomization that has allowed that to happen.</p>
@@ -438,7 +439,7 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
 <p><span class="math display">\[\mbox{ATE} = \mathbb{E}[Y|t=1] - \mathbb{E}[Y|t=0].\]</span></p>
 <p>That is, the difference between the treated group, <span class="math inline">\(t = 1\)</span>, and the control group, <span class="math inline">\(t = 0\)</span>, when measured by the expected value of the outcome, <span class="math inline">\(Y\)</span>. The ATE becomes the difference between the two expectations.</p>
 <p>To illustrate this concept, we first simulate some data that shows a difference of one between the treatment and control groups.</p>
-<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">ate_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>,
@@ -457,8 +458,8 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
     <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
     <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, mean <span class="op">=</span> <span class="fl">6</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
   <span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>We can see the difference, which we simulated to be one, between the two groups in Figure (Figure <a href="hunt-data.html#fig:exampleatefig">9.1</a>). And we can compute the average between the groups and then the difference to see also that we get back the result that we put in (Table <a href="hunt-data.html#tab:exampleatetable">9.3</a>).</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<p>We can see the difference, which we simulated to be one, between the two groups in Figure (Figure <a href="hunt-data.html#fig:exampleatefig">10.1</a>). And we can compute the average between the groups and then the difference to see also that we get back the result that we put in (Table <a href="hunt-data.html#tab:exampleatetable">10.3</a>).</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ate_example</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>,
              fill <span class="op">=</span> <span class="va">was_treated</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -471,11 +472,11 @@ In the same way that art history must acknowledge, say Caravaggio as a murderer,
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:exampleatefig"></span>
-<img src="21-hunt_files/figure-html/exampleatefig-1.png" alt="Simulated data showing a difference between the treatment and control groups" width="672"><p class="caption">
-Figure 9.1: Simulated data showing a difference between the treatment and control groups
+<img src="22-hunt_files/figure-html/exampleatefig-1.png" alt="Simulated data showing a difference between the treatment and control groups" width="672"><p class="caption">
+Figure 10.1: Simulated data showing a difference between the treatment and control groups
 </p>
 </div>
-<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ate_example</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">was_treated</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">outcome</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -490,7 +491,7 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
   <span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:exampleatetable">Table 9.3: </span>Average difference between the treatment and control groups for data simulated to have an average difference of one</caption>
+<span id="tab:exampleatetable">Table 10.3: </span>Average difference between the treatment and control groups for data simulated to have an average difference of one</caption>
 <thead><tr class="header">
 <th align="right">Average for treated</th>
 <th align="right">Average for not treated</th>
@@ -513,9 +514,9 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>For instance, how would the results of a survey about the difficulty of a university course differ if only students who completed the course were surveyed, and not those who dropped out? While we should work to try to make our dataset as good as possible, it may be possible to use the model to control for some of the bias. For instance, if there was a variable that was correlated with say, attrition, then it could be added to the model either by-itself, or as an interaction. Similarly, if there was correlation between the individuals. For instance, if there was some ‘hidden variable’ that we did not know about that meant some individuals were correlated, then we could use ‘wider’ standard errors. This needs to be done carefully and we discuss this further in Chapter <a href="causality.html#causality">15</a>. That said, if such issues can be anticipated, then it can be better to change the experiment. For instance, perhaps it would be possibly to stratify by that hidden variable.</p>
 <!-- **TBD: Add code** -->
 </div>
-<div id="fishers-tea-party" class="section level3" number="9.1.5">
+<div id="fishers-tea-party" class="section level3" number="10.1.5">
 <h3>
-<span class="header-section-number">9.1.5</span> Fisher’s tea party<a class="anchor" aria-label="anchor" href="#fishers-tea-party"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.5</span> Fisher’s tea party<a class="anchor" aria-label="anchor" href="#fishers-tea-party"><i class="fas fa-link"></i></a>
 </h3>
 <p>Fisher introduced an experiment designed to see if a person can distinguish between a cup of tea where the milk was added first, or last. We begin by preparing eight cups of tea: four with milk added first and the other four with milk added last. We then randomize the order of all eight cups. We tell the taster, whom we will call ‘Ian,’ about the experimental set-up: there are eight cups of tea, four of each type, he will be given cups of tea in a random order, and the task is to group them into two groups.</p>
 <p>One of the nice aspects of this experiment is that we can do it ourselves. There are a few things to be careful of in practice, including that: the quantities of milk and tea and consistent; the groups are marked in some way that the taster cannot see; and the order is randomized.</p>
@@ -525,9 +526,9 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>What if he is almost perfect? By chance, there are 16 ways for a person to be ‘off-by-one.’ Either Ian thinks there was one cup that was milk-first when it was tea-first—there are, <span class="math inline">\({4 \choose 1} = 4\)</span>, four ways this could happen—or he thinks there was one cup that was tea-first when it was milk-first—again, there are, <span class="math inline">\({4 \choose 1}\)</span> = 4, four ways this could happen. These outcomes are independent, so the probability is <span class="math inline">\(\frac{4\times 4}{70} \approx 0.228\)</span>. And so on. Given there is an almost 23 per cent chance of being off-by-one just be randomly grouping the teacups, this outcome probably would not convince us that Ian can tell the difference between tea-first and milk-first.</p>
 <p>What we are looking for, in order to claim something is experimentally demonstrable is the results of not just it being shown once, but instead we know the features of an experiment where such a result is reliably found <span class="citation">(<a href="references-1.html#ref-fisherdesignofexperiments" role="doc-biblioref">Fisher 1935, 16</a>)</span>. We are looking to thoroughly interrogate our data and our experiments, and to think precisely about the analysis methods we are using. Rather than searching for meaning in constellations of stars, we want to make it as easy as possible for others to reproduce our work. It is only in that way that our conclusions stand a chance of holding up in the long-term.</p>
 </div>
-<div id="informed-consent-and-the-need-for-an-experiment" class="section level3" number="9.1.6">
+<div id="informed-consent-and-the-need-for-an-experiment" class="section level3" number="10.1.6">
 <h3>
-<span class="header-section-number">9.1.6</span> Informed consent and the need for an experiment<a class="anchor" aria-label="anchor" href="#informed-consent-and-the-need-for-an-experiment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.6</span> Informed consent and the need for an experiment<a class="anchor" aria-label="anchor" href="#informed-consent-and-the-need-for-an-experiment"><i class="fas fa-link"></i></a>
 </h3>
 <p>One of the foundations of ethical experimental practice is informed consent and ensuring that an experiment is actually needed. We will now detail two cases where human life was potentially lost due to these issues. One issue with experiments in medical settings is that the weight of evidence is measured in lost lives. Ethical practice in experiments develops because of the many people who may have unnecessarily lost their life due to experiments. Two cases that have dramatically informed practice are the Tuskegee Syphilis Study and ECMO.</p>
 <p>The Tuskegee Syphilis Study is an infamous medical trial that began in 1932. As part of this experiment 400 Black Americans with syphilis, and a control group without, were not given appropriate treatment, nor even told they had syphilis (in the case of the treatment group), well after a standard treatment for syphilis was established and widely available sometime between the mid-1940s and early 1950s <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. Like the treatment group, the control group were also given non-effective drugs. These financially-poor Black Americans in the US South were identified and offered compensation including ‘hot meals, the guise of treatment, and burial payments’ <span class="citation">(<a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. The men were not actually treated for syphilis <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. The men were not told they were part of an experiment <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978</a>; <a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>. Further, extensive work was undertaken to ensure the men would not receive treatment from anywhere including writing to local doctors, the local health department, and, incredibly, after some of the men were drafted and told to immediately get treatment, the draft board complied with a request to have the men excluded from treatment <span class="citation">(<a href="references-1.html#ref-brandt1978racism" role="doc-biblioref">Brandt 1978, 25</a>)</span>. By the time the study was stopped in 1972, more than half of the men were deceased and many of deaths were from syphilis-related causes <span class="citation">(<a href="references-1.html#ref-tuskegeeandthehealthofblackmen" role="doc-biblioref">Alsan and Wanamaker 2018</a>)</span>.</p>
@@ -540,9 +541,9 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>One approach in these settings is a ‘randomized play-the-winner’ rule following <span class="citation"><a href="references-1.html#ref-wei1978randomized" role="doc-biblioref">Wei and Durham</a> (<a href="references-1.html#ref-wei1978randomized" role="doc-biblioref">1978</a>)</span>. Treatment is still randomized, but the weight of probability shifts with each successful treatment to make treatment more likely and there is some stopping rule. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> argues that the stopping rule in the case of <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> occurred before the study started and that there was no need for the study at all because equipoise never existed. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> re-visit the literature mentioned by <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> and find extensive evidence that ECMO was known to be effective. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> points out that there is almost never complete consensus and so one could almost always argue for the existence of equipoise even in the face of a substantial weight of evidence. <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> further criticizes <span class="citation"><a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">J. H. Ware</a> (<a href="references-1.html#ref-ware1989investigating" role="doc-biblioref">1989</a>)</span> for the use of randomized consent because of the potential that there may have been different outcomes for the infants subject to conventional therapy had their parents known there were other options. And instead, <span class="citation"><a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">Berry</a> (<a href="references-1.html#ref-berry1989investigating" role="doc-biblioref">1989</a>)</span> argues for the need for comprehensive patient registries, enabling the analysis of large datasets.</p>
 <p>While the Tuskegee Syphilis Study and ECMO may seem quite far from our present circumstances, Monica Alexander, Assistant Professor, University of Toronto explains that while it may be illegal to do this exact research these days, it does not mean that unethical research does not still happen. We see it all the time in machine learning applications in health and other areas. While we are not meant to explicitly discriminate and we are meant to get consent, it does not mean that we cannot implicitly discriminate without any type of buy-in at all. For instance, <span class="citation"><a href="references-1.html#ref-obermeyer2019dissecting" role="doc-biblioref">Obermeyer et al.</a> (<a href="references-1.html#ref-obermeyer2019dissecting" role="doc-biblioref">2019</a>)</span> describes how US health care systems use algorithms to score the severity of how sick a patient is. They show that for the same score, ‘Black patients are considerably sicker than White patients, as evidenced by signs of uncontrolled illnesses’ and that if Black patients were scored in the same way as White patients, then they would receive considerably more help than they do now. They find that the discrimination occurs because the algorithm is based on health care costs, rather than sickness. But because access to healthcare is unequally distributed between Black and White patients, the algorithm, however inadvertently, perpetuates racial bias.</p>
 </div>
-<div id="case-study-the-oregon-health-insurance-experiment" class="section level3" number="9.1.7">
+<div id="case-study-the-oregon-health-insurance-experiment" class="section level3" number="10.1.7">
 <h3>
-<span class="header-section-number">9.1.7</span> Case study: The Oregon Health Insurance Experiment<a class="anchor" aria-label="anchor" href="#case-study-the-oregon-health-insurance-experiment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.7</span> Case study: The Oregon Health Insurance Experiment<a class="anchor" aria-label="anchor" href="#case-study-the-oregon-health-insurance-experiment"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the US, unlike many developed countries, basic health insurance is not necessarily available to all residents even those on low incomes. The Oregon Health Insurance Experiment involved low-income adults in Oregon, a state in the north-west of the US, from 2008 to 2010 <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>.</p>
 <p>Oregon funded 10,000 places in the state-run Medicaid program, which provides health insurance for people with low incomes. A lottery was used to allocate these places and was judged fair because it was expected, correctly as it turned out, that demand for places would exceed the supply. People had a month to sign up to enter the draw. Then a lottery was used to determine which of the 89,824 individuals who signed up would be allowed to apply for Medicaid.</p>
@@ -551,10 +552,10 @@ Figure 9.1: Simulated data showing a difference between the treatment and contro
 <p>As the opportunity to apply for health insurance was randomly allocated, the researchers were able to evaluate the health and earnings of those who received health insurance and compare them to those who did not. To do this they used administrative data, such as hospital discharge data, credit reports that were matched to 68.5 per cent of lottery participants, and mortality records, which will be uncommon. Interestingly this collection of data is fairly restrained and so they included a survey conducted via mail.</p>
 <p>The specifics of this are not important, and we will have more to say in Chapter <a href="ijalm.html#ijalm">14</a>, but they use a statistical model to analyze the results <span class="citation">(<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al. 2012</a>)</span>:</p>
 <p><span class="math display" id="eq:oregon">\[\begin{equation}
-y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} \tag{9.1}
+y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \epsilon_{ihj} \tag{10.1}
 \end{equation}\]</span></p>
-<p>Equation <a href="hunt-data.html#eq:oregon">(9.1)</a> explains various <span class="math inline">\(j\)</span> outcomes (such as health) for an individual <span class="math inline">\(i\)</span> in household <span class="math inline">\(h\)</span> as a function of an indicator variable as to whether household <span class="math inline">\(h\)</span> was selected by the lottery. Hence, ‘(t)he coefficient on Lottery, <span class="math inline">\(\beta_1\)</span>, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).’</p>
-<p>To complete the specification of Equation <a href="hunt-data.html#eq:oregon">(9.1)</a>, <span class="math inline">\(X_{ih}\)</span> is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, <span class="math inline">\(V_{ih}\)</span> is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.</p>
+<p>Equation <a href="hunt-data.html#eq:oregon">(10.1)</a> explains various <span class="math inline">\(j\)</span> outcomes (such as health) for an individual <span class="math inline">\(i\)</span> in household <span class="math inline">\(h\)</span> as a function of an indicator variable as to whether household <span class="math inline">\(h\)</span> was selected by the lottery. Hence, ‘(t)he coefficient on Lottery, <span class="math inline">\(\beta_1\)</span>, is the main coefficient of interest, and gives the average difference in (adjusted) means between the treatment group (the lottery winners) and the control group (those not selected by the lottery).’</p>
+<p>To complete the specification of Equation <a href="hunt-data.html#eq:oregon">(10.1)</a>, <span class="math inline">\(X_{ih}\)</span> is a set of variables that are correlated with the probability of being treated. These adjust for that impact to a certain extent. An example of that is the number of individuals in a household. And finally, <span class="math inline">\(V_{ih}\)</span> is a set of variables that are not correlated with the lottery. These variables include demographics, hospital discharge and lottery draw.</p>
 <p>As has been found in earlier studies such as <span class="citation"><a href="references-1.html#ref-randhealth" role="doc-biblioref">Brook et al.</a> (<a href="references-1.html#ref-randhealth" role="doc-biblioref">1984</a>)</span>, <span class="citation"><a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">Finkelstein et al.</a> (<a href="references-1.html#ref-finkelstein2012oregon" role="doc-biblioref">2012</a>)</span> found that, the treatment group was 25 per cent more likely to have insurance than the control group. The treatment group used more health care including both primary and preventive care as well as hospitalizations but had lower out-of-pocket medical expenditures. More generally, the treatment group reported better physical and mental health.</p>
 <!-- ### Case study: Student Coaching: How Far Can Technology Go? -->
 <!-- There is a general concern about students dropping out of university before they finish their degree. If you work one-on-one with a student then this addresses the issue. But that doesn't scale. The point of this experiment was to see if technology-based options could be more efficient. The focus was the University of Toronto, and in particular first-year economics courses in Fall 2015. -->
@@ -598,9 +599,9 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <!-- The code or data for the paper are available: @walletsdata. -->
 </div>
 </div>
-<div id="ab-testing" class="section level2" number="9.2">
+<div id="ab-testing" class="section level2" number="10.2">
 <h2>
-<span class="header-section-number">9.2</span> A/B testing<a class="anchor" aria-label="anchor" href="#ab-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2</span> A/B testing<a class="anchor" aria-label="anchor" href="#ab-testing"><i class="fas fa-link"></i></a>
 </h2>
 <p>The past decade has probably seen the most experiments ever run by several orders of magnitude with the extensive use of A/B testing on websites. Large tech companies typically have extensive infrastructure for these experiments, and they term them A/B tests because of the comparison of two groups: one that gets treatment A and the other that either gets treatment B or does not see any change <span class="citation">(<a href="references-1.html#ref-Salganik2018" role="doc-biblioref">M. Salganik 2018, 185</a>)</span>. Every time you are online you are probably subject to tens, hundreds, or potentially thousands, of different A/B tests. If you use apps like TikTok then this could run to the tens of thousands. While, at their heart, they are still just surveys that result in data that need to be analysed, they have several interesting features that we will discuss.</p>
 <p>For instance, <span class="citation"><a href="references-1.html#ref-kohavi" role="doc-biblioref">Kohavi, Tang, and Xu</a> (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020, 3</a>)</span> discusses the example of Microsoft’s search engine Bing where they increased the amount of content displayed by their ads. The change triggered an alert that usually signaled a bug in the billing. But there was no bug, it was instead the case that revenue would increase by 12 per cent, or around $100 million annually in the US, without any significant trade-off being measured.</p>
@@ -616,15 +617,15 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <p>Interestingly, in A/B testing, as in traditional experiments, we are concerned that our treatment and control groups are the same, but for the treatment. In the case of traditional experiments, we satisfy ourselves of this by making conducting analysis on the basis of the data that we have after the experiment is conducted. That is usually all we can do because it would be weird to treat or control both groups. But in the case of A/B testing, the pace of experimentation allows us to randomly create the treatment and control groups, and then check, before we subject the treatment group to the treatment, that the groups are the same. For instance, if we were to show each group the same website, then we would expect the same outcomes across the two groups. If we found different outcomes then we would know that we may have a randomization issue <span class="citation">(<a href="references-1.html#ref-taddy2019" role="doc-biblioref">Taddy 2019, 129</a>)</span>.</p>
 <p>One of the interesting aspects of A/B testing is that we are usually running them not because we desperately care about the specific outcome, but because that feeds into some other measure that we care about. For instance, do we care whether the website is quite-dark-blue or slightly-dark-blue? Probably not, but we probably care a lot about the company share price. But then what if picking the best blue comes at a cost to the share price? That example is a bit contrived, so let us pretend that we work at a food delivery app and we are concerned with driver retention. Say we do some A/B tests and find that drivers are always more likely to be retained when they can deliver food to the customer faster. Our finding is that faster is better, for driver retention, always. But one way to achieve faster deliveries, is for them to not put the food into a hot box that would maintain the food’s temperature. Something like that might save 30 seconds, which is significant on a 10-15 minute delivery. Unfortunately, although we would decide to encourage that that on the basis of A/B tests designed to optimize driver-retention, such a decision would likely make the customer experience worse. If customers receive cold food, when it is meant to be hot, then they may stop using the app, which would ultimately be very bad for the business.</p>
 <p>This trade-off may be obvious when we run the driver experiment if we were to look at customer complaints. It is possible that on a small team we would be exposed to those tickets, but on a larger team we may not be. Ensuring that A/B tests are not resulting in false optimization is especially important. And not something that we typically have to worry about in normal experiments.</p>
-<div id="case-study-upworthy" class="section level3" number="9.2.1">
+<div id="case-study-upworthy" class="section level3" number="10.2.1">
 <h3>
-<span class="header-section-number">9.2.1</span> Case study: Upworthy<a class="anchor" aria-label="anchor" href="#case-study-upworthy"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.1</span> Case study: Upworthy<a class="anchor" aria-label="anchor" href="#case-study-upworthy"><i class="fas fa-link"></i></a>
 </h3>
 <p>The trouble with much of A/B testing is that it is done by firms and so we typically do not have datasets that we can use. But <span class="citation"><a href="references-1.html#ref-upworthy" role="doc-biblioref">Matias et al.</a> (<a href="references-1.html#ref-upworthy" role="doc-biblioref">2019</a>)</span> provide access to a dataset of A/B tests from Upworthy, a clickbait media website that used A/B testing to optimize their content. <span class="citation"><a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">Fitts</a> (<a href="references-1.html#ref-aboutupworthy" role="doc-biblioref">2014</a>)</span> provides more background information about Upworthy. And the datasets of A/B tests are available: <a href="https://osf.io/jd64p/" class="uri">https://osf.io/jd64p/</a>.</p>
 <p>We can look at what the dataset looks like, and get a sense for it by looking at the names and an extract.</p>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://osf.io/vy8mj/download"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "...1"                 "created_at"          </span>
@@ -663,7 +664,7 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <li>‘clicks’ which is the number that clicked on that package.</li>
 </ul>
 <p>Within each batch of tests, we are interested in the effect of the varied headlines on impressions and clicks.</p>
-<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">created_at</span>, <span class="va">clickability_test_id</span>, <span class="va">headline</span>, <span class="va">impressions</span>, <span class="va">clicks</span><span class="op">)</span>
@@ -680,7 +681,7 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <span class="co">#&gt; 6 2014-11-20 06:55:07 546d902c26714c6c… This Is…        3380</span>
 <span class="co">#&gt; # … with 1 more variable: clicks &lt;dbl&gt;</span></code></pre></div>
 <p>We will focus on the text contained in headlines, and look at whether headlines that asked a question got more clicks than those that did not. We want to remove the effect of different images and so will focus on those tests that have the same image. To identify whether a headline asks a question, we search for a question mark. Although there are more complicated constructions that we could use, this is enough to get started.</p>
-<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">upworthy_restricted</span> <span class="op">&lt;-</span>
   <span class="va">upworthy_restricted</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>asks_question <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">headline</span>, pattern <span class="op">=</span> <span class="st">"\\?"</span><span class="op">)</span><span class="op">)</span>
@@ -693,7 +694,7 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 <span class="co">#&gt; 1 FALSE         19130</span>
 <span class="co">#&gt; 2 TRUE           3536</span></code></pre></div>
 <p>For every test, and for every picture, we want to know whether asking a question affected the number of clicks.</p>
-<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">to_question_or_not_to_question</span> <span class="op">&lt;-</span> 
   <span class="va">upworthy_restricted</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">clickability_test_id</span>, <span class="va">asks_question</span><span class="op">)</span> |&gt; 
@@ -715,53 +716,53 @@ y_{ihj} = \beta_0 + \beta_1\mbox{Lottery} + X_{ih}\beta+2 + V_{ih}\beta_3 + \eps
 
 <span class="va">look_at_differences</span><span class="op">$</span><span class="va">difference_in_clicks</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] -4.890435</span></code></pre></div>
-<p>We find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure <a href="hunt-data.html#fig:upworthy">9.2</a>).</p>
+<p>We find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure <a href="hunt-data.html#fig:upworthy">10.2</a>).</p>
 <div class="figure">
 <span style="display:block;" id="fig:upworthy"></span>
-<img src="21-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not" width="672"><p class="caption">
-Figure 9.2: Comparison of the average number of clicks when a headline contains a question mark or not
+<img src="22-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not" width="672"><p class="caption">
+Figure 10.2: Comparison of the average number of clicks when a headline contains a question mark or not
 </p>
 </div>
 </div>
 </div>
-<div id="implementing-surveys" class="section level2" number="9.3">
+<div id="implementing-surveys" class="section level2" number="10.3">
 <h2>
-<span class="header-section-number">9.3</span> Implementing surveys<a class="anchor" aria-label="anchor" href="#implementing-surveys"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3</span> Implementing surveys<a class="anchor" aria-label="anchor" href="#implementing-surveys"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are many ways to implement surveys. For instance, there are dedicated survey platforms such as Survey Monkey and Qualtrics. In general, the focus of those platforms is on putting together the survey form and they expect that we already have contact details for the sample of interest. Some other platforms, such as Mechanical Turk and Prolific, focus on providing that audience, and we can then ask that audience to do more than just take a survey. While that is useful, it usually comes with higher costs. Finally, platforms such as Facebook also provide the ability to run a survey. One especially common approach, because it is free, is to use Google Forms.</p>
-<p>To create a survey with Google Forms, sign into your Google Account, go to Google Drive, and then click ‘New’ then ‘Google Form.’ By default, the form is largely empty (Figure <a href="hunt-data.html#fig:googleformfirst">9.3</a>), and we should add a title and description.</p>
+<p>To create a survey with Google Forms, sign into your Google Account, go to Google Drive, and then click ‘New’ then ‘Google Form.’ By default, the form is largely empty (Figure <a href="hunt-data.html#fig:googleformfirst">10.3</a>), and we should add a title and description.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:googleformfirst"></span>
 <img src="figures/googleformfirst.png" alt="The default view when a new Google Form is created contains many empty fields" width="85%"><p class="caption">
-Figure 9.3: The default view when a new Google Form is created contains many empty fields
+Figure 10.3: The default view when a new Google Form is created contains many empty fields
 </p>
 </div>
-<p>By default, an multiple-choice question is included, and we can update the content of this by clicking in the question field. Helpfully, there are often suggestions that can help provide the options. We can make the question required by toggling (Figure <a href="hunt-data.html#fig:googleformsecond">9.4</a>).</p>
+<p>By default, an multiple-choice question is included, and we can update the content of this by clicking in the question field. Helpfully, there are often suggestions that can help provide the options. We can make the question required by toggling (Figure <a href="hunt-data.html#fig:googleformsecond">10.4</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:googleformsecond"></span>
 <img src="figures/googleformsecond.png" alt="Updating the multiple-choice question that is included by default" width="85%"><p class="caption">
-Figure 9.4: Updating the multiple-choice question that is included by default
+Figure 10.4: Updating the multiple-choice question that is included by default
 </p>
 </div>
-<p>We can add another question, by clicking on the plus with a circle around it, and select different types of question, for instance, ‘Short answer,’ ‘Checkboxes,’ or ‘Linear scale’ (Figure <a href="hunt-data.html#fig:googleformthird">9.5</a>). It can be especially useful to use ‘Short answer’ for aspect such as name and email address, checkboxes and linear scale to understand preferences.</p>
+<p>We can add another question, by clicking on the plus with a circle around it, and select different types of question, for instance, ‘Short answer,’ ‘Checkboxes,’ or ‘Linear scale’ (Figure <a href="hunt-data.html#fig:googleformthird">10.5</a>). It can be especially useful to use ‘Short answer’ for aspect such as name and email address, checkboxes and linear scale to understand preferences.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:googleformthird"></span>
 <img src="figures/googleformthird.png" alt="Different options for questions include short answer, checkboxes, and linear scale" width="85%"><p class="caption">
-Figure 9.5: Different options for questions include short answer, checkboxes, and linear scale
+Figure 10.5: Different options for questions include short answer, checkboxes, and linear scale
 </p>
 </div>
-<p>When we are happy with our survey, we make like to preview it ourselves, by clicking on the icon that looks like an eye. After checking it that way, we can click on ‘Send.’ Usually it is especially useful to use the second option, which is to send via a link, and it can be handy to shorten the URL (Figure <a href="hunt-data.html#fig:googleformfourth">9.6</a>).</p>
+<p>When we are happy with our survey, we make like to preview it ourselves, by clicking on the icon that looks like an eye. After checking it that way, we can click on ‘Send.’ Usually it is especially useful to use the second option, which is to send via a link, and it can be handy to shorten the URL (Figure <a href="hunt-data.html#fig:googleformfourth">10.6</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:googleformfourth"></span>
 <img src="figures/googleformfourth.png" alt="There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL" width="85%"><p class="caption">
-Figure 9.6: There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL
+Figure 10.6: There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL
 </p>
 </div>
-<p>After you share your survey, results will accrue in the ‘Responses’ tab and it can be especially useful to create a spreadsheet to view these responses, by clicking on the ‘Sheets’ icon. After you have collected enough responses then you can turn off ‘Accepting responds’ (Figure <a href="hunt-data.html#fig:googleformfifth">9.7</a>)</p>
+<p>After you share your survey, results will accrue in the ‘Responses’ tab and it can be especially useful to create a spreadsheet to view these responses, by clicking on the ‘Sheets’ icon. After you have collected enough responses then you can turn off ‘Accepting responds’ (Figure <a href="hunt-data.html#fig:googleformfifth">10.7</a>)</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:googleformfifth"></span>
 <img src="figures/googleformfifth.png" alt="Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet" width="85%"><p class="caption">
-Figure 9.7: Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet
+Figure 10.7: Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet
 </p>
 </div>
 <!-- ## Sensor data -->
@@ -772,13 +773,13 @@ Figure 9.7: Responses show up alongside the survey and it can be helpful to add 
 <!-- There are also well-known experiments that tried to see if big government programs are effective, such as: -->
 <!-- - The RAND Health Insurance Experiment randomly gave health insurance to people in the US between 1974 and 1982 [@randhealth]. -->
 </div>
-<div id="exercises-and-tutorial-8" class="section level2" number="9.4">
+<div id="exercises-and-tutorial-9" class="section level2" number="10.4">
 <h2>
-<span class="header-section-number">9.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-9"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercises-8" class="section level3" number="9.4.1">
+<div id="exercises-9" class="section level3" number="10.4.1">
 <h3>
-<span class="header-section-number">9.4.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-9"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>In your own words, what is the role of randomization in constructing a counterfactual (write two or three paragraphs)?</li>
@@ -800,7 +801,7 @@ Figure 9.7: Responses show up alongside the survey and it can be helpful to add 
 </li>
 <li>If we have a dataset named ‘netflix_data,’ with the columns ‘person’ and ‘tv_show’ and ‘hours,’ (person is a character class uniqueID for every person, tv_show is a character class name of a tv show, and hours is double expressing the number of hours that person watched that tv show). Could you please write some code that would randomly assign people into one of two groups? The data looks like this:</li>
 </ol>
-<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">netflix_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>person <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Rohan"</span>, <span class="st">"Rohan"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, <span class="st">"Monica"</span>, 
@@ -854,52 +855,61 @@ Figure 9.7: Responses show up alongside the survey and it can be helpful to add 
 <span class="citation"><a href="references-1.html#ref-ware1989" role="doc-biblioref">J. Ware</a> (<a href="references-1.html#ref-ware1989" role="doc-biblioref">1989, 299</a>)</span> mentions ‘randomized-consent.’ He continues that it was ‘attractive in this setting because a standard approach to informed consent would require that parents of infants near death be approached to give informed consent for an invasive surgical procedure that would then, in some instances, not be administered. Those familiar with the agonizing experience of having a child in a neonatal intensive care unit can appreciate that the process of obtaining informed consent would be both frightening and stressful to parents.’ To what extent do you agree with this position, especially given, as Ware (1989), p. 305, mentions ‘the need to withhold information about the study from parents of infants receiving CMT?’</li>
 <li>
 <span class="citation"><a href="references-1.html#ref-ware1989" role="doc-biblioref">J. Ware</a> (<a href="references-1.html#ref-ware1989" role="doc-biblioref">1989, 300</a>)</span> mentions ‘equipoise.’ In your own words, please define and discuss it, using an example from your own experience.</li>
-<li>What is power (in a statistical context)?</li>
 </ol>
 </div>
-<div id="tutorial-8" class="section level3" number="9.4.2">
+<div id="tutorial-9" class="section level3" number="10.4.2">
 <h3>
-<span class="header-section-number">9.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Please build a website using <code>postcards</code> <span class="citation">(<a href="references-1.html#ref-citepostcards" role="doc-biblioref">Kross 2021</a>)</span>. Add Google Analytics. Deploy it using Netlify. Change some aspect of the website, add a different tracker, and push it to a new branch. Then use Netlify to conduct an A/B test. Write a one-to-two page paper about what you did and what you found.</p>
+</div>
+<div id="paper-2" class="section level3" number="10.4.3">
+<h3>
+<span class="header-section-number">10.4.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>At about this point, Paper Three (Appendix <a href="papers.html#paper-three">B.3</a>) would be appropriate.</p>
 
 </div>
 </div>
 </div>
+
+
+
   <div class="chapter-nav">
-<div class="prev"><a href="gather-data.html"><span class="header-section-number">8</span> Gather data</a></div>
-<div class="next"><a href="farm-data.html"><span class="header-section-number">10</span> Farm data</a></div>
+<div class="prev"><a href="gather-data.html"><span class="header-section-number">9</span> Gather data</a></div>
+<div class="next"><a href="clean-and-prepare.html"><span class="header-section-number">11</span> Clean and prepare</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#hunt-data"><span class="header-section-number">9</span> Hunt data</a></li>
+<li><a class="nav-link" href="#hunt-data"><span class="header-section-number">10</span> Hunt data</a></li>
 <li>
-<a class="nav-link" href="#experiments-and-randomized-controlled-trials"><span class="header-section-number">9.1</span> Experiments and randomized controlled trials</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#introduction-6"><span class="header-section-number">9.1.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#motivation-and-notation"><span class="header-section-number">9.1.2</span> Motivation and notation</a></li>
-<li><a class="nav-link" href="#randomization"><span class="header-section-number">9.1.3</span> Randomization</a></li>
-<li><a class="nav-link" href="#treatment-and-control"><span class="header-section-number">9.1.4</span> Treatment and control</a></li>
-<li><a class="nav-link" href="#fishers-tea-party"><span class="header-section-number">9.1.5</span> Fisher’s tea party</a></li>
-<li><a class="nav-link" href="#informed-consent-and-the-need-for-an-experiment"><span class="header-section-number">9.1.6</span> Informed consent and the need for an experiment</a></li>
-<li><a class="nav-link" href="#case-study-the-oregon-health-insurance-experiment"><span class="header-section-number">9.1.7</span> Case study: The Oregon Health Insurance Experiment</a></li>
+<a class="nav-link" href="#experiments-and-randomized-controlled-trials"><span class="header-section-number">10.1</span> Experiments and randomized controlled trials</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction-7"><span class="header-section-number">10.1.1</span> Introduction</a></li>
+<li><a class="nav-link" href="#motivation-and-notation"><span class="header-section-number">10.1.2</span> Motivation and notation</a></li>
+<li><a class="nav-link" href="#randomization"><span class="header-section-number">10.1.3</span> Randomization</a></li>
+<li><a class="nav-link" href="#treatment-and-control"><span class="header-section-number">10.1.4</span> Treatment and control</a></li>
+<li><a class="nav-link" href="#fishers-tea-party"><span class="header-section-number">10.1.5</span> Fisher’s tea party</a></li>
+<li><a class="nav-link" href="#informed-consent-and-the-need-for-an-experiment"><span class="header-section-number">10.1.6</span> Informed consent and the need for an experiment</a></li>
+<li><a class="nav-link" href="#case-study-the-oregon-health-insurance-experiment"><span class="header-section-number">10.1.7</span> Case study: The Oregon Health Insurance Experiment</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#ab-testing"><span class="header-section-number">9.2</span> A/B testing</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#case-study-upworthy"><span class="header-section-number">9.2.1</span> Case study: Upworthy</a></li></ul>
+<a class="nav-link" href="#ab-testing"><span class="header-section-number">10.2</span> A/B testing</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#case-study-upworthy"><span class="header-section-number">10.2.1</span> Case study: Upworthy</a></li></ul>
 </li>
-<li><a class="nav-link" href="#implementing-surveys"><span class="header-section-number">9.3</span> Implementing surveys</a></li>
+<li><a class="nav-link" href="#implementing-surveys"><span class="header-section-number">10.3</span> Implementing surveys</a></li>
 <li>
-<a class="nav-link" href="#exercises-and-tutorial-8"><span class="header-section-number">9.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-8"><span class="header-section-number">9.4.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-8"><span class="header-section-number">9.4.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-9"><span class="header-section-number">10.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-9"><span class="header-section-number">10.4.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-9"><span class="header-section-number">10.4.2</span> Tutorial</a></li>
+<li><a class="nav-link" href="#paper-2"><span class="header-section-number">10.4.3</span> Paper</a></li>
 </ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/21-hunt.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/21-hunt.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/22-hunt.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/22-hunt.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -911,7 +921,7 @@ Figure 9.7: Responses show up alongside the survey and it can be helpful to add 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 15 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

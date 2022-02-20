@@ -1278,7 +1278,7 @@ airbnb_data_selected |>
 ```
 
 <div class="figure">
-<img src="40-eda_files/figure-html/airbnbpricesbunch-1.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="50%" /><img src="40-eda_files/figure-html/airbnbpricesbunch-2.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="50%" />
+<img src="40-eda_files/figure-html/airbnbpricesbunch-1.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%" /><img src="40-eda_files/figure-html/airbnbpricesbunch-2.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%" />
 <p class="caption">(\#fig:airbnbpricesbunch)Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching</p>
 </div>
 
@@ -1727,7 +1727,7 @@ modelsummary(logistic_reg_superhost_response_review)
 </tbody>
 </table>
 
-<!-- We might like to look at what our model predicts, compared with whether the person was actually a super host. We can do that in a variety of ways, but one way is to use `augment` from the `broom` package [@citebroom]. This will add the prediction and associated uncertainty to the data. For every row we will then have the probability that our model is estimating that they are a superhost. But ultimately, we need a binary forecast. There are a bunch of different options, but one is to just say that if the model estimates a probability of more than 0.5 then we bin it into a superhost, and other not. -->
+<!-- We might like to look at what our model predicts, compared with whether the person was actually a super host. We can do that in a variety of ways, but one way is to use `augment` from the `broom` package [@broom]. This will add the prediction and associated uncertainty to the data. For every row we will then have the probability that our model is estimating that they are a superhost. But ultimately, we need a binary forecast. There are a bunch of different options, but one is to just say that if the model estimates a probability of more than 0.5 then we bin it into a superhost, and other not. -->
 
 <!-- ```{r, eval = TRUE, include = TRUE} -->
 <!-- airbnb_data_filtered_logistic_fit_train <-  -->

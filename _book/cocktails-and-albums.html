@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>C Cocktails and albums | Telling Stories With Data</title>
+<meta name="author" content="Rohan Alexander">
+<meta name="description" content="Each of the chapters inspired a cocktail, which could also be accompanied by an album. Chapter 1 Chapter 2 Chapter 3 Chapter 4 Chapter 5 Chapter 6 Chapter 7 Chapter 8 Chapter 9 We are accidents...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="C Cocktails and albums | Telling Stories With Data">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/tellingstorieswithdatapainting.png">
+<meta property="og:description" content="Each of the chapters inspired a cocktail, which could also be accompanied by an album. Chapter 1 Chapter 2 Chapter 3 Chapter 4 Chapter 5 Chapter 6 Chapter 7 Chapter 8 Chapter 9 We are accidents...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C Cocktails and albums | Telling Stories With Data">
+<meta name="twitter:description" content="Each of the chapters inspired a cocktail, which could also be accompanied by an album. Chapter 1 Chapter 2 Chapter 3 Chapter 4 Chapter 5 Chapter 6 Chapter 7 Chapter 8 Chapter 9 We are accidents...">
+<meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/_Atkinson%20Hyperlegible-0.4.0/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM%20Plex%20Mono&amp;display=swap" rel="stylesheet">
+<script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script><script src="libs/mapdeck-binding-0.3.4/mapdeck.js"></script><script src="libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script><script src="libs/deckgl-8.1.6/deckgl.min.js"></script><script src="libs/legend-0.0.1/legend.js"></script><script src="libs/title-0.0.1/title.js"></script><script src="libs/mapdeck_location-0.0.1/mapdeck_location.js"></script><script src="libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script><script src="libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script><link href="libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet">
+<script src="libs/mapboxgl-1.10.0/mapbox-gl.js"></script><link href="libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet">
+<script src="libs/mpadeck-binding-0.3.4/mapdeck.js"></script><script src="libs/scatterplot-1.0.0/scatterplot.js"></script><script src="libs/viz-1.8.2/viz.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Telling Stories With Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">C</span> Cocktails and albums</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="cocktails-and-albums" class="section level1" number="24">
+<h1>
+<span class="header-section-number">C</span> Cocktails and albums<a class="anchor" aria-label="anchor" href="#cocktails-and-albums"><i class="fas fa-link"></i></a>
+</h1>
+<p>Each of the chapters inspired a cocktail, which could also be accompanied by an album.</p>
+<p><strong>Chapter 1</strong></p>
+<p><strong>Chapter 2</strong></p>
+<p><strong>Chapter 3</strong></p>
+<p><strong>Chapter 4</strong></p>
+<p><strong>Chapter 5</strong></p>
+<p><strong>Chapter 6</strong></p>
+<p><strong>Chapter 7</strong></p>
+<p><strong>Chapter 8</strong></p>
+<p><strong>Chapter 9</strong></p>
+<p><em>We are accidents waiting to happen (model overfit)</em></p>
+<p><strong>Chapter 10</strong></p>
+<p><em>January has April showers and 2+2 always makes up 5 (measurement error)</em></p>
+<p><strong>Chapter 11</strong></p>
+<p><em>You can try the best you can, the best you can is good enough (some models are useful)</em></p>
+<p><strong>Chapter 12</strong></p>
+<p><em>Just cause you feel it doesn’t mean it’s there (p hacking)</em></p>
+<p><strong>Chapter 13</strong></p>
+<p><strong>Chapter 14</strong></p>
+<p><strong>Chapter 15</strong></p>
+<p><strong>Chapter 16</strong></p>
+<p><strong>Chapter 17</strong></p>
+<p><strong>Chapter 18</strong></p>
+<p><strong>Chapter 19</strong></p>
+<p><strong>Chapter 20</strong></p>
+<p><strong>Chapter 21</strong></p>
+
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 19 February, 2022.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

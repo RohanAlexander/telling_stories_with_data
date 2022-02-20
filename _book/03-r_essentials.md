@@ -10,7 +10,6 @@
 - Read *R for Data Science*, Chapter 5 'Data transformation', [@r4ds]
 - Read *Data Feminism*, Chapter 6 'The Numbers Don't Speak for Themselves', [@datafeminism2020]
 
-
 **Key concepts and skills**
 
 - Understanding foundational aspects of R and R Studio.

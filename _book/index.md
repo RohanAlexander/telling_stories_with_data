@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "15 February, 2022"
+date: "19 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -23,7 +23,7 @@ cover-image: tellingstorieswithdatapainting.png
 
 # Preface {-}
 
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
 <p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
 </div>
@@ -46,12 +46,11 @@ Improving the quality of quantitative work is an enormous challenge, yet it is t
 
 ## Audience and assumed background {-}
 
-The typical person reading this book has some familiarity with first-year statistics, for instance they have run a regression. But it is not targeted at a particular level, instead providing aspects relevant to almost any quantitative course. I have taught from this book at high school, undergraduate, and graduate levels. Everyone has unique needs, but hopefully some aspect of this book speaks to you.
+The typical person reading this book has some familiarity with first-year statistics, for instance they have run a regression. But it is not targeted at a particular level, instead providing aspects relevant to almost any quantitative course. I have taught from this book at high school, undergraduate, graduate, and professional, levels. Everyone has unique needs, but hopefully some aspect of this book speaks to you.
 
-This book especially complements *Statistical Rethinking* [@citemcelreath], *R for Data Science* [@r4ds], *An Introduction to Statistical Learning* [@islr], *Causal Inference: The Mixtape* [@Cunningham2021], and *Building Software Together* [@buildingsoftwaretogether]. For instance, after this book you may be interested in learning more about Bayesian statistics, data science, statistical learning, causal inference, and building software.
+Enthusiasm and interest have taken folks far. If you have those, then do not worry about too much else. Some of the most successful students have been those with no quantitative or coding background. 
 
-All of that said, some of the most successful students have been those with no quantitative or coding background. Enthusiasm and interest have taken folks far. If you have those, then don't worry about too much else.
-
+This book especially complements books such as: *Data Science: A First Introduction* [@timbersandfriends], *R for Data Science* [@r4ds], *An Introduction to Statistical Learning* [@islr], *Statistical Rethinking* [@citemcelreath], *Causal Inference: The Mixtape* [@Cunningham2021], *The Effect: An Introduction to Research Design and Causality* [@theeffect], and *Building Software Together* [@buildingsoftwaretogether]. If you are interested in those books, then this might be a good one to start with. 
 
 
 ## Structure and content {-}
@@ -62,7 +61,7 @@ Part I -- Foundations -- begins with Chapter \@ref(telling-stories-with-data), w
 
 Part II -- Communication -- considers three types of communication: written, static, and interactive. Chapter \@ref(on-writing) details the features that quantitative writing should have and how to go about writing a crisp, technical, paper. Static communication in Chapter \@ref(static-communication) introduces features like graphs, tables, and maps. Interactive communication in Chapter \@ref(interactive-communication) covers aspects such as websites, web applications, and maps that can be manipulated.
 
-Part III -- Acquisition -- focuses on three aspects: gathering data, hunting data, and farming data. Gathering data in Chapter \@ref(gather-data) covers things like using Application Programming Interface (APIs), scraping data, getting data from PDFs, and Optical Character Recognition (OCR). The idea is that data are available, but not necessarily designed to be datasets, and that we must go and get them. Hunting data in Chapter \@ref(hunt-data) covers aspects where more is expected of us. For instance, we may need to conduct an experiment, run an A/B test, or do some surveys. Finally, farming data in Chapter \@ref(farm-data) covers datasets that are explicitly provided for us to use as data, for instance censuses and other government statistics. These are typically clean, pre-packaged datasets.
+Part III -- Acquisition -- focuses on three aspects: farming data, gathering data, and hunting data. Farming data in Chapter \@ref(farm-data) begins with essential concepts from sampling that govern our approach to data. It then focuses on datasets that are explicitly provided for us to use as data, for instance censuses and other government statistics. These are typically clean, pre-packaged datasets, and sometimes complete. Gathering data in Chapter \@ref(gather-data) covers things like using Application Programming Interface (APIs), scraping data, getting data from PDFs, and Optical Character Recognition (OCR). The idea is that data are available, but not necessarily designed to be datasets, and that we must go and get them. Finally, hunting data in Chapter \@ref(hunt-data) covers aspects where more is expected of us. For instance, we may need to conduct an experiment, run an A/B test, or do some surveys. 
 
 Part IV -- Preparation -- covers how to respectfully transform raw data into something that can be explored and shared. Chapter \@ref(clean-and-prepare) begins by detailing some principles to follow when approaching the task of cleaning and preparing data, and then goes through specific steps to take and checks to implement. Chapter \@ref(store-and-share) focuses on methods of storing and retrieving those datasets, including the use of R packages, and then continues onto considerations and steps to take when wanting to disseminate datasets as broadly as possible, while at the same time respecting those whose data they are based on.
 
@@ -114,7 +113,7 @@ Finally, a set of six papers is included in Appendix \@ref(papers). If you write
 
 The software that I use in this book is R [@citeR]. This language was chosen because it is open source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of well-developed features. I do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users. The community is especially welcoming of new-comers and there is a lot of complementary beginner-friendly material available. There is an R package, `DoSSToolkit` [@alexander2021introduction], that contains `learnr` modules [@citelearnr]. This may be useful if you are newer to R and are especially complementary to this book.
 
-If you don't have a programming language, then R is a great one to start with. If you have a preferred programming language already, then it wouldn't hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.
+If you do not have a programming language, then R is a great one to start with. If you have a preferred programming language already, then it wouldn't hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.
 
 Please download R and R Studio onto your own computer. You can download R for free here: http://cran.utstat.utoronto.ca/, and you can download R Studio Desktop for free here: https://rstudio.com/products/rstudio/download/#download. 
 Please also create an account on R Studio Cloud: https://rstudio.cloud/. This will allow you to run R in the cloud.
@@ -153,7 +152,9 @@ Thank you to those students who contributed substantially to the development of 
 
 Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Arsh Lakhanpal, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
 
-Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Thank you for your inestimable help with writing this book, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), giving me the time that I needed to write, encouragement when it turned out that writing a book just meant endlessly re-writing that which was perfect the day before, reading everything in this book many times, making coffee or cocktails as appropriate, and much more.
+As at Christmas 2021 this book was a disparate collection of notes. Thank you to Mum and Dad, who dropped everything and came over from the other side world for two months to give me the opportunity to re-write it all, and put together a cohesive book.
+
+Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Many of the best ideas in this book are yours, and those that are not, you made better. Thank you for your inestimable help with writing this book, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), giving me the time that I needed to write, encouragement when it turned out that writing a book just meant endlessly re-writing that which was perfect the day before, reading everything in this book many times, making coffee or cocktails as appropriate, and more.
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
