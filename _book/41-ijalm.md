@@ -1,24 +1,12 @@
 
 # It's Just A Linear Model {#ijalm}
 
-**STATUS: Under construction.**
-
 **Required material**
 
 - Read *An Introduction to Statistical Learning with Applications in R*, Chapters 3 'Linear Regression', and 4 'Classification', [@islr]
+- Read *Data Analysis Using Regression and Multilevel/Hierarchical Models*, Chapters 3 'Linear regression: the basics', 4 'Linear regression: before and after fitting the model', 5 'Logistic regression', and 6 'Generalized linear models', [@gelmanandhill]
+- Read *Why most published research findings are false*, [@ioannidis2005most]
 
-
-<!-- **Required reading** -->
-
-<!-- - Wickham, Hadley, and Garrett Grolemund, 2017, *R for Data Science*, Chapter 23, https://r4ds.had.co.nz/. -->
-
-
-<!-- **Recommended reading** -->
-
-<!-- - Angrist, Joshua D., and Jörn-Steffen Pischke, 2008, *Mostly harmless econometrics: An empiricist's companion*, Princeton University Press, Chapter 3.4.3. -->
-<!-- - Cunningham, Scott, *Causal Inference: The Mixtape*, Chapter 2, Yale University Press, https://mixtape.scunning.com. -->
-<!-- - ElHabr, Tony, 2019, 'A Bayesian Approach to Ranking English Premier League Teams (using R)', https://tonyelhabr.rbind.io/post/bayesian-statistics-english-premier-league/. -->
-<!-- - Ioannidis, John PA, 2005, 'Why most published research findings are false', *PLoS medicine*, 2, no. 8, e124. -->
 <!-- - Pavlik, Kaylin, 2018, 'Exploring the Relationship Between Dog Names and Breeds', https://www.kaylinpavlik.com/dog-names-tfidf/. -->
 <!-- - Pavlik, Kaylin, 2019, 'Understanding + classifying genres using Spotify audio features', https://www.kaylinpavlik.com/classifying-songs-genres/. -->
 <!-- - Silge, Julia, 2019, 'Modeling salary and gender in the tech industry', https://juliasilge.com/blog/salary-gender/. -->
@@ -28,18 +16,8 @@
 <!-- - Silge, Julia, 2020, 'Hyperparameter tuning and #TidyTuesday food consumption', https://juliasilge.com/blog/food-hyperparameter-tune/. -->
 <!-- - Taddy, Matt, 2019, *Business Data Science*, Chapters 2 and 4. -->
 <!-- - Wasserstein, Ronald L. and Nicole A. Lazar, 2016, 'The ASA Statement on p-Values: Context, Process, and Purpose', *The American Statistician*, 70:2, 129-133, DOI: 10.1080/00031305.2016.1154108. -->
-
-
-<!-- **Fun reading** -->
-
-<!-- - Chellel, Kit, 2018, 'The Gambler Who Cracked the Horse-Racing Code', *Bloomberg Businessweek*, 3 May, https://www.bloomberg.com/news/features/2018-05-03/the-gambler-who-cracked-the-horse-racing-code. -->
-
-
 <!-- https://rviews.rstudio.com/2020/03/10/comparing-machine-learning-algorithms-for-predicting-clothing-classes-part-3/ -->
-
 <!-- https://juliasilge.com/blog/tuition-resampling/ -->
-
-<!-- https://easystats.github.io/performance/index.html -->
 
 
 **Key concepts and skills**
@@ -96,7 +74,7 @@ It is important to recognize that when we build models, we are not discovering '
 
 We use models to understand the world. We poke, push, and test them. We build them and rejoice in their beauty, and then seek to understand their limits and ultimately destroy them. It is this process that is important, it is this process that allows us to better understand the world; not the outcome. When we build models, we need to keep in mind both the world of the model and the broader world that we want to be able to speak about. To what extent does a model trained on the experiences of straight, cis, men, speak to the world as it is? It is not worthless, but it is also not unimpeachable. To what extent does the model teach us about the data that we have? To what extent do the data that we have reflect the world about which we would like to draw conclusions? We need to keep such questions front of mind.
 
-Much of statistics was developed without concern for broader implications. And that was reasonable because it was developed for situations such as astronomy and agriculture. Folks were literally able to randomize the order of fields and planting because they literally worked at agricultural stations. But many of the subsequent applications in the twentieth and twenty-first centuries, do not have those properties. Statistical science is often taught as though it proceeds through some idealized process where a hypothesis appears, is tested, and is either confirmed or not. But that is not what happens. We react to incentives. We dabble, guess, and test, and then follow are intuition, backfilling as we need. All of this is fine. But it is not a world in which a traditional null hypothesis holds completely, which means concepts such as p-values and power lose some of their meaning. While we need to understand the 'old world', we also need to be sophisticated enough to know when we need to move away from it. We can appreciate the beauty and ingenuity of a Ford Model T, at the same time recognizing we could not use it to win Le Mans.
+Much of statistics was developed without concern for broader implications. And that was reasonable because it was developed for situations such as astronomy and agriculture. Folks were literally able to randomize the order of fields and planting because they literally worked at agricultural stations. But many of the subsequent applications in the twentieth and twenty-first centuries, do not have those properties. Statistical science is often taught as though it proceeds through some idealized process where a hypothesis appears, is tested, and is either confirmed or not. But that is not what happens. We react to incentives. We dabble, guess, and test, and then follow our intuition, backfilling as we need. All of this is fine. But it is not a world in which a traditional null hypothesis holds completely, which means concepts such as p-values and power lose some of their meaning. While we need to understand the 'old world', we also need to be sophisticated enough to know when we need to move away from it. We can appreciate the beauty and ingenuity of a Ford Model T, at the same time recognizing we could not use it to win Le Mans.
 
 In this chapter we begin with simple linear regression, and then move to multiple linear regression, the difference being the number of explanatory variables that we allow. We then consider logistic and Poisson regression. We consider three approaches for each of these: base R, which is useful when we want to quickly use the models in EDA; `tidymodels` [@citeTidymodels] which is useful when we are interested in forecasting; and `rstanarm` [@citerstanarm] when we are interested in understanding. Regardless of the approach we use, the important thing to remember is that modelling in this way is just fancy averaging. The chapter is named for a quote by Daniela Witten, Professor, University of Washington, who identifies how far we can get with linear models and the huge extent to which they underpin statistics. 
 
@@ -250,24 +228,24 @@ simulated_running_data <-
          noise = rnorm(number_of_observations, 0, 20),
          marathon_time = five_km_time * expected_relationship + noise
          ) |>
-  mutate(five_km_time = round(five_km_time),
-         marathon_time = round(marathon_time)) |>
+  mutate(five_km_time = round(five_km_time, digits = 1),
+         marathon_time = round(marathon_time, digits = 1)) |>
   select(-noise)
 
 simulated_running_data
 #> # A tibble: 100 × 2
 #>    five_km_time marathon_time
 #>           <dbl>         <dbl>
-#>  1           20           152
-#>  2           17           134
-#>  3           22           198
-#>  4           20           166
-#>  5           16           163
-#>  6           21           168
-#>  7           17           131
-#>  8           19           150
-#>  9           17           158
-#> 10           18           147
+#>  1         20.4          152.
+#>  2         16.8          134.
+#>  3         22.3          198.
+#>  4         19.7          166.
+#>  5         15.6          163.
+#>  6         21.1          168.
+#>  7         17            131.
+#>  8         18.6          150.
+#>  9         17.4          158.
+#> 10         17.8          147.
 #> # … with 90 more rows
 ```
 
@@ -353,19 +331,19 @@ summary(simulated_running_data_first_model)
 #> 
 #> Residuals:
 #>     Min      1Q  Median      3Q     Max 
-#> -47.189  -9.198  -0.195  13.783  58.745 
+#> -49.654  -9.278   0.781  12.606  56.898 
 #> 
 #> Coefficients:
 #>              Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)    7.0806     9.0023   0.787    0.433    
-#> five_km_time   8.0060     0.4101  19.523   <2e-16 ***
+#> (Intercept)    8.2393     8.9550    0.92     0.36    
+#> five_km_time   7.9407     0.4072   19.50   <2e-16 ***
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
-#> Residual standard error: 16.94 on 98 degrees of freedom
-#> Multiple R-squared:  0.7955,	Adjusted R-squared:  0.7934 
-#> F-statistic: 381.1 on 1 and 98 DF,  p-value: < 2.2e-16
+#> Residual standard error: 16.96 on 98 degrees of freedom
+#> Multiple R-squared:  0.7951,	Adjusted R-squared:  0.793 
+#> F-statistic: 380.3 on 1 and 98 DF,  p-value: < 2.2e-16
 ```
 
 The first part of the result tells us the regression that we specified, then information about the residuals, and our estimated coefficients. And then finally some useful diagnostics. 
@@ -386,16 +364,16 @@ simulated_running_data
 #> # A tibble: 100 × 8
 #>    five_km_time marathon_time .fitted .resid   .hat .sigma
 #>           <dbl>         <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
-#>  1           20           152    167. -15.2  0.0114   17.0
-#>  2           17           134    143.  -9.18 0.0222   17.0
-#>  3           22           198    183.  14.8  0.0101   17.0
-#>  4           20           166    167.  -1.20 0.0114   17.0
-#>  5           16           163    135.  27.8  0.0281   16.8
-#>  6           21           168    175.  -7.21 0.0102   17.0
-#>  7           17           131    143. -12.2  0.0222   17.0
-#>  8           19           150    159.  -9.19 0.0138   17.0
-#>  9           17           158    143.  14.8  0.0222   17.0
-#> 10           18           147    151.  -4.19 0.0174   17.0
+#>  1         20.4          152.    170. -17.8  0.0108   17.0
+#>  2         16.8          134.    142.  -7.84 0.0232   17.0
+#>  3         22.3          198.    185.  13.1  0.0103   17.0
+#>  4         19.7          166.    165.   1.83 0.0121   17.1
+#>  5         15.6          163.    132.  31.3  0.0307   16.7
+#>  6         21.1          168.    176.  -8.09 0.0101   17.0
+#>  7         17            131.    143. -11.8  0.0222   17.0
+#>  8         18.6          150.    156.  -6.04 0.0152   17.0
+#>  9         17.4          158.    146.  11.1  0.0201   17.0
+#> 10         17.8          147.    150.  -2.68 0.0183   17.0
 #> # … with 90 more rows, and 2 more variables: .cooksd <dbl>,
 #> #   .std.resid <dbl>
 ```
@@ -409,17 +387,25 @@ ggplot(simulated_running_data,
   labs(y = "Number of occurrences",
        x = "Residuals")
 
-ggplot(simulated_running_data, aes(five_km_time, .resid)) + 
+ggplot(simulated_running_data, 
+       aes(x = five_km_time, y = .resid)) + 
   geom_point() +
   geom_hline(yintercept = 0, linetype = "dotted", color = "grey") +
   theme_classic() +
   labs(y = "Residuals",
        x = "Five-kilometer time (minutes)")
+
+ggplot(simulated_running_data, 
+       aes(x = marathon_time, .fitted)) + 
+  geom_point() +
+  theme_classic() +
+  labs(y = "Estimated marathon time",
+       x = "Actual marathon time")
 ```
 
 <div class="figure">
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon" width="49%" />
-<p class="caption">(\#fig:fivekmvsmarathonresids)Residuals from the simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon</p>
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-3.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" />
+<p class="caption">(\#fig:fivekmvsmarathonresids)Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon</p>
 </div>
 
 We want our estimate to be unbiased. When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. An estimator is unbiased if it does not systematically over- or under-estimate [@islr, p. 65].
@@ -428,7 +414,6 @@ But we want to try to speak to the 'true' relationship, so we need to try to cap
 
 
 ```r
-
 simulated_running_data |> 
   ggplot(aes(x = five_km_time, y = marathon_time)) +
   geom_point() + 
@@ -443,8 +428,8 @@ simulated_running_data |>
 ```
 
 <div class="figure">
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathonses)Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors</p>
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathonses)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors</p>
 </div>
 
 From standard errors, we can compute a confidence interval. A 95 per cent confidence interval is a range, such that there is roughly a 0.95 probability that the interval happens to contain the population parameter, which is typically unknown. The lower end of this range is: $\hat{\beta_1} - 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$ and the upper end of this range is: $\hat{\beta_1} + 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$.
@@ -487,16 +472,16 @@ simulated_running_data
 #> # A tibble: 100 × 3
 #>    five_km_time marathon_time was_raining
 #>           <dbl>         <dbl> <chr>      
-#>  1           20           152 No         
-#>  2           17           134 No         
-#>  3           22           198 No         
-#>  4           20           166 No         
-#>  5           16           163 No         
-#>  6           21           168 No         
-#>  7           17           131 No         
-#>  8           19           150 No         
-#>  9           17           158 No         
-#> 10           18           147 No         
+#>  1         20.4          152. No         
+#>  2         16.8          134. No         
+#>  3         22.3          198. No         
+#>  4         19.7          166. No         
+#>  5         15.6          163. No         
+#>  6         21.1          168. No         
+#>  7         17            131. No         
+#>  8         18.6          150. No         
+#>  9         17.4          158. No         
+#> 10         17.8          147. No         
 #> # … with 90 more rows
 ```
 
@@ -515,20 +500,20 @@ summary(simulated_running_data_rain_model)
 #> 
 #> Residuals:
 #>     Min      1Q  Median      3Q     Max 
-#> -46.651 -10.652   0.157  11.613  60.164 
+#> -49.150  -8.828   0.968  10.522  58.224 
 #> 
 #> Coefficients:
 #>                Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)      7.9852     9.0444   0.883    0.379    
-#> five_km_time     7.9259     0.4175  18.984   <2e-16 ***
-#> was_rainingYes   4.5689     4.4893   1.018    0.311    
+#> (Intercept)      9.1030     9.0101   1.010    0.315    
+#> five_km_time     7.8660     0.4154  18.934   <2e-16 ***
+#> was_rainingYes   4.1673     4.5048   0.925    0.357    
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
-#> Residual standard error: 16.94 on 97 degrees of freedom
-#> Multiple R-squared:  0.7976,	Adjusted R-squared:  0.7935 
-#> F-statistic: 191.2 on 2 and 97 DF,  p-value: < 2.2e-16
+#> Residual standard error: 16.98 on 97 degrees of freedom
+#> Multiple R-squared:  0.7969,	Adjusted R-squared:  0.7927 
+#> F-statistic: 190.3 on 2 and 97 DF,  p-value: < 2.2e-16
 ```
 
 The result probably is not too surprising if we look at a plot of the data (Figure \@ref(fig:fivekmvsmarathonbinary)).
@@ -550,8 +535,8 @@ simulated_running_data |>
 ```
 
 <div class="figure">
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathonbinary)Simple linear regression of simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining</p>
+<img src="41-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672" />
+<p class="caption">(\#fig:fivekmvsmarathonbinary)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining</p>
 </div>
 
 In addition to wanting to include additional explanatory variables, we may think that they are related with each another. For instance, if we were wanting to explain the amount of snowfall, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using `*` instead of `+` when we specify the model. When we interact variables in this way, then we almost always need to include the individual variables as well and `lm()` will do this by default.
@@ -571,16 +556,16 @@ simulated_running_data
 #> # A tibble: 100 × 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
-#>  1           20           152 No          Low     
-#>  2           17           134 No          Low     
-#>  3           22           198 No          Low     
-#>  4           20           166 No          Low     
-#>  5           16           163 No          Low     
-#>  6           21           168 No          Low     
-#>  7           17           131 No          Low     
-#>  8           19           150 No          Low     
-#>  9           17           158 No          High    
-#> 10           18           147 No          Low     
+#>  1         20.4          152. No          Low     
+#>  2         16.8          134. No          Low     
+#>  3         22.3          198. No          Low     
+#>  4         19.7          166. No          Low     
+#>  5         15.6          163. No          Low     
+#>  6         21.1          168. No          Low     
+#>  7         17            131. No          Low     
+#>  8         18.6          150. No          Low     
+#>  9         17.4          158. No          High    
+#> 10         17.8          147. No          Low     
 #> # … with 90 more rows
 ```
 
@@ -598,39 +583,37 @@ summary(simulated_running_data_rain_and_humidity_model)
 #> 
 #> Residuals:
 #>     Min      1Q  Median      3Q     Max 
-#> -46.360  -8.342   0.175  10.433  61.996 
+#> -48.904  -8.523   0.404  10.130  59.951 
 #> 
 #> Coefficients:
 #>                            Estimate Std. Error t value
-#> (Intercept)                 14.5425    10.3039   1.411
-#> five_km_time                 7.7859     0.4179  18.630
-#> was_rainingYes              15.6679     9.5816   1.635
-#> humidityLow                 -4.3283     4.9357  -0.877
-#> was_rainingYes:humidityLow -14.1917    10.7016  -1.326
+#> (Intercept)                 15.0595    10.3144   1.460
+#> five_km_time                 7.7313     0.4167  18.552
+#> was_rainingYes              15.6008     9.6199   1.622
+#> humidityLow                 -3.7380     4.9569  -0.754
+#> was_rainingYes:humidityLow -14.5825    10.7410  -1.358
 #>                            Pr(>|t|)    
-#> (Intercept)                   0.161    
+#> (Intercept)                   0.148    
 #> five_km_time                 <2e-16 ***
-#> was_rainingYes                0.105    
-#> humidityLow                   0.383    
-#> was_rainingYes:humidityLow    0.188    
+#> was_rainingYes                0.108    
+#> humidityLow                   0.453    
+#> was_rainingYes:humidityLow    0.178    
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
-#> Residual standard error: 16.73 on 95 degrees of freedom
-#> Multiple R-squared:  0.8067,	Adjusted R-squared:  0.7986 
-#> F-statistic: 99.14 on 4 and 95 DF,  p-value: < 2.2e-16
+#> Residual standard error: 16.79 on 95 degrees of freedom
+#> Multiple R-squared:  0.8054,	Adjusted R-squared:  0.7972 
+#> F-statistic: 98.31 on 4 and 95 DF,  p-value: < 2.2e-16
 ```
 
 There are a variety of threats to the validity of linear regression estimates, and aspects to think about. We need to address these when we use it, and usually four graphs and associated text are sufficient to assuage most of these. Aspects of concern include:
 
-**Fix these conditions.**
-
-1. Linearity. We are concerned with whether the independent variables enter in a linear way. Sometimes if we are concerned 
-2. Independence. 
-3. Homoscedasticity of errors.
-4. Normality of errors. We are concerned that our 
-5. Outliers and other high-impact observations.
+1. Linearity of explanatory variables. We are concerned with whether the independent variables enter in a linear way. Sometimes if we are worried that there might be a multiplicative relationship between the explanatory variables, rather than an additive one, then we may consider a logarithmic transform. We can usually be convinced there is enough linearity in our explanatory variables for our purposes by using graphs of the variables.
+2. Independence of errors. We are concerned that the errors are not correlated. For instance, if we are interested in weather-related measurement such as average daily temperature, then we may find a pattern because the temperature on one day is likely similar to the temperature on another. We can be convinced that we have satisfied this condition by making graphs of the errors, such as Figure \@ref(fig:fivekmvsmarathonresids).
+3. Homoscedasticity of errors. We are concerned that the errors are not becoming systematically larger or smaller throughout the sample. If that is happening, then we term it heteroscedasticity. Again, graphs of errors, such as Figure \@ref(fig:fivekmvsmarathonresids) are used to convince us of this.
+4. Normality of errors. We are concerned that our errors are normally distributed when we are interested in making individual-level predictions.
+5. Outliers and other high-impact observations. Finally, we might be worried that our results are being driven by a handful of observations. For instance, thinking back to Chapter \@ref(static-communication) and Anscombe's Quartet, we notice that linear regression estimates would be heavily influenced by the inclusion of one or two particular points. We can become comfortable with this by considering our analysis on various sub-sets
 
 Those aspects are statistical concerns and relate to whether the model is working. The most important threat to validity and hence the aspect that must be addressed at some length, is speaking to the fact that this model is appropriate to the circumstances and addresses the research question at hand.
 
@@ -660,21 +643,21 @@ modelsummary(list(simulated_running_data_first_model,
 <tbody>
   <tr>
    <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 7.08 </td>
-   <td style="text-align:center;"> 7.99 </td>
-   <td style="text-align:center;"> 14.54 </td>
+   <td style="text-align:center;"> 8.24 </td>
+   <td style="text-align:center;"> 9.10 </td>
+   <td style="text-align:center;"> 15.06 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (9.00) </td>
-   <td style="text-align:center;"> (9.04) </td>
-   <td style="text-align:center;"> (10.30) </td>
+   <td style="text-align:center;"> (8.96) </td>
+   <td style="text-align:center;"> (9.01) </td>
+   <td style="text-align:center;"> (10.31) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> five_km_time </td>
-   <td style="text-align:center;"> 8.01 </td>
-   <td style="text-align:center;"> 7.93 </td>
-   <td style="text-align:center;"> 7.79 </td>
+   <td style="text-align:center;"> 7.94 </td>
+   <td style="text-align:center;"> 7.87 </td>
+   <td style="text-align:center;"> 7.73 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
@@ -685,38 +668,38 @@ modelsummary(list(simulated_running_data_first_model,
   <tr>
    <td style="text-align:left;"> was_rainingYes </td>
    <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 4.57 </td>
-   <td style="text-align:center;"> 15.67 </td>
+   <td style="text-align:center;"> 4.17 </td>
+   <td style="text-align:center;"> 15.60 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (4.49) </td>
-   <td style="text-align:center;"> (9.58) </td>
+   <td style="text-align:center;"> (4.50) </td>
+   <td style="text-align:center;"> (9.62) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> humidityLow </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −4.33 </td>
+   <td style="text-align:center;"> −3.74 </td>
   </tr>
   <tr>
    <td style="text-align:left;">  </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (4.94) </td>
+   <td style="text-align:center;"> (4.96) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> was_rainingYes × humidityLow </td>
    <td style="text-align:center;">  </td>
    <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −14.19 </td>
+   <td style="text-align:center;"> −14.58 </td>
   </tr>
   <tr>
    <td style="text-align:left;box-shadow: 0px 1px">  </td>
    <td style="text-align:center;box-shadow: 0px 1px">  </td>
    <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (10.70) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (10.74) </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Num.Obs. </td>
@@ -727,42 +710,41 @@ modelsummary(list(simulated_running_data_first_model,
   <tr>
    <td style="text-align:left;"> R2 </td>
    <td style="text-align:center;"> 0.795 </td>
-   <td style="text-align:center;"> 0.798 </td>
-   <td style="text-align:center;"> 0.807 </td>
+   <td style="text-align:center;"> 0.797 </td>
+   <td style="text-align:center;"> 0.805 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R2 Adj. </td>
    <td style="text-align:center;"> 0.793 </td>
    <td style="text-align:center;"> 0.793 </td>
-   <td style="text-align:center;"> 0.799 </td>
+   <td style="text-align:center;"> 0.797 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 853.7 </td>
-   <td style="text-align:center;"> 854.7 </td>
-   <td style="text-align:center;"> 854.1 </td>
+   <td style="text-align:center;"> 854.0 </td>
+   <td style="text-align:center;"> 855.1 </td>
+   <td style="text-align:center;"> 854.8 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 861.5 </td>
-   <td style="text-align:center;"> 865.1 </td>
-   <td style="text-align:center;"> 869.7 </td>
+   <td style="text-align:center;"> 861.8 </td>
+   <td style="text-align:center;"> 865.5 </td>
+   <td style="text-align:center;"> 870.4 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −423.859 </td>
-   <td style="text-align:center;"> −423.328 </td>
-   <td style="text-align:center;"> −421.026 </td>
+   <td style="text-align:center;"> −423.993 </td>
+   <td style="text-align:center;"> −423.554 </td>
+   <td style="text-align:center;"> −421.405 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 381.139 </td>
-   <td style="text-align:center;"> 191.157 </td>
-   <td style="text-align:center;"> 99.138 </td>
+   <td style="text-align:center;"> 380.262 </td>
+   <td style="text-align:center;"> 190.279 </td>
+   <td style="text-align:center;"> 98.314 </td>
   </tr>
 </tbody>
 </table>
-
 
 When we are focused on prediction, we will often want to fit many models. One way to do this is to copy and paste code many times. There is nothing wrong with that. And that is the way that most people get started. But we need an approach that: 
 
@@ -799,48 +781,47 @@ simulated_running_data_train
 #> # A tibble: 80 × 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
-#>  1           17           158 No          High    
-#>  2           24           205 No          High    
-#>  3           23           198 Yes         Low     
-#>  4           22           175 No          Low     
-#>  5           19           158 No          Low     
-#>  6           24           204 No          High    
-#>  7           17           120 No          High    
-#>  8           19           178 No          Low     
-#>  9           22           198 No          Low     
-#> 10           21           166 No          Low     
+#>  1         17.4          158. No          High    
+#>  2         23.8          205. No          High    
+#>  3         23.4          198. Yes         Low     
+#>  4         22.3          175  No          Low     
+#>  5         19.3          158  No          Low     
+#>  6         24.4          204. No          High    
+#>  7         17            120  No          High    
+#>  8         19.1          178. No          Low     
+#>  9         22.3          198. No          Low     
+#> 10         20.6          166. No          Low     
 #> # … with 70 more rows
 
-simulated_running_data_test  <-  testing(simulated_running_data_split)
+simulated_running_data_test <- testing(simulated_running_data_split)
 
 simulated_running_data_test
 #> # A tibble: 20 × 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
-#>  1           17           131 No          Low     
-#>  2           17           118 No          Low     
-#>  3           20           165 No          Low     
-#>  4           21           164 Yes         Low     
-#>  5           21           180 No          Low     
-#>  6           28           246 No          Low     
-#>  7           24           198 No          High    
-#>  8           16           143 No          Low     
-#>  9           25           202 No          Low     
-#> 10           15           140 Yes         Low     
-#> 11           29           237 No          Low     
-#> 12           19           132 Yes         Low     
-#> 13           22           200 No          Low     
-#> 14           26           229 Yes         High    
-#> 15           25           222 Yes         High    
-#> 16           26           208 Yes         Low     
-#> 17           15           120 No          Low     
-#> 18           18           144 No          Low     
-#> 19           27           227 No          High    
-#> 20           21           201 No          Low
+#>  1         17            131. No          Low     
+#>  2         16.6          118. No          Low     
+#>  3         19.6          164. No          Low     
+#>  4         21.1          164. Yes         Low     
+#>  5         21            180. No          Low     
+#>  6         27.9          246. No          Low     
+#>  7         23.7          198. No          High    
+#>  8         16            143  No          Low     
+#>  9         24.9          202. No          Low     
+#> 10         15.2          140. Yes         Low     
+#> 11         28.9          238. No          Low     
+#> 12         19.2          132  Yes         Low     
+#> 13         22            200. No          Low     
+#> 14         26.5          229  Yes         High    
+#> 15         25.3          222  Yes         High    
+#> 16         25.9          208. Yes         Low     
+#> 17         15.5          120  No          Low     
+#> 18         18            144. No          Low     
+#> 19         27.2          227. No          High    
+#> 20         20.8          201. No          Low
 ```
 
 When we look at the training and test datasets, we can see that we have placed most of our dataset into the training dataset. We will use that to estimate the parameters of our model. We have kept a small amount of it back, and we will use that to evaluate our model.
-
 
 
 ```r
@@ -862,15 +843,21 @@ simulated_running_data_first_model_tidymodels
 #> 
 #> Coefficients:
 #>    (Intercept)    five_km_time  was_rainingYes  
-#>         14.907           7.583           8.032
+#>         16.601           7.490           8.244
 ```
 
-We will use `tidymodels` for forecasting. But when we are focused on inference, instead, we will use Bayesian approaches. To do this we use the probabilistic programming language 'Stan', and interface with it using `rstanarm` package [@citerstanarm]. We keep these separate, rather than adapting Bayesian approaches within `tidymodels`, because to this point the ecosystems have developed separately, and so the best books to go onto next are also separate.
+We will use `tidymodels` for forecasting. But when we are focused on inference, instead, we will use Bayesian approaches. To do this we use the probabilistic programming language 'Stan', and interface with it using `rstanarm` [@citerstanarm]. We keep these separate, rather than adapting Bayesian approaches within `tidymodels`, because to this point the ecosystems have developed separately, and so the best books to go onto next are also separate.
 
 In order to use Bayesian approaches we will need to specify a starting point, or prior. This is another reason for the workflow advocated in this book; the simulate stage leads directly to priors. We will also more thoroughly specify the model that we are interested in:
 
 $$
-Model
+\begin{aligned}
+y_i &\sim \mbox{Normal}(\mu_i, \sigma) \\
+\mu_i &= \beta_0 +\beta_1x_i\\
+\beta_0 &\sim \mbox{Normal}(0, 3) \\
+\beta_1 &\sim \mbox{Normal}(0, 3) \\
+\sigma &\sim \mbox{Normal}(0, 3) \\
+\end{aligned}
 $$
 
 On a practical note, one aspect that different between Bayesian approaches and the way we have been doing modelling to this point, is that Bayesian models will usually take longer to run. Because of this, it can be useful to run the model, either within the R Markdown document or in a separate R script, and then save it with `saveRDS()`. With sensible R Markdown chunk options, the model can then be read into the R Markdown document with `readRDS()`. In this way, the model, and hence delay, is only imposed once for a given model. 
@@ -889,12 +876,13 @@ simulated_running_data_first_model_rstanarm <-
 
 # simulated_running_data_first_model_rstanarm <-
 #   stan_lm(
-#     marathon_time ~ five_km_time, 
+#     formula = marathon_time ~ five_km_time,
 #     data = simulated_running_data,
 #     prior = normal(0, 3),
 #     prior_intercept = normal(0, 3),
+#     prior_aux = normal(0, 3),
 #     seed = 853
-#   )
+#     )
 
 saveRDS(simulated_running_data_first_model_rstanarm,
         file = "simulated_running_data_first_model_rstanarm.rds")
@@ -1016,7 +1004,7 @@ simulated_running_data_first_model_rstanarm
 
 Linear regression is a nice way to come to understand better our data. But it assumes a continuous outcome variable which can take any number on the real line. We would like some way to use this same machinery when we cannot satisfy this condition. We turn to logistic and Poisson regression for binary and count outcome variables, respectively.
 
-Logistic regression is useful in a variety of settings. We use logistic regression when the dependent variable is a binary outcome, such as 0 or 1. Although the presence of a binary outcome variable may sound limiting, there are a lot of circumstances in which the outcome either naturally falls into this situation, or can be adjusted into it.
+Logistic regression and its close variants are useful in a variety of settings, from elections [@wang2015forecasting] through to horse racing [@chellel2018gambler; @boltonruth]. We use logistic regression when the dependent variable is a binary outcome, such as 0 or 1. Although the presence of a binary outcome variable may sound limiting, there are a lot of circumstances in which the outcome either naturally falls into this situation, or can be adjusted into it.
 
 The reason that we use logistic regression is that we will be modelling a probability and so it will be bounded between 0 and 1. Whereas with linear regression we may end up with values outside this. This all said, logistic regression, as Daniella Witten teaches us, is just a linear model. The foundation of logistic regression is the logit function:
 
@@ -1025,44 +1013,49 @@ $$
 $$
 which will transpose values between 0 and 1, onto the real line. For instance, `logit(0.1) = -2.2`, `logit(0.5) = 0`, and `logit(0.9) = 2.2`.
 
-We will simulate data on whether it is day or night, based on the number of stars that we can see.
+We will simulate data on whether it is day or night, based on the number of cars that we can see.
 
 
 ```r
+library(tidyverse)
+
 set.seed(853)
 
 day_or_night <- 
   tibble(
-    number_of_stars = runif(n = 1000, min = 0, 100),
+    number_of_cars = runif(n = 1000, min = 0, 100),
     noise = rnorm(n = 1000, mean = 0, sd = 2),
-    is_night = if_else(number_of_stars + noise > 50, 1, 0)
+    is_night = if_else(number_of_cars + noise > 50, 1, 0)
   ) |> 
-  mutate(number_of_stars = round(number_of_stars)) |> 
+  mutate(number_of_cars = round(number_of_cars)) |> 
   select(-noise)
   
 day_or_night
 #> # A tibble: 1,000 × 2
-#>    number_of_stars is_night
-#>              <dbl>    <dbl>
-#>  1              36        0
-#>  2              12        0
-#>  3              48        0
-#>  4              32        0
-#>  5               4        0
-#>  6              40        0
-#>  7              13        0
-#>  8              24        0
-#>  9              16        0
-#> 10              19        0
+#>    number_of_cars is_night
+#>             <dbl>    <dbl>
+#>  1             36        0
+#>  2             12        0
+#>  3             48        0
+#>  4             32        0
+#>  5              4        0
+#>  6             40        0
+#>  7             13        0
+#>  8             24        0
+#>  9             16        0
+#> 10             19        0
 #> # … with 990 more rows
 ```
 
-As with linear regression, logistic regression with can use `glm()` from base to put together a quick model and `summary()` to look at it. In this case we will try to work out whether it is day or night, based on the number of stars we can see.
+As with linear regression, logistic regression with can use `glm()` from base to put together a quick model and `summary()` to look at it. In this case we will try to work out whether it is day or night, based on the number of cars we can see. We are interested in estimating Equation \@ref(eq:logisticexample):
+$$
+\mbox{Pr}(y_i=1) = \mbox{logit}^{-1}\left(\beta_0+\beta_1 x_i\right). (\#eq:logisticexample)
+$$
 
 
 ```r
 day_or_night_model <- 
-  glm(is_night ~ number_of_stars,
+  glm(is_night ~ number_of_cars,
       data = day_or_night,
       family = 'binomial')
 #> Warning: glm.fit: fitted probabilities numerically 0 or 1
@@ -1071,7 +1064,7 @@ day_or_night_model <-
 summary(day_or_night_model)
 #> 
 #> Call:
-#> glm(formula = is_night ~ number_of_stars, family = "binomial", 
+#> glm(formula = is_night ~ number_of_cars, family = "binomial", 
 #>     data = day_or_night)
 #> 
 #> Deviance Residuals: 
@@ -1079,9 +1072,9 @@ summary(day_or_night_model)
 #> -2.39419  -0.00002   0.00000   0.00002   2.33776  
 #> 
 #> Coefficients:
-#>                 Estimate Std. Error z value Pr(>|z|)    
-#> (Intercept)     -45.5353     7.3389  -6.205 5.48e-10 ***
-#> number_of_stars   0.9121     0.1470   6.205 5.47e-10 ***
+#>                Estimate Std. Error z value Pr(>|z|)    
+#> (Intercept)    -45.5353     7.3389  -6.205 5.48e-10 ***
+#> number_of_cars   0.9121     0.1470   6.205 5.47e-10 ***
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -1095,38 +1088,56 @@ summary(day_or_night_model)
 #> Number of Fisher Scoring iterations: 11
 ```
 
-One reason that logistic regression can be a bit tricky initially, is because the coefficients take a bit of work to interpret. In particular, our estimate on price is 0.37. This is the odds. So, the odds that it is night, increase by 0.37 as the number of stars that we can see increases. We can translate the result into probabilities using `augment()` from `broom` [@broom].
+One reason that logistic regression can be a bit tricky initially, is because the coefficients take a bit of work to interpret. In particular, our estimate on likelihood of it being night is 0.91 This is the odds. So, the odds that it is night, increase by 0.91 as the number of cars that we saw increases. We can translate the result into probabilities using `augment()` from `broom` [@broom] and this allows us to graph the results (Figure \@ref(fig:dayornightprobs)).
 
 
 ```r
 library(broom)
 
-day_or_night_model <-
+day_or_night <-
   augment(day_or_night_model,
           data = day_or_night,
           type.predict = "response")
 
-day_or_night_model
+day_or_night
 #> # A tibble: 1,000 × 8
-#>    number_of_stars is_night  .fitted       .resid .std.resid
-#>              <dbl>    <dbl>    <dbl>        <dbl>      <dbl>
-#>  1              36        0 3.06e- 6     -2.47e-3   -2.47e-3
-#>  2              12        0 2.22e-16     -2.11e-8   -2.11e-8
-#>  3              48        0 1.48e- 1     -5.65e-1   -5.71e-1
-#>  4              32        0 7.95e- 8     -3.99e-4   -3.99e-4
-#>  5               4        0 2.22e-16     -2.11e-8   -2.11e-8
-#>  6              40        0 1.17e- 4     -1.53e-2   -1.53e-2
-#>  7              13        0 2.22e-16     -2.11e-8   -2.11e-8
-#>  8              24        0 5.39e-11     -1.04e-5   -1.04e-5
-#>  9              16        0 2.22e-16     -2.11e-8   -2.11e-8
-#> 10              19        0 5.63e-13     -1.06e-6   -1.06e-6
+#>    number_of_cars is_night  .fitted        .resid .std.resid
+#>             <dbl>    <dbl>    <dbl>         <dbl>      <dbl>
+#>  1             36        0 3.06e- 6 -0.00247        -2.47e-3
+#>  2             12        0 2.22e-16 -0.0000000211   -2.11e-8
+#>  3             48        0 1.48e- 1 -0.565          -5.71e-1
+#>  4             32        0 7.95e- 8 -0.000399       -3.99e-4
+#>  5              4        0 2.22e-16 -0.0000000211   -2.11e-8
+#>  6             40        0 1.17e- 4 -0.0153         -1.53e-2
+#>  7             13        0 2.22e-16 -0.0000000211   -2.11e-8
+#>  8             24        0 5.39e-11 -0.0000104      -1.04e-5
+#>  9             16        0 2.22e-16 -0.0000000211   -2.11e-8
+#> 10             19        0 5.63e-13 -0.00000106     -1.06e-6
 #> # … with 990 more rows, and 3 more variables: .hat <dbl>,
 #> #   .sigma <dbl>, .cooksd <dbl>
 ```
 
-ADD GRAPH THEN OF THIS.
 
-We can use `tidymodels` to run this if we wanted. In this case, we need it as a factor.
+```r
+day_or_night |>
+  mutate(is_night = factor(is_night)) |>
+  ggplot(aes(x = number_of_cars,
+             y = .fitted,
+             color = is_night)) +
+  geom_jitter(width = 0.01, height = 0.01) +
+  labs(x = "Number of cars that were seen",
+       y = "Estimated probability it is night",
+       color = "Was actually night") +
+  theme_classic() +
+  scale_color_brewer(palette = "Set1")
+```
+
+<div class="figure">
+<img src="41-ijalm_files/figure-html/dayornightprobs-1.png" alt="Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around" width="672" />
+<p class="caption">(\#fig:dayornightprobs)Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around</p>
+</div>
+
+We can use `tidymodels` to run this if we wanted. In order to do that, we first need to change the class of our dependent variable into a factor.
 
 
 ```r
@@ -1138,12 +1149,12 @@ day_or_night <-
 
 day_or_night_split <- initial_split(day_or_night, prop = 0.80)
 day_or_night_train <- training(day_or_night_split)
-day_or_night_test  <-  testing(day_or_night_split)
+day_or_night_test <- testing(day_or_night_split)
 
 day_or_night_tidymodels <-
   logistic_reg(mode = "classification") |>
   set_engine("glm") |>
-  fit(is_night ~ number_of_stars,
+  fit(is_night ~ number_of_cars,
       data = day_or_night_train)
 #> Warning: glm.fit: fitted probabilities numerically 0 or 1
 #> occurred
@@ -1153,38 +1164,81 @@ day_or_night_tidymodels
 #> 
 #> Fit time:  4ms 
 #> 
-#> Call:  stats::glm(formula = is_night ~ number_of_stars, family = stats::binomial, 
+#> Call:  stats::glm(formula = is_night ~ number_of_cars, family = stats::binomial, 
 #>     data = data)
 #> 
 #> Coefficients:
-#>     (Intercept)  number_of_stars  
-#>        -44.4817           0.8937  
+#>    (Intercept)  number_of_cars  
+#>       -44.4817          0.8937  
 #> 
 #> Degrees of Freedom: 799 Total (i.e. Null);  798 Residual
 #> Null Deviance:	    1109 
 #> Residual Deviance: 62.5 	AIC: 66.5
 ```
 
+As before, we can make a graph of the actual results compared with our estimates. But one nice aspect of this is that we could use our test dataset to more thoroughly  evaluate our model's forecasting ability, for instance through a confusion matrix. We find that the model does well on the held-out dataset.
 
+
+```r
+day_or_night_tidymodels |>
+  predict(new_data = day_or_night_test) |>
+  cbind(day_or_night_test) |>
+  conf_mat(truth = is_night, estimate = .pred_class)
+#>           Truth
+#> Prediction   0   1
+#>          0  95   0
+#>          1   3 102
+```
+
+Finally, we might be interested in inference, and so want to build a Bayesian model using `rstanarm`. Again, we will more fully specify our model: 
+
+Finally, we can build a Bayesian model and estimate it with `rstanarm`.
+
+$$
+\begin{aligned}
+\mbox{Pr}(y_i=1) & = \mbox{logit}^{-1}\left(\beta_0+\beta_1 x_i\right)\\
+\beta_0 & \sim \mbox{Normal}(0, 3)\\
+\beta_1 & \sim \mbox{Normal}(0, 3)
+\end{aligned}
+$$
 
 
 ```r
 day_or_night_rstanarm <-
   stan_glm(
-    is_night ~ number_of_stars,
+    is_night ~ number_of_cars,
     data = day_or_night,
     family = binomial(link = "logit"),
-    prior = NULL,
+    prior = normal(0, 3),
+    prior_intercept = normal(0, 3),
     seed = 853
   )
 
-day_or_night_rstanarm
+saveRDS(day_or_night_rstanarm,
+        file = "day_or_night_rstanarm.rds")
 ```
 
 
-**Fix the rstanarm for this.**
 
 
+
+
+```r
+day_or_night_rstanarm
+#> stan_glm
+#>  family:       binomial [logit]
+#>  formula:      is_night ~ number_of_cars
+#>  observations: 1000
+#>  predictors:   2
+#> ------
+#>                Median MAD_SD
+#> (Intercept)    -47.3    8.0 
+#> number_of_cars   0.9    0.2 
+#> 
+#> ------
+#> * For help interpreting the printed output see ?print.stanreg
+#> * For info on the priors used see ?prior_summary.stanreg
+```
 
 
 
@@ -1215,7 +1269,10 @@ tibble(
     rep(2, number_of_each),
     rep(4, number_of_each),
     rep(7, number_of_each),
-    rep(10, number_of_each)
+    rep(10, number_of_each),
+    rep(15, number_of_each),
+    rep(50, number_of_each),
+    rep(100, number_of_each)
   ),
   draw = c(
     rpois(n = number_of_each, lambda = 0),
@@ -1223,7 +1280,10 @@ tibble(
     rpois(n = number_of_each, lambda = 2),
     rpois(n = number_of_each, lambda = 4),
     rpois(n = number_of_each, lambda = 7),
-    rpois(n = number_of_each, lambda = 10)
+    rpois(n = number_of_each, lambda = 10),
+    rpois(n = number_of_each, lambda = 15),
+    rpois(n = number_of_each, lambda = 50),
+    rpois(n = number_of_each, lambda = 100)
   )
 ) |>
   ggplot(aes(x = draw)) +
@@ -1245,56 +1305,79 @@ For instance, if we look at the number of A+ grades that are awarded in each uni
 
 ```r
 set.seed(853)
-count_of_A_plus <- 
-  tibble( 
-    # https://stackoverflow.com/questions/1439513/creating-a-sequential-list-of-letters-with-r
-    department = c(rep.int("1", 26), rep.int("2", 26)),
-    course = c(paste0("DEP_1_", letters), paste0("DEP_2_", letters)),
-    number_of_A_plus = c(sample(c(1:10), 
-                              size = 26,
-                              replace = TRUE),
-                         sample(c(1:50), 
-                              size = 26,
-                              replace = TRUE)
+
+count_of_A_plus <-
+  tibble(
+    # Thanks to Chris DuBois: https://stackoverflow.com/a/1439843
+    department = c(rep.int("1", 26), rep.int("2", 26), rep.int("3", 26)),
+    course = c(paste0("DEP_1_", letters), paste0("DEP_2_", letters), paste0("DEP_3_", letters)),
+    number_of_A_plus = c(
+      sample(c(1:10),
+             size = 26,
+             replace = TRUE),
+      sample(c(1:50),
+             size = 26,
+             replace = TRUE),
+      sample(c(1:25),
+             size = 26,
+             replace = TRUE)
     )
   )
+
+count_of_A_plus
+#> # A tibble: 78 × 3
+#>    department course  number_of_A_plus
+#>    <chr>      <chr>              <int>
+#>  1 1          DEP_1_a                9
+#>  2 1          DEP_1_b               10
+#>  3 1          DEP_1_c                1
+#>  4 1          DEP_1_d                5
+#>  5 1          DEP_1_e                2
+#>  6 1          DEP_1_f                4
+#>  7 1          DEP_1_g                3
+#>  8 1          DEP_1_h                3
+#>  9 1          DEP_1_i                1
+#> 10 1          DEP_1_j                3
+#> # … with 68 more rows
 ```
-
-
+Our simulated dataset has the number of A+ grades awarded by courses, which are structured within departments. We can use `glm()` and `summary()` from base to quickly get a sense of the data.
 
 
 ```r
-grades_model <- 
+grades_model_base <- 
   glm(number_of_A_plus ~ department, 
     data = count_of_A_plus, 
     family = 'poisson')
 
-summary(grades_model)
+summary(grades_model_base)
 #> 
 #> Call:
 #> glm(formula = number_of_A_plus ~ department, family = "poisson", 
 #>     data = count_of_A_plus)
 #> 
 #> Deviance Residuals: 
-#>     Min       1Q   Median       3Q      Max  
-#> -6.7386  -1.2102  -0.2515   1.3292   3.9520  
+#>    Min      1Q  Median      3Q     Max  
+#> -6.739  -1.210  -0.171   1.424   3.952  
 #> 
 #> Coefficients:
 #>             Estimate Std. Error z value Pr(>|z|)    
-#> (Intercept)  1.44238    0.09535   15.13   <2e-16 ***
-#> department2  1.85345    0.10254   18.07   <2e-16 ***
+#> (Intercept)  1.44238    0.09535  15.128   <2e-16 ***
+#> department2  1.85345    0.10254  18.075   <2e-16 ***
+#> department3  1.00663    0.11141   9.035   <2e-16 ***
 #> ---
 #> Signif. codes:  
 #> 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
 #> (Dispersion parameter for poisson family taken to be 1)
 #> 
-#>     Null deviance: 816.08  on 51  degrees of freedom
-#> Residual deviance: 334.57  on 50  degrees of freedom
-#> AIC: 545.38
+#>     Null deviance: 952.12  on 77  degrees of freedom
+#> Residual deviance: 450.08  on 75  degrees of freedom
+#> AIC: 768.21
 #> 
 #> Number of Fisher Scoring iterations: 5
 ```
+
+The interpretation of the coefficient on 'department2' is that it is the log of the expected difference between departments. So we expect $\exp(1.85345) \approx 6.3$ and $\exp(1.00663) \approx 2.7$ additional A+ grades in departments 2 and 3, compared with department 1.
 
 We can use `tidymodels` to estimate Poisson regression models with `poissonreg` [@poissonreg].
 
@@ -1307,7 +1390,7 @@ set.seed(853)
 count_of_A_plus_split <-
   rsample::initial_split(count_of_A_plus, prop = 0.80)
 count_of_A_plus_train <- rsample::training(count_of_A_plus_split)
-count_of_A_plus_test  <-  rsample::testing(count_of_A_plus_split)
+count_of_A_plus_test <- rsample::testing(count_of_A_plus_split)
 
 a_plus_model_tidymodels <-
   poisson_reg(mode = "regression") |>
@@ -1324,17 +1407,68 @@ a_plus_model_tidymodels
 #>     data = data)
 #> 
 #> Coefficients:
-#> (Intercept)  department2  
-#>       1.488        1.867  
+#> (Intercept)  department2  department3  
+#>       1.470        1.925        1.011  
 #> 
-#> Degrees of Freedom: 40 Total (i.e. Null);  39 Residual
-#> Null Deviance:	    618.6 
-#> Residual Deviance: 210.1 	AIC: 380.4
+#> Degrees of Freedom: 61 Total (i.e. Null);  59 Residual
+#> Null Deviance:	    758 
+#> Residual Deviance: 276.8 	AIC: 534.8
+```
+
+And finally, we can build a Bayesian model and estimate it with `rstanarm`. We put a tight prior on the coefficients because of the propensity for the Poisson distribution to expand them substantially.
+
+$$
+\begin{aligned}
+y_i &\sim \mbox{Poisson}(\lambda_i)\\
+\log(\lambda_i) & = \beta_0 + \beta_1 x_1 + \beta_2 x_2\\
+\beta_0 & \sim \mbox{Normal}(0, 0.5)\\
+\beta_1 & \sim \mbox{Normal}(0, 0.5)\\
+\beta_2 & \sim \mbox{Normal}(0, 0.5)
+\end{aligned}
+$$
+
+
+```r
+count_of_A_plus_rstanarm <-
+  stan_glm(
+    number_of_A_plus ~ department,
+    data = count_of_A_plus,
+    family = poisson(link = "log"),
+    prior = normal(0, 0.5),
+    prior_intercept = normal(0, 0.5),
+    seed = 853
+  )
+
+saveRDS(count_of_A_plus_rstanarm,
+        file = "count_of_A_plus_rstanarm.rds")
 ```
 
 
-**TODO: Add tidymodels for this.**
 
+
+
+
+```r
+count_of_A_plus_rstanarm
+#> stan_glm
+#>  family:       poisson [log]
+#>  formula:      number_of_A_plus ~ department
+#>  observations: 78
+#>  predictors:   3
+#> ------
+#>             Median MAD_SD
+#> (Intercept) 1.5    0.1   
+#> department2 1.8    0.1   
+#> department3 0.9    0.1   
+#> 
+#> ------
+#> * For help interpreting the printed output see ?print.stanreg
+#> * For info on the priors used see ?prior_summary.stanreg
+```
+
+<!-- ## Proportional hazards -->
+
+<!-- Could do like how long someone has to wait for something? -->
 
 
 
@@ -1362,12 +1496,12 @@ a_plus_model_tidymodels
     a. Continuous dependent variable.
     b. Binary dependent variable.
     c. Count dependent variable.
-9. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
+9. We are interested in studying how voting intentions in the recent US presidential election vary by an individual's income. We set up a logistic regression model to study this relationship. In this study, one possible dependent variable would be (pick one)?
     a. Whether the respondent is a US citizen (yes/no)
     b. The respondent's personal income (high/low)
     c. Whether the respondent is going to vote for Trump (yes/no)
     d. Who the respondent voted for in 2016 (Trump/Clinton)
-10. I am interested in studying how voting intentions in the recent US presidential election vary by an individual's income. I set up a logistic regression model to study this relationship. In my study, one possible dependent variable would be (pick one)?
+10. We are interested in studying how voting intentions in the recent US presidential election vary by an individual's income. We set up a logistic regression model to study this relationship. In this study, one possible dependent variable would be (pick one)?
     a. The race of the respondent (white/not white)
     b. The respondent's marital status (married/not)
     c. Whether the respondent is registered to vote (yes/no)
@@ -1377,12 +1511,12 @@ a_plus_model_tidymodels
     a. Median.
     b. Standard deviation.
     c. Variance.
-22. What is power (in a statistical context)?
+13. What is power (in a statistical context)?
 
 
 ### Tutorial
 
-
+Simulate some data that are similar to those discussed by @gould2013median. Then build a regression model. Discuss your results
 
 
 

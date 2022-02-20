@@ -159,6 +159,8 @@ fig:fivekmvsmarathonresids
 fig:fivekmvsmarathonses
 fig:fivekmvsmarathonbinary
 tab:modelsummaryruntimes
+eq:logisticexample
+fig:dayornightprobs
 fig:poissondistributiontakingshape
 fig:firstdag
 fig:carrotasconfounder
