@@ -127,8 +127,6 @@ Broadly, there are two ways to go about research:
 2) question-first. 
 
 
-### Data-first
-
 When being data-first, the main issue is working out the questions that can be reasonably answered with the available data. When deciding what these are, it is useful to consider:
 
 1) Theory: Is there a reasonable expectation that there is something causal that could be determined? For instance, if the question involves charting the stock market, then it might be better to consider haruspex because at least that way we would have something to eat. Questions usually need to have some plausible theoretical underpinning to help avoid spurious relationships.
@@ -141,9 +139,6 @@ There's a saying, sometimes attributed to Xiao-Li Meng that all of statistics is
 One way that some researchers are data-first, is that they develop a particular expertise in the data of some geographical or historical circumstance. For instance, they may be especially knowledgeable about the present-day UK, or late nineteenth century Japan. They then look at the questions that other researchers are asking in other circumstances, and bring their data to that question. For instance, it is common to see a particular question initially asked for the US, and then a host of researchers answer that same question for the UK, Canada, Australia, and many other countries.
 
 A variant of data-driven research is model-driven research. Here a researcher becomes an expert on some particular statistical approach and then applies that approach whenever there are appropriate datasets.
-
-
-### Question-first
 
 When trying to be question-first, there is the inverse different issue of being concerned about data availability. The 'FINER framework' is used in medicine to help guide the development of research questions. It recommends asking questions that are: Feasible, Interesting, Novel, Ethical, and Relevant [@hulley2007designing]. @farrugia2010research builds on FINER with PICOT, which recommends additional considerations: Population, Intervention, Comparison group, Outcome of interest, and Time. It can feel overwhelming trying to write out a question. One way to go about it is to ask a very specific question. Another is to decide whether we are interested in descriptive, predictive, inferential, or causal analysis. 
 
@@ -172,6 +167,17 @@ Humpty is satisfied with what would happen if he were to fall off, even though h
 
 <!-- Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule. -->
 
+
+
+<!-- Add something about estimator, estimands etc. -->
+
+Two aspects to be especially aware of when deciding on a research question are selection bias, and measurement bias.
+
+Selection bias occurs when the results depend on who is in the sample. One of the pernicious aspects of selection bias is that we need to know about its existence in order to do anything about it. But many default diagnostics will not identify selection bias. In an A/B testing set-up, which we discuss in Chapter \@ref(hunt-data), A/A testing can help us to identify selection bias. And more generally, comparing the properties of the sample, such as age-group, gender, and education, with characteristics of the population. But the fundamental problem with selection bias and observational data, is that, as Dr Jill Sheppard, Lecturer, Australian National University, says, people who respond to surveys are weird. And this weirdness likely generalizes to almost any method of collecting data. 
+
+There is a pernicious aspect of selection bias, which is that it pervades every aspect of our analysis. Even a sample that starts off as representative, may become selected over time. For instance, the survey panels used for polling, discussed in Chapter \@ref(farm-data), need to be updated from time to time because the folks who do not get anything out of it stop responding. 
+
+Another bias to be aware of is measurement bias, which when the results are affected by how the data were collected.For instance, if we were to ask respondents their income, then we may get different answers in-person, compared with an online survey.
 
 
 

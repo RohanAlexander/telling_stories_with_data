@@ -835,7 +835,7 @@ simulated_running_data_first_model_tidymodels <-
 simulated_running_data_first_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  2ms 
+#> Fit time:  1ms 
 #> 
 #> Call:
 #> stats::lm(formula = marathon_time ~ five_km_time + was_raining, 
@@ -1401,7 +1401,7 @@ a_plus_model_tidymodels <-
 a_plus_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  3ms 
+#> Fit time:  4ms 
 #> 
 #> Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 #>     data = data)
@@ -1512,6 +1512,12 @@ count_of_A_plus_rstanarm
     b. Standard deviation.
     c. Variance.
 13. What is power (in a statistical context)?
+14. According to @citemcelreath [p. 162] 'Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks in riddles and delights in punishing us for...' (please select one answer)? 
+    a. overcomplicating models.
+    b.  asking bad questions.
+    c. using bad data.
+15. Is a model that fits the small or large world more important to you, and why?
+
 
 
 ### Tutorial

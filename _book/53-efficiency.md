@@ -30,12 +30,6 @@
 - 
 
 
-**Quiz**
-
-1. 
-
-
-
 
 
 ## Introduction

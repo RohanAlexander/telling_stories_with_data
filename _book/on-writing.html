@@ -75,10 +75,9 @@
 <li><a class="" href="mrp.html"><span class="header-section-number">16</span> Multilevel regression with post-stratification</a></li>
 <li><a class="" href="text-as-data.html"><span class="header-section-number">17</span> Text as data</a></li>
 <li class="book-part">Enrichment</li>
-<li><a class="" href="using-the-cloud.html"><span class="header-section-number">18</span> Using the cloud</a></li>
-<li><a class="" href="deploying-models.html"><span class="header-section-number">19</span> Deploying models</a></li>
-<li><a class="" href="efficiency.html"><span class="header-section-number">20</span> Efficiency</a></li>
-<li><a class="" href="concludingremarks.html"><span class="header-section-number">21</span> Concluding remarks</a></li>
+<li><a class="" href="deploying-models.html"><span class="header-section-number">18</span> Deploying models</a></li>
+<li><a class="" href="efficiency.html"><span class="header-section-number">19</span> Efficiency</a></li>
+<li><a class="" href="concludingremarks.html"><span class="header-section-number">20</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
@@ -230,10 +229,6 @@ Learn to write.</p>
 <li>data-first; or</li>
 <li>question-first.</li>
 </ol>
-<div id="data-first" class="section level3" number="5.2.1">
-<h3>
-<span class="header-section-number">5.2.1</span> Data-first<a class="anchor" aria-label="anchor" href="#data-first"><i class="fas fa-link"></i></a>
-</h3>
 <p>When being data-first, the main issue is working out the questions that can be reasonably answered with the available data. When deciding what these are, it is useful to consider:</p>
 <ol style="list-style-type: decimal">
 <li>Theory: Is there a reasonable expectation that there is something causal that could be determined? For instance, if the question involves charting the stock market, then it might be better to consider haruspex because at least that way we would have something to eat. Questions usually need to have some plausible theoretical underpinning to help avoid spurious relationships.</li>
@@ -244,11 +239,6 @@ Learn to write.</p>
 <p>There’s a saying, sometimes attributed to Xiao-Li Meng that all of statistics is a missing data problem. And so paradoxically, another way to ask data-first questions to think about which data we do not have. For instance, returning to the neonatal and maternal mortality examples discussed in, respectively, Chapters <a href="telling-stories-with-data.html#telling-stories-with-data">1</a> and <a href="drinking-from-a-fire-hose.html#drinking-from-a-fire-hose">2</a>, the fundamental problem is that we do not have perfect and complete data about cause of death. If we did, then we could count the number of relevant deaths. Having established the missing data problem, we can take a data-driven approach by looking at the data we do have, and then ask research questions that speak to the extent that we can use that to approximate our hypothetical perfect and complete dataset.</p>
 <p>One way that some researchers are data-first, is that they develop a particular expertise in the data of some geographical or historical circumstance. For instance, they may be especially knowledgeable about the present-day UK, or late nineteenth century Japan. They then look at the questions that other researchers are asking in other circumstances, and bring their data to that question. For instance, it is common to see a particular question initially asked for the US, and then a host of researchers answer that same question for the UK, Canada, Australia, and many other countries.</p>
 <p>A variant of data-driven research is model-driven research. Here a researcher becomes an expert on some particular statistical approach and then applies that approach whenever there are appropriate datasets.</p>
-</div>
-<div id="question-first" class="section level3" number="5.2.2">
-<h3>
-<span class="header-section-number">5.2.2</span> Question-first<a class="anchor" aria-label="anchor" href="#question-first"><i class="fas fa-link"></i></a>
-</h3>
 <p>When trying to be question-first, there is the inverse different issue of being concerned about data availability. The ‘FINER framework’ is used in medicine to help guide the development of research questions. It recommends asking questions that are: Feasible, Interesting, Novel, Ethical, and Relevant <span class="citation">(<a href="references-1.html#ref-hulley2007designing" role="doc-biblioref">Hulley 2007</a>)</span>. <span class="citation"><a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">Farrugia et al.</a> (<a href="references-1.html#ref-farrugia2010research" role="doc-biblioref">2010</a>)</span> builds on FINER with PICOT, which recommends additional considerations: Population, Intervention, Comparison group, Outcome of interest, and Time. It can feel overwhelming trying to write out a question. One way to go about it is to ask a very specific question. Another is to decide whether we are interested in descriptive, predictive, inferential, or causal analysis.</p>
 <p>These then lead to different types of questions, for instance, descriptive analysis: ‘What does <span class="math inline">\(x\)</span> look like?’; predictive analysis: ‘What will happen to <span class="math inline">\(x\)</span>?’; inferential: ‘How can we explain <span class="math inline">\(x\)</span>?’; and causal: ‘What impact does <span class="math inline">\(x\)</span> have on <span class="math inline">\(y\)</span>?’ Each of these have a role to play.</p>
 <!-- Since the credibility revolution [@angrist2010credibility] causal questions have been preeimininant and the rise of t -->
@@ -266,7 +256,11 @@ Learn to write.</p>
 <!-- To see why this may be relevant, consider the example of Google's AI cancer testing [@citeGoogleAIbreastcancer]. Basically, what they have done is to train a model that can identify breast cancer. They claim 'greater accuracy, fewer false positives, and fewer false negatives than experts'.  -->
 <!-- I, and many others [@citeWiredonGoogle], would argue this is probably not where we would want these resources directed at this point. Even when perfectly healthy people go and get screened, they tend to find various things that are 'wrong' with them. The issue is that they're perfectly healthy and that we've rarely got a good idea as to whether that aspect that was flagged by the test is a big deal or not.  -->
 <!-- Given low prevalence in the community, we probably do not want wide-spread use of a particular testing regime that only looks at one aspect (i.e. the mammogram in this case). Bayes rule guides us that the danger caused by the unnecessary 'treatment' would probably outweigh the benefits. The authors of that Google blog post likely have unimpeachable ethics, but they may not understand Bayes rule. -->
-</div>
+<!-- Add something about estimator, estimands etc. -->
+<p>Two aspects to be especially aware of when deciding on a research question are selection bias, and measurement bias.</p>
+<p>Selection bias occurs when the results depend on who is in the sample. One of the pernicious aspects of selection bias is that we need to know about its existence in order to do anything about it. But many default diagnostics will not identify selection bias. In an A/B testing set-up, which we discuss in Chapter <a href="hunt-data.html#hunt-data">10</a>, A/A testing can help us to identify selection bias. And more generally, comparing the properties of the sample, such as age-group, gender, and education, with characteristics of the population. But the fundamental problem with selection bias and observational data, is that, as Dr Jill Sheppard, Lecturer, Australian National University, says, people who respond to surveys are weird. And this weirdness likely generalizes to almost any method of collecting data.</p>
+<p>There is a pernicious aspect of selection bias, which is that it pervades every aspect of our analysis. Even a sample that starts off as representative, may become selected over time. For instance, the survey panels used for polling, discussed in Chapter <a href="farm-data.html#farm-data">8</a>, need to be updated from time to time because the folks who do not get anything out of it stop responding.</p>
+<p>Another bias to be aware of is measurement bias, which when the results are affected by how the data were collected.For instance, if we were to ask respondents their income, then we may get different answers in-person, compared with an online survey.</p>
 </div>
 <div id="writing" class="section level2" number="5.3">
 <h2>
@@ -625,12 +619,7 @@ Figure 5.2: Example of a well-captioned table
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#on-writing"><span class="header-section-number">5</span> On writing</a></li>
 <li><a class="nav-link" href="#introduction-1"><span class="header-section-number">5.1</span> Introduction</a></li>
-<li>
-<a class="nav-link" href="#developing-research-questions"><span class="header-section-number">5.2</span> Developing research questions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-first"><span class="header-section-number">5.2.1</span> Data-first</a></li>
-<li><a class="nav-link" href="#question-first"><span class="header-section-number">5.2.2</span> Question-first</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#developing-research-questions"><span class="header-section-number">5.2</span> Developing research questions</a></li>
 <li>
 <a class="nav-link" href="#writing"><span class="header-section-number">5.3</span> Writing</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#title"><span class="header-section-number">5.3.1</span> Title</a></li>
@@ -667,7 +656,7 @@ Figure 5.2: Example of a well-captioned table
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 20 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 21 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -135,7 +135,7 @@ The purpose of ethical consideration and concern for the broader impact of data 
 
 ## R, R Studio, and R Studio Cloud
 
-R and R Studio are complementary, but they are not the same thing. Liza Bolton, Assistant Professor, Teaching Stream, University of Toronto explains their relationship by analogy where R is like the engine and R Studio is like the car. Although some of us use a car engine directly, most of us use a car to interact with the engine.
+R and R Studio are complementary, but they are not the same thing. Dr Liza Bolton, Assistant Professor, Teaching Stream, University of Toronto explains their relationship by analogy where R is like the engine and R Studio is like the car. Although some of us use a car engine directly, most of us use a car to interact with the engine.
 
 ### R
 
@@ -143,7 +143,7 @@ R -- https://www.r-project.org/ -- is an open-source and free programming langua
 
 Many people build on this stable base, to extend the capabilities of R to better and more quickly suit their needs. They do this by creating packages. Typically, although not always, a package is a collection of R code, mostly functions, and this allows us to more easily do things that we want to do. These packages are managed by repositories such as CRAN and Bioconductor. 
 
-If you want to use a package then you first need to install it on your computer, and then you need to load it when you want to use it. Di Cook, Professor of Business Analytics at Monash University, describes this as analogous to a lightbulb. If you want light in your house, first you need to fit a lightbulb, and then you need to turn the switch on. Installing a package, say, `install.packages("tidyverse")`, is akin to fitting a lightbulb into a socket---you only need to do this once for each lightbulb. But then each time you want light you need to turn on the switch to the lightbulb, which in the R packages case, means calling the library, say, `library(tidyverse)`. 
+If you want to use a package then you first need to install it on your computer, and then you need to load it when you want to use it. Dr Di Cook, Professor of Business Analytics at Monash University, describes this as analogous to a lightbulb. If you want light in your house, first you need to fit a lightbulb, and then you need to turn the switch on. Installing a package, say, `install.packages("tidyverse")`, is akin to fitting a lightbulb into a socket---you only need to do this once for each lightbulb. But then each time you want light you need to turn on the switch to the lightbulb, which in the R packages case, means calling the library, say, `library(tidyverse)`. 
 
 > **Shoulders of giants** Dr Di Cook is Professor of Business Analytics at Monash University. After taking a PhD in statistics from Rutgers University in 1993 where she focused on statistical graphics, she was appointed as an assistant professor at Iowa State University, being promoted to full professor in 2005, and in 2015 she moved to Monash. One area of her research is data visualisation, especially interactive and dynamic graphics. One particularly important paper is @buja1996interactive which proposes a taxonomy of interactive data visualization and associated software XGobi.
 

@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "20 February, 2022"
+date: "21 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -34,7 +34,7 @@ In this book we will explore, prod, push, manipulate, knead, and ultimately, try
 
 The motto of the university from which I took my PhD is *naturam primum cognoscere rerum* or roughly 'learn the first nature of things'. But the original quote continues *temporis aeterni quoniam*, or roughly 'for eternal time'. We will do both of these things. I focus on tools, approaches, and workflows that enable you to establish lasting and reproducible knowledge.
 
-When I talk of data in this book, it will typically be related to humans. Humans will be at the centre of most of our stories, and we will tell social, cultural, and economic stories. In particular, throughout this book I will draw attention to inequity both in social phenomena and in data. Most data analysis reflects the world as it is. Many of the least well-off face a double burden in this regard: not only are they disadvantaged, but the extent is more difficult to measure. Respecting those whose data are in our dataset is a primary concern, and so is thinking of those who are systematically not in our dataset. 
+When I talk of data in this book, it will typically be related to humans. Humans will be at the center of most of our stories, and we will tell social, cultural, and economic stories. In particular, throughout this book I will draw attention to inequity both in social phenomena and in data. Most data analysis reflects the world as it is. Many of the least well-off face a double burden in this regard: not only are they disadvantaged, but the extent is more difficult to measure. Respecting those whose data are in our dataset is a primary concern, and so is thinking of those who are systematically not in our dataset. 
 
 While data are often specific to various contexts and disciplines, the approaches used to understand them tend to be similar. Data are also increasingly global with resources and opportunities available from a variety of sources. Hence, I draw on examples from many disciplines and geographies. 
 
@@ -67,7 +67,7 @@ Part IV -- Preparation -- covers how to respectfully transform raw data into som
 
 Part V -- Modelling -- begins with exploratory data analysis in Chapter \@ref(exploratory-data-analysis). This is the critical process of coming to understand the nature of a dataset, but not something that typically finds itself into the final product. In Chapter \@ref(ijalm) the use of statistical models to explore data is introduced. Chapter \@ref(causality) is the first of three applications of modelling. It focuses on attempts to make causal claims from observational data and covers approaches such as difference-in-differences, regression discontinuity, and instrumental variables. Chapter \@ref(mrp) is the second of the modelling applications chapters and focuses on multilevel regression with post-stratification where we use a statistical model to adjust a sample for known biases. Chapter \@ref(text-as-data) is the third and final modelling application and is focused on text-as-data.
 
-Part VI -- Enrichment -- introduces various next steps that would improve aspects of the workflow and approaches introduced in previous chapters. Chapter \@ref(using-the-cloud) which goes through moving away from your own computer and toward using the cloud. Chapter \@ref(deploying-models) discusses deploying models through the use of packages, web applications, and APIs. Chapter \@ref(efficiency) discusses various alternatives to the storage of data including feather and SQL; and also covers some ways to improve the performance of your code. Finally, Chapter \@ref(concludingremarks) offers some concluding remarks, details some open problems, and suggests some next steps.
+Part VI -- Enrichment -- introduces various next steps that would improve aspects of the workflow and approaches introduced in previous chapters. Chapter \@ref(deploying-models) goes through moving away from your own computer and toward using the cloud and then discusses deploying models through the use of packages, web applications, and APIs. Chapter \@ref(efficiency) discusses various alternatives to the storage of data including feather and SQL; and also covers some ways to improve the performance of your code. Finally, Chapter \@ref(concludingremarks) offers some concluding remarks, details some open problems, and suggests some next steps.
 
 
 
@@ -128,7 +128,7 @@ Many people generously gave code, data, examples, guidance, opportunities, thoug
 
 Thank you to David Grubbs and the team at CRC Press for taking a chance on me and providing invaluable support.
 
-Thank you to Michael Chong and Sharla Gelfand for greatly helping to shape some of the approaches I advocate. However, both do much more than that and contribute in an enormous way to the spirit of generosity that characterises the R community.
+Thank you to Michael Chong and Sharla Gelfand for greatly helping to shape some of the approaches I advocate. However, both do much more than that and contribute in an enormous way to the spirit of generosity that characterizes the R community.
 
 Thank you to Kelly Lyons for her support, guidance, mentorship, and friendship. Every day she demonstrates what an academic should be, and more broadly, what we should all aspire to be as a person.
 
@@ -146,19 +146,20 @@ Thank you to Elle Côtè for enabling this book to be written.
 
 This book has greatly benefited from the notes and teaching materials of others that are freely available online, especially: Chris Bail, Scott Cunningham, Andrew Heiss, Lisa Lendway, Grant McDermott, Nathan Matias, David Mimno, and Ed Rubin. Thank you to these folks. The changed norm of academics making their materials freely available online is a great one and one that I hope the free online version of this book helps contribute to.
 
-Thank you to Samantha-Jo Caetano, who helped develop some of the assessment items. And also to Lisa Romkey and Alan Chong who allowed me to adapt some aspects of their rubric.
+Thank you to Samantha-Jo Caetano, who helped develop some of the assessment items. And also, to Lisa Romkey and Alan Chong who allowed me to adapt some aspects of their rubric.
 
 Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 
 Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Arsh Lakhanpal, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
 
-As at Christmas 2021 this book was a disparate collection of notes. Thank you to Mum and Dad, who dropped everything and came over from the other side world for two months to give me the opportunity to re-write it all, and put together a cohesive book.
+As at Christmas 2021 this book was a disparate collection of notes. Thank you to Mum and Dad, who dropped everything and came over from the other side of the world for two months to give me the opportunity to re-write it all and put together a cohesive book.
 
 Finally, thank you to Monica Alexander. Without you I would not have written a book; I would not have even thought it possible. Many of the best ideas in this book are yours, and those that are not, you made better. Thank you for your inestimable help with writing this book, providing the base on which it builds (remember in the library showing me many times how to get certain rows in R!), giving me the time that I needed to write, encouragement when it turned out that writing a book just meant endlessly re-writing that which was perfect the day before, reading everything in this book many times, making coffee or cocktails as appropriate, and more.
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
 \BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
-Toronto, Canada</p>\EndKnitrBlock{flushright}
+Toronto, Canada
+February 2022</p>\EndKnitrBlock{flushright}
 
 

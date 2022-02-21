@@ -3,11 +3,9 @@
 
 **STATUS: Under construction.**
 
-
 **Required material**
 
 - Watch *Wrong Again! 30+ Years of Statistical Mistakes*, [@gelmansmistakes].
-
 
 ## Concluding remarks
 
@@ -26,7 +24,7 @@ Data science needs diversity. Data science needs your intelligence and enthusias
 
 ## Some issues
 
-1. How do we write unit tests for data science?
+**1. How do we write unit tests for data science?**
 
 **UPDATE to add in functional tests and stuff**
 
@@ -34,11 +32,11 @@ One thing that working with real computer scientists has taught me is the import
 
 In this case it's obvious what the unit test looks like. But more generally, we often have little idea what our results should look like if they're running well. The approach that I have taken is to add simulation—so we simulate reasonable results, write unit tests based on that, and then bring the real data to bear and adjust as necessary. But I really think that we need extensive work in this area because the current state-of-the-art is lacking.
 
-2. What happened to the machine learning revolution?
+**2. What happened to the machine learning revolution?**
 
 I don't understand what happened to the promised machine learning revolution in social sciences. Specifically, I am yet to see any convincing application of machine learning methods that are designed for prediction to a social sciences problem where what we care about is understanding. I would like to either see evidence of them or a definitive thesis about why this can't happen. The current situation is untenable where folks, especially those in fields that have been historically female, are made to feel inferior even though their results are no worse.
 
-3. How do we think about power?
+**3. What do we do about p-values and power?**
 
 As someone who learnt statistics from economists, but now is partly in a statistics department, I do think that everyone should learn statistics from statisticians. This isn't anything against economists, but the conversations that I have in the statistics department about what statistical methods are and how they should be used are very different to those that I have had in other departments.
 
@@ -49,7 +47,12 @@ As you know, the issue with power is related to the broader discussion about p-v
 And so, my specific issue is that people think that statistics is a recipe to be followed. They think that because that's how they are trained especially in social sciences like political science and economics, and that's what is rewarded. But that's not what these methods are. Instead, statistics is a collection of different instruments that let us look at our data in a certain way. I think that we need a revolution here, not a metaphorical tucking in of one's shirt.
 
 
-4. How do we teach this stuff?
+**4. How do we teach this stuff?**
+
+
+**5. To what extent is any of this an issue? **
+
+Bring up Nick’s paper and say, but we basically just have now idea.
 
 
 
@@ -81,12 +84,6 @@ We often hear the phrase let the data speak. Hopefully by this point you underst
 
 
 ## Exercises and tutorial
-
-
-### Exercises
-
-
-### Tutorial
 
 ### Paper
 
