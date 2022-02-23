@@ -51,6 +51,10 @@ Chapter 5:
 
 Chapter 8:
 
+> **Shoulders of giants** Barbara Bailar
+
+Chapter 8:
+
 > **Shoulders of giants** Leo Goodman
 
 Chapter 9:
@@ -59,9 +63,11 @@ Chapter 9:
 
 > **Shoulders of giants** Marcella Alsan
 
+
 Chapter 10:
 
-> **Shoulders of giants** Barbara Bailar
+> **Shoulders of giants** Susan Athey
+
 
 Chapter 12:
 

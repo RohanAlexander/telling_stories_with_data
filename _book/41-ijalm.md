@@ -835,7 +835,7 @@ simulated_running_data_first_model_tidymodels <-
 simulated_running_data_first_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  1ms 
+#> Fit time:  2ms 
 #> 
 #> Call:
 #> stats::lm(formula = marathon_time ~ five_km_time + was_raining, 
@@ -1401,7 +1401,7 @@ a_plus_model_tidymodels <-
 a_plus_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  4ms 
+#> Fit time:  3ms 
 #> 
 #> Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 #>     data = data)
