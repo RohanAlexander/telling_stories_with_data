@@ -146,8 +146,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-b763c9c1729a45ef9b0e" style="width:75%;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b763c9c1729a45ef9b0e">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-16851ada11c6b96b1bf2" style="width:75%;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-16851ada11c6b96b1bf2">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
@@ -176,8 +176,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-fc6d72254b0cf0206b2b" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fc6d72254b0cf0206b2b">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8c9d7a1e0d75d861b1e5" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8c9d7a1e0d75d861b1e5">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasconfounder)A DAG showing Carrot as a confounder</p>
@@ -212,8 +212,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-37367dbaaf882b4f8af6" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-37367dbaaf882b4f8af6">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-78f5bff8e048354f0a58" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-78f5bff8e048354f0a58">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasmediator)A DAG showing Carrot as a mediator</p>
@@ -244,8 +244,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-2130124a5e5251e3c111" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2130124a5e5251e3c111">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aa862d1e317a31dc4946" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aa862d1e317a31dc4946">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotascollider)A DAG showing Carrot as a collider</p>

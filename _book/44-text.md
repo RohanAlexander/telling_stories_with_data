@@ -47,27 +47,10 @@ Inspired by @sharlasephora and following @thenakedtruth, we will draw on the dat
 
 ```r
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-#> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-#> ✓ readr   2.1.1     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
-#> x dplyr::filter() masks stats::filter()
-#> x dplyr::lag()    masks stats::lag()
 
 makeup <-
   read_csv(file = 
              "https://raw.githubusercontent.com/the-pudding/data/master/foundation-names/allNumbers.csv")
-#> Rows: 3117 Columns: 9
-#> ── Column specification ────────────────────────────────────
-#> Delimiter: ","
-#> chr (5): brand, product, name, specific, hex
-#> dbl (3): lightness, numbers, id
-#> lgl (1): lightToDark
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 makeup
 #> # A tibble: 3,117 × 9
@@ -337,24 +320,6 @@ We'll create a test/training split, and load in `tidymodels`.
 
 ```r
 library(tidymodels)
-#> Registered S3 method overwritten by 'tune':
-#>   method                   from   
-#>   required_pkgs.model_spec parsnip
-#> ── Attaching packages ────────────────── tidymodels 0.1.4 ──
-#> ✓ broom        0.7.10     ✓ rsample      0.1.1 
-#> ✓ dials        0.0.10     ✓ tune         0.1.6 
-#> ✓ infer        1.0.0      ✓ workflows    0.2.4 
-#> ✓ modeldata    0.1.1      ✓ workflowsets 0.1.0 
-#> ✓ parsnip      0.1.7      ✓ yardstick    0.0.9 
-#> ✓ recipes      0.1.17
-#> ── Conflicts ───────────────────── tidymodels_conflicts() ──
-#> x scales::discard() masks purrr::discard()
-#> x dplyr::filter()   masks stats::filter()
-#> x recipes::fixed()  masks stringr::fixed()
-#> x dplyr::lag()      masks stats::lag()
-#> x yardstick::spec() masks readr::spec()
-#> x recipes::step()   masks stats::step()
-#> • Dig deeper into tidy modeling with R at https://www.tmwr.org
 
 set.seed(853)
 

@@ -143,27 +143,10 @@
 <p>Inspired by <span class="citation">Gelfand (<a href="references-1.html#ref-sharlasephora" role="doc-biblioref">2019</a>)</span> and following <span class="citation">Amaka and Thomas (<a href="references-1.html#ref-thenakedtruth" role="doc-biblioref">2021</a>)</span>, we will draw on the dataset they put together of makeup names and descriptions from Sephora and Ulta. We are interested in the counts of each word. We can read in the data using <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
 <div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</span>
-<span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span>
-<span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span>
-<span class="co">#&gt; ✓ tidyr   1.2.0     ✓ stringr 1.4.0</span>
-<span class="co">#&gt; ✓ readr   2.1.1     ✓ forcats 0.5.1</span>
-<span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
-<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
 
 <span class="va">makeup</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> 
              <span class="st">"https://raw.githubusercontent.com/the-pudding/data/master/foundation-names/allNumbers.csv"</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 3117 Columns: 9</span>
-<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
-<span class="co">#&gt; Delimiter: ","</span>
-<span class="co">#&gt; chr (5): brand, product, name, specific, hex</span>
-<span class="co">#&gt; dbl (3): lightness, numbers, id</span>
-<span class="co">#&gt; lgl (1): lightToDark</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
-<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 
 <span class="va">makeup</span>
 <span class="co">#&gt; # A tibble: 3,117 × 9</span>
@@ -377,24 +360,6 @@
 <p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
 <div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
-<span class="co">#&gt; Registered S3 method overwritten by 'tune':</span>
-<span class="co">#&gt;   method                   from   </span>
-<span class="co">#&gt;   required_pkgs.model_spec parsnip</span>
-<span class="co">#&gt; ── Attaching packages ────────────────── tidymodels 0.1.4 ──</span>
-<span class="co">#&gt; ✓ broom        0.7.10     ✓ rsample      0.1.1 </span>
-<span class="co">#&gt; ✓ dials        0.0.10     ✓ tune         0.1.6 </span>
-<span class="co">#&gt; ✓ infer        1.0.0      ✓ workflows    0.2.4 </span>
-<span class="co">#&gt; ✓ modeldata    0.1.1      ✓ workflowsets 0.1.0 </span>
-<span class="co">#&gt; ✓ parsnip      0.1.7      ✓ yardstick    0.0.9 </span>
-<span class="co">#&gt; ✓ recipes      0.1.17</span>
-<span class="co">#&gt; ── Conflicts ───────────────────── tidymodels_conflicts() ──</span>
-<span class="co">#&gt; x scales::discard() masks purrr::discard()</span>
-<span class="co">#&gt; x dplyr::filter()   masks stats::filter()</span>
-<span class="co">#&gt; x recipes::fixed()  masks stringr::fixed()</span>
-<span class="co">#&gt; x dplyr::lag()      masks stats::lag()</span>
-<span class="co">#&gt; x yardstick::spec() masks readr::spec()</span>
-<span class="co">#&gt; x recipes::step()   masks stats::step()</span>
-<span class="co">#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -630,7 +595,7 @@ where <span class="math inline">\(z'_{d, n}\)</span> refers to all other topic a
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 27 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

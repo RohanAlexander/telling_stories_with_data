@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "26 February, 2022"
+date: "27 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -161,7 +161,7 @@ Finally, thank you to Monica Alexander. Without you I would not have written a b
 You can contact me at: rohan.alexander@utoronto.ca.
 
 \BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
-Toronto, Canada
+Toronto, Canada  
 February 2022</p>\EndKnitrBlock{flushright}
 
 

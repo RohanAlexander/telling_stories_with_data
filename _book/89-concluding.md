@@ -1,8 +1,6 @@
 
 # Concluding remarks {#concludingremarks}
 
-**STATUS: Under construction.**
-
 **Required material**
 
 - Watch *Wrong Again! 30+ Years of Statistical Mistakes*, [@gelmansmistakes].
@@ -17,7 +15,7 @@ I am 35 and so I am in the 'data science didn't exist when I was an undergraduat
 - reading books, not just whatever is trending; and
 - trying to be at the intersection of at least a few different areas, rather than hyper-specialized.
 
-I am just someone who likes to play with data using R. A decade ago I wouldn't have fit into any particular department. I am lucky that these days there is space in data science for someone like me.  And the nice thing about what we now call data science is that there's space for you as well.
+I am just someone who likes to play with data using R. A decade ago I wouldn't have fit into any particular department. I am lucky that these days there is space in data science for someone like me. And the nice thing about what we now call data science is that there's space for you as well.
 
 Data science needs diversity. Data science needs your intelligence and enthusiasm. It needs you to be in the room, and able to make contributions. We live in interesting times and it's just such an exciting time to be enthusiastic about data. I can't wait to see what you build.
 
@@ -26,9 +24,9 @@ Data science needs diversity. Data science needs your intelligence and enthusias
 
 **1. How do we write unit tests for data science?**
 
-**UPDATE to add in functional tests and stuff**
+<!-- **UPDATE to add in functional tests and stuff** -->
 
-One thing that working with real computer scientists has taught me is the importance of unit tests. Basically this just means writing down the small checks that we do in our heads all the time. Like if we have a column that purports to the year, then it's unlikely that it's a character, and it's unlikely that it's an integer larger than 2500, and it's unlikely that it's a negative integer. We know all this, but writing unit tests has us write this all down.
+One thing that computer scientists know is the importance of unit tests. Basically this just means writing down the small checks that we do in our heads all the time. Like if we have a column that purports to the year, then it's unlikely that it's a character, and it's unlikely that it's an integer larger than 2500, and it's unlikely that it's a negative integer. We know all this, but writing unit tests has us write this all down.
 
 In this case it's obvious what the unit test looks like. But more generally, we often have little idea what our results should look like if they're running well. The approach that I have taken is to add simulation—so we simulate reasonable results, write unit tests based on that, and then bring the real data to bear and adjust as necessary. But I really think that we need extensive work in this area because the current state-of-the-art is lacking.
 
@@ -49,10 +47,14 @@ And so, my specific issue is that people think that statistics is a recipe to be
 
 **4. How do we teach this stuff?**
 
+To a certain extent we are coming to agreement on what comprises fundamental data science skills. It involves computational thinking, concern for sampling, statistics, graphics, Git/GitHub, SQL, command line, comfort with messy data, comfort across a few languages including R and Python. This book has been a very thin overview of much, and while much more depth is needed, not much more breadth is. However, despite this consensus, we still have very little understanding of how to teach it. 
 
-**5. To what extent is any of this an issue? **
 
-Bring up Nick’s paper and say, but we basically just have now idea.
+
+
+**5. To what extent is any of this an issue?**
+
+We basically do not have a good understanding how much any of this matters. @huntington2021influence showed that hidden research decisions have a big effect on subsequent estimates, sometimes greater than the standard errors. Such findings invalidate claims. We need much more investigation of how these early stages of the data science workflow affect the conclusions.
 
 
 
@@ -79,6 +81,16 @@ For developing better data visualization skills, begin by turning to @healyviz, 
 <!-- Thinking through production and SQL and things like, a next natural step is... -->
 
 We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. All that we can do is to acknowledge that we are the ones using data to tell stories, and strive and seek to make them worthy.
+
+> It was her voice that made  
+> The sky acutest at its vanishing.  
+> She measured to the hour its solitude.  
+> She was the single artificer of the world  
+> In which she sang. And when she sang, the sea,  
+> Whatever self it had, became the self  
+> That was her song, for she was the maker.
+> 
+> 'The Idea of Order at Key West', [@wallacestevens]
 
 
 

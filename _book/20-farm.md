@@ -12,8 +12,6 @@
 - Read *Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection*, Parts I 'Introduction', III 'Different Aspects of the Representative Method', V 'Conclusion' and Bowley's discussion p. 607 - 610, [@neyman1934two].
 - Read *Using sex and gender in survey adjustment*, [@kennedy2020using].
 
-
-
 **Key concepts and skills**
 
 - Why we conduct sampling and the two approaches: probability and non-probability.
