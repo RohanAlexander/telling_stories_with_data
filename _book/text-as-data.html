@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 17 Text as data | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="STATUS: Under construction. Required reading Hvitfeldt, Emil, and Julia Silge, 2021, Supervised Machine Learning for Text Analysis in R, Chapters 2, 5, 6, 7, https://smltar.com. Silge, Julia, and...">
+<meta name="description" content="Required material Read The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty, (Amaka and Thomas 2021). Read Supervised Machine Learning for Text Analysis in R,...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 17 Text as data | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="STATUS: Under construction. Required reading Hvitfeldt, Emil, and Julia Silge, 2021, Supervised Machine Learning for Text Analysis in R, Chapters 2, 5, 6, 7, https://smltar.com. Silge, Julia, and...">
+<meta property="og:description" content="Required material Read The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty, (Amaka and Thomas 2021). Read Supervised Machine Learning for Text Analysis in R,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 17 Text as data | Telling Stories With Data">
-<meta name="twitter:description" content="STATUS: Under construction. Required reading Hvitfeldt, Emil, and Julia Silge, 2021, Supervised Machine Learning for Text Analysis in R, Chapters 2, 5, 6, 7, https://smltar.com. Silge, Julia, and...">
+<meta name="twitter:description" content="Required material Read The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty, (Amaka and Thomas 2021). Read Supervised Machine Learning for Text Analysis in R,...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -94,84 +94,227 @@
 <h1>
 <span class="header-section-number">17</span> Text as data<a class="anchor" aria-label="anchor" href="#text-as-data"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>STATUS: Under construction.</strong></p>
-<p><strong>Required reading</strong></p>
+<p><strong>Required material</strong></p>
 <ul>
-<li>Hvitfeldt, Emil, and Julia Silge, 2021, <em>Supervised Machine Learning for Text Analysis in R</em>, Chapters 2, 5, 6, 7, <a href="https://smltar.com" class="uri">https://smltar.com</a>.</li>
-<li>Silge, Julia, and David Robinson, 2017, <em>Text Mining with R</em>, <a href="https://www.tidytextmining.com" class="uri">https://www.tidytextmining.com</a>.</li>
+<li>Read <em>The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty</em>, <span class="citation">(<a href="references-1.html#ref-thenakedtruth" role="doc-biblioref">Amaka and Thomas 2021</a>)</span>.</li>
+<li>Read <em>Supervised Machine Learning for Text Analysis in R</em>, Chapters 2 ‘Tokenization’, 3 ‘Stop words’, 6 ‘Regression’, and 7 ‘Classification’, <span class="citation">(<a href="references-1.html#ref-hvitfeldt2021supervised" role="doc-biblioref">Hvitfeldt and Silge 2021</a>)</span>.</li>
 </ul>
-<p><strong>Required viewing</strong></p>
+<p><strong>Key concepts and skills</strong></p>
 <ul>
-<li>
-</ul>
-<p><strong>Recommended reading</strong></p>
-<ul>
-<li>Amaka, Ofunne, and Amber Thomas, 2020, ‘The Naked Truth: How the names of 6,816 complexion products can reveal bias in beauty,’ The Pudding, March, <a href="https://pudding.cool/2021/03/foundation-names/" class="uri">https://pudding.cool/2021/03/foundation-names/</a>.</li>
-</ul>
-<p><strong>Key concepts/skills/etc</strong></p>
-<ul>
-<li>
+<li>Understanding text as a dataset that we can use.</li>
 </ul>
 <p><strong>Key libraries</strong></p>
 <ul>
 <li>
-</ul>
-<p><strong>Key functions/etc</strong></p>
-<ul>
+<code>gutenbergr</code> <span class="citation">(<a href="references-1.html#ref-gutenbergr" role="doc-biblioref">D. Robinson 2021</a>)</span>
+</li>
 <li>
-</ul>
-<p><strong>Quiz</strong></p>
-<ul>
+<code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>.</li>
 <li>
+<code>tidytext</code> <span class="citation">(<a href="references-1.html#ref-SilgeRobinson2016" role="doc-biblioref">Silge and Robinson 2016</a>)</span>.</li>
+</ul>
+<p><strong>Key functions</strong></p>
+<ul>
+<li><code><a href="https://glmnet.stanford.edu/reference/glmnet.html">glmnet::glmnet()</a></code></li>
+<li><code><a href="https://docs.ropensci.org/gutenbergr/reference/gutenberg_download.html">gutenbergr::gutenberg_download()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/tidytext/man/bind_tf_idf.html">tidytext::bind_tf_idf()</a></code></li>
+<li><code><a href="https://rdrr.io/pkg/tidytext/man/document_term_casters.html">tidytext::cast_dtm()</a></code></li>
 </ul>
 <div id="introduction-14" class="section level2" number="17.1">
 <h2>
 <span class="header-section-number">17.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-14"><i class="fas fa-link"></i></a>
 </h2>
-<p>Text can be thought of as an unwieldy, but in generally</p>
+<p>Text can be considered an unwieldy, but in general similar, version of the datasets that we have used throughout this book. The main difference is that we will typically begin with very wide data, insofar as often each column is a word, or token more generally. Each entry is then often a count. We would then typically transform this into rather long data, with a column of the word and another column of the count.</p>
+<p>The larger size of text datasets means that it is especially important to simulate, and start small, when it comes to their analysis. Using text as data is exciting because of the quantity and variety of text that is available to us. In general, dealing with text datasets is messy. There is a lot of cleaning and preparation that is typically required. Often text datasets are large. As such, having a workflow in place, in which you work in a reproducible way, simulating data first, and then clearly communicating your findings becomes critical, if only to keep everything organized in your own mind. Nonetheless, it is an exciting area.</p>
+<p>In terms of next steps there are two, related, concerns: data and analysis.</p>
+<p>In terms of data there are many places to get large amounts of text data relatively easily, from sources that we have already used, including:</p>
+<ul>
+<li>Accessing the Twitter API using <code>rtweet</code> <span class="citation">(<a href="references-1.html#ref-rtweet" role="doc-biblioref">Kearney 2019</a>)</span>.</li>
+<li>Using the Inside Airbnb, which provides text from reviews.</li>
+<li>Getting the text of out-of-copyright books using <code>gutenbergr</code> <span class="citation">(<a href="references-1.html#ref-gutenbergr" role="doc-biblioref">D. Robinson 2021</a>)</span>.</li>
+<li>And finally, scraping Wikipedia.</li>
+</ul>
+<p>In this chapter we first consider preparing text datasets. We then consider logistic and lasso regression. We finally consider topic models.</p>
 </div>
-<div id="lasso-regression" class="section level2" number="17.2">
+<div id="tf-idf" class="section level2" number="17.2">
 <h2>
-<span class="header-section-number">17.2</span> Lasso regression<a class="anchor" aria-label="anchor" href="#lasso-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.2</span> TF-IDF<a class="anchor" aria-label="anchor" href="#tf-idf"><i class="fas fa-link"></i></a>
 </h2>
-<p><strong>This subsection, and much of the code that is used, directly draws on Julia Silge’s notes, in particular: <a href="https://juliasilge.com/blog/tidy-text-classification/" class="uri">https://juliasilge.com/blog/tidy-text-classification/</a> <span class="citation">(<a href="references-1.html#ref-silge2018" role="doc-biblioref">Silge 2018</a>)</span>.</strong></p>
-<p>One of the nice aspects of text is that we can adapt our existing methods to use it as an input. Here we are going to use a variation of logistics regression, along with text inputs, to forecast. If you want to learn more about Lasso regression, then you should consider taking Arik’s course over the summer, where he will dive into machine learning using Python.</p>
-<p>In this section we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, you could imagine many real-world applications. For instance, if you work at Twitter then you may want to know if a tweet was likely written by a bot, or by a human. Or similarly, imagine that you work for a political party - you may like to know if an email was likely from an email campaign organised by a group, or from an individual.</p>
-<p>First we need to get some data. Julia Silge’s example, nicely, uses book text as input. Seeing as I am jointly appointed at a Faculty of Information, that seems especially nice. The wonderful thing about this is that there is an R package - <code>gutenbergr</code> - that makes it easy to get text from Project Gutenberg into R. The key function is <code><a href="https://docs.ropensci.org/gutenbergr/reference/gutenberg_download.html">gutenberg_download()</a></code>, which needs a key for the book that you want. We’ll consider Jane Eyre and Alice’s Adventures in Wonderland, which have the keys of 1260 and 11, respectively.</p>
+<p>Inspired by <span class="citation">Gelfand (<a href="references-1.html#ref-sharlasephora" role="doc-biblioref">2019</a>)</span> and following <span class="citation">Amaka and Thomas (<a href="references-1.html#ref-thenakedtruth" role="doc-biblioref">2021</a>)</span>, we will draw on the dataset they put together of makeup names and descriptions from Sephora and Ulta. We are interested in the counts of each word. We can read in the data using <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
 <div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/gutenbergr/">gutenbergr</a></span><span class="op">)</span>
-<span class="va">alice_and_jane</span> <span class="op">&lt;-</span> <span class="fu">gutenbergr</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gutenbergr/reference/gutenberg_download.html">gutenberg_download</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1260</span>, <span class="fl">11</span><span class="op">)</span>, meta_fields <span class="op">=</span> <span class="st">"title"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</span>
+<span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span>
+<span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span>
+<span class="co">#&gt; ✓ tidyr   1.2.0     ✓ stringr 1.4.0</span>
+<span class="co">#&gt; ✓ readr   2.1.1     ✓ forcats 0.5.1</span>
+<span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span>
+<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
+<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
 
-<span class="co"># Save the dataset so that we don't need to overwhelm the servers each time</span>
-<span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">alice_and_jane</span>, <span class="st">"inputs/books/alice_and_jane.csv"</span><span class="op">)</span>
+<span class="va">makeup</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> 
+             <span class="st">"https://raw.githubusercontent.com/the-pudding/data/master/foundation-names/allNumbers.csv"</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 3117 Columns: 9</span>
+<span class="co">#&gt; ── Column specification ────────────────────────────────────</span>
+<span class="co">#&gt; Delimiter: ","</span>
+<span class="co">#&gt; chr (5): brand, product, name, specific, hex</span>
+<span class="co">#&gt; dbl (3): lightness, numbers, id</span>
+<span class="co">#&gt; lgl (1): lightToDark</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+
+<span class="va">makeup</span>
+<span class="co">#&gt; # A tibble: 3,117 × 9</span>
+<span class="co">#&gt;    brand  product name  specific lightness hex   lightToDark</span>
+<span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;      </span>
+<span class="co">#&gt;  1 Makeu… Concea… &lt;NA&gt;  F0           0.949 #F2F… TRUE       </span>
+<span class="co">#&gt;  2 HOURG… Veil F… Porc… No. 0        0.818 #F6D… TRUE       </span>
+<span class="co">#&gt;  3 TOM F… Tracel… Pearl 0.0          0.851 #F0D… TRUE       </span>
+<span class="co">#&gt;  4 Arman… Neo Nu… &lt;NA&gt;  0            0.912 #F0E… TRUE       </span>
+<span class="co">#&gt;  5 TOM F… Tracel… Pearl 0.0          0.912 #FDE… TRUE       </span>
+<span class="co">#&gt;  6 Charl… Magic … &lt;NA&gt;  0            0.731 #D9A… TRUE       </span>
+<span class="co">#&gt;  7 Bobbi… Skin W… Porc… 0            0.822 #F3C… TRUE       </span>
+<span class="co">#&gt;  8 Given… Matiss… &lt;NA&gt;  N00          0.831 #F5D… TRUE       </span>
+<span class="co">#&gt;  9 Smash… Studio… &lt;NA&gt;  0.1          0.814 #F8C… TRUE       </span>
+<span class="co">#&gt; 10 Smash… Studio… &lt;NA&gt;  0.1          0.910 #F9E… TRUE       </span>
+<span class="co">#&gt; # … with 3,107 more rows, and 2 more variables:</span>
+<span class="co">#&gt; #   numbers &lt;dbl&gt;, id &lt;dbl&gt;</span></code></pre></div>
+<p>We will focus on ‘product’, which provides the name of the item, and ‘lightness’ which is a value between 0 and 1. We are interested in whether products with lightness values that are less than 0.5, typically use different words to those with lightness values that are at least 0.5.</p>
+<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">makeup</span> <span class="op">&lt;-</span>
+  <span class="va">makeup</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">product</span>, <span class="va">lightness</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lightness_above_half <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">lightness</span> <span class="op">&gt;=</span> <span class="fl">0.5</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>
+         <span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">makeup</span><span class="op">$</span><span class="va">lightness_above_half</span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;   No  Yes </span>
+<span class="co">#&gt;  702 2415</span></code></pre></div>
+<p>In this example we are going to split everything into separate words. When we do this, it is just searching for a space. And so, it will be the case that more than just words will be considered ‘words’, for instance, numbers. We use <code><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens()</a></code> from <code>tidytext</code> <span class="citation">(<a href="references-1.html#ref-SilgeRobinson2016" role="doc-biblioref">Silge and Robinson 2016</a>)</span> to do this.</p>
+<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/juliasilge/tidytext">tidytext</a></span><span class="op">)</span>
+
+<span class="va">makeup_by_words</span> <span class="op">&lt;-</span>
+  <span class="va">makeup</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens</a></span><span class="op">(</span>output <span class="op">=</span> <span class="va">word</span>, 
+                input <span class="op">=</span> <span class="va">product</span>, 
+                token <span class="op">=</span> <span class="st">"words"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">makeup_by_words</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 × 3</span>
+<span class="co">#&gt;   lightness lightness_above_half word      </span>
+<span class="co">#&gt;       &lt;dbl&gt; &lt;chr&gt;                &lt;chr&gt;     </span>
+<span class="co">#&gt; 1     0.949 Yes                  conceal   </span>
+<span class="co">#&gt; 2     0.949 Yes                  define    </span>
+<span class="co">#&gt; 3     0.949 Yes                  full      </span>
+<span class="co">#&gt; 4     0.949 Yes                  coverage  </span>
+<span class="co">#&gt; 5     0.949 Yes                  foundation</span>
+<span class="co">#&gt; 6     0.818 Yes                  veil</span></code></pre></div>
+<p>We now want to count the number of times each word is used by each of the lightness classifications.</p>
+<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">makeup_by_words</span> <span class="op">&lt;-</span>
+  <span class="va">makeup_by_words</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">lightness_above_half</span>, <span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="va">makeup_by_words</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lightness_above_half</span> <span class="op">==</span> <span class="st">"Yes"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 5 × 3</span>
+<span class="co">#&gt;   lightness_above_half word           n</span>
+<span class="co">#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;int&gt;</span>
+<span class="co">#&gt; 1 Yes                  foundation  2214</span>
+<span class="co">#&gt; 2 Yes                  skin         452</span>
+<span class="co">#&gt; 3 Yes                  spf          443</span>
+<span class="co">#&gt; 4 Yes                  matte        422</span>
+<span class="co">#&gt; 5 Yes                  powder       327</span>
+
+<span class="va">makeup_by_words</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lightness_above_half</span> <span class="op">==</span> <span class="st">"No"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 5 × 3</span>
+<span class="co">#&gt;   lightness_above_half word           n</span>
+<span class="co">#&gt;   &lt;chr&gt;                &lt;chr&gt;      &lt;int&gt;</span>
+<span class="co">#&gt; 1 No                   foundation   674</span>
+<span class="co">#&gt; 2 No                   matte        106</span>
+<span class="co">#&gt; 3 No                   spf          103</span>
+<span class="co">#&gt; 4 No                   skin          98</span>
+<span class="co">#&gt; 5 No                   liquid        89</span></code></pre></div>
+<p>We can see that the most popular words appear to be similar between the two categories. At this point, we could use the data in a variety of ways. We might be interested to know which words characterize each group—that is to say, which words are commonly used only in each group. We can do that by first looking at a word’s term frequency (tf), which is how many times a word is used in the product name. The issue is that there are a lot of words that are commonly used regardless of context. As such, we may also like to look at the inverse document frequency (idf) in which we ‘penalize’ words that occur in both groups. For instance, we have seen that ‘foundation’ occurs in both products with high and low lightness values. And so, its idf would be lower than another word which only occurred in products that did not have a lightness value above half. The term frequency–inverse document frequency (tf-idf) is then the product of these.</p>
+<p>We can create this value using <code><a href="https://rdrr.io/pkg/tidytext/man/bind_tf_idf.html">bind_tf_idf()</a></code> from <code>tidytext</code>. It will create a bunch of new columns, one for each word and star combination.</p>
+<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">makeup_by_words_tf_idf</span> <span class="op">&lt;-</span>
+  <span class="va">makeup_by_words</span> |&gt;
+  <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/bind_tf_idf.html">bind_tf_idf</a></span><span class="op">(</span>term <span class="op">=</span> <span class="va">word</span>, 
+              document <span class="op">=</span> <span class="va">lightness_above_half</span>, 
+              n <span class="op">=</span> <span class="va">n</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="op">-</span><span class="va">tf_idf</span><span class="op">)</span>
+
+<span class="va">makeup_by_words_tf_idf</span>
+<span class="co">#&gt; # A tibble: 505 × 6</span>
+<span class="co">#&gt;    lightness_above_half word        n       tf   idf  tf_idf</span>
+<span class="co">#&gt;    &lt;chr&gt;                &lt;chr&gt;   &lt;int&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 Yes                  cushion    25 0.00187  0.693 1.30e-3</span>
+<span class="co">#&gt;  2 Yes                  combo      16 0.00120  0.693 8.31e-4</span>
+<span class="co">#&gt;  3 Yes                  custom     16 0.00120  0.693 8.31e-4</span>
+<span class="co">#&gt;  4 Yes                  oily       16 0.00120  0.693 8.31e-4</span>
+<span class="co">#&gt;  5 Yes                  perfect    16 0.00120  0.693 8.31e-4</span>
+<span class="co">#&gt;  6 Yes                  refill     16 0.00120  0.693 8.31e-4</span>
+<span class="co">#&gt;  7 Yes                  50         14 0.00105  0.693 7.27e-4</span>
+<span class="co">#&gt;  8 Yes                  compact    13 0.000974 0.693 6.75e-4</span>
+<span class="co">#&gt;  9 Yes                  lifting    12 0.000899 0.693 6.23e-4</span>
+<span class="co">#&gt; 10 Yes                  satte      12 0.000899 0.693 6.23e-4</span>
+<span class="co">#&gt; # … with 495 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">makeup_by_words_tf_idf</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">lightness_above_half</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 10 × 6</span>
+<span class="co">#&gt; # Groups:   lightness_above_half [2]</span>
+<span class="co">#&gt;    lightness_above_half word         n      tf   idf  tf_idf</span>
+<span class="co">#&gt;    &lt;chr&gt;                &lt;chr&gt;    &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 No                   able         2 5.25e-4 0.693 3.64e-4</span>
+<span class="co">#&gt;  2 No                   concent…     2 5.25e-4 0.693 3.64e-4</span>
+<span class="co">#&gt;  3 No                   marc         2 5.25e-4 0.693 3.64e-4</span>
+<span class="co">#&gt;  4 No                   re           2 5.25e-4 0.693 3.64e-4</span>
+<span class="co">#&gt;  5 No                   look         1 2.63e-4 0.693 1.82e-4</span>
+<span class="co">#&gt;  6 Yes                  cushion     25 1.87e-3 0.693 1.30e-3</span>
+<span class="co">#&gt;  7 Yes                  combo       16 1.20e-3 0.693 8.31e-4</span>
+<span class="co">#&gt;  8 Yes                  custom      16 1.20e-3 0.693 8.31e-4</span>
+<span class="co">#&gt;  9 Yes                  oily        16 1.20e-3 0.693 8.31e-4</span>
+<span class="co">#&gt; 10 Yes                  perfect     16 1.20e-3 0.693 8.31e-4</span></code></pre></div>
+</div>
+<div id="lasso-regression" class="section level2" number="17.3">
+<h2>
+<span class="header-section-number">17.3</span> Lasso regression<a class="anchor" aria-label="anchor" href="#lasso-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the nice aspects of text is that we can adapt our existing methods to use it as an input. Here we are going to use logistic regression, along with text inputs, to forecast. Inspired by <span class="citation">Silge (<a href="references-1.html#ref-silge2018" role="doc-biblioref">2018</a>)</span> we are going to have two different text inputs, train a model on a sample of text from each of them, and then try to use that model to forecast the text in a training set. Although this is a arbitrary example, we could imagine many real-world applications. For instance, we may be interested in whether some text was likely written by a bot or a human</p>
+<p>First we need to get some data. We use books from Project Gutenberg using <code><a href="https://docs.ropensci.org/gutenbergr/reference/gutenberg_download.html">gutenberg_download()</a></code> from <code>gutenbergr</code> <span class="citation">(<a href="references-1.html#ref-gutenbergr" role="doc-biblioref">D. Robinson 2021</a>)</span>. We will consider <em>Jane Eyre</em> <span class="citation">(<a href="references-1.html#ref-janeeyre" role="doc-biblioref">Bronte 1847</a>)</span> and <em>Alice’s Adventures in Wonderland</em> <span class="citation">(<a href="references-1.html#ref-citealice" role="doc-biblioref">Carroll 1865</a>)</span>.</p>
+<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/gutenbergr/">gutenbergr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="co"># The books that we are interested in have the keys of 1260 and 11, respectively.</span>
+<span class="va">alice_and_jane</span> <span class="op">&lt;-</span> 
+  <span class="fu"><a href="https://docs.ropensci.org/gutenbergr/reference/gutenberg_download.html">gutenberg_download</a></span><span class="op">(</span>
+    gutenberg_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1260</span>, <span class="fl">11</span><span class="op">)</span>, 
+    meta_fields <span class="op">=</span> <span class="st">"title"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">alice_and_jane</span>, <span class="st">"alice_and_jane.csv"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/gutenbergr/">gutenbergr</a></span><span class="op">)</span>
-
-<span class="va">alice_and_jane</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"inputs/books/alice_and_jane.csv"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 3</span>
-<span class="co">#&gt;   gutenberg_id text                               title                         </span>
-<span class="co">#&gt;          &lt;dbl&gt; &lt;chr&gt;                              &lt;chr&gt;                         </span>
-<span class="co">#&gt; 1           11 ALICE'S ADVENTURES IN WONDERLAND   Alice's Adventures in Wonderl…</span>
-<span class="co">#&gt; 2           11 &lt;NA&gt;                               Alice's Adventures in Wonderl…</span>
-<span class="co">#&gt; 3           11 Lewis Carroll                      Alice's Adventures in Wonderl…</span>
-<span class="co">#&gt; 4           11 &lt;NA&gt;                               Alice's Adventures in Wonderl…</span>
-<span class="co">#&gt; 5           11 THE MILLENNIUM FULCRUM EDITION 3.0 Alice's Adventures in Wonderl…</span>
-<span class="co">#&gt; 6           11 &lt;NA&gt;                               Alice's Adventures in Wonderl…</span></code></pre></div>
-<p>One of the great things about this is that the dataset is a tibble. So we can just work with all our familiar skills. The package has a lot more functionality, so I’d encourage you to look at the package’s website: <a href="https://github.com/ropensci/gutenbergr" class="uri">https://github.com/ropensci/gutenbergr</a>. Each line of the book is read in as a different row in the dataset. Notice that we have downloaded two books here at once, and so we added the title. The two books are one after each other. You can see that we have both by looking at some summary statistics.</p>
-<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">$</span><span class="va">title</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Alice's Adventures in Wonderland      Jane Eyre: An Autobiography </span>
-<span class="co">#&gt;                             3339                            20659</span></code></pre></div>
-<p>So it looks like Jane Eyre is much longer than Alice in Wonderland, which isn’t a surprise to those who have read them. I don’t want to step into Digital Humanities too much, as I don’t know anything about it, but looking at things like the broader context of when these books were written, or other books that were written at similar times, is likely a fascinating area.</p>
-<p>We’ll just get rid of blank lines</p>
-<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
+<p>One of the great things about this is that the dataset is a tibble. So we can work with all our familiar skills. Each line of the book is read in as a different row in the dataset. Notice that we have downloaded two books here at once, and so we added the title. The two books are one after each other.</p>
+<p>By looking at the number of lines in each, it looks like <em>Jane Eyre</em> is much longer than <em>Alice in Wonderland</em>. We will start by getting rid of blank lines using <code><a href="https://rdrr.io/pkg/janitor/man/remove_empty.html">remove_empty()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>
-<span class="co"># TODO There's a way to do this within janitor, but I forget, need to look it up.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'janitor'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     chisq.test, fisher.test</span>
+
 <span class="va">alice_and_jane</span> <span class="op">&lt;-</span> 
   <span class="va">alice_and_jane</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>blank_line <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">text</span> <span class="op">==</span> <span class="st">""</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -180,10 +323,12 @@
 
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">$</span><span class="va">title</span><span class="op">)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Alice's Adventures in Wonderland      Jane Eyre: An Autobiography </span>
-<span class="co">#&gt;                             2481                            16395</span></code></pre></div>
-<p>There’s still an overwhelming amount of Jane Eyre in there. So we’ll just sample from Jane Eyre to make it more equal.</p>
-<div class="sourceCode" id="cb565"><pre class="downlit sourceCode r">
+<span class="co">#&gt; Alice's Adventures in Wonderland </span>
+<span class="co">#&gt;                             2481 </span>
+<span class="co">#&gt;      Jane Eyre: An Autobiography </span>
+<span class="co">#&gt;                            16395</span></code></pre></div>
+<p>There is still an overwhelming amount of <em>Jane Eyre</em>, compared with <em>Alice in Wonderland</em>, so we will sample from <em>Jane Eyre</em> to make it more equal.</p>
+<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">alice_and_jane</span><span class="op">$</span><span class="va">rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">)</span><span class="op">)</span>
@@ -197,32 +342,31 @@
 
 <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">alice_and_jane</span><span class="op">$</span><span class="va">title</span><span class="op">)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Alice's Adventures in Wonderland      Jane Eyre: An Autobiography </span>
-<span class="co">#&gt;                             2481                             2481</span></code></pre></div>
-<p>There’s a bunch of issues here, for instance, we have the whole of Alice, but we only have random bits of Jane, but nonetheless let’s continue and we’ll try to do something about that in a moment.</p>
-<p>Now we want to get a sample of text from each book. We will use the lines to distinguish these samples. So we use a counter that will add a line number.</p>
-<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
+<span class="co">#&gt; Alice's Adventures in Wonderland </span>
+<span class="co">#&gt;                             2481 </span>
+<span class="co">#&gt;      Jane Eyre: An Autobiography </span>
+<span class="co">#&gt;                             2481</span></code></pre></div>
+<p>There are a variety of issues here, for instance, we have the whole of Alice, but we only have random bits of Jane, but nonetheless we will continue and add a counter with the line number for each book.</p>
+<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alice_and_jane</span> <span class="op">&lt;-</span> 
   <span class="va">alice_and_jane</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>line_number <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">gutenberg_id</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>We now want to separate out the words. We’ll just use tidytext, because the focus here is on modelling, but there are a bunch of alternatives and one especially good one is the <code>quanteda</code> package, specifically, the <code>tokens()</code> function.</p>
-<div class="sourceCode" id="cb567"><pre class="downlit sourceCode r">
+<p>We now want to unnest the tokes. We will use <code><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens()</a></code> from <code>tidytext</code> <span class="citation">(<a href="references-1.html#ref-SilgeRobinson2016" role="doc-biblioref">Silge and Robinson 2016</a>)</span>.</p>
+<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/juliasilge/tidytext">tidytext</a></span><span class="op">)</span>
+
 <span class="va">alice_and_jane_by_word</span> <span class="op">&lt;-</span> 
   <span class="va">alice_and_jane</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens</a></span><span class="op">(</span><span class="va">word</span>, <span class="va">text</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">word</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>Notice here that we removed any word that wasn’t used more than 10 times. Nonetheless we still have a lot of unique words. (If we didn’t require that the word be used by the author at least 10 times then we end up with more than 6,000 words.)</p>
-<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">alice_and_jane_by_word</span><span class="op">$</span><span class="va">word</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] 585</span></code></pre></div>
-<p>The reason this is relevant is because these are our independent variables. So where you may be used to having something less than 10 explanatory variables, in this case we are going to have 585 As such, we need a model that can handle this.</p>
-<p>However, as mentioned before, we are going to have some rows that essentially just had one word. While we could allow that, it might also be nice to give the model at least a few words to work with.</p>
-<div class="sourceCode" id="cb569"><pre class="downlit sourceCode r">
+<p>We remove any word that was not used more than 10 times. Nonetheless we still have more than 500 unique words. (If we did not require that the word be used by the author at least 10 times then we end up with more than 6,000 words.)</p>
+<p>The reason this is relevant is because these are our independent variables. So where we may be used to having something less than 10 explanatory variables, in this case we are going to have 585 As such, we need a model that can handle this.</p>
+<p>However, as mentioned before, we are going to have some rows that essentially just had one word. And so we filter for that also, which ensures that the model will have at least some words to work with.</p>
+<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alice_and_jane_by_word</span> <span class="op">&lt;-</span> 
   <span class="va">alice_and_jane_by_word</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">title</span>, <span class="va">line_number</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
@@ -231,8 +375,26 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">number_of_words_in_line</span> <span class="op">&gt;</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">number_of_words_in_line</span><span class="op">)</span></code></pre></div>
 <p>We’ll create a test/training split, and load in <code>tidymodels</code>.</p>
-<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
+<span class="co">#&gt; Registered S3 method overwritten by 'tune':</span>
+<span class="co">#&gt;   method                   from   </span>
+<span class="co">#&gt;   required_pkgs.model_spec parsnip</span>
+<span class="co">#&gt; ── Attaching packages ────────────────── tidymodels 0.1.4 ──</span>
+<span class="co">#&gt; ✓ broom        0.7.10     ✓ rsample      0.1.1 </span>
+<span class="co">#&gt; ✓ dials        0.0.10     ✓ tune         0.1.6 </span>
+<span class="co">#&gt; ✓ infer        1.0.0      ✓ workflows    0.2.4 </span>
+<span class="co">#&gt; ✓ modeldata    0.1.1      ✓ workflowsets 0.1.0 </span>
+<span class="co">#&gt; ✓ parsnip      0.1.7      ✓ yardstick    0.0.9 </span>
+<span class="co">#&gt; ✓ recipes      0.1.17</span>
+<span class="co">#&gt; ── Conflicts ───────────────────── tidymodels_conflicts() ──</span>
+<span class="co">#&gt; x scales::discard() masks purrr::discard()</span>
+<span class="co">#&gt; x dplyr::filter()   masks stats::filter()</span>
+<span class="co">#&gt; x recipes::fixed()  masks stringr::fixed()</span>
+<span class="co">#&gt; x dplyr::lag()      masks stats::lag()</span>
+<span class="co">#&gt; x yardstick::spec() masks readr::spec()</span>
+<span class="co">#&gt; x recipes::step()   masks stats::step()</span>
+<span class="co">#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -240,34 +402,31 @@
   <span class="va">alice_and_jane_by_word</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">title</span>, <span class="va">line_number</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
-  <span class="fu">initial_split</span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">3</span><span class="op">/</span><span class="fl">4</span>, strata <span class="op">=</span> <span class="va">title</span><span class="op">)</span>
-
-<span class="co"># alice_and_jane_by_word_train &lt;- training(alice_and_jane_by_word_split) %&gt;% select(line_number)</span>
-<span class="co"># alice_and_jane_by_word_test &lt;- testing(alice_and_jane_by_word_split)</span>
-<span class="co"># </span>
-<span class="co"># rm(alice_and_jane_by_word_split)</span></code></pre></div>
-<p>Now we need to create a document-term matrix.</p>
-<div class="sourceCode" id="cb571"><pre class="downlit sourceCode r">
+  <span class="fu">initial_split</span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">3</span><span class="op">/</span><span class="fl">4</span>, strata <span class="op">=</span> <span class="va">title</span><span class="op">)</span></code></pre></div>
+<p>Then we can use <code><a href="https://rdrr.io/pkg/tidytext/man/document_term_casters.html">cast_dtm()</a></code> to create a document-term matrix. This provides a count of how many times each word is used.</p>
+<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alice_and_jane_dtm_training</span> <span class="op">&lt;-</span> 
   <span class="va">alice_and_jane_by_word</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">line_number</span>, <span class="va">word</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="fu">training</span><span class="op">(</span><span class="va">alice_and_jane_by_word_split</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">line_number</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/document_term_casters.html">cast_dtm</a></span><span class="op">(</span>term <span class="op">=</span> <span class="va">word</span>, document <span class="op">=</span> <span class="va">line_number</span>, value <span class="op">=</span> <span class="va">n</span><span class="op">)</span>
+<span class="co">#&gt; Joining, by = "line_number"</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">alice_and_jane_dtm_training</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3413  585</span></code></pre></div>
 <p>So we have our independent variables sorted, now we need our binary dependent variable, which is whether the book is Alice in Wonderland or Jane Eyre.</p>
-<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">response</span> <span class="op">&lt;-</span> 
+<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">response</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dimnames.html">dimnames</a></span><span class="op">(</span><span class="va">alice_and_jane_dtm_training</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">id</span>, into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"book"</span>, <span class="st">"line"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>is_alice <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">book</span> <span class="op">==</span> <span class="fl">11</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> 
+<span class="co">#&gt; Warning: Expected 3 pieces. Missing pieces filled with `NA`</span>
+<span class="co">#&gt; in 3413 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,</span>
+<span class="co">#&gt; 15, 16, 17, 18, 19, 20, ...].</span>
   
-
 <span class="va">predictor</span> <span class="op">&lt;-</span> <span class="va">alice_and_jane_dtm_training</span><span class="op">[</span><span class="op">]</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Now we can run our model.</p>
-<div class="sourceCode" id="cb573"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glmnet.stanford.edu">glmnet</a></span><span class="op">)</span>
 
 <span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://glmnet.stanford.edu/reference/cv.glmnet.html">cv.glmnet</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">predictor</span>,
@@ -276,10 +435,16 @@
                    keep <span class="op">=</span> <span class="cn">TRUE</span>
                    <span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">model</span>, file <span class="op">=</span> <span class="st">"outputs/models/alice_vs_jane.rda"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"outputs/models/alice_vs_jane.rda"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glmnet.stanford.edu">glmnet</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">model</span>, file <span class="op">=</span> <span class="st">"alice_vs_jane.rda"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://glmnet.stanford.edu">glmnet</a></span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: Matrix</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'Matrix'</span>
+<span class="co">#&gt; The following objects are masked from 'package:tidyr':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     expand, pack, unpack</span>
+<span class="co">#&gt; Loaded glmnet 4.1-3</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">coefs</span> <span class="op">&lt;-</span> <span class="va">model</span><span class="op">$</span><span class="va">glmnet.fit</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
@@ -296,7 +461,7 @@
 <span class="co">#&gt; 4 so             36  0.00249 0.00597     0.562</span>
 <span class="co">#&gt; 5 a              36 -0.117   0.00597     0.562</span>
 <span class="co">#&gt; 6 about          36  0.279   0.00597     0.562</span></code></pre></div>
-<div class="sourceCode" id="cb575"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">coefs</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">estimate</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/top_n.html">top_n</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/janitor/man/pipe.html">%&gt;%</a></span>
@@ -308,42 +473,32 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Coefficient"</span>,
        y <span class="op">=</span> <span class="st">"Word"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="44-text_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
-<p>Perhaps unsurprisingly, if you mention Alice then it’s likely to be a Alice in Wonderland and if you mention Jane then it’s likely to be Jane Eyre.</p>
+<div class="inline-figure"><img src="44-text_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
+<p>Perhaps unsurprisingly, if a line mentions Alice then it is likely to be a Alice in Wonderland and if it mention Jane then it is likely to be Jane Eyre.</p>
 </div>
-<div id="topic-models" class="section level2" number="17.3">
+<div id="topic-models" class="section level2" number="17.4">
 <h2>
-<span class="header-section-number">17.3</span> Topic models<a class="anchor" aria-label="anchor" href="#topic-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.4</span> Topic models<a class="anchor" aria-label="anchor" href="#topic-models"><i class="fas fa-link"></i></a>
 </h2>
-<p><strong>A version of these notes was previously circulated as part of <span class="citation"><a href="references-1.html#ref-Alexander2020" role="doc-biblioref">R. Alexander and Alexander</a> (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2021</a>)</span>.</strong></p>
-<div id="overview-5" class="section level3" number="17.3.1">
-<h3>
-<span class="header-section-number">17.3.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview-5"><i class="fas fa-link"></i></a>
-</h3>
-<p>Sometimes we have a statement and we want to know what it is about. Sometimes this will be easy, but we don’t always have titles for statements, and even when we do, sometimes we do not have titles that define topics in a well-defined and consistent way. One way to get consistent estimates of the topics of each statement is to use topic models. While there are many variants, one way is to use the latent Dirichlet allocation (LDA) method of <span class="citation"><a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">Blei, Ng, and Jordan</a> (<a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">2003</a>)</span>, as implemented by the R package ‘topicmodels’ by <span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>.</p>
-<p>The key assumption behind the LDA method is that each statement, ‘a document,’ is made by a person who decides the topics they would like to talk about in that document, and then chooses words, ‘terms,’ that are appropriate to those topics. A topic could be thought of as a collection of terms, and a document as a collection of topics. The topics are not specified <em>ex ante</em>; they are an outcome of the method. Terms are not necessarily unique to a particular topic, and a document could be about more than one topic. This provides more flexibility than other approaches such as a strict word count method. The goal is to have the words found in documents group themselves to define topics.</p>
-</div>
-<div id="document-generation-process" class="section level3" number="17.3.2">
-<h3>
-<span class="header-section-number">17.3.2</span> Document generation process<a class="anchor" aria-label="anchor" href="#document-generation-process"><i class="fas fa-link"></i></a>
-</h3>
-<p>The LDA method considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a>).</p>
+<p>Sometimes we have a statement and we want to know what it is about. Sometimes this will be easy, but we do not always have titles for statements, and even when we do, sometimes we do not have titles that define topics in a well-defined and consistent way. One way to get consistent estimates of the topics of each statement is to use topic models. While there are many variants, one way is to use the latent Dirichlet allocation (LDA) method of <span class="citation">Blei, Ng, and Jordan (<a href="references-1.html#ref-Blei2003latent" role="doc-biblioref">2003</a>)</span>, as implemented by the R package ‘topicmodels’ by <span class="citation">Grün and Hornik (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>The key assumption behind the LDA method is that each statement, ‘a document’, is made by a person who decides the topics they would like to talk about in that document, and then chooses words, ‘terms’, that are appropriate to those topics. A topic could be thought of as a collection of terms, and a document as a collection of topics. The topics are not specified <em>ex ante</em>; they are an outcome of the method. Terms are not necessarily unique to a particular topic, and a document could be about more than one topic. This provides more flexibility than other approaches such as a strict word count method. The goal is to have the words found in documents group themselves to define topics.</p>
+<p>LDA considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a>).</p>
 <div class="figure">
 <span style="display:block;" id="fig:topicsoverdocuments"></span>
-<img src="44-text_files/figure-html/topicsoverdocuments-1.png" alt="Probability distributions over topics" width="672"><img src="44-text_files/figure-html/topicsoverdocuments-2.png" alt="Probability distributions over topics" width="672"><p class="caption">
+<img src="44-text_files/figure-html/topicsoverdocuments-1.png" alt="Probability distributions over topics" width="50%"><img src="44-text_files/figure-html/topicsoverdocuments-2.png" alt="Probability distributions over topics" width="50%"><p class="caption">
 Figure 17.1: Probability distributions over topics
 </p>
 </div>
 <p>Similarly, each topic could be considered a probability distribution over terms. To choose the terms used in each document the speaker picks terms from each topic in the appropriate proportion. For instance, if there were ten terms, then one topic could be defined by giving more weight to terms related to immigration; and some other topic may give more weight to terms related to the economy (Figure <a href="text-as-data.html#fig:topicsoverterms">17.2</a>).</p>
 <div class="figure">
 <span style="display:block;" id="fig:topicsoverterms"></span>
-<img src="44-text_files/figure-html/topicsoverterms-1.png" alt="Probability distributions over terms" width="672"><img src="44-text_files/figure-html/topicsoverterms-2.png" alt="Probability distributions over terms" width="672"><p class="caption">
+<img src="44-text_files/figure-html/topicsoverterms-1.png" alt="Probability distributions over terms" width="50%"><img src="44-text_files/figure-html/topicsoverterms-2.png" alt="Probability distributions over terms" width="50%"><p class="caption">
 Figure 17.2: Probability distributions over terms
 </p>
 </div>
-<p>Following <span class="citation"><a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">Blei and Lafferty</a> (<a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">2009</a>)</span>, <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span> and <span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span>, the process by which a document is generated is more formally considered to be:</p>
+<p>Following <span class="citation">Blei and Lafferty (<a href="references-1.html#ref-BleiLafferty2009" role="doc-biblioref">2009</a>)</span>, <span class="citation">Blei (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span> and <span class="citation">Griffiths and Steyvers (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span>, the process by which a document is generated is more formally considered to be:</p>
 <ol style="list-style-type: decimal">
-<li>There are <span class="math inline">\(1, 2, \dots, k, \dots, K\)</span> topics and the vocabulary consists of <span class="math inline">\(1, 2, \dots, V\)</span> terms. For each topic, decide the terms that the topic uses by randomly drawing distributions over the terms. The distribution over the terms for the <span class="math inline">\(k\)</span>th topic is <span class="math inline">\(\beta_k\)</span>. Typically a topic would be a small number of terms and so the Dirichlet distribution with hyperparameter <span class="math inline">\(0&lt;\eta&lt;1\)</span> is used: <span class="math inline">\(\beta_k \sim \mbox{Dirichlet}(\eta)\)</span>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;The Dirichlet distribution is a variation of the beta distribution that is commonly used as a prior for categorical and multinomial variables. If there are just two categories, then the Dirichlet and the beta distributions are the same. In the special case of a symmetric Dirichlet distribution, &lt;span class="math inline"&gt;\(\eta=1\)&lt;/span&gt;, it is equivalent to a uniform distribution. If &lt;span class="math inline"&gt;\(\eta&amp;lt;1\)&lt;/span&gt;, then the distribution is sparse and concentrated on a smaller number of the values, and this number decreases as &lt;span class="math inline"&gt;\(\eta\)&lt;/span&gt; decreases. A hyperparameter is a parameter of a prior distribution.&lt;/p&gt;'><sup>5</sup></a> Strictly, <span class="math inline">\(\eta\)</span> is actually a vector of hyperparameters, one for each <span class="math inline">\(K\)</span>, but in practice they all tend to be the same value.</li>
+<li>There are <span class="math inline">\(1, 2, \dots, k, \dots, K\)</span> topics and the vocabulary consists of <span class="math inline">\(1, 2, \dots, V\)</span> terms. For each topic, decide the terms that the topic uses by randomly drawing distributions over the terms. The distribution over the terms for the <span class="math inline">\(k\)</span>th topic is <span class="math inline">\(\beta_k\)</span>. Typically a topic would be a small number of terms and so the Dirichlet distribution with hyperparameter <span class="math inline">\(0&lt;\eta&lt;1\)</span> is used: <span class="math inline">\(\beta_k \sim \mbox{Dirichlet}(\eta)\)</span>.[^Dirichletfootnote] Strictly, <span class="math inline">\(\eta\)</span> is actually a vector of hyperparameters, one for each <span class="math inline">\(K\)</span>, but in practice they all tend to be the same value.</li>
 <li>Decide the topics that each document will cover by randomly drawing distributions over the <span class="math inline">\(K\)</span> topics for each of the <span class="math inline">\(1, 2, \dots, d, \dots, D\)</span> documents. The topic distributions for the <span class="math inline">\(d\)</span>th document are <span class="math inline">\(\theta_d\)</span>, and <span class="math inline">\(\theta_{d,k}\)</span> is the topic distribution for topic <span class="math inline">\(k\)</span> in document <span class="math inline">\(d\)</span>. Again, the Dirichlet distribution with the hyperparameter <span class="math inline">\(0&lt;\alpha&lt;1\)</span> is used here because usually a document would only cover a handful of topics: <span class="math inline">\(\theta_d \sim \mbox{Dirichlet}(\alpha)\)</span>. Again, strictly <span class="math inline">\(\alpha\)</span> is vector of length <span class="math inline">\(K\)</span> of hyperparameters, but in practice each is usually the same value.</li>
 <li>If there are <span class="math inline">\(1, 2, \dots, n, \dots, N\)</span> terms in the <span class="math inline">\(d\)</span>th document, then to choose the <span class="math inline">\(n\)</span>th term, <span class="math inline">\(w_{d, n}\)</span>:
 <ol style="list-style-type: lower-alpha">
@@ -352,35 +507,21 @@ Figure 17.2: Probability distributions over terms
 </ol>
 </li>
 </ol>
-<p>Given this set-up, the joint distribution for the variables is (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.6):
+<p>The Dirichlet distribution is a variation of the beta distribution that is commonly used as a prior for categorical and multinomial variables. If there are just two categories, then the Dirichlet and the beta distributions are the same. In the special case of a symmetric Dirichlet distribution, <span class="math inline">\(\eta=1\)</span>, it is equivalent to a uniform distribution. If <span class="math inline">\(\eta&lt;1\)</span>, then the distribution is sparse and concentrated on a smaller number of the values, and this number decreases as <span class="math inline">\(\eta\)</span> decreases. A hyperparameter is a parameter of a prior distribution.</p>
+<p>Given this set-up, the joint distribution for the variables is (<span class="citation">Blei (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.6):
 <span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}) = \prod^{K}_{i=1}p(\beta_i) \prod^{D}_{d=1}p(\theta_d) \left(\prod^N_{n=1}p(z_{d,n}|\theta_d)p\left(w_{d,n}|\beta_{1:K},z_{d,n}\right) \right).\]</span></p>
-<p>Based on this document generation process the analysis problem, discussed in the next section, is to compute a posterior over <span class="math inline">\(\beta_{1:K}\)</span> and <span class="math inline">\(\theta_{1:D}\)</span>, given <span class="math inline">\(w_{1:D, 1:N}\)</span>. This is intractable directly, but can be approximated (<span class="citation"><a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">Griffiths and Steyvers</a> (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span> and <span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>).</p>
-</div>
-<div id="analysis-process" class="section level3" number="17.3.3">
-<h3>
-<span class="header-section-number">17.3.3</span> Analysis process<a class="anchor" aria-label="anchor" href="#analysis-process"><i class="fas fa-link"></i></a>
-</h3>
-<p>After the documents are created, they are all that we have to analyse. The term usage in each document, <span class="math inline">\(w_{1:D, 1:N}\)</span>, is observed, but the topics are hidden, or ‘latent.’ We do not know the topics of each document, nor how terms defined the topics. That is, we do not know the probability distributions of Figures <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a> or <a href="text-as-data.html#fig:topicsoverterms">17.2</a>. In a sense we are trying to reverse the document generation process – we have the terms and we would like to discover the topics.</p>
-<p>If the earlier process around how the documents were generated is assumed and we observe the terms in each document, then we can obtain estimates of the topics (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The outcomes of the LDA process are probability distributions and these define the topics. Each term will be given a probability of being a member of a particular topic, and each document will be given a probability of being about a particular topic. That is, we are trying to calculate the posterior distribution of the topics given the terms observed in each document (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.7):
+<p>Based on this document generation process the analysis problem, discussed in the next section, is to compute a posterior over <span class="math inline">\(\beta_{1:K}\)</span> and <span class="math inline">\(\theta_{1:D}\)</span>, given <span class="math inline">\(w_{1:D, 1:N}\)</span>. This is intractable directly, but can be approximated (<span class="citation">Griffiths and Steyvers (<a href="references-1.html#ref-GriffithsSteyvers2004" role="doc-biblioref">2004</a>)</span> and <span class="citation">Blei (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>).</p>
+<p>After the documents are created, they are all that we have to analyze. The term usage in each document, <span class="math inline">\(w_{1:D, 1:N}\)</span>, is observed, but the topics are hidden, or ‘latent’. We do not know the topics of each document, nor how terms defined the topics. That is, we do not know the probability distributions of Figures <a href="text-as-data.html#fig:topicsoverdocuments">17.1</a> or <a href="text-as-data.html#fig:topicsoverterms">17.2</a>. In a sense we are trying to reverse the document generation process – we have the terms and we would like to discover the topics.</p>
+<p>If the earlier process around how the documents were generated is assumed and we observe the terms in each document, then we can obtain estimates of the topics (<span class="citation">Steyvers and Griffiths (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The outcomes of the LDA process are probability distributions and these define the topics. Each term will be given a probability of being a member of a particular topic, and each document will be given a probability of being about a particular topic. That is, we are trying to calculate the posterior distribution of the topics given the terms observed in each document (<span class="citation">Blei (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>, p.7):
 <span class="math display">\[p(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N} | w_{1:D, 1:N}) = \frac{p\left(\beta_{1:K}, \theta_{1:D}, z_{1:D, 1:N}, w_{1:D, 1:N}\right)}{p(w_{1:D, 1:N})}.\]</span></p>
-<p>The initial practical step when implementing LDA given a corpus of documents is to remove ‘stop words.’ These are words that are common, but that don’t typically help to define topics. There is a general list of stop words such as: “a”; “a’s”; “able”; “about”; “above”… We also remove punctuation and capitalisation. The documents need to then be transformed into a document-term-matrix. This is essentially a table with a column of the number of times each term appears in each document.</p>
-<p>After the dataset is ready, the R package ‘topicmodels’ by <span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span> can be used to implement LDA and approximate the posterior. It does this using Gibbs sampling or the variational expectation-maximization algorithm. Following <span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> and <span class="citation"><a href="references-1.html#ref-Darling2011" role="doc-biblioref">Darling</a> (<a href="references-1.html#ref-Darling2011" role="doc-biblioref">2011</a>)</span>, the Gibbs sampling process attempts to find a topic for a particular term in a particular document, given the topics of all other terms for all other documents. Broadly, it does this by first assigning every term in every document to a random topic, specified by Dirichlet priors with <span class="math inline">\(\alpha = \frac{50}{K}\)</span> and <span class="math inline">\(\eta = 0.1\)</span> (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> recommends <span class="math inline">\(\eta = 0.01\)</span>), where <span class="math inline">\(\alpha\)</span> refers to the distribution over topics and <span class="math inline">\(\eta\)</span> refers to the distribution over terms (<span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.7). It then selects a particular term in a particular document and assigns it to a new topic based on the conditional distribution where the topics for all other terms in all documents are taken as given (<span class="citation"><a href="references-1.html#ref-Grun2011" role="doc-biblioref">Grün and Hornik</a> (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.6):
+<p>The initial practical step when implementing LDA given a corpus of documents is to remove ‘stop words’. These are words that are common, but that do not typically help to define topics. There is a general list of stop words such as: “a”; “a’s”; “able”; “about”; “above”… We also remove punctuation and capitalization. The documents need to then be transformed into a document-term-matrix. This is essentially a table with a column of the number of times each term appears in each document.</p>
+<p>After the dataset is ready, the R package ‘topicmodels’ by <span class="citation">Grün and Hornik (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span> can be used to implement LDA and approximate the posterior. It does this using Gibbs sampling or the variational expectation-maximization algorithm. Following <span class="citation">Steyvers and Griffiths (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> and <span class="citation">Darling (<a href="references-1.html#ref-Darling2011" role="doc-biblioref">2011</a>)</span>, the Gibbs sampling process attempts to find a topic for a particular term in a particular document, given the topics of all other terms for all other documents. Broadly, it does this by first assigning every term in every document to a random topic, specified by Dirichlet priors with <span class="math inline">\(\alpha = \frac{50}{K}\)</span> and <span class="math inline">\(\eta = 0.1\)</span> (<span class="citation">Steyvers and Griffiths (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span> recommends <span class="math inline">\(\eta = 0.01\)</span>), where <span class="math inline">\(\alpha\)</span> refers to the distribution over topics and <span class="math inline">\(\eta\)</span> refers to the distribution over terms (<span class="citation">Grün and Hornik (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.7). It then selects a particular term in a particular document and assigns it to a new topic based on the conditional distribution where the topics for all other terms in all documents are taken as given (<span class="citation">Grün and Hornik (<a href="references-1.html#ref-Grun2011" role="doc-biblioref">2011</a>)</span>, p.6):
 <span class="math display">\[p(z_{d, n}=k | w_{1:D, 1:N}, z'_{d, n}) \propto \frac{\lambda'_{n\rightarrow k}+\eta}{\lambda'_{.\rightarrow k}+V\eta} \frac{\lambda'^{(d)}_{n\rightarrow k}+\alpha}{\lambda'^{(d)}_{-i}+K\alpha} \]</span>
 where <span class="math inline">\(z'_{d, n}\)</span> refers to all other topic assignments; <span class="math inline">\(\lambda'_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda'_{.\rightarrow k}\)</span> is a count of how many other times that any term has been assigned to topic <span class="math inline">\(k\)</span>; <span class="math inline">\(\lambda'^{(d)}_{n\rightarrow k}\)</span> is a count of how many other times that term has been assigned to topic <span class="math inline">\(k\)</span> in that particular document; and <span class="math inline">\(\lambda'^{(d)}_{-i}\)</span> is a count of how many other times that term has been assigned in that document. Once <span class="math inline">\(z_{d,n}\)</span> has been estimated, then estimates for the distribution of words into topics and topics into documents can be backed out.</p>
-<p>This conditional distribution assigns topics depending on how often a term has been assigned to that topic previously, and how common the topic is in that document (<span class="citation"><a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">Steyvers and Griffiths</a> (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The initial random allocation of topics means that the results of early passes through the corpus of document are poor, but given enough time the algorithm converges to an appropriate estimate.</p>
-</div>
-<div id="warnings-and-extensions" class="section level3" number="17.3.4">
-<h3>
-<span class="header-section-number">17.3.4</span> Warnings and extensions<a class="anchor" aria-label="anchor" href="#warnings-and-extensions"><i class="fas fa-link"></i></a>
-</h3>
+<p>This conditional distribution assigns topics depending on how often a term has been assigned to that topic previously, and how common the topic is in that document (<span class="citation">Steyvers and Griffiths (<a href="references-1.html#ref-SteyversGriffiths2006" role="doc-biblioref">2006</a>)</span>). The initial random allocation of topics means that the results of early passes through the corpus of document are poor, but given enough time the algorithm converges to an appropriate estimate.</p>
 <p>The choice of the number of topics, <em>k</em>, affects the results, and must be specified <em>a priori</em>. If there is a strong reason for a particular number, then this can be used. Otherwise, one way to choose an appropriate number is to use a test and training set process. Essentially, this means running the process on a variety of possible values for <em>k</em> and then picking an appropriate value that performs well.</p>
-<p>One weakness of the LDA method is that it considers a ‘bag of words’ where the order of those words does not matter (<span class="citation"><a href="references-1.html#ref-blei2012" role="doc-biblioref">Blei</a> (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>). It is possible to extend the model to reduce the impact of the bag-of-words assumption and add conditionality to word order. Additionally, alternatives to the Dirichlet distribution can be used to extend the model to allow for correlation. For instance, in Hansard topics related the army may be expected to be more commonly found with topics related to the navy, but less commonly with topics related to banking.</p>
-</div>
-</div>
-<div id="word-embedding" class="section level2" number="17.4">
-<h2>
-<span class="header-section-number">17.4</span> Word embedding<a class="anchor" aria-label="anchor" href="#word-embedding"><i class="fas fa-link"></i></a>
-</h2>
+<p>One weakness of the LDA method is that it considers a ‘bag of words’ where the order of those words does not matter (<span class="citation">Blei (<a href="references-1.html#ref-blei2012" role="doc-biblioref">2012</a>)</span>). It is possible to extend the model to reduce the impact of the bag-of-words assumption and add conditionality to word order. Additionally, alternatives to the Dirichlet distribution can be used to extend the model to allow for correlation. For instance, in Hansard topics related the army may be expected to be more commonly found with topics related to the navy, but less commonly with topics related to banking.</p>
+<!-- ## Word embedding -->
 <!-- ## Simulated example - categorising spending by merchant -->
 <!-- *Thank you to Josh Harris for discussions that led to this example. The code draws on Alexander and Leslie, 2019.* -->
 <!-- To begin with, let's pretend that we work for KOHO - a Toronto-based fintech. One important feature of the KOHO app is that it categorises your spending. For instance, buying a double-double from Tim Hortons could be categorised into "Eating out". This works because each merchant has a unique name, however that uniqueness means that the Tim Hortons at Sid Smith has a slightly different name to the Tim Hortons at Queen and John. Despite this slightly different name, we would like for them both to be classified as "Eating out".  -->
@@ -435,44 +576,23 @@ where <span class="math inline">\(z'_{d, n}\)</span> refers to all other topic a
 <!-- #                          alpha = 0.9) -->
 <!-- ``` -->
 </div>
-<div id="conclusion" class="section level2" number="17.5">
+<div id="exercises-and-tutorial-16" class="section level2" number="17.5">
 <h2>
-<span class="header-section-number">17.5</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.5</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-16"><i class="fas fa-link"></i></a>
 </h2>
-<p>Using text as data is exciting because of the quantity and variety of text that is available to us. In general, dealing with text datasets is messy. There is a lot of cleaning and preparation that is typically required. Often text datasets are large. As such, having a workflow in place, in which you work in a reproducible way, simulating data first, and then clearly communicating your findings becomes critical, if only to keep everything organised in your own mind. Nonetheless, it is an exciting area, and I encourage you to regularly use text analysis where possible.</p>
-<p>In terms of next steps there are two, related, concerns: data and analysis.</p>
-<p>In terms of data there are many places to get large amounts of text data relatively easily, including:</p>
-<ul>
-<li>The r package <code>rtweets</code> makes it easy to get Twitter data (although typically this is going to be looking forward from when you start using it, rather than being able to look back). Plenty of people at U of T work with Twitter data including Jia Xue in the iSchool, and Ludovic Rheault in political science.</li>
-<li>The inside Airbnb dataset that we used earlier provides text from reviews.</li>
-<li>We’ve seen the <code>gutenbergr</code> package already in these notes, which provides easy access to text from Project Gutenberg.</li>
-<li>We’ve seen scraping of Wikipedia, but if you are going to do a bit of this then you may find it better to use a package, for instance <code>WikipediR</code>.</li>
-</ul>
-<p>In terms of analysis:</p>
-<ul>
-<li>Start by going through the tidytext book, <code>tidytext</code>, as it has a lot of nice explanations, code, and examples.</li>
-<li>It would then be worthwhile working through the Quanteda package <code>quanteda</code> tutorials.</li>
-<li>Finally, consider packages such as <code>text2vec</code>, and <code>spacyr</code>.</li>
-</ul>
-</div>
-<div id="exercises-and-tutorial-16" class="section level2" number="17.6">
-<h2>
-<span class="header-section-number">17.6</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-16"><i class="fas fa-link"></i></a>
-</h2>
-<div id="exercises-16" class="section level3" number="17.6.1">
+<div id="exercises-16" class="section level3" number="17.5.1">
 <h3>
-<span class="header-section-number">17.6.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-16"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-16"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="tutorial-16" class="section level3" number="17.6.2">
+<div id="tutorial-16" class="section level3" number="17.5.2">
 <h3>
-<span class="header-section-number">17.6.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-16"><i class="fas fa-link"></i></a>
+<span class="header-section-number">17.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-16"><i class="fas fa-link"></i></a>
 </h3>
 
 </div>
 </div>
 </div>
-
 
 
 
@@ -484,21 +604,13 @@ where <span class="math inline">\(z'_{d, n}\)</span> refers to all other topic a
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#text-as-data"><span class="header-section-number">17</span> Text as data</a></li>
 <li><a class="nav-link" href="#introduction-14"><span class="header-section-number">17.1</span> Introduction</a></li>
-<li><a class="nav-link" href="#lasso-regression"><span class="header-section-number">17.2</span> Lasso regression</a></li>
+<li><a class="nav-link" href="#tf-idf"><span class="header-section-number">17.2</span> TF-IDF</a></li>
+<li><a class="nav-link" href="#lasso-regression"><span class="header-section-number">17.3</span> Lasso regression</a></li>
+<li><a class="nav-link" href="#topic-models"><span class="header-section-number">17.4</span> Topic models</a></li>
 <li>
-<a class="nav-link" href="#topic-models"><span class="header-section-number">17.3</span> Topic models</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#overview-5"><span class="header-section-number">17.3.1</span> Overview</a></li>
-<li><a class="nav-link" href="#document-generation-process"><span class="header-section-number">17.3.2</span> Document generation process</a></li>
-<li><a class="nav-link" href="#analysis-process"><span class="header-section-number">17.3.3</span> Analysis process</a></li>
-<li><a class="nav-link" href="#warnings-and-extensions"><span class="header-section-number">17.3.4</span> Warnings and extensions</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#word-embedding"><span class="header-section-number">17.4</span> Word embedding</a></li>
-<li><a class="nav-link" href="#conclusion"><span class="header-section-number">17.5</span> Conclusion</a></li>
-<li>
-<a class="nav-link" href="#exercises-and-tutorial-16"><span class="header-section-number">17.6</span> Exercises and tutorial</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercises-16"><span class="header-section-number">17.6.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#tutorial-16"><span class="header-section-number">17.6.2</span> Tutorial</a></li>
+<a class="nav-link" href="#exercises-and-tutorial-16"><span class="header-section-number">17.5</span> Exercises and tutorial</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-16"><span class="header-section-number">17.5.1</span> Exercises</a></li>
+<li><a class="nav-link" href="#tutorial-16"><span class="header-section-number">17.5.2</span> Tutorial</a></li>
 </ul>
 </li>
 </ul>
@@ -518,7 +630,7 @@ where <span class="math inline">\(z'_{d, n}\)</span> refers to all other topic a
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 23 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

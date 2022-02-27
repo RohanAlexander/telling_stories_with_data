@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 R essentials | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation,’ (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
+<meta name="description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation’, (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 R essentials | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation,’ (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
+<meta property="og:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation’, (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 R essentials | Telling Stories With Data">
-<meta name="twitter:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation,’ (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
+<meta name="twitter:description" content="Required material Read The Kitchen Counter Observatory, (Healy 2020) Read R for Data Science, Chapter 5 ‘Data transformation’, (Wickham and Grolemund 2017) Read Data Feminism, Chapter 6 ‘The...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -98,9 +98,9 @@
 <ul>
 <li>Read <em>The Kitchen Counter Observatory</em>, <span class="citation">(<a href="references-1.html#ref-kieranskitchen" role="doc-biblioref">Healy 2020</a>)</span>
 </li>
-<li>Read <em>R for Data Science</em>, Chapter 5 ‘Data transformation,’ <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
+<li>Read <em>R for Data Science</em>, Chapter 5 ‘Data transformation’, <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>)</span>
 </li>
-<li>Read <em>Data Feminism</em>, Chapter 6 ‘The Numbers Don’t Speak for Themselves,’ <span class="citation">(<a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">D’Ignazio and Klein 2020</a>)</span>
+<li>Read <em>Data Feminism</em>, Chapter 6 ‘The Numbers Don’t Speak for Themselves’, <span class="citation">(<a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">D’Ignazio and Klein 2020</a>)</span>
 </li>
 </ul>
 <p><strong>Key concepts and skills</strong></p>
@@ -202,7 +202,7 @@
 <p>Central to our use of the statistical programming language R is data, and most of the data that we use will have humans at the heart of it. Sometimes, dealing with human-centered data in this way can have a numbing effect, results in over-generalization, and potentially problematic work. Another sign of intellectual maturity is when it has the opposite effect.</p>
 <blockquote>
 <p>In practice, I find that far from distancing you from questions of meaning, quantitative data forces you to confront them. The numbers draw you in. Working with data like this is an unending exercise in humility, a constant compulsion to think through what you can and cannot see, and a standing invitation to understand what the measures really capture—what they mean, and for whom.</p>
-<p><span class="citation"><a href="references-1.html#ref-kieranskitchen" role="doc-biblioref">Healy</a> (<a href="references-1.html#ref-kieranskitchen" role="doc-biblioref">2020</a>)</span></p>
+<p><span class="citation">Healy (<a href="references-1.html#ref-kieranskitchen" role="doc-biblioref">2020</a>)</span></p>
 </blockquote>
 </div>
 <div id="broader-impacts" class="section level2" number="3.2">
@@ -242,7 +242,7 @@ Figure 3.1: Probability, from XKCD
 <p>Many people build on this stable base, to extend the capabilities of R to better and more quickly suit their needs. They do this by creating packages. Typically, although not always, a package is a collection of R code, mostly functions, and this allows us to more easily do things that we want to do. These packages are managed by repositories such as CRAN and Bioconductor.</p>
 <p>If you want to use a package then you first need to install it on your computer, and then you need to load it when you want to use it. Dr Di Cook, Professor of Business Analytics at Monash University, describes this as analogous to a lightbulb. If you want light in your house, first you need to fit a lightbulb, and then you need to turn the switch on. Installing a package, say, <code>install.packages("tidyverse")</code>, is akin to fitting a lightbulb into a socket—you only need to do this once for each lightbulb. But then each time you want light you need to turn on the switch to the lightbulb, which in the R packages case, means calling the library, say, <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>.</p>
 <blockquote>
-<p><strong>Shoulders of giants</strong> Dr Di Cook is Professor of Business Analytics at Monash University. After taking a PhD in statistics from Rutgers University in 1993 where she focused on statistical graphics, she was appointed as an assistant professor at Iowa State University, being promoted to full professor in 2005, and in 2015 she moved to Monash. One area of her research is data visualisation, especially interactive and dynamic graphics. One particularly important paper is <span class="citation"><a href="references-1.html#ref-buja1996interactive" role="doc-biblioref">Buja, Cook, and Swayne</a> (<a href="references-1.html#ref-buja1996interactive" role="doc-biblioref">1996</a>)</span> which proposes a taxonomy of interactive data visualization and associated software XGobi.</p>
+<p><strong>Shoulders of giants</strong> Dr Di Cook is Professor of Business Analytics at Monash University. After taking a PhD in statistics from Rutgers University in 1993 where she focused on statistical graphics, she was appointed as an assistant professor at Iowa State University, being promoted to full professor in 2005, and in 2015 she moved to Monash. One area of her research is data visualisation, especially interactive and dynamic graphics. One particularly important paper is <span class="citation">Buja, Cook, and Swayne (<a href="references-1.html#ref-buja1996interactive" role="doc-biblioref">1996</a>)</span> which proposes a taxonomy of interactive data visualization and associated software XGobi.</p>
 </blockquote>
 <p>To install a package on your computer (again, we will need to do this only once per computer) we use <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>.</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
@@ -265,7 +265,7 @@ Figure 3.1: Probability, from XKCD
 Figure 3.2: Opening R Studio for the first time
 </p>
 </div>
-<p>The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt ‘&gt;,’ typing ‘2+2,’ and then pressing ‘return/enter.’</p>
+<p>The left pane is a console in which you can type and execute R code line by line. Try it with 2+2 by clicking next to the prompt ‘&gt;’, typing ‘2+2’, and then pressing ‘return/enter’.</p>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span>
 <span class="co">#&gt; [1] 4</span></code></pre></div>
@@ -283,7 +283,7 @@ Figure 3.2: Opening R Studio for the first time
 <span class="header-section-number">3.3.3</span> R Studio Cloud<a class="anchor" aria-label="anchor" href="#r-studio-cloud"><i class="fas fa-link"></i></a>
 </h3>
 <p>While you can and should download R Studio to your own computer, initially we will use R Studio Cloud: <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a>. This is an online version that is provided by R Studio. We will use this so that you can focus on getting comfortable with R and R Studio in an environment that is consistent. This way you do not have to worry about what computer you have or installation permissions, amongst other things.</p>
-<p>The free version of R Studio Cloud is free as is ‘no financial cost.’ The trade-off is that it is not very powerful, and it is sometimes slow, but for the purposes of getting started it is enough.</p>
+<p>The free version of R Studio Cloud is free as is ‘no financial cost’. The trade-off is that it is not very powerful, and it is sometimes slow, but for the purposes of getting started it is enough.</p>
 </div>
 </div>
 <div id="getting-started" class="section level2" number="3.4">
@@ -312,7 +312,7 @@ Figure 3.2: Opening R Studio for the first time
 <span class="co">#&gt; 1 female     1</span>
 <span class="co">#&gt; 2 male      29</span></code></pre></div>
 <p>We can see that, as at the end of 2021, one female has been prime minister (Julia Gillard), while the other 29 prime ministers were male</p>
-<p>One critical operator when programming is the ‘pipe’: <code>|&gt;</code>. We read this as ‘and then.’ This takes the output of a line of code and uses it as the first input to the next line of code. It makes code easier to read.</p>
+<p>One critical operator when programming is the ‘pipe’: <code>|&gt;</code>. We read this as ‘and then’. This takes the output of a line of code and uses it as the first input to the next line of code. It makes code easier to read.</p>
 <p>The idea of the pipe is that we take a dataset, and then do something to it. We used this in the earlier example. Another example follows where we will look at the first six lines of a dataset by piping it to <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>. Notice that <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> does not explicitly take any arguments in this example. It knows which data to display because the pipe does it implicitly.</p>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">AustralianPoliticians</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/AustralianPoliticians/man/get_auspol.html">get_auspol</a></span><span class="op">(</span><span class="st">'all'</span><span class="op">)</span> |&gt; 
@@ -407,7 +407,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 4 Charles  </span>
 <span class="co">#&gt; 5 Joseph   </span>
 <span class="co">#&gt; 6 Anthony</span></code></pre></div>
-<p>In R, there are many ways to do things. Sometimes these are different ways to do the same thing, and other times they are different ways to do almost the same thing. For instance, another way to pick a particular column of a dataset is to use the ‘extract’ operator ‘$.’ This is from base, as opposed to <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> which is from the <code>tidyverse</code>.</p>
+<p>In R, there are many ways to do things. Sometimes these are different ways to do the same thing, and other times they are different ways to do almost the same thing. For instance, another way to pick a particular column of a dataset is to use the ‘extract’ operator ‘$’. This is from base, as opposed to <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> which is from the <code>tidyverse</code>.</p>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span><span class="op">$</span><span class="va">firstName</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
@@ -441,7 +441,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; #   member &lt;dbl&gt;, senator &lt;dbl&gt;, wasPrimeMinister &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   wikidataID &lt;chr&gt;, wikipedia &lt;chr&gt;, adb &lt;chr&gt;,</span>
 <span class="co">#&gt; #   comments &lt;chr&gt;</span></code></pre></div>
-<p>Finally, we can <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> based on conditions. For instance, we can <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> all of the columns that start with, say, ‘birth.’</p>
+<p>Finally, we can <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> based on conditions. For instance, we can <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> all of the columns that start with, say, ‘birth’.</p>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"birth"</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -508,7 +508,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; # … with 20 more rows, and 4 more variables:</span>
 <span class="co">#&gt; #   deathDate &lt;date&gt;, member &lt;dbl&gt;, senator &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   wasPrimeMinister &lt;dbl&gt;</span></code></pre></div>
-<p>We could also give <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> two conditions. For instance, we could look at politicians that become prime minister and were named Joseph, using the ‘and’ operator ‘&amp;.’</p>
+<p>We could also give <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> two conditions. For instance, we could look at politicians that become prime minister and were named Joseph, using the ‘and’ operator ‘&amp;’.</p>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">australian_politicians</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">wasPrimeMinister</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">firstName</span> <span class="op">==</span> <span class="st">"Joseph"</span><span class="op">)</span>
@@ -1070,7 +1070,7 @@ Figure 3.3: After running an R Script
 <span class="header-section-number">3.6.1</span> <code>class()</code><a class="anchor" aria-label="anchor" href="#class"><i class="fas fa-link"></i></a>
 </h3>
 <p>In everyday usage ‘a, b, c, …’ are letters and ‘1, 2, 3,…’ are numbers. And we use letters and numbers differently, for instance we do not add letters. Similarly, R needs to have some way of distinguishing different classes of content. And to define the properties that each class has, ‘how it behaves, and how it relates to other types of objects’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>.</p>
-<p>Classes have a hierarchy. For instance, we are ‘human,’ which is itself ‘animal.’ All ‘humans’ are ‘animals,’ but not all ‘animals’ are ‘humans.’ Similarly, all integers are numbers, but not all numbers are integers. We can find out the class of an object in R with <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>.</p>
+<p>Classes have a hierarchy. For instance, we are ‘human’, which is itself ‘animal’. All ‘humans’ are ‘animals’, but not all ‘animals’ are ‘humans’. Similarly, all integers are numbers, but not all numbers are integers. We can find out the class of an object in R with <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>.</p>
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
@@ -1079,8 +1079,8 @@ Figure 3.3: After running an R Script
 <span class="va">a_letter</span> <span class="op">&lt;-</span> <span class="st">"a"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_letter</span><span class="op">)</span>
 <span class="co">#&gt; [1] "character"</span></code></pre></div>
-<p>The classes that we cover here are ‘numeric,’ ‘character,’ ‘factor,’ ‘date,’ and ‘data.frame.’</p>
-<p>The first thing to know is that, in the same way that a frog can become a prince, we can sometimes change the class of an object in R. For instance, we could start with a ‘numeric,’ change it to a ‘character’ with <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>, and then a ‘factor’ with <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code>. But if we tried to make it into a date with <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> we would get an error because no all numbers have the properties that are needed to be a date.</p>
+<p>The classes that we cover here are ‘numeric’, ‘character’, ‘factor’, ‘date’, and ‘data.frame’.</p>
+<p>The first thing to know is that, in the same way that a frog can become a prince, we can sometimes change the class of an object in R. For instance, we could start with a ‘numeric’, change it to a ‘character’ with <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>, and then a ‘factor’ with <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code>. But if we tried to make it into a date with <code><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date()</a></code> we would get an error because no all numbers have the properties that are needed to be a date.</p>
 <div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">a_number</span> <span class="op">&lt;-</span> <span class="fl">8</span>
 <span class="va">a_number</span>
@@ -1100,7 +1100,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; Levels: 8</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">a_number</span><span class="op">)</span>
 <span class="co">#&gt; [1] "factor"</span></code></pre></div>
-<p>Compared with ‘numeric’ and ‘character’ classes, the ‘factor’ class might be less familiar. A ‘factor’ is used for categorical data that can only take certain values <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. For instance, typical usage of a factor variable would be a binary, such as ‘day’ or ‘night.’ It is also often used for age-groups, such as ‘18-29,’ ‘30-44,’ ‘45-60,’ ‘60+’ (as opposed to age, which would often be a ‘numeric’); and sometimes for level of education: ‘less than high school,’ ‘high school,’ ‘college,’ ‘undergraduate degree,’ ‘postgraduate degree.’ We can find the allowed levels for a ‘factor’ using <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code>.</p>
+<p>Compared with ‘numeric’ and ‘character’ classes, the ‘factor’ class might be less familiar. A ‘factor’ is used for categorical data that can only take certain values <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. For instance, typical usage of a factor variable would be a binary, such as ‘day’ or ‘night’. It is also often used for age-groups, such as ‘18-29’, ‘30-44’, ‘45-60’, ‘60+’ (as opposed to age, which would often be a ‘numeric’); and sometimes for level of education: ‘less than high school’, ‘high school’, ‘college’, ‘undergraduate degree’, ‘postgraduate degree’. We can find the allowed levels for a ‘factor’ using <code><a href="https://rdrr.io/r/base/levels.html">levels()</a></code>.</p>
 <div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">age_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'18-29'</span>, <span class="st">'30-44'</span>, <span class="st">'45-60'</span>, <span class="st">'60+'</span><span class="op">)</span>
@@ -1126,8 +1126,8 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; [1] "Date"</span>
 <span class="va">is_a_date</span> <span class="op">+</span> <span class="fl">3</span>
 <span class="co">#&gt; [1] "2022-01-04"</span></code></pre></div>
-<p>The final class that we discuss here is ‘data.frame.’ This looks like a spreadsheet and is commonly used to store the data that we will analyze. Formally, ‘a data frame is a list of equal-length vectors’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. It will have column and row names which we can see using <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> and <code><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames()</a></code>, although often the names of the rows are just numbers.</p>
-<p>To illustrate this, we use the ‘ResumeNames’ dataset from <code>AER</code> <span class="citation">(<a href="references-1.html#ref-citeaer" role="doc-biblioref">Kleiber and Zeileis 2008</a>)</span>. This package can be installed in the same way as any other package from CRAN. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by <span class="citation"><a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">Bertrand and Mullainathan</a> (<a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">2004</a>)</span> who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a ‘very African American sounding name or a very White sounding name.’ They found considerable discrimination whereby ‘White names receive 50 percent more callbacks for interviews.’</p>
+<p>The final class that we discuss here is ‘data.frame’. This looks like a spreadsheet and is commonly used to store the data that we will analyze. Formally, ‘a data frame is a list of equal-length vectors’ <span class="citation">(<a href="references-1.html#ref-advancedr" role="doc-biblioref">Wickham 2019a</a>)</span>. It will have column and row names which we can see using <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> and <code><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames()</a></code>, although often the names of the rows are just numbers.</p>
+<p>To illustrate this, we use the ‘ResumeNames’ dataset from <code>AER</code> <span class="citation">(<a href="references-1.html#ref-citeaer" role="doc-biblioref">Kleiber and Zeileis 2008</a>)</span>. This package can be installed in the same way as any other package from CRAN. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by <span class="citation">Bertrand and Mullainathan (<a href="references-1.html#ref-bertrand2004emily" role="doc-biblioref">2004</a>)</span> who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a ‘very African American sounding name or a very White sounding name’. They found considerable discrimination whereby ‘White names receive 50 percent more callbacks for interviews’.</p>
 <div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"AER"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
@@ -1243,7 +1243,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; [1] "factor"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ResumeNames</span><span class="op">$</span><span class="va">ethnicity</span><span class="op">)</span>
 <span class="co">#&gt; [1] "factor"</span></code></pre></div>
-<p>There are many ways for code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be ‘character’ or ‘numeric,’ actually being ‘factor.’ And variables that we think should be ‘numeric’ actually being ‘character.’</p>
+<p>There are many ways for code to not run but having an issue with the class is always among the first things to check. Common issues are variables that we think should be ‘character’ or ‘numeric’, actually being ‘factor’. And variables that we think should be ‘numeric’ actually being ‘character’.</p>
 </div>
 <div id="simulating-data" class="section level3" number="3.6.2">
 <h3>
@@ -1321,7 +1321,7 @@ Figure 3.3: After running an R Script
 <span class="co">#&gt; 3                     1      3             -1.78216227</span>
 <span class="co">#&gt; 4                     1      4             -1.12242282</span>
 <span class="co">#&gt; 5                     1      5             -1.00278400</span></code></pre></div>
-<p>We set the option ‘replace’ to ‘TRUE’ because we are only choosing between two items, but each time we choose we want the possibility that either are chosen. Depending on the simulation we may need to think about whether ‘replace’ should be ‘TRUE’ or ‘FALSE.’ Another useful optional argument in <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> is to adjust the probability with which each item is drawn. The default is that all options are equally likely, but we could specify particular probabilities if we wanted to with ‘prob.’ As always with functions, we can find more in the help file, for instance <code><a href="https://rdrr.io/r/base/sample.html">?sample</a></code>.</p>
+<p>We set the option ‘replace’ to ‘TRUE’ because we are only choosing between two items, but each time we choose we want the possibility that either are chosen. Depending on the simulation we may need to think about whether ‘replace’ should be ‘TRUE’ or ‘FALSE’. Another useful optional argument in <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> is to adjust the probability with which each item is drawn. The default is that all options are equally likely, but we could specify particular probabilities if we wanted to with ‘prob’. As always with functions, we can find more in the help file, for instance <code><a href="https://rdrr.io/r/base/sample.html">?sample</a></code>.</p>
 </div>
 <div id="function-for-and-apply" class="section level3" number="3.6.3">
 <h3>
@@ -1455,7 +1455,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat<span class="op">=</span><span class="st">"identity"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="03-r_essentials_files/figure-html/unnamed-chunk-69-1.png" width="672"></div>
-<p>We can color the bars by whether the country is European by adding another aesthetic, ‘fill.’</p>
+<p>We can color the bars by whether the country is European by adding another aesthetic, ‘fill’.</p>
 <div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">oecd_gdp_most_recent</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">LOCATION</span>, y <span class="op">=</span> <span class="va">Value</span>, fill <span class="op">=</span> <span class="va">european</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1499,7 +1499,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <li>String manipulation and <code>stringr</code>.</li>
 <li>Factor variables and <code>forcats</code>.</li>
 </ul>
-<p>However, the first task is to deal with the nomenclature, and in particular to be specific about what is ‘tidy’ about the ‘tidyverse.’ The name refers to tidy data, and the benefit of that is that while there are a variety of ways for data to be messy, tidy data satisfy three rules. This means the structure of the datasets consistent regardless of the specifics, and makes it easier to apply functions that expect certain types of input. Tidy data refers to a dataset where <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="references-1.html#ref-wickham2014tidy" role="doc-biblioref">Wickham 2014, 4</a>)</span>:</p>
+<p>However, the first task is to deal with the nomenclature, and in particular to be specific about what is ‘tidy’ about the ‘tidyverse’. The name refers to tidy data, and the benefit of that is that while there are a variety of ways for data to be messy, tidy data satisfy three rules. This means the structure of the datasets consistent regardless of the specifics, and makes it easier to apply functions that expect certain types of input. Tidy data refers to a dataset where <span class="citation">(<a href="references-1.html#ref-r4ds" role="doc-biblioref">Wickham and Grolemund 2017</a>; <a href="references-1.html#ref-wickham2014tidy" role="doc-biblioref">Wickham 2014, 4</a>)</span>:</p>
 <ul>
 <li>Every variable is in a column of its own.</li>
 <li>Every observation is in its own row.</li>
@@ -1630,7 +1630,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <p>There are a variety of ways to get data into R so that we can use it. For CSV files, there is <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from <code>readr</code> <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>, and for dta files, there is <code>read_dta()</code> from <code>haven</code> <span class="citation">(<a href="references-1.html#ref-citehaven" role="doc-biblioref">Wickham and Miller 2020</a>)</span>.</p>
 <p>CSVs are a common format and have many advantages including the fact that they typically do not modify the data. Each column is separated by a comma, and each row is a record. We can provide <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> with a URL or a local file to read. There are a variety of different options that can be passed to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> including the ability to specify whether the dataset has column names, the types of the columns, and how many lines to skip. If we do not specify the types of the columns then <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> will make a guess by looking at the dataset.</p>
 <p>We use <code>read_dta()</code> to read .dta files, which are commonly produced by the statistical program Stata. This means that they are common in fields such as sociology, political science, and economics. This format separates the data from its labels and so we typically reunite these using <code>to_factor()</code> from <code>labelled</code> <span class="citation">(<a href="references-1.html#ref-citelabelled" role="doc-biblioref">Larmarange 2021</a>)</span>. <code>haven</code> is part of the <code>tidyverse</code>, but is not automatically loaded by default, in contrast to a package such as <code>ggplot2</code>, and so we would need to run <code><a href="https://haven.tidyverse.org">library(haven)</a></code>.</p>
-<p>Typically a dataset enters R as a ‘data.frame.’ While this can be useful, another helpful class for a dataset is ‘tibble.’ These can be created using <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> from the <code>tibble</code> package which is part of the <code>tidyverse</code>. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.</p>
+<p>Typically a dataset enters R as a ‘data.frame’. While this can be useful, another helpful class for a dataset is ‘tibble’. These can be created using <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> from the <code>tibble</code> package which is part of the <code>tidyverse</code>. A tibble is a data frame, with some particular changes that make it easier to work with, including not converting strings to factors by default, showing the class of columns, and printing nicely.</p>
 <p>We can make a tibble manually, if need be, for instance, when we simulate data. But we typically import data directly as a tibble, for instance, when we use <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
 <div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">people_as_dataframe</span> <span class="op">&lt;-</span> 
@@ -1759,7 +1759,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <h3>
 <span class="header-section-number">3.8.3</span> String manipulation and <code>stringr</code><a class="anchor" aria-label="anchor" href="#string-manipulation-and-stringr"><i class="fas fa-link"></i></a>
 </h3>
-<p>In R we often create a string with double quotes, although using single quotes works too. For instance <code>c("a", "b")</code> consists of two strings ‘a’ and ‘b,’ that are contained in a character vector. There are a variety of ways to manipulate strings in R and we focus on <code>stringr</code> <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>. This is automatically loaded when we load the <code>tidyverse</code>.</p>
+<p>In R we often create a string with double quotes, although using single quotes works too. For instance <code>c("a", "b")</code> consists of two strings ‘a’ and ‘b’, that are contained in a character vector. There are a variety of ways to manipulate strings in R and we focus on <code>stringr</code> <span class="citation">(<a href="references-1.html#ref-citestringr" role="doc-biblioref">Wickham 2019e</a>)</span>. This is automatically loaded when we load the <code>tidyverse</code>.</p>
 <p>If we want to look for whether a string contains certain content, then we can use <code><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect()</a></code>. And if we want to remove or change some particular content then we can use <code><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove()</a></code> or <code><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace()</a></code>.</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataset_of_strings</span> <span class="op">&lt;-</span> 
@@ -1904,7 +1904,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <li>‘Rohan’</li>
 </ol>
 </li>
-<li>Say we had a dataset with two columns: ‘name,’ and ‘age.’ Which verb should we use to pick just ‘name’ (pick one)?
+<li>Say we had a dataset with two columns: ‘name’, and ‘age’. Which verb should we use to pick just ‘name’ (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li><code>tidyverse::select()</code></li>
 <li><code>tidyverse::mutate()</code></li>
@@ -1965,7 +1965,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <li><code>mutate(exp_age = expon(age))</code></li>
 </ol>
 </li>
-<li>Assume a column called ‘age.’ Which line of code could create a column that contains the value from five rows above?
+<li>Assume a column called ‘age’. Which line of code could create a column that contains the value from five rows above?
 <ol style="list-style-type: lower-alpha">
 <li><code>mutate(five_before = lag(age))</code></li>
 <li><code>mutate(five_before = lead(age))</code></li>
@@ -1981,7 +1981,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <li>‘vector’</li>
 </ol>
 </li>
-<li>Which function would enable us to draw once from three options ‘blue, white, red,’ with 10 per cent probability on ‘blue’ and ‘white,’ and the remainder on ‘red?’
+<li>Which function would enable us to draw once from three options ‘blue, white, red’, with 10 per cent probability on ‘blue’ and ‘white’, and the remainder on ‘red’?
 <ol style="list-style-type: lower-alpha">
 <li><code>sample(c('blue', 'white', 'red'), prob = c(0.1, 0.1, 0.8))</code></li>
 <li><code>sample(c('blue', 'white', 'red'), size = 1)</code></li>
@@ -2015,7 +2015,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <p>I think we should be suspicious when we find ourselves attracted to data—very, very thin and weak data—that seem to justify beliefs that have held great currency in lots of societies throughout history, in a way that is conducive to the oppression of large segments of the population</p>
 <p>Amia Srinivasan, 22 September 2021</p>
 </blockquote>
-<p>Reflect on the quote from Amia Srinivasan, Chichele Professor of Social and Political Theory, All Souls College, Oxford, and <span class="citation"><a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">D’Ignazio and Klein</a> (<a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">2020</a>)</span>, especially Chapter 6, and spend at least two pages discussing them in relation to a dataset that you are familiar with.</p>
+<p>Reflect on the quote from Amia Srinivasan, Chichele Professor of Social and Political Theory, All Souls College, Oxford, and <span class="citation">D’Ignazio and Klein (<a href="references-1.html#ref-datafeminism2020" role="doc-biblioref">2020</a>)</span>, especially Chapter 6, and spend at least two pages discussing them in relation to a dataset that you are familiar with.</p>
 
 </div>
 </div>
@@ -2085,7 +2085,7 @@ We define a function using <code>function()</code>, and then assign a name. We w
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 23 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

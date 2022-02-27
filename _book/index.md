@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "23 February, 2022"
+date: "26 February, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -139,6 +139,8 @@ Thank you to an anonymous reviewer and Isabella Ghement, who thoroughly went thr
 Thank you to Hareem Naveed for helpful feedback and encouragement. Her industry experience was an invaluable resource as I grappled with questions of coverage and focus.
 
 Thank you to Leslie Root, who came up with the idea around 'Oh, you think we have good data on that!'.
+
+Thank you to Lauren Kennedy through whose generous sharing of code, data, and countless conversations my thoughts about MRP have developed.
 
 Thank you to my PhD supervisory panel John Tang, Martine Mariotti, Tim Hatton, and Zach Ward who gave me the freedom to explore the intellectual space that was of interest to me, the support to follow through on those interests, and the guidance to ensure that it all resulted in something tangible.
 

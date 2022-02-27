@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 Exploratory data analysis | Telling Stories With Data</title>
 <meta name="author" content="Rohan Alexander">
-<meta name="description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations,’ (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
+<meta name="description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations’, (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/tellingstorieswithdatapainting.png">
-<meta property="og:description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations,’ (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
+<meta property="og:description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations’, (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 Exploratory data analysis | Telling Stories With Data">
-<meta name="twitter:description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations,’ (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
+<meta name="twitter:description" content="Required material Read The Future of Data Analysis, Part 1 ‘General Considerations’, (Tukey 1962). Key concepts and skills Quickly coming to terms with a new dataset by constructing graphs and...">
 <meta name="twitter:image" content="/tellingstorieswithdatapainting.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -96,7 +96,7 @@
 </h1>
 <p><strong>Required material</strong></p>
 <ul>
-<li>Read <em>The Future of Data Analysis</em>, Part 1 ‘General Considerations,’ <span class="citation">(<a href="references-1.html#ref-tukey1962future" role="doc-biblioref">Tukey 1962</a>)</span>.</li>
+<li>Read <em>The Future of Data Analysis</em>, Part 1 ‘General Considerations’, <span class="citation">(<a href="references-1.html#ref-tukey1962future" role="doc-biblioref">Tukey 1962</a>)</span>.</li>
 </ul>
 <!-- - DiCiccio, Thomas J., and Mary E. Thompson, 2004, 'A Conversation with Donald A. S. Fraser', *Statistical Science*, 19 (2) pp. 370-386, https://utstat.toronto.edu/craiu/DonFraser_SSInterview.pdf. --><!-- - Silge, Julia, 2018, 'Understanding PCA using Stack Overflow data', https://juliasilge.com/blog/stack-overflow-pca/. --><p><strong>Key concepts and skills</strong></p>
 <ul>
@@ -167,7 +167,7 @@
 </h2>
 <blockquote>
 <p>The future of data analysis can involve great progress, the overcoming of real difficulties, and the provision of a great service to all fields of science and technology. Will it? That remains to us, to our willingness to take up the rocky road of real problems in preference to the smooth road of unreal assumptions, arbitrary criteria, and abstract results without real attachments. Who is for the challenge?</p>
-<p><span class="citation"><a href="references-1.html#ref-tukey1962future" role="doc-biblioref">Tukey</a> (<a href="references-1.html#ref-tukey1962future" role="doc-biblioref">1962, 64</a>)</span>.</p>
+<p><span class="citation">Tukey (<a href="references-1.html#ref-tukey1962future" role="doc-biblioref">1962, 64</a>)</span>.</p>
 </blockquote>
 <p>Exploratory data analysis is never finished, you just die. It is the active process of exploring and becoming familiar with our data. Like a farmer with their hands in the earth, we need to know every contour and aspect of our data. We need to know how it changes, what it shows, hides, and what are its limits. Exploratory data analysis (EDA) is the unstructured process of doing this.</p>
 <p>EDA is a means to an end. While it will inform the entire paper, especially the data section, it is not typically something that ends up in the final paper.
@@ -211,7 +211,7 @@ then save them.</p>
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span>, <span class="st">"all_2020_ttc_data.csv"</span><span class="op">)</span>
 
 <span class="va">all_2020_ttc_data</span></code></pre></div>
-<p>The dataset has a variety of columns, and we can find out more about each of them by downloading the codebook. The reason for the delay is coded, and so we can also download the explanations. One particular variable of interest appears to be ‘min_delay,’ which gives the extent of the delay in minutes.</p>
+<p>The dataset has a variety of columns, and we can find out more about each of them by downloading the codebook. The reason for the delay is coded, and so we can also download the explanations. One particular variable of interest appears to be ‘min_delay’, which gives the extent of the delay in minutes.</p>
 <div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Data codebook</span>
 <span class="va">delay_data_codebook</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="st">"54247e39-5a7d-40db-a137-82b2a9ab0708"</span><span class="op">)</span>
@@ -309,7 +309,7 @@ then save them.</p>
 <code class="sourceCode R">
 <span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
-<p>In this case we have many missing values in ‘bound’ and two in ‘line.’ For these known-unknowns, we are interested in whether the they are missing at random. We want to, ideally, show that data happened to just drop out. This is unlikely, and so we are usually trying to look at what is systematic about how our data are missing.</p>
+<p>In this case we have many missing values in ‘bound’ and two in ‘line’. For these known-unknowns, we are interested in whether the they are missing at random. We want to, ideally, show that data happened to just drop out. This is unlikely, and so we are usually trying to look at what is systematic about how our data are missing.</p>
 <p>Sometime data happen to be duplicated. If we did not notice this then our analysis would be wrong in ways that we’d not be able to consistently expect. There are a variety of ways to look for duplicated rows, but <code><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> is especially useful.</p>
 <div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span><span class="op">)</span>
@@ -347,7 +347,7 @@ then save them.</p>
 <h3>
 <span class="header-section-number">13.2.2</span> Visualizing data<a class="anchor" aria-label="anchor" href="#visualizing-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>We need to see the data in its original state to understand it and we use bar charts, scatterplots, line plots and histograms extensively for this. During EDA we are not as concerned with whether the graph is aesthetically pleasing, but are instead trying to acquire a sense of the data as quickly as possible. We can start by looking at the distribution of ‘min_delay,’ which is one outcome of interest.</p>
+<p>We need to see the data in its original state to understand it and we use bar charts, scatterplots, line plots and histograms extensively for this. During EDA we are not as concerned with whether the graph is aesthetically pleasing, but are instead trying to acquire a sense of the data as quickly as possible. We can start by looking at the distribution of ‘min_delay’, which is one outcome of interest.</p>
 <div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
@@ -386,7 +386,7 @@ then save them.</p>
     code_desc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">code_desc_srt</span><span class="op">)</span>, <span class="va">code_desc</span>, <span class="va">code_desc_srt</span><span class="op">)</span>
   <span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">code_srt</span>,<span class="op">-</span><span class="va">code_desc_srt</span><span class="op">)</span></code></pre></div>
-<p>And so we can see that the 450 minute delay was due to ‘Transit Control Related Problems,’ the 446 minute delay was due to ‘Miscellaneous Other,’ they seem to be outliers, even among the outliers.</p>
+<p>And so we can see that the 450 minute delay was due to ‘Transit Control Related Problems’, the 446 minute delay was due to ‘Miscellaneous Other’, they seem to be outliers, even among the outliers.</p>
 <div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">delay_codes</span> |&gt; 
@@ -415,7 +415,7 @@ then save them.</p>
 <h3>
 <span class="header-section-number">13.2.3</span> Groups of small counts<a class="anchor" aria-label="anchor" href="#groups-of-small-counts"><i class="fas fa-link"></i></a>
 </h3>
-<p>Another thing that we are looking for is various groupings of the data, especially where sub-groups may end up with only a small numbers of observations in them. This is because any analysis could be especially influenced by them. One quick way to do this is to group the data by a variable that is of interest, for instance ‘line,’ using color.</p>
+<p>Another thing that we are looking for is various groupings of the data, especially where sub-groups may end up with only a small numbers of observations in them. This is because any analysis could be especially influenced by them. One quick way to do this is to group the data by a variable that is of interest, for instance ‘line’, using color.</p>
 <div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">all_2020_ttc_data</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span>, y <span class="op">=</span> <span class="va">..density..</span>, fill <span class="op">=</span> <span class="va">line</span><span class="op">)</span>, 
@@ -998,7 +998,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="co">#&gt; #   room_type &lt;chr&gt;, bathrooms &lt;lgl&gt;, bedrooms &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   price &lt;chr&gt;, number_of_reviews &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   has_availability &lt;lgl&gt;, review_scores_rating &lt;dbl&gt;, …</span></code></pre></div>
-<p>First we might be interested in price. It is a character at the moment and so we need to convert it to a numeric. This is a common problem, and we need to be a little careful that it does not all just convert to NAs. In our case if we just force the price data to be a numeric then it will go to NA because there are a lot of characters where it is unclear what the numeric equivalent is, such as ‘$.’ So we need to remove those characters first.</p>
+<p>First we might be interested in price. It is a character at the moment and so we need to convert it to a numeric. This is a common problem, and we need to be a little careful that it does not all just convert to NAs. In our case if we just force the price data to be a numeric then it will go to NA because there are a lot of characters where it is unclear what the numeric equivalent is, such as ‘$’. So we need to remove those characters first.</p>
 <div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span><span class="op">$</span><span class="va">price</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "$469.00" "$96.00"  "$64.00"  "$70.00"  "$45.00" </span>
@@ -1137,7 +1137,7 @@ Figure 13.10: Distribution of prices less than $1000 for Toronto Airbnb rentals 
 Figure 13.11: Distribution of review scores rating for Toronto Airbnb rentals in January 2021
 </p>
 </div>
-<p>We would like to deal with the NAs in ‘review_scores_rating,’ but this is more complicated as there are a lot of them. It may be that this is just because they do not have any reviews.</p>
+<p>We would like to deal with the NAs in ‘review_scores_rating’, but this is more complicated as there are a lot of them. It may be that this is just because they do not have any reviews.</p>
 <div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -1512,7 +1512,7 @@ F
 <li>In your own words what is exploratory data analysis (this will be difficult, but please write only one nuanced paragraph)?</li>
 <li>In Tukey’s words, what is exploratory data analysis (please write one paragraph)?</li>
 <li>Who was Tukey (please write a paragraph or two)?</li>
-<li>If you have a dataset called ‘my_data,’ which has two columns: ‘first_col’ and ‘second_col,’ then could you please write some rough R code that would generate a graph (the type of graph does not matter).</li>
+<li>If you have a dataset called ‘my_data’, which has two columns: ‘first_col’ and ‘second_col’, then could you please write some rough R code that would generate a graph (the type of graph does not matter).</li>
 <li>Consider a dataset that has 500 rows and 3 columns, so there are 1,500 cells. If 100 of the cells are missing data for at least one of the columns, then would you remove the whole row your dataset or try to run your analysis on the data as is, or some other procedure? What if your dataset had 10,000 rows instead, but the same number of missing cells?</li>
 <li>Please note three ways of identifying unusual values.</li>
 <li>What is the difference between a categorical and continuous variable?</li>
@@ -1530,7 +1530,7 @@ F
 </li>
 <li>Name three geoms that produce graphs that have bars on them <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>.</li>
 <li>Consider a dataset 10,000 observations and 27 variables. For each observation, there is at least one missing variable. Please discuss, in a paragraph or two, the steps that you would take to understand what is going on.</li>
-<li>Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at <span class="citation"><a href="references-1.html#ref-mcclelland2019lock" role="doc-biblioref">McClelland</a> (<a href="references-1.html#ref-mcclelland2019lock" role="doc-biblioref">2019</a>)</span> and <span class="citation"><a href="references-1.html#ref-luscombe2020policing" role="doc-biblioref">Luscombe and McClelland</a> (<a href="references-1.html#ref-luscombe2020policing" role="doc-biblioref">2020</a>)</span>. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about?</li>
+<li>Known missing data, are those that leave holes in your dataset. But what about data that were never collected? Please look at <span class="citation">McClelland (<a href="references-1.html#ref-mcclelland2019lock" role="doc-biblioref">2019</a>)</span> and <span class="citation">Luscombe and McClelland (<a href="references-1.html#ref-luscombe2020policing" role="doc-biblioref">2020</a>)</span>. Look into how they gathered their dataset and what it took to put this together. What is in the dataset and why? What is missing and why? How could this affect the results? How might similar biases enter into other datasets that you have used or read about?</li>
 </ol>
 </div>
 <div id="tutorial-12" class="section level3" number="13.4.2">
@@ -1589,7 +1589,7 @@ F
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 23 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

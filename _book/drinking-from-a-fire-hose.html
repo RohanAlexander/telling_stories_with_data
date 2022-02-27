@@ -173,7 +173,7 @@
 The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (using R Studio Cloud if you are new to R and do not have it installed on your own computer), and execute it all. It is important, and normal, to realize that it will be challenging at the start.</p>
 <blockquote>
 <p>Whenever you’re learning a new tool, for a long time, you’re going to suck… But the good news is that is typical; that’s something that happens to everyone, and it’s only temporary.</p>
-<p>Hadley Wickham as quoted by <span class="citation"><a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett</a> (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>.</p>
+<p>Hadley Wickham as quoted by <span class="citation">Barrett (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>.</p>
 </blockquote>
 <p>You will be guided thoroughly here. Hopefully by experiencing the power of telling stories with data, you will feel empowered to stick with it.</p>
 <p>To get started, go to R Studio Cloud – <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> – and create an account. As we are not doing anything too involved the free version will be fine for now. Once you have an account and log in, then it should look something like Figure <a href="drinking-from-a-fire-hose.html#fig:second">2.1</a>.</p>
@@ -183,14 +183,14 @@ The only way to learn how to tell stories, is to start telling stories yourself.
 Figure 2.1: Opening R Studio Cloud for the first time
 </p>
 </div>
-<p>(You will be in ‘Your Workspace,’ and you will not have an ‘Example Workspace.’) From here you should start a ‘New Project.’ You can give the project a name by clicking on ‘Untitled Project’ and replacing it.</p>
+<p>(You will be in ‘Your Workspace’, and you will not have an ‘Example Workspace’.) From here you should start a ‘New Project’. You can give the project a name by clicking on ‘Untitled Project’ and replacing it.</p>
 <p>We will now go through three worked examples: Canadian elections, Toronto homelessness, and neonatal mortality. These examples build increasing complexity, but from the first one, we will be telling a story with data.</p>
 </div>
 <div id="canadian-elections" class="section level2" number="2.2">
 <h2>
 <span class="header-section-number">2.2</span> Canadian elections<a class="anchor" aria-label="anchor" href="#canadian-elections"><i class="fas fa-link"></i></a>
 </h2>
-<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Conservative’ – three minor parties – ‘Bloc Québécois,’ ‘New Democratic,’ and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
+<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Conservative’ – three minor parties – ‘Bloc Québécois’, ‘New Democratic’, and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
 <div id="plan" class="section level3" number="2.2.1">
 <h3>
 <span class="header-section-number">2.2.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan"><i class="fas fa-link"></i></a>
@@ -224,7 +224,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <li>when the file was written or last updated; and</li>
 <li>pre-requisites that the file relies on.</li>
 </ul>
-<p>In R, lines that start with ‘#’ are comments. This means that they are not run as code by R, but are instead designed to be read by humans. Each line of this preamble should start with a ‘#.’ Also make it clear that this is the preamble section by surrounding that with ‘####.’</p>
+<p>In R, lines that start with ‘#’ are comments. This means that they are not run as code by R, but are instead designed to be read by humans. Each line of this preamble should start with a ‘#’. Also make it clear that this is the preamble section by surrounding that with ‘####’.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
 <span class="co"># Purpose: Read in data from the 2019 Canadian Election and make a</span>
@@ -251,7 +251,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span> <span class="co"># Helps clean datasets</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co"># Helps make tidy datasets</span></code></pre></div>
 <p>All packages contain a help file that provides information about them and their functions. It can be accessed by appending a question mark before the package name and then running that code. For instance <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse-package.html">?tidyverse</a></code>.</p>
-<p>To simulate our data, we need to create a dataset with two columns: ‘Riding’ and ‘Party,’ and some values for each. In the case of ‘Riding’ reasonable values would be a name of one of the 338 Canadian ridings. In the case of ‘Party’ reasonable values would be one of the following six: ‘Liberal,’ ‘Conservative,’ ‘Bloc Québécois,’ ‘New Democratic,’ ‘Green,’ ‘Other.’ Again, this code can be run by clicking the small green arrow associated with the R code chunk.</p>
+<p>To simulate our data, we need to create a dataset with two columns: ‘Riding’ and ‘Party’, and some values for each. In the case of ‘Riding’ reasonable values would be a name of one of the 338 Canadian ridings. In the case of ‘Party’ reasonable values would be one of the following six: ‘Liberal’, ‘Conservative’, ‘Bloc Québécois’, ‘New Democratic’, ‘Green’, ‘Other’. Again, this code can be run by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
@@ -275,15 +275,15 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; # A tibble: 338 × 2</span>
 <span class="co">#&gt;    Riding Party         </span>
 <span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 Green         </span>
-<span class="co">#&gt;  2      2 Green         </span>
-<span class="co">#&gt;  3      3 Liberal       </span>
-<span class="co">#&gt;  4      4 Liberal       </span>
-<span class="co">#&gt;  5      5 Conservative  </span>
-<span class="co">#&gt;  6      6 Conservative  </span>
-<span class="co">#&gt;  7      7 New Democratic</span>
-<span class="co">#&gt;  8      8 Bloc Québécois</span>
-<span class="co">#&gt;  9      9 Conservative  </span>
+<span class="co">#&gt;  1      1 Liberal       </span>
+<span class="co">#&gt;  2      2 Other         </span>
+<span class="co">#&gt;  3      3 Conservative  </span>
+<span class="co">#&gt;  4      4 Bloc Québécois</span>
+<span class="co">#&gt;  5      5 Liberal       </span>
+<span class="co">#&gt;  6      6 Liberal       </span>
+<span class="co">#&gt;  7      7 Bloc Québécois</span>
+<span class="co">#&gt;  8      8 New Democratic</span>
+<span class="co">#&gt;  9      9 Bloc Québécois</span>
 <span class="co">#&gt; 10     10 Conservative  </span>
 <span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
 </div>
@@ -291,7 +291,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <h3>
 <span class="header-section-number">2.2.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now we want to get the actual data. The data we need is from Elections Canada, which is the non-partisan agency that organizes Canadian Federal elections. We can pass a website to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>. We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>. The ‘&lt;-’ or ‘assignment operator’ is allocating the output of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to an object called ‘raw_elections_data.’</p>
+<p>Now we want to get the actual data. The data we need is from Elections Canada, which is the non-partisan agency that organizes Canadian Federal elections. We can pass a website to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>. We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>. The ‘&lt;-’ or ‘assignment operator’ is allocating the output of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to an object called ‘raw_elections_data’.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Read in the data ####</span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
@@ -343,7 +343,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; #   `Rejected Ballots/Bulletins rejetés` &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   `Total Ballots Cast/Total des bulletins déposés` &lt;dbl&gt;, …</span></code></pre></div>
-<p>We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> which changes the names into ‘snake_case.’</p>
+<p>We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> which changes the names into ‘snake_case’.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Basic cleaning ####</span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
@@ -374,7 +374,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; #   percentage_of_rejected_ballots_pourcentage_des_bulletins_rejetes &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   total_ballots_cast_total_des_bulletins_deposes &lt;dbl&gt;, …</span></code></pre></div>
 <p>The names are faster to type because R Studio will auto-complete them. To do this, we begin typing the name of a column and then use ‘tab’ to auto-complete it.</p>
-<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription,’ and ‘elected_candidate_candidat_elu.’ We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> which we loaded as part of the <code>tidyverse</code>. The ‘pipe operator,’ <code>|&gt;</code>, pushes the output of one line to be the first input of the function on the next line.</p>
+<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription’, and ‘elected_candidate_candidat_elu’. We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> which we loaded as part of the <code>tidyverse</code>. The ‘pipe operator’, <code>|&gt;</code>, pushes the output of one line to be the first input of the function on the next line.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
@@ -507,7 +507,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="co">#&gt; 4 Liberal          157</span>
 <span class="co">#&gt; 5 New Democratic    24</span>
 <span class="co">#&gt; 6 Other              1</span></code></pre></div>
-<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that we build graphs by adding layers using ‘+,’ which we call the ‘add operator.’ In particular we will create a bar chart using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
+<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that we build graphs by adding layers using ‘+’, which we call the ‘add operator’. In particular we will create a bar chart using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># aes abbreviates aesthetics and enables us </span>
@@ -536,7 +536,7 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 </h3>
 <p>To this point we have downloaded some data, cleaned it, and made a graph. We would typically need to communicate what we have done at some length. In this case, we can write a few paragraphs about what we did, why we did it, and what we found. An example follows.</p>
 <blockquote>
-<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the house that forms government. There are two major parties—‘Liberal’ and ‘Conservative’—three minor parties—‘Bloc Québécois,’ ‘New Democratic,’ and ‘Green’—and many smaller parties. The 2019 Federal Election occurred on 21 October, and more than 17 million votes were cast. We were interested in the number of seats that were won by each party.</p>
+<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the house that forms government. There are two major parties—‘Liberal’ and ‘Conservative’—three minor parties—‘Bloc Québécois’, ‘New Democratic’, and ‘Green’—and many smaller parties. The 2019 Federal Election occurred on 21 October, and more than 17 million votes were cast. We were interested in the number of seats that were won by each party.</p>
 <p>We downloaded the results, on a seat-specific basis, from the Elections Canada website. We cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span> and <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. We then created a graph of the number of seats that each political party won (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.4</a>).</p>
 <p>We found that the Liberal Party won 157 seats, followed by the Conservative Party with 121 seats. The minor parties won the following number of seats: Bloc Québécois, 32 seats, New Democratic Party, 24 seats, and the Green Party, 3 seats. Finally, one independent candidate won a seat.</p>
 <p>The distribution of seats is skewed toward the two major parties which could reflect relatively stable preferences on the part of Canadian voters, or possibly inertia due to the benefits of already being a major party such a national network and funding, or some other reason. A better understanding the reasons for this distribution are of interest in future work. While the dataset consists of everyone who voted, it worth noting that in Canada some are systematically excluded from voting; and it is much difficult for some to vote than others.</p>
@@ -636,7 +636,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt;     pages = {1686},</span>
 <span class="co">#&gt;     doi = {10.21105/joss.01686},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
-<p>Turning to the simulation, we need three columns: ‘date,’ ‘shelter,’ and ‘occupancy.’ This example will build on the earlier one by adding a seed using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>. A seed enables us to always generate the same random data. Any integer can be used as the seed. In this case the seed will be 853. If you use that as your seed, then you should get the same random numbers as in this example. If you use a different seed, then you should expect different random numbers. Finally, we use <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> to repeat something a certain number of times. For instance, we repeat ‘Shelter 1,’ 184 times which accounts for half a year.</p>
+<p>Turning to the simulation, we need three columns: ‘date’, ‘shelter’, and ‘occupancy’. This example will build on the earlier one by adding a seed using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>. A seed enables us to always generate the same random data. Any integer can be used as the seed. In this case the seed will be 853. If you use that as your seed, then you should get the same random numbers as in this example. If you use a different seed, then you should expect different random numbers. Finally, we use <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> to repeat something a certain number of times. For instance, we repeat ‘Shelter 1’, 184 times which accounts for half a year.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>   
@@ -973,7 +973,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <p>The result will be the same, but now if we want to change from fifty to sixty years is to make the change in one place.</p>
 <p>We can have confidence in this simulated dataset because it is relatively straight-forward, and we wrote the code for it. But when we turn to the real dataset, it is more difficult to be sure that it is what it claims to be. Even if we trust the data, it is important that we can share that confidence with others. One way forward is to establish some checks that prove our data are as they should be. For instance, we expect:</p>
 <ol style="list-style-type: decimal">
-<li>That ‘country’ is, and only is, one of these four: ‘Argentina,’ ‘Australia,’ ‘Canada,’ or ‘Kenya.’</li>
+<li>That ‘country’ is, and only is, one of these four: ‘Argentina’, ‘Australia’, ‘Canada’, or ‘Kenya’.</li>
 <li>Conversely, that ‘country’ contains all those four countries.</li>
 <li>That ‘year’ is no smaller than 1971 and no larger than 2020, and is a number, not a letter.</li>
 <li>That ‘nmr’ is a value somewhere between 0 and 1,000, and is a number.</li>
@@ -1059,7 +1059,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; [25] "LOWER_BOUND"            "UPPER_BOUND"           </span>
 <span class="co">#&gt; [27] "STATUS"                 "YEAR_TO_ACHIEVE"       </span>
 <span class="co">#&gt; [29] "Model Used"</span></code></pre></div>
-<p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our plan, we are interested in rows where ‘Sex’ is ‘Total,’ ‘Series Name’ is ‘UN IGME estimate,’ ‘Geographic area’ is one of ‘Argentina,’ ‘Australia,’ ‘Canada,’ and ‘Kenya,’ and the ‘Indicator’ is ‘Neonatal mortality rate.’ After this we are interested in just a few columns: ‘geographic_area,’ ‘time_period,’ and ‘obs_value.’</p>
+<p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our plan, we are interested in rows where ‘Sex’ is ‘Total’, ‘Series Name’ is ‘UN IGME estimate’, ‘Geographic area’ is one of ‘Argentina’, ‘Australia’, ‘Canada’, and ‘Kenya’, and the ‘Indicator’ is ‘Neonatal mortality rate’. After this we are interested in just a few columns: ‘geographic_area’, ‘time_period’, and ‘obs_value’.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span> |&gt; 
@@ -1175,7 +1175,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <p>Neonatal mortality refers to a death that occurs within the first month of life. In particular, the neonatal mortality rate (NMR) is the number of neonatal deaths per 1,000 live births <span class="citation">(<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema 2018</a>)</span>. We obtain estimates for NMR for four countries—Argentina, Australia, Canada, China, and Kenya—over the past fifty years.</p>
 <p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR at the website: <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a>. We downloaded their estimates then cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span>.</p>
 <p>We found considerable change in the estimated NMR over time and between the four countries of interest (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We found that the 1970s tended to be associated with reductions in the estimated NMR. Australia and Canada were estimated to have a low NMR at that point and remained there through 2020, with slight improvements. The estimates for Argentina and Kenya continued to have substantial reductions through 2020. Data were only available from 1990 for China and the estimates show a substantial reduction in the NMR, especially in the 1990s and 2000s.</p>
-<p>Our results suggest considerable improvements in estimated NMR over time. But it is worth emphasizing that estimates of the NMR are based on a statistical model and underlying data. The paradox of data availability is that often high-quality data are less easily available for countries with worse outcomes. For instance, <span class="citation"><a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema</a> (<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">2018</a>)</span> say ‘[t]here is large variability in the availability of data on neonatal mortality.’ Our conclusions are subject to the model that underpins the estimates, and the quality of the underlying data and we did not independently verify either of these.</p>
+<p>Our results suggest considerable improvements in estimated NMR over time. But it is worth emphasizing that estimates of the NMR are based on a statistical model and underlying data. The paradox of data availability is that often high-quality data are less easily available for countries with worse outcomes. For instance, <span class="citation">M. Alexander and Alkema (<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">2018</a>)</span> say ‘[t]here is large variability in the availability of data on neonatal mortality’. Our conclusions are subject to the model that underpins the estimates, and the quality of the underlying data and we did not independently verify either of these.</p>
 </blockquote>
 </div>
 </div>
@@ -1188,8 +1188,8 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <span class="header-section-number">2.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li>Following <span class="citation"><a href="references-1.html#ref-citeBarrett" role="doc-biblioref">Barrett</a> (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>, please write a stack of four or five atomic habits that you could implement this week.</li>
-<li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation"><a href="references-1.html#ref-hao2019" role="doc-biblioref">Hao</a> (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
+<li>Following <span class="citation">Barrett (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>, please write a stack of four or five atomic habits that you could implement this week.</li>
+<li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation">Hao (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>Unknown unknowns.</li>
 <li>Imperfect processes.</li>
@@ -1198,7 +1198,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <li>Disinterest given profit considerations.</li>
 </ol>
 </li>
-<li>When was the dataset that underpins <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> collected (pick one)?
+<li>When was the dataset that underpins <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> collected (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>August 1983 to August 1984</li>
 <li>January 1983 to August 1984</li>
@@ -1206,8 +1206,8 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <li>August 1983 to January 1984</li>
 </ol>
 </li>
-<li>When <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> talks of stratification, what is he talking about?</li>
-<li>How does <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> define ‘excellence’ (pick one)?
+<li>When <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> talks of stratification, what is he talking about?</li>
+<li>How does <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span> define ‘excellence’ (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>Prolonged performance at world-class level.</li>
 <li>All Olympic medal winners.</li>
@@ -1215,7 +1215,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <li>All national-level athletes.</li>
 </ol>
 </li>
-<li>Think about the following quote from <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989, 81</a>)</span> and list three small skills or activities that could help you achieve excellence in data science.</li>
+<li>Think about the following quote from <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989, 81</a>)</span> and list three small skills or activities that could help you achieve excellence in data science.</li>
 </ol>
 <blockquote>
 <p>Excellence is mundane. Superlative performance is really a confluence of dozens of small skills or activities, each one learned or stumbled upon, which have been carefully drilled into habit and then are fitted together in a synthesized whole. There is nothing extraordinary or super-human in any one of those actions; only the fact that they are done consistently and correctly, and all together, produce excellence.</p>
@@ -1245,7 +1245,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 </li>
 </ol>
 </li>
-<li>What is the result of <code>sample(x = letters, size = 2)</code> when the seed is set to ‘853?’ What about when the seed is set to ‘1234’ (pick one)?
+<li>What is the result of <code>sample(x = letters, size = 2)</code> when the seed is set to ‘853’? What about when the seed is set to ‘1234’ (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>‘“i” “q”’ and ‘“p” “v”’</li>
 <li>‘“e” “l”’ and ‘“e” “r”’</li>
@@ -1292,7 +1292,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 </li>
 <li>What are some features that we might typically expect of a column that claimed to be a year (select all that apply)?
 <ol style="list-style-type: lower-alpha">
-<li>The class is ‘character.’</li>
+<li>The class is ‘character’.</li>
 <li>There are no negative numbers.</li>
 <li>There are letters in the column.</li>
 <li>Each entry has four digits.</li>
@@ -1307,7 +1307,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <ol style="list-style-type: decimal">
 <li>Please pick either the seed-growing, or hair-length, example from Chapter <a href="telling-stories-with-data.html#telling-stories-with-data">1</a>. You should have already started to record some data, but you probably do not have much of it. First sketch an example of what the dataset could look like. Please use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to create a tibble that has twelve weeks’ worth of simulated data.</li>
 <li>Pretend that the dataset that you just generated is the actual data that you end up with. Please write a page or so to communicate what you did, why, and what you found.</li>
-<li>Reflecting on <span class="citation"><a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">Chambliss</a> (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span>, please write a page or so about stratification and excellence as it relates to using programming languages, such as R or Python, for data science.</li>
+<li>Reflecting on <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span>, please write a page or so about stratification and excellence as it relates to using programming languages, such as R or Python, for data science.</li>
 </ol>
 </div>
 </div>
@@ -1370,7 +1370,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 23 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

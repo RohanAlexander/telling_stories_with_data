@@ -20,23 +20,27 @@
 
 **Key libraries**
 
-- `broom`
-- `estimatr`
-- `haven`
-- `rdrobust`
-- `scales`
+- `broom` [@broom]
+- `DiagrammeR` [@citeDiagrammeR]
+- `estimatr` [estimatr]
+- `haven` [citehaven]
+- `MatchIt` [@MatchIt]
+- `modelsummary` [@citemodelsummary]
+- `rdrobust` [@rdrobust]
+- `scales` [@scales]
 - `tidyverse` [@Wickham2017]
 
 **Key functions**
 
-- `dollar_format()`
-- `hux_reg()`
-- `iv_robust()`
-- `lm()`
-- `mutate_at()`
-- `rdrobust()()`
-- `read_dta()`
-- `tidy()`
+- `DiagrammeR::grViz()`
+- `estimatr::iv_robust()`
+- `haven::read_dta()`
+- `MatchIt::matchit()`
+- `modelsummary::datasummary_skim()`
+- `modelsummary::modelsummary()`
+- `poly()`
+- `rdrobust::rdrobust()`
+- `scales::dollar_format()`
 
 
 <!-- https://declaredesign.org/blog/2019-02-05-instrumental-variables.html -->
@@ -142,8 +146,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-f394c59ceb27a5b9482c" style="width:75%;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f394c59ceb27a5b9482c">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b763c9c1729a45ef9b0e" style="width:75%;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b763c9c1729a45ef9b0e">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
@@ -172,8 +176,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-e929f62fe2c63eaa5518" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e929f62fe2c63eaa5518">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fc6d72254b0cf0206b2b" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fc6d72254b0cf0206b2b">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasconfounder)A DAG showing Carrot as a confounder</p>
@@ -208,8 +212,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-5c8220084cdd24c66a0d" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5c8220084cdd24c66a0d">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-37367dbaaf882b4f8af6" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-37367dbaaf882b4f8af6">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasmediator)A DAG showing Carrot as a mediator</p>
@@ -240,8 +244,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-d8024e7d1eea98dd8684" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d8024e7d1eea98dd8684">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2130124a5e5251e3c111" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2130124a5e5251e3c111">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotascollider)A DAG showing Carrot as a collider</p>
@@ -878,7 +882,7 @@ datasummary_skim(newspapers,
 </table>
 
 
-We are interested in what happened from 1967 onward, especially in terms of advertising revenue, and whether that was different for national, compared with local newspapers (Figure \@ref(fig:frenchnewspapersrevenue)).
+We are interested in what happened from 1967 onward, especially in terms of advertising revenue, and whether that was different for national, compared with local newspapers (Figure \@ref(fig:frenchnewspapersrevenue)). We use `scales` to adjust the y axis [@scales].
 
 
 ```r

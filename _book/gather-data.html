@@ -190,13 +190,13 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 </p>
 </div>
 <p>The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include aspects such as rate limits (i.e. how often we can ask for data), and what we can do with the data, for instance, we might not be allowed to use it for commercial purposes, or to republish it. Additionally, because the API is being provided specifically for us to use it, it is less likely to be subject to unexpected changes or legal issues. Because of this it is ethically and legally clear that when an API is available we should try to use it rather than web scraping.</p>
-<p>We will now go through a few case studies of using APIs. In the first we deal directly with an API using <code>httr</code> <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019c</a>)</span>. In the second we access data from Twitter using <code>rtweet</code> <span class="citation">(<a href="references-1.html#ref-rtweet" role="doc-biblioref">Kearney 2019</a>)</span>. And in the third we access data from Spotify using <code>spotifyr</code> <span class="citation">(<a href="references-1.html#ref-spotifyr" role="doc-biblioref">Thompson et al. 2020</a>)</span>. Developing comfort with gathering data through APIs enables access to exciting datasets. For instance, <span class="citation"><a href="references-1.html#ref-facebookapitrump" role="doc-biblioref">Wong</a> (<a href="references-1.html#ref-facebookapitrump" role="doc-biblioref">2020</a>)</span> use the Facebook Political Ad API to gather all 218,100 of the Trump 2020 campaign ads to better understand the campaign.</p>
+<p>We will now go through a few case studies of using APIs. In the first we deal directly with an API using <code>httr</code> <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019c</a>)</span>. In the second we access data from Twitter using <code>rtweet</code> <span class="citation">(<a href="references-1.html#ref-rtweet" role="doc-biblioref">Kearney 2019</a>)</span>. And in the third we access data from Spotify using <code>spotifyr</code> <span class="citation">(<a href="references-1.html#ref-spotifyr" role="doc-biblioref">Thompson et al. 2020</a>)</span>. Developing comfort with gathering data through APIs enables access to exciting datasets. For instance, <span class="citation">Wong (<a href="references-1.html#ref-facebookapitrump" role="doc-biblioref">2020</a>)</span> use the Facebook Political Ad API to gather all 218,100 of the Trump 2020 campaign ads to better understand the campaign.</p>
 <div id="case-study-gathering-data-from-arxiv-nasa-and-dataverse" class="section level3" number="9.2.1">
 <h3>
 <span class="header-section-number">9.2.1</span> Case study: Gathering data from arXiv, NASA, and Dataverse<a class="anchor" aria-label="anchor" href="#case-study-gathering-data-from-arxiv-nasa-and-dataverse"><i class="fas fa-link"></i></a>
 </h3>
-<p>We use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> from <code>httr</code> <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019c</a>)</span> to obtain data from an API directly. This will try to get some specific data and the main argument is ‘url.’ In a way, this is very similar to the earlier Google Maps example. In that example, the specific information that we were interested in was a map.</p>
-<p>In this case study we will use an API provided by arXiv: <a href="https://arxiv.org" class="uri">https://arxiv.org</a>. arXiv is an online repository for academic papers before they go through peer-review, and these are typically referred to as ‘pre-prints.’ After installing and loading <code>httr</code>, we use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> to ask arXiv to obtain some information about the pre-print of <span class="citation"><a href="references-1.html#ref-Alexander2020" role="doc-biblioref">R. Alexander and Alexander</a> (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2021</a>)</span>.</p>
+<p>We use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> from <code>httr</code> <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019c</a>)</span> to obtain data from an API directly. This will try to get some specific data and the main argument is ‘url’. In a way, this is very similar to the earlier Google Maps example. In that example, the specific information that we were interested in was a map.</p>
+<p>In this case study we will use an API provided by arXiv: <a href="https://arxiv.org" class="uri">https://arxiv.org</a>. arXiv is an online repository for academic papers before they go through peer-review, and these are typically referred to as ‘pre-prints’. After installing and loading <code>httr</code>, we use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> to ask arXiv to obtain some information about the pre-print of <span class="citation">R. Alexander and Alexander (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2021</a>)</span>.</p>
 <div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -257,7 +257,7 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 <span class="co">#&gt;     &lt;link [title, href, rel, type]&gt;</span>
 <span class="co">#&gt;     &lt;primary_category [term, scheme, xmlns:arxiv]&gt;</span>
 <span class="co">#&gt;     &lt;category [term, scheme]&gt;</span></code></pre></div>
-<p>Or we might be interested to create a dataset based on extracting various aspects of this XML tree. For instance, we might be interested to look at the ‘entry,’ which is the eighth item, and in particular to obtain the title and the URL, which are the fourth and ninth items, respectively, within entry.</p>
+<p>Or we might be interested to create a dataset based on extracting various aspects of this XML tree. For instance, we might be interested to look at the ‘entry’, which is the eighth item, and in particular to obtain the title and the URL, which are the fourth and ninth items, respectively, within entry.</p>
 <div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_from_arxiv</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
@@ -318,7 +318,7 @@ Figure 9.2: Photo of the James Webb Space Telescope over Earth and another of Tr
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:jsonfirst"></span>
 <img src="figures/jsonlite.png" alt="Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element" width="90%"><p class="caption">
-Figure 9.3: Example of hovering over an JSON element, ‘items,’ where the icon with a green arrow can be clicked on to get the code that would focus on that element
+Figure 9.3: Example of hovering over an JSON element, ‘items’, where the icon with a green arrow can be clicked on to get the code that would focus on that element
 </p>
 </div>
 <p>This tells us how to obtain the dataset of interest.</p>
@@ -385,7 +385,7 @@ Figure 9.4: rtweet authorisation page
 <span class="co">#&gt;  8 eplusgg     "Stares from Ontario https://t.co/swzYhaptF9"</span>
 <span class="co">#&gt;  9 ryancbriggs "Same. https://t.co/C9pNpXO0F9"              </span>
 <span class="co">#&gt; 10 flynnpolsci "I’m not great at coming up with assignments…</span></code></pre></div>
-<p>We can use <code><a href="https://rdrr.io/pkg/rtweet/man/search_tweets.html">search_tweets()</a></code> to search for tweets about a particular topic. For instance, we could look at tweets using a hashtag commonly associated with R: ‘#rstats.’</p>
+<p>We can use <code><a href="https://rdrr.io/pkg/rtweet/man/search_tweets.html">search_tweets()</a></code> to search for tweets about a particular topic. For instance, we could look at tweets using a hashtag commonly associated with R: ‘#rstats’.</p>
 <div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rstats_tweets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rtweet/man/search_tweets.html">search_tweets</a></span><span class="op">(</span>
   q <span class="op">=</span> <span class="st">"#rstats"</span>,
@@ -423,12 +423,12 @@ Figure 9.4: rtweet authorisation page
 Figure 9.5: Spotify Developer Account Terms agreement page
 </p>
 </div>
-<p>Continuing with the registration process, in our case, we ‘do not know’ what we are building and so Spotify requires us to use a non-commercial agreement. To use the Spotify API we need a ‘Client ID’ and a ‘Client Secret.’ These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our ‘System Environment.’ In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter <a href="interactive-communication.html#interactive-communication">7</a> when we used <code>mapdeck</code>.) We will use <code>usethis</code> <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span> to modify our System Environment. In particular, there is a file called ‘.Renviron’ which we will open using <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code> and add our ‘Client ID’ and ‘Client Secret’ to.</p>
+<p>Continuing with the registration process, in our case, we ‘do not know’ what we are building and so Spotify requires us to use a non-commercial agreement. To use the Spotify API we need a ‘Client ID’ and a ‘Client Secret’. These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our ‘System Environment’. In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter <a href="interactive-communication.html#interactive-communication">7</a> when we used <code>mapdeck</code>.) We will use <code>usethis</code> <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span> to modify our System Environment. In particular, there is a file called ‘.Renviron’ which we will open using <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code> and add our ‘Client ID’ and ‘Client Secret’ to.</p>
 <div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org">usethis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>When we run <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code>, our ‘.Renviron’ file will open and we can add our ‘Spotify Client ID’ and ‘Client Secret.’ It is important to use the same names, because <code>spotifyr</code> will look in our environment for keys with those specific names.</p>
+<p>When we run <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code>, our ‘.Renviron’ file will open and we can add our ‘Spotify Client ID’ and ‘Client Secret’. It is important to use the same names, because <code>spotifyr</code> will look in our environment for keys with those specific names.</p>
 <div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">SPOTIFY_CLIENT_ID</span> <span class="op">=</span> <span class="st">'PUT_YOUR_CLIENT_ID_HERE'</span>
 <span class="va">SPOTIFY_CLIENT_SECRET</span> <span class="op">=</span> <span class="st">'PUT_YOUR_SECRET_HERE'</span></code></pre></div>
@@ -467,7 +467,7 @@ Figure 9.5: Spotify Developer Account Terms agreement page
 Figure 9.6: Length of each Radiohead song, over time, as gathered from Spotify
 </p>
 </div>
-<p>One interesting variable provided by Spotify about each song is ‘valence.’ The Spotify documentation describe this as a measure between 0 and 1 that signals the ‘the musical positiveness’ of the track with higher values being more positive. Further details are available at the documentation: <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features" class="uri">https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features</a>. We might be interested to compare valence over time between a few artists, for instance, the American rock band The National, and the American singer Taylor Swift.</p>
+<p>One interesting variable provided by Spotify about each song is ‘valence’. The Spotify documentation describe this as a measure between 0 and 1 that signals the ‘the musical positiveness’ of the track with higher values being more positive. Further details are available at the documentation: <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features" class="uri">https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features</a>. We might be interested to compare valence over time between a few artists, for instance, the American rock band The National, and the American singer Taylor Swift.</p>
 <p>First, we need to gather the data.</p>
 <div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">taylor_swift</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_artist_audio_features.html">get_artist_audio_features</a></span><span class="op">(</span><span class="st">'taylor swift'</span><span class="op">)</span>
@@ -499,7 +499,7 @@ Figure 9.6: Length of each Radiohead song, over time, as gathered from Spotify
 Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The National
 </p>
 </div>
-<p>How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, <span class="citation"><a href="references-1.html#ref-kaylinpavlik" role="doc-biblioref">Pavlik</a> (<a href="references-1.html#ref-kaylinpavlik" role="doc-biblioref">2019</a>)</span> uses an expanded dataset to classify musical genres and <span class="citation"><a href="references-1.html#ref-theeconomistonspotify" role="doc-biblioref">The Economist</a> (<a href="references-1.html#ref-theeconomistonspotify" role="doc-biblioref">2022</a>)</span> looks at how language is associated with music streaming on Spotify. Our ability to gather such data enables us to answer questions that had to be considered experimentally in the past, for instance <span class="citation"><a href="references-1.html#ref-salganik2006experimental" role="doc-biblioref">M. J. Salganik, Dodds, and Watts</a> (<a href="references-1.html#ref-salganik2006experimental" role="doc-biblioref">2006</a>)</span> had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is.</p>
+<p>How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, <span class="citation">Pavlik (<a href="references-1.html#ref-kaylinpavlik" role="doc-biblioref">2019</a>)</span> uses an expanded dataset to classify musical genres and <span class="citation">The Economist (<a href="references-1.html#ref-theeconomistonspotify" role="doc-biblioref">2022</a>)</span> looks at how language is associated with music streaming on Spotify. Our ability to gather such data enables us to answer questions that had to be considered experimentally in the past, for instance <span class="citation">M. J. Salganik, Dodds, and Watts (<a href="references-1.html#ref-salganik2006experimental" role="doc-biblioref">2006</a>)</span> had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is.</p>
 <!-- ## NBA statistics -->
 <!-- NBA: https://github.com/toddwschneider/ballr -->
 <!-- ## tidyquant -->
@@ -516,7 +516,7 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 <p>That all said, web scraping is an invaluable source of data. But they are typically datasets that can be created as a by-product of someone trying to achieve another aim. For instance, a retailer may have a website with their products and their prices. That has not been created deliberately as a source of data, but we can scrape it to create a dataset. As such, the following principles are useful to guide web scraping.</p>
 <ol style="list-style-type: decimal">
 <li>Avoid it. Try to use an API wherever possible.</li>
-<li>Abide by their desires. Some websites have a ‘robots.txt’ file that contains information about what they are comfortable with scrapers doing, for instance ‘<a href="https://www.google.com/robots.txt" class="uri">https://www.google.com/robots.txt</a>.’</li>
+<li>Abide by their desires. Some websites have a ‘robots.txt’ file that contains information about what they are comfortable with scrapers doing, for instance ‘<a href="https://www.google.com/robots.txt" class="uri">https://www.google.com/robots.txt</a>’.</li>
 <li>Reduce the impact.
 <ul>
 <li>Firstly, slow down the scraper, for instance, rather than having it visit the website every second, slow it down using <code>sys.sleep()</code>. If we only need a few hundred files, then why not just have it visit the website a few times a minute, running in the background overnight?</li>
@@ -556,7 +556,7 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 <span class="co">#&gt; {html_document}</span>
 <span class="co">#&gt; &lt;html&gt;</span>
 <span class="co">#&gt; [1] &lt;body&gt;&lt;p&gt;Hi, I’m &lt;b&gt;Rohan&lt;/b&gt; Alexander.&lt;/p&gt;&lt;/body&gt;</span></code></pre></div>
-<p>The language used by <code>rvest</code> to look for tags is ‘node,’ so we focus on bold nodes. By default <code><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes()</a></code> returns the tags as well. We can focus on the text that they contain, with <code><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text()</a></code>.</p>
+<p>The language used by <code>rvest</code> to look for tags is ‘node’, so we focus on bold nodes. By default <code><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes()</a></code> returns the tags as well. We can focus on the text that they contain, with <code><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text()</a></code>.</p>
 <div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rohans_data</span> |&gt; 
   <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span>
@@ -606,7 +606,7 @@ Figure 9.8: Books website as displayed
 Figure 9.9: HTML for the top of the books website and the list of books
 </p>
 </div>
-<p>The tag for a list item is ‘li,’ so we can use that to focus on the list.</p>
+<p>The tag for a list item is ‘li’, so we can use that to focus on the list.</p>
 <div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">text_data</span> <span class="op">&lt;-</span> 
   <span class="va">books_data</span> |&gt;
@@ -681,7 +681,7 @@ Figure 9.9: HTML for the top of the books website and the list of books
 <!--   filter(!is.na(author)) -->
 <!-- head(all_books) -->
 <!-- ``` -->
-<p>There are some at the end that we need to get rid of because they are from a ‘best of.’</p>
+<p>There are some at the end that we need to get rid of because they are from a ‘best of’.</p>
 <div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_books</span> <span class="op">&lt;-</span> 
   <span class="va">all_books</span> |&gt; 
@@ -1459,7 +1459,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 Figure 9.12: First sentence of Jane Eyre
 </p>
 </div>
-<p>If assume that it was saved as ‘first_example.pdf,’ then we can <code>pdftools</code> <span class="citation">(<a href="references-1.html#ref-citepdftools" role="doc-biblioref">Ooms 2019a</a>)</span> to get the text from this one-page PDF into R.</p>
+<p>If assume that it was saved as ‘first_example.pdf’, then we can <code>pdftools</code> <span class="citation">(<a href="references-1.html#ref-citepdftools" role="doc-biblioref">Ooms 2019a</a>)</span> to get the text from this one-page PDF into R.</p>
 <div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -1484,7 +1484,7 @@ Figure 9.13: First few paragraphs of Jane Eyre
 <span class="va">second_example</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">second_example</span><span class="op">)</span></code></pre></div>
-<p>Again, we have a character vector. The end of each line is signaled by ‘\n,’ but other than that it looks pretty good. Finally, we consider the first two pages.</p>
+<p>Again, we have a character vector. The end of each line is signaled by ‘\n’, but other than that it looks pretty good. Finally, we consider the first two pages.</p>
 <div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">third_example</span> <span class="op">&lt;-</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"third_example.pdf"</span><span class="op">)</span>
 
@@ -2496,7 +2496,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <h3>
 <span class="header-section-number">9.4.2</span> Optical Character Recognition<a class="anchor" aria-label="anchor" href="#optical-character-recognition"><i class="fas fa-link"></i></a>
 </h3>
-<p>All of the above is predicated on having a PDF that is already ‘digitized.’ But what if it is images? In that case we need to first use Optical Character Recognition (OCR) using <code>tesseract</code> <span class="citation">(<a href="references-1.html#ref-citetesseract" role="doc-biblioref">Ooms 2019c</a>)</span>. This is a R wrapper around the Tesseract open-source OCR engine.</p>
+<p>All of the above is predicated on having a PDF that is already ‘digitized’. But what if it is images? In that case we need to first use Optical Character Recognition (OCR) using <code>tesseract</code> <span class="citation">(<a href="references-1.html#ref-citetesseract" role="doc-biblioref">Ooms 2019c</a>)</span>. This is a R wrapper around the Tesseract open-source OCR engine.</p>
 <p>Let us see an example with a scan from the first page of Jane Eyre (Figure <a href="gather-data.html#fig:janescan">9.16</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:janescan"></span>
@@ -2509,83 +2509,6 @@ Figure 9.16: Scan of first page of Jane Eyre
 
 <span class="va">text</span> <span class="op">&lt;-</span> <span class="fu">tesseract</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/tesseract/reference/ocr.html">ocr</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"jane_scan.png"</span><span class="op">)</span>, engine <span class="op">=</span> <span class="fu"><a href="https://docs.ropensci.org/tesseract/reference/tesseract.html">tesseract</a></span><span class="op">(</span><span class="st">"eng"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">text</span><span class="op">)</span></code></pre></div>
-<!-- ### Preparing text datasets -->
-<!-- *This section draws on Sharla Gelfand's blog post, linked in the required readings.* -->
-<!-- As much as I would like to stick with Australian economics and politics examples, I realise that this is probably only of limited interest to most of you. As such, in this section we will consider a dataset of Sephora reviews. Please read Sharla's blog post (https://sharla.party/post/crying-sephora/) for another take on this dataset. -->
-<!-- In this section we assume that there is some text data that you have gathered. At this point we need to change it into a form that we can work with. For some applications this will be counts of words. For others it may be some variant of this. The dataset that we are going to use is from Sephora, was scraped by [Connie](https://twitter.com/crabbage_/) and I originally became aware of it because of [Sharla](https://sharla.party/post/crying-sephora/). -->
-<!-- First let's read in the data. -->
-<!-- ```{r} -->
-<!-- # This code is taken from https://sharla.party/post/crying-sephora/ -->
-<!-- library(dplyr) -->
-<!-- library(jsonlite) -->
-<!-- library(tidytext) -->
-<!-- crying <-  -->
-<!--   jsonlite::fromJSON("https://raw.githubusercontent.com/everestpipkin/datagardens/master/students/khanniie/5_newDataSet/crying_dataset.json", -->
-<!--   simplifyDataFrame = TRUE -->
-<!-- ) -->
-<!-- crying <- as_tibble(crying[["reviews"]]) -->
-<!-- head(crying) -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- names(crying) -->
-<!-- ``` -->
-<!-- We'll focus on the `review_body` variable and the number of stars `stars` that the reviewer gave. Most of them are 5 stars, so we'll just focus on whether or not the review is five stars. -->
-<!-- ```{r} -->
-<!-- crying <-  -->
-<!--   crying |>  -->
-<!--   select(review_body, stars) |>  -->
-<!--   mutate(stars = str_remove(stars, " stars?"),  # The question mark at the end means it'l get rid of 'star' and 'stars'. -->
-<!--          stars = as.integer(stars) -->
-<!--          ) |>  -->
-<!--   mutate(five_stars = if_else(stars == 5, 1, 0)) -->
-<!-- table(crying$stars) -->
-<!-- ``` -->
-<!-- In this example we are going to split everything into separate words. When we do this it is just searching for a space, and so what other types of elements are going to be considered 'words'? -->
-<!-- ```{r} -->
-<!-- crying_by_words <-  -->
-<!--   crying |> -->
-<!--   tidytext::unnest_tokens(word, review_body, token = "words") -->
-<!-- head(crying_by_words) -->
-<!-- ``` -->
-<!-- We now want to count the number of times each word is used by each of the star classifications. -->
-<!-- ```{r} -->
-<!-- crying_by_words <-  -->
-<!--   crying_by_words |>  -->
-<!--   count(stars, word, sort = TRUE) -->
-<!-- head(crying_by_words) -->
-<!-- crying_by_words |>  -->
-<!--   filter(stars == 1) |>  -->
-<!--   head() -->
-<!-- ``` -->
-<!-- So you can see that the most popular word for five-star reviews is 'i', and that the most popular word for one star reviews is 'the'. -->
-<!-- At this point, we can use the data to do a whole bunch of different things, but one nice measure to look at is term frequency e.g. in this case how many times is a word used in reviews with a particular star rating. The issue is that there are a lot of words that are commonly used regardless of context. As such, we may also like to look at the inverse document frequency in which we 'penalise' words that occur in many particular star ratings. For instance, 'the' probably occurs in both one star and five star reviews and so its idf is lower than 'hate' which probably only occurs in one star reviews. The term frequency–inverse document frequency (tf-idf) is then the product of these. -->
-<!-- We can create this value using the `bind_tf_idf()` function from the `tidytext` package, and this will create a bunch of new columns, one for each word and star combination.  -->
-<!-- ```{r} -->
-<!-- # This code, and the one in the next block, is from Julia Silge: https://juliasilge.com/blog/sherlock-holmes-stm/ -->
-<!-- crying_by_words_tf_idf <-  -->
-<!--   crying_by_words |> -->
-<!--   bind_tf_idf(word, stars, n) |> -->
-<!--   arrange(-tf_idf) -->
-<!-- head(crying_by_words_tf_idf) -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- # crying_by_words_tf_idf |>  -->
-<!-- #   group_by(stars) |> -->
-<!-- #   top_n(10) |> -->
-<!-- #   ungroup |>  -->
-<!-- #   mutate(word = reorder_within(word, tf_idf, stars)) |> -->
-<!-- #   mutate(stars = as_factor(stars)) |> -->
-<!-- #   filter(stars %in% c(1, 5)) |>  -->
-<!-- #   ggplot(aes(word, tf_idf, fill = stars)) + -->
-<!-- #     geom_col(show.legend = FALSE) + -->
-<!-- #     facet_wrap(vars(stars), scales = "free") + -->
-<!-- #     scale_x_reordered() + -->
-<!-- #     coord_flip() + -->
-<!-- #     labs(x = "Word",  -->
-<!-- #          y = "tf-idf") + -->
-<!-- #   theme_minimal() + -->
-<!-- #   scale_fill_brewer(palette = "Set1") -->
-<!-- ``` -->
 </div>
 </div>
 <div id="exercises-and-tutorial-8" class="section level2" number="9.5">
@@ -2617,7 +2540,7 @@ Figure 9.16: Scan of first page of Jane Eyre
 <li>Estimation of sub-populations.</li>
 </ol>
 </li>
-<li>Please consider Beaumont, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’ With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?</li>
+<li>Please consider Beaumont, 2020, ‘Are probability surveys bound to disappear for the production of official statistics?’. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?</li>
 <li>In your own words, what is an API (write a paragraph or two)?</li>
 <li>Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?</li>
 <li>Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?</li>
@@ -2762,7 +2685,7 @@ Figure 9.16: Scan of first page of Jane Eyre
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 23 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 February, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -10,6 +10,7 @@
 - Read *Guide to the Census of Population, 2016*, Chapter 10 'Data quality assessment', [@statcanhistory]. 
 - Read *Working-Class Households in Reading*, (focus on the method and approach, not necessarily the specific results) [@bowley1913working].
 - Read *Representative Method: The Method of Stratified Sampling and the Method of Purposive Selection*, Parts I 'Introduction', III 'Different Aspects of the Representative Method', V 'Conclusion' and Bowley's discussion p. 607 - 610, [@neyman1934two].
+- Read *Using sex and gender in survey adjustment*, [@kennedy2020using].
 
 
 
@@ -484,6 +485,8 @@ While these datasets have always been useful, they were developed for a time whe
 It is important to recognize that data are not neutral. Thinking clearly about who is included in the dataset, and who is systematically excluded, is critical. As @crawford [p. 121] says: 
 
 > The way data is understood, captured, classified, and named is fundamentally an act of world-making and containment.... The myth of data collection as a benevolent practice... has obscured its operations of power, protecting those who profit most while avoiding responsibility for its consequences.
+
+At this point, it is worth briefly discussing the role of sex and gender in survey research, following @kennedy2020using. Sex is based on biological attributes, while gender is socially constructed. We are likely interested in the effect of gender on our dependent variable. Moving away from a non-binary concept of gender, in terms of official statistics, is only something that has happened recently. As a researcher one of the problems of insisting on a binary is that, as @kennedy2020using [p. 2] say '...when measuring gender with simply two categories, there is a failure to capture the unique experiences of those who do not identify as either male or female, or for those whose gender does not align with their sex classification.'. A researcher has a variety of ways of proceeding, and @kennedy2020using discuss these based on: ethics, accuracy, practicality, and flexibility. However, 'there is no single good solution that can be applied to all situations. Instead, it is important to recognize that there is a compromise between ethical concerns, statistical concerns, and the most appropriate decision will be reflective of this' [p. 16]. The most important consideration is to ensure appropriate 'respect and consideration for the survey respondent'.
 
 
 
