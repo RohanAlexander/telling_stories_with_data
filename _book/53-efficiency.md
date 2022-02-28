@@ -4,6 +4,7 @@
 **Required material**
 
 - Watch *Code smells and feels*, [@codesmells].
+- Read *Notes from a data witch: Getting started with Apache Arrow*, [@navarro2021getting].
 
 **Key concepts and skills**
 
@@ -44,7 +45,7 @@ tic("First bit of code")
 print("Fast code")
 #> [1] "Fast code"
 toc()
-#> First bit of code: 0.041 sec elapsed
+#> First bit of code: 0.049 sec elapsed
 
 tic("Second bit of code")
 Sys.sleep(3)
@@ -345,42 +346,42 @@ write_csv(x = some_data,
           file = "some_data.csv")
 read_csv(file = "some_data.csv")
 #> # A tibble: 1,000,000 × 2
-#>     first second
-#>     <dbl> <chr> 
-#>  1 0.961  I     
-#>  2 0.136  V     
-#>  3 0.172  B     
-#>  4 0.690  W     
-#>  5 0.0875 G     
-#>  6 0.149  Z     
-#>  7 0.302  N     
-#>  8 0.722  M     
-#>  9 0.401  U     
-#> 10 0.738  X     
+#>    first second
+#>    <dbl> <chr> 
+#>  1 0.992 I     
+#>  2 0.658 B     
+#>  3 0.665 N     
+#>  4 0.134 O     
+#>  5 0.471 G     
+#>  6 0.382 N     
+#>  7 0.340 P     
+#>  8 0.362 U     
+#>  9 0.248 G     
+#> 10 0.605 Q     
 #> # … with 999,990 more rows
 toc()
-#> CSV: 0.346 sec elapsed
+#> CSV: 0.359 sec elapsed
 
 tic("parquet")
 write_parquet(x = some_data,
               sink = "some_data.parquet")
 read_parquet(file = "some_data.parquet")
 #> # A tibble: 1,000,000 × 2
-#>     first second
-#>     <dbl> <chr> 
-#>  1 0.961  I     
-#>  2 0.136  V     
-#>  3 0.172  B     
-#>  4 0.690  W     
-#>  5 0.0875 G     
-#>  6 0.149  Z     
-#>  7 0.302  N     
-#>  8 0.722  M     
-#>  9 0.401  U     
-#> 10 0.738  X     
+#>    first second
+#>    <dbl> <chr> 
+#>  1 0.992 I     
+#>  2 0.658 B     
+#>  3 0.665 N     
+#>  4 0.134 O     
+#>  5 0.471 G     
+#>  6 0.382 N     
+#>  7 0.340 P     
+#>  8 0.362 U     
+#>  9 0.248 G     
+#> 10 0.605 Q     
 #> # … with 999,990 more rows
 toc()
-#> parquet: 0.225 sec elapsed
+#> parquet: 0.243 sec elapsed
 ```
 
 
@@ -399,6 +400,9 @@ toc()
 
 <!-- ### Julia -->
 
+
+<!-- Reproducibilty -->
+<!-- renv -->
 
 
 ## Exercises and tutorial

@@ -52,12 +52,12 @@ Additional points:
 
 
 ```{=html}
-<div id="uvvbwwqall" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="aidjqlvmbr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#uvvbwwqall .gt_table {
+#aidjqlvmbr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -82,7 +82,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_heading {
+#aidjqlvmbr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -94,7 +94,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_title {
+#aidjqlvmbr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -104,7 +104,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#uvvbwwqall .gt_subtitle {
+#aidjqlvmbr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -114,13 +114,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#uvvbwwqall .gt_bottom_border {
+#aidjqlvmbr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_col_headings {
+#aidjqlvmbr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -135,7 +135,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_col_heading {
+#aidjqlvmbr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -155,7 +155,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#uvvbwwqall .gt_column_spanner_outer {
+#aidjqlvmbr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -167,15 +167,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#uvvbwwqall .gt_column_spanner_outer:first-child {
+#aidjqlvmbr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#uvvbwwqall .gt_column_spanner_outer:last-child {
+#aidjqlvmbr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#uvvbwwqall .gt_column_spanner {
+#aidjqlvmbr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -187,7 +187,7 @@ Additional points:
   width: 100%;
 }
 
-#uvvbwwqall .gt_group_heading {
+#aidjqlvmbr .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -209,7 +209,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#uvvbwwqall .gt_empty_group_heading {
+#aidjqlvmbr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -224,15 +224,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#uvvbwwqall .gt_from_md > :first-child {
+#aidjqlvmbr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#uvvbwwqall .gt_from_md > :last-child {
+#aidjqlvmbr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#uvvbwwqall .gt_row {
+#aidjqlvmbr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -251,7 +251,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#uvvbwwqall .gt_stub {
+#aidjqlvmbr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -263,7 +263,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#uvvbwwqall .gt_summary_row {
+#aidjqlvmbr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -273,7 +273,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#uvvbwwqall .gt_first_summary_row {
+#aidjqlvmbr .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -283,7 +283,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_grand_summary_row {
+#aidjqlvmbr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -293,7 +293,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#uvvbwwqall .gt_first_grand_summary_row {
+#aidjqlvmbr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -303,11 +303,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_striped {
+#aidjqlvmbr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#uvvbwwqall .gt_table_body {
+#aidjqlvmbr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -316,7 +316,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_footnotes {
+#aidjqlvmbr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -330,13 +330,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_footnote {
+#aidjqlvmbr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#uvvbwwqall .gt_sourcenotes {
+#aidjqlvmbr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -350,41 +350,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#uvvbwwqall .gt_sourcenote {
+#aidjqlvmbr .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#uvvbwwqall .gt_left {
+#aidjqlvmbr .gt_left {
   text-align: left;
 }
 
-#uvvbwwqall .gt_center {
+#aidjqlvmbr .gt_center {
   text-align: center;
 }
 
-#uvvbwwqall .gt_right {
+#aidjqlvmbr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#uvvbwwqall .gt_font_normal {
+#aidjqlvmbr .gt_font_normal {
   font-weight: normal;
 }
 
-#uvvbwwqall .gt_font_bold {
+#aidjqlvmbr .gt_font_bold {
   font-weight: bold;
 }
 
-#uvvbwwqall .gt_font_italic {
+#aidjqlvmbr .gt_font_italic {
   font-style: italic;
 }
 
-#uvvbwwqall .gt_super {
+#aidjqlvmbr .gt_super {
   font-size: 65%;
 }
 
-#uvvbwwqall .gt_footnote_marks {
+#aidjqlvmbr .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -414,10 +414,10 @@ Additional points:
 <td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and have a good idea about the research that was carried out and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained, in addition to if there were very similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of particular note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by graphing the actual data used, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
+<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Cross-references</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Yes'</td>
 <td class="gt_row gt_left">All figures, tables, and equations, should be numbered, and referred to in the text using cross-references.</td></tr>
@@ -429,10 +429,10 @@ Additional points:
 <td class="gt_row gt_left">Graphs and tables must be included in the paper and should be to well-formatted, clear, and digestible. They should: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of captions and sub-captions; 3) appropriately sized and colored; and 4) have appropriate significant figures, in the case of tables.</td></tr>
     <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
-<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
+<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using BibTeX. A few lines of code from Stack Overflow or similar, would be acknowledged just with a comment in the script immediately preceding the use of the code rather than here. But larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. `setwd()` must not be used.</td></tr>
+<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() must not be used.</td></tr>
     <tr><td class="gt_row gt_left">General excellence</td>
 <td class="gt_row gt_left">0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'</td>
 <td class="gt_row gt_left">There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.</td></tr>
@@ -495,23 +495,23 @@ Check that:
 ### Rubric
 
 
-|Component                |Range                                                                                                     |Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|:------------------------|:---------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|R is appropriately cited |0 - 'No'; 1 - 'Yes'                                                                                       |Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|Replication              |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |If replication is poor or not done, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|Title                    |0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'                                                      |An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|Author, date, and repo   |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |The author, date of submission in unambiguous format, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|Abstract                 |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|Introduction             |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and have a good idea about the research that was carried out and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.                                                                                                                                                                                                                                                                  |
-|Data                     |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained, in addition to if there were very similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of particular note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by graphing the actual data used, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used. |
-|Results                  |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.                                                                                                                                                                                                                                                                                                                                                                                               |
-|Discussion               |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): What is done in this this paper? What is something that we learn about the world? What is another thing that we learn about the world? What are some weaknesses of what was done? What is left to learn or how should we proceed in the future?                                                                                                                                                                                                                                                                                                                                                                                  |
-|Cross-references         |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |All figures, tables, and equations, should be numbered, and referred to in the text using cross-references.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|Prose                    |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|Graphs/tables/etc        |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |Graphs and tables must be included in the paper and should be to well-formatted, clear, and digestible. They should: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of captions and sub-captions; 3) appropriately sized and colored; and 4) have appropriate significant figures, in the case of tables.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|Reference list           |0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'                                              |All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.                                                                                                                                                                                                                                                                                                                                                         |
-|Reproducibility          |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. `setwd()` must not be used.                                                                                                                                                                                                                               |
-|General excellence       |0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'                                   |There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|Component                |Range                                                                                                     |Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:------------------------|:---------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|R is appropriately cited |0 - 'No'; 1 - 'Yes'                                                                                       |Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|Replication              |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |If replication is poor or not done, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|Title                    |0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'                                                      |An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|Author, date, and repo   |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |The author, date of submission in unambiguous format, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|Abstract                 |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|Introduction             |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.                                                                                                                                                                                                                                                                                                        |
+|Data                     |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used. |
+|Results                  |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.                                                                                                                                                                                                                                                                                                                                                                                                     |
+|Discussion               |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): What is done in this this paper? What is something that we learn about the world? What is another thing that we learn about the world? What are some weaknesses of what was done? What is left to learn or how should we proceed in the future?                                                                                                                                                                                                                                                                                                                                                                                        |
+|Cross-references         |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |All figures, tables, and equations, should be numbered, and referred to in the text using cross-references.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|Prose                    |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |All aspects of submission should be free of noticeable typos, spelling mistakes, and be grammatically correct. Prose should be coherent, concise, and clear.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|Graphs/tables/etc        |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |Graphs and tables must be included in the paper and should be to well-formatted, clear, and digestible. They should: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of captions and sub-captions; 3) appropriately sized and colored; and 4) have appropriate significant figures, in the case of tables.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|Reference list           |0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'                                              |All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using BibTeX. A few lines of code from Stack Overflow or similar, would be acknowledged just with a comment in the script immediately preceding the use of the code rather than here. But larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.                                                                                                                                                                                                                                                                                                                                           |
+|Reproducibility          |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() must not be used.                                                                                                                                                                                                                                       |
+|General excellence       |0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'                                   |There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ### Previous examples
 
@@ -616,18 +616,18 @@ Some examples of papers that well in the past include those by: [Amy Farrow](inp
 
 - Working in teams of one to three people, and in an entirely reproducible way, please pick one of the following: [Australian General Social Survey](https://www.abs.gov.au/statistics/people/people-and-communities/general-social-survey-summary-results-australia), [Canadian General Social Survey](https://www150.statcan.gc.ca/n1/pub/89f0115x/89f0115x2013001-eng.htm), [European Social Survey](http://www.europeansocialsurvey.org), [German General Social Survey](https://www.gesis.org/en/allbus/allbus-home), [US General Social Survey](https://gss.norc.org/Get-The-Data).
 - Obtain the data, focus on one aspect of the survey, and then use it to tell a story.
-  - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, an appendix that will contain a survey, and references.
+  - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then use R Markdown to prepare a PDF with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, an appendix that will, at least, contain a survey, and references.
   - In addition to conveying a sense of the dataset of interest, the data section should include, but not be limited to:
-      - A discussion of the survey's methodology, and its key features, strengths, and weaknesses. For instance: what is the population, frame, and sample; how do they recruit the sample; what sampling approach is taken and what are some of the trade-offs of this; how is non-response handled.
+      - A discussion of the survey's methodology, and its key features, strengths, and weaknesses. For instance: what is the population, frame, and sample; how is the sample recruited; what sampling approach is taken, and what are some of the trade-offs of this; how is non-response handled.
       - A discussion of the questionnaire: what is good and bad about it?
       - If this becomes too detailed, then use appendices for supporting but not essential aspects.
   - The results section should convey findings.
   - The discussion should include three or four sub-sections that each focus on an interesting point, and there should be another sub-section on the weaknesses of the paper, and another on potential next steps for it.
-  - In an appendix, please include a survey that could be used to augment the general social survey the paper focuses on. The purpose of the survey is to gain additional information on the topic that is the focus of the paper, beyond that gathered by the general social survey. The survey will be distributed in the same manner as the general social survey but needs to stand independently. The survey should be put together using a survey platform, and a link to this should be included in the appendix, as well as details of the survey, such as the questions asked. 
+  - In an appendix, please put together a supplementary survey that could be used to augment the general social survey the paper focuses on. The purpose of the supplementary survey is to gain additional information on the topic that is the focus of the paper, beyond that gathered by the general social survey. The survey would be distributed in the same manner as the general social survey but needs to stand independently. The supplementary survey should be put together using a survey platform. A link to this should be included in the appendix. Additionally, a copy of the survey should be included in the appendix.
   - Please be sure to discuss ethics and bias, with reference to relevant literature.
   - Code should be entirely reproducible, well-documented, and readable.
 - Submit a PDF of the paper. 
-- The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at a university-level, but non-specialist, audience. Use survey, sampling, and statistical terminology, but be sure to explain it. The paper should flow and be easy to follow and understand.
+- The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at a university-educated, but non-specialist, audience. Use survey, sampling, and statistical terminology, but be sure to explain it. The paper should flow, and be easy to follow and understand.
 - There should be no evidence that this is a class paper.
 
 
@@ -635,12 +635,13 @@ Some examples of papers that well in the past include those by: [Amy Farrow](inp
 
 Check that: 
 
-- In an appendix there is both a link to the survey and the details of it, including questions (in case the link fails, and to make the paper self-contained).
+- In an appendix there is both a link to the supplementary survey and the details of it, including questions (in case the link fails, and to make the paper self-contained).
  
 
 ### FAQ
 
 - What should I focus on? You may focus on any year, aspect, or geography that is reasonable given the focus and constraints of the general social survey that you are interested in. Please consider the year and topics that you are interested in together, as some surveys focus on particular topics in some years.
+- Do I need to include the raw GSS data in the repo? For most of the general social surveys you will not have permission to share the GSS data. If that is the case, then you should add clear details in the README explaining how the data could be obtained.
 <!-- - The Canadian GSS is available to University of Toronto students via the library. In order to use it you need to clean and prepare it. Code to do this for one year is being distributed alongside this problem set and was discussed in lectures.  -->
 <!-- - You are welcome to simply use this code and this year, but the topic of that year will constrain your focus. Naturally, you are welcome to adapt the code to other years. If you use the code exactly as is then you must cite it. If you adapt the code then you don't have to cite it, as it has a MIT license, but it would be appropriate to at least mention and acknowledge it, depending on how close your adaption is. -->
 
@@ -649,12 +650,12 @@ Check that:
 
 
 ```{=html}
-<div id="agxjwmxcnf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ocstrnzubt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#agxjwmxcnf .gt_table {
+#ocstrnzubt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -679,7 +680,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_heading {
+#ocstrnzubt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -691,7 +692,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_title {
+#ocstrnzubt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -701,7 +702,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#agxjwmxcnf .gt_subtitle {
+#ocstrnzubt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -711,13 +712,13 @@ Check that:
   border-top-width: 0;
 }
 
-#agxjwmxcnf .gt_bottom_border {
+#ocstrnzubt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_col_headings {
+#ocstrnzubt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -732,7 +733,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_col_heading {
+#ocstrnzubt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -752,7 +753,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#agxjwmxcnf .gt_column_spanner_outer {
+#ocstrnzubt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -764,15 +765,15 @@ Check that:
   padding-right: 4px;
 }
 
-#agxjwmxcnf .gt_column_spanner_outer:first-child {
+#ocstrnzubt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#agxjwmxcnf .gt_column_spanner_outer:last-child {
+#ocstrnzubt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#agxjwmxcnf .gt_column_spanner {
+#ocstrnzubt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -784,7 +785,7 @@ Check that:
   width: 100%;
 }
 
-#agxjwmxcnf .gt_group_heading {
+#ocstrnzubt .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -806,7 +807,7 @@ Check that:
   vertical-align: middle;
 }
 
-#agxjwmxcnf .gt_empty_group_heading {
+#ocstrnzubt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -821,15 +822,15 @@ Check that:
   vertical-align: middle;
 }
 
-#agxjwmxcnf .gt_from_md > :first-child {
+#ocstrnzubt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#agxjwmxcnf .gt_from_md > :last-child {
+#ocstrnzubt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#agxjwmxcnf .gt_row {
+#ocstrnzubt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -848,7 +849,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#agxjwmxcnf .gt_stub {
+#ocstrnzubt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -860,7 +861,7 @@ Check that:
   padding-left: 12px;
 }
 
-#agxjwmxcnf .gt_summary_row {
+#ocstrnzubt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -870,7 +871,7 @@ Check that:
   padding-right: 5px;
 }
 
-#agxjwmxcnf .gt_first_summary_row {
+#ocstrnzubt .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -880,7 +881,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_grand_summary_row {
+#ocstrnzubt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -890,7 +891,7 @@ Check that:
   padding-right: 5px;
 }
 
-#agxjwmxcnf .gt_first_grand_summary_row {
+#ocstrnzubt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -900,11 +901,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_striped {
+#ocstrnzubt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#agxjwmxcnf .gt_table_body {
+#ocstrnzubt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -913,7 +914,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_footnotes {
+#ocstrnzubt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -927,13 +928,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_footnote {
+#ocstrnzubt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#agxjwmxcnf .gt_sourcenotes {
+#ocstrnzubt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -947,41 +948,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#agxjwmxcnf .gt_sourcenote {
+#ocstrnzubt .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#agxjwmxcnf .gt_left {
+#ocstrnzubt .gt_left {
   text-align: left;
 }
 
-#agxjwmxcnf .gt_center {
+#ocstrnzubt .gt_center {
   text-align: center;
 }
 
-#agxjwmxcnf .gt_right {
+#ocstrnzubt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#agxjwmxcnf .gt_font_normal {
+#ocstrnzubt .gt_font_normal {
   font-weight: normal;
 }
 
-#agxjwmxcnf .gt_font_bold {
+#ocstrnzubt .gt_font_bold {
   font-weight: bold;
 }
 
-#agxjwmxcnf .gt_font_italic {
+#ocstrnzubt .gt_font_italic {
   font-style: italic;
 }
 
-#agxjwmxcnf .gt_super {
+#ocstrnzubt .gt_super {
   font-size: 65%;
 }
 
-#agxjwmxcnf .gt_footnote_marks {
+#ocstrnzubt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1011,10 +1012,10 @@ Check that:
 <td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and have a good idea about the research that was carried out and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained, in addition to if there were very similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of particular note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by graphing the actual data used, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
+<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Results</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.</td></tr>
@@ -1035,10 +1036,10 @@ Check that:
 <td class="gt_row gt_left">The survey should have an introductory section and include the details of a contact person. The survey questions should be well constructed and appropriate to the task. The questions should have an appropriate ordering. A final section should thank the respondent.</td></tr>
     <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
-<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
+<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using BibTeX. A few lines of code from Stack Overflow or similar, would be acknowledged just with a comment in the script immediately preceding the use of the code rather than here. But larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. `setwd()` must not be used.</td></tr>
+<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() must not be used.</td></tr>
     <tr><td class="gt_row gt_left">General excellence</td>
 <td class="gt_row gt_left">0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'</td>
 <td class="gt_row gt_left">There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.</td></tr>
@@ -1160,12 +1161,12 @@ Check that:
 
 
 ```{=html}
-<div id="kdkfnoipag" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="hdoppsehtk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#kdkfnoipag .gt_table {
+#hdoppsehtk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1190,7 +1191,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_heading {
+#hdoppsehtk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1202,7 +1203,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_title {
+#hdoppsehtk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1212,7 +1213,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#kdkfnoipag .gt_subtitle {
+#hdoppsehtk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1222,13 +1223,13 @@ Check that:
   border-top-width: 0;
 }
 
-#kdkfnoipag .gt_bottom_border {
+#hdoppsehtk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_col_headings {
+#hdoppsehtk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1243,7 +1244,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_col_heading {
+#hdoppsehtk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1263,7 +1264,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#kdkfnoipag .gt_column_spanner_outer {
+#hdoppsehtk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1275,15 +1276,15 @@ Check that:
   padding-right: 4px;
 }
 
-#kdkfnoipag .gt_column_spanner_outer:first-child {
+#hdoppsehtk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kdkfnoipag .gt_column_spanner_outer:last-child {
+#hdoppsehtk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kdkfnoipag .gt_column_spanner {
+#hdoppsehtk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1295,7 +1296,7 @@ Check that:
   width: 100%;
 }
 
-#kdkfnoipag .gt_group_heading {
+#hdoppsehtk .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1317,7 +1318,7 @@ Check that:
   vertical-align: middle;
 }
 
-#kdkfnoipag .gt_empty_group_heading {
+#hdoppsehtk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1332,15 +1333,15 @@ Check that:
   vertical-align: middle;
 }
 
-#kdkfnoipag .gt_from_md > :first-child {
+#hdoppsehtk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kdkfnoipag .gt_from_md > :last-child {
+#hdoppsehtk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kdkfnoipag .gt_row {
+#hdoppsehtk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1359,7 +1360,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#kdkfnoipag .gt_stub {
+#hdoppsehtk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1371,7 +1372,7 @@ Check that:
   padding-left: 12px;
 }
 
-#kdkfnoipag .gt_summary_row {
+#hdoppsehtk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1381,7 +1382,7 @@ Check that:
   padding-right: 5px;
 }
 
-#kdkfnoipag .gt_first_summary_row {
+#hdoppsehtk .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1391,7 +1392,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_grand_summary_row {
+#hdoppsehtk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1401,7 +1402,7 @@ Check that:
   padding-right: 5px;
 }
 
-#kdkfnoipag .gt_first_grand_summary_row {
+#hdoppsehtk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1411,11 +1412,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_striped {
+#hdoppsehtk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kdkfnoipag .gt_table_body {
+#hdoppsehtk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1424,7 +1425,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_footnotes {
+#hdoppsehtk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1438,13 +1439,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_footnote {
+#hdoppsehtk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#kdkfnoipag .gt_sourcenotes {
+#hdoppsehtk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1458,41 +1459,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#kdkfnoipag .gt_sourcenote {
+#hdoppsehtk .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#kdkfnoipag .gt_left {
+#hdoppsehtk .gt_left {
   text-align: left;
 }
 
-#kdkfnoipag .gt_center {
+#hdoppsehtk .gt_center {
   text-align: center;
 }
 
-#kdkfnoipag .gt_right {
+#hdoppsehtk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kdkfnoipag .gt_font_normal {
+#hdoppsehtk .gt_font_normal {
   font-weight: normal;
 }
 
-#kdkfnoipag .gt_font_bold {
+#hdoppsehtk .gt_font_bold {
   font-weight: bold;
 }
 
-#kdkfnoipag .gt_font_italic {
+#hdoppsehtk .gt_font_italic {
   font-style: italic;
 }
 
-#kdkfnoipag .gt_super {
+#hdoppsehtk .gt_super {
   font-size: 65%;
 }
 
-#kdkfnoipag .gt_footnote_marks {
+#hdoppsehtk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1522,13 +1523,13 @@ Check that:
 <td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and have a good idea about the research that was carried out and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained, in addition to if there were very similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of particular note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by graphing the actual data used, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
+<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Model</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and also the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
+<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again, if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
     <tr><td class="gt_row gt_left">Results</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.</td></tr>
@@ -1546,10 +1547,10 @@ Check that:
 <td class="gt_row gt_left">Graphs and tables must be included in the paper and should be to well-formatted, clear, and digestible. They should: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of captions and sub-captions; 3) appropriately sized and colored; and 4) have appropriate significant figures, in the case of tables.</td></tr>
     <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
-<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
+<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using BibTeX. A few lines of code from Stack Overflow or similar, would be acknowledged just with a comment in the script immediately preceding the use of the code rather than here. But larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. `setwd()` must not be used.</td></tr>
+<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() must not be used.</td></tr>
     <tr><td class="gt_row gt_left">General excellence</td>
 <td class="gt_row gt_left">0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'</td>
 <td class="gt_row gt_left">There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.</td></tr>
@@ -1628,12 +1629,12 @@ Check that:
 
 
 ```{=html}
-<div id="lccensubtc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ipjdqunxsc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lccensubtc .gt_table {
+#ipjdqunxsc .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1658,7 +1659,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#lccensubtc .gt_heading {
+#ipjdqunxsc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1670,7 +1671,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#lccensubtc .gt_title {
+#ipjdqunxsc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1680,7 +1681,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#lccensubtc .gt_subtitle {
+#ipjdqunxsc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1690,13 +1691,13 @@ Check that:
   border-top-width: 0;
 }
 
-#lccensubtc .gt_bottom_border {
+#ipjdqunxsc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lccensubtc .gt_col_headings {
+#ipjdqunxsc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1711,7 +1712,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#lccensubtc .gt_col_heading {
+#ipjdqunxsc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1731,7 +1732,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#lccensubtc .gt_column_spanner_outer {
+#ipjdqunxsc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1743,15 +1744,15 @@ Check that:
   padding-right: 4px;
 }
 
-#lccensubtc .gt_column_spanner_outer:first-child {
+#ipjdqunxsc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lccensubtc .gt_column_spanner_outer:last-child {
+#ipjdqunxsc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lccensubtc .gt_column_spanner {
+#ipjdqunxsc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1763,7 +1764,7 @@ Check that:
   width: 100%;
 }
 
-#lccensubtc .gt_group_heading {
+#ipjdqunxsc .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1785,7 +1786,7 @@ Check that:
   vertical-align: middle;
 }
 
-#lccensubtc .gt_empty_group_heading {
+#ipjdqunxsc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1800,15 +1801,15 @@ Check that:
   vertical-align: middle;
 }
 
-#lccensubtc .gt_from_md > :first-child {
+#ipjdqunxsc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lccensubtc .gt_from_md > :last-child {
+#ipjdqunxsc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lccensubtc .gt_row {
+#ipjdqunxsc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1827,7 +1828,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#lccensubtc .gt_stub {
+#ipjdqunxsc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1839,7 +1840,7 @@ Check that:
   padding-left: 12px;
 }
 
-#lccensubtc .gt_summary_row {
+#ipjdqunxsc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1849,7 +1850,7 @@ Check that:
   padding-right: 5px;
 }
 
-#lccensubtc .gt_first_summary_row {
+#ipjdqunxsc .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1859,7 +1860,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#lccensubtc .gt_grand_summary_row {
+#ipjdqunxsc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1869,7 +1870,7 @@ Check that:
   padding-right: 5px;
 }
 
-#lccensubtc .gt_first_grand_summary_row {
+#ipjdqunxsc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1879,11 +1880,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#lccensubtc .gt_striped {
+#ipjdqunxsc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lccensubtc .gt_table_body {
+#ipjdqunxsc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1892,7 +1893,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#lccensubtc .gt_footnotes {
+#ipjdqunxsc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1906,13 +1907,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#lccensubtc .gt_footnote {
+#ipjdqunxsc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lccensubtc .gt_sourcenotes {
+#ipjdqunxsc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1926,41 +1927,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#lccensubtc .gt_sourcenote {
+#ipjdqunxsc .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lccensubtc .gt_left {
+#ipjdqunxsc .gt_left {
   text-align: left;
 }
 
-#lccensubtc .gt_center {
+#ipjdqunxsc .gt_center {
   text-align: center;
 }
 
-#lccensubtc .gt_right {
+#ipjdqunxsc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lccensubtc .gt_font_normal {
+#ipjdqunxsc .gt_font_normal {
   font-weight: normal;
 }
 
-#lccensubtc .gt_font_bold {
+#ipjdqunxsc .gt_font_bold {
   font-weight: bold;
 }
 
-#lccensubtc .gt_font_italic {
+#ipjdqunxsc .gt_font_italic {
   font-style: italic;
 }
 
-#lccensubtc .gt_super {
+#ipjdqunxsc .gt_super {
   font-size: 65%;
 }
 
-#lccensubtc .gt_footnote_marks {
+#ipjdqunxsc .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1990,13 +1991,13 @@ Check that:
 <td class="gt_row gt_left">An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.</td></tr>
     <tr><td class="gt_row gt_left">Introduction</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and have a good idea about the research that was carried out and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
+<td class="gt_row gt_left">The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate; 2) some detail about what the paper is about; 3) a clear gap that needs to be filled; 4) what was done; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.</td></tr>
     <tr><td class="gt_row gt_left">Data</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained, in addition to if there were very similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of particular note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by graphing the actual data used, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
+<td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Model</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and also the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, in order to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
+<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again, if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
     <tr><td class="gt_row gt_left">Results</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.</td></tr>
@@ -2014,10 +2015,10 @@ Check that:
 <td class="gt_row gt_left">Graphs and tables must be included in the paper and should be to well-formatted, clear, and digestible. They should: 1) serve a clear purpose; 2) be fully self-contained through appropriate use of captions and sub-captions; 3) appropriately sized and colored; and 4) have appropriate significant figures, in the case of tables.</td></tr>
     <tr><td class="gt_row gt_left">Reference list</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 3 - 'One minor issue'; 4 - 'Perfect'</td>
-<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using bibtex. A few lines of code from Stack Overflow or similar, should be acknowledged just with a comment in the script immediately preceding the use of the code. Larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
+<td class="gt_row gt_left">All data, software, literature, and any other relevant material, should be cited in-text and included in a reference list made using BibTeX. A few lines of code from Stack Overflow or similar, would be acknowledged just with a comment in the script immediately preceding the use of the code rather than here. But larger chunks of code should be fully acknowledged with an in-text citation and appear in the reference list.</td></tr>
     <tr><td class="gt_row gt_left">Reproducibility</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
-<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. `setwd()` must not be used.</td></tr>
+<td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() must not be used.</td></tr>
     <tr><td class="gt_row gt_left">Enhancements</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'</td>
 <td class="gt_row gt_left">You should pick at least one of the following and include it to enhance your submission: 1) A datasheet for the dataset AND a model card for the model; 2) A Shiny application; 3) An R package; or 4) API for the model.</td></tr>

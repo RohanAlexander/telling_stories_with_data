@@ -17,24 +17,59 @@ Each of the chapters inspired a cocktail.
 
 **Chapter 2**
 
+$2$ oz Hennessy  
+$1$ oz lemon juice  
+$1$ oz strawberry syrup  
+Top with lemonade
+
 
 **Chapter 3**
 
+$1\frac{1}{2}$ oz bourbon  
+$\frac{1}{2}$ oz Benedictine
+$1$ oz cherry syrup
+$\frac{1}{2}$ oz raspberry syrup  
+$1$ oz lemon juice  
+Cherry garnish
 
 **Chapter 4**
+
+$1$ oz cognac  
+$\frac{1}{2}$ oz Grand Marnier  
+$\frac{1}{2}$ oz Amaro Nonino
+$\frac{1}{4}$ oz lemon juice  
+$\frac{1}{4}$ oz honey syrup  
+Cherry garnish
 
 
 **Chapter 5**
 
+$1\frac{1}{2}$ oz vodka  
+$\frac{3}{4}$ oz lime juice  
+$\frac{1}{2}$ oz ginger syrup  
+One dash Angostura bitters  
+Top with lemonade
 
 **Chapter 6**
+
+$1\frac{1}{2}$ oz cherry-infused vodka  
+$1$ oz sweet vermouth  
+$1$ oz raspberry syrup  
+$1$ oz lime juice  
+One dash Angostura bitters  
 
 
 **Chapter 7**
 
+$1$ oz cherry-infused vodka
+$1$ oz lemon juice  
+$\frac{1}{2}$ oz St Germain  
+$\frac{1}{2}$ oz limoncello
+$\frac{1}{2}$ oz strawberry syrup  
+One dash elderflower bitters  
+
 
 **Chapter 8**
-
 
 
 <!-- Album: The Strokes, *Last Nite* -->
@@ -87,6 +122,13 @@ $\frac{1}{2}$ oz ginger syrup
 
 **Chapter 16**
 
+$1\frac{1}{2}$ oz Canadian whiskey  
+$\frac{3}{4}$ oz Sweet vermouth  
+$\frac{3}{4}$ oz Benedictine  
+One dash absinthe  
+Two dashes Peychaud's bitters  
+Two dashes Angostura bitters
+
 
 **Chapter 17**
 
@@ -98,7 +140,4 @@ $\frac{1}{2}$ oz ginger syrup
 
 
 **Chapter 20**
-
-
-**Chapter 21**
 
