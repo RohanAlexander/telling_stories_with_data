@@ -7,20 +7,20 @@
 
 ## Concluding remarks
 
-There is an old saying, something along the lines of 'may you live in interesting times'. I am not sure if every generation feels this, but we sure live in interesting times. In this book, I have tried to convey some essentials that I think would allow you to contribute. But we are just getting started.
+There is an old saying, something along the lines of 'may you live in interesting times'. Possibly every generation feels this way, but we sure live in interesting times. In this book, we have covered a broad range of essential skills that would allow you to tell stories with data. But we are just getting started.
 
-I am 35 and so I am in the 'data science didn't exist when I was an undergraduate' generation. In a little over a decade data science has gone from something that barely existed to a defining part of academia and industry. What does that imply for for you? It may imply that one should not just be making decisions that optimize for what data science looks like right now, but also what could happen. While that's a little difficult, that’s also one of the things that makes data science so exciting. That might mean choices like:
+In a little over a decade data science has gone from something that barely existed, to a defining part of academia and industry. The extent and pace of this change has many implications for those learning data science. For instance, it may imply that one should not just make decisions that optimize for what data science looks like right now, but also what could happen. While that is a little difficult, that is also one of the things that makes data science so exciting. That might mean choices like:
 
 - taking courses on fundamentals, not just fashionable applications;
 - reading books, not just whatever is trending; and
 - trying to be at the intersection of at least a few different areas, rather than hyper-specialized.
 
-I am just someone who likes to play with data using R. A decade ago I wouldn't have fit into any particular department. I am lucky that these days there is space in data science for someone like me. And the nice thing about what we now call data science is that there's space for you as well.
-
-Data science needs diversity. Data science needs your intelligence and enthusiasm. It needs you to be in the room, and able to make contributions. We live in interesting times and it's just such an exciting time to be enthusiastic about data. I can't wait to see what you build.
+One of the most exciting times when you learn data science is realizing that you just love playing with data. A decade ago, this did not fit into any particular department, these days it fits into almost any of them. Data science needs diversity, both in terms of approaches and applications. It is increasingly the most important work in the world and hegemonic approaches have no place. It is just such an exciting time to be enthusiastic about data and able to build.
 
 
 ## Some issues
+
+Data science draws from a variety of disciplines. But there are a variety of concerns that are common across them. Here we detail a few.
 
 **1. How do we write unit tests for data science?**
 
@@ -45,14 +45,13 @@ As you know, the issue with power is related to the broader discussion about p-v
 And so, my specific issue is that people think that statistics is a recipe to be followed. They think that because that's how they are trained especially in social sciences like political science and economics, and that's what is rewarded. But that's not what these methods are. Instead, statistics is a collection of different instruments that let us look at our data in a certain way. I think that we need a revolution here, not a metaphorical tucking in of one's shirt.
 
 
-**4. How do we teach this stuff?**
+**4. How do we teach data science?**
 
-To a certain extent we are coming to agreement on what comprises fundamental data science skills. It involves computational thinking, concern for sampling, statistics, graphics, Git/GitHub, SQL, command line, comfort with messy data, comfort across a few languages including R and Python. This book has been a very thin overview of much, and while much more depth is needed, not much more breadth is. However, despite this consensus, we still have very little understanding of how to teach it. 
-
-
+We are beginning to start to have agreement on what the foundations of data science are. It involves computational thinking, concern for sampling, statistics, graphics, Git/GitHub, SQL, command line, comfort with messy data, comfort across a few languages including R and Python. But we have very little agreement on how best to teach it. Partly this is because data science instructors often come different fields, but also it is also partly a difference in resources and priorities.
 
 
-**5. To what extent is any of this an issue?**
+
+**5. What is happening at the data cleaning and preparation stage?**
 
 We basically do not have a good understanding how much any of this matters. @huntington2021influence showed that hidden research decisions have a big effect on subsequent estimates, sometimes greater than the standard errors. Such findings invalidate claims. We need much more investigation of how these early stages of the data science workflow affect the conclusions.
 
@@ -78,8 +77,6 @@ If you are interested in sampling then the next book to turn to is @lohr. To dee
 
 For developing better data visualization skills, begin by turning to @healyviz, but then after that, develop strong foundations, such as @grammarofgraphics. For writing, it would be best to turn inward. Force yourself to write and publish everyday for a month. Then do it again and again. You will get better. That said, there are some useful books, including @caroonworking and @stephenking.
 
-<!-- Thinking through production and SQL and things like, a next natural step is... -->
-
 We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. All that we can do is to acknowledge that we are the ones using data to tell stories, and strive and seek to make them worthy.
 
 > It was her voice that made  
@@ -91,14 +88,3 @@ We often hear the phrase let the data speak. Hopefully by this point you underst
 > That was her song, for she was the maker.
 > 
 > 'The Idea of Order at Key West', [@wallacestevens]
-
-
-
-
-## Exercises and tutorial
-
-### Paper
-
-At about this point, the Final Paper (Appendix \@ref(final-paper)) would be appropriate.
-
-

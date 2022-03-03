@@ -63,6 +63,7 @@
 ## Hello, World!
 
 The way to start, is to start. In this chapter we go through three complete examples of the workflow advocated in this book. This means we will: plan, simulate, acquire, explore, and share. If you are new to R, then some of the code may be a bit unfamiliar to you. If you are new to statistics, then some of the concepts may be unfamiliar. Do not worry. It will all soon become familiar. 
+
 The only way to learn how to tell stories, is to start telling stories yourself. This means that you should try to get these examples working. Do the sketches yourself, type everything out yourself (using R Studio Cloud if you are new to R and do not have it installed on your own computer), and execute it all. It is important, and normal, to realize that it will be challenging at the start.
 
 > Whenever you're learning a new tool, for a long time, you're going to suck... But the good news is that is typical; that's something that happens to everyone, and it's only temporary.
@@ -186,15 +187,15 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 Conservative  
+#>  1      1 Liberal       
 #>  2      2 Liberal       
-#>  3      3 Liberal       
-#>  4      4 Green         
-#>  5      5 Bloc Québécois
-#>  6      6 Conservative  
-#>  7      7 Conservative  
-#>  8      8 Liberal       
-#>  9      9 Other         
+#>  3      3 Green         
+#>  4      4 Other         
+#>  5      5 Green         
+#>  6      6 New Democratic
+#>  7      7 Bloc Québécois
+#>  8      8 Green         
+#>  9      9 New Democratic
 #> 10     10 Liberal       
 #> # … with 328 more rows
 ```

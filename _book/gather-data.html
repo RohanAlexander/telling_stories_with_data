@@ -324,25 +324,10 @@ Figure 9.3: Example of hovering over an JSON element, ‘items’, where the ico
 <p>This tells us how to obtain the dataset of interest.</p>
 <div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">politics_datasets</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"items"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 10 × 18</span>
-<span class="co">#&gt;    name      type  url   identifier description published_at</span>
-<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 China Ar… data… http… china-arc… Introducti… 2016-12-09T…</span>
-<span class="co">#&gt;  2 cc16_AK.… file  http… &lt;NA&gt;       Alaska sub… 2021-12-26T…</span>
-<span class="co">#&gt;  3 cc16_AL.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  4 cc16_AR.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  5 cc16_AZ.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  6 cc16_CA.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  7 cc16_CO.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  8 cc16_CT.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt;  9 cc16_DC.… file  http… &lt;NA&gt;       DC subset   2021-12-27T…</span>
-<span class="co">#&gt; 10 cc16_DE.… file  http… &lt;NA&gt;       &lt;NA&gt;        2021-12-26T…</span>
-<span class="co">#&gt; # … with 12 more variables: file_id &lt;chr&gt;, file_type &lt;chr&gt;,</span>
-<span class="co">#&gt; #   file_content_type &lt;chr&gt;, size_in_bytes &lt;int&gt;,</span>
-<span class="co">#&gt; #   md5 &lt;chr&gt;, checksum &lt;df[,2]&gt;, unf &lt;chr&gt;,</span>
-<span class="co">#&gt; #   file_persistent_id &lt;chr&gt;, dataset_name &lt;chr&gt;,</span>
-<span class="co">#&gt; #   dataset_id &lt;chr&gt;, dataset_persistent_id &lt;chr&gt;,</span>
-<span class="co">#&gt; #   dataset_citation &lt;chr&gt;</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 1 × 6</span>
+<span class="co">#&gt;   name       type  url   identifier description published_at</span>
+<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;       </span>
+<span class="co">#&gt; 1 China Arc… data… http… china-arc… Introducti… 2016-12-09T…</span></code></pre></div>
 </div>
 <div id="case-study-gathering-data-from-twitter" class="section level3" number="9.2.2">
 <h3>
@@ -2522,12 +2507,11 @@ Figure 9.16: Scan of first page of Jane Eyre
 <ol style="list-style-type: decimal">
 <li>What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?</li>
 <li>There have been some substantial political polling ‘misses’ in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?</li>
-<li>It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
+<li>It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>Cluster sampling.</li>
 <li>Systematic sampling.</li>
 <li>Stratified sampling.</li>
-<li>Simple random sampling.</li>
 <li>Convenience sampling.</li>
 </ol>
 </li>
@@ -2553,7 +2537,7 @@ Figure 9.16: Scan of first page of Jane Eyre
 </ol>
 </li>
 <li>What are three reasons why we should be respectful when getting scraping data from websites (write a paragraph or two)?</li>
-<li>What features of a website do we typically take advantage of when we parse the code (select all that apply)?
+<li>What features of a website do we typically take advantage of when we parse the code (pick on)?
 <ol style="list-style-type: lower-alpha">
 <li>HTML/CSS mark-up.</li>
 <li>Cookies.</li>
@@ -2685,7 +2669,7 @@ Figure 9.16: Scan of first page of Jane Eyre
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 28 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 03 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

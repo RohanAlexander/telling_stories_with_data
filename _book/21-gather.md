@@ -269,25 +269,10 @@ This tells us how to obtain the dataset of interest.
 
 ```r
 as_tibble(politics_datasets[["data"]][["items"]])
-#> # A tibble: 10 × 18
-#>    name      type  url   identifier description published_at
-#>    <chr>     <chr> <chr> <chr>      <chr>       <chr>       
-#>  1 China Ar… data… http… china-arc… Introducti… 2016-12-09T…
-#>  2 cc16_AK.… file  http… <NA>       Alaska sub… 2021-12-26T…
-#>  3 cc16_AL.… file  http… <NA>       <NA>        2021-12-26T…
-#>  4 cc16_AR.… file  http… <NA>       <NA>        2021-12-26T…
-#>  5 cc16_AZ.… file  http… <NA>       <NA>        2021-12-26T…
-#>  6 cc16_CA.… file  http… <NA>       <NA>        2021-12-26T…
-#>  7 cc16_CO.… file  http… <NA>       <NA>        2021-12-26T…
-#>  8 cc16_CT.… file  http… <NA>       <NA>        2021-12-26T…
-#>  9 cc16_DC.… file  http… <NA>       DC subset   2021-12-27T…
-#> 10 cc16_DE.… file  http… <NA>       <NA>        2021-12-26T…
-#> # … with 12 more variables: file_id <chr>, file_type <chr>,
-#> #   file_content_type <chr>, size_in_bytes <int>,
-#> #   md5 <chr>, checksum <df[,2]>, unf <chr>,
-#> #   file_persistent_id <chr>, dataset_name <chr>,
-#> #   dataset_id <chr>, dataset_persistent_id <chr>,
-#> #   dataset_citation <chr>
+#> # A tibble: 1 × 6
+#>   name       type  url   identifier description published_at
+#>   <chr>      <chr> <chr> <chr>      <chr>       <chr>       
+#> 1 China Arc… data… http… china-arc… Introducti… 2016-12-09T…
 ```
 
 
@@ -2417,53 +2402,52 @@ cat(text)
 
 1. What are some types of probability sampling, and in what circumstances might you want to implement them (write two or three pages)?
 2. There have been some substantial political polling 'misses' in recent years (Trump and Brexit come to mind). To what extent do you think non-response bias was the cause of this (write a page or two, being sure to ground your writing with citations)?
-3. It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (select all)?
+3. It seems like a lot of businesses have closed since the pandemic. To investigate this, we walk along some blocks downtown and count the number of businesses that are closed and open. To decide which blocks to walk, we open a map, start at the lake, and then pick every 10th street. This type of sampling is (pick one)?
     a. Cluster sampling.
-    b. Systematic sampling.
+    b.  Systematic sampling.
     c. Stratified sampling.
-    d. Simple random sampling.
-    e. Convenience sampling.
-16. Please name some reasons why you may wish to use cluster sampling (select all)?
+    d. Convenience sampling.
+4. Please name some reasons why you may wish to use cluster sampling (select all)?
     a. Balance in responses.
     b. Administrative convenience.
     c. Efficiency in terms of money.
     d. Underlying systematic concerns.
     e. Estimation of sub-populations.
-17. Please consider Beaumont, 2020, 'Are probability surveys bound to disappear for the production of official statistics?'. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?
-1. In your own words, what is an API (write a paragraph or two)?
-2. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?
-3. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?
-4. What is the main argument to `httr::GET()` (pick one)?
-    a. 'url'
+5. Please consider Beaumont, 2020, 'Are probability surveys bound to disappear for the production of official statistics?'. With reference to that paper, do you think that probability surveys will disappear, and why or why not (please write a paragraph or two)?
+6. In your own words, what is an API (write a paragraph or two)?
+7. Find two APIs and discuss how you could use them to tell interesting stories (write a paragraph or two for each)?
+8. Find two APIs that have an R packages written around them. How could you use these to tell interesting stories (write a paragraph or two)?
+9. What is the main argument to `httr::GET()` (pick one)?
+    a.  'url'
     b. 'website'
     c. 'domain'
     d. 'location'
-5. What are three reasons why we should be respectful when getting scraping data from websites  (write a paragraph or two)?
-6. What features of a website do we typically take advantage of when we parse the code (select all that apply)?
+10. What are three reasons why we should be respectful when getting scraping data from websites  (write a paragraph or two)?
+11. What features of a website do we typically take advantage of when we parse the code (pick on)?
     a. HTML/CSS mark-up.
     b. Cookies.
     c. Facebook beacons.
     d. Code comments.
-7. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
-8. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
+12. What are three advantages and three disadvantages of scraping compared with using an API (write a paragraph or two)?
+13. What are three delimiters that could be useful when trying to bring order to the PDF that you read in as a character vector (write a paragraph or two)?
 9. Which of the following, used as part of a regular expression, would match a full stop (hint: see the 'strings' cheat sheet) (pick one)? 
     a. '.'
     b. '\.'
-    c. '\\.'
+    c.  '\\.'
     d. '\\\.'
 10. Name three reasons for sketching out what you want before starting to try to extract data from a PDF (write a paragraph or two for each)?
 11. What are three checks that we might like to use for demographic data, such as the number of births in a country in a particular year (write a paragraph or two for check)?
 12. What are three checks that we might like to use for economic data, such as GDP for a particular country in a particular year (write a paragraph or two for check)?
 13. What does the `purrr` package do (select all that apply)?
-    a. Enhances R's functional programming toolkit.
-    b. Makes loops easier to code and read.
+    a.  Enhances R's functional programming toolkit.
+    b.  Makes loops easier to code and read.
     c. Checks the consistency of datasets.
     d. Identifies issues in data structures and proposes replacements.
 14. Which of these are functions from the `purrr` package (select all that apply)?
-    a. `map()`
-    b. `walk()`
+    a.  `map()`
+    b.  `walk()`
     c. `run()`
-    d. `safely()`
+    d.  `safely()`
 15. What are some principles to follow when scraping (select all that apply)?
     a. Avoid it if possible
     b. Follow the site’s guidance
@@ -2478,7 +2462,7 @@ cat(text)
     c. `b`
     d. `em`
 18. Which function should we use if we have the following text data: 'rohan_alexander' in a column called 'names' and want to split it into first name and surname based on the underbar (pick one)?
-    a. `separate()`
+    a.  `separate()`
     b. `slice()`
     c. `spacing()`
     d. `text_to_columns()`

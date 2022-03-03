@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "28 February, 2022"
+date: "03 March, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -50,7 +50,7 @@ The typical person reading this book has some familiarity with first-year statis
 
 Enthusiasm and interest have taken folks far. If you have those, then do not worry about too much else. Some of the most successful students have been those with no quantitative or coding background. 
 
-This book especially complements books such as: *Data Science: A First Introduction* [@timbersandfriends], *R for Data Science* [@r4ds], *An Introduction to Statistical Learning* [@islr], *Statistical Rethinking* [@citemcelreath], *Causal Inference: The Mixtape* [@Cunningham2021], *The Effect: An Introduction to Research Design and Causality* [@theeffect], and *Building Software Together* [@buildingsoftwaretogether]. If you are interested in those books, then this might be a good one to start with. 
+This book covers a lot of ground, but does not go into depth about any particular aspect. As such this book especially complements books such as: *Data Science: A First Introduction* [@timbersandfriends], *R for Data Science* [@r4ds], *An Introduction to Statistical Learning* [@islr], *Statistical Rethinking* [@citemcelreath], *Causal Inference: The Mixtape* [@Cunningham2021], *The Effect: An Introduction to Research Design and Causality* [@theeffect], and *Building Software Together* [@buildingsoftwaretogether]. If you are interested in those books, then this might be a good one to start with. 
 
 
 ## Structure and content {-}

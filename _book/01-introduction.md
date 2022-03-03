@@ -22,7 +22,7 @@ output:
 
 ## On telling stories
 
-Like many parents, when our children were born, one of the first things that my wife and I did regularly was read stories to them. In doing so we carried on a tradition that has occurred for millennia. Myths, fables, and fairy tales can be seen and heard all around us. Not only are they entertaining but they enable us to learn something about the world. While *The Very Hungry Caterpillar* [@veryhungry] may seem quite far from the world of dealing with data, there are similarities. Both are trying to tell a story and teaching us something about the world.
+One of the first things that many parents regularly do when their children are born is read stories to them. In doing so they carry on a tradition that has occurred for millennia. Myths, fables, and fairy tales can be seen and heard all around us. Not only are they entertaining but they enable us to learn something about the world. While *The Very Hungry Caterpillar* [@veryhungry] may seem quite far from the world of dealing with data, there are similarities. Both are trying to tell a story and teaching us something about the world.
 
 When using data, we try to tell a convincing story. It may be as exciting as predicting elections, as banal as increasing internet advertising click rates, as serious as finding the cause of a disease, or as fun as forecasting basketball games. In any case the key elements are the same. The English author, E. M. Forster, described the aspects common to all novels as: story, people, plot, fantasy, prophecy, pattern, and rhythm [@forster]. Similarly, when we tell stories with data, there are common concerns, regardless of the setting:
 
@@ -237,7 +237,13 @@ Ultimately, we are all just telling stories with data, but these stories are inc
     c. Big data.
     d. Humility about one's own knowledge.
     e. Theory and application.
-8. Why is ethics a key element of telling convincing stories (in your own words)?
+8. If a fair coin is tossed twice, then what is the probability of getting two heads?
+    a. 0
+    b.  0.25
+    c. 0.5
+    d. 0.75
+    e. 1
+9. Why is ethics a key element of telling convincing stories (in your own words)?
     
     
 ### Tutorial

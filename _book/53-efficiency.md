@@ -45,14 +45,14 @@ tic("First bit of code")
 print("Fast code")
 #> [1] "Fast code"
 toc()
-#> First bit of code: 0.049 sec elapsed
+#> First bit of code: 0.046 sec elapsed
 
 tic("Second bit of code")
 Sys.sleep(3)
 print("Slow code")
 #> [1] "Slow code"
 toc()
-#> Second bit of code: 3.006 sec elapsed
+#> Second bit of code: 3.01 sec elapsed
 ```
 
 And so we know that there is something slowing down the code; which in this artificial case is `Sys.sleep()` causing a delay of 3 seconds.
@@ -346,42 +346,42 @@ write_csv(x = some_data,
           file = "some_data.csv")
 read_csv(file = "some_data.csv")
 #> # A tibble: 1,000,000 × 2
-#>    first second
-#>    <dbl> <chr> 
-#>  1 0.992 I     
-#>  2 0.658 B     
-#>  3 0.665 N     
-#>  4 0.134 O     
-#>  5 0.471 G     
-#>  6 0.382 N     
-#>  7 0.340 P     
-#>  8 0.362 U     
-#>  9 0.248 G     
-#> 10 0.605 Q     
+#>     first second
+#>     <dbl> <chr> 
+#>  1 0.593  R     
+#>  2 0.328  M     
+#>  3 0.457  D     
+#>  4 0.849  C     
+#>  5 0.412  S     
+#>  6 0.152  C     
+#>  7 0.647  G     
+#>  8 0.718  G     
+#>  9 0.0761 M     
+#> 10 0.912  E     
 #> # … with 999,990 more rows
 toc()
-#> CSV: 0.359 sec elapsed
+#> CSV: 0.362 sec elapsed
 
 tic("parquet")
 write_parquet(x = some_data,
               sink = "some_data.parquet")
 read_parquet(file = "some_data.parquet")
 #> # A tibble: 1,000,000 × 2
-#>    first second
-#>    <dbl> <chr> 
-#>  1 0.992 I     
-#>  2 0.658 B     
-#>  3 0.665 N     
-#>  4 0.134 O     
-#>  5 0.471 G     
-#>  6 0.382 N     
-#>  7 0.340 P     
-#>  8 0.362 U     
-#>  9 0.248 G     
-#> 10 0.605 Q     
+#>     first second
+#>     <dbl> <chr> 
+#>  1 0.593  R     
+#>  2 0.328  M     
+#>  3 0.457  D     
+#>  4 0.849  C     
+#>  5 0.412  S     
+#>  6 0.152  C     
+#>  7 0.647  G     
+#>  8 0.718  G     
+#>  9 0.0761 M     
+#> 10 0.912  E     
 #> # … with 999,990 more rows
 toc()
-#> parquet: 0.243 sec elapsed
+#> parquet: 0.254 sec elapsed
 ```
 
 
@@ -413,4 +413,6 @@ toc()
 ### Tutorial
 
 
+### Paper
 
+At about this point, the Final Paper (Appendix \@ref(final-paper)) would be appropriate.

@@ -146,8 +146,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-632f2b47c41591b9fabd" style="width:75%;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-632f2b47c41591b9fabd">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-72570b64d6c550f3e4ec" style="width:75%;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-72570b64d6c550f3e4ec">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
@@ -176,8 +176,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-065e3bb73bcb6639bdb7" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-065e3bb73bcb6639bdb7">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6535b2435ca6a00c6236" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6535b2435ca6a00c6236">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasconfounder)A DAG showing Carrot as a confounder</p>
@@ -189,7 +189,7 @@ In Figure \@ref(fig:carrotasconfounder), we think *Apple* causes *Banana*. But w
 
 If there are confounders, but we are still interested in causal effects, then we need to adjust for them. One way is to include them in the regression. But the validity of this requires several assumptions. In particular, @gelmanandhill [p. 169] warn that our estimate will only correspond to the average causal effect in the sample if we include all of the confounders and have the right model. Putting the second requirement to one side, and focusing only on the first, if we do not think about and observe a confounder, then it can be difficult to adjust for it. And this is an area where both domain expertise and theory can bring a lot to an analysis. 
 
-In Figure \@ref(fig:carrotasmediator) we have a similar situation where Again, we may think that *Apple* causes *Banana*. But in Figure \@ref(fig:carrotasmediator) *Apple* also causes *Carrot*, which itself causes *Banana*.
+In Figure \@ref(fig:carrotasmediator) we have a similar situation where again, we may think that *Apple* causes *Banana*. But in Figure \@ref(fig:carrotasmediator) *Apple* also causes *Carrot*, which itself causes *Banana*.
 
 
 ```r
@@ -212,8 +212,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-29be7c0361e0b00e7efe" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-29be7c0361e0b00e7efe">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cb47645586b40bc4c68c" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cb47645586b40bc4c68c">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotasmediator)A DAG showing Carrot as a mediator</p>
@@ -221,7 +221,7 @@ digraph {
 
 In Figure \@ref(fig:carrotasmediator), *Carrot* is called a 'mediator' and we would not adjust for it if we were interested in the effect of *Apple* on *Banana*. If we were to adjust for it, then some of what we are attributing to *Apple*, would be due to *Carrot*.
 
-Finally, in Figure \@ref(fig:carrotascollider) we have yet another similar situation, where we Again, think that *Apple* causes *Banana*. But this time both *Apple* and *Banana* also cause *Carrot*.
+Finally, in Figure \@ref(fig:carrotascollider) we have yet another similar situation, where we again, think that *Apple* causes *Banana*. But this time both *Apple* and *Banana* also cause *Carrot*.
 
 
 ```r
@@ -244,8 +244,8 @@ digraph {
 <div class="figure">
 
 ```{=html}
-<div id="htmlwidget-327adce5202a9435eb9c" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-327adce5202a9435eb9c">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-527fb5bc62f3bf1e67af" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-527fb5bc62f3bf1e67af">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 <p class="caption">(\#fig:carrotascollider)A DAG showing Carrot as a collider</p>
@@ -400,7 +400,7 @@ With observational data, sometimes there are differences between our two groups 
 
 Consider wanting to know the effect of a new tennis racket on serve speed. One way to test this would be to measure the difference between, say, Roger Federer's serve speed without the tennis racket and the serve speed of an enthusiastic amateur, let us call them Ville, with the tennis racket. Yes, we would find a difference, but would we know how much to attribute to the tennis racket? Another way would be to consider the difference between Ville's serve speed without the new tennis racket and Ville's serve speed with the new tennis racket. But what if serves were just getting faster naturally over time? Instead, we combine the two approaches to look at the difference in the differences.
 
-We begin by measuring Federer's serve speed and compare it to Ville's serve speed, both without the new racket. We then measure Federer's serve speed Again, and measure Ville's serve speed with the new racket. That difference in the differences would then be the estimate of the effect of the new racket. There are a few key assumptions that we need to make for this analysis to be appropriate:
+We begin by measuring Federer's serve speed and compare it to Ville's serve speed, both without the new racket. We then measure Federer's serve speed again, and measure Ville's serve speed with the new racket. That difference in the differences would then be the estimate of the effect of the new racket. There are a few key assumptions that we need to make for this analysis to be appropriate:
 
 1) Is there something else that may have affected only Ville, and not Federer that could affect Ville's serve speed?
 2) Is it likely that Federer and Ville have the same trajectory of serve speed improvement? This is the 'parallel trends' assumption, and it dominates many discussions of difference in differences analysis. 
@@ -1057,7 +1057,7 @@ modelsummary(
 
 
 
-And looking at the advertising-side variables (Table \@ref(tab:frenchnewspapersconsumers)) we Again, find consistently negative coefficients for everything apart from the share of subscriptions and unit price.
+And looking at the advertising-side variables (Table \@ref(tab:frenchnewspapersconsumers)) we again, find consistently negative coefficients for everything apart from the share of subscriptions and unit price.
 
 
 ```r
@@ -1771,7 +1771,7 @@ This solves our problem because the only way the instrumental variable can have 
 
 The canonical instrumental variables example is smoking. These days we know that smoking causes cancer. But because smoking is correlated with a lot of other variables, for instance, education, it could be that it was actually education that causes cancer. RCTs may be possible, but they are likely to be troublesome in terms of speed and ethics, and so instead we look for some other variable that is correlated with smoking, but not, in and of itself, with lung cancer. In this case, we look to tax rates, and other policy responses, on cigarettes. As the tax rates on cigarettes are correlated with the number of cigarettes that are smoked, but not correlated with lung cancer, other than through their impact on cigarette smoking, through them we can assess the effect of cigarettes smoked on lung cancer.
 
-To implement instrumental variables we first regress tax rates on cigarette smoking to get some coefficient on the instrumental variable, and then (in a separate regression) regress tax rates on lung cancer to Again, get some coefficient on the instrumental variable. Our estimate is then the ratio of these coefficients, which is described as a 'Wald estimate' [@gelmanandhill, p. 219].
+To implement instrumental variables we first regress tax rates on cigarette smoking to get some coefficient on the instrumental variable, and then (in a separate regression) regress tax rates on lung cancer to again, get some coefficient on the instrumental variable. Our estimate is then the ratio of these coefficients, which is described as a 'Wald estimate' [@gelmanandhill, p. 219].
 
 Following the language of [@gelmanandhill, p. 216] when we use instrumental variables we make a variety of assumptions including:
 
@@ -2030,7 +2030,7 @@ Instrumental variables is a useful approach because one can obtain causal estima
 
 
 1. For three months Sharla Gelfand shared two functions each day: one that was new to them and another that they already knew and love. Please go the 'Two Functions Most Days' GitHub [repo](https://github.com/sharlagelfand/twofunctionsmostdays), and find a package that they mention that you have never used. Find the relevant website for the package, and then in a paragraph or two, describe what the package does and a context in which it could be useful to you.
-2. Please Again, go to Sharla's 'Two Functions Most Days' GitHub [repo](https://github.com/sharlagelfand/twofunctionsmostdays), and find a function that they mention that you have never used. Please look at the help file for that function, and then detail the arguments of the function, and a context in which it could be useful to you.
+2. Please again, go to Sharla's 'Two Functions Most Days' GitHub [repo](https://github.com/sharlagelfand/twofunctionsmostdays), and find a function that they mention that you have never used. Please look at the help file for that function, and then detail the arguments of the function, and a context in which it could be useful to you.
 3. What is propensity score matching? If you were matching people, then what are some of the features that you would like to match on? What sort of ethical questions does collecting and storing such information raise for you?
 4. Putting the ethical issues to one side, following @king2019propensity, in at least two paragraphs, please describe some of the statistical concerns with propensity score matching.
 5. What is the key assumption when using difference in differences?

@@ -52,12 +52,12 @@ Additional points:
 
 
 ```{=html}
-<div id="aidjqlvmbr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qcihumbgrq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#aidjqlvmbr .gt_table {
+#qcihumbgrq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -82,7 +82,7 @@ Additional points:
   border-left-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_heading {
+#qcihumbgrq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -94,7 +94,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_title {
+#qcihumbgrq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -104,7 +104,7 @@ Additional points:
   border-bottom-width: 0;
 }
 
-#aidjqlvmbr .gt_subtitle {
+#qcihumbgrq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -114,13 +114,13 @@ Additional points:
   border-top-width: 0;
 }
 
-#aidjqlvmbr .gt_bottom_border {
+#qcihumbgrq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_col_headings {
+#qcihumbgrq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -135,7 +135,7 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_col_heading {
+#qcihumbgrq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -155,7 +155,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#aidjqlvmbr .gt_column_spanner_outer {
+#qcihumbgrq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -167,15 +167,15 @@ Additional points:
   padding-right: 4px;
 }
 
-#aidjqlvmbr .gt_column_spanner_outer:first-child {
+#qcihumbgrq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#aidjqlvmbr .gt_column_spanner_outer:last-child {
+#qcihumbgrq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#aidjqlvmbr .gt_column_spanner {
+#qcihumbgrq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -187,7 +187,7 @@ Additional points:
   width: 100%;
 }
 
-#aidjqlvmbr .gt_group_heading {
+#qcihumbgrq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -209,7 +209,7 @@ Additional points:
   vertical-align: middle;
 }
 
-#aidjqlvmbr .gt_empty_group_heading {
+#qcihumbgrq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -224,15 +224,15 @@ Additional points:
   vertical-align: middle;
 }
 
-#aidjqlvmbr .gt_from_md > :first-child {
+#qcihumbgrq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#aidjqlvmbr .gt_from_md > :last-child {
+#qcihumbgrq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#aidjqlvmbr .gt_row {
+#qcihumbgrq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -251,7 +251,7 @@ Additional points:
   overflow-x: hidden;
 }
 
-#aidjqlvmbr .gt_stub {
+#qcihumbgrq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -263,7 +263,7 @@ Additional points:
   padding-left: 12px;
 }
 
-#aidjqlvmbr .gt_summary_row {
+#qcihumbgrq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -273,7 +273,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#aidjqlvmbr .gt_first_summary_row {
+#qcihumbgrq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -283,7 +283,7 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_grand_summary_row {
+#qcihumbgrq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -293,7 +293,7 @@ Additional points:
   padding-right: 5px;
 }
 
-#aidjqlvmbr .gt_first_grand_summary_row {
+#qcihumbgrq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -303,11 +303,11 @@ Additional points:
   border-top-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_striped {
+#qcihumbgrq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#aidjqlvmbr .gt_table_body {
+#qcihumbgrq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -316,7 +316,7 @@ Additional points:
   border-bottom-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_footnotes {
+#qcihumbgrq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -330,13 +330,13 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_footnote {
+#qcihumbgrq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#aidjqlvmbr .gt_sourcenotes {
+#qcihumbgrq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -350,41 +350,41 @@ Additional points:
   border-right-color: #D3D3D3;
 }
 
-#aidjqlvmbr .gt_sourcenote {
+#qcihumbgrq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#aidjqlvmbr .gt_left {
+#qcihumbgrq .gt_left {
   text-align: left;
 }
 
-#aidjqlvmbr .gt_center {
+#qcihumbgrq .gt_center {
   text-align: center;
 }
 
-#aidjqlvmbr .gt_right {
+#qcihumbgrq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#aidjqlvmbr .gt_font_normal {
+#qcihumbgrq .gt_font_normal {
   font-weight: normal;
 }
 
-#aidjqlvmbr .gt_font_bold {
+#qcihumbgrq .gt_font_bold {
   font-weight: bold;
 }
 
-#aidjqlvmbr .gt_font_italic {
+#qcihumbgrq .gt_font_italic {
   font-style: italic;
 }
 
-#aidjqlvmbr .gt_super {
+#qcihumbgrq .gt_super {
   font-size: 65%;
 }
 
-#aidjqlvmbr .gt_footnote_marks {
+#qcihumbgrq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -447,8 +447,7 @@ Additional points:
 
 Some examples of papers that did well include: 
 
-- 2021: [Amy Farrow](inputs/pdfs/paper_one-2021-Amy_Farrow.pdf), [Morgaine Westin](inputs/pdfs/paper_one-2021-Morgaine_Westin.pdf), and [Rachel Lam](inputs/pdfs/paper_one-2021-Rachel_Lam.pdf).
-- 2022: [Adam Labas](inputs/pdfs/paper_one-2022-adam_labas.pdf), [Alicia Yang](inputs/pdfs/paper_one-2022-alicia_yang.pdf), [Alyssa Schleifer](inputs/pdfs/paper_one-2022-alyssa_schleifer.pdf), [Ethan Sansom](inputs/pdfs/paper_one-2022-ethan_sansom.pdf), [Hudson Yuen](inputs/pdfs/paper_one-2022-hudson_yuen.pdf), [Jack McKay](inputs/pdfs/paper_one-2022-jack_mckay.pdf), [Roy Chan](inputs/pdfs/paper_one-2022-roy_chan.pdf), [Thomas D'Onofrio](inputs/pdfs/paper_one-2022-thomas_donofrio.pdf), and [William Gerecke](inputs/pdfs/paper_one-2022-william_gerecke.pdf).
+[Adam Labas](inputs/pdfs/paper_one-2022-adam_labas.pdf), [Alicia Yang](inputs/pdfs/paper_one-2022-alicia_yang.pdf), [Alyssa Schleifer](inputs/pdfs/paper_one-2022-alyssa_schleifer.pdf), [Amy Farrow](inputs/pdfs/paper_one-2021-Amy_Farrow.pdf), [Ethan Sansom](inputs/pdfs/paper_one-2022-ethan_sansom.pdf), [Hudson Yuen](inputs/pdfs/paper_one-2022-hudson_yuen.pdf), [Jack McKay](inputs/pdfs/paper_one-2022-jack_mckay.pdf), [Morgaine Westin](inputs/pdfs/paper_one-2021-Morgaine_Westin.pdf), [Rachel Lam](inputs/pdfs/paper_one-2021-Rachel_Lam.pdf), [Roy Chan](inputs/pdfs/paper_one-2022-roy_chan.pdf), [Thomas D'Onofrio](inputs/pdfs/paper_one-2022-thomas_donofrio.pdf), and [William Gerecke](inputs/pdfs/paper_one-2022-william_gerecke.pdf).
 
 
 
@@ -489,8 +488,9 @@ Check that:
 
 - How much should I write? Most students submit something in the 10-to-15-page range, but it is up to you. Be precise and thorough.
 - Do I have to focus on a model result? No, it is likely best to stay away from that at this point, and instead focus on tables or graphs of summary or explanatory statistics.
-- What if the paper I choose is in a language other than R? Both your replication and reproduction code should be in R. So you will need to translate the code into R for the replication. And the reproduction should be your own work, so that also should be in R.
+- What if the paper I choose is in a language other than R? Both your replication and reproduction code should be in R. So you will need to translate the code into R for the replication. And the reproduction should be your own work, so that also should be in R. One common language is Stata, and @lost2022 might be useful as a Rosetta Stone of sorts, for R, Python, and Stata.
 - Can I work by myself? Yes.
+- Do the graphs/tables have to look identical to the original? No, you are welcome to, and should, make them look better as part of the reproduction. And even as part of the replication, they do not have to be identical, just similar enough.
 
 ### Rubric
 
@@ -498,7 +498,7 @@ Check that:
 |Component                |Range                                                                                                     |Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:------------------------|:---------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |R is appropriately cited |0 - 'No'; 1 - 'Yes'                                                                                       |Must be referred to in the main content and included in the reference list. If not, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|Replication              |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |If replication is poor or not done, no need to continue marking, paper gets 0 overall.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|Replication              |0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional' |SSRP submission needs to be filled out completely for three elements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |Title                    |0 - 'Poor or not done'; 1 - 'Yes'; 2 - 'Exceptional'                                                      |An informative title is included that explains the story, and ideally tells the reader what happens at the end of it. 'Paper X' is not an informative title. There should be no evidence this is a school paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |Author, date, and repo   |0 - 'Poor or not done'; 2 - 'Yes'                                                                         |The author, date of submission in unambiguous format, and a link to a GitHub repo are clearly included. (The later likely, but not necessarily, through a statement such as: 'Code and data supporting this analysis is available at: LINK').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |Abstract                 |0 - 'Poor or not done'; 1 - 'Gets job done'; 2 - 'Fine'; 3 - 'Great'; 4 - 'Exceptional'                   |An abstract is included and appropriately pitched to a non-specialist audience. The abstract answers: 1) what was done, 2) what was found, and 3) why this matters (all at a high level). Likely four sentences. Abstract must make clear what we learn about the world because of this paper.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -515,7 +515,12 @@ Check that:
 
 ### Previous examples
 
-Some examples of papers that well in the past include those by: [Amy Farrow](inputs/pdfs/Farrow_Amy-replication_paper.pdf), [Laura Cline](inputs/pdfs/Cline_Laura-IndigenousWomenInPrison.pdf), [Hong Shi](inputs/pdfs/Shi_Hong-replication_paper.pdf), and [Jia Jia Ji](inputs/pdfs/Jia_Jia_Ji-effect_of_DLL_ON_spanish_literacy_skills.pdf).
+Some examples of papers that well in the past include those by: 
+
+[Alyssa Schleifer, Hudson Yuen, Tamsen Yau](inputs/pdfs/paper_two-2022-Alyssa_Schleifer_Hudson_Yuen_Tamsen_Yau.pdf), and [Olaedo Okpareke, Arsh Lakhanpal, Swarnadeep Chattopadhyay](inputs/pdfs/paper_two-2022-Olaedo_Okpareke_Arsh_Lakhanpal_Swarnadeep_Chattopadhyay.pdf).
+
+<!-- , and -->
+<!-- [Kimlin Chin](inputs/pdfs/paper_two-2022-Kimlin_Chin.pdf). -->
 
 
 \newpage
@@ -650,12 +655,12 @@ Check that:
 
 
 ```{=html}
-<div id="ocstrnzubt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mcurorffkq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ocstrnzubt .gt_table {
+#mcurorffkq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -680,7 +685,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_heading {
+#mcurorffkq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -692,7 +697,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_title {
+#mcurorffkq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -702,7 +707,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#ocstrnzubt .gt_subtitle {
+#mcurorffkq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -712,13 +717,13 @@ Check that:
   border-top-width: 0;
 }
 
-#ocstrnzubt .gt_bottom_border {
+#mcurorffkq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_col_headings {
+#mcurorffkq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -733,7 +738,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_col_heading {
+#mcurorffkq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -753,7 +758,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#ocstrnzubt .gt_column_spanner_outer {
+#mcurorffkq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -765,15 +770,15 @@ Check that:
   padding-right: 4px;
 }
 
-#ocstrnzubt .gt_column_spanner_outer:first-child {
+#mcurorffkq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ocstrnzubt .gt_column_spanner_outer:last-child {
+#mcurorffkq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ocstrnzubt .gt_column_spanner {
+#mcurorffkq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -785,7 +790,7 @@ Check that:
   width: 100%;
 }
 
-#ocstrnzubt .gt_group_heading {
+#mcurorffkq .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -807,7 +812,7 @@ Check that:
   vertical-align: middle;
 }
 
-#ocstrnzubt .gt_empty_group_heading {
+#mcurorffkq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -822,15 +827,15 @@ Check that:
   vertical-align: middle;
 }
 
-#ocstrnzubt .gt_from_md > :first-child {
+#mcurorffkq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ocstrnzubt .gt_from_md > :last-child {
+#mcurorffkq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ocstrnzubt .gt_row {
+#mcurorffkq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -849,7 +854,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#ocstrnzubt .gt_stub {
+#mcurorffkq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -861,7 +866,7 @@ Check that:
   padding-left: 12px;
 }
 
-#ocstrnzubt .gt_summary_row {
+#mcurorffkq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -871,7 +876,7 @@ Check that:
   padding-right: 5px;
 }
 
-#ocstrnzubt .gt_first_summary_row {
+#mcurorffkq .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -881,7 +886,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_grand_summary_row {
+#mcurorffkq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -891,7 +896,7 @@ Check that:
   padding-right: 5px;
 }
 
-#ocstrnzubt .gt_first_grand_summary_row {
+#mcurorffkq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -901,11 +906,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_striped {
+#mcurorffkq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ocstrnzubt .gt_table_body {
+#mcurorffkq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -914,7 +919,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_footnotes {
+#mcurorffkq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -928,13 +933,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_footnote {
+#mcurorffkq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ocstrnzubt .gt_sourcenotes {
+#mcurorffkq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -948,41 +953,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ocstrnzubt .gt_sourcenote {
+#mcurorffkq .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ocstrnzubt .gt_left {
+#mcurorffkq .gt_left {
   text-align: left;
 }
 
-#ocstrnzubt .gt_center {
+#mcurorffkq .gt_center {
   text-align: center;
 }
 
-#ocstrnzubt .gt_right {
+#mcurorffkq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ocstrnzubt .gt_font_normal {
+#mcurorffkq .gt_font_normal {
   font-weight: normal;
 }
 
-#ocstrnzubt .gt_font_bold {
+#mcurorffkq .gt_font_bold {
   font-weight: bold;
 }
 
-#ocstrnzubt .gt_font_italic {
+#mcurorffkq .gt_font_italic {
   font-style: italic;
 }
 
-#ocstrnzubt .gt_super {
+#mcurorffkq .gt_super {
   font-size: 65%;
 }
 
-#ocstrnzubt .gt_footnote_marks {
+#mcurorffkq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1161,12 +1166,12 @@ Check that:
 
 
 ```{=html}
-<div id="hdoppsehtk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="womhwgbyki" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hdoppsehtk .gt_table {
+#womhwgbyki .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1191,7 +1196,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_heading {
+#womhwgbyki .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1203,7 +1208,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_title {
+#womhwgbyki .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1213,7 +1218,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#hdoppsehtk .gt_subtitle {
+#womhwgbyki .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1223,13 +1228,13 @@ Check that:
   border-top-width: 0;
 }
 
-#hdoppsehtk .gt_bottom_border {
+#womhwgbyki .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_col_headings {
+#womhwgbyki .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1244,7 +1249,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_col_heading {
+#womhwgbyki .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1264,7 +1269,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#hdoppsehtk .gt_column_spanner_outer {
+#womhwgbyki .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1276,15 +1281,15 @@ Check that:
   padding-right: 4px;
 }
 
-#hdoppsehtk .gt_column_spanner_outer:first-child {
+#womhwgbyki .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hdoppsehtk .gt_column_spanner_outer:last-child {
+#womhwgbyki .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hdoppsehtk .gt_column_spanner {
+#womhwgbyki .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1296,7 +1301,7 @@ Check that:
   width: 100%;
 }
 
-#hdoppsehtk .gt_group_heading {
+#womhwgbyki .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1318,7 +1323,7 @@ Check that:
   vertical-align: middle;
 }
 
-#hdoppsehtk .gt_empty_group_heading {
+#womhwgbyki .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1333,15 +1338,15 @@ Check that:
   vertical-align: middle;
 }
 
-#hdoppsehtk .gt_from_md > :first-child {
+#womhwgbyki .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hdoppsehtk .gt_from_md > :last-child {
+#womhwgbyki .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hdoppsehtk .gt_row {
+#womhwgbyki .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1360,7 +1365,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#hdoppsehtk .gt_stub {
+#womhwgbyki .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1372,7 +1377,7 @@ Check that:
   padding-left: 12px;
 }
 
-#hdoppsehtk .gt_summary_row {
+#womhwgbyki .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1382,7 +1387,7 @@ Check that:
   padding-right: 5px;
 }
 
-#hdoppsehtk .gt_first_summary_row {
+#womhwgbyki .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1392,7 +1397,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_grand_summary_row {
+#womhwgbyki .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1402,7 +1407,7 @@ Check that:
   padding-right: 5px;
 }
 
-#hdoppsehtk .gt_first_grand_summary_row {
+#womhwgbyki .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1412,11 +1417,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_striped {
+#womhwgbyki .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hdoppsehtk .gt_table_body {
+#womhwgbyki .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1425,7 +1430,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_footnotes {
+#womhwgbyki .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1439,13 +1444,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_footnote {
+#womhwgbyki .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#hdoppsehtk .gt_sourcenotes {
+#womhwgbyki .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1459,41 +1464,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#hdoppsehtk .gt_sourcenote {
+#womhwgbyki .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#hdoppsehtk .gt_left {
+#womhwgbyki .gt_left {
   text-align: left;
 }
 
-#hdoppsehtk .gt_center {
+#womhwgbyki .gt_center {
   text-align: center;
 }
 
-#hdoppsehtk .gt_right {
+#womhwgbyki .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hdoppsehtk .gt_font_normal {
+#womhwgbyki .gt_font_normal {
   font-weight: normal;
 }
 
-#hdoppsehtk .gt_font_bold {
+#womhwgbyki .gt_font_bold {
   font-weight: bold;
 }
 
-#hdoppsehtk .gt_font_italic {
+#womhwgbyki .gt_font_italic {
   font-style: italic;
 }
 
-#hdoppsehtk .gt_super {
+#womhwgbyki .gt_super {
   font-size: 65%;
 }
 
-#hdoppsehtk .gt_footnote_marks {
+#womhwgbyki .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1629,12 +1634,12 @@ Check that:
 
 
 ```{=html}
-<div id="ipjdqunxsc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qlwnxkorwv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ipjdqunxsc .gt_table {
+#qlwnxkorwv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1659,7 +1664,7 @@ Check that:
   border-left-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_heading {
+#qlwnxkorwv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1671,7 +1676,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_title {
+#qlwnxkorwv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1681,7 +1686,7 @@ Check that:
   border-bottom-width: 0;
 }
 
-#ipjdqunxsc .gt_subtitle {
+#qlwnxkorwv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1691,13 +1696,13 @@ Check that:
   border-top-width: 0;
 }
 
-#ipjdqunxsc .gt_bottom_border {
+#qlwnxkorwv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_col_headings {
+#qlwnxkorwv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1712,7 +1717,7 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_col_heading {
+#qlwnxkorwv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1732,7 +1737,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#ipjdqunxsc .gt_column_spanner_outer {
+#qlwnxkorwv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1744,15 +1749,15 @@ Check that:
   padding-right: 4px;
 }
 
-#ipjdqunxsc .gt_column_spanner_outer:first-child {
+#qlwnxkorwv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ipjdqunxsc .gt_column_spanner_outer:last-child {
+#qlwnxkorwv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ipjdqunxsc .gt_column_spanner {
+#qlwnxkorwv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1764,7 +1769,7 @@ Check that:
   width: 100%;
 }
 
-#ipjdqunxsc .gt_group_heading {
+#qlwnxkorwv .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1786,7 +1791,7 @@ Check that:
   vertical-align: middle;
 }
 
-#ipjdqunxsc .gt_empty_group_heading {
+#qlwnxkorwv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1801,15 +1806,15 @@ Check that:
   vertical-align: middle;
 }
 
-#ipjdqunxsc .gt_from_md > :first-child {
+#qlwnxkorwv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ipjdqunxsc .gt_from_md > :last-child {
+#qlwnxkorwv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ipjdqunxsc .gt_row {
+#qlwnxkorwv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1828,7 +1833,7 @@ Check that:
   overflow-x: hidden;
 }
 
-#ipjdqunxsc .gt_stub {
+#qlwnxkorwv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1840,7 +1845,7 @@ Check that:
   padding-left: 12px;
 }
 
-#ipjdqunxsc .gt_summary_row {
+#qlwnxkorwv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1850,7 +1855,7 @@ Check that:
   padding-right: 5px;
 }
 
-#ipjdqunxsc .gt_first_summary_row {
+#qlwnxkorwv .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1860,7 +1865,7 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_grand_summary_row {
+#qlwnxkorwv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1870,7 +1875,7 @@ Check that:
   padding-right: 5px;
 }
 
-#ipjdqunxsc .gt_first_grand_summary_row {
+#qlwnxkorwv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1880,11 +1885,11 @@ Check that:
   border-top-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_striped {
+#qlwnxkorwv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ipjdqunxsc .gt_table_body {
+#qlwnxkorwv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1893,7 +1898,7 @@ Check that:
   border-bottom-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_footnotes {
+#qlwnxkorwv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1907,13 +1912,13 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_footnote {
+#qlwnxkorwv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ipjdqunxsc .gt_sourcenotes {
+#qlwnxkorwv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1927,41 +1932,41 @@ Check that:
   border-right-color: #D3D3D3;
 }
 
-#ipjdqunxsc .gt_sourcenote {
+#qlwnxkorwv .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ipjdqunxsc .gt_left {
+#qlwnxkorwv .gt_left {
   text-align: left;
 }
 
-#ipjdqunxsc .gt_center {
+#qlwnxkorwv .gt_center {
   text-align: center;
 }
 
-#ipjdqunxsc .gt_right {
+#qlwnxkorwv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ipjdqunxsc .gt_font_normal {
+#qlwnxkorwv .gt_font_normal {
   font-weight: normal;
 }
 
-#ipjdqunxsc .gt_font_bold {
+#qlwnxkorwv .gt_font_bold {
   font-weight: bold;
 }
 
-#ipjdqunxsc .gt_font_italic {
+#qlwnxkorwv .gt_font_italic {
   font-style: italic;
 }
 
-#ipjdqunxsc .gt_super {
+#qlwnxkorwv .gt_super {
   font-size: 65%;
 }
 
-#ipjdqunxsc .gt_footnote_marks {
+#qlwnxkorwv .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2034,6 +2039,6 @@ Check that:
 
 ### Previous examples
 
-Some examples of papers that well in the past include those by: [Rachael Lam](inputs/pdfs/Lam_Rachael-final_paper.pdf).
+Some examples of papers that well in the past include those by: [Rachael Lam](inputs/pdfs/Lam_Rachael-final_paper.pdf), [Amy Farrow](inputs/pdfs/Farrow_Amy-replication_paper.pdf), [Laura Cline](inputs/pdfs/Cline_Laura-IndigenousWomenInPrison.pdf), [Hong Shi](inputs/pdfs/Shi_Hong-replication_paper.pdf), and [Jia Jia Ji](inputs/pdfs/Jia_Jia_Ji-effect_of_DLL_ON_spanish_literacy_skills.pdf).
 
 

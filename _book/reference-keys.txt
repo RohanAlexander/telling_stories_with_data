@@ -68,7 +68,7 @@ tab:gdpbookdtabs
 tab:gdpbookdtabsnolinesep
 tab:gdpalign
 tab:gdpkableextra
-tab:gtsecond
+tab:dsdfweasdf
 tab:testdatasummary
 tab:correlationtable
 tab:descriptivestats
@@ -495,12 +495,11 @@ parquet
 exercises-and-tutorial-18
 exercises-18
 tutorial-18
+paper-7
 concludingremarks
 concluding-remarks
 some-issues
 next-steps
-exercises-and-tutorial-19
-paper-7
 oh-you-think-and-shoulders-and-datasets
 oh-you-think-we-have-good-data-on-that
 shoulders-of-giants

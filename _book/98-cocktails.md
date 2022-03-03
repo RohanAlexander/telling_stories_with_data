@@ -26,8 +26,8 @@ Top with lemonade
 **Chapter 3**
 
 $1\frac{1}{2}$ oz bourbon  
-$\frac{1}{2}$ oz Benedictine
-$1$ oz cherry syrup
+$\frac{1}{2}$ oz Benedictine  
+$1$ oz cherry syrup  
 $\frac{1}{2}$ oz raspberry syrup  
 $1$ oz lemon juice  
 Cherry garnish
@@ -36,7 +36,7 @@ Cherry garnish
 
 $1$ oz cognac  
 $\frac{1}{2}$ oz Grand Marnier  
-$\frac{1}{2}$ oz Amaro Nonino
+$\frac{1}{2}$ oz Amaro Nonino  
 $\frac{1}{4}$ oz lemon juice  
 $\frac{1}{4}$ oz honey syrup  
 Cherry garnish
@@ -61,15 +61,23 @@ One dash Angostura bitters
 
 **Chapter 7**
 
-$1$ oz cherry-infused vodka
+$1$ oz cherry-infused vodka  
 $1$ oz lemon juice  
 $\frac{1}{2}$ oz St Germain  
-$\frac{1}{2}$ oz limoncello
+$\frac{1}{2}$ oz limoncello  
 $\frac{1}{2}$ oz strawberry syrup  
 One dash elderflower bitters  
 
 
 **Chapter 8**
+
+$1\frac{1}{4}$ oz rye  
+$\frac{1}{2}$ oz Grand Marnier  
+$\frac{3}{4}$ oz lemon juice  
+$\frac{3}{4}$ oz orange juice  
+$\frac{1}{2}$ oz grenadine  
+$\frac{1}{4}$ oz raspberry syrup  
+
 
 
 <!-- Album: The Strokes, *Last Nite* -->
@@ -77,6 +85,14 @@ One dash elderflower bitters
 
 **Chapter 9**
 
+
+$1\frac{1}{4}$ oz Four Roses bourbon  
+$1$ oz apple cider  
+$\frac{1}{2}$ oz Grand Marnier  
+$\frac{1}{4}$ oz ameretto  
+$\frac{1}{2}$ oz lemon juice  
+$\frac{1}{2}$ oz ginger syrup  
+One dash Angostura bitters  
 
 <!-- Album: Olivia Rodrigo, *good 4 u* -->
 

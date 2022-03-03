@@ -1974,15 +1974,14 @@ world_bank_data |>
 </div>
 ```
 
-Again, we can add a caption and more informative column labels (Table \@ref(tab:gtsecond)).
+Again, we can add a caption and more informative column labels (Table \@ref(tab:dsdfweasdf)).
 
 
 ```r
 world_bank_data |>
   slice(1:10) |>
   gt(
-    caption = "First ten rows of a dataset of economic indicators for
-    Australia, Ethiopia, India, and the US") |>
+    caption = "First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US") |>
   cols_label(
       country = "Country",
       year = "Year",
@@ -2333,8 +2332,7 @@ world_bank_data |>
 }
 </style>
 <table class="gt_table">
-  <caption>(#tab:gtsecond)First ten rows of a dataset of economic indicators for
-    Australia, Ethiopia, India, and the US</caption>
+  <caption>(#tab:dsdfweasdf)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
   
   <thead class="gt_col_headings">
     <tr>

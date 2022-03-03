@@ -102,20 +102,20 @@
 <h2>
 <span class="header-section-number">20.1</span> Concluding remarks<a class="anchor" aria-label="anchor" href="#concluding-remarks"><i class="fas fa-link"></i></a>
 </h2>
-<p>There is an old saying, something along the lines of ‘may you live in interesting times’. I am not sure if every generation feels this, but we sure live in interesting times. In this book, I have tried to convey some essentials that I think would allow you to contribute. But we are just getting started.</p>
-<p>I am 35 and so I am in the ‘data science didn’t exist when I was an undergraduate’ generation. In a little over a decade data science has gone from something that barely existed to a defining part of academia and industry. What does that imply for for you? It may imply that one should not just be making decisions that optimize for what data science looks like right now, but also what could happen. While that’s a little difficult, that’s also one of the things that makes data science so exciting. That might mean choices like:</p>
+<p>There is an old saying, something along the lines of ‘may you live in interesting times’. Possibly every generation feels this way, but we sure live in interesting times. In this book, we have covered a broad range of essential skills that would allow you to tell stories with data. But we are just getting started.</p>
+<p>In a little over a decade data science has gone from something that barely existed, to a defining part of academia and industry. The extent and pace of this change has many implications for those learning data science. For instance, it may imply that one should not just make decisions that optimize for what data science looks like right now, but also what could happen. While that is a little difficult, that is also one of the things that makes data science so exciting. That might mean choices like:</p>
 <ul>
 <li>taking courses on fundamentals, not just fashionable applications;</li>
 <li>reading books, not just whatever is trending; and</li>
 <li>trying to be at the intersection of at least a few different areas, rather than hyper-specialized.</li>
 </ul>
-<p>I am just someone who likes to play with data using R. A decade ago I wouldn’t have fit into any particular department. I am lucky that these days there is space in data science for someone like me. And the nice thing about what we now call data science is that there’s space for you as well.</p>
-<p>Data science needs diversity. Data science needs your intelligence and enthusiasm. It needs you to be in the room, and able to make contributions. We live in interesting times and it’s just such an exciting time to be enthusiastic about data. I can’t wait to see what you build.</p>
+<p>One of the most exciting times when you learn data science is realizing that you just love playing with data. A decade ago, this did not fit into any particular department, these days it fits into almost any of them. Data science needs diversity, both in terms of approaches and applications. It is increasingly the most important work in the world and hegemonic approaches have no place. It is just such an exciting time to be enthusiastic about data and able to build.</p>
 </div>
 <div id="some-issues" class="section level2" number="20.2">
 <h2>
 <span class="header-section-number">20.2</span> Some issues<a class="anchor" aria-label="anchor" href="#some-issues"><i class="fas fa-link"></i></a>
 </h2>
+<p>Data science draws from a variety of disciplines. But there are a variety of concerns that are common across them. Here we detail a few.</p>
 <p><strong>1. How do we write unit tests for data science?</strong></p>
 <!-- **UPDATE to add in functional tests and stuff** -->
 <p>One thing that computer scientists know is the importance of unit tests. Basically this just means writing down the small checks that we do in our heads all the time. Like if we have a column that purports to the year, then it’s unlikely that it’s a character, and it’s unlikely that it’s an integer larger than 2500, and it’s unlikely that it’s a negative integer. We know all this, but writing unit tests has us write this all down.</p>
@@ -127,9 +127,9 @@
 <p>I think the problem is that people outside statistics, treat statistics as a recipe in which they follow various steps and then out comes a cake. With regard to ‘power’—it turns out that there were a bunch of instructions that no one bothered to check—they turned the oven on to some temperature without checking that it was 180C, and that’s fine because whatever mess came out was accepted because the people evaluating the cake didn’t know that they needed to check the temperature had been appropriately set. (I am ditching this analogy right now).</p>
 <p>As you know, the issue with power is related to the broader discussion about p-values, which basically no one is taught properly, because it would require changing an awful lot about how we teach statistics i.e. moving away from the recipe approach.</p>
 <p>And so, my specific issue is that people think that statistics is a recipe to be followed. They think that because that’s how they are trained especially in social sciences like political science and economics, and that’s what is rewarded. But that’s not what these methods are. Instead, statistics is a collection of different instruments that let us look at our data in a certain way. I think that we need a revolution here, not a metaphorical tucking in of one’s shirt.</p>
-<p><strong>4. How do we teach this stuff?</strong></p>
-<p>To a certain extent we are coming to agreement on what comprises fundamental data science skills. It involves computational thinking, concern for sampling, statistics, graphics, Git/GitHub, SQL, command line, comfort with messy data, comfort across a few languages including R and Python. This book has been a very thin overview of much, and while much more depth is needed, not much more breadth is. However, despite this consensus, we still have very little understanding of how to teach it.</p>
-<p><strong>5. To what extent is any of this an issue?</strong></p>
+<p><strong>4. How do we teach data science?</strong></p>
+<p>We are beginning to start to have agreement on what the foundations of data science are. It involves computational thinking, concern for sampling, statistics, graphics, Git/GitHub, SQL, command line, comfort with messy data, comfort across a few languages including R and Python. But we have very little agreement on how best to teach it. Partly this is because data science instructors often come different fields, but also it is also partly a difference in resources and priorities.</p>
+<p><strong>5. What is happening at the data cleaning and preparation stage?</strong></p>
 <p>We basically do not have a good understanding how much any of this matters. <span class="citation">Huntington-Klein et al. (<a href="references-1.html#ref-huntington2021influence" role="doc-biblioref">2021</a>)</span> showed that hidden research decisions have a big effect on subsequent estimates, sometimes greater than the standard errors. Such findings invalidate claims. We need much more investigation of how these early stages of the data science workflow affect the conclusions.</p>
 </div>
 <div id="next-steps" class="section level2" number="20.3">
@@ -147,7 +147,6 @@
 <p>There is only one next natural step if you are interested in learning more about statistical (what has come to be called machine) learning and that’s <span class="citation">James et al. (<a href="references-1.html#ref-islr" role="doc-biblioref">2017</a>)</span> followed by <span class="citation">Friedman, Tibshirani, and Hastie (<a href="references-1.html#ref-esl" role="doc-biblioref">2009</a>)</span>.</p>
 <p>If you are interested in sampling then the next book to turn to is <span class="citation">Lohr (<a href="references-1.html#ref-lohr" role="doc-biblioref">2019</a>)</span>. To deepen your understanding of surveys and experiments, go next to <span class="citation">Gerber and Green (<a href="references-1.html#ref-fieldexperiments" role="doc-biblioref">2012</a>)</span> in combination with <span class="citation">Kohavi, Tang, and Xu (<a href="references-1.html#ref-kohavi" role="doc-biblioref">2020</a>)</span>.</p>
 <p>For developing better data visualization skills, begin by turning to <span class="citation">Healy (<a href="references-1.html#ref-healyviz" role="doc-biblioref">2018</a>)</span>, but then after that, develop strong foundations, such as <span class="citation">L. Wilkinson (<a href="references-1.html#ref-grammarofgraphics" role="doc-biblioref">2005</a>)</span>. For writing, it would be best to turn inward. Force yourself to write and publish everyday for a month. Then do it again and again. You will get better. That said, there are some useful books, including <span class="citation">Caro (<a href="references-1.html#ref-caroonworking" role="doc-biblioref">2019</a>)</span> and <span class="citation">S. King (<a href="references-1.html#ref-stephenking" role="doc-biblioref">2000</a>)</span>.</p>
-<!-- Thinking through production and SQL and things like, a next natural step is... -->
 <p>We often hear the phrase let the data speak. Hopefully by this point you understand that never happens. All that we can do is to acknowledge that we are the ones using data to tell stories, and strive and seek to make them worthy.</p>
 <blockquote>
 <p>It was her voice that made<br>
@@ -159,18 +158,7 @@ Whatever self it had, became the self<br>
 That was her song, for she was the maker.</p>
 <p>‘The Idea of Order at Key West’, <span class="citation">(<a href="references-1.html#ref-wallacestevens" role="doc-biblioref">Stevens 1934</a>)</span></p>
 </blockquote>
-</div>
-<div id="exercises-and-tutorial-19" class="section level2" number="20.4">
-<h2>
-<span class="header-section-number">20.4</span> Exercises and tutorial<a class="anchor" aria-label="anchor" href="#exercises-and-tutorial-19"><i class="fas fa-link"></i></a>
-</h2>
-<div id="paper-7" class="section level3" number="20.4.1">
-<h3>
-<span class="header-section-number">20.4.1</span> Paper<a class="anchor" aria-label="anchor" href="#paper-7"><i class="fas fa-link"></i></a>
-</h3>
-<p>At about this point, the Final Paper (Appendix <a href="papers.html#final-paper">B.7</a>) would be appropriate.</p>
 
-</div>
 </div>
 </div>
 
@@ -186,9 +174,6 @@ That was her song, for she was the maker.</p>
 <li><a class="nav-link" href="#concluding-remarks"><span class="header-section-number">20.1</span> Concluding remarks</a></li>
 <li><a class="nav-link" href="#some-issues"><span class="header-section-number">20.2</span> Some issues</a></li>
 <li><a class="nav-link" href="#next-steps"><span class="header-section-number">20.3</span> Next steps</a></li>
-<li>
-<a class="nav-link" href="#exercises-and-tutorial-19"><span class="header-section-number">20.4</span> Exercises and tutorial</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#paper-7"><span class="header-section-number">20.4.1</span> Paper</a></li></ul>
-</li>
 </ul>
 
       <div class="book-extra">
@@ -210,7 +195,7 @@ That was her song, for she was the maker.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 28 February, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 03 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
