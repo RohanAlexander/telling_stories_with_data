@@ -140,14 +140,14 @@
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Fast code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Fast code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; First bit of code: 0.046 sec elapsed</span>
+<span class="co">#&gt; First bit of code: 0.041 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"Second bit of code"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Slow code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Slow code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Second bit of code: 3.01 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; Second bit of code: 3.006 sec elapsed</span></code></pre></div>
 <p>And so we know that there is something slowing down the code; which in this artificial case is <code><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep()</a></code> causing a delay of 3 seconds.</p>
 <p>When we start to refactor our code, we want to make sure that the re-written code achieves the same outcomes as the original code. This means that it is important to have tests written. We generally want to reduce the size of functions, by breaking them into smaller ones.</p>
 <!-- Start with an example of bad code, and then how it gets fixed. -->
@@ -296,42 +296,42 @@
           file <span class="op">=</span> <span class="st">"some_data.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"some_data.csv"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
-<span class="co">#&gt;     first second</span>
-<span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.593  R     </span>
-<span class="co">#&gt;  2 0.328  M     </span>
-<span class="co">#&gt;  3 0.457  D     </span>
-<span class="co">#&gt;  4 0.849  C     </span>
-<span class="co">#&gt;  5 0.412  S     </span>
-<span class="co">#&gt;  6 0.152  C     </span>
-<span class="co">#&gt;  7 0.647  G     </span>
-<span class="co">#&gt;  8 0.718  G     </span>
-<span class="co">#&gt;  9 0.0761 M     </span>
-<span class="co">#&gt; 10 0.912  E     </span>
+<span class="co">#&gt;    first second</span>
+<span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt; </span>
+<span class="co">#&gt;  1 0.514 I     </span>
+<span class="co">#&gt;  2 0.878 X     </span>
+<span class="co">#&gt;  3 0.913 B     </span>
+<span class="co">#&gt;  4 0.519 V     </span>
+<span class="co">#&gt;  5 0.243 B     </span>
+<span class="co">#&gt;  6 0.362 Q     </span>
+<span class="co">#&gt;  7 0.749 X     </span>
+<span class="co">#&gt;  8 0.827 U     </span>
+<span class="co">#&gt;  9 0.130 P     </span>
+<span class="co">#&gt; 10 0.780 C     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; CSV: 0.362 sec elapsed</span>
+<span class="co">#&gt; CSV: 0.393 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"parquet"</span><span class="op">)</span>
 <span class="fu"><a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">write_parquet</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">some_data</span>,
               sink <span class="op">=</span> <span class="st">"some_data.parquet"</span><span class="op">)</span>
 <span class="fu"><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">read_parquet</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"some_data.parquet"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
-<span class="co">#&gt;     first second</span>
-<span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.593  R     </span>
-<span class="co">#&gt;  2 0.328  M     </span>
-<span class="co">#&gt;  3 0.457  D     </span>
-<span class="co">#&gt;  4 0.849  C     </span>
-<span class="co">#&gt;  5 0.412  S     </span>
-<span class="co">#&gt;  6 0.152  C     </span>
-<span class="co">#&gt;  7 0.647  G     </span>
-<span class="co">#&gt;  8 0.718  G     </span>
-<span class="co">#&gt;  9 0.0761 M     </span>
-<span class="co">#&gt; 10 0.912  E     </span>
+<span class="co">#&gt;    first second</span>
+<span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt; </span>
+<span class="co">#&gt;  1 0.514 I     </span>
+<span class="co">#&gt;  2 0.878 X     </span>
+<span class="co">#&gt;  3 0.913 B     </span>
+<span class="co">#&gt;  4 0.519 V     </span>
+<span class="co">#&gt;  5 0.243 B     </span>
+<span class="co">#&gt;  6 0.362 Q     </span>
+<span class="co">#&gt;  7 0.749 X     </span>
+<span class="co">#&gt;  8 0.827 U     </span>
+<span class="co">#&gt;  9 0.130 P     </span>
+<span class="co">#&gt; 10 0.780 C     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; parquet: 0.254 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; parquet: 0.225 sec elapsed</span></code></pre></div>
 <!-- ## Experimental efficiency -->
 <!-- Multi-armed bandit -->
 <!-- ## Other languages -->
@@ -403,7 +403,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 03 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

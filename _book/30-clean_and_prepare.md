@@ -47,24 +47,22 @@
 
 > "Well, Lyndon, you may be right and they may be every bit as intelligent as you say," said Rayburn, "but I'd feel a whole lot better about them if just one of them had run for sheriff once."
 > 
-> Sam Rayburn's reaction to Lyndon Johnson's enthusiasm about Kennedy's incoming cabinet, as quoted by @halberstam [p. 41].
+> Sam Rayburn's reaction to Lyndon Johnson's enthusiasm about Kennedy's incoming cabinet, as quoted in *The Best and the Brightest* [@halberstam, p. 41].
 
-In earlier chapters we have done some data cleaning and preparation, and in this chapter we will put in place more formal approaches. To a large extent, the role of data cleaning and preparation is so great, that the only people that we can trust understand their data, are those that who have cleaned it. And, paradoxically, often those that do the cleaning and preparation are often those that trust it the least. At some point in every data science workflow, those doing the modelling should get their hands dirty with data cleaning. To clean and prepare data is to make a lot of different decisions, many of which are important.
+In earlier chapters we have done some data cleaning and preparation, and in this chapter we will put in place more formal approaches. To a large extent, the role of data cleaning and preparation is so great that the only people that we can trust understand their data, are those that who have cleaned it. And, paradoxically, often those that do the cleaning and preparation are often those that trust it the least. At some point in every data science workflow, those doing the modelling should get their hands dirty with data cleaning. To clean and prepare data is to make many decisions, some of which may have important effects on our results.
 
-For a long time, data cleaning and preparation was largely overlooked. We now realize that was a mistake. It has been difficult to trust results in disciplines that apply statistics. The reproducibility crisis, which started in psychology but has now extended to many other fields in the physical and social sciences, has brought to light issues such as p-value 'hacking', researcher degrees of freedom, file-drawer issues, and even data and results fabrication [@gelman2013garden]. Steps are now being put in place to address these. However, there has been relatively little focus on the data gathering, cleaning, and preparation aspects of applied statistics, despite evidence that decisions made during these steps greatly affect statistical results [@huntington2020influence]. In this chapter we focus on these issues.
+For a long time, data cleaning and preparation was largely overlooked. We now realize that was a mistake. It has been difficult to trust results in disciplines that apply statistics. The reproducibility crisis, which started in psychology but has now extended to many other fields in the physical and social sciences, has brought to light issues such as p-value 'hacking', researcher degrees of freedom, file-drawer issues, and even data and results fabrication [@gelman2013garden]. Steps are now being put in place to address these. But, there has been relatively little focus on the data gathering, cleaning, and preparation aspects of applied statistics, despite evidence that decisions made during these steps greatly affect statistical results [@huntington2020influence]. In this chapter we focus on these issues.
 
-While the statistical practices that underpin data science are themselves correct and robust when applied to simulated datasets, data science is typically not conducted with these types of datasets. For instance, data scientists are interested in 'messy, unfiltered, and possibly unclean data---tainted by heteroskedasticity, complex dependence and missingness patterns---that until recently were avoided in polite conversations between more traditional statisticians' [@craiu2019hiring]. 
-
-Big data does not resolve this issue, and may even exacerbate it, for instance 'without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves' [@meng2018statistical]. It is important to note that the issues that are found in much applied statistics research are not necessarily associated with researcher quality, or their biases [@silberzahn2018many]. Instead, they are a result of the environment within which data science is conducted. This chapter aims to give you the tools to explicitly think about this work.
+While the statistical practices that underpin data science are themselves correct and robust when applied to simulated datasets, data science is typically not conducted with these types of datasets. For instance, data scientists are interested in 'messy, unfiltered, and possibly unclean data---tainted by heteroskedasticity, complex dependence and missingness patterns---that until recently were avoided in polite conversations between more traditional statisticians' [@craiu2019hiring]. Big data does not resolve this issue, and may even exacerbate it, for instance 'without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves' [@meng2018statistical]. It is important to note that the issues that are found in much applied statistics research are not necessarily associated with researcher quality, or their biases [@silberzahn2018many]. Instead, they are a result of the environment within which data science is conducted. This chapter provides an approach and tools to explicitly think about this work.
 
 @gelman2020most writing about the most important statistical ideas of the past 50 years say that each of them enabled new ways of thinking about data analysis and they brought into the tent of statistics, approaches that 'had been considered more a matter of taste or philosophy'. The focus on data cleaning and preparation in this chapter is analogous, insofar, as it represents a codification, or bringing inside the tent, of aspects that are typically, incorrectly, considered those of taste rather than statistics.
 
 The workflow that we advocate is:
 
 1. Save the raw data.
-2. Plan the end state.
-3. Execute that plan on a tiny sample.
-4. Write tests and documentation.
+2. Begin with an end in mind.
+3. Execute that plan on a small sample.
+4. Write tests and documentation. 
 5. Iterate the plan.
 6. Generalize the execution.
 7. Update tests and documentation.
@@ -183,7 +181,7 @@ Alabama 5 Alaska 0.7 Arizona 7 Arkansas 3 California 40
 
 One way to approach this is to take advantage of the different classes and values that we are looking for. For instance, in this case, we know that we are after US states, so there are only 50 possible options, and we could use the existence of these as a delimiter. We could also use the fact that population is a number here, and so split based on a space followed by a number.
 
-We will now go through the process of converting this last example into tidy data using `tidyr` [@citetidyr], 
+We will now go through the process of converting this last example into tidy data using `tidyr` [@citetidyr].
 
 
 ```r
@@ -218,7 +216,7 @@ tidy_data
 ```
 
 
-### Write tests and documentation.
+### Write tests and documentation
 
 <!-- We are attempting to triangulate the situation. -->
 
@@ -1129,7 +1127,7 @@ Based on the count we know that we have to fix some of them and there are two wi
 top_five_kenya <- 
   top_five_kenya |> 
   mutate(county = str_replace_all(county, 'Nairob1', 'Nairobi'),
-         county = str_replace_all(county, 'Bun8oma', 'Nairobi')
+         county = str_replace_all(county, 'Bun8oma', 'Bungoma')
   )
 
 top_five_kenya |> 
@@ -1137,9 +1135,9 @@ top_five_kenya |>
 #> # A tibble: 7 × 2
 #>   county       n
 #>   <chr>    <int>
-#> 1 Nairobi      3
-#> 2 Nakuru       2
-#> 3 Bungoma      1
+#> 1 Bungoma      2
+#> 2 Nairobi      2
+#> 3 Nakuru       2
 #> 4 Kabamega     1
 #> 5 Kakamega     1
 #> 6 Kiambru      1
@@ -1750,7 +1748,7 @@ html {
       <th colspan="14" class="gt_heading gt_title gt_font_normal" style="color: #444444; font-size: 28px; text-align: left; font-weight: 500;">Pointblank Validation</th>
     </tr>
     <tr>
-      <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-03|11:23:47]</span></p>
+      <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-16|20:19:07]</span></p>
 <div style="height:25px;"><span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">column_names_as_contracts</span></div>
 </th>
@@ -1924,9 +1922,9 @@ html {
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
-      <td class="gt_sourcenote" colspan="14"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-03 11:23:47 EST</span>
+      <td class="gt_sourcenote" colspan="14"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-16 20:19:07 EDT</span>
 <span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-03 11:23:47 EST</span></td>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-16 20:19:07 EDT</span></td>
     </tr>
   </tfoot>
   

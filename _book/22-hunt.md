@@ -894,11 +894,11 @@ After you share your survey, results will accrue in the 'Responses' tab and it c
 1. In your own words, what is the role of randomization in constructing a counterfactual (write two or three paragraphs)?
 2. What is external validity (pick one)?
     a. Findings from an experiment hold in that setting.
-    b. Findings from an experiment hold outside that setting.
+    b.  Findings from an experiment hold outside that setting.
     c. Findings from an experiment that has been repeated many times.
     d. Findings from an experiment for which code and data are available.
 3. What is internal validity (pick one)?
-    a. Findings from an experiment hold in that setting.
+    a.  Findings from an experiment hold in that setting.
     b. Findings from an experiment hold outside that setting.
     c. Findings from an experiment that has been repeated many times.
     d. Findings from an experiment for which code and data are available.

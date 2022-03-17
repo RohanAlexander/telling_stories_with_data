@@ -153,18 +153,17 @@
 </h2>
 <blockquote>
 <p>“Well, Lyndon, you may be right and they may be every bit as intelligent as you say,” said Rayburn, “but I’d feel a whole lot better about them if just one of them had run for sheriff once.”</p>
-<p>Sam Rayburn’s reaction to Lyndon Johnson’s enthusiasm about Kennedy’s incoming cabinet, as quoted by <span class="citation">Halberstam (<a href="references-1.html#ref-halberstam" role="doc-biblioref">1972, 41</a>)</span>.</p>
+<p>Sam Rayburn’s reaction to Lyndon Johnson’s enthusiasm about Kennedy’s incoming cabinet, as quoted in <em>The Best and the Brightest</em> <span class="citation">(<a href="references-1.html#ref-halberstam" role="doc-biblioref">Halberstam 1972, 41</a>)</span>.</p>
 </blockquote>
-<p>In earlier chapters we have done some data cleaning and preparation, and in this chapter we will put in place more formal approaches. To a large extent, the role of data cleaning and preparation is so great, that the only people that we can trust understand their data, are those that who have cleaned it. And, paradoxically, often those that do the cleaning and preparation are often those that trust it the least. At some point in every data science workflow, those doing the modelling should get their hands dirty with data cleaning. To clean and prepare data is to make a lot of different decisions, many of which are important.</p>
-<p>For a long time, data cleaning and preparation was largely overlooked. We now realize that was a mistake. It has been difficult to trust results in disciplines that apply statistics. The reproducibility crisis, which started in psychology but has now extended to many other fields in the physical and social sciences, has brought to light issues such as p-value ‘hacking’, researcher degrees of freedom, file-drawer issues, and even data and results fabrication <span class="citation">(<a href="references-1.html#ref-gelman2013garden" role="doc-biblioref">Gelman and Loken 2013</a>)</span>. Steps are now being put in place to address these. However, there has been relatively little focus on the data gathering, cleaning, and preparation aspects of applied statistics, despite evidence that decisions made during these steps greatly affect statistical results <span class="citation">(<a href="references-1.html#ref-huntington2020influence" role="doc-biblioref">Huntington-Klein et al. 2020</a>)</span>. In this chapter we focus on these issues.</p>
-<p>While the statistical practices that underpin data science are themselves correct and robust when applied to simulated datasets, data science is typically not conducted with these types of datasets. For instance, data scientists are interested in ‘messy, unfiltered, and possibly unclean data—tainted by heteroskedasticity, complex dependence and missingness patterns—that until recently were avoided in polite conversations between more traditional statisticians’ <span class="citation">(<a href="references-1.html#ref-craiu2019hiring" role="doc-biblioref">Craiu 2019</a>)</span>.</p>
-<p>Big data does not resolve this issue, and may even exacerbate it, for instance ‘without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves’ <span class="citation">(<a href="references-1.html#ref-meng2018statistical" role="doc-biblioref">Meng 2018</a>)</span>. It is important to note that the issues that are found in much applied statistics research are not necessarily associated with researcher quality, or their biases <span class="citation">(<a href="references-1.html#ref-silberzahn2018many" role="doc-biblioref">Silberzahn et al. 2018</a>)</span>. Instead, they are a result of the environment within which data science is conducted. This chapter aims to give you the tools to explicitly think about this work.</p>
+<p>In earlier chapters we have done some data cleaning and preparation, and in this chapter we will put in place more formal approaches. To a large extent, the role of data cleaning and preparation is so great that the only people that we can trust understand their data, are those that who have cleaned it. And, paradoxically, often those that do the cleaning and preparation are often those that trust it the least. At some point in every data science workflow, those doing the modelling should get their hands dirty with data cleaning. To clean and prepare data is to make many decisions, some of which may have important effects on our results.</p>
+<p>For a long time, data cleaning and preparation was largely overlooked. We now realize that was a mistake. It has been difficult to trust results in disciplines that apply statistics. The reproducibility crisis, which started in psychology but has now extended to many other fields in the physical and social sciences, has brought to light issues such as p-value ‘hacking’, researcher degrees of freedom, file-drawer issues, and even data and results fabrication <span class="citation">(<a href="references-1.html#ref-gelman2013garden" role="doc-biblioref">Gelman and Loken 2013</a>)</span>. Steps are now being put in place to address these. But, there has been relatively little focus on the data gathering, cleaning, and preparation aspects of applied statistics, despite evidence that decisions made during these steps greatly affect statistical results <span class="citation">(<a href="references-1.html#ref-huntington2020influence" role="doc-biblioref">Huntington-Klein et al. 2020</a>)</span>. In this chapter we focus on these issues.</p>
+<p>While the statistical practices that underpin data science are themselves correct and robust when applied to simulated datasets, data science is typically not conducted with these types of datasets. For instance, data scientists are interested in ‘messy, unfiltered, and possibly unclean data—tainted by heteroskedasticity, complex dependence and missingness patterns—that until recently were avoided in polite conversations between more traditional statisticians’ <span class="citation">(<a href="references-1.html#ref-craiu2019hiring" role="doc-biblioref">Craiu 2019</a>)</span>. Big data does not resolve this issue, and may even exacerbate it, for instance ‘without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves’ <span class="citation">(<a href="references-1.html#ref-meng2018statistical" role="doc-biblioref">Meng 2018</a>)</span>. It is important to note that the issues that are found in much applied statistics research are not necessarily associated with researcher quality, or their biases <span class="citation">(<a href="references-1.html#ref-silberzahn2018many" role="doc-biblioref">Silberzahn et al. 2018</a>)</span>. Instead, they are a result of the environment within which data science is conducted. This chapter provides an approach and tools to explicitly think about this work.</p>
 <p><span class="citation">Gelman and Vehtari (<a href="references-1.html#ref-gelman2020most" role="doc-biblioref">2020</a>)</span> writing about the most important statistical ideas of the past 50 years say that each of them enabled new ways of thinking about data analysis and they brought into the tent of statistics, approaches that ‘had been considered more a matter of taste or philosophy’. The focus on data cleaning and preparation in this chapter is analogous, insofar, as it represents a codification, or bringing inside the tent, of aspects that are typically, incorrectly, considered those of taste rather than statistics.</p>
 <p>The workflow that we advocate is:</p>
 <ol style="list-style-type: decimal">
 <li>Save the raw data.</li>
-<li>Plan the end state.</li>
-<li>Execute that plan on a tiny sample.</li>
+<li>Begin with an end in mind.</li>
+<li>Execute that plan on a small sample.</li>
 <li>Write tests and documentation.</li>
 <li>Iterate the plan.</li>
 <li>Generalize the execution.</li>
@@ -256,7 +255,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <p>In this case, although we do not have a traditional delimiter we can use the regularity of ‘State is’ and ’ and population is ’ to get what we need. A more difficult case is when we do not have line breaks.</p>
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="clean-and-prepare.html#cb343-1" aria-hidden="true" tabindex="-1"></a>Alabama <span class="dv">5</span> Alaska <span class="fl">0.7</span> Arizona <span class="dv">7</span> Arkansas <span class="dv">3</span> California <span class="dv">40</span></span></code></pre></div>
 <p>One way to approach this is to take advantage of the different classes and values that we are looking for. For instance, in this case, we know that we are after US states, so there are only 50 possible options, and we could use the existence of these as a delimiter. We could also use the fact that population is a number here, and so split based on a space followed by a number.</p>
-<p>We will now go through the process of converting this last example into tidy data using <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>,</p>
+<p>We will now go through the process of converting this last example into tidy data using <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>.</p>
 <div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Alabama 5 Alaska 0.7 Arizona 7 Arkansas 3 California 40'</span><span class="op">)</span>
@@ -287,9 +286,9 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt; 4 Arkansas   3         </span>
 <span class="co">#&gt; 5 California 40</span></code></pre></div>
 </div>
-<div id="write-tests-and-documentation." class="section level3" number="11.2.4">
+<div id="write-tests-and-documentation" class="section level3" number="11.2.4">
 <h3>
-<span class="header-section-number">11.2.4</span> Write tests and documentation.<a class="anchor" aria-label="anchor" href="#write-tests-and-documentation."><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2.4</span> Write tests and documentation<a class="anchor" aria-label="anchor" href="#write-tests-and-documentation"><i class="fas fa-link"></i></a>
 </h3>
 <!-- We are attempting to triangulate the situation. -->
 <p>Having established a rectangular dataset, albeit a messy one, we should begin to look at the classes that we have. We do not necessarily want to fix the classes at this point, because that can result in us losing data. But we look at the class to see what it is, and then compare it to our simulated dataset to see where it needs to get to. We note the columns where it is different.</p>
@@ -1044,7 +1043,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <code class="sourceCode R"><span class="va">top_five_kenya</span> <span class="op">&lt;-</span> 
   <span class="va">top_five_kenya</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>county <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">county</span>, <span class="st">'Nairob1'</span>, <span class="st">'Nairobi'</span><span class="op">)</span>,
-         county <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">county</span>, <span class="st">'Bun8oma'</span>, <span class="st">'Nairobi'</span><span class="op">)</span>
+         county <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">county</span>, <span class="st">'Bun8oma'</span>, <span class="st">'Bungoma'</span><span class="op">)</span>
   <span class="op">)</span>
 
 <span class="va">top_five_kenya</span> |&gt; 
@@ -1052,9 +1051,9 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; # A tibble: 7 × 2</span>
 <span class="co">#&gt;   county       n</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt;</span>
-<span class="co">#&gt; 1 Nairobi      3</span>
-<span class="co">#&gt; 2 Nakuru       2</span>
-<span class="co">#&gt; 3 Bungoma      1</span>
+<span class="co">#&gt; 1 Bungoma      2</span>
+<span class="co">#&gt; 2 Nairobi      2</span>
+<span class="co">#&gt; 3 Nakuru       2</span>
 <span class="co">#&gt; 4 Kabamega     1</span>
 <span class="co">#&gt; 5 Kakamega     1</span>
 <span class="co">#&gt; 6 Kiambru      1</span>
@@ -1609,7 +1608,7 @@ html {
     </tr>
 <tr>
 <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;">
-<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-03|11:23:47]</span>
+<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-16|20:19:07]</span>
 <div style="height:25px;">
 <span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">column_names_as_contracts</span>
@@ -1854,9 +1853,9 @@ html {
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="14">
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-03 11:23:47 EST</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-16 20:19:07 EDT</span>
 <span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-03 11:23:47 EST</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-16 20:19:07 EDT</span>
 </td>
     </tr></tfoot>
 </table></div>
@@ -1919,7 +1918,7 @@ html {
 <li><a class="nav-link" href="#save-a-copy-of-the-raw-data"><span class="header-section-number">11.2.1</span> Save a copy of the raw data</a></li>
 <li><a class="nav-link" href="#begin-with-an-end-in-mind"><span class="header-section-number">11.2.2</span> Begin with an end in mind</a></li>
 <li><a class="nav-link" href="#start-small"><span class="header-section-number">11.2.3</span> Start small</a></li>
-<li><a class="nav-link" href="#write-tests-and-documentation."><span class="header-section-number">11.2.4</span> Write tests and documentation.</a></li>
+<li><a class="nav-link" href="#write-tests-and-documentation"><span class="header-section-number">11.2.4</span> Write tests and documentation</a></li>
 <li><a class="nav-link" href="#iterate-generalize-and-update"><span class="header-section-number">11.2.5</span> Iterate, generalize and update</a></li>
 </ul>
 </li>
@@ -1962,7 +1961,7 @@ html {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 03 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 16 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

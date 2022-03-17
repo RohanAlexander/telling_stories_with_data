@@ -1108,11 +1108,11 @@ The US election has a lot of features that are unique to the US, but the model t
 
 ### Survey data
 
-The first step is that we need to actually get the survey data. Go to their website:https://www.voterstudygroup.org and then you're looking for 'Nationscape' and then a button along the lines of 'Get the latest Nationscape data'. To get the dataset, you need to fill out a form, which they will process and then email you. There is a real person on the other side of this form, and so your request could take a few days.
+The first step is that we need to actually get the survey data. Go to their website: https://www.voterstudygroup.org and then you are looking for 'Nationscape' and then a button along the lines of 'Get the latest Nationscape data'. To get the dataset, you need to fill out a form, which they will process and then email you. There is a real person on the other side of this form, and so your request could take a few days.
 
-Once you get access you'll want to download the .dta files. Nationscape conducted many surveys and so there are many files. The filename is the reference date, and so 'ns20200625' refers to 25 June 2020, which is the one that we will use here. (This data is not mine to share, which is why I'll refer)
+Once you get access you will want to download the .dta files. Nationscape conducted many surveys and so there are many files. The filename is the reference date, and so 'ns20200625' refers to 25 June 2020, which is the one that we will use here.
 
-We can read in '.dta' files using the `haven` package [@citehaven]. I've based this code on that written by Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz, which is available here: https://github.com/matthewwankiewicz/US_election_forecast.
+We can read in '.dta' files using the `haven` package [@citehaven]. This code is based on that of Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz: https://github.com/matthewwankiewicz/US_election_forecast.
 
 
 
@@ -1258,7 +1258,7 @@ We have a lot of options for a dataset to post-stratify by and there are various
 
 In most countries we'd be stuck using the census, which is of course quite large, but likely out-of-date. Luckily in the US we have the opportunity to use the American Community Survey (ACS) which asks analogous questions to a census, is conducted every month, and over the course of a year, we end up with a few million responses. In this case we are going to access the ACS through IPUMS. 
 
-To do this go to the IPUMS website - https://ipums.org - and we are looking for something like IPUMS USA and then 'get data'. Create an account, if you need to. That'll take a while to process. But once you have an account, go to 'Select Samples' and de-select everything apart from the 2019 ACS. Then we need to get the variables that we are interested in. From the household we want 'STATEICP', then in person we want 'SEX', 'AGE', 'EDUC'. Once everything is selected, 'view cart', and we want to be careful to change the 'data format' to '.dta' (there's nothing wrong with the other formats, but we have just already got code earlier to deal with that type). Briefly just check how many rows and columns you're requesting. It should be around a million rows, and around ten to twenty columns. If it is much more than 300MB then maybe just see if you've accidently selected something that you don't need. Submit the request and within a day, you should get an email saying that your data can be downloaded. It should only take 30 minutes or so, but if you don't get an email within a day then check again the size of the dataset, and customize the sample size to reduce the size initially.
+To do this go to the IPUMS website - https://ipums.org - and we are looking for something like IPUMS USA and then 'get data'. Create an account, if you need to. That'll take a while to process. But once you have an account, go to 'Select Samples' and de-select everything apart from the 2019 ACS. Then we need to get the variables that we are interested in. From the household we want 'STATEICP', then in person we want 'SEX', 'AGE', 'EDUC'. Once everything is selected, 'view cart', and we want to be careful to change the 'data format' to '.dta' (there's nothing wrong with the other formats, but we have just already got code earlier to deal with that type). Briefly just check how many rows and columns you are requesting. It should be around a million rows, and around ten to twenty columns. If it is much more than 300MB then maybe just see if you willve accidently selected something that you don't need. Submit the request and within a day, you should get an email saying that your data can be downloaded. It should only take 30 minutes or so, but if you don't get an email within a day then check again the size of the dataset, and customize the sample size to reduce the size initially.
 
 In any case Let us tidy up the data.
 
@@ -2193,7 +2193,7 @@ biden_support_by_state |>
 
 ### Tutorial
 
-In a similar manner to @ghitza2020voter pretend you've got access to a US voter file record from a private company. You train a model on the 2020 US CCES, and post-stratify it, on an individual-basis, based on that voter file. 
+In a similar manner to @ghitza2020voter pretend you willve got access to a US voter file record from a private company. You train a model on the 2020 US CCES, and post-stratify it, on an individual-basis, based on that voter file. 
     a. Could you please put-together a datasheet for the voter file dataset following @gebru2021datasheets? As a reminder, datasheets accompany datasets and document 'motivation, composition, collection process, recommended uses,' among other aspects.
     b. Could you also please put together a model card for your model, following @Mitchell_2019? As a reminder, model cards are deliberately straight-forward one- or two-page documents that report aspects such as: model details; intended use; metrics; training data; ethical considerations; as well as caveats and recommendations [@Mitchell_2019].
     c. Could you please discuss three ethical aspects around the features that you are using in your model? [Please write a paragraph or two for each point.]
