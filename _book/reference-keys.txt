@@ -522,6 +522,7 @@ task-2
 checks-2
 faq-2
 rubric-2
+previous-examples-2
 paper-four
 task-3
 checks-3
@@ -534,14 +535,13 @@ task-5
 checks-4
 faq-4
 rubric-4
-previous-examples-2
+previous-examples-3
 final-paper
 task-6
-guidance
 peer-review-submission
 conduct-peer-review
 checks-5
 faq-5
 rubric-5
-previous-examples-3
+previous-examples-4
 cocktails
