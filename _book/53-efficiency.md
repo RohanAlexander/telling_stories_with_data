@@ -45,14 +45,14 @@ tic("First bit of code")
 print("Fast code")
 #> [1] "Fast code"
 toc()
-#> First bit of code: 0.068 sec elapsed
+#> First bit of code: 0.045 sec elapsed
 
 tic("Second bit of code")
 Sys.sleep(3)
 print("Slow code")
 #> [1] "Slow code"
 toc()
-#> Second bit of code: 3.008 sec elapsed
+#> Second bit of code: 3.012 sec elapsed
 ```
 
 And so we know that there is something slowing down the code; which in this artificial case is `Sys.sleep()` causing a delay of 3 seconds.
@@ -348,19 +348,19 @@ read_csv(file = "some_data.csv")
 #> # A tibble: 1,000,000 × 2
 #>    first second
 #>    <dbl> <chr> 
-#>  1 0.757 V     
-#>  2 0.754 K     
-#>  3 0.106 C     
-#>  4 0.711 W     
-#>  5 0.814 L     
-#>  6 0.237 D     
-#>  7 0.617 B     
-#>  8 0.107 Q     
-#>  9 0.191 G     
-#> 10 0.550 G     
+#>  1 0.700 L     
+#>  2 0.947 Z     
+#>  3 0.632 K     
+#>  4 0.544 T     
+#>  5 0.806 M     
+#>  6 0.652 E     
+#>  7 0.869 B     
+#>  8 0.376 W     
+#>  9 0.397 U     
+#> 10 0.533 K     
 #> # … with 999,990 more rows
 toc()
-#> CSV: 0.377 sec elapsed
+#> CSV: 0.467 sec elapsed
 
 tic("parquet")
 write_parquet(x = some_data,
@@ -369,19 +369,19 @@ read_parquet(file = "some_data.parquet")
 #> # A tibble: 1,000,000 × 2
 #>    first second
 #>    <dbl> <chr> 
-#>  1 0.757 V     
-#>  2 0.754 K     
-#>  3 0.106 C     
-#>  4 0.711 W     
-#>  5 0.814 L     
-#>  6 0.237 D     
-#>  7 0.617 B     
-#>  8 0.107 Q     
-#>  9 0.191 G     
-#> 10 0.550 G     
+#>  1 0.700 L     
+#>  2 0.947 Z     
+#>  3 0.632 K     
+#>  4 0.544 T     
+#>  5 0.806 M     
+#>  6 0.652 E     
+#>  7 0.869 B     
+#>  8 0.376 W     
+#>  9 0.397 U     
+#> 10 0.533 K     
 #> # … with 999,990 more rows
 toc()
-#> parquet: 0.216 sec elapsed
+#> parquet: 0.268 sec elapsed
 ```
 
 

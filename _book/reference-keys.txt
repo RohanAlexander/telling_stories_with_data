@@ -536,7 +536,6 @@ final-paper
 task-5
 peer-review-submission
 conduct-peer-review
-checks-5
 faq-5
 rubric-5
 previous-examples-4

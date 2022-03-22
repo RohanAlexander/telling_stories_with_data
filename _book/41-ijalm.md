@@ -835,7 +835,7 @@ simulated_running_data_first_model_tidymodels <-
 simulated_running_data_first_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  2ms 
+#> Fit time:  1ms 
 #> 
 #> Call:
 #> stats::lm(formula = marathon_time ~ five_km_time + was_raining, 
@@ -1162,7 +1162,7 @@ day_or_night_tidymodels <-
 day_or_night_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  4ms 
+#> Fit time:  5ms 
 #> 
 #> Call:  stats::glm(formula = is_night ~ number_of_cars, family = stats::binomial, 
 #>     data = data)
@@ -1401,7 +1401,7 @@ a_plus_model_tidymodels <-
 a_plus_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  2ms 
+#> Fit time:  1ms 
 #> 
 #> Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 #>     data = data)
