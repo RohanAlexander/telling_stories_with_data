@@ -835,7 +835,7 @@ simulated_running_data_first_model_tidymodels <-
 simulated_running_data_first_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  3ms 
+#> Fit time:  2ms 
 #> 
 #> Call:
 #> stats::lm(formula = marathon_time ~ five_km_time + was_raining, 
@@ -1162,7 +1162,7 @@ day_or_night_tidymodels <-
 day_or_night_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  6ms 
+#> Fit time:  4ms 
 #> 
 #> Call:  stats::glm(formula = is_night ~ number_of_cars, family = stats::binomial, 
 #>     data = data)
@@ -1526,7 +1526,7 @@ Simulate some data that are similar to those discussed by @gould2013median. Then
 
 
 
-### Paper
+<!-- ### Paper -->
 
-At about this point, Paper Four (Appendix \@ref(paper-four)) would be appropriate.
+<!-- At about this point, Paper Four (Appendix \@ref(paper-four)) would be appropriate. -->
 

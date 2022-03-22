@@ -187,16 +187,16 @@ simulated_data
 #> # A tibble: 338 × 2
 #>    Riding Party         
 #>     <int> <chr>         
-#>  1      1 New Democratic
-#>  2      2 Liberal       
-#>  3      3 Liberal       
-#>  4      4 Other         
-#>  5      5 Green         
-#>  6      6 Bloc Québécois
-#>  7      7 New Democratic
-#>  8      8 Other         
-#>  9      9 Green         
-#> 10     10 Green         
+#>  1      1 Liberal       
+#>  2      2 New Democratic
+#>  3      3 Other         
+#>  4      4 Liberal       
+#>  5      5 New Democratic
+#>  6      6 Other         
+#>  7      7 Green         
+#>  8      8 Green         
+#>  9      9 Conservative  
+#> 10     10 Other         
 #> # … with 328 more rows
 ```
 

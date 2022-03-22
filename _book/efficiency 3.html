@@ -140,14 +140,14 @@
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Fast code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Fast code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; First bit of code: 0.068 sec elapsed</span>
+<span class="co">#&gt; First bit of code: 0.047 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"Second bit of code"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Slow code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Slow code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Second bit of code: 3.008 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; Second bit of code: 3.007 sec elapsed</span></code></pre></div>
 <p>And so we know that there is something slowing down the code; which in this artificial case is <code><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep()</a></code> causing a delay of 3 seconds.</p>
 <p>When we start to refactor our code, we want to make sure that the re-written code achieves the same outcomes as the original code. This means that it is important to have tests written. We generally want to reduce the size of functions, by breaking them into smaller ones.</p>
 <!-- Start with an example of bad code, and then how it gets fixed. -->
@@ -296,42 +296,42 @@
           file <span class="op">=</span> <span class="st">"some_data.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"some_data.csv"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
-<span class="co">#&gt;    first second</span>
-<span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.757 V     </span>
-<span class="co">#&gt;  2 0.754 K     </span>
-<span class="co">#&gt;  3 0.106 C     </span>
-<span class="co">#&gt;  4 0.711 W     </span>
-<span class="co">#&gt;  5 0.814 L     </span>
-<span class="co">#&gt;  6 0.237 D     </span>
-<span class="co">#&gt;  7 0.617 B     </span>
-<span class="co">#&gt;  8 0.107 Q     </span>
-<span class="co">#&gt;  9 0.191 G     </span>
-<span class="co">#&gt; 10 0.550 G     </span>
+<span class="co">#&gt;     first second</span>
+<span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
+<span class="co">#&gt;  1 0.0374 T     </span>
+<span class="co">#&gt;  2 0.214  P     </span>
+<span class="co">#&gt;  3 0.612  Q     </span>
+<span class="co">#&gt;  4 0.410  K     </span>
+<span class="co">#&gt;  5 0.779  O     </span>
+<span class="co">#&gt;  6 0.319  L     </span>
+<span class="co">#&gt;  7 0.819  O     </span>
+<span class="co">#&gt;  8 0.843  J     </span>
+<span class="co">#&gt;  9 0.545  I     </span>
+<span class="co">#&gt; 10 0.0210 O     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; CSV: 0.377 sec elapsed</span>
+<span class="co">#&gt; CSV: 0.341 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"parquet"</span><span class="op">)</span>
 <span class="fu"><a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">write_parquet</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">some_data</span>,
               sink <span class="op">=</span> <span class="st">"some_data.parquet"</span><span class="op">)</span>
 <span class="fu"><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">read_parquet</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"some_data.parquet"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
-<span class="co">#&gt;    first second</span>
-<span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.757 V     </span>
-<span class="co">#&gt;  2 0.754 K     </span>
-<span class="co">#&gt;  3 0.106 C     </span>
-<span class="co">#&gt;  4 0.711 W     </span>
-<span class="co">#&gt;  5 0.814 L     </span>
-<span class="co">#&gt;  6 0.237 D     </span>
-<span class="co">#&gt;  7 0.617 B     </span>
-<span class="co">#&gt;  8 0.107 Q     </span>
-<span class="co">#&gt;  9 0.191 G     </span>
-<span class="co">#&gt; 10 0.550 G     </span>
+<span class="co">#&gt;     first second</span>
+<span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
+<span class="co">#&gt;  1 0.0374 T     </span>
+<span class="co">#&gt;  2 0.214  P     </span>
+<span class="co">#&gt;  3 0.612  Q     </span>
+<span class="co">#&gt;  4 0.410  K     </span>
+<span class="co">#&gt;  5 0.779  O     </span>
+<span class="co">#&gt;  6 0.319  L     </span>
+<span class="co">#&gt;  7 0.819  O     </span>
+<span class="co">#&gt;  8 0.843  J     </span>
+<span class="co">#&gt;  9 0.545  I     </span>
+<span class="co">#&gt; 10 0.0210 O     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; parquet: 0.216 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; parquet: 0.249 sec elapsed</span></code></pre></div>
 <!-- ## Experimental efficiency -->
 <!-- Multi-armed bandit -->
 <!-- ## Other languages -->
@@ -355,11 +355,11 @@
 <span class="header-section-number">19.4.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-18"><i class="fas fa-link"></i></a>
 </h3>
 </div>
-<div id="paper-5" class="section level3" number="19.4.3">
+<div id="paper-7" class="section level3" number="19.4.3">
 <h3>
-<span class="header-section-number">19.4.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">19.4.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper-7"><i class="fas fa-link"></i></a>
 </h3>
-<p>At about this point, the Final Paper (Appendix <a href="papers.html#final-paper">B.6</a>) would be appropriate.</p>
+<p>At about this point, the Final Paper (Appendix <a href="papers.html#final-paper">B.7</a>) would be appropriate.</p>
 
 </div>
 </div>
@@ -383,7 +383,7 @@
 <a class="nav-link" href="#exercises-and-tutorial-18"><span class="header-section-number">19.4</span> Exercises and tutorial</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#exercises-18"><span class="header-section-number">19.4.1</span> Exercises</a></li>
 <li><a class="nav-link" href="#tutorial-18"><span class="header-section-number">19.4.2</span> Tutorial</a></li>
-<li><a class="nav-link" href="#paper-5"><span class="header-section-number">19.4.3</span> Paper</a></li>
+<li><a class="nav-link" href="#paper-7"><span class="header-section-number">19.4.3</span> Paper</a></li>
 </ul>
 </li>
 </ul>
@@ -403,7 +403,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 21 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 20 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

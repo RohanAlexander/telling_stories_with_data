@@ -18,8 +18,8 @@
     - The date should be in an unambiguous format. Add a link to the GitHub repo in the acknowledgements.
     - The abstract should be three or four sentences. The abstract must tell the reader the top-level finding. What is the one thing that we learn about the world because of this paper?
     - The introduction should be two or three paragraphs of content. And there should be an additional final paragraph that sets out the remainder of the paper.
-    - The data section should thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text, graphs, and tables. Graphs must be made with `ggplot2` [@citeggplot] and tables must be made with `knitr` [@citeknitr] or `gt` [@citegt]. Graphs must show the actual data, or as close to it as possible, not summary statistics. Graphs and tables shoudl be cross-referenced in the text e.g. 'Table 1 shows...').
-    - References should be added using BibTeX. Be sure to reference R and any R packages you use, as well as the dataset. Strong submissions will draw on related literature and also reference those.
+    - The data section should thoroughly and precisely discuss the source of the data and the bias this brings (ethical, statistical, and otherwise). Comprehensively describe and summarize the data using text, graphs, and tables. Graphs must be made with `ggplot2` [@citeggplot] and tables must be made with `knitr` [@citeknitr] or `gt` [@citegt]. Graphs must show the actual data, or as close to it as possible, not summary statistics. Graphs and tables should be cross-referenced in the text e.g. 'Table 1 shows...').
+    - References should be added using BibTeX. Be sure to reference R and any R packages you use, as well as the dataset. Strong submissions will draw on related literature and reference those.
     - The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience.
     - Use appendices for supporting, but not critical, material.
     - Push to GitHub and include an informative commit message
@@ -64,12 +64,12 @@
 
 
 ```{=html}
-<div id="pcnxxbyvhq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kqubjrekkn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pcnxxbyvhq .gt_table {
+#kqubjrekkn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -94,7 +94,7 @@
   border-left-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_heading {
+#kqubjrekkn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -106,7 +106,7 @@
   border-right-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_title {
+#kqubjrekkn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -116,7 +116,7 @@
   border-bottom-width: 0;
 }
 
-#pcnxxbyvhq .gt_subtitle {
+#kqubjrekkn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -126,13 +126,13 @@
   border-top-width: 0;
 }
 
-#pcnxxbyvhq .gt_bottom_border {
+#kqubjrekkn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_col_headings {
+#kqubjrekkn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -147,7 +147,7 @@
   border-right-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_col_heading {
+#kqubjrekkn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -167,7 +167,7 @@
   overflow-x: hidden;
 }
 
-#pcnxxbyvhq .gt_column_spanner_outer {
+#kqubjrekkn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -179,15 +179,15 @@
   padding-right: 4px;
 }
 
-#pcnxxbyvhq .gt_column_spanner_outer:first-child {
+#kqubjrekkn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pcnxxbyvhq .gt_column_spanner_outer:last-child {
+#kqubjrekkn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pcnxxbyvhq .gt_column_spanner {
+#kqubjrekkn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -199,7 +199,7 @@
   width: 100%;
 }
 
-#pcnxxbyvhq .gt_group_heading {
+#kqubjrekkn .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -221,7 +221,7 @@
   vertical-align: middle;
 }
 
-#pcnxxbyvhq .gt_empty_group_heading {
+#kqubjrekkn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -236,15 +236,15 @@
   vertical-align: middle;
 }
 
-#pcnxxbyvhq .gt_from_md > :first-child {
+#kqubjrekkn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pcnxxbyvhq .gt_from_md > :last-child {
+#kqubjrekkn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pcnxxbyvhq .gt_row {
+#kqubjrekkn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -263,7 +263,7 @@
   overflow-x: hidden;
 }
 
-#pcnxxbyvhq .gt_stub {
+#kqubjrekkn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -275,7 +275,7 @@
   padding-left: 12px;
 }
 
-#pcnxxbyvhq .gt_summary_row {
+#kqubjrekkn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -285,7 +285,7 @@
   padding-right: 5px;
 }
 
-#pcnxxbyvhq .gt_first_summary_row {
+#kqubjrekkn .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -295,7 +295,7 @@
   border-top-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_grand_summary_row {
+#kqubjrekkn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -305,7 +305,7 @@
   padding-right: 5px;
 }
 
-#pcnxxbyvhq .gt_first_grand_summary_row {
+#kqubjrekkn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -315,11 +315,11 @@
   border-top-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_striped {
+#kqubjrekkn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pcnxxbyvhq .gt_table_body {
+#kqubjrekkn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -328,7 +328,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_footnotes {
+#kqubjrekkn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -342,13 +342,13 @@
   border-right-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_footnote {
+#kqubjrekkn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#pcnxxbyvhq .gt_sourcenotes {
+#kqubjrekkn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -362,41 +362,41 @@
   border-right-color: #D3D3D3;
 }
 
-#pcnxxbyvhq .gt_sourcenote {
+#kqubjrekkn .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#pcnxxbyvhq .gt_left {
+#kqubjrekkn .gt_left {
   text-align: left;
 }
 
-#pcnxxbyvhq .gt_center {
+#kqubjrekkn .gt_center {
   text-align: center;
 }
 
-#pcnxxbyvhq .gt_right {
+#kqubjrekkn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pcnxxbyvhq .gt_font_normal {
+#kqubjrekkn .gt_font_normal {
   font-weight: normal;
 }
 
-#pcnxxbyvhq .gt_font_bold {
+#kqubjrekkn .gt_font_bold {
   font-weight: bold;
 }
 
-#pcnxxbyvhq .gt_font_italic {
+#kqubjrekkn .gt_font_italic {
   font-style: italic;
 }
 
-#pcnxxbyvhq .gt_super {
+#kqubjrekkn .gt_super {
   font-size: 65%;
 }
 
-#pcnxxbyvhq .gt_footnote_marks {
+#kqubjrekkn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -476,7 +476,7 @@
 
 ### Task
 
-- Working as part of a team of up to three people, please pick a paper of interest to you, with code and data that are available, published anytime since 2019, in an American Economic Association [journal](https://www.aeaweb.org/journals). These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'.
+- Working as part of a team of one to three people, please pick a paper of interest to you, with code and data that are available, published anytime since 2019, in an American Economic Association [journal](https://www.aeaweb.org/journals). These journals are: 'American Economic Review', 'AER: Insights', 'AEJ: Applied Economics', 'AEJ: Economic Policy', 'AEJ: Macroeconomics', 'AEJ: Microeconomics', 'Journal of Economic Literature', 'Journal of Economic Perspectives', 'AEA Papers & Proceedings'.
 - Following the [*Guide for Accelerating Computational Reproducibility in the Social Sciences*](https://bitss.github.io/ACRE/), please complete a **replication**^[This terminology is used following @barba2018terminologies, but it is the opposite of that used by BITSS.] of at least three graphs, tables, or a combination, from that paper, using the [Social Science Reproduction Platform](https://www.socialsciencereproduction.org). Note the DOI of your replication.
 - Working in an entirely reproducible way then conduct a **reproduction** based on two or three aspects of the paper, and write a short paper about that. 
   - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, and references.
@@ -631,7 +631,7 @@
 
 ### Task
 
-- Working in teams of one to three people, and in an entirely reproducible way, please obtain data from the [US General Social Survey](https://gss.norc.org/Get-The-Data)^[The US GSS is recommended here because individual-level data are publicly available, and the dataset is well-documented. But, often university students in particular countries have access to individual level data that are not available to the public, and if this is the case then you are welcome to use that instead.  Students at Australian universities will likely have access to individual-level data from the Australian General Social Survey, and could use that. Students at Canadian universities will likely have access to individual-level data from the Canadian General Social and may like to use that.]. (You are welcome to use a different government-run survey, but please obtain permission before starting.)
+- Working as part of a team of one to three people, and in an entirely reproducible way, please obtain data from the [US General Social Survey](https://gss.norc.org/Get-The-Data)^[The US GSS is recommended here because individual-level data are publicly available, and the dataset is well-documented. But, often university students in particular countries have access to individual level data that are not available to the public, and if this is the case then you are welcome to use that instead.  Students at Australian universities will likely have access to individual-level data from the Australian General Social Survey, and could use that. Students at Canadian universities will likely have access to individual-level data from the Canadian General Social and may like to use that.]. (You are welcome to use a different government-run survey, but please obtain permission before starting.)
 - Obtain the data, focus on one aspect of the survey, and then use it to tell a story.
   - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then use R Markdown to prepare a PDF with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, results, discussion, an appendix that will, at least, contain a survey, and references.
   - In addition to conveying a sense of the dataset of interest, the data section should include, but not be limited to:
@@ -661,12 +661,12 @@
 
 
 ```{=html}
-<div id="lcabqlltgc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="lyahifslte" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lcabqlltgc .gt_table {
+#lyahifslte .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -691,7 +691,7 @@
   border-left-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_heading {
+#lyahifslte .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -703,7 +703,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_title {
+#lyahifslte .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -713,7 +713,7 @@
   border-bottom-width: 0;
 }
 
-#lcabqlltgc .gt_subtitle {
+#lyahifslte .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -723,13 +723,13 @@
   border-top-width: 0;
 }
 
-#lcabqlltgc .gt_bottom_border {
+#lyahifslte .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_col_headings {
+#lyahifslte .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -744,7 +744,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_col_heading {
+#lyahifslte .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -764,7 +764,7 @@
   overflow-x: hidden;
 }
 
-#lcabqlltgc .gt_column_spanner_outer {
+#lyahifslte .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -776,15 +776,15 @@
   padding-right: 4px;
 }
 
-#lcabqlltgc .gt_column_spanner_outer:first-child {
+#lyahifslte .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lcabqlltgc .gt_column_spanner_outer:last-child {
+#lyahifslte .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lcabqlltgc .gt_column_spanner {
+#lyahifslte .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -796,7 +796,7 @@
   width: 100%;
 }
 
-#lcabqlltgc .gt_group_heading {
+#lyahifslte .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -818,7 +818,7 @@
   vertical-align: middle;
 }
 
-#lcabqlltgc .gt_empty_group_heading {
+#lyahifslte .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -833,15 +833,15 @@
   vertical-align: middle;
 }
 
-#lcabqlltgc .gt_from_md > :first-child {
+#lyahifslte .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lcabqlltgc .gt_from_md > :last-child {
+#lyahifslte .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lcabqlltgc .gt_row {
+#lyahifslte .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,7 +860,7 @@
   overflow-x: hidden;
 }
 
-#lcabqlltgc .gt_stub {
+#lyahifslte .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -872,7 +872,7 @@
   padding-left: 12px;
 }
 
-#lcabqlltgc .gt_summary_row {
+#lyahifslte .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -882,7 +882,7 @@
   padding-right: 5px;
 }
 
-#lcabqlltgc .gt_first_summary_row {
+#lyahifslte .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -892,7 +892,7 @@
   border-top-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_grand_summary_row {
+#lyahifslte .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -902,7 +902,7 @@
   padding-right: 5px;
 }
 
-#lcabqlltgc .gt_first_grand_summary_row {
+#lyahifslte .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -912,11 +912,11 @@
   border-top-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_striped {
+#lyahifslte .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lcabqlltgc .gt_table_body {
+#lyahifslte .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -925,7 +925,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_footnotes {
+#lyahifslte .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -939,13 +939,13 @@
   border-right-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_footnote {
+#lyahifslte .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lcabqlltgc .gt_sourcenotes {
+#lyahifslte .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -959,41 +959,41 @@
   border-right-color: #D3D3D3;
 }
 
-#lcabqlltgc .gt_sourcenote {
+#lyahifslte .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lcabqlltgc .gt_left {
+#lyahifslte .gt_left {
   text-align: left;
 }
 
-#lcabqlltgc .gt_center {
+#lyahifslte .gt_center {
   text-align: center;
 }
 
-#lcabqlltgc .gt_right {
+#lyahifslte .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lcabqlltgc .gt_font_normal {
+#lyahifslte .gt_font_normal {
   font-weight: normal;
 }
 
-#lcabqlltgc .gt_font_bold {
+#lyahifslte .gt_font_bold {
   font-weight: bold;
 }
 
-#lcabqlltgc .gt_font_italic {
+#lyahifslte .gt_font_italic {
   font-style: italic;
 }
 
-#lcabqlltgc .gt_super {
+#lyahifslte .gt_super {
   font-size: 65%;
 }
 
-#lcabqlltgc .gt_footnote_marks {
+#lyahifslte .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1083,27 +1083,26 @@
 
 ### Task
 
-- Working in teams of one to three people, and in an entirely reproducible way, please convert 
+- Working as part of a team of one to three people, and in an entirely reproducible way, please convert 
 one full-page table from 
-one DHS Program 'Final Report' written in English from the 1980s or 1990s as available [here](https://dhsprogram.com/search/index.cfm?_srchd=1&bydoctype=publication&bypubtype=26%2C5%2C39%2C30%2C21%2C100&byyear=1999&byyear=1998&byyear=1997&byyear=1996&byyear=1995&byyear=1994&byyear=1993&byyear=1992&byyear=1991&byyear=1990&byyear=1989&byyear=1988&byyear=1987&bylanguage=2), 
+one DHS Program 'Final Report', from the 1980s or 1990s, as available [here](https://dhsprogram.com/search/index.cfm?_srchd=1&bydoctype=publication&bypubtype=26%2C5%2C39%2C30%2C21%2C100&byyear=1999&byyear=1998&byyear=1997&byyear=1996&byyear=1995&byyear=1994&byyear=1993&byyear=1992&byyear=1991&byyear=1990&byyear=1989&byyear=1988&byyear=1987&bylanguage=2), 
 into a usable dataset, then write a short paper telling a story about the data.
 - Create a well-organized folder with appropriate sub-folders, and add it to GitHub. You are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder).
 - Create and document a dataset:
   - Save the PDF into 'inputs'.
-  - Put together an R script, 'scripts/00-simulation.R', that simulates the dataset you intend to put together. 
-  - Write an R script, 'scripts/00-gather_data.R' to either OCR or parse the PDF, as appropriate, and save the data to 'outputs/data/raw_data.csv'.     
-  - Write an R script, 'scripts/00-clean_and_prepare_data.R', that draws on 'raw_data.csv' to clean and prepare the dataset, being sure to use `pointblank` to put together tests that the dataset must pass (at a minimum, every variable should have a test for class and another for content). Save the dataset 'outputs/data/cleaned_data.csv'.
-  - Put together a data sheet for the dataset (this will go in the appendix of the paper).
+  - Put together a simulation, 'scripts/00-simulation.R', of your plan for the usable dataset.
+  - Write code, 'scripts/01-gather_data.R', to either OCR or parse the PDF, as appropriate, and save the data to 'outputs/data/raw_data.csv'.
+  - Write code, 'scripts/02-clean_and_prepare_data.R', that draws on 'raw_data.csv' to clean and prepare the dataset, being sure to use `pointblank` to put together tests that the dataset must pass (at a minimum, every variable should have a test for class and another for content). Save the dataset to 'outputs/data/cleaned_data.csv'.
+  - Following @gebru2021datasheets, put together a data sheet for the dataset you put together (put this in the appendix of your paper). You are welcome to start from the template 'inputs/data/datasheet_template.Rmd' in the starter folder, although, again, you should add it to the appendix of your paper, rather than a stand-alone document.
 - Use the dataset to tell a story by using R Markdown to prepare a PDF with these sections: title, author, date, abstract, introduction, data, results, discussion, an appendix that will, at least, contain a datasheet for the dataset, and references.
-  - In addition to conveying a sense of the dataset of interest, the data section should include details of the survey's methodology, and its key features, strengths, and weaknesses. 
+  - In addition to conveying a sense of the dataset of interest, the data section should include details of the methodology used by the DHS you used, and its key features, strengths, and weaknesses. 
 - Submit a PDF of the paper. 
 - There should be no evidence that this is a class paper.
 
 
 ### Checks
 
-- Code should be entirely reproducible, well-documented, and readable.
-- The paper should be well-written and able to be understood by the average reader of, say, FiveThirtyEight. This means that you are allowed to use mathematical notation, but you must explain all of it in plain language. All statistical concepts and terminology must be explained. Your reader is someone with a university education, but not necessarily someone who understands what a p-value is.
+- Use GitHub in a well-developed way by making at least a few commits, and using descriptive commit messages.
 
 <!-- - In an appendix there is both a link to the supplementary survey and the details of it, including questions (in case the link fails, and to make the paper self-contained). -->
  
@@ -1120,12 +1119,12 @@ into a usable dataset, then write a short paper telling a story about the data.
 
 
 ```{=html}
-<div id="erajwwtbly" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="sekvszaump" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#erajwwtbly .gt_table {
+#sekvszaump .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1150,7 +1149,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-left-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_heading {
+#sekvszaump .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1162,7 +1161,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_title {
+#sekvszaump .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1172,7 +1171,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-width: 0;
 }
 
-#erajwwtbly .gt_subtitle {
+#sekvszaump .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1182,13 +1181,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-width: 0;
 }
 
-#erajwwtbly .gt_bottom_border {
+#sekvszaump .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_col_headings {
+#sekvszaump .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1203,7 +1202,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_col_heading {
+#sekvszaump .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1223,7 +1222,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#erajwwtbly .gt_column_spanner_outer {
+#sekvszaump .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1235,15 +1234,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 4px;
 }
 
-#erajwwtbly .gt_column_spanner_outer:first-child {
+#sekvszaump .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#erajwwtbly .gt_column_spanner_outer:last-child {
+#sekvszaump .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#erajwwtbly .gt_column_spanner {
+#sekvszaump .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1255,7 +1254,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   width: 100%;
 }
 
-#erajwwtbly .gt_group_heading {
+#sekvszaump .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1277,7 +1276,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#erajwwtbly .gt_empty_group_heading {
+#sekvszaump .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1292,15 +1291,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#erajwwtbly .gt_from_md > :first-child {
+#sekvszaump .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#erajwwtbly .gt_from_md > :last-child {
+#sekvszaump .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#erajwwtbly .gt_row {
+#sekvszaump .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1319,7 +1318,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#erajwwtbly .gt_stub {
+#sekvszaump .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1331,7 +1330,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-left: 12px;
 }
 
-#erajwwtbly .gt_summary_row {
+#sekvszaump .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1341,7 +1340,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#erajwwtbly .gt_first_summary_row {
+#sekvszaump .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1351,7 +1350,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_grand_summary_row {
+#sekvszaump .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1361,7 +1360,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#erajwwtbly .gt_first_grand_summary_row {
+#sekvszaump .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1371,11 +1370,11 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_striped {
+#sekvszaump .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#erajwwtbly .gt_table_body {
+#sekvszaump .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1384,7 +1383,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_footnotes {
+#sekvszaump .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1398,13 +1397,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_footnote {
+#sekvszaump .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#erajwwtbly .gt_sourcenotes {
+#sekvszaump .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1418,41 +1417,41 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#erajwwtbly .gt_sourcenote {
+#sekvszaump .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#erajwwtbly .gt_left {
+#sekvszaump .gt_left {
   text-align: left;
 }
 
-#erajwwtbly .gt_center {
+#sekvszaump .gt_center {
   text-align: center;
 }
 
-#erajwwtbly .gt_right {
+#sekvszaump .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#erajwwtbly .gt_font_normal {
+#sekvszaump .gt_font_normal {
   font-weight: normal;
 }
 
-#erajwwtbly .gt_font_bold {
+#sekvszaump .gt_font_bold {
   font-weight: bold;
 }
 
-#erajwwtbly .gt_font_italic {
+#sekvszaump .gt_font_italic {
   font-style: italic;
 }
 
-#erajwwtbly .gt_super {
+#sekvszaump .gt_super {
   font-size: 65%;
 }
 
-#erajwwtbly .gt_footnote_marks {
+#sekvszaump .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1515,7 +1514,7 @@ into a usable dataset, then write a short paper telling a story about the data.
 <td class="gt_row gt_left">The paper and analysis should be fully reproducible. The repo should have a detailed README. All code should be thoroughly documented. An R project should be used. Code should be used to do all steps including appropriately read data, prepare it, create plots, conduct analysis, and generate documents. Seeds should be used where needed. Code should have a preamble and be well-documented including comments and layout. The repo should be appropriately organized and not contain extraneous files. setwd() and hard coded file paths must not be used.</td></tr>
     <tr><td class="gt_row gt_left">Datasheet</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">Put together a thorough datasheet for the dataset that you constructed.</td></tr>
+<td class="gt_row gt_left">A thorough datasheet for the dataset that was constructed is included.</td></tr>
     <tr><td class="gt_row gt_left">General excellence</td>
 <td class="gt_row gt_left">0 - 'None'; 1 - 'Huh, that's interesting'; 2 - 'Wow'; 3 - 'Exceptional'</td>
 <td class="gt_row gt_left">There are always students that excel in a way that is not anticipated in the rubric. This item accounts for that.</td></tr>
@@ -1533,63 +1532,56 @@ into a usable dataset, then write a short paper telling a story about the data.
 
 
 
+<!-- ## Paper Five -->
+
+<!-- ### Task -->
+
+<!-- - Paper about causal inference. -->
+
+
+<!-- - You must include a DAG (probably in the model section). -->
+
+
+<!-- \newpage -->
+
+
+
+
 ## Paper Five
 
 ### Task
 
-- Paper about causal inference.
-
-
-- You must include a DAG (probably in the model section).
-
-
-\newpage
-
-
-
-
-## Paper Six
-
-### Task
-
-- Working as part of a team of up to three people, please forecast the popular vote of the 2020 US election using multilevel regression with post-stratification. This requires individual-level survey data, post-stratification data, and a model that brings them together. Given the expense of collecting these data, and the privilege of having access to them, please be sure to properly cite all datasets that you use.
+- Working as part of a team of one to three people, please forecast the popular vote of the 2020 US election using multilevel regression with post-stratification. This requires individual-level survey data, post-stratification data, and a model that brings them together. Given the expense of collecting these data, and the privilege of having access to them, please be sure to properly cite all datasets that you use.
 - Individual-level survey data:
-    - Begin by simulating some data from a survey with the same key features of the one that you will be using.
-    - Request access to the Democracy Fund + UCLA Nationscape 'Full Data Set': https://www.voterstudygroup.org/data/nationscape. This could take a day or two. Please start early. 
+    - Begin by simulating some data from a survey with the same key features of the one that you will use.
+    - Request access to the Democracy Fund + UCLA Nationscape ['Full Data Set'](https://www.voterstudygroup.org/data/nationscape). This could take a day or two. Please start early. 
     - Once you have access then pick a survey of interest. We use "ns20200102.dta" in the example (your number may be different).
     - This will be a large file and is not yours to share. Do not push it to GitHub (use a .gitignore file to accomplish this, and instead document how to get the raw data in the README).
-    - Use the example R code to get started preparing this dataset, and then go on cleaning and preparing it based on what you need.
+    - Clean and prepare the dataset based on what you need.
 - Post-stratification data:
     - Begin by simulating the dataset that you would like to use for the post-stratification.
     - Use the American Community Surveys (ACS).
     - Please create an account with IPUMS: https://usa.ipums.org/usa/index.shtml 
-    - You want the 2018 1-year ACS. Then you need to select some variables. This will depend on what you want to model and the survey data, but some options include: REGION, STATEICP, AGE, SEX, MARST, RACE, HISPAN, BPL, CITIZEN, EDUC, LABFORCE, 	INCTOT. Have a look around and see what you are interested in, remembering that you will need to establish a correspondence to the survey.
+    - Get the 2018 1-year ACS. Then select some variables. This will depend on what you want to model and the survey data, but some options include: REGION, STATEICP, AGE, SEX, MARST, RACE, HISPAN, BPL, CITIZEN, EDUC, LABFORCE, 	INCTOT. Have a look around and see what you are interested in, remembering that you will need to establish a correspondence to the survey.
     - Download the relevant post-stratification data (it is probably easiest to change the data format to .dta). Again, this can take some time. Please start this early. 
     - Again, this is a large file, and so you should not push it to GitHub (use a .gitignore file to accomplish this, and instead document how to get the raw data in the README).
     - Clean and prepare the post-stratification dataset. Remember that you need cell counts for the sub-populations in the model. 
 - Modelling:
-    - You will want to explain vote intention based on a variety of explanatory variables. Construct the vote intention variable so that it is binary (either 'supports Trump' or 'supports Biden'). 
-    - The decision is yours, but you should probably use logistic regression. In increasing levels of complexity: `glm()`, `lme4::glmer()`, `rstanarm:: stan_glm`, and `brms::brm()`.
-    - Think about model fit, diagnostics, and other similar things that you need in order to convince someone that the model is appropriate.
+    - You will want to explain vote intention based on a variety of explanatory variables. The decision is yours, but you should probably use logistic regression. In which case, construct the vote intention variable so that it is binary (either 'supports Trump' or 'supports Biden'). In increasing levels of complexity use: `glm()`, `lme4::glmer()`, `rstanarm:: stan_glm`, and `brms::brm()`.
+    - Think about model fit, diagnostics, and other similar aspects that you need to convince someone that the model is appropriate.
     - You have flexibility of the model that you use, (and hence the cells that you will need to create next). In general, the more cells the better, but you may want fewer cells for simplicity in the writing process and to ensure a decent sample in each cell.
-    - Apply the trained model to the post-stratification dataset to make the best estimate of the election result that you can. The specifics will depend on your modelling approach but will likely involve predict(), add_predicted_draws(), or similar. See the examples in the readings. We are primarily interested in the distribution of your forecast of the overall Presidential popular vote, and how the explanatory variables affect this. Strong submissions would go beyond that. 
+    - Apply the trained model to the post-stratification dataset to make the best estimate of the election result that you can. The specifics will depend on your modelling approach but will likely involve `predict()`, `add_predicted_draws()`, or similar. The primary aspect of interest is the forecast distribution of the popular vote, and how the explanatory variables affect this. Strong submissions would go beyond that. 
 - Write-up:
-    - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, model, results, discussion, and references.
-    - The paper may use appendices for supporting, but not critical, material. 
-    - The discussion should include three or four sub-sections that each focus on a point you find interesting, and there should be another sub-section on the weaknesses of your paper and next steps for your paper.
-    - The paper should be well-written, draw on relevant literature, and explain all technical concepts. Pitch it at an educated, but non-specialist, audience.
-    - Use appendices for supporting, but not critical, material.
-    - Code should be entirely reproducible, well-documented, and readable.
+    - Create a well-organized folder with appropriate sub-folders, add it to GitHub, and then prepare a PDF using R Markdown with these sections (you are welcome to use this [starter folder](https://github.com/RohanAlexander/starter_folder)): title, author, date, abstract, introduction, data, model, results, discussion, and references. Use appendices for supporting, but not critical, material. 
+      - In the model section, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. The model should be appropriately complex; that is, not inappropriately simple, but not unnecessarily complicated. The model should have well-defined variables and these correspond to what is discussed in the data section. The model should be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation should be defined. The model should make sense based on the substantive area, and the form of the model. If the model is Bayesian, then priors should be defined and sensible. There should be explanation of how features enter the model and why. For instance, why use age rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, there should be a clear justification that this is the model for the situation. The assumptions underpinning the model should be clearly discussed. Alternative models, or variants, should be discussed, and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out-of-sample, or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, and if this becomes too detailed then you could push some of this to an appendix. How the aspects discussed in the data section assert themselves in the modelling decisions that you make should be explained.
 - Submit a PDF of your paper.
 - There should be no evidence that this is a class assignment.
 
 ### Checks
 
-- It is expected that your submission be well written and able to be understood by the average reader of say 538. This means that you are allowed to use mathematical notation, but you must be able to explain it all in plain English. Similarly, you can (and hint: you should) use survey, sampling, observational, and statistical terminology, but again you need to explain it. The average person doesn't know what a p-value is nor what a confidence interval is. You need to explain all of this in plain language the first time you use it. Your work should have flow and should be easy to follow and understand. To communicate well, anyone at the university level should be able to read your report once and relay back the methodology, overall results, findings, weaknesses, and next steps without confusion. 
-- Make sure that you use GitHub appropriately, meaning that you push from time to time (not just once at the end) and have meaningful commit messages.
-- It is recommended that you (informally) proofread one another's work - why not exchange papers with another group? 
-- Everyone in the team receives the same mark.
-- There should be no evidence that this is a class assignment.
+- Use GitHub in a well-developed way by making at least a few commits, and using descriptive commit messages.
+- Code should be entirely reproducible, well-documented, and readable.
+- Do not include p-values, stars, or similar, in tables. If you invoke statistical significance, then you should draw on and integrate @fisherarrangement.
 
 ### FAQ
 
@@ -1600,12 +1592,12 @@ into a usable dataset, then write a short paper telling a story about the data.
 
 
 ```{=html}
-<div id="lducehsrjh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="izwzpxhglk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lducehsrjh .gt_table {
+#izwzpxhglk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1630,7 +1622,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-left-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_heading {
+#izwzpxhglk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1642,7 +1634,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_title {
+#izwzpxhglk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1652,7 +1644,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-width: 0;
 }
 
-#lducehsrjh .gt_subtitle {
+#izwzpxhglk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1662,13 +1654,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-width: 0;
 }
 
-#lducehsrjh .gt_bottom_border {
+#izwzpxhglk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_col_headings {
+#izwzpxhglk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1683,7 +1675,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_col_heading {
+#izwzpxhglk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1703,7 +1695,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#lducehsrjh .gt_column_spanner_outer {
+#izwzpxhglk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1715,15 +1707,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 4px;
 }
 
-#lducehsrjh .gt_column_spanner_outer:first-child {
+#izwzpxhglk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lducehsrjh .gt_column_spanner_outer:last-child {
+#izwzpxhglk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lducehsrjh .gt_column_spanner {
+#izwzpxhglk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1735,7 +1727,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   width: 100%;
 }
 
-#lducehsrjh .gt_group_heading {
+#izwzpxhglk .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1757,7 +1749,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#lducehsrjh .gt_empty_group_heading {
+#izwzpxhglk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1772,15 +1764,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#lducehsrjh .gt_from_md > :first-child {
+#izwzpxhglk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lducehsrjh .gt_from_md > :last-child {
+#izwzpxhglk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lducehsrjh .gt_row {
+#izwzpxhglk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1799,7 +1791,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#lducehsrjh .gt_stub {
+#izwzpxhglk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1811,7 +1803,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-left: 12px;
 }
 
-#lducehsrjh .gt_summary_row {
+#izwzpxhglk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1821,7 +1813,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#lducehsrjh .gt_first_summary_row {
+#izwzpxhglk .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1831,7 +1823,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_grand_summary_row {
+#izwzpxhglk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1841,7 +1833,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#lducehsrjh .gt_first_grand_summary_row {
+#izwzpxhglk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1851,11 +1843,11 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_striped {
+#izwzpxhglk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lducehsrjh .gt_table_body {
+#izwzpxhglk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1864,7 +1856,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_footnotes {
+#izwzpxhglk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1878,13 +1870,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_footnote {
+#izwzpxhglk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lducehsrjh .gt_sourcenotes {
+#izwzpxhglk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1898,41 +1890,41 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#lducehsrjh .gt_sourcenote {
+#izwzpxhglk .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lducehsrjh .gt_left {
+#izwzpxhglk .gt_left {
   text-align: left;
 }
 
-#lducehsrjh .gt_center {
+#izwzpxhglk .gt_center {
   text-align: center;
 }
 
-#lducehsrjh .gt_right {
+#izwzpxhglk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lducehsrjh .gt_font_normal {
+#izwzpxhglk .gt_font_normal {
   font-weight: normal;
 }
 
-#lducehsrjh .gt_font_bold {
+#izwzpxhglk .gt_font_bold {
   font-weight: bold;
 }
 
-#lducehsrjh .gt_font_italic {
+#izwzpxhglk .gt_font_italic {
   font-style: italic;
 }
 
-#lducehsrjh .gt_super {
+#izwzpxhglk .gt_super {
   font-size: 65%;
 }
 
-#lducehsrjh .gt_footnote_marks {
+#izwzpxhglk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1968,7 +1960,7 @@ into a usable dataset, then write a short paper telling a story about the data.
 <td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Model</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again, if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
+<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate.</td></tr>
     <tr><td class="gt_row gt_left">Results</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.</td></tr>
@@ -2008,7 +2000,7 @@ into a usable dataset, then write a short paper telling a story about the data.
 
 ### Previous examples
 
-[Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz](https://github.com/matthewwankiewicz/US_election_forecast)
+[Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz](https://github.com/matthewwankiewicz/US_election_forecast) (this paper received an 'Honorable Mention' in the ASA December 2020 Undergraduate Statistics Research Project competition.)
 
 \newpage
 
@@ -2064,12 +2056,12 @@ into a usable dataset, then write a short paper telling a story about the data.
 
 
 ```{=html}
-<div id="fkeouuuszt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="iixukurmqk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fkeouuuszt .gt_table {
+#iixukurmqk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2094,7 +2086,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-left-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_heading {
+#iixukurmqk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2106,7 +2098,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_title {
+#iixukurmqk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2116,7 +2108,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-width: 0;
 }
 
-#fkeouuuszt .gt_subtitle {
+#iixukurmqk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2126,13 +2118,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-width: 0;
 }
 
-#fkeouuuszt .gt_bottom_border {
+#iixukurmqk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_col_headings {
+#iixukurmqk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2147,7 +2139,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_col_heading {
+#iixukurmqk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2167,7 +2159,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#fkeouuuszt .gt_column_spanner_outer {
+#iixukurmqk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2179,15 +2171,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 4px;
 }
 
-#fkeouuuszt .gt_column_spanner_outer:first-child {
+#iixukurmqk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fkeouuuszt .gt_column_spanner_outer:last-child {
+#iixukurmqk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fkeouuuszt .gt_column_spanner {
+#iixukurmqk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2199,7 +2191,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   width: 100%;
 }
 
-#fkeouuuszt .gt_group_heading {
+#iixukurmqk .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2221,7 +2213,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#fkeouuuszt .gt_empty_group_heading {
+#iixukurmqk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2236,15 +2228,15 @@ into a usable dataset, then write a short paper telling a story about the data.
   vertical-align: middle;
 }
 
-#fkeouuuszt .gt_from_md > :first-child {
+#iixukurmqk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fkeouuuszt .gt_from_md > :last-child {
+#iixukurmqk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fkeouuuszt .gt_row {
+#iixukurmqk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2263,7 +2255,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   overflow-x: hidden;
 }
 
-#fkeouuuszt .gt_stub {
+#iixukurmqk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2275,7 +2267,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-left: 12px;
 }
 
-#fkeouuuszt .gt_summary_row {
+#iixukurmqk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2285,7 +2277,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#fkeouuuszt .gt_first_summary_row {
+#iixukurmqk .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2295,7 +2287,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_grand_summary_row {
+#iixukurmqk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2305,7 +2297,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   padding-right: 5px;
 }
 
-#fkeouuuszt .gt_first_grand_summary_row {
+#iixukurmqk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2315,11 +2307,11 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-top-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_striped {
+#iixukurmqk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fkeouuuszt .gt_table_body {
+#iixukurmqk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2328,7 +2320,7 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-bottom-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_footnotes {
+#iixukurmqk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2342,13 +2334,13 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_footnote {
+#iixukurmqk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#fkeouuuszt .gt_sourcenotes {
+#iixukurmqk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2362,41 +2354,41 @@ into a usable dataset, then write a short paper telling a story about the data.
   border-right-color: #D3D3D3;
 }
 
-#fkeouuuszt .gt_sourcenote {
+#iixukurmqk .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#fkeouuuszt .gt_left {
+#iixukurmqk .gt_left {
   text-align: left;
 }
 
-#fkeouuuszt .gt_center {
+#iixukurmqk .gt_center {
   text-align: center;
 }
 
-#fkeouuuszt .gt_right {
+#iixukurmqk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fkeouuuszt .gt_font_normal {
+#iixukurmqk .gt_font_normal {
   font-weight: normal;
 }
 
-#fkeouuuszt .gt_font_bold {
+#iixukurmqk .gt_font_bold {
   font-weight: bold;
 }
 
-#fkeouuuszt .gt_font_italic {
+#iixukurmqk .gt_font_italic {
   font-style: italic;
 }
 
-#fkeouuuszt .gt_super {
+#iixukurmqk .gt_super {
   font-size: 65%;
 }
 
-#fkeouuuszt .gt_footnote_marks {
+#iixukurmqk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2432,7 +2424,7 @@ into a usable dataset, then write a short paper telling a story about the data.
 <td class="gt_row gt_left">A sense of the dataset should be communicated to the reader. All variables should be thoroughly examined and explained. Explain if there were similar datasets that could have been used and why they were not. If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey. It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables. If this becomes too detailed, then appendices could be used.</td></tr>
     <tr><td class="gt_row gt_left">Model</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
-<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate. When you discuss the model, you must be extremely careful to spell out the statistical model that you are using defining and explaining each aspect and why it is important. Failure to do this suggests you don't understand the model. The model is appropriately complex that is, not too simple, but not unnecessarily complicated. The model has well-defined variables and these correspond to what is discussed in the data section. The model needs to be written out in appropriate mathematical notation but also in plain English. Every aspect of that notation must be defined otherwise the most this section can receive is poor. The model makes sense based on the substantive area, and the form of the model. If the model is Bayesian, then priors need to be defined and sensible. Discussion needs to occur around how features enter the model and why. For instance, (and these are just examples) why use ages rather than age-groups, why does province have a levels effect, why is gender categorical, etc? In general, to be adequate, there needs to be a clear justification that this is the model for the situation. The assumptions underpinning the model are clearly discussed. Alternative models, or variants, must be discussed and strengths and weaknesses made clear. Why was this model chosen? You should mention the software that you used to run the model. There is some evidence of thought about the circumstances in which the model may not be appropriate. There is evidence of model validation and checking, whether that is out of sample or comparison to a straw man or RMSE, test/training, or appropriate sensitivity checks. You should be clear about model convergence, model checks, and diagnostic issues, but if this becomes too detailed then you could push some of this to an appendix. Great answers would discuss things such as, how do the aspects that you discussed in the data section assert themselves in the modelling decisions that you make. Again, if it becomes too detailed then push some of the details to footnotes or an appendix. Again, explain what the model is and what is going on with it.</td></tr>
+<td class="gt_row gt_left">The model should be nicely written out, well-explained, justified, and appropriate.</td></tr>
     <tr><td class="gt_row gt_left">Results</td>
 <td class="gt_row gt_left">0 - 'Poor or not done'; 2 - 'Many issues'; 4 - 'Some issues'; 6 - 'Good'; 8 - 'Great'; 10 - 'Exceptional'</td>
 <td class="gt_row gt_left">Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars.</td></tr>

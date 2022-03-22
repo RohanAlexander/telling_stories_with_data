@@ -420,7 +420,6 @@ poisson-regression
 exercises-and-tutorial-13
 exercises-13
 tutorial-13
-paper-4
 causality
 introduction-12
 directed-acyclic-graphs
@@ -441,7 +440,6 @@ assumptions-2
 exercises-and-tutorial-14
 exercises-14
 tutorial-14
-paper-5
 mrp
 introduction-13
 simulation---toddler-bedtimes
@@ -468,7 +466,7 @@ post-stratify-2
 exercises-and-tutorial-15
 exercises-15
 tutorial-15
-paper-6
+paper-4
 text-as-data
 introduction-14
 tf-idf
@@ -495,7 +493,7 @@ parquet
 exercises-and-tutorial-18
 exercises-18
 tutorial-18
-paper-7
+paper-5
 concludingremarks
 concluding-remarks
 some-issues
@@ -530,14 +528,12 @@ faq-3
 rubric-3
 paper-five
 task-4
-paper-six
-task-5
 checks-4
 faq-4
 rubric-4
 previous-examples-3
 final-paper
-task-6
+task-5
 peer-review-submission
 conduct-peer-review
 checks-5
