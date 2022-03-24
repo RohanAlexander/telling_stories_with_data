@@ -64,12 +64,12 @@
 
 
 ```{=html}
-<div id="rometdgvni" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="bhcrpucrmm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#rometdgvni .gt_table {
+#bhcrpucrmm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -94,7 +94,7 @@
   border-left-color: #D3D3D3;
 }
 
-#rometdgvni .gt_heading {
+#bhcrpucrmm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -106,7 +106,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rometdgvni .gt_title {
+#bhcrpucrmm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -116,7 +116,7 @@
   border-bottom-width: 0;
 }
 
-#rometdgvni .gt_subtitle {
+#bhcrpucrmm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -126,13 +126,13 @@
   border-top-width: 0;
 }
 
-#rometdgvni .gt_bottom_border {
+#bhcrpucrmm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rometdgvni .gt_col_headings {
+#bhcrpucrmm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -147,7 +147,7 @@
   border-right-color: #D3D3D3;
 }
 
-#rometdgvni .gt_col_heading {
+#bhcrpucrmm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -167,7 +167,7 @@
   overflow-x: hidden;
 }
 
-#rometdgvni .gt_column_spanner_outer {
+#bhcrpucrmm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -179,15 +179,15 @@
   padding-right: 4px;
 }
 
-#rometdgvni .gt_column_spanner_outer:first-child {
+#bhcrpucrmm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rometdgvni .gt_column_spanner_outer:last-child {
+#bhcrpucrmm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rometdgvni .gt_column_spanner {
+#bhcrpucrmm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -199,7 +199,7 @@
   width: 100%;
 }
 
-#rometdgvni .gt_group_heading {
+#bhcrpucrmm .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -221,7 +221,7 @@
   vertical-align: middle;
 }
 
-#rometdgvni .gt_empty_group_heading {
+#bhcrpucrmm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -236,15 +236,15 @@
   vertical-align: middle;
 }
 
-#rometdgvni .gt_from_md > :first-child {
+#bhcrpucrmm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rometdgvni .gt_from_md > :last-child {
+#bhcrpucrmm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rometdgvni .gt_row {
+#bhcrpucrmm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -263,7 +263,7 @@
   overflow-x: hidden;
 }
 
-#rometdgvni .gt_stub {
+#bhcrpucrmm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -275,7 +275,7 @@
   padding-left: 12px;
 }
 
-#rometdgvni .gt_summary_row {
+#bhcrpucrmm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -285,7 +285,7 @@
   padding-right: 5px;
 }
 
-#rometdgvni .gt_first_summary_row {
+#bhcrpucrmm .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -295,7 +295,7 @@
   border-top-color: #D3D3D3;
 }
 
-#rometdgvni .gt_grand_summary_row {
+#bhcrpucrmm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -305,7 +305,7 @@
   padding-right: 5px;
 }
 
-#rometdgvni .gt_first_grand_summary_row {
+#bhcrpucrmm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -315,11 +315,11 @@
   border-top-color: #D3D3D3;
 }
 
-#rometdgvni .gt_striped {
+#bhcrpucrmm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rometdgvni .gt_table_body {
+#bhcrpucrmm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -328,7 +328,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#rometdgvni .gt_footnotes {
+#bhcrpucrmm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -342,13 +342,13 @@
   border-right-color: #D3D3D3;
 }
 
-#rometdgvni .gt_footnote {
+#bhcrpucrmm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#rometdgvni .gt_sourcenotes {
+#bhcrpucrmm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -362,41 +362,41 @@
   border-right-color: #D3D3D3;
 }
 
-#rometdgvni .gt_sourcenote {
+#bhcrpucrmm .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#rometdgvni .gt_left {
+#bhcrpucrmm .gt_left {
   text-align: left;
 }
 
-#rometdgvni .gt_center {
+#bhcrpucrmm .gt_center {
   text-align: center;
 }
 
-#rometdgvni .gt_right {
+#bhcrpucrmm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rometdgvni .gt_font_normal {
+#bhcrpucrmm .gt_font_normal {
   font-weight: normal;
 }
 
-#rometdgvni .gt_font_bold {
+#bhcrpucrmm .gt_font_bold {
   font-weight: bold;
 }
 
-#rometdgvni .gt_font_italic {
+#bhcrpucrmm .gt_font_italic {
   font-style: italic;
 }
 
-#rometdgvni .gt_super {
+#bhcrpucrmm .gt_super {
   font-size: 65%;
 }
 
-#rometdgvni .gt_footnote_marks {
+#bhcrpucrmm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -532,7 +532,7 @@
 
 ### Previous examples
 
-[Alyssa Schleifer, Hudson Yuen, Tamsen Yau](inputs/pdfs/paper_two-2022-Alyssa_Schleifer_Hudson_Yuen_Tamsen_Yau.pdf), [Olaedo Okpareke, Arsh Lakhanpal, Swarnadeep Chattopadhyay](inputs/pdfs/paper_two-2022-Olaedo_Okpareke_Arsh_Lakhanpal_Swarnadeep_Chattopadhyay.pdf), and [Kimlin Chin](inputs/pdfs/paper_two-2022-Kimlin_Chin.pdf).
+[Alyssa Schleifer, Hudson Yuen, Tamsen Yau](inputs/pdfs/paper_two-2022-Alyssa_Schleifer_Hudson_Yuen_Tamsen_Yau.pdf); [Olaedo Okpareke, Arsh Lakhanpal, Swarnadeep Chattopadhyay](inputs/pdfs/paper_two-2022-Olaedo_Okpareke_Arsh_Lakhanpal_Swarnadeep_Chattopadhyay.pdf); and [Kimlin Chin](inputs/pdfs/paper_two-2022-Kimlin_Chin.pdf).
 
 
 \newpage
@@ -661,12 +661,12 @@
 
 
 ```{=html}
-<div id="fbwwjyvtgz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ydgzvbqqyx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fbwwjyvtgz .gt_table {
+#ydgzvbqqyx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -691,7 +691,7 @@
   border-left-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_heading {
+#ydgzvbqqyx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -703,7 +703,7 @@
   border-right-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_title {
+#ydgzvbqqyx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -713,7 +713,7 @@
   border-bottom-width: 0;
 }
 
-#fbwwjyvtgz .gt_subtitle {
+#ydgzvbqqyx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -723,13 +723,13 @@
   border-top-width: 0;
 }
 
-#fbwwjyvtgz .gt_bottom_border {
+#ydgzvbqqyx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_col_headings {
+#ydgzvbqqyx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -744,7 +744,7 @@
   border-right-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_col_heading {
+#ydgzvbqqyx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -764,7 +764,7 @@
   overflow-x: hidden;
 }
 
-#fbwwjyvtgz .gt_column_spanner_outer {
+#ydgzvbqqyx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -776,15 +776,15 @@
   padding-right: 4px;
 }
 
-#fbwwjyvtgz .gt_column_spanner_outer:first-child {
+#ydgzvbqqyx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fbwwjyvtgz .gt_column_spanner_outer:last-child {
+#ydgzvbqqyx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fbwwjyvtgz .gt_column_spanner {
+#ydgzvbqqyx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -796,7 +796,7 @@
   width: 100%;
 }
 
-#fbwwjyvtgz .gt_group_heading {
+#ydgzvbqqyx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -818,7 +818,7 @@
   vertical-align: middle;
 }
 
-#fbwwjyvtgz .gt_empty_group_heading {
+#ydgzvbqqyx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -833,15 +833,15 @@
   vertical-align: middle;
 }
 
-#fbwwjyvtgz .gt_from_md > :first-child {
+#ydgzvbqqyx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fbwwjyvtgz .gt_from_md > :last-child {
+#ydgzvbqqyx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fbwwjyvtgz .gt_row {
+#ydgzvbqqyx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,7 +860,7 @@
   overflow-x: hidden;
 }
 
-#fbwwjyvtgz .gt_stub {
+#ydgzvbqqyx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -872,7 +872,7 @@
   padding-left: 12px;
 }
 
-#fbwwjyvtgz .gt_summary_row {
+#ydgzvbqqyx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -882,7 +882,7 @@
   padding-right: 5px;
 }
 
-#fbwwjyvtgz .gt_first_summary_row {
+#ydgzvbqqyx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -892,7 +892,7 @@
   border-top-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_grand_summary_row {
+#ydgzvbqqyx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -902,7 +902,7 @@
   padding-right: 5px;
 }
 
-#fbwwjyvtgz .gt_first_grand_summary_row {
+#ydgzvbqqyx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -912,11 +912,11 @@
   border-top-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_striped {
+#ydgzvbqqyx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fbwwjyvtgz .gt_table_body {
+#ydgzvbqqyx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -925,7 +925,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_footnotes {
+#ydgzvbqqyx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -939,13 +939,13 @@
   border-right-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_footnote {
+#ydgzvbqqyx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#fbwwjyvtgz .gt_sourcenotes {
+#ydgzvbqqyx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -959,41 +959,41 @@
   border-right-color: #D3D3D3;
 }
 
-#fbwwjyvtgz .gt_sourcenote {
+#ydgzvbqqyx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#fbwwjyvtgz .gt_left {
+#ydgzvbqqyx .gt_left {
   text-align: left;
 }
 
-#fbwwjyvtgz .gt_center {
+#ydgzvbqqyx .gt_center {
   text-align: center;
 }
 
-#fbwwjyvtgz .gt_right {
+#ydgzvbqqyx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fbwwjyvtgz .gt_font_normal {
+#ydgzvbqqyx .gt_font_normal {
   font-weight: normal;
 }
 
-#fbwwjyvtgz .gt_font_bold {
+#ydgzvbqqyx .gt_font_bold {
   font-weight: bold;
 }
 
-#fbwwjyvtgz .gt_font_italic {
+#ydgzvbqqyx .gt_font_italic {
   font-style: italic;
 }
 
-#fbwwjyvtgz .gt_super {
+#ydgzvbqqyx .gt_super {
   font-size: 65%;
 }
 
-#fbwwjyvtgz .gt_footnote_marks {
+#ydgzvbqqyx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1071,7 +1071,9 @@
 
 <!-- Some examples of papers that well in the past include those by:  -->
 
-[Chyna Hui and Marco Chau](inputs/pdfs/paper_three-2022-hui_chau.pdf).
+[Chyna Hui and Marco Chau](inputs/pdfs/paper3-2022-hui_chau.pdf);
+[Ethan Sansom](inputs/pdfs/paper3-2022-Ethan_Sansom.pdf); [Pascal Lee Slew, and Yunkyung_Park](inputs/pdfs/paper3-2022-Pascal_Lee_Slew_Yunkyung_Park.pdf); and
+[Ray Wen, Isfandyar Virani, and Rayhan Walia](inputs/pdfs/paper3-2022-Ray_Wen_Isfandyar_Virani_Rayhan_Walia.pdf).
 
 
 \newpage
@@ -1119,12 +1121,12 @@ into a usable dataset, then write a short paper telling a story with the data.
 
 
 ```{=html}
-<div id="hqwjzawrdh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xeoelscibt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hqwjzawrdh .gt_table {
+#xeoelscibt .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1149,7 +1151,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-left-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_heading {
+#xeoelscibt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1161,7 +1163,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_title {
+#xeoelscibt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1171,7 +1173,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-width: 0;
 }
 
-#hqwjzawrdh .gt_subtitle {
+#xeoelscibt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1181,13 +1183,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-width: 0;
 }
 
-#hqwjzawrdh .gt_bottom_border {
+#xeoelscibt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_col_headings {
+#xeoelscibt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1202,7 +1204,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_col_heading {
+#xeoelscibt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1222,7 +1224,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#hqwjzawrdh .gt_column_spanner_outer {
+#xeoelscibt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1234,15 +1236,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 4px;
 }
 
-#hqwjzawrdh .gt_column_spanner_outer:first-child {
+#xeoelscibt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hqwjzawrdh .gt_column_spanner_outer:last-child {
+#xeoelscibt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hqwjzawrdh .gt_column_spanner {
+#xeoelscibt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1254,7 +1256,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   width: 100%;
 }
 
-#hqwjzawrdh .gt_group_heading {
+#xeoelscibt .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1276,7 +1278,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#hqwjzawrdh .gt_empty_group_heading {
+#xeoelscibt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1291,15 +1293,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#hqwjzawrdh .gt_from_md > :first-child {
+#xeoelscibt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hqwjzawrdh .gt_from_md > :last-child {
+#xeoelscibt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hqwjzawrdh .gt_row {
+#xeoelscibt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1318,7 +1320,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#hqwjzawrdh .gt_stub {
+#xeoelscibt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1330,7 +1332,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-left: 12px;
 }
 
-#hqwjzawrdh .gt_summary_row {
+#xeoelscibt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1340,7 +1342,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#hqwjzawrdh .gt_first_summary_row {
+#xeoelscibt .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1350,7 +1352,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_grand_summary_row {
+#xeoelscibt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1360,7 +1362,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#hqwjzawrdh .gt_first_grand_summary_row {
+#xeoelscibt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1370,11 +1372,11 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_striped {
+#xeoelscibt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hqwjzawrdh .gt_table_body {
+#xeoelscibt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1383,7 +1385,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_footnotes {
+#xeoelscibt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1397,13 +1399,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_footnote {
+#xeoelscibt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#hqwjzawrdh .gt_sourcenotes {
+#xeoelscibt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1417,41 +1419,41 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#hqwjzawrdh .gt_sourcenote {
+#xeoelscibt .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#hqwjzawrdh .gt_left {
+#xeoelscibt .gt_left {
   text-align: left;
 }
 
-#hqwjzawrdh .gt_center {
+#xeoelscibt .gt_center {
   text-align: center;
 }
 
-#hqwjzawrdh .gt_right {
+#xeoelscibt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hqwjzawrdh .gt_font_normal {
+#xeoelscibt .gt_font_normal {
   font-weight: normal;
 }
 
-#hqwjzawrdh .gt_font_bold {
+#xeoelscibt .gt_font_bold {
   font-weight: bold;
 }
 
-#hqwjzawrdh .gt_font_italic {
+#xeoelscibt .gt_font_italic {
   font-style: italic;
 }
 
-#hqwjzawrdh .gt_super {
+#xeoelscibt .gt_super {
   font-size: 65%;
 }
 
-#hqwjzawrdh .gt_footnote_marks {
+#xeoelscibt .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1526,7 +1528,6 @@ into a usable dataset, then write a short paper telling a story with the data.
 ```
 
 
-
 \newpage
 
 
@@ -1590,12 +1591,12 @@ into a usable dataset, then write a short paper telling a story with the data.
 
 
 ```{=html}
-<div id="pbjkuwjtmf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kcqorczett" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pbjkuwjtmf .gt_table {
+#kcqorczett .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1620,7 +1621,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-left-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_heading {
+#kcqorczett .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1632,7 +1633,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_title {
+#kcqorczett .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1642,7 +1643,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-width: 0;
 }
 
-#pbjkuwjtmf .gt_subtitle {
+#kcqorczett .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1652,13 +1653,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-width: 0;
 }
 
-#pbjkuwjtmf .gt_bottom_border {
+#kcqorczett .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_col_headings {
+#kcqorczett .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1673,7 +1674,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_col_heading {
+#kcqorczett .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1693,7 +1694,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#pbjkuwjtmf .gt_column_spanner_outer {
+#kcqorczett .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1705,15 +1706,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 4px;
 }
 
-#pbjkuwjtmf .gt_column_spanner_outer:first-child {
+#kcqorczett .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pbjkuwjtmf .gt_column_spanner_outer:last-child {
+#kcqorczett .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pbjkuwjtmf .gt_column_spanner {
+#kcqorczett .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1725,7 +1726,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   width: 100%;
 }
 
-#pbjkuwjtmf .gt_group_heading {
+#kcqorczett .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1747,7 +1748,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#pbjkuwjtmf .gt_empty_group_heading {
+#kcqorczett .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1762,15 +1763,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#pbjkuwjtmf .gt_from_md > :first-child {
+#kcqorczett .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pbjkuwjtmf .gt_from_md > :last-child {
+#kcqorczett .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pbjkuwjtmf .gt_row {
+#kcqorczett .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1789,7 +1790,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#pbjkuwjtmf .gt_stub {
+#kcqorczett .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1801,7 +1802,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-left: 12px;
 }
 
-#pbjkuwjtmf .gt_summary_row {
+#kcqorczett .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1811,7 +1812,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#pbjkuwjtmf .gt_first_summary_row {
+#kcqorczett .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1821,7 +1822,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_grand_summary_row {
+#kcqorczett .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1831,7 +1832,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#pbjkuwjtmf .gt_first_grand_summary_row {
+#kcqorczett .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1841,11 +1842,11 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_striped {
+#kcqorczett .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pbjkuwjtmf .gt_table_body {
+#kcqorczett .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1854,7 +1855,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_footnotes {
+#kcqorczett .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1868,13 +1869,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_footnote {
+#kcqorczett .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#pbjkuwjtmf .gt_sourcenotes {
+#kcqorczett .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1888,41 +1889,41 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#pbjkuwjtmf .gt_sourcenote {
+#kcqorczett .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#pbjkuwjtmf .gt_left {
+#kcqorczett .gt_left {
   text-align: left;
 }
 
-#pbjkuwjtmf .gt_center {
+#kcqorczett .gt_center {
   text-align: center;
 }
 
-#pbjkuwjtmf .gt_right {
+#kcqorczett .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pbjkuwjtmf .gt_font_normal {
+#kcqorczett .gt_font_normal {
   font-weight: normal;
 }
 
-#pbjkuwjtmf .gt_font_bold {
+#kcqorczett .gt_font_bold {
   font-weight: bold;
 }
 
-#pbjkuwjtmf .gt_font_italic {
+#kcqorczett .gt_font_italic {
   font-style: italic;
 }
 
-#pbjkuwjtmf .gt_super {
+#kcqorczett .gt_super {
   font-size: 65%;
 }
 
-#pbjkuwjtmf .gt_footnote_marks {
+#kcqorczett .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2051,12 +2052,12 @@ into a usable dataset, then write a short paper telling a story with the data.
 
 
 ```{=html}
-<div id="ynnmbqnogz" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="enrbalvbdx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ynnmbqnogz .gt_table {
+#enrbalvbdx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2081,7 +2082,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-left-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_heading {
+#enrbalvbdx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2093,7 +2094,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_title {
+#enrbalvbdx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2103,7 +2104,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-width: 0;
 }
 
-#ynnmbqnogz .gt_subtitle {
+#enrbalvbdx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2113,13 +2114,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-width: 0;
 }
 
-#ynnmbqnogz .gt_bottom_border {
+#enrbalvbdx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_col_headings {
+#enrbalvbdx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2134,7 +2135,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_col_heading {
+#enrbalvbdx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2154,7 +2155,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#ynnmbqnogz .gt_column_spanner_outer {
+#enrbalvbdx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2166,15 +2167,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 4px;
 }
 
-#ynnmbqnogz .gt_column_spanner_outer:first-child {
+#enrbalvbdx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ynnmbqnogz .gt_column_spanner_outer:last-child {
+#enrbalvbdx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ynnmbqnogz .gt_column_spanner {
+#enrbalvbdx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2186,7 +2187,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   width: 100%;
 }
 
-#ynnmbqnogz .gt_group_heading {
+#enrbalvbdx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2208,7 +2209,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#ynnmbqnogz .gt_empty_group_heading {
+#enrbalvbdx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2223,15 +2224,15 @@ into a usable dataset, then write a short paper telling a story with the data.
   vertical-align: middle;
 }
 
-#ynnmbqnogz .gt_from_md > :first-child {
+#enrbalvbdx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ynnmbqnogz .gt_from_md > :last-child {
+#enrbalvbdx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ynnmbqnogz .gt_row {
+#enrbalvbdx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2250,7 +2251,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   overflow-x: hidden;
 }
 
-#ynnmbqnogz .gt_stub {
+#enrbalvbdx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2262,7 +2263,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-left: 12px;
 }
 
-#ynnmbqnogz .gt_summary_row {
+#enrbalvbdx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2272,7 +2273,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#ynnmbqnogz .gt_first_summary_row {
+#enrbalvbdx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2282,7 +2283,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_grand_summary_row {
+#enrbalvbdx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2292,7 +2293,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   padding-right: 5px;
 }
 
-#ynnmbqnogz .gt_first_grand_summary_row {
+#enrbalvbdx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2302,11 +2303,11 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-top-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_striped {
+#enrbalvbdx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ynnmbqnogz .gt_table_body {
+#enrbalvbdx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2315,7 +2316,7 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-bottom-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_footnotes {
+#enrbalvbdx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2329,13 +2330,13 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_footnote {
+#enrbalvbdx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ynnmbqnogz .gt_sourcenotes {
+#enrbalvbdx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2349,41 +2350,41 @@ into a usable dataset, then write a short paper telling a story with the data.
   border-right-color: #D3D3D3;
 }
 
-#ynnmbqnogz .gt_sourcenote {
+#enrbalvbdx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ynnmbqnogz .gt_left {
+#enrbalvbdx .gt_left {
   text-align: left;
 }
 
-#ynnmbqnogz .gt_center {
+#enrbalvbdx .gt_center {
   text-align: center;
 }
 
-#ynnmbqnogz .gt_right {
+#enrbalvbdx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ynnmbqnogz .gt_font_normal {
+#enrbalvbdx .gt_font_normal {
   font-weight: normal;
 }
 
-#ynnmbqnogz .gt_font_bold {
+#enrbalvbdx .gt_font_bold {
   font-weight: bold;
 }
 
-#ynnmbqnogz .gt_font_italic {
+#enrbalvbdx .gt_font_italic {
   font-style: italic;
 }
 
-#ynnmbqnogz .gt_super {
+#enrbalvbdx .gt_super {
   font-size: 65%;
 }
 
-#ynnmbqnogz .gt_footnote_marks {
+#enrbalvbdx .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
