@@ -81,10 +81,12 @@ To get started, go to R Studio Cloud -- https://rstudio.cloud/ -- and create an 
 
 (You will be in 'Your Workspace', and you will not have an 'Example Workspace'.) From here you should start a 'New Project'. You can give the project a name by clicking on 'Untitled Project' and replacing it. 
 
-We will now go through three worked examples: Canadian elections, Toronto homelessness, and neonatal mortality. These examples build increasing complexity, but from the first one, we will be telling a story with data.
+We will now go through three worked examples: Australian elections, Toronto homelessness, and neonatal mortality. These examples build increasing complexity, but from the first one, we will be telling a story with data.
 
 
 ## Canadian elections
+
+<!-- https://results.aec.gov.au/24310/Website/Downloads/HouseTppByDivisionDownload-24310.csv -->
 
 Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties -- 'Liberal' and 'Conservative' -- three minor parties -- 'Bloc Québécois', 'New Democratic', and 'Green' -- and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.
 
@@ -191,12 +193,12 @@ simulated_data
 #>  2      2 Bloc Québécois
 #>  3      3 Green         
 #>  4      4 Liberal       
-#>  5      5 New Democratic
+#>  5      5 Liberal       
 #>  6      6 Liberal       
-#>  7      7 New Democratic
-#>  8      8 Liberal       
-#>  9      9 Green         
-#> 10     10 Liberal       
+#>  7      7 Green         
+#>  8      8 Conservative  
+#>  9      9 Conservative  
+#> 10     10 New Democratic
 #> # … with 328 more rows
 ```
 

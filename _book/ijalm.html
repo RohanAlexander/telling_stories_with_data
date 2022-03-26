@@ -79,8 +79,8 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">19</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">20</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
-<li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
+<li><a class="" href="papers.html"><span class="header-section-number">A</span> Papers</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">B</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="cocktails.html"><span class="header-section-number">C</span> Cocktails</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -170,7 +170,7 @@
 <p><span class="math display">\[y = \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}z^2},\]</span>
 where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> is the difference between the mean, <span class="math inline">\(\mu\)</span>, and <span class="math inline">\(x\)</span> in terms of the standard deviation <span class="citation">(<a href="references-1.html#ref-pitman" role="doc-biblioref">Pitman 1993, 94</a>)</span>.</p>
 <p>As discussed in Chapter <a href="r-essentials.html#r-essentials">3</a>, we use <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> to simulate data from the Normal distribution.</p>
-<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -211,7 +211,7 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> is the differenc
 \]</span></p>
 <p>If <span class="math inline">\(\hat{\sigma}_x\)</span> is the standard deviation, then a standard error of an estimate, say, <span class="math inline">\(\bar{x}\)</span> is:
 <span class="math display">\[\mbox{SE}(\bar{x})^2 = \frac{\sigma^2}{n}\]</span></p>
-<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">estimated_mean</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">twenty_draws_from_normal_distribution</span><span class="op">$</span><span class="va">draws</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">twenty_draws_from_normal_distribution</span><span class="op">)</span>
 
@@ -230,7 +230,7 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> is the differenc
 <span class="va">estimated_standard_deviation</span>
 <span class="co">#&gt; [1] 0.8832841</span></code></pre></div>
 <p>We should not be worried that our estimates are slightly off. It will typically take a larger number of draws before we get the expected shape, and our estimated parameters get close to the actual parameters, but it will happen (Figure <a href="ijalm.html#fig:normaldistributiontakingshape">14.1</a>). <span class="citation">Wasserman (<a href="references-1.html#ref-wasserman" role="doc-biblioref">2005, 76</a>)</span> describes our certainty of this, which is due to the Law of Large Numbers, as ‘a crowning achievement in probability’.</p>
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -269,7 +269,7 @@ where <span class="math inline">\(z = (x - \mu)/\sigma\)</span> is the differenc
        y <span class="op">=</span> <span class="st">'Density'</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:normaldistributiontakingshape"></span>
-<img src="41-ijalm_files/figure-html/normaldistributiontakingshape-1.png" alt="The Normal distribution takes its familiar shape as the number of draws increases" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/normaldistributiontakingshape-1.png" alt="The Normal distribution takes its familiar shape as the number of draws increases" width="672"><p class="caption">
 Figure 14.1: The Normal distribution takes its familiar shape as the number of draws increases
 </p>
 </div>
@@ -277,7 +277,7 @@ Figure 14.1: The Normal distribution takes its familiar shape as the number of d
 <span class="math display">\[Y \approx \beta_0 + \beta_1 X.\]</span></p>
 <p>There are two coefficients, also ‘parameters’: the ‘intercept’, <span class="math inline">\(\beta_0\)</span>, and the ‘slope’, <span class="math inline">\(\beta_1\)</span>. We are saying that <span class="math inline">\(Y\)</span> will have some value, <span class="math inline">\(\beta_0\)</span>, even when <span class="math inline">\(X\)</span> is 0, and that <span class="math inline">\(Y\)</span> will change by <span class="math inline">\(\beta_1\)</span> units for every one unit change in <span class="math inline">\(X\)</span>. The language that we use is that ‘X is being regressed on Y’. We may then take this relationship to the data that we have, in order to estimate these coefficients, for the particular data that we have.</p>
 <p>To make this example concrete, we will simulate some data and then discuss it in that context. For instance, we could consider the time it takes someone to run five kilometers, compared with the time it takes them to run a marathon (Figure <a href="ijalm.html#fig:fivekmvsmarathon">14.2</a>). We impute a relationship of 8.4, as that is roughly the ratio between the distance of a marathon and a five-kilometer race.</p>
-<div class="sourceCode" id="cb458"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_observations</span> <span class="op">&lt;-</span> <span class="fl">100</span>
@@ -310,7 +310,7 @@ Figure 14.1: The Normal distribution takes its familiar shape as the number of d
 <span class="co">#&gt;  9         17.4          158.</span>
 <span class="co">#&gt; 10         17.8          147.</span>
 <span class="co">#&gt; # … with 90 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -319,7 +319,7 @@ Figure 14.1: The Normal distribution takes its familiar shape as the number of d
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:fivekmvsmarathon"></span>
-<img src="41-ijalm_files/figure-html/fivekmvsmarathon-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/fivekmvsmarathon-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672"><p class="caption">
 Figure 14.2: Simulated data of the relationship between the time to run five kilometers and a marathon
 </p>
 </div>
@@ -332,7 +332,7 @@ The hats are used to indicate that these are estimated values.</p>
 <p>To compute the residual sum of squares (RSS), we sum across all the points, taking the square to account for negative differences:
 <span class="math display">\[\mbox{RSS} = e^2_1+ e^2_2 +\dots + e^2_n.\]</span>
 This results in one ‘linear best-fit’ line (Figure <a href="ijalm.html#fig:fivekmvsmarathonwithbestfit">14.3</a>), but it is worth thinking about all the assumptions and decisions that it took to get us to this point.</p>
-<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -346,7 +346,7 @@ This results in one ‘linear best-fit’ line (Figure <a href="ijalm.html#fig:f
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:fivekmvsmarathonwithbestfit"></span>
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonwithbestfit-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/fivekmvsmarathonwithbestfit-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672"><p class="caption">
 Figure 14.3: Simulated data of the relationship between the time to run five kilometers and a marathon
 </p>
 </div>
@@ -357,12 +357,12 @@ Figure 14.3: Simulated data of the relationship between the time to run five kil
 <p>There is some ‘true’ relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, but we do not know what it is. All we can do is use our sample of data to estimate it. But because our understanding depends on that sample, for every possible sample, we would get a slightly different relationship, as measured by the coefficients.</p>
 <p>That <span class="math inline">\(\epsilon\)</span> is a measure of our error—what does the model not know? There is going to be plenty that the model does not know, but we hope the error does not depend on <span class="math inline">\(X\)</span>, and that the error is normally distributed.</p>
 <p>We can conduct simple linear regression with <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> from base R. We specify the dependent variable first, then <code>~</code>, followed by the independent variables. Finally, we specify the dataset.</p>
-<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_first_model</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">marathon_time</span> <span class="op">~</span> <span class="va">five_km_time</span>, 
      data <span class="op">=</span> <span class="va">simulated_running_data</span><span class="op">)</span></code></pre></div>
 <p>To see the result of the regression, we can use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> from base R.</p>
-<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">simulated_running_data_first_model</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:</span>
@@ -386,7 +386,7 @@ Figure 14.3: Simulated data of the relationship between the time to run five kil
 <p>The first part of the result tells us the regression that we specified, then information about the residuals, and our estimated coefficients. And then finally some useful diagnostics.</p>
 <p>The intercept is the marathon time that we would expect with a five-kilometer time of 0 minutes. Hopefully this example illustrates the need to carefully interpret the intercept coefficient! The coefficient on five-kilometer run time shows how we expect the marathon time to change if the five-kilometer run time changed by one unit. In this case it is about 8.4, which makes sense seeing as a marathon is roughly that many times longer than a five-kilometer run.</p>
 <p>We use <code><a href="https://generics.r-lib.org/reference/augment.html">augment()</a></code> from <code>broom</code> <span class="citation">(<a href="references-1.html#ref-broom" role="doc-biblioref">D. Robinson, Hayes, and Couch 2021</a>)</span> to add the fitted values and residuals to our original dataset. This allows us to plot the residuals (Figure <a href="ijalm.html#fig:fivekmvsmarathonresids">14.4</a>).</p>
-<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">simulated_running_data</span> <span class="op">&lt;-</span> 
@@ -409,7 +409,7 @@ Figure 14.3: Simulated data of the relationship between the time to run five kil
 <span class="co">#&gt; 10         17.8          147.    150.  -2.68 0.0183   17.0</span>
 <span class="co">#&gt; # … with 90 more rows, and 2 more variables: .cooksd &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   .std.resid &lt;dbl&gt;</span></code></pre></div>
-<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">simulated_running_data</span>, 
        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
@@ -433,13 +433,13 @@ Figure 14.3: Simulated data of the relationship between the time to run five kil
        x <span class="op">=</span> <span class="st">"Actual marathon time"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:fivekmvsmarathonresids"></span>
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><img src="41-ijalm_files/figure-html/fivekmvsmarathonresids-3.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><p class="caption">
+<img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-3.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%"><p class="caption">
 Figure 14.4: Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon
 </p>
 </div>
 <p>We want our estimate to be unbiased. When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. An estimator is unbiased if it does not systematically over- or under-estimate <span class="citation">(<a href="references-1.html#ref-islr" role="doc-biblioref">James et al. 2017, 65</a>)</span>.</p>
 <p>But we want to try to speak to the ‘true’ relationship, so we need to try to capture how much we think our understanding depends on the particular sample that we have to analyze. And this is where standard error comes in. It tells us how off our estimate is compared with the actual (Figure <a href="ijalm.html#fig:fivekmvsmarathonses">14.5</a>).</p>
-<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -453,7 +453,7 @@ Figure 14.4: Residuals from the simple linear regression with simulated data on 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:fivekmvsmarathonses"></span>
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672"><p class="caption">
 Figure 14.5: Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors
 </p>
 </div>
@@ -476,7 +476,7 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 </h2>
 <p>To this point we have just considered one explanatory variable. But we will usually have more than one. One approach would be to run separate regressions for each explanatory variable. But compared with separate linear regressions for each, adding more explanatory variables allows us to have a better understanding of the intercept and accounts for interaction. Often the results will be quite different.</p>
 <p>We may also like to consider explanatory variables that do not have an inherent ordering. For instance: pregnant or not; day or night. When there are only two options then we can use a binary variable, which is considered either 0 or 1. If we have a column of character values that only has two values, such as: <code>c("Myles", "Ruth", "Ruth", "Myles", "Myles", "Ruth")</code>, then using this as an explanatory variable in the usual regression set up, would mean that it is treated as a binary variable. If there are more than two levels then we can use a combination of binary variables, where the ‘missing’ outcome (baseline) gets pushed into the intercept.</p>
-<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> <span class="op">&lt;-</span>
   <span class="va">simulated_running_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>was_raining <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
@@ -503,7 +503,7 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 <span class="co">#&gt; 10         17.8          147. No         </span>
 <span class="co">#&gt; # … with 90 more rows</span></code></pre></div>
 <p>We can add additional explanatory variables to <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> with <code>+</code>.</p>
-<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_rain_model</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">marathon_time</span> <span class="op">~</span> <span class="va">five_km_time</span> <span class="op">+</span> <span class="va">was_raining</span>,
      data <span class="op">=</span> <span class="va">simulated_running_data</span><span class="op">)</span>
@@ -530,7 +530,7 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
 <span class="co">#&gt; Multiple R-squared:  0.7969, Adjusted R-squared:  0.7927 </span>
 <span class="co">#&gt; F-statistic: 190.3 on 2 and 97 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
 <p>The result probably is not too surprising if we look at a plot of the data (Figure <a href="ijalm.html#fig:fivekmvsmarathonbinary">14.6</a>).</p>
-<div class="sourceCode" id="cb468"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">five_km_time</span>, y <span class="op">=</span> <span class="va">marathon_time</span>, color <span class="op">=</span> <span class="va">was_raining</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -545,12 +545,12 @@ And we then compare our t-statistic to the t-distribution to compute the probabi
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:fivekmvsmarathonbinary"></span>
-<img src="41-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672"><p class="caption">
 Figure 14.6: Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining
 </p>
 </div>
 <p>In addition to wanting to include additional explanatory variables, we may think that they are related with each another. For instance, if we were wanting to explain the amount of snowfall, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using <code>*</code> instead of <code>+</code> when we specify the model. When we interact variables in this way, then we almost always need to include the individual variables as well and <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> will do this by default.</p>
-<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data</span> <span class="op">&lt;-</span>
   <span class="va">simulated_running_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>humidity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
@@ -575,7 +575,7 @@ Figure 14.6: Simple linear regression with simulated data on the time someone ta
 <span class="co">#&gt;  9         17.4          158. No          High    </span>
 <span class="co">#&gt; 10         17.8          147. No          Low     </span>
 <span class="co">#&gt; # … with 90 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_rain_and_humidity_model</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">marathon_time</span> <span class="op">~</span> <span class="va">five_km_time</span> <span class="op">+</span> <span class="va">was_raining</span><span class="op">*</span><span class="va">humidity</span>,
      data <span class="op">=</span> <span class="va">simulated_running_data</span><span class="op">)</span>
@@ -620,7 +620,7 @@ Figure 14.6: Simple linear regression with simulated data on the time someone ta
 </ol>
 <p>Those aspects are statistical concerns and relate to whether the model is working. The most important threat to validity and hence the aspect that must be addressed at some length, is speaking to the fact that this model is appropriate to the circumstances and addresses the research question at hand.</p>
 <p>To this point, we have just had a quick look at the regression results using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>. A better approach is to use <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary()</a></code> from <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span> (Table <a href="ijalm.html#tab:modelsummaryruntimes">14.1</a>).</p>
-<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">simulated_running_data_first_model</span>,
@@ -879,7 +879,7 @@ F
 </ol>
 <p>The use of <code>tidymodels</code> <span class="citation">(<a href="references-1.html#ref-citeTidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span> satisfies these criteria by providing a coherent grammar that allows us to easily fit a variety of models. Like <code>tidyverse</code>, it is a package of packages.</p>
 <p>As we are focused on prediction, we are worried about over-fitting our data, which would limit our ability to make claims about other datasets. One way to partially address this is to split our dataset into training and test datasets using <code>initial_split()</code>.</p>
-<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org">tidymodels</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -892,7 +892,7 @@ F
 <span class="co">#&gt; &lt;Analysis/Assess/Total&gt;</span>
 <span class="co">#&gt; &lt;80/20/100&gt;</span></code></pre></div>
 <p>Having split the data, we then create the training and test datasets.</p>
-<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_train</span> <span class="op">&lt;-</span> <span class="fu">training</span><span class="op">(</span><span class="va">simulated_running_data_split</span><span class="op">)</span>
 
 <span class="va">simulated_running_data_train</span>
@@ -938,7 +938,7 @@ F
 <span class="co">#&gt; 19         27.2          227. No          High    </span>
 <span class="co">#&gt; 20         20.8          201. No          Low</span></code></pre></div>
 <p>When we look at the training and test datasets, we can see that we have placed most of our dataset into the training dataset. We will use that to estimate the parameters of our model. We have kept a small amount of it back, and we will use that to evaluate our model.</p>
-<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_first_model_tidymodels</span> <span class="op">&lt;-</span> 
   <span class="fu">linear_reg</span><span class="op">(</span><span class="op">)</span> |&gt;
   <span class="fu">set_engine</span><span class="op">(</span>engine <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> |&gt; 
@@ -970,7 +970,7 @@ y_i &amp;\sim \mbox{Normal}(\mu_i, \sigma) \\
 \end{aligned}
 \]</span></p>
 <p>On a practical note, one aspect that different between Bayesian approaches and the way we have been doing modelling to this point, is that Bayesian models will usually take longer to run. Because of this, it can be useful to run the model, either within the R Markdown document or in a separate R script, and then save it with <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code>. With sensible R Markdown chunk options, the model can then be read into the R Markdown document with <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code>. In this way, the model, and hence delay, is only imposed once for a given model.</p>
-<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span>
 
 <span class="va">simulated_running_data_first_model_rstanarm</span> <span class="op">&lt;-</span>
@@ -993,7 +993,7 @@ y_i &amp;\sim \mbox{Normal}(\mu_i, \sigma) \\
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">simulated_running_data_first_model_rstanarm</span>,
         file <span class="op">=</span> <span class="st">"simulated_running_data_first_model_rstanarm.rds"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_running_data_first_model_rstanarm</span>
 <span class="co">#&gt; stan_lm</span>
 <span class="co">#&gt;  family:       gaussian [identity]</span>
@@ -1075,7 +1075,7 @@ y_i &amp;\sim \mbox{Normal}(\mu_i, \sigma) \\
 \]</span>
 which will transpose values between 0 and 1, onto the real line. For instance, <code>logit(0.1) = -2.2</code>, <code>logit(0.5) = 0</code>, and <code>logit(0.9) = 2.2</code>.</p>
 <p>We will simulate data on whether it is day or night, based on the number of cars that we can see.</p>
-<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -1108,7 +1108,7 @@ which will transpose values between 0 and 1, onto the real line. For instance, <
 <span class="math display" id="eq:logisticexample">\[
 \mbox{Pr}(y_i=1) = \mbox{logit}^{-1}\left(\beta_0+\beta_1 x_i\right). \tag{14.1}
 \]</span></p>
-<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">day_or_night_model</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">is_night</span> <span class="op">~</span> <span class="va">number_of_cars</span>,
       data <span class="op">=</span> <span class="va">day_or_night</span>,
@@ -1142,7 +1142,7 @@ which will transpose values between 0 and 1, onto the real line. For instance, <
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Number of Fisher Scoring iterations: 11</span></code></pre></div>
 <p>One reason that logistic regression can be a bit tricky initially, is because the coefficients take a bit of work to interpret. In particular, our estimate on likelihood of it being night is 0.91 This is the odds. So, the odds that it is night, increase by 0.91 as the number of cars that we saw increases. We can translate the result into probabilities using <code><a href="https://generics.r-lib.org/reference/augment.html">augment()</a></code> from <code>broom</code> <span class="citation">(<a href="references-1.html#ref-broom" role="doc-biblioref">D. Robinson, Hayes, and Couch 2021</a>)</span> and this allows us to graph the results (Figure <a href="ijalm.html#fig:dayornightprobs">14.7</a>).</p>
-<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 
 <span class="va">day_or_night</span> <span class="op">&lt;-</span>
@@ -1166,7 +1166,7 @@ which will transpose values between 0 and 1, onto the real line. For instance, <
 <span class="co">#&gt; 10             19        0 5.63e-13 -0.00000106     -1.06e-6</span>
 <span class="co">#&gt; # … with 990 more rows, and 3 more variables: .hat &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;</span></code></pre></div>
-<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">day_or_night</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>is_night <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">is_night</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">number_of_cars</span>,
@@ -1180,12 +1180,12 @@ which will transpose values between 0 and 1, onto the real line. For instance, <
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:dayornightprobs"></span>
-<img src="41-ijalm_files/figure-html/dayornightprobs-1.png" alt="Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/dayornightprobs-1.png" alt="Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around" width="672"><p class="caption">
 Figure 14.7: Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around
 </p>
 </div>
 <p>We can use <code>tidymodels</code> to run this if we wanted. In order to do that, we first need to change the class of our dependent variable into a factor.</p>
-<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">day_or_night</span> <span class="op">&lt;-</span>
@@ -1220,7 +1220,7 @@ Figure 14.7: Logistic regression probability results with simulated data of whet
 <span class="co">#&gt; Null Deviance:       1109 </span>
 <span class="co">#&gt; Residual Deviance: 62.5  AIC: 66.5</span></code></pre></div>
 <p>As before, we can make a graph of the actual results compared with our estimates. But one nice aspect of this is that we could use our test dataset to more thoroughly evaluate our model’s forecasting ability, for instance through a confusion matrix. We find that the model does well on the held-out dataset.</p>
-<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">day_or_night_tidymodels</span> |&gt;
   <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span>new_data <span class="op">=</span> <span class="va">day_or_night_test</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">day_or_night_test</span><span class="op">)</span> |&gt;
@@ -1238,7 +1238,7 @@ Figure 14.7: Logistic regression probability results with simulated data of whet
 \beta_1 &amp; \sim \mbox{Normal}(0, 3)
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb483"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">day_or_night_rstanarm</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span>
     <span class="va">is_night</span> <span class="op">~</span> <span class="va">number_of_cars</span>,
@@ -1251,7 +1251,7 @@ Figure 14.7: Logistic regression probability results with simulated data of whet
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">day_or_night_rstanarm</span>,
         file <span class="op">=</span> <span class="st">"day_or_night_rstanarm.rds"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">day_or_night_rstanarm</span>
 <span class="co">#&gt; stan_glm</span>
 <span class="co">#&gt;  family:       binomial [logit]</span>
@@ -1274,10 +1274,10 @@ Figure 14.7: Logistic regression probability results with simulated data of whet
 <p>When we have count data, we should initially think to use Poisson distribution. The Poisson distribution has the interesting feature that the mean is also the variance, and so as the mean increases, so does the variance. As such, the Poisson distribution is governed by the parameter, <span class="math inline">\(\lambda\)</span> and it distributes probabilities over the non-negative integers. The Poisson distribution is <span class="citation">(<a href="references-1.html#ref-pitman" role="doc-biblioref">Pitman 1993, 121</a>)</span>:</p>
 <p><span class="math display">\[P_{\lambda}(k) = e^{-\lambda}\mu^k/k!\mbox{, for }k=0,1,2,...\]</span>
 We can simulate <span class="math inline">\(n=20\)</span> draws from the Poisson distribution with <code><a href="https://rdrr.io/r/stats/Poisson.html">rpois()</a></code>, where <span class="math inline">\(\lambda\)</span> is both the mean and the variance. The <span class="math inline">\(\lambda\)</span> parameter governs the shape of the distribution (Figure <a href="ijalm.html#fig:poissondistributiontakingshape">14.8</a>).</p>
-<div class="sourceCode" id="cb485"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span>, lambda <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt;  [1] 1 5 5 4 5 2 1 4 5 4 6 2 3 4 4 6 5 1 3 5</span></code></pre></div>
-<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_each</span> <span class="op">&lt;-</span> <span class="fl">1000</span>
@@ -1315,12 +1315,12 @@ We can simulate <span class="math inline">\(n=20\)</span> draws from the Poisson
        y <span class="op">=</span> <span class="st">'Density'</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:poissondistributiontakingshape"></span>
-<img src="41-ijalm_files/figure-html/poissondistributiontakingshape-1.png" alt="The Poisson distribution is governed by the value of the mean, which is the same as its variance" width="672"><p class="caption">
+<img src="14-ijalm_files/figure-html/poissondistributiontakingshape-1.png" alt="The Poisson distribution is governed by the value of the mean, which is the same as its variance" width="672"><p class="caption">
 Figure 14.8: The Poisson distribution is governed by the value of the mean, which is the same as its variance
 </p>
 </div>
 <p>For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.</p>
-<div class="sourceCode" id="cb487"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">count_of_A_plus</span> <span class="op">&lt;-</span>
@@ -1357,7 +1357,7 @@ Figure 14.8: The Poisson distribution is governed by the value of the mean, whic
 <span class="co">#&gt; 10 1          DEP_1_j                3</span>
 <span class="co">#&gt; # … with 68 more rows</span></code></pre></div>
 <p>Our simulated dataset has the number of A+ grades awarded by courses, which are structured within departments. We can use <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> from base to quickly get a sense of the data.</p>
-<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">grades_model_base</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">number_of_A_plus</span> <span class="op">~</span> <span class="va">department</span>, 
     data <span class="op">=</span> <span class="va">count_of_A_plus</span>, 
@@ -1391,7 +1391,7 @@ Figure 14.8: The Poisson distribution is governed by the value of the mean, whic
 <span class="co">#&gt; Number of Fisher Scoring iterations: 5</span></code></pre></div>
 <p>The interpretation of the coefficient on ‘department2’ is that it is the log of the expected difference between departments. So we expect <span class="math inline">\(\exp(1.85345) \approx 6.3\)</span> and <span class="math inline">\(\exp(1.00663) \approx 2.7\)</span> additional A+ grades in departments 2 and 3, compared with department 1.</p>
 <p>We can use <code>tidymodels</code> to estimate Poisson regression models with <code>poissonreg</code> <span class="citation">(<a href="references-1.html#ref-poissonreg" role="doc-biblioref">Kuhn 2021</a>)</span>.</p>
-<div class="sourceCode" id="cb489"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/poissonreg">poissonreg</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -1410,7 +1410,7 @@ Figure 14.8: The Poisson distribution is governed by the value of the mean, whic
 <span class="va">a_plus_model_tidymodels</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  3ms </span>
+<span class="co">#&gt; Fit time:  4ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, </span>
 <span class="co">#&gt;     data = data)</span>
@@ -1432,7 +1432,7 @@ y_i &amp;\sim \mbox{Poisson}(\lambda_i)\\
 \beta_2 &amp; \sim \mbox{Normal}(0, 0.5)
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">count_of_A_plus_rstanarm</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://mc-stan.org/rstanarm/reference/stan_glm.html">stan_glm</a></span><span class="op">(</span>
     <span class="va">number_of_A_plus</span> <span class="op">~</span> <span class="va">department</span>,
@@ -1445,7 +1445,7 @@ y_i &amp;\sim \mbox{Poisson}(\lambda_i)\\
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">count_of_A_plus_rstanarm</span>,
         file <span class="op">=</span> <span class="st">"count_of_A_plus_rstanarm.rds"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb491"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">count_of_A_plus_rstanarm</span>
 <span class="co">#&gt; stan_glm</span>
 <span class="co">#&gt;  family:       poisson [log]</span>
@@ -1572,8 +1572,8 @@ y_i &amp;\sim \mbox{Poisson}(\lambda_i)\\
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/41-ijalm.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/41-ijalm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/14-ijalm.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/14-ijalm.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1585,7 +1585,7 @@ y_i &amp;\sim \mbox{Poisson}(\lambda_i)\\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

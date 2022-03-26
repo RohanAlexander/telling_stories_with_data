@@ -244,6 +244,11 @@ Ultimately, we are all just telling stories with data, but these stories are inc
     d. 0.75
     e. 1
 9. Why is ethics a key element of telling convincing stories (in your own words)?
+10. Consider a survey that asked about gender with the following responses: 'man: 879', 'woman: 912', 'non-binary: 10' 'prefer not to say: 3', and 'other: 1', which allowed respondents to enter their own text. What is the appropriate way to consider 'prefer not to say'?
+    a. Drop them.
+    b. Merge into 'other'.
+    c. Include them.
+    d.  It depends.
     
     
 ### Tutorial

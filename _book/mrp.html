@@ -79,8 +79,8 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">19</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">20</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
-<li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
+<li><a class="" href="papers.html"><span class="header-section-number">A</span> Papers</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">B</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="cocktails.html"><span class="header-section-number">C</span> Cocktails</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -167,7 +167,7 @@
 <span class="header-section-number">16.2.1</span> Construct a population<a class="anchor" aria-label="anchor" href="#construct-a-population"><i class="fas fa-link"></i></a>
 </h3>
 <p>To get started we will simulate some data from a population that has various properties, take a biased sample, and then conduct MRP to demonstrate how we can get those properties back. We are going to have two ‘explanatory variables’ - age-group and toilet-trained - and one dependent variable - bedtime. Bed-time will increase as age-group increases, and will be later for children that are toilet-trained, compared with those that are not. To be clear, in this example we will ‘know’ the ‘true’ features of the population, but this isn’t something that occurs when we use real data - it is just to help to explain what is happening in MRP. We are going to rely heavily on <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span>.</p>
-<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -204,7 +204,7 @@
 <span class="co">#&gt; 5 1         1                  8.40</span>
 <span class="co">#&gt; 6 3         0                  6.54</span></code></pre></div>
 <p>That is, as always, when we have a dataset, we first try to graph it to better understand what is going on. As there are a million points, we can just grab the first 1,000 so that it plots nicely.</p>
-<div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population_for_mrp_example</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, y <span class="op">=</span> <span class="va">bed_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -217,9 +217,9 @@
        color <span class="op">=</span> <span class="st">"Toilet trained"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="43-mrp_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="inline-figure"><img src="16-mrp_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
 <p>And we can also work out what the ‘truth’ is for the information that we are interested in (remembering that we’d never actually know this when we move away from simulated examples).</p>
-<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">population_for_mrp_example_summarised</span> <span class="op">&lt;-</span> 
   <span class="va">population_for_mrp_example</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">age_group</span>, <span class="va">toilet_trained</span><span class="op">)</span> |&gt; 
@@ -275,7 +275,7 @@
 <span class="header-section-number">16.2.2</span> Get a biased sample from it<a class="anchor" aria-label="anchor" href="#get-a-biased-sample-from-it"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we want to pretend that we have some survey that has a biased sample. We will allow that it over-samples children that are younger and those that are not toilet-trained. For instance, perhaps we gathered our sample based on the records of a paediatrician, so it is more likely that they will see this biased sample of children. We are interested in knowing what proportion of children are toilet-trained at various age-groups.</p>
-<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This code based on that of Monica Alexander</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -307,7 +307,7 @@
   <span class="va">population_for_mrp_example</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">weight</span>, <span class="op">-</span><span class="va">id</span><span class="op">)</span></code></pre></div>
 <p>And we can plot those also.</p>
-<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_for_mrp_example</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>toilet_trained <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">toilet_trained</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, y <span class="op">=</span> <span class="va">bed_time</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -317,9 +317,9 @@
        color <span class="op">=</span> <span class="st">"Toilet trained"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="43-mrp_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+<div class="inline-figure"><img src="16-mrp_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p>It is pretty clear that our sample has a different bedtime than the overall population, but let us just do the same exercise as before to look at the median, by age and toilet-trained status.</p>
-<div class="sourceCode" id="cb535"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_for_mrp_example_summarized</span> <span class="op">&lt;-</span> 
   <span class="va">sample_for_mrp_example</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">age_group</span>, <span class="va">toilet_trained</span><span class="op">)</span> |&gt; 
@@ -375,7 +375,7 @@
 <span class="header-section-number">16.2.3</span> Model the sample<a class="anchor" aria-label="anchor" href="#model-the-sample"><i class="fas fa-link"></i></a>
 </h3>
 <p>We will quickly train a model based on the (biased) survey. We will use <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span> to format our estimates.</p>
-<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb540"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 
 <span class="va">mrp_example_model</span> <span class="op">&lt;-</span> 
@@ -518,7 +518,7 @@ F
 </h3>
 <p>Now we will use a post-stratification dataset to get some estimates of the number in each cell. We typically use a larger dataset that may more closely reflection the population. In the US a popular choice is the ACS, while in other countries we typically have to use the census.</p>
 <p>In this simulation example, we will just take a 10 per cent sample from the population and use that as our post-stratification dataset.</p>
-<div class="sourceCode" id="cb537"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">poststratification_dataset</span> <span class="op">&lt;-</span> 
@@ -538,7 +538,7 @@ F
 <span class="co">#&gt; 5 1         1                 0.2     5</span>
 <span class="co">#&gt; 6 3         0                 0.1     6</span></code></pre></div>
 <p>In an ideal world we have individual-level data in our post-stratification dataset (that is the case above). In that world we can apply our model to each individual. The more likely situation, in reality, is that we just have counts by groups, so we are going to try to construct an estimate for each group.</p>
-<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poststratification_dataset_grouped</span> <span class="op">&lt;-</span> 
   <span class="va">poststratification_dataset</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">age_group</span>, <span class="va">toilet_trained</span><span class="op">)</span> |&gt; 
@@ -562,14 +562,14 @@ F
 <span class="header-section-number">16.2.5</span> Post-stratify our model estimates<a class="anchor" aria-label="anchor" href="#post-stratify-our-model-estimates"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we create an estimate for each group, and add some confidence intervals.</p>
-<div class="sourceCode" id="cb539"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poststratification_dataset_grouped</span> <span class="op">&lt;-</span> 
   <span class="va">mrp_example_model</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">poststratification_dataset_grouped</span>, interval <span class="op">=</span> <span class="st">"confidence"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">poststratification_dataset_grouped</span><span class="op">)</span> </code></pre></div>
 <p>At this point we can have a look at our MRP estimates (circles) along with their confidence intervals, and compare them the raw estimates from the data (squares). In this case, because we know the truth, we can also compare them to the known truth (triangles) (but that is not something we can do normally).</p>
-<div class="sourceCode" id="cb540"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poststratification_dataset_grouped</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">age_group</span>, y <span class="op">=</span> <span class="va">fit</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">population_for_mrp_example_summarised</span>,
@@ -584,7 +584,7 @@ F
        color <span class="op">=</span> <span class="st">"Toilet trained"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="43-mrp_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
+<div class="inline-figure"><img src="16-mrp_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 </div>
 </div>
 <div id="case-study---xbox-paper" class="section level2" number="16.3">
@@ -673,7 +673,7 @@ Figure 16.3: Post-stratified estimates of electoral college outcomes based on th
 <li>‘age_group’, which is one of four groups: ‘ages 18 to 29’, ‘ages 30 to 44’, ‘ages 45 to 59’, ‘ages 60 plus’;</li>
 <li>‘state’, which is one of eight integers: 1 - 8 (inclusive).</li>
 </ul>
-<div class="sourceCode" id="cb541"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -756,7 +756,7 @@ Figure 16.3: Post-stratified estimates of electoral college outcomes based on th
 <span class="co">#&gt; 5 Ages 18 to 29 Female Victoria        Does not    </span>
 <span class="co">#&gt; 6 Ages 18 to 29 Male   Queensland      Supports ALP</span></code></pre></div>
 <p>Finally, we want our survey to over-sample females, so we’ll just get rid of 300 males.</p>
-<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_for_australian_polling</span> <span class="op">&lt;-</span> 
   <span class="va">sample_for_australian_polling</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span> |&gt; 
@@ -767,7 +767,7 @@ Figure 16.3: Post-stratified estimates of electoral college outcomes based on th
 <span class="header-section-number">16.4.3</span> Model the survey<a class="anchor" aria-label="anchor" href="#model-the-survey"><i class="fas fa-link"></i></a>
 </h3>
 <p>This polling data was generated to make both males and older people less likely to vote for the ALP; and females and younger people more likely to vote for the Labor Party. Females are over-sampled. As such, we should have an ALP skew on the dataset. We are going to use the <code>gtsummary</code> package to quickly make a summary table <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span>.</p>
-<div class="sourceCode" id="cb543"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 
 <span class="va">sample_for_australian_polling</span> |&gt; 
@@ -1003,7 +1003,7 @@ Does not
 <p>Now we’d like to see if we can get our results back (we should find females less likely than males to vote for Australian Labor Party and that people are less likely to vote Australian Labor Party as they get older). Our model is:</p>
 <p>ADD THE MODEL.</p>
 <p>This model says that the probability that some person, <span class="math inline">\(j\)</span>, will vote for the Australian Labor Party depends on their gender and their age-group. Based on our simulated data, we would like older age-groups to be less likely to vote for the Australian Labor Party and for males to be less likely to vote for the Australian Labor Party.</p>
-<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">alp_support</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">support_alp</span> <span class="op">~</span> <span class="va">gender</span> <span class="op">+</span> <span class="va">age_group</span> <span class="op">+</span> <span class="va">state</span>, 
       data <span class="op">=</span> <span class="va">sample_for_australian_polling</span>,
@@ -1251,7 +1251,7 @@ F
 </h3>
 <p>Now we’d like to see if we can use what we found in the poll to get an estimate for each state based on their demographic features.</p>
 <p>First read in some real demographic data, on a state basis, from the ABS.</p>
-<div class="sourceCode" id="cb545"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">post_strat_census_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"outputs/data/census_data.csv"</span><span class="op">)</span>
 
@@ -1266,7 +1266,7 @@ F
 <span class="co">#&gt; 5 ACT   Male   ages18to29  34163                       0.123</span>
 <span class="co">#&gt; 6 ACT   Male   ages30to44  41288                       0.149</span></code></pre></div>
 <p>At this point, we have got a decision to make because we need the variables to be the same in the survey and the post-stratification dataset, but here the state abbreviations have been used, while in the survey, the full names were used. We will change the post-stratification dataset because the survey data has already modelled.</p>
-<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">post_strat_census_data</span> <span class="op">&lt;-</span> 
   <span class="va">post_strat_census_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
@@ -1292,7 +1292,7 @@ F
       <span class="op">)</span>
   <span class="op">)</span></code></pre></div>
 <p>We are just going to do some rough forecasts. For each gender and age-group we want the relevant coefficient in the example data and we can construct the estimates.</p>
-<div class="sourceCode" id="cb547"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">post_strat_census_data</span> <span class="op">&lt;-</span> 
   <span class="va">alp_support</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span>newdata <span class="op">=</span> <span class="va">post_strat_census_data</span>, type <span class="op">=</span> <span class="st">'response'</span>, se.fit <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> |&gt; 
@@ -1322,7 +1322,7 @@ F
 </h3>
 <p>We’d like to address some of the major issues with our approach, specifically being able to deal with small cell counts, and also taking better account of uncertainty. As we are dealing with survey data, prediction intervals or something similar are critical, and it is not appropriate to only report central estimates. To do this we’ll use the same broad approach as before, but just improve the model. We are going to change to a Bayesian model and use the <code>rstanarm</code> package <span class="citation">(<a href="references-1.html#ref-citerstanarm" role="doc-biblioref">Goodrich et al. 2020</a>)</span>.</p>
 <p>Now, using the same basic model as before, but in a Bayesian setting.</p>
-<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: Rcpp</span>
 <span class="co">#&gt; This is rstanarm version 2.21.1</span>
@@ -1340,7 +1340,7 @@ F
                      cores <span class="op">=</span> <span class="fl">2</span>, 
                      seed <span class="op">=</span> <span class="fl">12345</span><span class="op">)</span></code></pre></div>
 <p>As before, we’d like an estimate for each state based on their demographic features. We are just going to do some rough forecasts. For each gender and age-group we want the relevant coefficient in the example data and we can construct the estimates (this code is from <a href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">Monica Alexander</a>). We are going to use <code>tidybayes</code> for this <span class="citation">(<a href="references-1.html#ref-citetidybayes" role="doc-biblioref">Kay 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb549"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mjskay.github.io/tidybayes/">tidybayes</a></span><span class="op">)</span>
 
 <span class="va">post_stratified_estimates</span> <span class="op">&lt;-</span> 
@@ -1377,7 +1377,7 @@ F
 <p>We now have post-stratified estimates for each division. Our new Bayesian approach will enable us to think more deeply about uncertainty. We could complicate this in a variety of ways including adding more coefficients (but remember that we’d need to get new cell counts), or adding some layers.</p>
 <p>One interesting aspect is that our multilevel approach will allow us to deal with small cell counts by borrowing information from other cells. Even if we were to remove most of the, say, 18-to-29-year-old, male respondents from Tasmania our model would still provide estimates. It does this by pooling, in which the effect of these young, male, Tasmanians is partially determined by other cells that do have respondents.</p>
 <p>There are many interesting aspects that we may like to communicate to others. For instance, we may like to show how the model is affecting the results. We can make a graph that compares the raw estimate with the model estimate.</p>
-<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">post_stratified_estimates</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mean</span>, x <span class="op">=</span> <span class="fu">forcats</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_inorder</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"MRP estimate"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1389,9 +1389,9 @@ F
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="43-mrp_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
+<div class="inline-figure"><img src="16-mrp_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
 <p>Similarly, we may like to plot the distribution of the coefficients. We can work out which coefficients to be pass to <code>gather_draws</code> with <code>tidybayes::get_variables(model</code>; in this example we passed ‘b_.’, but that will not always be the case.</p>
-<div class="sourceCode" id="cb551"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># tidybayes::get_variables(improved_alp_support)</span>
 <span class="co"># improved_alp_support |&gt;</span>
 <span class="co">#   gather_draws(genderMale) |&gt;</span>
@@ -1432,7 +1432,7 @@ F
 <p>The first step is that we need to actually get the survey data. Go to their website: <a href="https://www.voterstudygroup.org" class="uri">https://www.voterstudygroup.org</a> and then you are looking for ‘Nationscape’ and then a button along the lines of ‘Get the latest Nationscape data’. To get the dataset, you need to fill out a form, which they will process and then email you. There is a real person on the other side of this form, and so your request could take a few days.</p>
 <p>Once you get access you will want to download the .dta files. Nationscape conducted many surveys and so there are many files. The filename is the reference date, and so ‘ns20200625’ refers to 25 June 2020, which is the one that we will use here.</p>
 <p>We can read in ‘.dta’ files using the <code>haven</code> package <span class="citation">(<a href="references-1.html#ref-citehaven" role="doc-biblioref">Wickham and Miller 2020</a>)</span>. This code is based on that of Alen Mitrovski, Xiaoyan Yang, Matthew Wankiewicz: <a href="https://github.com/matthewwankiewicz/US_election_forecast" class="uri">https://github.com/matthewwankiewicz/US_election_forecast</a>.</p>
-<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -1520,7 +1520,7 @@ F
 <span class="co">#&gt; 5 female MA             1 age_18-29      Some post secondary</span>
 <span class="co">#&gt; 6 female TX             1 age_30-44      Some post secondary</span></code></pre></div>
 <p>As we have seen, one of the most difficult aspects with MRP is ensuring consistency between the datasets. In this case, we need to do some work to make the variables consistent.</p>
-<div class="sourceCode" id="cb553"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This code is very directly from Alen Mitrovski, Xiaoyan Yang, and Matthew Wankiewicz.</span>
 <span class="co"># Format state names so the whole state name is written out, to match IPUMS data</span>
 <span class="va">states_names_and_abbrevs</span> <span class="op">&lt;-</span> 
@@ -1570,7 +1570,7 @@ F
 <p>In most countries we’d be stuck using the census, which is of course quite large, but likely out-of-date. Luckily in the US we have the opportunity to use the American Community Survey (ACS) which asks analogous questions to a census, is conducted every month, and over the course of a year, we end up with a few million responses. In this case we are going to access the ACS through IPUMS.</p>
 <p>To do this go to the IPUMS website - <a href="https://ipums.org" class="uri">https://ipums.org</a> - and we are looking for something like IPUMS USA and then ‘get data’. Create an account, if you need to. That’ll take a while to process. But once you have an account, go to ‘Select Samples’ and de-select everything apart from the 2019 ACS. Then we need to get the variables that we are interested in. From the household we want ‘STATEICP’, then in person we want ‘SEX’, ‘AGE’, ‘EDUC’. Once everything is selected, ‘view cart’, and we want to be careful to change the ‘data format’ to ‘.dta’ (there’s nothing wrong with the other formats, but we have just already got code earlier to deal with that type). Briefly just check how many rows and columns you are requesting. It should be around a million rows, and around ten to twenty columns. If it is much more than 300MB then maybe just see if you have accidentally selected something that you don’t need. Submit the request and within a day, you should get an email saying that your data can be downloaded. It should only take 30 minutes or so, but if you don’t get an email within a day then check again the size of the dataset, and customize the sample size to reduce the size initially.</p>
 <p>In any case let us tidy up the data.</p>
-<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Again, closely following code from Alen Mitrovski, Xiaoyan Yang, and Matthew Wankiewicz.</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -1670,13 +1670,13 @@ F
 <span class="co">#&gt; 5 female age_60_or_more High school or less alabama </span>
 <span class="co">#&gt; 6 male   age_30-44      High school or less alabama</span></code></pre></div>
 <p>This dataset is on an individual level. So we’ll create counts of each sub-cell, and then proportions by state.</p>
-<div class="sourceCode" id="cb555"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poststrat_data_cells</span> <span class="op">&lt;-</span> 
   <span class="va">poststrat_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">stateicp</span>, <span class="va">gender</span>, <span class="va">age_group</span>, <span class="va">education_level</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Now we’d like to add proportions by state.</p>
-<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poststrat_data_cells</span> <span class="op">&lt;-</span> 
   <span class="va">poststrat_data_cells</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">stateicp</span><span class="op">)</span> |&gt; 
@@ -1699,7 +1699,7 @@ F
 <span class="header-section-number">16.5.3</span> Model<a class="anchor" aria-label="anchor" href="#model-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>We are going to use logistic regression to estimate a model where the binary of support for Biden is explained by gender, age-group, education-level, and state. We are going to do this in a Bayesian framework using <code>rstanarm</code> <span class="citation">(<a href="references-1.html#ref-citerstanarm" role="doc-biblioref">Goodrich et al. 2020</a>)</span>. There are a variety of reasons for using <code>rstanarm</code> here, but the main one is that Stan is pre-compiled which eases some of the computer set-up issues that we may otherwise have. A great further resource about implementing MRP with <code>rstanarm</code> is <span class="citation">Kennedy and Gabry (<a href="references-1.html#ref-kennedygabry2020" role="doc-biblioref">2020</a>)</span>.</p>
-<div class="sourceCode" id="cb557"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb561"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mc-stan.org/rstanarm/">rstanarm</a></span><span class="op">)</span>
 
 <span class="va">us_election_model</span> <span class="op">&lt;-</span> 
@@ -1711,7 +1711,7 @@ F
                        cores <span class="op">=</span> <span class="fl">2</span>, 
                        seed <span class="op">=</span> <span class="fl">853</span><span class="op">)</span></code></pre></div>
 <p>There are a variety of options here that we have largely unthinkingly set, and exploring the effect of these would be a good idea, but for now we can just have a quick look at the model.</p>
-<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">modelsummary</span><span class="fu">::</span><span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/get_estimates.html">get_estimates</a></span><span class="op">(</span><span class="va">us_election_model</span><span class="op">)</span>
 <span class="co">#&gt;                                      term effect</span>
 <span class="co">#&gt; 1                             (Intercept)  fixed</span>
@@ -2045,7 +2045,7 @@ RMSE
 <h3>
 <span class="header-section-number">16.5.4</span> Post-stratify<a class="anchor" aria-label="anchor" href="#post-stratify-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb559"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb563"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">biden_support_by_state</span> <span class="op">&lt;-</span> 
   <span class="va">us_election_model</span> |&gt;
   <span class="fu">tidybayes</span><span class="fu">::</span><span class="fu"><a href="http://mjskay.github.io/tidybayes/reference/tidybayes-deprecated.html">add_fitted_draws</a></span><span class="op">(</span>newdata<span class="op">=</span><span class="va">poststrat_data_cells</span><span class="op">)</span> |&gt;
@@ -2065,7 +2065,7 @@ RMSE
 <span class="co">#&gt; `summarise()` has grouped output by 'stateicp'. You can</span>
 <span class="co">#&gt; override using the `.groups` argument.</span></code></pre></div>
 <p>And we can have a look at our estimates, if we like.</p>
-<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">biden_support_by_state</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mean</span>, x <span class="op">=</span> <span class="va">stateicp</span>, color <span class="op">=</span> <span class="st">"MRP estimate"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -2087,7 +2087,7 @@ RMSE
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; `summarise()` has grouped output by 'stateicp'. You can</span>
 <span class="co">#&gt; override using the `.groups` argument.</span></code></pre></div>
-<div class="inline-figure"><img src="43-mrp_files/figure-html/unnamed-chunk-30-1.png" width="672"></div>
+<div class="inline-figure"><img src="16-mrp_files/figure-html/unnamed-chunk-30-1.png" width="672"></div>
 <!-- ## Case study - Self-reported abortion incidence in Uganda -->
 <!-- **By Monica Alexander** -->
 <!-- This document goes through a worked example of multilevel regression and post-stratification to get estimates of self-reported abortion incidence in Uganda. The data used are the 2018 PMA survey and the 2014 Census. Both datasets were obtained through IPUMS.  -->
@@ -2544,7 +2544,7 @@ d. Could you please detail the protections that you would put in place in terms
 <h3>
 <span class="header-section-number">16.6.3</span> Paper<a class="anchor" aria-label="anchor" href="#paper-4"><i class="fas fa-link"></i></a>
 </h3>
-<p>At about this point, the Paper Five (Appendix <a href="papers.html#paper-five">B.5</a>) would be appropriate.</p>
+<p>At about this point, the Paper Five (Appendix <a href="papers.html#paper-five">A.5</a>) would be appropriate.</p>
 
 </div>
 </div>
@@ -2601,8 +2601,8 @@ d. Could you please detail the protections that you would put in place in terms
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/43-mrp.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/43-mrp.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/16-mrp.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/16-mrp.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -2614,7 +2614,7 @@ d. Could you please detail the protections that you would put in place in terms
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "24 March, 2022"
+date: "26 March, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -111,9 +111,11 @@ Finally, a set of six papers is included in Appendix \@ref(papers). If you write
 
 ## Software information and conventions {-}
 
-The software that I use in this book is R [@citeR]. This language was chosen because it is open source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of well-developed features. I do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users. The community is especially welcoming of new-comers and there is a lot of complementary beginner-friendly material available. There is an R package, `DoSSToolkit` [@alexander2021introduction], that contains `learnr` modules [@citelearnr]. This may be useful if you are newer to R and are especially complementary to this book.
+The software that I use in this book is R [@citeR]. This language was chosen because it is open source, widely used, general enough to cover the entire workflow, yet specific enough to have plenty of well-developed features. I do not assume that you have used R before, and so another reason for selecting R for this book is the community of R users. The community is especially welcoming of new-comers and there is a lot of complementary beginner-friendly material available. 
 
-If you do not have a programming language, then R is a great one to start with. If you have a preferred programming language already, then it wouldn't hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.
+<!-- There is an R package, `DoSSToolkit` [@alexander2021introduction], that contains `learnr` modules [@citelearnr]. This may be useful if you are newer to R and are especially complementary to this book. -->
+
+If you do not have a programming language, then R is a great one to start with. The ability to code is useful well beyond this book. If you have a preferred programming language already, then it wouldn't hurt to pick up R as well. That said, if you have a good reason to prefer another open-source programming language (for instance you use Python daily at work) then you may wish to stick with that. However, all examples in this book are in R.
 
 Please download R and R Studio onto your own computer. You can download R for free here: http://cran.utstat.utoronto.ca/, and you can download R Studio Desktop for free here: https://rstudio.com/products/rstudio/download/#download. 
 Please also create an account on R Studio Cloud: https://rstudio.cloud/. This will allow you to run R in the cloud.

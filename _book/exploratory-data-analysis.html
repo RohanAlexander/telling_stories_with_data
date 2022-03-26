@@ -79,8 +79,8 @@
 <li><a class="" href="efficiency.html"><span class="header-section-number">19</span> Efficiency</a></li>
 <li><a class="" href="concludingremarks.html"><span class="header-section-number">20</span> Concluding remarks</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">A</span> Oh you think and shoulders and datasets</a></li>
-<li><a class="" href="papers.html"><span class="header-section-number">B</span> Papers</a></li>
+<li><a class="" href="papers.html"><span class="header-section-number">A</span> Papers</a></li>
+<li><a class="" href="oh-you-think-and-shoulders-and-datasets.html"><span class="header-section-number">B</span> Oh you think and shoulders and datasets</a></li>
 <li><a class="" href="cocktails.html"><span class="header-section-number">C</span> Cocktails</a></li>
 <li><a class="" href="references-1.html">References</a></li>
 </ul>
@@ -192,7 +192,7 @@ The way to proceed is to make a separate R Markdown file, and add code as well a
 <!-- ``` -->
 <p>To begin, we download the data on Toronto Transit Commission (TTC) subway delays in 2020. The data are available as a separate dataset for each month. We are interested in 2020, so we create a column that of the year, and then filter the resources to just those months that were in 2020. We download them using <code><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource()</a></code>, iterating through each month using <code>map_dfr</code> from <code>purrr</code> <span class="citation">(<a href="references-1.html#ref-citepurrr" role="doc-biblioref">Henry and Wickham 2020</a>)</span> which brings each of the twelve datasets together, and then save them.
 then save them.</p>
-<div class="sourceCode" id="cb400"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sharlagelfand.github.io/opendatatoronto/">opendatatoronto</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -212,7 +212,7 @@ then save them.</p>
 
 <span class="va">all_2020_ttc_data</span></code></pre></div>
 <p>The dataset has a variety of columns, and we can find out more about each of them by downloading the codebook. The reason for the delay is coded, and so we can also download the explanations. One particular variable of interest appears to be ‘min_delay’, which gives the extent of the delay in minutes.</p>
-<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Data codebook</span>
 <span class="va">delay_data_codebook</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sharlagelfand.github.io/opendatatoronto//reference/get_resource.html">get_resource</a></span><span class="op">(</span><span class="st">"54247e39-5a7d-40db-a137-82b2a9ab0708"</span><span class="op">)</span>
 <span class="va">delay_data_codebook</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">delay_data_codebook</span><span class="op">)</span>
@@ -234,7 +234,7 @@ then save them.</p>
 <span class="header-section-number">13.2.1</span> Checking data<a class="anchor" aria-label="anchor" href="#checking-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>We should check that the variables are what they say they are. If they are not, then we need to work out what to do, for instance, should we recode them, or even remove them? It is also important to ensure that the class of the variables is as we expect, for instance variables that should be a factor are a factor and those that should be a character are a character. And also that we do not accidentally have, say, factors as numbers, or vice versa. One way to do this is to use <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code>, and another is to use <code><a href="https://rdrr.io/r/base/table.html">table()</a></code>.</p>
-<div class="sourceCode" id="cb402"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb405"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span><span class="op">$</span><span class="va">day</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Wednesday" "Thursday"  "Friday"    "Saturday" </span>
 <span class="co">#&gt; [5] "Sunday"    "Monday"    "Tuesday"</span>
@@ -285,12 +285,12 @@ then save them.</p>
 <span class="co">#&gt;                 YUS/BD                 YUS/DB </span>
 <span class="co">#&gt;                      1                      1</span></code></pre></div>
 <p>It is clear that we have likely issues in terms of the lines. Some of them have a clear re-code, but not all. One option would be to drop them, but we would need to think about whether these errors might be correlated with something that is of interest, because if they were then we may be dropping important information. There is usually no one right answer, because it will usually depend on what we are using the data for. We would note the issue, as we continued with EDA and then decide later about what to do. For now, we will remove all the lines that are not the ones that we know to be correct.</p>
-<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> <span class="op">&lt;-</span> 
   <span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">line</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"BD"</span>, <span class="st">"YU"</span>, <span class="st">"SHP"</span>, <span class="st">"SRT"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Exploring missing data could be a course in itself, but the presence, or lack, of missing values can haunt an analysis. To get started we could look at known-unknowns, which are the NAs for each variable. And <code><a href="https://docs.ropensci.org/visdat/reference/vis_dat.html">vis_dat()</a></code> and <code><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss()</a></code> from <code>visdat</code> <span class="citation">(<a href="references-1.html#ref-citevisdat" role="doc-biblioref">N. Tierney 2017</a>)</span> can be useful to get a feel for how the missing values are distributed.</p>
-<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb407"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://visdat.njtierney.com/">visdat</a></span><span class="op">)</span>
 
 <span class="va">all_2020_ttc_data</span> |&gt;
@@ -304,14 +304,14 @@ then save them.</p>
 <span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_dat.html">vis_dat</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">all_2020_ttc_data</span>,
          palette <span class="op">=</span> <span class="st">"cb_safe"</span>
          <span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
-<div class="sourceCode" id="cb405"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-9-2.png" width="672"></div>
 <p>In this case we have many missing values in ‘bound’ and two in ‘line’. For these known-unknowns, we are interested in whether the they are missing at random. We want to, ideally, show that data happened to just drop out. This is unlikely, and so we are usually trying to look at what is systematic about how our data are missing.</p>
 <p>Sometime data happen to be duplicated. If we did not notice this then our analysis would be wrong in ways that we’d not be able to consistently expect. There are a variety of ways to look for duplicated rows, but <code><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> is especially useful.</p>
-<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/janitor/man/get_dupes.html">get_dupes</a></span><span class="op">(</span><span class="va">all_2020_ttc_data</span><span class="op">)</span>
 <span class="co">#&gt; No variable names specified - using all columns.</span>
 <span class="co">#&gt; # A tibble: 37 × 11</span>
@@ -331,12 +331,12 @@ then save them.</p>
 <span class="co">#&gt; #   bound &lt;chr&gt;, line &lt;chr&gt;, vehicle &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   dupe_count &lt;int&gt;</span></code></pre></div>
 <p>This dataset has many duplicates. Again, we are interested in whether there is something systematic going on. Remembering that during EDA we are trying to quickly come to terms with a dataset, one way forward is to flag this as an issue to come back to and explore later, and to just remove duplicates for now using <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>.</p>
-<div class="sourceCode" id="cb407"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> <span class="op">&lt;-</span> 
   <span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>The station names are a mess. We could try to quickly bring a little order to the chaos by just taking just the first word (or, the first two if it starts with ‘ST’).</p>
-<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> <span class="op">&lt;-</span>
   <span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>station_clean <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_starts.html">str_starts</a></span><span class="op">(</span><span class="va">station</span>, <span class="st">"ST"</span><span class="op">)</span>, 
@@ -348,20 +348,20 @@ then save them.</p>
 <span class="header-section-number">13.2.2</span> Visualizing data<a class="anchor" aria-label="anchor" href="#visualizing-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>We need to see the data in its original state to understand it and we use bar charts, scatterplots, line plots and histograms extensively for this. During EDA we are not as concerned with whether the graph is aesthetically pleasing, but are instead trying to acquire a sense of the data as quickly as possible. We can start by looking at the distribution of ‘min_delay’, which is one outcome of interest.</p>
-<div class="sourceCode" id="cb409"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-13-1.png" width="672"></div>
 <p>The largely empty graph suggests the presence of outliers. There are a variety of ways to try to understand what could be going on, but one quick way to proceed it to use a log, remembering that we would expect values of 0 to drop away.</p>
-<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
 <p>This initial exploration further hints at an issue that we might like to explore further. We will join this dataset with ‘delay_codes’ to understand what is going on.</p>
-<div class="sourceCode" id="cb411"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> <span class="op">&lt;-</span>
   <span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span>
@@ -387,7 +387,7 @@ then save them.</p>
   <span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">code_srt</span>,<span class="op">-</span><span class="va">code_desc_srt</span><span class="op">)</span></code></pre></div>
 <p>And so we can see that the 450 minute delay was due to ‘Transit Control Related Problems’, the 446 minute delay was due to ‘Miscellaneous Other’, they seem to be outliers, even among the outliers.</p>
-<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">delay_codes</span> |&gt; 
               <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>code <span class="op">=</span> <span class="va">sub_rmenu_code</span>, code_desc <span class="op">=</span> <span class="va">code_description_3</span><span class="op">)</span> |&gt;
@@ -416,7 +416,7 @@ then save them.</p>
 <span class="header-section-number">13.2.3</span> Groups of small counts<a class="anchor" aria-label="anchor" href="#groups-of-small-counts"><i class="fas fa-link"></i></a>
 </h3>
 <p>Another thing that we are looking for is various groupings of the data, especially where sub-groups may end up with only a small numbers of observations in them. This is because any analysis could be especially influenced by them. One quick way to do this is to group the data by a variable that is of interest, for instance ‘line’, using color.</p>
-<div class="sourceCode" id="cb413"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">all_2020_ttc_data</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span>, y <span class="op">=</span> <span class="va">..density..</span>, fill <span class="op">=</span> <span class="va">line</span><span class="op">)</span>, 
                  position <span class="op">=</span> <span class="st">'dodge'</span>, 
@@ -424,12 +424,12 @@ then save them.</p>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:delaydensity"></span>
-<img src="40-eda_files/figure-html/delaydensity-1.png" alt="Density of the distribution of delay, in minutes" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/delaydensity-1.png" alt="Density of the distribution of delay, in minutes" width="672"><p class="caption">
 Figure 13.1: Density of the distribution of delay, in minutes
 </p>
 </div>
 <p>Figure <a href="exploratory-data-analysis.html#fig:delaydensity">13.1</a> uses density so that we can look at the the distributions more comparably, but we should also be aware of differences in frequency (Figure <a href="exploratory-data-analysis.html#fig:delayfreq">13.2</a>). In this case, we will see that ‘SHP’ and ‘SRT’ have much smaller counts.</p>
-<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">all_2020_ttc_data</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span>, fill <span class="op">=</span> <span class="va">line</span><span class="op">)</span>, 
                  position <span class="op">=</span> <span class="st">'dodge'</span>, 
@@ -437,12 +437,12 @@ Figure 13.1: Density of the distribution of delay, in minutes
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:delayfreq"></span>
-<img src="40-eda_files/figure-html/delayfreq-1.png" alt="Frequency of the distribution of delay, in minutes" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/delayfreq-1.png" alt="Frequency of the distribution of delay, in minutes" width="672"><p class="caption">
 Figure 13.2: Frequency of the distribution of delay, in minutes
 </p>
 </div>
 <p>To group by another variable we can add facets (Figure <a href="exploratory-data-analysis.html#fig:delayfreqfacet">13.3</a>).</p>
-<div class="sourceCode" id="cb415"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb418"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">all_2020_ttc_data</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span>, color <span class="op">=</span> <span class="va">line</span><span class="op">)</span>, 
                bw <span class="op">=</span> <span class="fl">.08</span><span class="op">)</span> <span class="op">+</span> 
@@ -450,12 +450,12 @@ Figure 13.2: Frequency of the distribution of delay, in minutes
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">day</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:delayfreqfacet"></span>
-<img src="40-eda_files/figure-html/delayfreqfacet-1.png" alt="Frequency of the distribution of delay, in minutes, by day" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/delayfreqfacet-1.png" alt="Frequency of the distribution of delay, in minutes, by day" width="672"><p class="caption">
 Figure 13.3: Frequency of the distribution of delay, in minutes, by day
 </p>
 </div>
 <p>We can now plot the top five stations by mean delay.</p>
-<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">line</span>, <span class="va">station_clean</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_delay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">min_delay</span><span class="op">)</span>, n_obs <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -469,14 +469,14 @@ Figure 13.3: Frequency of the distribution of delay, in minutes, by day
                scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span>
 <span class="co">#&gt; `summarise()` has grouped output by 'line'. You can override</span>
 <span class="co">#&gt; using the `.groups` argument.</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
 </div>
 <div id="dates" class="section level3" number="13.2.4">
 <h3>
 <span class="header-section-number">13.2.4</span> Dates<a class="anchor" aria-label="anchor" href="#dates"><i class="fas fa-link"></i></a>
 </h3>
 <p>Dates are often difficult to work with because they are so prone to having issues. For this reason, it is especially important to consider them during EDA. We could create a graph by week, to see if there is any seasonality. When using dates, <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span> is especially useful. For instance, we can look at the average delay, of those that were delayed, by week drawing on <code><a href="https://lubridate.tidyverse.org/reference/week.html">week()</a></code> to construct the weeks (Figure <a href="exploratory-data-analysis.html#fig:delaybyweek">13.4</a>).</p>
-<div class="sourceCode" id="cb417"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb420"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
 
 <span class="va">all_2020_ttc_data</span> |&gt;
@@ -492,12 +492,12 @@ Figure 13.3: Frequency of the distribution of delay, in minutes, by day
              <span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:delaybyweek"></span>
-<img src="40-eda_files/figure-html/delaybyweek-1.png" alt="Average delay, in minutes, by week, for the Toronto subway" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/delaybyweek-1.png" alt="Average delay, in minutes, by week, for the Toronto subway" width="672"><p class="caption">
 Figure 13.4: Average delay, in minutes, by week, for the Toronto subway
 </p>
 </div>
 <p>Now let us look at the proportion of delays that were greater than 10 minutes (Figure <a href="exploratory-data-analysis.html#fig:longdelaybyweek">13.5</a>).</p>
-<div class="sourceCode" id="cb418"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>week <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/week.html">week</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">week</span>, <span class="va">line</span><span class="op">)</span> |&gt; 
@@ -510,7 +510,7 @@ Figure 13.4: Average delay, in minutes, by week, for the Toronto subway
              <span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:longdelaybyweek"></span>
-<img src="40-eda_files/figure-html/longdelaybyweek-1.png" alt="Delays longer than ten minutes, by week, for the Toronto subway" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/longdelaybyweek-1.png" alt="Delays longer than ten minutes, by week, for the Toronto subway" width="672"><p class="caption">
 Figure 13.5: Delays longer than ten minutes, by week, for the Toronto subway
 </p>
 </div>
@@ -521,7 +521,7 @@ Figure 13.5: Delays longer than ten minutes, by week, for the Toronto subway
 <span class="header-section-number">13.2.5</span> Relationships<a class="anchor" aria-label="anchor" href="#relationships"><i class="fas fa-link"></i></a>
 </h3>
 <p>We are also interested in looking at the relationship between two variables. Scatter plots are especially useful here for continuous variables, and are a good precursor to modeling. For instance, we may be interested in the relationship between the delay and the gap (Figure <a href="exploratory-data-analysis.html#fig:delayvsgap">13.6</a>).</p>
-<div class="sourceCode" id="cb419"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">min_delay</span>, y <span class="op">=</span> <span class="va">min_gap</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -529,12 +529,12 @@ Figure 13.5: Delays longer than ten minutes, by week, for the Toronto subway
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:delayvsgap"></span>
-<img src="40-eda_files/figure-html/delayvsgap-1.png" alt="Relationship between delay and gap for the Toronto subway in 2020" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/delayvsgap-1.png" alt="Relationship between delay and gap for the Toronto subway in 2020" width="672"><p class="caption">
 Figure 13.6: Relationship between delay and gap for the Toronto subway in 2020
 </p>
 </div>
 <p>The relationship between categorical variables takes more work, but we could also, for instance, look at the top five reasons for delay by station. In particular, we may be interested in whether they differ, and how any difference could be modeled (Figure <a href="exploratory-data-analysis.html#fig:categorical">13.7</a>).</p>
-<div class="sourceCode" id="cb420"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">line</span>, <span class="va">code_desc</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_delay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">min_delay</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -549,12 +549,12 @@ Figure 13.6: Relationship between delay and gap for the Toronto subway in 2020
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:categorical"></span>
-<img src="40-eda_files/figure-html/categorical-1.png" alt="Relationship between categorical variables for the Toronto subway in 2020" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/categorical-1.png" alt="Relationship between categorical variables for the Toronto subway in 2020" width="672"><p class="caption">
 Figure 13.7: Relationship between categorical variables for the Toronto subway in 2020
 </p>
 </div>
 <p>Principal components analysis (PCA) is another powerful exploratory tool. It allows us to pick up potential clusters and outliers that can help to inform modeling. To see this, we can look at the types of delay by station. The delay categories are messy and there a lot of them, but as we are trying to come to terms with the dataset, we will just take the first word.</p>
-<div class="sourceCode" id="cb421"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_2020_ttc_data</span> <span class="op">&lt;-</span>
   <span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>code_red <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span>
@@ -563,7 +563,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
     <span class="cn">TRUE</span> <span class="op">~</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/word.html">word</a></span><span class="op">(</span><span class="va">code_desc</span>, <span class="fl">1</span><span class="op">)</span>
   <span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Let us also just restrict the analysis to causes that happen at least 50 times over 2019. To do the PCA, the dataframe also needs to be switched to wide format.</p>
-<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dwide</span> <span class="op">&lt;-</span>
   <span class="va">all_2020_ttc_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">line</span>, <span class="va">station_clean</span><span class="op">)</span> |&gt;
@@ -595,7 +595,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="co">#&gt; This warning is displayed once every 8 hours.</span>
 <span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></code></pre></div>
 <p>Now we can quickly do some PCA.</p>
-<div class="sourceCode" id="cb423"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">delay_pca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">dwide</span><span class="op">[</span>,<span class="fl">3</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">dwide</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
 
 <span class="va">df_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">delay_pca</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>
@@ -619,16 +619,16 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="co">#&gt; #   PC24 &lt;dbl&gt;, PC25 &lt;dbl&gt;, PC26 &lt;dbl&gt;, PC27 &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   PC28 &lt;dbl&gt;, PC29 &lt;dbl&gt;, PC30 &lt;dbl&gt;</span></code></pre></div>
 <p>We can plot the first two principal components, and add labels to some of the outlying stations.</p>
-<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/slowkow/ggrepel">ggrepel</a></span><span class="op">)</span>
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_out</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">PC1</span>,y<span class="op">=</span><span class="va">PC2</span>,color<span class="op">=</span><span class="va">line</span> <span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df_out</span> |&gt; <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PC2</span><span class="op">&gt;</span><span class="fl">100</span><span class="op">|</span><span class="va">PC1</span><span class="op">&lt;</span><span class="fl">100</span><span class="op">*</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>, 
                   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">station_clean</span><span class="op">)</span>
                   <span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
 <p>We could also plot the factor loadings. We se some evidence that perhaps one is to do with the public, compared with another to do with the operator.</p>
-<div class="sourceCode" id="cb425"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df_out_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">delay_pca</span><span class="op">$</span><span class="va">rotation</span><span class="op">)</span>
 <span class="va">df_out_r</span><span class="op">$</span><span class="va">feature</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dwide</span><span class="op">[</span>,<span class="fl">3</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">dwide</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
 
@@ -657,7 +657,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_out_r</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">PC1</span>,y<span class="op">=</span><span class="va">PC2</span>,label<span class="op">=</span><span class="va">feature</span> <span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Warning: ggrepel: 22 unlabeled data points (too many</span>
 <span class="co">#&gt; overlaps). Consider increasing max.overlaps</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
 <!-- ## Case study - Opinions about a casino in Toronto -->
 <!-- **This was written by [Michael Chong](https://michael-chong.github.io).** -->
 <!-- ### Data preparation -->
@@ -931,7 +931,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 </h2>
 <!-- - Kommenda, Niko, Helen Pidd and Libby Brooks, 2020, 'Revealed: the areas in the UK with one Airbnb for every four homes', *The Guardian*, 20 February, https://www.theguardian.com/technology/2020/feb/20/revealed-the-areas-in-the-uk-with-one-airbnb-for-every-four-homes. -->
 <p>In this case study we look at Airbnb listings in Toronto. The dataset is from Inside Airbnb <span class="citation">(<a href="references-1.html#ref-airbnbdata" role="doc-biblioref">M. Cox 2021</a>)</span> and we will read it from their website, and then save a local copy. We can give <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> a link to where the dataset is and it will download it. This helps with reproducibility because the source is clear. But, as that link could change at any time, longer-term reproducibility, as well as wanting to minimize the effect on the Inside Airbnb servers, suggest that we should also save a local copy of the data and then use that. As the original data is not ours, we should not make that public without first getting written permission. The ‘guess_max’ option in read_csv helps us avoid having to specify the column types. Usually <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> takes a best guess at the column types based on the first few rows. But sometimes those first ones are misleading and so ‘guess_max’ forces it to look at a larger number of rows to try to work out what is going on.</p>
-<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">airbnb_data</span> <span class="op">&lt;-</span> 
@@ -946,7 +946,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="header-section-number">13.3.1</span> Explore individual variables<a class="anchor" aria-label="anchor" href="#explore-individual-variables"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are a large number of columns, so we will just select a few.</p>
-<div class="sourceCode" id="cb427"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">airbnb_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] 74</span>
@@ -999,7 +999,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
 <span class="co">#&gt; #   price &lt;chr&gt;, number_of_reviews &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   has_availability &lt;lgl&gt;, review_scores_rating &lt;dbl&gt;, …</span></code></pre></div>
 <p>First we might be interested in price. It is a character at the moment and so we need to convert it to a numeric. This is a common problem, and we need to be a little careful that it does not all just convert to NAs. In our case if we just force the price data to be a numeric then it will go to NA because there are a lot of characters where it is unclear what the numeric equivalent is, such as ‘$’. So we need to remove those characters first.</p>
-<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span><span class="op">$</span><span class="va">price</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "$469.00" "$96.00"  "$64.00"  "$70.00"  "$45.00" </span>
 <span class="co">#&gt; [6] "$127.00"</span>
@@ -1032,7 +1032,7 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
          price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">price</span><span class="op">)</span>
          <span class="op">)</span></code></pre></div>
 <p>Now we can have a look at the distribution of prices (Figure <a href="exploratory-data-analysis.html#fig:airbnbpricesfirst">13.8</a>).</p>
-<div class="sourceCode" id="cb429"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">+</span>
@@ -1041,12 +1041,12 @@ Figure 13.7: Relationship between categorical variables for the Toronto subway i
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbpricesfirst"></span>
-<img src="40-eda_files/figure-html/airbnbpricesfirst-1.png" alt="Distribution of prices of Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbpricesfirst-1.png" alt="Distribution of prices of Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.8: Distribution of prices of Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>It is clear that there are outliers, so again we might like to consider it on the log scale (Figure <a href="exploratory-data-analysis.html#fig:airbnbpriceslog">13.9</a>).</p>
-<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">&gt;</span> <span class="fl">1000</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1057,12 +1057,12 @@ Figure 13.8: Distribution of prices of Toronto Airbnb rentals in January 2021
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbpriceslog"></span>
-<img src="40-eda_files/figure-html/airbnbpriceslog-1.png" alt="Distribution of log prices of Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbpriceslog-1.png" alt="Distribution of log prices of Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.9: Distribution of log prices of Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>If we focus on prices that are less than $1,000 then we see that the majority of properties have a nightly price less than $250. Interestingly it looks like there is some bunching of prices, possible around numbers ending in zero or nine. Let us just zoom in on prices between $90 and $210, out of interest, but change the bins to be smaller (Figure <a href="exploratory-data-analysis.html#fig:airbnbpricesbunch">13.10</a>).</p>
-<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">&lt;</span> <span class="fl">1000</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1081,17 +1081,17 @@ Figure 13.9: Distribution of log prices of Toronto Airbnb rentals in January 202
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbpricesbunch"></span>
-<img src="40-eda_files/figure-html/airbnbpricesbunch-1.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%"><img src="40-eda_files/figure-html/airbnbpricesbunch-2.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbpricesbunch-1.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%"><img src="13-eda_files/figure-html/airbnbpricesbunch-2.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%"><p class="caption">
 Figure 13.10: Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching
 </p>
 </div>
 <p>For now, we will just remove all prices that are more than $999.</p>
-<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">price</span> <span class="op">&lt;</span> <span class="fl">1000</span><span class="op">)</span></code></pre></div>
 <p>Superhosts are especially experienced Airbnb hosts, and we might be interested to learn more about them. For instance, a host either is or is not a superhost, and so we would not expect any NAs. But we can see that there are. It might be that the host removed a listing or similar. For now, we will remove them.</p>
-<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">host_is_superhost</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 11 × 21</span>
@@ -1116,7 +1116,7 @@ Figure 13.10: Distribution of prices less than $1000 for Toronto Airbnb rentals 
 <span class="co">#&gt; #   has_availability &lt;lgl&gt;, review_scores_rating &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   review_scores_accuracy &lt;dbl&gt;, …</span></code></pre></div>
 <p>We will also want to create a binary variable from this. It is true/false at the moment, which is fine for the modelling, but there are a handful of situations where it will be easier if we have a 0/1. And for now we will just remove anyone with an NA for whether they are a super host.</p>
-<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">host_is_superhost</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -1124,7 +1124,7 @@ Figure 13.10: Distribution of prices less than $1000 for Toronto Airbnb rentals 
     <span class="va">host_is_superhost</span> <span class="op">==</span> <span class="cn">TRUE</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>
     <span class="op">)</span></code></pre></div>
 <p>On Airbnb, guests can give 1-5 star ratings across a variety of different aspects, including cleanliness, accuracy, value, and others. But when we look at the reviews in our dataset, it is less clear how this is being constructed, because it appears to be a rating between 20 and 100 and there are also NA values (Figure <a href="exploratory-data-analysis.html#fig:airbnbreviews">13.11</a>).</p>
-<div class="sourceCode" id="cb435"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1133,12 +1133,12 @@ Figure 13.10: Distribution of prices less than $1000 for Toronto Airbnb rentals 
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbreviews"></span>
-<img src="40-eda_files/figure-html/airbnbreviews-1.png" alt="Distribution of review scores rating for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbreviews-1.png" alt="Distribution of review scores rating for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.11: Distribution of review scores rating for Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>We would like to deal with the NAs in ‘review_scores_rating’, but this is more complicated as there are a lot of them. It may be that this is just because they do not have any reviews.</p>
-<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="op">)</span>
@@ -1152,7 +1152,7 @@ Figure 13.11: Distribution of review scores rating for Toronto Airbnb rentals in
 <span class="co">#&gt;    0    1    2    3    4 </span>
 <span class="co">#&gt; 4046  226   23   10    3</span></code></pre></div>
 <p>So these properties do not have a review rating yet because they do not have enough reviews. It is a large proportion of the total, at almost a fifth of them so we might like to look at this in more detail using <code><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss()</a></code> from <code>visdat</code> <span class="citation">(<a href="references-1.html#ref-citevisdat" role="doc-biblioref">N. Tierney 2017</a>)</span>. We are interested to see whether there is something systematic happening with these properties. For instance, if the NAs were being driven by, say, some requirement of a minimum number of reviews, then we would expect they would all be missing.</p>
-<div class="sourceCode" id="cb437"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb440"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://visdat.njtierney.com/">visdat</a></span><span class="op">)</span>
 <span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">review_scores_rating</span>, 
@@ -1163,9 +1163,9 @@ Figure 13.11: Distribution of review scores rating for Toronto Airbnb rentals in
          <span class="va">review_scores_location</span>, 
          <span class="va">review_scores_value</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="40-eda_files/figure-html/unnamed-chunk-31-1.png" width="672"></div>
+<div class="inline-figure"><img src="13-eda_files/figure-html/unnamed-chunk-31-1.png" width="672"></div>
 <p>Given it looks convincing that in almost all cases, the different types of reviews are missing for the same observation. One approach would be to just focus on those that are not missing and the main review score. It is clear that almost all the reviews are more than 80. Let us just zoom in on that 60 to 80 range to check what the distribution looks like in that range (Figure <a href="exploratory-data-analysis.html#fig:airbnbreviewsselected">13.12</a>).</p>
-<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb441"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">review_scores_rating</span> <span class="op">&gt;</span> <span class="fl">60</span><span class="op">)</span> |&gt;
@@ -1177,18 +1177,18 @@ Figure 13.11: Distribution of review scores rating for Toronto Airbnb rentals in
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbreviewsselected"></span>
-<img src="40-eda_files/figure-html/airbnbreviewsselected-1.png" alt="Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbreviewsselected-1.png" alt="Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.12: Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>For now, we will remove anyone with an NA in their main review score, even though this will remove roughly 20 per cent of observations. And we will also focus only on those hosts with a main review score of at least 70. If we ended up using this dataset for actual analysis, then we would want to justify this decision in an appendix or similar.</p>
-<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb442"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">review_scores_rating</span> <span class="op">&gt;=</span> <span class="fl">70</span><span class="op">)</span></code></pre></div>
 <p>Another important factor is how quickly a host responds to an enquiry. Airbnb allows hosts up to 24 hours to respond, but encourages responses within an hour.</p>
-<div class="sourceCode" id="cb440"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb443"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">host_response_time</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 5 × 2</span>
@@ -1200,14 +1200,14 @@ Figure 13.12: Distribution of review scores, between 60 and 80, for Toronto Airb
 <span class="co">#&gt; 4 within a few hours  1649</span>
 <span class="co">#&gt; 5 within an hour      4668</span></code></pre></div>
 <p>It is unclear a host could have a response time of NA. It may be that they are related to some other variable. Interestingly it seems like what looks like ‘NAs’ in ‘host_response_time’ variable are not coded as proper NAs, but are instead being treated as another category. We will recode them to be actual NAs and also change the variable to be a factor.</p>
-<div class="sourceCode" id="cb441"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb444"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>host_response_time <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">host_response_time</span> <span class="op">==</span> <span class="st">"N/A"</span>, <span class="cn">NA_character_</span>, <span class="va">host_response_time</span><span class="op">)</span>,
          host_response_time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">host_response_time</span><span class="op">)</span>
   <span class="op">)</span></code></pre></div>
 <p>There is clearly an issue with NAs as there are a lot of them. For instance, we might be interested to see if there is a relationship with the review score (Figure <a href="exploratory-data-analysis.html#fig:airbnbreviewsselectednasresponse">13.13</a>). There are a lot that have an overall review of 100.</p>
-<div class="sourceCode" id="cb442"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb445"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">host_response_time</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">review_scores_rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1217,17 +1217,17 @@ Figure 13.12: Distribution of review scores, between 60 and 80, for Toronto Airb
        y <span class="op">=</span> <span class="st">"Number of properties"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbreviewsselectednasresponse"></span>
-<img src="40-eda_files/figure-html/airbnbreviewsselectednasresponse-1.png" alt="Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbreviewsselectednasresponse-1.png" alt="Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.13: Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>For now, we will remove anyone with a NA in their response time. This will again removes roughly another 20 per cent of the observations.</p>
-<div class="sourceCode" id="cb443"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb446"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">host_response_time</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>There are two versions of a variable that suggest how many properties a host has on Airbnb. We might be interested to know whether there is a difference between them.</p>
-<div class="sourceCode" id="cb444"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb447"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>listings_count_is_same <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">host_listings_count</span> <span class="op">==</span> <span class="va">host_total_listings_count</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">listings_count_is_same</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>
@@ -1240,7 +1240,7 @@ Figure 13.13: Distribution of review scores for properties with NA response time
 <span class="co">#&gt; #   room_type &lt;chr&gt;, bathrooms &lt;lgl&gt;, bedrooms &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   price &lt;int&gt;, number_of_reviews &lt;dbl&gt;, …</span></code></pre></div>
 <p>As there are no differences in this dataset, we can just remove one variable for now and have a look at the other one (Figure <a href="exploratory-data-analysis.html#fig:airbnbhostlisting">13.14</a>).</p>
-<div class="sourceCode" id="cb445"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb448"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">host_listings_count</span><span class="op">)</span>
@@ -1251,12 +1251,12 @@ Figure 13.13: Distribution of review scores for properties with NA response time
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:airbnbhostlisting"></span>
-<img src="40-eda_files/figure-html/airbnbhostlisting-1.png" alt="Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/airbnbhostlisting-1.png" alt="Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.14: Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>There are a large number who have somewhere in the 2-10 properties range, but the usual long tail. The number with 0 listings is unexpected and worth following up on. And there are a bunch with NA that we will need to deal with.</p>
-<div class="sourceCode" id="cb446"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb449"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">host_total_listings_count</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
@@ -1277,7 +1277,7 @@ Figure 13.14: Distribution of the number of properties a host has on Airbnb, for
 <span class="co">#&gt; #   has_availability &lt;lgl&gt;, review_scores_rating &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   review_scores_accuracy &lt;dbl&gt;, …</span></code></pre></div>
 <p>There is nothing that immediately jumps out as odd about the people with zero listings, but there must be something going on. For now, we will focus on only those with one property.</p>
-<div class="sourceCode" id="cb447"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> <span class="op">&lt;-</span> 
   <span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">add_count</a></span><span class="op">(</span><span class="va">host_id</span><span class="op">)</span> |&gt; 
@@ -1290,7 +1290,7 @@ Figure 13.14: Distribution of the number of properties a host has on Airbnb, for
 </h3>
 <p>We might like to make some graphs to see if there are any relationships that become clear. Some aspects that come to mind is looking at prices and reviews and super hosts, and number of properties and neighborhood.</p>
 <p>Look at the relationship between price and reviews, and whether they are a super-host (Figure <a href="exploratory-data-analysis.html#fig:priceandreview">13.15</a>).</p>
-<div class="sourceCode" id="cb448"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span>, y <span class="op">=</span> <span class="va">review_scores_rating</span>, color <span class="op">=</span> <span class="va">host_is_superhost</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span> 
@@ -1301,12 +1301,12 @@ Figure 13.14: Distribution of the number of properties a host has on Airbnb, for
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:priceandreview"></span>
-<img src="40-eda_files/figure-html/priceandreview-1.png" alt="Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
+<img src="13-eda_files/figure-html/priceandreview-1.png" alt="Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021" width="672"><p class="caption">
 Figure 13.15: Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021
 </p>
 </div>
 <p>One of the aspects that may make someone a super host is how quickly they respond to inquiries. One could imagine that being a superhost involves quickly saying yes or no to inquiries. Let us look at the data. First, we want to look at the possible values of superhost by their response times.</p>
-<div class="sourceCode" id="cb449"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb452"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">host_is_superhost</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>proportion <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
@@ -1318,7 +1318,7 @@ Figure 13.15: Relationship between price and review and whether a host is a supe
 <span class="co">#&gt; 2 TRUE               1234       0.42</span></code></pre></div>
 <p>Fortunately, it looks like when we removed the reviews rows we removed any NAs from whether they were a super host, but if we go back and look into that we may need to check again.
 We could build a table that looks at a hosts response time by whether they are a superhost using <code><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. It is clear that is a host does not respond within an hour then it is unlikely that they are a super host.</p>
-<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">host_response_time</span>, <span class="va">host_is_superhost</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_percentages.html">adorn_percentages</a></span><span class="op">(</span><span class="st">"row"</span><span class="op">)</span> |&gt;
@@ -1332,14 +1332,14 @@ We could build a table that looks at a hosts response time by whether they are a
 <span class="co">#&gt;  within a few hours         55% (354) 45% (284)</span>
 <span class="co">#&gt;      within an hour         49% (752) 51% (775)</span></code></pre></div>
 <p>Finally, we could look at neighborhood. The data provider has attempted to clean the neighborhood variable for us, so will just use that variable for now. Although if we ended up using this variable for our actual analysis we would want to check they had not made any errors.</p>
-<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">neighbourhood_cleansed</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_totals.html">adorn_totals</a></span><span class="op">(</span><span class="st">"row"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] 140</span></code></pre></div>
-<div class="sourceCode" id="cb452"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">airbnb_data_selected</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/tabyl.html">tabyl</a></span><span class="op">(</span><span class="va">neighbourhood_cleansed</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/adorn_pct_formatting.html">adorn_pct_formatting</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
@@ -1360,7 +1360,7 @@ We could build a table that looks at a hosts response time by whether they are a
 <p>We will now run some models on our dataset. We will cover modeling in more detail in Chapter <a href="ijalm.html#ijalm">14</a>, but we can use models during EDA to help get a better sense of relationships that may exist between multiple variables in a dataset. For instance, we may like to see whether we can forecast whether someone is a super host, and the factors that go into explaining that. As the dependent variable is binary, this is a good opportunity to use logistic regression. We expect that better reviews will be associated with faster responses and higher reviews. Specifically, the model that we estimate is:</p>
 <p><span class="math display">\[\mbox{Prob(Is super host} = 1) = \beta_0 + \beta_1 \mbox{Response time} + \beta_2 \mbox{Reviews} + \epsilon\]</span></p>
 <p>We estimate the model using <code>glm</code> in the R language <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span>.</p>
-<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">logistic_reg_superhost_response_review</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">host_is_superhost</span> <span class="op">~</span> 
                                                 <span class="va">host_response_time</span> <span class="op">+</span> 
                                                 <span class="va">review_scores_rating</span>,
@@ -1368,7 +1368,7 @@ We could build a table that looks at a hosts response time by whether they are a
                                               family <span class="op">=</span> <span class="va">binomial</span>
                                               <span class="op">)</span></code></pre></div>
 <p>We can have a quick look at the results using <code><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary()</a></code> from <code>modelsummary</code> <span class="citation">(<a href="references-1.html#ref-citemodelsummary" role="doc-biblioref">Arel-Bundock 2021a</a>)</span></p>
-<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">logistic_reg_superhost_response_review</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1576,8 +1576,8 @@ F
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/40-eda.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/40-eda.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/13-eda.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/13-eda.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1589,7 +1589,7 @@ F
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 24 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

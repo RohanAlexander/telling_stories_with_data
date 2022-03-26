@@ -293,6 +293,32 @@ tidy_anscombe |>
 </div>
 
 
+We can use specific evaluation options in an R Markdown chunk to have two graphs appear side-by-side (Figure \@ref(fig:anscombegraphsidebyside)).
+
+
+```r
+tidy_anscombe |> 
+  ggplot(aes(x = x, y = y, colour = set)) +
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(vars(set), nrow = 2, ncol = 2) +
+  labs(colour = "Dataset")
+
+tidy_anscombe |> 
+  ggplot(aes(x = x, y = y, colour = set)) +
+  geom_point() +
+  theme_minimal() +
+  facet_wrap(vars(set), nrow = 2, ncol = 2) +
+  labs(colour = "Dataset")
+```
+
+<div class="figure">
+<img src="11-static_communication_files/figure-html/anscombegraphsidebyside-1.png" alt="Two variants of Anscombe's Quartet" width="49%" /><img src="11-static_communication_files/figure-html/anscombegraphsidebyside-2.png" alt="Two variants of Anscombe's Quartet" width="49%" />
+<p class="caption">(\#fig:anscombegraphsidebyside)Two variants of Anscombe's Quartet</p>
+</div>
+
+
+
 <!-- Figure \@ref(fig:thomowillrose) provides invaluable advice (thank you to Thomas William Rosenthal). -->
 
 <!-- ```{r thomowillrose, echo=FALSE, fig.cap = "How do we get started with our data?", out.width = '90%'} -->

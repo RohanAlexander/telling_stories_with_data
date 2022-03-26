@@ -94,7 +94,7 @@ Some of the steps that we can take to make our work more reproducible include:
     - Can 'future' 'another person' run your entire workflow again? 
 3. Including a detailed discussion about the limitations of the dataset and the approach in the final paper or report. 
 
-The workflow that we follow is summarized in Figure \@ref(fig:workflow).
+The workflow that we follow is documents in Figure \@ref(fig:workflow). But it can be more concisely summarized as: 'Think an awful lot, mostly read and write, sometimes code'.
 
 <div class="figure" style="text-align: center">
 <img src="figures/IMG_1847.png" alt="Workflow for telling stories with data" width="95%" />
@@ -108,7 +108,7 @@ There are various tools that we can use at the different stages that will improv
 
 ### Getting started
 
-R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a 'What You See Is What You Get' (WYSIWYG) language, such as Microsoft Word. This means that all the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear. And it is only when we build the mark-up that we get to see what it looks like.
+R Markdown integrates code and natural language in a way that is called 'literate programming' [@Knuth1984]. R Markdown is a mark-up language similar to HyperText Markup Language (HTML) or LaTeX, in comparison to a 'What You See Is What You Get' (WYSIWYG) language, such as Microsoft Word. This means that all the aspects are consistent, for instance, all top-level heading will look the same. But, it means that we must use symbols to designate how we would like certain aspects to appear. And it is only when we build the mark-up that we get to see what it looks like.
 
 R Markdown is a variant of Markdown that is specifically designed to allow R code chunks to be included. One advantage is that we can get a 'live' document in which code executes and then forms part of the document. Another advantage of R Markdown is that very similar code can compile into a variety of documents, including html pages and PDFs. R Markdown also has default options set up for including a title, author, and date sections. One disadvantage is that it can take a while for a document to compile because all the code needs to run. @rmarkdownforscientists is especially useful for instructions on how to achieve specific outcomes with R Markdown.
 
@@ -136,6 +136,12 @@ Essential markdown commands include those for emphasis, headers, lists, links, a
     + Item 3b
 ```
 - URLs can be added by including an address because it will auto-link: https://www.tellingstorieswithdata.com, or by linking some text ```[the address of this book](https://www.tellingstorieswithdata.com)``` results in [the address of this book](https://www.tellingstorieswithdata.com).
+- A paragraph is created by leaving a blank line.
+```
+A paragraph about some idea, nicely spaced from the following paragraph.
+
+Another paragraph about another idea, nicely spaced from the earlier paragraph.
+```
 
 Once we have added some aspects, then we may want to see the actual document. To build the document click 'Knit'.
 
@@ -163,8 +169,8 @@ DoctorVisits |>
 The output of that code is Figure \@ref(fig:doctervisits). 
 
 <div class="figure">
-<img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
-<p class="caption">(\#fig:doctervisits)Number of doctor visits in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
+<img src="04-workflow_files/figure-html/doctervisits-1.png" alt="Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey" width="672" />
+<p class="caption">(\#fig:doctervisits)Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey</p>
 </div>
 
 There are various evaluation options that are available in chunks. We include these by putting a comma after ```r``` and then specifying any options before the closing curly brace. Helpful options include: 
@@ -191,6 +197,28 @@ DoctorVisits %>%
 ```
 ````
 
+It is important to leave a blank line on either side of an R chunk, otherwise it may not run properly.
+
+
+````
+Most people did not visit a doctor in the past week.
+
+```{r, echo = FALSE, warning = FALSE}
+library(tidyverse)
+library(AER)
+
+data("DoctorVisits", package = "AER")
+
+DoctorVisits %>%
+  ggplot(aes(x = visits)) +
+  geom_histogram(stat = "count")
+```
+
+There were some people that visited a doctor once, and then very few people that visited two or more times.
+````
+
+It is also important that the R Markdown document itself loads any datasets that are needed. It is not enough that they are in the environment. This is because the R Markdown document evaluates the code in the document when it is built, not necessarily the environment.
+
 
 ### Abstracts and PDF outputs
 
@@ -207,7 +235,7 @@ abstract: "This is my abstract."
 
 ### References 
 
-We can include references by specifying a bib file in the preamble and then calling it within the text, as needed.
+We can include references by specifying a BibTeX file in the preamble and then calling it within the text, as needed.
 ```
 ---
 title: My document
@@ -219,7 +247,7 @@ bibliography: bibliography.bib
 ---
 ```
 
-We would need to make a separate file called 'bibliography.bib' and save it next to the R Markdown file. In the bib file we need an entry for the item that is to be referenced. For instance, the citation for R can be obtained with `citation()` and this can be added to the 'bibliography.bib' file. Similarly, the citation for a package can be found by including the package name, for instance `citation('tidyverse')`. It can be helpful to use Google Scholar, or doi2bib, to get citations for books or articles.
+We would need to make a separate file called 'bibliography.bib' and save it next to the R Markdown file. In the BibTeX file we need an entry for the item that is to be referenced. For instance, the citation for R can be obtained with `citation()` and this can be added to the 'bibliography.bib' file. Similarly, the citation for a package can be found by including the package name, for instance `citation('tidyverse')`. It can be helpful to use Google Scholar, or doi2bib, to get citations for books or articles.
 
 ```
 @Manual{,
@@ -266,6 +294,8 @@ We need to create a unique key that we use to refer to this item in the text. Th
 ```
 
 To cite R in the R Markdown document we include `@citeR`, which would put the brackets around the year, like this: @citeR or `[@citeR]`, which would put the brackets around the whole thing, like this: [@citetidyverse]. 
+
+The reference list at the end of the paper is automatically built based on calling the BibTeX file and including the references in the paper. At the end of the R Markdown document, including a heading '# References' and the actual citations will be included after that. When the R Markdown file is built, R Markdown sees these in the content, goes to BibTeX to get the reference details that it needs, builds the reference list, and then adds it to the end of the output.
 
 ### Cross-references
 
@@ -344,7 +374,7 @@ The main advantage of using an R Project is that we are more easily able to refe
 
 The use of R projects is required to meet the minimal level of reproducibility. The use of functions such as `setwd()`, and computer-specific file paths, bind the work to your computer in a way that is not appropriate.
 
-There are a variety of ways to set-up a folder. A variant of @wilsongoodenough that is often useful is shown in the example: https://github.com/RohanAlexander/starter_folder. Here we have an 'inputs' folder that contains raw data (which should never be modified [@wilsongoodenough]) and literature related to the project (which cannot be modified). An 'outputs' folder contains data that we create using R, as well as the paper that we are writing. And a 'scripts' folder is what modifies the raw data and saves it into 'outputs'. Useful other aspects include a 'README.md' which will specify overview details about the project, and a LICENSE.
+There are a variety of ways to set-up a folder. A variant of @wilsongoodenough that is often useful is shown in the example: https://github.com/RohanAlexander/starter_folder. Here we have an 'inputs' folder that contains raw data (which should never be modified [@wilsongoodenough]) and literature related to the project (which cannot be modified). An 'outputs' folder contains data that we create using R, as well as the paper that we are writing. And a 'scripts' folder is what modifies the raw data and saves it into 'outputs'. We will do the majority of our work in 'scripts', and the R Markdown file for the paper in 'outputs'. Useful other aspects include a 'README.md' which will specify overview details about the project, and a LICENSE. Another helpful variant of this project skeleton is provided by @GoodResearchCode.
 
 
 

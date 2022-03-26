@@ -1226,7 +1226,7 @@ is_a_date + 3
 
 The final class that we discuss here is 'data.frame'. This looks like a spreadsheet and is commonly used to store the data that we will analyze. Formally, 'a data frame is a list of equal-length vectors' [@advancedr]. It will have column and row names which we can see using `colnames()` and `rownames()`, although often the names of the rows are just numbers.
 
-To illustrate this, we use the 'ResumeNames' dataset from `AER` [@citeaer]. This package can be installed in the same way as any other package from CRAN. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. 
+To illustrate this, we use the 'ResumeNames' dataset from `AER` [@citeaer]. This package can be installed in the same way as any other package from CRAN. This dataset comprises cross-sectional data about resume content, especially the name used on the resume, and associated information about whether the candidate received a call-back for 4,870 fictitious resumes. The dataset was created by @bertrand2004emily who sent fictitious resumes in response to job advertisements in Boston and Chicago that differed in whether the resume was assigned a 'very African American sounding name or a very White sounding name'. They found considerable discrimination whereby 'White names receive 50 percent more callbacks for interviews'. @hangartner2021monitoring generalize this using an online Swiss platform and find that immigrants and minority ethnic groups are contacted less by recruiters, as are women when the profession is men-dominated, and vice versa.
 
 
 ```r
@@ -1680,7 +1680,6 @@ oecd_gdp_most_recent |>
 <img src="03-r_essentials_files/figure-html/unnamed-chunk-72-1.png" width="672" />
 
 
-
 ## Exploring the `tidyverse`
 
 We have focused on two aspects of the `tidyverse`: `dplyr`, and `ggplot2`. However, the `tidyverse` comprises a variety of different packages and functions. We will now go through four common aspects:
@@ -1920,6 +1919,7 @@ head(data_pivoted_wider)
 #> 2  2020 second first 
 #> 3  2021 first  second
 ```
+
 
 
 ### String manipulation and `stringr`
