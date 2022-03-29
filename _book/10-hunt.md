@@ -179,7 +179,7 @@ treatment_control <-
   )
 
 treatment_control
-#> # A tibble: 10 × 1
+#> # A tibble: 10 x 1
 #>    binary_effect
 #>            <dbl>
 #>  1             0
@@ -246,7 +246,7 @@ population <-
 
 
 population
-#> # A tibble: 5,000 × 3
+#> # A tibble: 5,000 x 3
 #>    person favorite_color prefers_dogs_to_cats
 #>     <int> <chr>          <chr>               
 #>  1      1 Blue           Yes                 
@@ -259,12 +259,12 @@ population
 #>  8      8 Blue           Yes                 
 #>  9      9 White          No                  
 #> 10     10 White          No                  
-#> # … with 4,990 more rows
+#> # ... with 4,990 more rows
 
 population |>
   group_by(favorite_color) |> 
   count()
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #> # Groups:   favorite_color [2]
 #>   favorite_color     n
 #>   <chr>          <int>
@@ -292,7 +292,7 @@ frame <-
 frame |>
   group_by(favorite_color) |> 
   count()
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #> # Groups:   favorite_color [2]
 #>   favorite_color     n
 #>   <chr>          <int>
@@ -335,16 +335,21 @@ sample |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:bluetowhite)Proportion of the treatment and control group that prefer blue or white
-
-|Group     |Preferred color | Number| Proportion|
-|:---------|:---------------|------:|----------:|
-|Control   |Blue            |    987|       0.50|
-|Control   |White           |    997|       0.50|
-|Treatment |Blue            |   1036|       0.51|
-|Treatment |White           |    983|       0.49|
+\caption{(\#tab:bluetowhite)Proportion of the treatment and control group that prefer blue or white}
+\centering
+\begin{tabular}[t]{llrr}
+\toprule
+Group & Preferred color & Number & Proportion\\
+\midrule
+Control & Blue & 987 & 0.50\\
+Control & White & 997 & 0.50\\
+Treatment & Blue & 1036 & 0.51\\
+Treatment & White & 983 & 0.49\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 <!-- We are probably convinced by looking at it, but to formally test if there is a difference in the two samples, we could use a t-test. -->
 
@@ -389,16 +394,21 @@ sample |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:dogstocats)Proportion of the treatment and control group that prefer dogs or cats
-
-|Group     |Prefers dogs to cats | Number| Proportion|
-|:---------|:--------------------|------:|----------:|
-|Control   |No                   |    997|       0.50|
-|Control   |Yes                  |    987|       0.50|
-|Treatment |No                   |    983|       0.49|
-|Treatment |Yes                  |   1036|       0.51|
+\caption{(\#tab:dogstocats)Proportion of the treatment and control group that prefer dogs or cats}
+\centering
+\begin{tabular}[t]{llrr}
+\toprule
+Group & Prefers dogs to cats & Number & Proportion\\
+\midrule
+Control & No & 997 & 0.50\\
+Control & Yes & 987 & 0.50\\
+Treatment & No & 983 & 0.49\\
+Treatment & Yes & 1036 & 0.51\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 It is exciting to have a representative share on 'unobservables'. In this case, we do 'observe' them---to illustrate the point---but we did not select on them. We get this because the variables were correlated. But it will break down in several ways that we will discuss. It also assumes large enough groups. For instance, if we considered specific dog breeds, instead of dogs as an entity, we may not find ourselves in this situation. To check that the two groups are the same we look to see if we can identify a difference between the two groups based on observables. In this case we looked at the mean, but we could look at other aspects as well. 
@@ -472,10 +482,7 @@ ate_example |>
   scale_fill_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="10-hunt_files/figure-html/exampleatefig-1.png" alt="Simulated data showing a difference between the treatment and control groups" width="672" />
-<p class="caption">(\#fig:exampleatefig)Simulated data showing a difference between the treatment and control groups</p>
-</div>
+![(\#fig:exampleatefig)Simulated data showing a difference between the treatment and control groups](10-hunt_files/figure-latex/exampleatefig-1.pdf) 
 
 
 
@@ -494,13 +501,18 @@ ate_example |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:exampleatetable)Average difference between the treatment and control groups for data simulated to have an average difference of one
-
-| Average for treated| Average for not treated| Difference|
-|-------------------:|-----------------------:|----------:|
-|                   5|                    6.06|       1.06|
+\caption{(\#tab:exampleatetable)Average difference between the treatment and control groups for data simulated to have an average difference of one}
+\centering
+\begin{tabular}[t]{rrr}
+\toprule
+Average for treated & Average for not treated & Difference\\
+\midrule
+5 & 6.06 & 1.06\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Unfortunately, there is often a difference between simulated data and reality. For instance, an experiment cannot run for too long otherwise people may be treated many times, or become inured to the treatment; but it cannot be too short otherwise we cannot measure longer term outcomes. We cannot have a 'representative' sample across every facet of a population, but if not, then the treatment and control will be different. Practical difficulties may make it difficult to follow up with certain groups and so we end up with a biased collection. Some questions to explore when working with real experimental data include: 
 
@@ -719,7 +731,7 @@ upworthy |>
 
 upworthy |> 
   head()
-#> # A tibble: 6 × 17
+#> # A tibble: 6 x 17
 #>    ...1 created_at          updated_at         
 #>   <dbl> <dttm>              <dttm>             
 #> 1     0 2014-11-20 06:43:16 2016-04-02 16:33:38
@@ -728,7 +740,7 @@ upworthy |>
 #> 4     3 2014-11-20 06:54:36 2016-04-02 16:25:54
 #> 5     4 2014-11-20 06:54:57 2016-04-02 16:31:45
 #> 6     5 2014-11-20 06:55:07 2016-04-02 16:25:54
-#> # … with 14 more variables: clickability_test_id <chr>,
+#> # ... with 14 more variables: clickability_test_id <chr>,
 #> #   excerpt <chr>, headline <chr>, lede <chr>, slug <chr>,
 #> #   eyecatcher_id <chr>, impressions <dbl>, clicks <dbl>,
 #> #   significance <dbl>, first_place <lgl>, winner <lgl>,
@@ -754,16 +766,16 @@ upworthy_restricted <-
   select(created_at, clickability_test_id, headline, impressions, clicks)
 
 head(upworthy_restricted)
-#> # A tibble: 6 × 5
-#>   created_at          clickability_tes… headline impressions
+#> # A tibble: 6 x 5
+#>   created_at          clickability_tes~ headline impressions
 #>   <dttm>              <chr>             <chr>          <dbl>
-#> 1 2014-11-20 06:43:16 546d88fb84ad38b2… They're…        3052
-#> 2 2014-11-20 06:43:44 546d88fb84ad38b2… They're…        3033
-#> 3 2014-11-20 06:44:59 546d88fb84ad38b2… They're…        3092
-#> 4 2014-11-20 06:54:36 546d902c26714c6c… This Is…        3526
-#> 5 2014-11-20 06:54:57 546d902c26714c6c… This Is…        3506
-#> 6 2014-11-20 06:55:07 546d902c26714c6c… This Is…        3380
-#> # … with 1 more variable: clicks <dbl>
+#> 1 2014-11-20 06:43:16 546d88fb84ad38b2~ They're~        3052
+#> 2 2014-11-20 06:43:44 546d88fb84ad38b2~ They're~        3033
+#> 3 2014-11-20 06:44:59 546d88fb84ad38b2~ They're~        3092
+#> 4 2014-11-20 06:54:36 546d902c26714c6c~ This Is~        3526
+#> 5 2014-11-20 06:54:57 546d902c26714c6c~ This Is~        3506
+#> 6 2014-11-20 06:55:07 546d902c26714c6c~ This Is~        3380
+#> # ... with 1 more variable: clicks <dbl>
 ```
 
 We will focus on the text contained in headlines, and look at whether headlines that asked a question got more clicks than those that did not. We want to remove the effect of different images and so will focus on those tests that have the same image. To identify whether a headline asks a question, we search for a question mark. Although there are more complicated constructions that we could use, this is enough to get started.
@@ -776,7 +788,7 @@ upworthy_restricted <-
 
 upworthy_restricted |> 
   count(asks_question)
-#> # A tibble: 2 × 2
+#> # A tibble: 2 x 2
 #>   asks_question     n
 #>   <lgl>         <int>
 #> 1 FALSE         19130
@@ -812,10 +824,7 @@ look_at_differences$difference_in_clicks |> mean()
 
 We find that in general, having a question in the headline may slightly decrease the number of clicks on a headline, although if there is an effect it does not appear to be very large (Figure \@ref(fig:upworthy)).
 
-<div class="figure">
-<img src="10-hunt_files/figure-html/upworthy-1.png" alt="Comparison of the average number of clicks when a headline contains a question mark or not" width="672" />
-<p class="caption">(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not</p>
-</div>
+![(\#fig:upworthy)Comparison of the average number of clicks when a headline contains a question mark or not](10-hunt_files/figure-latex/upworthy-1.pdf) 
 
 
 
@@ -826,38 +835,58 @@ There are many ways to implement surveys. For instance, there are dedicated surv
 
 To create a survey with Google Forms, sign into your Google Account, go to Google Drive, and then click 'New' then 'Google Form'. By default, the form is largely empty (Figure \@ref(fig:googleformfirst)), and we should add a title and description.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googleformfirst.png" alt="The default view when a new Google Form is created contains many empty fields" width="85%" />
-<p class="caption">(\#fig:googleformfirst)The default view when a new Google Form is created contains many empty fields</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/googleformfirst} 
+
+}
+
+\caption{The default view when a new Google Form is created contains many empty fields}(\#fig:googleformfirst)
+\end{figure}
 
 By default, an multiple-choice question is included, and we can update the content of this by clicking in the question field. Helpfully, there are often suggestions that can help provide the options. We can make the question required by toggling (Figure \@ref(fig:googleformsecond)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googleformsecond.png" alt="Updating the multiple-choice question that is included by default" width="85%" />
-<p class="caption">(\#fig:googleformsecond)Updating the multiple-choice question that is included by default</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/googleformsecond} 
+
+}
+
+\caption{Updating the multiple-choice question that is included by default}(\#fig:googleformsecond)
+\end{figure}
 
 We can add another question, by clicking on the plus with a circle around it, and select different types of question, for instance, 'Short answer', 'Checkboxes', or 'Linear scale' (Figure \@ref(fig:googleformthird)). It can be especially useful to use 'Short answer' for aspect such as name and email address, checkboxes and linear scale to understand preferences.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googleformthird.png" alt="Different options for questions include short answer, checkboxes, and linear scale" width="85%" />
-<p class="caption">(\#fig:googleformthird)Different options for questions include short answer, checkboxes, and linear scale</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/googleformthird} 
+
+}
+
+\caption{Different options for questions include short answer, checkboxes, and linear scale}(\#fig:googleformthird)
+\end{figure}
 
 When we are happy with our survey, we make like to preview it ourselves, by clicking on the icon that looks like an eye. After checking it that way, we can click on 'Send'. Usually it is especially useful to use the second option, which is to send via a link, and it can be handy to shorten the URL (Figure \@ref(fig:googleformfourth)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googleformfourth.png" alt="There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL" width="85%" />
-<p class="caption">(\#fig:googleformfourth)There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/googleformfourth} 
+
+}
+
+\caption{There are a variety of ways to share the survey, and one helpful one is to get a link with a short URL}(\#fig:googleformfourth)
+\end{figure}
 
 After you share your survey, results will accrue in the 'Responses' tab and it can be especially useful to create a spreadsheet to view these responses, by clicking on the 'Sheets' icon. After you have collected enough responses then you can turn off 'Accepting responds' (Figure \@ref(fig:googleformfifth))
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googleformfifth.png" alt="Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet" width="85%" />
-<p class="caption">(\#fig:googleformfifth)Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/googleformfifth} 
+
+}
+
+\caption{Responses show up alongside the survey and it can be helpful to add those to a separate spreadsheet}(\#fig:googleformfifth)
+\end{figure}
 
 
 <!-- ## Sensor data -->

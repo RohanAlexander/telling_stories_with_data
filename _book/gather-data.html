@@ -197,7 +197,7 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 </h3>
 <p>We use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> from <code>httr</code> <span class="citation">(<a href="references-1.html#ref-citehttr" role="doc-biblioref">Wickham 2019c</a>)</span> to obtain data from an API directly. This will try to get some specific data and the main argument is ‘url’. In a way, this is very similar to the earlier Google Maps example. In that example, the specific information that we were interested in was a map.</p>
 <p>In this case study we will use an API provided by arXiv: <a href="https://arxiv.org" class="uri">https://arxiv.org</a>. arXiv is an online repository for academic papers before they go through peer-review, and these are typically referred to as ‘pre-prints’. After installing and loading <code>httr</code>, we use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> to ask arXiv to obtain some information about the pre-print of <span class="citation">R. Alexander and Alexander (<a href="references-1.html#ref-Alexander2020" role="doc-biblioref">2021</a>)</span>.</p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</span>
@@ -216,7 +216,7 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 <span class="fu"><a href="https://httr.r-lib.org/reference/status_code.html">status_code</a></span><span class="op">(</span><span class="va">arxiv</span><span class="op">)</span>
 <span class="co">#&gt; [1] 200</span></code></pre></div>
 <p>We can use <code><a href="https://httr.r-lib.org/reference/status_code.html">status_code()</a></code> to check whether we received an error from the server. And assuming we received something back from the server, we can use <code><a href="https://httr.r-lib.org/reference/content.html">content()</a></code> to display the information. In this case we have received XML formatted data, which we can read using <code><a href="http://xml2.r-lib.org/reference/read_xml.html">read_xml()</a></code> from <code>xml2</code> <span class="citation">(<a href="references-1.html#ref-xml2" role="doc-biblioref">Wickham, Hester, and Ooms 2021</a>)</span>. XML is a semi-formatted structure, and it can be useful to start by having a look at it using <code><a href="http://xml2.r-lib.org/reference/xml_structure.html">html_structure()</a></code>.</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://httr.r-lib.org/reference/content.html">content</a></span><span class="op">(</span><span class="va">arxiv</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_xml</a></span><span class="op">(</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="http://xml2.r-lib.org/reference/xml_structure.html">html_structure</a></span><span class="op">(</span><span class="op">)</span>
@@ -258,7 +258,7 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 <span class="co">#&gt;     &lt;primary_category [term, scheme, xmlns:arxiv]&gt;</span>
 <span class="co">#&gt;     &lt;category [term, scheme]&gt;</span></code></pre></div>
 <p>Or we might be interested to create a dataset based on extracting various aspects of this XML tree. For instance, we might be interested to look at the ‘entry’, which is the eighth item, and in particular to obtain the title and the URL, which are the fourth and ninth items, respectively, within entry.</p>
-<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_from_arxiv</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
     title <span class="op">=</span> <span class="fu"><a href="https://httr.r-lib.org/reference/content.html">content</a></span><span class="op">(</span><span class="va">arxiv</span><span class="op">)</span> |&gt;
@@ -278,14 +278,14 @@ Figure 9.1: Example of Google Maps, as at 29 January 2022
 <span class="co">#&gt;   &lt;chr&gt;                                                &lt;chr&gt;</span>
 <span class="co">#&gt; 1 "The Increased Effect of Elections and Changing Pri… http…</span></code></pre></div>
 <p>Each day NASA provides the Astronomy Picture of the Day (APOD) through its APOD API. We can again use <code><a href="https://httr.r-lib.org/reference/GET.html">GET()</a></code> to obtain the URL for the photo on particular dates and then display it.</p>
-<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">NASA_APOD_20211226</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&amp;date=2021-12-26"</span><span class="op">)</span>
 
 <span class="va">NASA_APOD_20190719</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&amp;date=2019-07-19"</span><span class="op">)</span></code></pre></div>
 <p>Examining the returned data using <code><a href="https://httr.r-lib.org/reference/content.html">content()</a></code>, we can see that we are provided with various fields, such as date, title, explanation, and a URL. And we can provide that URL to <code><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics()</a></code> from <code>knitr</code> to display it (Figure <a href="gather-data.html#fig:nasaone">9.2</a>).</p>
-<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://httr.r-lib.org/reference/content.html">content</a></span><span class="op">(</span><span class="va">NASA_APOD_20211226</span><span class="op">)</span><span class="op">$</span><span class="va">date</span>
 <span class="co">#&gt; [1] "2021-12-26"</span>
 <span class="fu"><a href="https://httr.r-lib.org/reference/content.html">content</a></span><span class="op">(</span><span class="va">NASA_APOD_20211226</span><span class="op">)</span><span class="op">$</span><span class="va">title</span>
@@ -310,7 +310,7 @@ Figure 9.2: Photo of the James Webb Space Telescope over Earth and another of Tr
 </p>
 </div>
 <p>Finally, another common API response in semi-structured form is JSON. We can parse JSON with <code>jsonlite</code> <span class="citation">(<a href="references-1.html#ref-jsonlite" role="doc-biblioref">Ooms 2014</a>)</span>. A Dataverse is a web application that makes it easier to share dataset. We can use an API go query a demonstration dataverse. For instance we might be interested in datasets related to politics.</p>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://arxiv.org/abs/1403.2805">jsonlite</a></span><span class="op">)</span>
 
 <span class="va">politics_datasets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/jsonlite/man/fromJSON.html">fromJSON</a></span><span class="op">(</span><span class="st">"https://demo.dataverse.org/api/search?q=politics"</span><span class="op">)</span></code></pre></div>
@@ -322,7 +322,7 @@ Figure 9.3: Example of hovering over an JSON element, ‘items’, where the ico
 </p>
 </div>
 <p>This tells us how to obtain the dataset of interest.</p>
-<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">politics_datasets</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"items"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 × 6</span>
 <span class="co">#&gt;   name       type  url   identifier description published_at</span>
@@ -335,10 +335,10 @@ Figure 9.3: Example of hovering over an JSON element, ‘items’, where the ico
 </h3>
 <p>Twitter is a rich source of text and other data. The Twitter API is the way in which Twitter asks that we gather these data. And <code>rtweet</code> <span class="citation">(<a href="references-1.html#ref-rtweet" role="doc-biblioref">Kearney 2019</a>)</span> is built around this API and allows us to interact with it in ways that are similar to using any other R package. Initially, we can use the Twitter API with just a regular Twitter account.</p>
 <p>Begin by installing and loading <code>rtweet</code> and <code>tidyverse</code>. We then need to authorize <code>rtweet</code> and we start that process by calling a function from the package, for instance <code><a href="https://rdrr.io/pkg/rtweet/man/get_favorites.html">get_favorites()</a></code> which will return a tibble of a user’s favorites. This will open a browser, and we then log into a regular Twitter account (Figure <a href="gather-data.html#fig:rtweetlogin">9.4</a>).</p>
-<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=rtweet">rtweet</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/rtweet/man/get_favorites.html">get_favorites</a></span><span class="op">(</span>user <span class="op">=</span> <span class="st">"RohanAlexander"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:rtweetlogin"></span>
@@ -347,12 +347,12 @@ Figure 9.4: rtweet authorisation page
 </p>
 </div>
 <p>Once the application is authorized, then we can use <code><a href="https://rdrr.io/pkg/rtweet/man/get_favorites.html">get_favorites()</a></code> to actually get the favorites of a user and save them.</p>
-<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rohans_favorites</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rtweet/man/get_favorites.html">get_favorites</a></span><span class="op">(</span><span class="st">"RohanAlexander"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">rohans_favorites</span>, <span class="st">"rohans_favorites.rds"</span><span class="op">)</span></code></pre></div>
 <p>We could then look at some recent favorites, keeping in mind that they may be different depending on when they are being accessed.</p>
-<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rohans_favorites</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">created_at</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt; 
@@ -371,14 +371,14 @@ Figure 9.4: rtweet authorisation page
 <span class="co">#&gt;  9 ryancbriggs "Same. https://t.co/C9pNpXO0F9"              </span>
 <span class="co">#&gt; 10 flynnpolsci "I’m not great at coming up with assignments…</span></code></pre></div>
 <p>We can use <code><a href="https://rdrr.io/pkg/rtweet/man/search_tweets.html">search_tweets()</a></code> to search for tweets about a particular topic. For instance, we could look at tweets using a hashtag commonly associated with R: ‘#rstats’.</p>
-<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rstats_tweets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rtweet/man/search_tweets.html">search_tweets</a></span><span class="op">(</span>
   q <span class="op">=</span> <span class="st">"#rstats"</span>,
   include_rts <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">rstats_tweets</span>, <span class="st">"rstats_tweets.rds"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rstats_tweets</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">screen_name</span>, <span class="va">text</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
@@ -399,7 +399,7 @@ Figure 9.4: rtweet authorisation page
 <span class="header-section-number">9.2.3</span> Case study: Gathering data from Spotify<a class="anchor" aria-label="anchor" href="#case-study-gathering-data-from-spotify"><i class="fas fa-link"></i></a>
 </h3>
 <p>For the final case study, we will use <code>spotifyr</code> <span class="citation">(<a href="references-1.html#ref-spotifyr" role="doc-biblioref">Thompson et al. 2020</a>)</span>, which is a wrapper around the Spotify API. Install <code>install.packages('spotifyr')</code> and load the package.</p>
-<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/charlie86/spotifyr">spotifyr</a></span><span class="op">)</span></code></pre></div>
 <p>To access the Spotify API, we need a Spotify Developer Account: <a href="https://developer.spotify.com/dashboard/" class="uri">https://developer.spotify.com/dashboard/</a>. This will require logging in with a Spotify account and then accepting the Developer Terms (Figure <a href="gather-data.html#fig:spotifyaccept">9.5</a>).</p>
 <div class="figure" style="text-align: center">
@@ -409,22 +409,22 @@ Figure 9.5: Spotify Developer Account Terms agreement page
 </p>
 </div>
 <p>Continuing with the registration process, in our case, we ‘do not know’ what we are building and so Spotify requires us to use a non-commercial agreement. To use the Spotify API we need a ‘Client ID’ and a ‘Client Secret’. These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our ‘System Environment’. In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter <a href="interactive-communication.html#interactive-communication">7</a> when we used <code>mapdeck</code>.) We will use <code>usethis</code> <span class="citation">(<a href="references-1.html#ref-citeusethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span> to modify our System Environment. In particular, there is a file called ‘.Renviron’ which we will open using <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code> and add our ‘Client ID’ and ‘Client Secret’ to.</p>
-<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://usethis.r-lib.org">usethis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>When we run <code><a href="https://usethis.r-lib.org/reference/edit.html">edit_r_environ()</a></code>, our ‘.Renviron’ file will open and we can add our ‘Spotify Client ID’ and ‘Client Secret’. It is important to use the same names, because <code>spotifyr</code> will look in our environment for keys with those specific names.</p>
-<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">SPOTIFY_CLIENT_ID</span> <span class="op">=</span> <span class="st">'PUT_YOUR_CLIENT_ID_HERE'</span>
 <span class="va">SPOTIFY_CLIENT_SECRET</span> <span class="op">=</span> <span class="st">'PUT_YOUR_SECRET_HERE'</span></code></pre></div>
 <p>Save the ‘.Renviron’ file, and then restart R (‘Session’ -&gt; ‘Restart R’). We can now use our ‘Spotify Client ID’ and ‘Client Secret’ as needed. And functions that require those details as arguments will work without them being explicitly specified again. We will get and save some information about Radiohead, the English rock band, using <code><a href="https://rdrr.io/pkg/spotifyr/man/get_artist_audio_features.html">get_artist_audio_features()</a></code>. One of the required arguments is <code>authorization</code>, but as that is set, by default, to look at the ‘.Renviron’ file, we do not need to specify it here.</p>
-<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">radiohead</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_artist_audio_features.html">get_artist_audio_features</a></span><span class="op">(</span><span class="st">'radiohead'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">radiohead</span>, <span class="st">"radiohead.rds"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">radiohead</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"radiohead.rds"</span><span class="op">)</span></code></pre></div>
 <p>There is a variety of information available based on songs. We might be interested to see whether their songs are getting longer over time (Figure <a href="gather-data.html#fig:readioovertime">9.6</a>).</p>
-<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">radiohead</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">artist_name</span>, <span class="va">track_name</span>, <span class="va">album_name</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
@@ -435,7 +435,7 @@ Figure 9.5: Spotify Developer Account Terms agreement page
 <span class="co">#&gt; 4   Radiohead   How to Disappear Completely KID A MNESIA</span>
 <span class="co">#&gt; 5   Radiohead                   Treefingers KID A MNESIA</span>
 <span class="co">#&gt; 6   Radiohead                    Optimistic KID A MNESIA</span></code></pre></div>
-<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
 
 <span class="va">radiohead</span> |&gt; 
@@ -454,14 +454,14 @@ Figure 9.6: Length of each Radiohead song, over time, as gathered from Spotify
 </div>
 <p>One interesting variable provided by Spotify about each song is ‘valence’. The Spotify documentation describe this as a measure between 0 and 1 that signals the ‘the musical positiveness’ of the track with higher values being more positive. Further details are available at the documentation: <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features" class="uri">https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features</a>. We might be interested to compare valence over time between a few artists, for instance, the American rock band The National, and the American singer Taylor Swift.</p>
 <p>First, we need to gather the data.</p>
-<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">taylor_swift</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_artist_audio_features.html">get_artist_audio_features</a></span><span class="op">(</span><span class="st">'taylor swift'</span><span class="op">)</span>
 <span class="va">the_national</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_artist_audio_features.html">get_artist_audio_features</a></span><span class="op">(</span><span class="st">'the national'</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">taylor_swift</span>, <span class="st">"taylor_swift.rds"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">the_national</span>, <span class="st">"the_national.rds"</span><span class="op">)</span></code></pre></div>
 <p>Then we can bring them together and make the graph (Figure <a href="gather-data.html#fig:swiftyvsnationalvsradiohead">9.7</a>). This appears to show that while Taylor Swift and Radiohead have largely maintained their level of valence overtime, The National has decreased theirs.</p>
-<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">three_artists</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">taylor_swift</span>, <span class="va">the_national</span>, <span class="va">radiohead</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">artist_name</span>, <span class="va">album_release_date</span>, <span class="va">valence</span><span class="op">)</span> |&gt;
@@ -519,19 +519,19 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 <li>save the website and then open it with a text editor rather than a browser.</li>
 </ol>
 <p>HTML/CSS is a markup language comprised of matching tags. If we want text to be bold, then we would use something like:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb273-1"><a href="gather-data.html#cb273-1" aria-hidden="true" tabindex="-1"></a>&lt;b<span class="op">&gt;</span>My bold text&lt;/b<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb274-1"><a href="gather-data.html#cb274-1" aria-hidden="true" tabindex="-1"></a>&lt;b<span class="op">&gt;</span>My bold text&lt;/b<span class="op">&gt;</span></span></code></pre></div>
 <p>Similarly, if we want a list then we start and end the list, as well as each item.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb274-1"><a href="gather-data.html#cb274-1" aria-hidden="true" tabindex="-1"></a>&lt;ul<span class="op">&gt;</span></span>
-<span id="cb274-2"><a href="gather-data.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Learn webscraping&lt;/li<span class="op">&gt;</span></span>
-<span id="cb274-3"><a href="gather-data.html#cb274-3" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Do data science&lt;/li<span class="op">&gt;</span></span>
-<span id="cb274-4"><a href="gather-data.html#cb274-4" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Proft&lt;/li<span class="op">&gt;</span></span>
-<span id="cb274-5"><a href="gather-data.html#cb274-5" aria-hidden="true" tabindex="-1"></a>&lt;/ul<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb275-1"><a href="gather-data.html#cb275-1" aria-hidden="true" tabindex="-1"></a>&lt;ul<span class="op">&gt;</span></span>
+<span id="cb275-2"><a href="gather-data.html#cb275-2" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Learn webscraping&lt;/li<span class="op">&gt;</span></span>
+<span id="cb275-3"><a href="gather-data.html#cb275-3" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Do data science&lt;/li<span class="op">&gt;</span></span>
+<span id="cb275-4"><a href="gather-data.html#cb275-4" aria-hidden="true" tabindex="-1"></a>  &lt;li<span class="op">&gt;</span>Proft&lt;/li<span class="op">&gt;</span></span>
+<span id="cb275-5"><a href="gather-data.html#cb275-5" aria-hidden="true" tabindex="-1"></a>&lt;/ul<span class="op">&gt;</span></span></code></pre></div>
 <p>When scraping we will search for these tags.</p>
 <p>To get started, we can pretend that we obtained some HTML from a website, and that we want to get the name from it. We can see that the name is in bold, so we want to focus on that feature and extract it.</p>
-<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">website_extract</span> <span class="op">&lt;-</span> <span class="st">"&lt;p&gt;Hi, I’m &lt;b&gt;Rohan&lt;/b&gt; Alexander.&lt;/p&gt;"</span></code></pre></div>
 <p>We will use <code><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html()</a></code> from <code>rvest</code> <span class="citation">(<a href="references-1.html#ref-citervest" role="doc-biblioref">Wickham 2019d</a>)</span> to read in the data.</p>
-<div class="sourceCode" id="cb276"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("rvest")</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span>
 
@@ -542,7 +542,7 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 <span class="co">#&gt; &lt;html&gt;</span>
 <span class="co">#&gt; [1] &lt;body&gt;&lt;p&gt;Hi, I’m &lt;b&gt;Rohan&lt;/b&gt; Alexander.&lt;/p&gt;&lt;/body&gt;</span></code></pre></div>
 <p>The language used by <code>rvest</code> to look for tags is ‘node’, so we focus on bold nodes. By default <code><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes()</a></code> returns the tags as well. We can focus on the text that they contain, with <code><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text()</a></code>.</p>
-<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rohans_data</span> |&gt; 
   <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span>
 <span class="co">#&gt; {xml_nodeset (1)}</span>
@@ -561,7 +561,7 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 </h3>
 <p>In this case study we will scrape a list of books from: <a href="https://rohanalexander.com/bookshelf.html" class="uri">https://rohanalexander.com/bookshelf.html</a>. We will then clean the data and look at the distribution of the first letters of author surnames. It is slightly more complicated than the example above, but the underlying approach is the same: download the website, look for the nodes of interest, extract the information, clean it.</p>
 <p>We use <code>rvest</code> <span class="citation">(<a href="references-1.html#ref-citervest" role="doc-biblioref">Wickham 2019d</a>)</span> to download a website, and to then navigate the html to find the aspects that we are interested in. And we use <code>tidyverse</code> to clean the dataset. We first need to go to the website and then save a local copy.</p>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://xml2.r-lib.org/">xml2</a></span><span class="op">)</span>
@@ -570,9 +570,9 @@ Figure 9.7: Comparing valence, over time, for Radiohead, Taylor Swift, and The N
 
 <span class="fu"><a href="http://xml2.r-lib.org/reference/write_xml.html">write_html</a></span><span class="op">(</span><span class="va">books_data</span>, <span class="st">"raw_data.html"</span><span class="op">)</span> </code></pre></div>
 <p>Now we need to navigate the HTML to get the aspects that we want, and to then put them into some sensible structure. We will start with trying to get the data into a tibble as quickly as possible because this will allow us to more easily use <code>dplyr</code> verbs and <code>tidyverse</code> functions.</p>
-<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">books_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"inputs/my_website/raw_data.html"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">books_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"inputs/my_website/raw_data.html"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">books_data</span>
 <span class="co">#&gt; {html_document}</span>
 <span class="co">#&gt; &lt;html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""&gt;</span>
@@ -592,7 +592,7 @@ Figure 9.9: HTML for the top of the books website and the list of books
 </p>
 </div>
 <p>The tag for a list item is ‘li’, so we can use that to focus on the list.</p>
-<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">text_data</span> <span class="op">&lt;-</span> 
   <span class="va">books_data</span> |&gt;
   <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes</a></span><span class="op">(</span><span class="st">"li"</span><span class="op">)</span> |&gt;
@@ -612,7 +612,7 @@ Figure 9.9: HTML for the top of the books website and the list of books
 <span class="co">#&gt; 5 Want to buy               </span>
 <span class="co">#&gt; 6 Best books that I read in:</span></code></pre></div>
 <p>We now need to clean the data. First we want to separate the title and the author using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> and then clean up the author and title columns.</p>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_books</span> <span class="op">&lt;-</span>
   <span class="va">all_books</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">7</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">all_books</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -667,13 +667,13 @@ Figure 9.9: HTML for the top of the books website and the list of books
 <!-- head(all_books) -->
 <!-- ``` -->
 <p>There are some at the end that we need to get rid of because they are from a ‘best of’.</p>
-<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_books</span> <span class="op">&lt;-</span> 
   <span class="va">all_books</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">142</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">author</span> <span class="op">!=</span> <span class="st">"‘150 Years of Stats Canada!’."</span><span class="op">)</span></code></pre></div>
 <p>Finally, we could make a table of the distribution of the first letter of the names (Table <a href="gather-data.html#tab:lettersofbooks">9.1</a>).</p>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_books</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
     first_letter <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="va">author</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>
@@ -799,7 +799,7 @@ Figure 9.9: HTML for the top of the books website and the list of books
 </h3>
 <p>In this case study we are interested in how long UK prime ministers lived, based on the year that they were born. We will scrape data from Wikipedia using <code>rvest</code> <span class="citation">(<a href="references-1.html#ref-citervest" role="doc-biblioref">Wickham 2019d</a>)</span>, clean it, and then make a graph. Every time we scrape a website things will change. Each scrape will largely be bespoke, even if we can borrow some code from earlier projects. It is completely normal to feel frustrated at times. It helps to begin with an end in mind.</p>
 <p>To that end, we can start by generating some simulated data. Ideally, we want a table that has a row for each prime minister, a column for their name, and a column each for the birth and death years. If they are still alive, then that death year can be empty. We know that birth and death years should be somewhere between 1700 and 1990, and that death year should be larger than birth year. Finally, we also know that the years should be integers, and the names should be characters. So, we want something that looks roughly like this:</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/babynames">babynames</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -835,10 +835,10 @@ Figure 9.10: Sketch of planned graph showing how long UK prime ministers lived
 </div>
 <p>We are starting with a question that is of interest, which how long each UK prime minister lived. As such, we need to identify a source of data While there are plenty of data sources that have the births and deaths of each prime minister, we want one that we can trust, and as we are going to be scraping, we want one that has some structure to it. The Wikipedia page about UK prime ministers fits both these criteria: <a href="https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom" class="uri">https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom</a>. As it is a popular page the information is more likely to be correct, and the data are available in a table.</p>
 <p>We load <code>rvest</code> and then download the page using <code><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html()</a></code>. Saving it locally provides us with a copy that we need for reproducibility in case the website changes, and also means that we do not have to keep visiting the website. But it is likely not our property, and so this is typically not something that should be necessarily redistributed.</p>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom"</span><span class="op">)</span>
 <span class="fu"><a href="http://xml2.r-lib.org/reference/write_xml.html">write_html</a></span><span class="op">(</span><span class="va">raw_data</span>, <span class="st">"pms.html"</span><span class="op">)</span></code></pre></div>
@@ -850,10 +850,10 @@ Figure 9.10: Sketch of planned graph showing how long UK prime ministers lived
 Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 </p>
 </div>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Read in our saved data</span>
 <span class="va">raw_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"pms.html"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># We can parse tags in order</span>
 <span class="va">parse_data_selector_gadget</span> <span class="op">&lt;-</span> 
   <span class="va">raw_data</span> |&gt; 
@@ -868,7 +868,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; [5] "\nWilliam Cavendish4th Duke of Devonshire(1720–1764)\n"  </span>
 <span class="co">#&gt; [6] "\nThomas Pelham-Holles1st Duke of Newcastle(1693–1768)\n"</span></code></pre></div>
 <p>In this case there is are a few blank lines that we will need to filter away.</p>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">parsed_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>raw_text <span class="op">=</span> <span class="va">parse_data_selector_gadget</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">raw_text</span> <span class="op">!=</span> <span class="st">"—\n"</span><span class="op">)</span> |&gt;
@@ -905,7 +905,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; 5 "\nWilliam Cavendish4th Duke of Devonshire(1720–1764)\n"  </span>
 <span class="co">#&gt; 6 "\nThomas Pelham-Holles1st Duke of Newcastle(1693–1768)\n"</span></code></pre></div>
 <p>Now that we have the parsed data, we need to clean it to match what we wanted. In particular we want a names column, as well as columns for birth year and death year. We will use <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> to take advantage of the fact that it looks like the dates are distinguished by brackets.</p>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">initial_clean</span> <span class="op">&lt;-</span> 
   <span class="va">parsed_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>raw_text <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="va">raw_text</span>, <span class="st">"\n"</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -930,7 +930,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; 5 William Cavendish4th Du… Will… 1720–17… 1720… ""          </span>
 <span class="co">#&gt; 6 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""</span></code></pre></div>
 <p>Finally, we need to clean up the columns.</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">initial_clean</span> <span class="op">&lt;-</span> 
  <span class="va">initial_clean</span> |&gt; 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">Name</span>, 
@@ -955,7 +955,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; 4 Thomas Pelham-Hol… Thom… &lt;NA&gt;  1693–17… 1693… ""          </span>
 <span class="co">#&gt; 5 William Cavendish… Will… &lt;NA&gt;  1720–17… 1720… ""          </span>
 <span class="co">#&gt; 6 Thomas Pelham-Hol… Thom… &lt;NA&gt;  1693–17… 1693… ""</span></code></pre></div>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_data</span> <span class="op">&lt;-</span> 
   <span class="va">initial_clean</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Date</span><span class="op">)</span> |&gt; 
@@ -983,7 +983,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; 5 William Cavendish     1720  1764           44</span>
 <span class="co">#&gt; 6 John Stuart           1713  1792           79</span></code></pre></div>
 <p>Our dataset looks similar to the one that we said we wanted at the start (Table <a href="gather-data.html#tab:canadianpmscleanddata">9.2</a>).</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_data</span> |&gt; 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
     caption <span class="op">=</span> <span class="st">"UK Prime Ministers, by how old they were when they died"</span>,
@@ -1346,7 +1346,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 </tbody>
 </table></div>
 <p>At this point we would like to make a graph that illustrates how long each prime minister lived. If they are still alive then we would like them to run to the end, but we would like to color them differently.</p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>still_alive <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Died</span><span class="op">)</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span><span class="op">)</span>,
          Died <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Died</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">2022</span><span class="op">)</span>, <span class="va">Died</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -1372,7 +1372,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <p>Considering text as data is exciting and opens up a lot of different research questions. Many guides assume that we already have a nicely formatted text dataset, but that is rarely actually the case. In this case study we will download files from a few different pages. While we have already seen two examples of web scraping, those were focused on just one page, whereas we often need many. Here we will focus on this iteration. We will use <code><a href="https://rdrr.io/r/utils/download.file.html">download.file()</a></code> to do the download, and <code>purrr</code> <span class="citation">(<a href="references-1.html#ref-citepurrr" role="doc-biblioref">Henry and Wickham 2020</a>)</span> to apply this function across multiple sites.</p>
 <p>The Reserve Bank of Australia (RBA) is Australia’s central bank and sets monetary policy. It has responsibility for setting the cash rate, which is the interest rate used for loans between banks. This interest rate is an especially important one, and has a large impact on the other interest rates in the economy. Four times a year – February, May, August, and November – the RBA publishes a statement on monetary policy, and these are available as PDFs. In this example we will download the four statements published in 2021.</p>
 <p>First we set-up a dataframe that has the information that we need.</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">statements_of_interest</span> <span class="op">&lt;-</span> 
@@ -1400,7 +1400,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
 <span class="co">#&gt; 4 https://www.rba.gov.au/publications/smp/2… 2021-02.pdf</span></code></pre></div>
 <p>Then we can apply the function <code>download.files()</code> to these four</p>
 <p>Then we can write a function that will download the file, let us know that it was downloaded, wait a polite amount of time, and then go get the next file.</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">visit_download_and_wait</span> <span class="op">&lt;-</span>
   <span class="kw">function</span><span class="op">(</span><span class="va">the_address_to_visit</span>, <span class="va">where_to_save_it_locally</span><span class="op">)</span> <span class="op">{</span>
     
@@ -1413,7 +1413,7 @@ Figure 9.11: Using the Selector Gadget to identify the tag, as at 13 March 2020.
     <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
   <span class="op">}</span></code></pre></div>
 <p>We now apply that function to our list of URLs.</p>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">walk2</a></span><span class="op">(</span><span class="va">statements_of_interest</span><span class="op">$</span><span class="va">address</span>,
       <span class="va">statements_of_interest</span><span class="op">$</span><span class="va">local_save_name</span>,
       <span class="op">~</span><span class="fu">visit_download_and_wait</span><span class="op">(</span><span class="va">.x</span>, <span class="va">.y</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1445,7 +1445,7 @@ Figure 9.12: First sentence of Jane Eyre
 </p>
 </div>
 <p>If assume that it was saved as ‘first_example.pdf’, then we can <code>pdftools</code> <span class="citation">(<a href="references-1.html#ref-citepdftools" role="doc-biblioref">Ooms 2019a</a>)</span> to get the text from this one-page PDF into R.</p>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -1463,14 +1463,14 @@ Figure 9.13: First few paragraphs of Jane Eyre
 </p>
 </div>
 <p>We use the same function as before.</p>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">second_example</span> <span class="op">&lt;-</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"second_example.pdf"</span><span class="op">)</span>
 
 <span class="va">second_example</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">second_example</span><span class="op">)</span></code></pre></div>
 <p>Again, we have a character vector. The end of each line is signaled by ‘\n’, but other than that it looks pretty good. Finally, we consider the first two pages.</p>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">third_example</span> <span class="op">&lt;-</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"third_example.pdf"</span><span class="op">)</span>
 
 <span class="va">third_example</span>
@@ -1478,11 +1478,11 @@ Figure 9.13: First few paragraphs of Jane Eyre
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">third_example</span><span class="op">)</span></code></pre></div>
 <p>Notice that the first page is the first element of the character vector, and the second page is the second element. As we are most familiar with rectangular data, we will try to get it into that format as quickly as possible. And then we can use our regular <code>tidyverse</code> functions to deal with it.</p>
 <p>First we want to convert the character vector into a tibble. At this point we may like to add page numbers as well.</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">jane_eyre</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>raw_text <span class="op">=</span> <span class="va">third_example</span>,
                     page_number <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We then want to separate the lines so that each line is an observation. We can do that by looking for ‘\n’ remembering that we need to escape the backslash as it is a special character.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">jane_eyre</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">jane_eyre</span>, <span class="va">raw_text</span>, sep <span class="op">=</span> <span class="st">"\\n"</span>, convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="va">jane_eyre</span>
@@ -1520,7 +1520,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 </p>
 </div>
 <p>There are 19 different PDFs, and we are interested in a particular column in a particular table in each of them. Unfortunately, there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">summary_tfr_dataset</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">page</span>, <span class="va">table</span>, <span class="va">column_name</span>, <span class="va">url</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -2023,18 +2023,18 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 </div>
 <p>The first step is to get some code that works for one of them. I’ll step through the code in a lot more detail than normal because we’re going to use these pieces a lot.</p>
 <p>We will choose the year 2000. We first download and save the PDF using <code><a href="https://rdrr.io/r/utils/download.file.html">download.file()</a></code>.</p>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>url <span class="op">=</span> <span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">url</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, 
               destfile <span class="op">=</span> <span class="st">"year_2000.pdf"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># INTERNAL</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>url <span class="op">=</span> <span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">url</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, 
               destfile <span class="op">=</span> <span class="st">"inputs/pdfs/dhs/year_2000.pdf"</span><span class="op">)</span></code></pre></div>
 <p>We then read the PDF in as a character vector using <code><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text()</a></code> from <code>pdftools</code>. And then convert it to a tibble, so that we can use familiar verbs on it.</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span>
 <span class="va">dhs_2000</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"year_2000.pdf"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>raw_data <span class="op">=</span> <span class="va">dhs_2000</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dhs_2000</span><span class="op">)</span>
@@ -2048,7 +2048,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 "                                                        …</span>
 <span class="co">#&gt; 6 "6   National Vital Statistics Report, Vol. 50, No. 5, Fe…</span></code></pre></div>
 <p>Grab the page that is of interest (remembering that each page is a element of the character vector, hence a row in the tibble).</p>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> 
   <span class="va">dhs_2000</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">page</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
@@ -2059,7 +2059,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt;   &lt;chr&gt;                                                     </span>
 <span class="co">#&gt; 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Rev…</span></code></pre></div>
 <p>Now we want to separate the rows.</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> 
   <span class="va">dhs_2000</span> |&gt; 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">raw_data</span>, sep <span class="op">=</span> <span class="st">"\\n"</span>, convert <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
@@ -2075,7 +2075,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 "[By place of residence. Birth rates are live births per …</span>
 <span class="co">#&gt; 6 "estimated in each area; total fertility rates are sums o…</span></code></pre></div>
 <p>Now we are searching for patterns that we can use. Let us look at the first ten lines of content.</p>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span><span class="op">[</span><span class="fl">13</span><span class="op">:</span><span class="fl">22</span>,<span class="op">]</span>
 <span class="co">#&gt; # A tibble: 10 × 1</span>
 <span class="co">#&gt;    raw_data                                                 </span>
@@ -2096,7 +2096,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <li>We have a space between each of the columns.</li>
 </ol>
 <p>So we can now separate this in to separate columns. First we want to match on when there is at least two dots (remembering that the dot is a special character and so needs to be escaped).</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> 
   <span class="va">dhs_2000</span> |&gt; 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">raw_data</span>, 
@@ -2118,7 +2118,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 6 "estimated in each area; total fertility rate… "est… &lt;NA&gt;</span></code></pre></div>
 <p>We get the expected warnings about the top and the bottom as they do not have multiple dots. (Another option here is to use <code><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_data()</a></code> which would allow us to use location rather than delimiters.)</p>
 <p>We can now separate the data based on spaces. There is an inconsistent number of spaces, so we first squish any example of more than one space into just one.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> 
   <span class="va">dhs_2000</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_trim.html">str_squish</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -2148,7 +2148,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; #   teen_births_all &lt;chr&gt;, teen_births_15_17 &lt;chr&gt;,</span>
 <span class="co">#&gt; #   teen_births_18_19 &lt;chr&gt;</span></code></pre></div>
 <p>This is all looking fairly great. The only thing left is to clean up.</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> 
   <span class="va">dhs_2000</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">TFR</span><span class="op">)</span> |&gt; 
@@ -2172,7 +2172,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; # … with 47 more rows</span></code></pre></div>
 <p>And we’re done for that year. Now we want to take these pieces, put them into a function and then run that function over all 19 years.</p>
 <p>The first part is downloading each of the 19 PDFs that we need. We are going to build on the code that we used before. That code was:</p>
-<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>url <span class="op">=</span> <span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">url</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, destfile <span class="op">=</span> <span class="st">"year_2000.pdf"</span><span class="op">)</span></code></pre></div>
 <p>To modify this we need:</p>
 <ol style="list-style-type: decimal">
@@ -2181,13 +2181,13 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <li>We would like for it to do all of this in a way that is a little robust to errors. For instance, if one of the URLs is wrong or the internet drops out then we would like it to just move onto the next PDF, and then warn us at the end that it missed one, not to stop. (This does not really matter because it is only 19 files, but it is easy to find oneself doing this for thousands of files).</li>
 </ol>
 <p>We will draw on <code>purrr</code> for this <span class="citation">(<a href="references-1.html#ref-citepurrr" role="doc-biblioref">Henry and Wickham 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
 
 <span class="va">summary_tfr_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">summary_tfr_dataset</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>pdf_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"dhs/year_"</span>, <span class="va">year</span>, <span class="st">".pdf"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">walk2</a></span><span class="op">(</span>
   <span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">url</span>,
   <span class="va">summary_tfr_dataset</span><span class="op">$</span><span class="va">pdf_name</span>,
@@ -2196,7 +2196,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <p>Here we take <code><a href="https://rdrr.io/r/utils/download.file.html">download.file()</a></code> and pass it two arguments: <code>.x</code> and <code>.y</code>. Then <code><a href="https://purrr.tidyverse.org/reference/map2.html">walk2()</a></code> applies that function to the inputs that we give it, in this case the URLs columns is the <code>.x</code> and the pdf_names column is the <code>.y</code>. Finally, <code><a href="https://purrr.tidyverse.org/reference/safely.html">safely()</a></code> means that if there are any failures then it just moves onto the next file instead of throwing an error.</p>
 <p>We now have each of the PDFs saved and we can move onto getting the data from them.</p>
 <p>Now we need to get the data from the PDFs. As before, we are going to build on the code that we used before. That code (overly condensed) was:</p>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dhs_2000</span> <span class="op">&lt;-</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text</a></span><span class="op">(</span><span class="st">"year_2000.pdf"</span><span class="op">)</span>
 
 <span class="va">dhs_2000</span> <span class="op">&lt;-</span>
@@ -2237,7 +2237,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 </ol>
 <p>Finally, we add the year only at the end, whereas we would need to bring that up earlier in the process.</p>
 <p>We will start by writing a function that will go through all the files, grab the data, get the page of interest, and then expand the rows. We will then use <code><a href="https://purrr.tidyverse.org/reference/map2.html">pmap_dfr()</a></code> from <code>purrr</code> to apply that function to all of the PDFs and to output a tibble.</p>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">get_pdf_convert_to_tibble</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">pdf_name</span>, <span class="va">page</span>, <span class="va">year</span><span class="op">)</span><span class="op">{</span>
   
   <span class="va">dhs_table_of_interest</span> <span class="op">&lt;-</span> 
@@ -2292,7 +2292,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 "[By place of residence. Birth r… "[By… &lt;NA&gt;          2000</span>
 <span class="co">#&gt; 6 "estimated in each area; total f… "est… &lt;NA&gt;          2000</span></code></pre></div>
 <p>Now we need to clean up the state names and then filter on them.</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alabama"</span>, <span class="st">"Alaska"</span>, <span class="st">"Arizona"</span>, <span class="st">"Arkansas"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, 
             <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Florida"</span>, <span class="st">"Georgia"</span>, <span class="st">"Hawaii"</span>, <span class="st">"Idaho"</span>, 
             <span class="st">"Illinois"</span>, <span class="st">"Indiana"</span>, <span class="st">"Iowa"</span>, <span class="st">"Kansas"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Louisiana"</span>, 
@@ -2329,7 +2329,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 California .....................… Cali… 531,…         2000</span>
 <span class="co">#&gt; 6 Colorado .......................… Colo… 65,4…         2000</span></code></pre></div>
 <p>The next step is to separate the data and get the correct column from it. We are going to separate based on spaces once it is cleaned up.</p>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_dhs_data</span> <span class="op">&lt;-</span> 
   <span class="va">raw_dhs_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="va">data</span>, <span class="st">"\\*"</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -2350,7 +2350,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; # … with 5 more variables: col_7 &lt;chr&gt;, col_8 &lt;chr&gt;,</span>
 <span class="co">#&gt; #   col_9 &lt;chr&gt;, col_10 &lt;chr&gt;, year_of_data &lt;dbl&gt;</span></code></pre></div>
 <p>We can now grab the correct column.</p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tfr_data</span> <span class="op">&lt;-</span> 
   <span class="va">raw_dhs_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TFR <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">year_of_data</span> <span class="op">&lt;</span> <span class="fl">2008</span>, <span class="va">col_4</span>, <span class="va">col_3</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -2367,7 +2367,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 California  2000 2,186.0</span>
 <span class="co">#&gt; 6 Colorado    2000 2,356.5</span></code></pre></div>
 <p>Finally, we need to convert the case.</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tfr_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 3</span>
 <span class="co">#&gt;   state       year TFR    </span>
@@ -2395,7 +2395,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; 5 California  2000 2186 </span>
 <span class="co">#&gt; 6 Colorado    2000 2356.</span></code></pre></div>
 <p>And run some checks.</p>
-<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tfr_data</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fl">51</span>
 <span class="co">#&gt; [1] TRUE</span>
 
@@ -2403,7 +2403,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>In particular we want for there to be 51 states and for there to be 19 years.</p>
 <p>And we are done (Table <a href="gather-data.html#tab:tfrforthewin">9.3</a>)!</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tfr_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> |&gt;
   <span class="fu">knitr</span><span class="fu">::</span> <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
@@ -2489,7 +2489,7 @@ Figure 9.15: Planned dataset of TFR for each year and US state
 Figure 9.16: Scan of first page of Jane Eyre
 </p>
 </div>
-<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/tesseract/">tesseract</a></span><span class="op">)</span>
 
 <span class="va">text</span> <span class="op">&lt;-</span> <span class="fu">tesseract</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/tesseract/reference/ocr.html">ocr</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"jane_scan.png"</span><span class="op">)</span>, engine <span class="op">=</span> <span class="fu"><a href="https://docs.ropensci.org/tesseract/reference/tesseract.html">tesseract</a></span><span class="op">(</span><span class="st">"eng"</span><span class="op">)</span><span class="op">)</span>
@@ -2669,7 +2669,7 @@ Figure 9.16: Scan of first page of Jane Eyre
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

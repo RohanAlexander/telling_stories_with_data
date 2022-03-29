@@ -128,7 +128,7 @@ population_for_mrp_example <-
 
 population_for_mrp_example |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   age_group toilet_trained bed_time
 #>   <fct>     <fct>             <dbl>
 #> 1 1         0                  5.74
@@ -157,7 +157,7 @@ population_for_mrp_example |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="16-mrp_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](16-mrp_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 And we can also work out what the 'truth' is for the information that we are interested in (remembering that we'd never actually know this when we move away from simulated examples).
 
@@ -176,15 +176,23 @@ population_for_mrp_example_summarised |>
 ```
 
 
-
-|Age-group |Is toilet trained | Average bed time|
-|:---------|:-----------------|----------------:|
-|1         |0                 |             5.50|
-|1         |1                 |             6.50|
-|2         |0                 |             6.00|
-|2         |1                 |             7.00|
-|3         |0                 |             6.50|
-|3         |1                 |             7.51|
+\begin{tabular}{l|l|r}
+\hline
+Age-group & Is toilet trained & Average bed time\\
+\hline
+1 & 0 & 5.50\\
+\hline
+1 & 1 & 6.50\\
+\hline
+2 & 0 & 6.00\\
+\hline
+2 & 1 & 7.00\\
+\hline
+3 & 0 & 6.50\\
+\hline
+3 & 1 & 7.51\\
+\hline
+\end{tabular}
 
 ### Get a biased sample from it
 
@@ -239,7 +247,7 @@ sample_for_mrp_example |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="16-mrp_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](16-mrp_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 It is pretty clear that our sample has a different bedtime than the overall population, but let us just do the same exercise as before to look at the median, by age and toilet-trained status.
 
@@ -258,15 +266,23 @@ sample_for_mrp_example_summarized |>
 ```
 
 
-
-|Age-group |Is toilet trained | Average bed time|
-|:---------|:-----------------|----------------:|
-|1         |0                 |             5.41|
-|1         |1                 |             6.35|
-|2         |0                 |             5.89|
-|2         |1                 |             6.85|
-|3         |0                 |             6.49|
-|3         |1                 |             7.62|
+\begin{tabular}{l|l|r}
+\hline
+Age-group & Is toilet trained & Average bed time\\
+\hline
+1 & 0 & 5.41\\
+\hline
+1 & 1 & 6.35\\
+\hline
+2 & 0 & 5.89\\
+\hline
+2 & 1 & 6.85\\
+\hline
+3 & 0 & 6.49\\
+\hline
+3 & 1 & 7.62\\
+\hline
+\end{tabular}
 
 
 ### Model the sample
@@ -284,76 +300,31 @@ mrp_example_model |>
   modelsummary::modelsummary(fmt = 2)
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 5.47 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.04) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_group2 </td>
-   <td style="text-align:center;"> 0.54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.09) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_group3 </td>
-   <td style="text-align:center;"> 1.15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.09) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> toilet_trained1 </td>
-   <td style="text-align:center;"> 0.91 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.07) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 1000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.373 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> 0.371 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 2839.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 2863.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −1414.630 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 197.594 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & Model 1\\
+\midrule
+(Intercept) & \num{5.47}\\
+ & (\num{0.04})\\
+age\_group2 & \num{0.54}\\
+ & \vphantom{1} (\num{0.09})\\
+age\_group3 & \num{1.15}\\
+ & (\num{0.09})\\
+toilet\_trained1 & \num{0.91}\\
+ & (\num{0.07})\\
+\midrule
+Num.Obs. & \num{1000}\\
+R2 & \num{0.373}\\
+R2 Adj. & \num{0.371}\\
+AIC & \num{2839.3}\\
+BIC & \num{2863.8}\\
+Log.Lik. & \num{-1414.630}\\
+F & \num{197.594}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 This is the 'multilevel regression' part of the MRP (although this isn't really a multilevel model just to keep things simple for now).
 
@@ -374,7 +345,7 @@ poststratification_dataset <-
 
 poststratification_dataset |> 
   head()
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   age_group toilet_trained weight    id
 #>   <fct>     <fct>           <dbl> <int>
 #> 1 1         0                 0.7     1
@@ -396,7 +367,7 @@ poststratification_dataset_grouped <-
 
 poststratification_dataset_grouped |> 
   head()
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #> # Groups:   age_group, toilet_trained [6]
 #>   age_group toilet_trained     n
 #>   <fct>     <fct>          <int>
@@ -442,7 +413,7 @@ poststratification_dataset_grouped |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="16-mrp_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](16-mrp_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 
 
@@ -486,24 +457,21 @@ This means that they need cross-tabulated population data. In general, the censu
 
 They make state-specific estimates by post-stratifying to the features of each state (Figure \@ref(fig:states)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/states.png" alt="Post-stratified estimates for each state based on the Xbox survey and MRP" width="100%" />
-<p class="caption">(\#fig:states)Post-stratified estimates for each state based on the Xbox survey and MRP</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/states} \caption{Post-stratified estimates for each state based on the Xbox survey and MRP}(\#fig:states)
+\end{figure}
 
 Similarly, they can examine demographic-differences (Figure \@ref(fig:demographics)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/demographics.png" alt="Post-stratified estimates on a demographic basis based on the Xbox survey and MRP" width="100%" />
-<p class="caption">(\#fig:demographics)Post-stratified estimates on a demographic basis based on the Xbox survey and MRP</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/demographics} \caption{Post-stratified estimates on a demographic basis based on the Xbox survey and MRP}(\#fig:demographics)
+\end{figure}
 
 Finally, they convert their estimates into electoral college estimates (Figure \@ref(fig:electoralcollege)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/electoral_college.png" alt="Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP" width="100%" />
-<p class="caption">(\#fig:electoralcollege)Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{/Users/rohanalexander/Documents/book/figures/electoral_college} \caption{Post-stratified estimates of electoral college outcomes based on the Xbox survey and MRP}(\#fig:electoralcollege)
+\end{figure}
 
 
 
@@ -604,7 +572,7 @@ sample_for_australian_polling <-
 
 sample_for_australian_polling |>   
   head()
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   age_group     gender state           support_alp 
 #>   <fct>         <fct>  <fct>           <fct>       
 #> 1 Ages 18 to 29 Female South Australia Supports ALP
@@ -637,114 +605,31 @@ sample_for_australian_polling |>
     datasummary_skim(type = "categorical")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:left;">    </th>
-   <th style="text-align:right;"> N </th>
-   <th style="text-align:right;"> % </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> age_group </td>
-   <td style="text-align:left;"> Ages 18 to 29 </td>
-   <td style="text-align:right;"> 458 </td>
-   <td style="text-align:right;"> 26.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Ages 60 plus </td>
-   <td style="text-align:right;"> 421 </td>
-   <td style="text-align:right;"> 24.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Ages 30 to 44 </td>
-   <td style="text-align:right;"> 401 </td>
-   <td style="text-align:right;"> 23.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Ages 45 to 59 </td>
-   <td style="text-align:right;"> 420 </td>
-   <td style="text-align:right;"> 24.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> gender </td>
-   <td style="text-align:left;"> Female </td>
-   <td style="text-align:right;"> 1023 </td>
-   <td style="text-align:right;"> 60.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Male </td>
-   <td style="text-align:right;"> 677 </td>
-   <td style="text-align:right;"> 39.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> state </td>
-   <td style="text-align:left;"> South Australia </td>
-   <td style="text-align:right;"> 233 </td>
-   <td style="text-align:right;"> 13.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Victoria </td>
-   <td style="text-align:right;"> 189 </td>
-   <td style="text-align:right;"> 11.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Tasmania </td>
-   <td style="text-align:right;"> 229 </td>
-   <td style="text-align:right;"> 13.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Queensland </td>
-   <td style="text-align:right;"> 214 </td>
-   <td style="text-align:right;"> 12.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Western Australia </td>
-   <td style="text-align:right;"> 198 </td>
-   <td style="text-align:right;"> 11.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> New South Wales </td>
-   <td style="text-align:right;"> 219 </td>
-   <td style="text-align:right;"> 12.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Australian Capital Territory </td>
-   <td style="text-align:right;"> 237 </td>
-   <td style="text-align:right;"> 13.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Northern Territory </td>
-   <td style="text-align:right;"> 181 </td>
-   <td style="text-align:right;"> 10.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> support_alp </td>
-   <td style="text-align:left;"> Supports ALP </td>
-   <td style="text-align:right;"> 896 </td>
-   <td style="text-align:right;"> 52.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> Does not </td>
-   <td style="text-align:right;"> 804 </td>
-   <td style="text-align:right;"> 47.3 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{llrr}
+\toprule
+  &    & N & \%\\
+\midrule
+age\_group & Ages 18 to 29 & 458 & \num{26.9}\\
+ & Ages 60 plus & 421 & \num{24.8}\\
+ & Ages 30 to 44 & 401 & \num{23.6}\\
+ & Ages 45 to 59 & 420 & \num{24.7}\\
+gender & Female & 1023 & \num{60.2}\\
+ & Male & 677 & \num{39.8}\\
+state & South Australia & 233 & \num{13.7}\\
+ & Victoria & 189 & \num{11.1}\\
+ & Tasmania & 229 & \num{13.5}\\
+ & Queensland & 214 & \num{12.6}\\
+ & Western Australia & 198 & \num{11.6}\\
+ & New South Wales & 219 & \num{12.9}\\
+ & Australian Capital Territory & 237 & \num{13.9}\\
+ & Northern Territory & 181 & \num{10.6}\\
+support\_alp & Supports ALP & 896 & \num{52.7}\\
+ & Does not & 804 & \num{47.3}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Now we'd like to see if we can get our results back (we should find females less likely than males to vote for Australian Labor Party and that people are less likely to vote Australian Labor Party as they get older). Our model is:
 
@@ -764,132 +649,45 @@ alp_support |>
   modelsummary(fmt = 2, exponentiate = TRUE)
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 1.44 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.18) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> genderMale </td>
-   <td style="text-align:center;"> 3.22 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.12) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupAges 60 plus </td>
-   <td style="text-align:center;"> 0.07 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.17) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupAges 30 to 44 </td>
-   <td style="text-align:center;"> 0.42 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.15) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupAges 45 to 59 </td>
-   <td style="text-align:center;"> 0.17 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.15) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateVictoria </td>
-   <td style="text-align:center;"> 1.65 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.22) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateTasmania </td>
-   <td style="text-align:center;"> 1.24 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.21) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateQueensland </td>
-   <td style="text-align:center;"> 1.46 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.22) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateWestern Australia </td>
-   <td style="text-align:center;"> 1.18 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.22) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateNew South Wales </td>
-   <td style="text-align:center;"> 1.42 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.21) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateAustralian Capital Territory </td>
-   <td style="text-align:center;"> 1.73 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.21) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> stateNorthern Territory </td>
-   <td style="text-align:center;"> 1.49 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.23) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 1700 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 1959.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 2024.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −967.836 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 28.555 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & Model 1\\
+\midrule
+(Intercept) & \num{1.44}\\
+ & (\num{0.18})\\
+genderMale & \num{3.22}\\
+ & (\num{0.12})\\
+age\_groupAges 60 plus & \num{0.07}\\
+ & (\num{0.17})\\
+age\_groupAges 30 to 44 & \num{0.42}\\
+ & \vphantom{1} (\num{0.15})\\
+age\_groupAges 45 to 59 & \num{0.17}\\
+ & (\num{0.15})\\
+stateVictoria & \num{1.65}\\
+ & \vphantom{2} (\num{0.22})\\
+stateTasmania & \num{1.24}\\
+ & \vphantom{2} (\num{0.21})\\
+stateQueensland & \num{1.46}\\
+ & \vphantom{1} (\num{0.22})\\
+stateWestern Australia & \num{1.18}\\
+ & (\num{0.22})\\
+stateNew South Wales & \num{1.42}\\
+ & \vphantom{1} (\num{0.21})\\
+stateAustralian Capital Territory & \num{1.73}\\
+ & (\num{0.21})\\
+stateNorthern Territory & \num{1.49}\\
+ & (\num{0.23})\\
+\midrule
+Num.Obs. & \num{1700}\\
+AIC & \num{1959.7}\\
+BIC & \num{2024.9}\\
+Log.Lik. & \num{-967.836}\\
+F & \num{28.555}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Essentially we have got our inputs back. Our dependent variable is a binary, and so we used logistic regression so the results are a little more difficult to interpret.
 
@@ -905,7 +703,7 @@ post_strat_census_data <-
   read_csv("outputs/data/census_data.csv")
 
 head(post_strat_census_data)
-#> # A tibble: 6 × 5
+#> # A tibble: 6 x 5
 #>   state gender age_group  number cell_prop_of_division_total
 #>   <chr> <chr>  <chr>       <dbl>                       <dbl>
 #> 1 ACT   Female ages18to29  34683                       0.125
@@ -961,7 +759,7 @@ post_strat_census_data |>
   mutate(alp_predict_prop = fit*cell_prop_of_division_total) |> 
   group_by(state) |> 
   summarise(alp_predict = sum(alp_predict_prop))
-#> # A tibble: 8 × 2
+#> # A tibble: 8 x 2
 #>   state                        alp_predict
 #>   <chr>                              <dbl>
 #> 1 Australian Capital Territory       0.551
@@ -1031,7 +829,7 @@ post_stratified_estimates <-
 #> override using the `.groups` argument.
 
 post_stratified_estimates
-#> # A tibble: 8 × 4
+#> # A tibble: 8 x 4
 #>   state                         mean lower upper
 #>   <chr>                        <dbl> <dbl> <dbl>
 #> 1 Australian Capital Territory 0.550 0.494 0.604
@@ -1065,7 +863,7 @@ post_stratified_estimates |>
   coord_flip()
 ```
 
-<img src="16-mrp_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](16-mrp_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 Similarly, we may like to plot the distribution of the coefficients. We can work out which coefficients to be pass to `gather_draws` with `tidybayes::get_variables(model`; in this example we passed 'b_.', but that will not always be the case.
 
@@ -1194,11 +992,11 @@ if(nrow(tests) != 0) {
 
 nationscape_data |> 
   head()
-#> # A tibble: 6 × 5
+#> # A tibble: 6 x 5
 #>   gender state vote_biden age_group      education_level    
 #>   <chr>  <chr>      <dbl> <chr>          <chr>              
-#> 1 female WI             0 age_45-59      Post secondary or …
-#> 2 female VA             0 age_45-59      Post secondary or …
+#> 1 female WI             0 age_45-59      Post secondary or ~
+#> 2 female VA             0 age_45-59      Post secondary or ~
 #> 3 female TX             0 age_60_or_more High school or less
 #> 4 female WA             0 age_45-59      High school or less
 #> 5 female MA             1 age_18-29      Some post secondary
@@ -1240,15 +1038,15 @@ write_csv(nationscape_data, "outputs/data/polling_data.csv")
 
 nationscape_data |> 
   head()
-#> # A tibble: 6 × 6
+#> # A tibble: 6 x 6
 #>   gender state vote_biden age_group education_level stateicp
 #>   <fct>  <chr>      <dbl> <fct>     <fct>           <fct>   
-#> 1 female WI             0 age_45-59 Post secondary… wiscons…
-#> 2 female VA             0 age_45-59 Post secondary… virginia
-#> 3 female TX             0 age_60_o… High school or… texas   
-#> 4 female WA             0 age_45-59 High school or… washing…
-#> 5 female MA             1 age_18-29 Some post seco… massach…
-#> 6 female TX             1 age_30-44 Some post seco… texas
+#> 1 female WI             0 age_45-59 Post secondary~ wiscons~
+#> 2 female VA             0 age_45-59 Post secondary~ virginia
+#> 3 female TX             0 age_60_o~ High school or~ texas   
+#> 4 female WA             0 age_45-59 High school or~ washing~
+#> 5 female MA             1 age_18-29 Some post seco~ massach~
+#> 6 female TX             1 age_30-44 Some post seco~ texas
 ```
 
 
@@ -1275,16 +1073,16 @@ raw_poststrat_data <-
 raw_poststrat_data <- 
   labelled::to_factor(raw_poststrat_data)
 head(raw_poststrat_data)
-#> # A tibble: 6 × 28
+#> # A tibble: 6 x 28
 #>   year  sample serial cbserial  hhwt cluster region stateicp
 #>   <fct> <fct>   <dbl>    <dbl> <dbl>   <dbl> <fct>  <fct>   
-#> 1 2018  2018 …      2  2.02e12 392.  2.02e12 east … alabama 
-#> 2 2018  2018 …      7  2.02e12  94.1 2.02e12 east … alabama 
-#> 3 2018  2018 …     13  2.02e12  83.7 2.02e12 east … alabama 
-#> 4 2018  2018 …     18  2.02e12  57.5 2.02e12 east … alabama 
-#> 5 2018  2018 …     23  2.02e12 157.  2.02e12 east … alabama 
-#> 6 2018  2018 …     28  2.02e12 157.  2.02e12 east … alabama 
-#> # … with 20 more variables: strata <dbl>, gq <fct>,
+#> 1 2018  2018 ~      2  2.02e12 392.  2.02e12 east ~ alabama 
+#> 2 2018  2018 ~      7  2.02e12  94.1 2.02e12 east ~ alabama 
+#> 3 2018  2018 ~     13  2.02e12  83.7 2.02e12 east ~ alabama 
+#> 4 2018  2018 ~     18  2.02e12  57.5 2.02e12 east ~ alabama 
+#> 5 2018  2018 ~     23  2.02e12 157.  2.02e12 east ~ alabama 
+#> 6 2018  2018 ~     28  2.02e12 157.  2.02e12 east ~ alabama 
+#> # ... with 20 more variables: strata <dbl>, gq <fct>,
 #> #   pernum <dbl>, perwt <dbl>, sex <fct>, age <fct>,
 #> #   marst <fct>, race <fct>, raced <fct>, hispan <fct>,
 #> #   hispand <fct>, bpl <fct>, bpld <fct>, citizen <fct>,
@@ -1353,7 +1151,7 @@ write_csv(poststrat_data, "outputs/data/us_poststrat.csv")
 
 poststrat_data |> 
   head()
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   gender age_group      education_level     stateicp
 #>   <fct>  <fct>          <fct>               <fct>   
 #> 1 female age_18-29      Some post secondary alabama 
@@ -1385,15 +1183,15 @@ poststrat_data_cells <-
   ungroup()
 
 poststrat_data_cells |> head()
-#> # A tibble: 6 × 6
+#> # A tibble: 6 x 6
 #>   stateicp    gender age_group education_level     n    prop
 #>   <fct>       <fct>  <fct>     <fct>           <int>   <dbl>
-#> 1 connecticut male   age_18-29 Some post seco…   149 0.0260 
-#> 2 connecticut male   age_18-29 High school or…   232 0.0404 
-#> 3 connecticut male   age_18-29 Post secondary…    96 0.0167 
+#> 1 connecticut male   age_18-29 Some post seco~   149 0.0260 
+#> 2 connecticut male   age_18-29 High school or~   232 0.0404 
+#> 3 connecticut male   age_18-29 Post secondary~    96 0.0167 
 #> 4 connecticut male   age_18-29 Graduate degree    25 0.00436
-#> 5 connecticut male   age_60_o… Some post seco…   142 0.0248 
-#> 6 connecticut male   age_60_o… High school or…   371 0.0647
+#> 5 connecticut male   age_60_o~ Some post seco~   142 0.0248 
+#> 6 connecticut male   age_60_o~ High school or~   371 0.0647
 ```
 
 
@@ -1471,160 +1269,52 @@ modelsummary::modelsummary(us_election_model,
                             )
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 0.276 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.103) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.448) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> gendermale </td>
-   <td style="text-align:center;"> −0.541 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.652) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.430) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupage_60_or_more </td>
-   <td style="text-align:center;"> 0.049 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.108) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.201) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupage_18-29 </td>
-   <td style="text-align:center;"> 0.878 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.698) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (1.062) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> age_groupage_30-44 </td>
-   <td style="text-align:center;"> 0.125 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.025) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.285) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> education_levelHigh school or less </td>
-   <td style="text-align:center;"> −0.351 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.513) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.204) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> education_levelSome post secondary </td>
-   <td style="text-align:center;"> −0.150 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.299) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.006) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> education_levelGraduate degree </td>
-   <td style="text-align:center;"> −0.220 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.382) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (−0.037) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Sigma[stateicp × (Intercept),(Intercept)] </td>
-   <td style="text-align:center;"> 0.080 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.029) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.160) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 5200 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.057 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Marg. </td>
-   <td style="text-align:center;"> 0.045 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ELPD </td>
-   <td style="text-align:center;"> −3468.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ELPD s.e. </td>
-   <td style="text-align:center;"> 16.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> LOOIC </td>
-   <td style="text-align:center;"> 6936.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> LOOIC s.e. </td>
-   <td style="text-align:center;"> 32.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> WAIC </td>
-   <td style="text-align:center;"> 6936.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RMSE </td>
-   <td style="text-align:center;"> 0.48 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & Model 1\\
+\midrule
+(Intercept) & \num{0.276}\\
+ & (\num{0.103})\\
+ & (\num{0.448})\\
+gendermale & \num{-0.541}\\
+ & (\num{-0.652})\\
+ & (\num{-0.430})\\
+age\_groupage\_60\_or\_more & \num{0.049}\\
+ & (\num{-0.108})\\
+ & (\num{0.201})\\
+age\_groupage\_18-29 & \num{0.878}\\
+ & (\num{0.698})\\
+ & (\num{1.062})\\
+age\_groupage\_30-44 & \num{0.125}\\
+ & (\num{-0.025})\\
+ & (\num{0.285})\\
+education\_levelHigh school or less & \num{-0.351}\\
+ & (\num{-0.513})\\
+ & (\num{-0.204})\\
+education\_levelSome post secondary & \num{-0.150}\\
+ & (\num{-0.299})\\
+ & (\num{0.006})\\
+education\_levelGraduate degree & \num{-0.220}\\
+ & (\num{-0.382})\\
+ & (\num{-0.037})\\
+Sigma[stateicp × (Intercept),(Intercept)] & \num{0.080}\\
+ & (\num{0.029})\\
+ & (\num{0.160})\\
+\midrule
+Num.Obs. & \num{5200}\\
+R2 & \num{0.057}\\
+R2 Marg. & \num{0.045}\\
+ELPD & \num{-3468.0}\\
+ELPD s.e. & \num{16.4}\\
+LOOIC & \num{6936.1}\\
+LOOIC s.e. & \num{32.8}\\
+WAIC & \num{6936.0}\\
+RMSE & \num{0.48}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 ### Post-stratify
@@ -1679,7 +1369,7 @@ biden_support_by_state |>
 #> override using the `.groups` argument.
 ```
 
-<img src="16-mrp_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](16-mrp_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 
 

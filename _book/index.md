@@ -1,7 +1,7 @@
 --- 
 title: "Telling Stories With Data"
 author: "Rohan Alexander"
-date: "26 March, 2022"
+date: "29 March, 2022"
 documentclass: krantz
 bibliography: bibliography.bib
 biblio-style: apalike
@@ -23,10 +23,14 @@ cover-image: tellingstorieswithdatapainting.png
 
 # Preface {-}
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting.png" alt="Telling stories with data" width="90%" />
-<p class="caption">(\#fig:unnamed-chunk-1)Telling stories with data</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/tellingstorieswithdatapainting} 
+
+}
+
+\caption{Telling stories with data}(\#fig:unnamed-chunk-1)
+\end{figure}
 
 This book will help you tell stories with data. It establishes a foundation on which you can build and share knowledge about an aspect of the world of interest to you based on data that you observe. Telling stories in small groups around a fire played a critical role in the development of humans and society [@wiessner2014embers]. Today our stories, based on data, can influence millions.
 
@@ -152,9 +156,9 @@ This book has greatly benefited from the notes and teaching materials of others 
 
 Thank you to Samantha-Jo Caetano, who helped develop some of the assessment items. And also, to Lisa Romkey and Alan Chong who allowed me to adapt some aspects of their rubric.
 
-Thank you to those students who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
+Thank you to those who contributed substantially to the development of this book, including: A Mahfouz, Faria Khandaker, Keli Chiu, Paul Hodgetts, and Thomas William Rosenthal. I discussed most aspects of this book with them, and while they made specific contributions, they also changed and sharpened the way that I thought about almost everything covered here. Paul additionally made the art for this book.
 
-Thank you to those students who identified specific improvements, including: Aaron Miller, Amy Farrow, Arsh Lakhanpal, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
+Thank you to those who identified specific improvements, including: Aaron Miller, Amy Farrow, Arsh Lakhanpal, Cesar Villarreal Guzman, Flavia López, Hong Shi, Laura Cline, Lorena Almaraz De La Garza, Mounica Thanam, Reem Alasadi, Wijdan Tariq, Yang Wu, and Yewon Han.
 
 As at Christmas 2021 this book was a disparate collection of notes. Thank you to Mum and Dad, who dropped everything and came over from the other side of the world for two months to give me the opportunity to re-write it all and put together a cohesive book.
 
@@ -162,8 +166,10 @@ Finally, thank you to Monica Alexander. Without you I would not have written a b
 
 You can contact me at: rohan.alexander@utoronto.ca.
 
-\BeginKnitrBlock{flushright}<p class="flushright">Rohan Alexander  
+\BeginKnitrBlock{flushright}
+Rohan Alexander  
 Toronto, Canada  
-March 2022</p>\EndKnitrBlock{flushright}
+March 2022
+\EndKnitrBlock{flushright}
 
 

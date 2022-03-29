@@ -90,10 +90,14 @@ Planning the end state or forcing yourself to begin with an end in mind is impor
 
 The first step is to sketch the dataset that we are interested in. The key features of the sketch will be aspects such as the names of the columns, their class, and the possible range of values. For instance, we might be interested in the populations of US states. In which case our sketch might look like Figure \@ref(fig:sketchdataplan).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/state_population_sketch.png" alt="Planned dataset of US states and their populations" width="40%" />
-<p class="caption">(\#fig:sketchdataplan)Planned dataset of US states and their populations</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{/Users/rohanalexander/Documents/book/figures/state_population_sketch} 
+
+}
+
+\caption{Planned dataset of US states and their populations}(\#fig:sketchdataplan)
+\end{figure}
 
 In this case, the sketch forces us to decide whether we want full names or abbreviations for the state names, and that the population has been measured in millions. The process of sketching this end-point has forced us to make decisions early on, and be clear about our desired end state.
 
@@ -112,7 +116,7 @@ simulated_tfr <-
   )
 
 simulated_tfr
-#> # A tibble: 50 × 2
+#> # A tibble: 50 x 2
 #>    state       population
 #>    <chr>            <dbl>
 #>  1 Alabama          18.0 
@@ -125,7 +129,7 @@ simulated_tfr
 #>  8 Delaware         12.1 
 #>  9 Florida           7.9 
 #> 10 Georgia           9.44
-#> # … with 40 more rows
+#> # ... with 40 more rows
 ```
 
 Our purpose, during data cleaning and preparation, is to then bring our raw data close to that plan. Ideally, we would plan so that the desired end-state of our dataset is 'tidy data', which was introduced in Chapter \@ref(r-essentials). 
@@ -205,7 +209,7 @@ tidy_data <-
   select(-drop_me)
 
 tidy_data
-#> # A tibble: 5 × 2
+#> # A tibble: 5 x 2
 #>   state      population
 #>   <chr>      <chr>     
 #> 1 Alabama    5         
@@ -252,7 +256,7 @@ messy_data <-
   separate_rows(names, sep = ", ") 
 
 messy_data
-#> # A tibble: 10 × 1
+#> # A tibble: 10 x 1
 #>    names      
 #>    <chr>      
 #>  1 "Patricia" 
@@ -273,7 +277,7 @@ We now need decide which of these errors we are going to fix. To help us decide 
 ```r
 messy_data |> 
   count(names, sort = TRUE)
-#> # A tibble: 7 × 2
+#> # A tibble: 7 x 2
 #>   names           n
 #>   <chr>       <int>
 #> 1 "Patricia"      3
@@ -297,7 +301,7 @@ messy_data <-
 
 messy_data |> 
   count(names, sort = TRUE)
-#> # A tibble: 5 × 2
+#> # A tibble: 5 x 2
 #>   names           n
 #>   <chr>       <int>
 #> 1 "Patricia"      6
@@ -319,7 +323,7 @@ messy_data <-
 
 messy_data |> 
   count(names, sort = TRUE)
-#> # A tibble: 3 × 2
+#> # A tibble: 3 x 2
 #>   names           n
 #>   <chr>       <int>
 #> 1 "Patricia"      8
@@ -339,7 +343,7 @@ cleaned_data <-
 
 cleaned_data |> 
   count(names, sort = TRUE)
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   names        n
 #>   <chr>    <int>
 #> 1 Patricia    10
@@ -415,10 +419,14 @@ all_content <- pdf_text("2019_Kenya_census.pdf")
 
 We can see an example page of the PDF of the 2019 Kenyan census (Figure \@ref(fig:examplekenyancensuspage)).
 
-<div class="figure" style="text-align: center">
-<img src="figures/2020-04-10-screenshot-of-census.png" alt="Example page from the 2019 Kenyan census" width="90%" />
-<p class="caption">(\#fig:examplekenyancensuspage)Example page from the 2019 Kenyan census</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{figures/2020-04-10-screenshot-of-census} 
+
+}
+
+\caption{Example page from the 2019 Kenyan census}(\#fig:examplekenyancensuspage)
+\end{figure}
 
 The first challenge is to get the dataset into a format that we can more easily manipulate. We will consider each page of the PDF and extract the relevant parts. To do this, we first write a function, and then apply it to each page. 
 
@@ -508,20 +516,20 @@ rm(pages, get_data)
 
 ```r
 all_tables
-#> # A tibble: 59,532 × 7
+#> # A tibble: 59,532 x 7
 #>    age   male    female  total     area    table        page
 #>    <chr> <chr>   <chr>   <chr>     <chr>   <chr>       <int>
-#>  1 Total 610,257 598,046 1,208,303 Mombasa Table 2.3:…    30
-#>  2 0     15,111  15,009  30,120    Mombasa Table 2.3:…    30
-#>  3 1     15,805  15,308  31,113    Mombasa Table 2.3:…    30
-#>  4 2     15,088  14,837  29,925    Mombasa Table 2.3:…    30
-#>  5 3     14,660  14,031  28,691    Mombasa Table 2.3:…    30
-#>  6 4     14,061  13,993  28,054    Mombasa Table 2.3:…    30
-#>  7 0-4   74,725  73,178  147,903   Mombasa Table 2.3:…    30
-#>  8 5     13,851  14,023  27,874    Mombasa Table 2.3:…    30
-#>  9 6     12,889  13,216  26,105    Mombasa Table 2.3:…    30
-#> 10 7     13,268  13,203  26,471    Mombasa Table 2.3:…    30
-#> # … with 59,522 more rows
+#>  1 Total 610,257 598,046 1,208,303 Mombasa Table 2.3:~    30
+#>  2 0     15,111  15,009  30,120    Mombasa Table 2.3:~    30
+#>  3 1     15,805  15,308  31,113    Mombasa Table 2.3:~    30
+#>  4 2     15,088  14,837  29,925    Mombasa Table 2.3:~    30
+#>  5 3     14,660  14,031  28,691    Mombasa Table 2.3:~    30
+#>  6 4     14,061  13,993  28,054    Mombasa Table 2.3:~    30
+#>  7 0-4   74,725  73,178  147,903   Mombasa Table 2.3:~    30
+#>  8 5     13,851  14,023  27,874    Mombasa Table 2.3:~    30
+#>  9 6     12,889  13,216  26,105    Mombasa Table 2.3:~    30
+#> 10 7     13,268  13,203  26,471    Mombasa Table 2.3:~    30
+#> # ... with 59,522 more rows
 ```
 
 Having got it into a rectangular format, we now need to clean the dataset to make it useful.
@@ -539,7 +547,7 @@ all_tables |>
   mutate_all(~str_remove_all(., "_")) |>
   mutate_all(~str_remove_all(., "-")) |> 
   distinct()
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>   male  female total
 #>   <chr> <chr>  <chr>
 #> 1 ""    ""     ""   
@@ -567,20 +575,20 @@ all_tables <-
   mutate_at(vars(male, female, total), ~as.integer(.))
 
 all_tables
-#> # A tibble: 59,532 × 7
+#> # A tibble: 59,532 x 7
 #>    age     male female   total area    table            page
 #>    <chr>  <int>  <int>   <int> <chr>   <chr>           <int>
-#>  1 Total 610257 598046 1208303 Mombasa Table 2.3: Dis…    30
-#>  2 0      15111  15009   30120 Mombasa Table 2.3: Dis…    30
-#>  3 1      15805  15308   31113 Mombasa Table 2.3: Dis…    30
-#>  4 2      15088  14837   29925 Mombasa Table 2.3: Dis…    30
-#>  5 3      14660  14031   28691 Mombasa Table 2.3: Dis…    30
-#>  6 4      14061  13993   28054 Mombasa Table 2.3: Dis…    30
-#>  7 0-4    74725  73178  147903 Mombasa Table 2.3: Dis…    30
-#>  8 5      13851  14023   27874 Mombasa Table 2.3: Dis…    30
-#>  9 6      12889  13216   26105 Mombasa Table 2.3: Dis…    30
-#> 10 7      13268  13203   26471 Mombasa Table 2.3: Dis…    30
-#> # … with 59,522 more rows
+#>  1 Total 610257 598046 1208303 Mombasa Table 2.3: Dis~    30
+#>  2 0      15111  15009   30120 Mombasa Table 2.3: Dis~    30
+#>  3 1      15805  15308   31113 Mombasa Table 2.3: Dis~    30
+#>  4 2      15088  14837   29925 Mombasa Table 2.3: Dis~    30
+#>  5 3      14660  14031   28691 Mombasa Table 2.3: Dis~    30
+#>  6 4      14061  13993   28054 Mombasa Table 2.3: Dis~    30
+#>  7 0-4    74725  73178  147903 Mombasa Table 2.3: Dis~    30
+#>  8 5      13851  14023   27874 Mombasa Table 2.3: Dis~    30
+#>  9 6      12889  13216   26105 Mombasa Table 2.3: Dis~    30
+#> 10 7      13268  13203   26471 Mombasa Table 2.3: Dis~    30
+#> # ... with 59,522 more rows
 ```
 
 The next thing to clean is the areas. We know that there are 47 counties in Kenya, and a large number of sub-counties. The Kenyan government purports to provide a list on pages 19 to 22 of the PDF (document pages 7 to 10). But this list is not complete, and there are a few minor issues that we will deal with later. In any case, we first need to fix a few inconsistencies.
@@ -622,7 +630,7 @@ list_counties <-
   distinct()
 
 list_counties
-#> # A tibble: 47 × 1
+#> # A tibble: 47 x 1
 #>    area        
 #>    <chr>       
 #>  1 Kwale       
@@ -635,7 +643,7 @@ list_counties
 #>  8 Mandera     
 #>  9 Marsabit    
 #> 10 Isiolo      
-#> # … with 37 more rows
+#> # ... with 37 more rows
 ```
 
 As we hoped, there are 47 of them. But before we can add a flag based on those names, we need to deal with the sub-counties that share their name. We will do this based on the page, then looking it up and deciding which is the county page and which is the sub-county page.
@@ -659,7 +667,7 @@ all_tables |>
          ) |> 
   select(area, page) |> 
   distinct()
-#> # A tibble: 24 × 2
+#> # A tibble: 24 x 2
 #>    area        page
 #>    <chr>      <int>
 #>  1 Samburu       42
@@ -672,7 +680,7 @@ all_tables |>
 #>  8 Machakos     149
 #>  9 Machakos     154
 #> 10 Makueni      159
-#> # … with 14 more rows
+#> # ... with 14 more rows
 ```
 
 Now we can add the flag for whether the area is a county, and adjust for the ones that are troublesome,
@@ -705,20 +713,20 @@ all_tables <-
 rm(list_counties)
 
 all_tables
-#> # A tibble: 59,532 × 8
+#> # A tibble: 59,532 x 8
 #>    age     male female   total area    table  page area_type
 #>    <chr>  <int>  <int>   <int> <chr>   <chr> <int> <chr>    
-#>  1 Total 610257 598046 1208303 Mombasa Tabl…    30 county   
-#>  2 0      15111  15009   30120 Mombasa Tabl…    30 county   
-#>  3 1      15805  15308   31113 Mombasa Tabl…    30 county   
-#>  4 2      15088  14837   29925 Mombasa Tabl…    30 county   
-#>  5 3      14660  14031   28691 Mombasa Tabl…    30 county   
-#>  6 4      14061  13993   28054 Mombasa Tabl…    30 county   
-#>  7 0-4    74725  73178  147903 Mombasa Tabl…    30 county   
-#>  8 5      13851  14023   27874 Mombasa Tabl…    30 county   
-#>  9 6      12889  13216   26105 Mombasa Tabl…    30 county   
-#> 10 7      13268  13203   26471 Mombasa Tabl…    30 county   
-#> # … with 59,522 more rows
+#>  1 Total 610257 598046 1208303 Mombasa Tabl~    30 county   
+#>  2 0      15111  15009   30120 Mombasa Tabl~    30 county   
+#>  3 1      15805  15308   31113 Mombasa Tabl~    30 county   
+#>  4 2      15088  14837   29925 Mombasa Tabl~    30 county   
+#>  5 3      14660  14031   28691 Mombasa Tabl~    30 county   
+#>  6 4      14061  13993   28054 Mombasa Tabl~    30 county   
+#>  7 0-4    74725  73178  147903 Mombasa Tabl~    30 county   
+#>  8 5      13851  14023   27874 Mombasa Tabl~    30 county   
+#>  9 6      12889  13216   26105 Mombasa Tabl~    30 county   
+#> 10 7      13268  13203   26471 Mombasa Tabl~    30 county   
+#> # ... with 59,522 more rows
 ```
 
 Having dealt with the areas, we can deal with the ages. First, we need to fix some clear errors.
@@ -851,13 +859,13 @@ follow_up <-
   filter(check_total_is_rural_plus_urban == 0)
 
 head(follow_up)
-#> # A tibble: 3 × 16
+#> # A tibble: 3 x 16
 #>   age          male female  total area   area_type age_type 
 #>   <fct>       <int>  <int>  <int> <chr>  <chr>     <chr>    
-#> 1 Not Stated     31     10     41 Nakuru county    single-y…
+#> 1 Not Stated     31     10     41 Nakuru county    single-y~
 #> 2 Total      434287 441379 875666 Bomet  county    age-group
-#> 3 Not Stated      3      2      5 Bomet  county    single-y…
-#> # … with 9 more variables: male_rural <int>,
+#> 3 Not Stated      3      2      5 Bomet  county    single-y~
+#> # ... with 9 more variables: male_rural <int>,
 #> #   female_rural <int>, total_rural <int>,
 #> #   male_urban <int>, female_urban <int>,
 #> #   total_urban <int>, total_from_bits <int>,
@@ -905,16 +913,16 @@ follow_up <-
   filter(total != group_sum) 
 
 head(follow_up)
-#> # A tibble: 6 × 16
+#> # A tibble: 6 x 16
 #>   age    male female total area           area_type age_type
 #>   <fct> <int>  <int> <int> <chr>          <chr>     <chr>   
-#> 1 0-4       1      5     6 Mt. Kenya For… sub-coun… age-gro…
-#> 2 5-9       1      2     3 Mt. Kenya For… sub-coun… age-gro…
-#> 3 10-14     6      0     6 Mt. Kenya For… sub-coun… age-gro…
-#> 4 15-19     9      1    10 Mt. Kenya For… sub-coun… age-gro…
-#> 5 20-24    21      4    25 Mt. Kenya For… sub-coun… age-gro…
-#> 6 25-29    59      9    68 Mt. Kenya For… sub-coun… age-gro…
-#> # … with 9 more variables: male_rural <int>,
+#> 1 0-4       1      5     6 Mt. Kenya For~ sub-coun~ age-gro~
+#> 2 5-9       1      2     3 Mt. Kenya For~ sub-coun~ age-gro~
+#> 3 10-14     6      0     6 Mt. Kenya For~ sub-coun~ age-gro~
+#> 4 15-19     9      1    10 Mt. Kenya For~ sub-coun~ age-gro~
+#> 5 20-24    21      4    25 Mt. Kenya For~ sub-coun~ age-gro~
+#> 6 25-29    59      9    68 Mt. Kenya For~ sub-coun~ age-gro~
+#> # ... with 9 more variables: male_rural <int>,
 #> #   female_rural <int>, total_rural <int>,
 #> #   male_urban <int>, female_urban <int>,
 #> #   total_urban <int>, groups <chr>, group_sum <dbl>,
@@ -959,15 +967,15 @@ all <-
   select(area, area_type, part_of_area, age, age_type, gender, number)
 
 head(all)
-#> # A tibble: 6 × 7
+#> # A tibble: 6 x 7
 #>   area  area_type part_of_area age   age_type gender  number
 #>   <chr> <chr>     <chr>        <fct> <chr>    <chr>    <int>
-#> 1 Momb… county    total        Total age-gro… male    610257
-#> 2 Momb… county    total        Total age-gro… female  598046
-#> 3 Momb… county    total        Total age-gro… total  1208303
-#> 4 Momb… county    rural        Total age-gro… male        NA
-#> 5 Momb… county    rural        Total age-gro… female      NA
-#> 6 Momb… county    rural        Total age-gro… total       NA
+#> 1 Momb~ county    total        Total age-gro~ male    610257
+#> 2 Momb~ county    total        Total age-gro~ female  598046
+#> 3 Momb~ county    total        Total age-gro~ total  1208303
+#> 4 Momb~ county    rural        Total age-gro~ male        NA
+#> 5 Momb~ county    rural        Total age-gro~ female      NA
+#> 6 Momb~ county    rural        Total age-gro~ total       NA
 ```
 
 
@@ -985,7 +993,7 @@ monicas_dataset <-
   select(area, age, gender, number)
 
 head(monicas_dataset)
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   area    age   gender number
 #>   <chr>   <fct> <chr>   <int>
 #> 1 Mombasa 0     male    15111
@@ -1013,10 +1021,7 @@ monicas_dataset |>
        caption = "Data source: 2019 Kenya Census")
 ```
 
-<div class="figure">
-<img src="11-clean_and_prepare_files/figure-html/monicasnairobigraph-1.png" alt="Distribution of age and gender in Nairobi in 2019, based on Kenyan census" width="672" />
-<p class="caption">(\#fig:monicasnairobigraph)Distribution of age and gender in Nairobi in 2019, based on Kenyan census</p>
-</div>
+![(\#fig:monicasnairobigraph)Distribution of age and gender in Nairobi in 2019, based on Kenyan census](11-clean_and_prepare_files/figure-latex/monicasnairobigraph-1.pdf) 
 
 A variety of features are clear from Figure \@ref(fig:monicasnairobigraph), including age-heaping, a slight difference in the ratio of male-female birth, and a substantial difference between ages 15 and 25.
 
@@ -1047,7 +1052,7 @@ raw_data |>
   geom_point()
 ```
 
-<img src="11-clean_and_prepare_files/figure-html/unnamed-chunk-40-1.png" width="672" />
+![](11-clean_and_prepare_files/figure-latex/unnamed-chunk-40-1.pdf)<!-- --> 
 
 The graph clearly shows the unexpected value of 150. The most likely explanation is that the data were incorrectly entered with a trailing 0, and should be 15. We can fix that, and document it, and then redo the graph, so as to see that everything seems more reasonable now.
 
@@ -1066,7 +1071,7 @@ raw_data <-
 
 raw_data |> 
   count(country, sort = TRUE)
-#> # A tibble: 5 × 2
+#> # A tibble: 5 x 2
 #>   country        n
 #>   <chr>      <int>
 #> 1 Australia      4
@@ -1106,7 +1111,7 @@ top_five_kenya <-
 
 top_five_kenya |> 
   count(county, sort = TRUE)
-#> # A tibble: 9 × 2
+#> # A tibble: 9 x 2
 #>   county       n
 #>   <chr>    <int>
 #> 1 Nakuru       2
@@ -1132,7 +1137,7 @@ top_five_kenya <-
 
 top_five_kenya |> 
   count(county, sort = TRUE)
-#> # A tibble: 7 × 2
+#> # A tibble: 7 x 2
 #>   county       n
 #>   <chr>    <int>
 #> 1 Bungoma      2
@@ -1298,8 +1303,8 @@ bad_names_good_names <-
   )
 
 bad_names_good_names
-#> # A tibble: 1 × 4
-#>   First `second name has s…` `weird#symbol` InCoNsIsTaNtCaPs
+#> # A tibble: 1 x 4
+#>   First `second name has s~` `weird#symbol` InCoNsIsTaNtCaPs
 #>   <dbl>                <dbl>          <dbl>            <dbl>
 #> 1     1                    1              1                1
 
@@ -1308,8 +1313,8 @@ bad_names_good_names <-
   janitor::clean_names()
   
 bad_names_good_names
-#> # A tibble: 1 × 4
-#>   first second_name_has_s… weird_number_sy… in_co_ns_is_ta_…
+#> # A tibble: 1 x 4
+#>   first second_name_has_s~ weird_number_sy~ in_co_ns_is_ta_~
 #>   <dbl>              <dbl>            <dbl>            <dbl>
 #> 1     1                  1                1                1
 ```
@@ -1366,571 +1371,27 @@ agent <-
 agent
 ```
 
-```{=html}
-<div id="pb_agent" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://unpkg.com/balloon-css/balloon.min.css");
-html {
-  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#pb_agent .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 90%;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#pb_agent .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pb_agent .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#pb_agent .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#pb_agent .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pb_agent .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pb_agent .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#pb_agent .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#pb_agent .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#pb_agent .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#pb_agent .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#pb_agent .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pb_agent .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pb_agent .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#pb_agent .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#pb_agent .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#pb_agent .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#pb_agent .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pb_agent .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#pb_agent .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pb_agent .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#pb_agent .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#pb_agent .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pb_agent .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pb_agent .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#pb_agent .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pb_agent .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#pb_agent .gt_left {
-  text-align: left;
-}
-
-#pb_agent .gt_center {
-  text-align: center;
-}
-
-#pb_agent .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#pb_agent .gt_font_normal {
-  font-weight: normal;
-}
-
-#pb_agent .gt_font_bold {
-  font-weight: bold;
-}
-
-#pb_agent .gt_font_italic {
-  font-style: italic;
-}
-
-#pb_agent .gt_super {
-  font-size: 65%;
-}
-
-#pb_agent .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-
-#pb_agent {
-  -webkit-font-smoothing: antialiased;
-}
-
-#pb_agent .gt_row {
-  overflow: visible;
-}
-
-#pb_agent .gt_sourcenote {
-  height: 35px;
-  padding: 0;
-}
-
-#pb_agent code {
-  font-family: 'IBM Plex Mono', monospace, courier;
-  background-color: transparent;
-  padding: 0;
-}
-</style>
-<table class="gt_table" style="table-layout: fixed;; width: 0px">
-  <colgroup>
-    <col style="width:6px;"/>
-    <col style="width:35px;"/>
-    <col style="width:190px;"/>
-    <col style="width:120px;"/>
-    <col style="width:120px;"/>
-    <col style="width:50px;"/>
-    <col style="width:50px;"/>
-    <col style="width:50px;"/>
-    <col style="width:50px;"/>
-    <col style="width:50px;"/>
-    <col style="width:30px;"/>
-    <col style="width:30px;"/>
-    <col style="width:30px;"/>
-    <col style="width:65px;"/>
-  </colgroup>
-  <thead class="gt_header">
-    <tr>
-      <th colspan="14" class="gt_heading gt_title gt_font_normal" style="color: #444444; font-size: 28px; text-align: left; font-weight: 500;">Pointblank Validation</th>
-    </tr>
-    <tr>
-      <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;"><span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-26|11:39:06]</span></p>
-<div style="height:25px;"><span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
-<span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">column_names_as_contracts</span></div>
-</th>
-    </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;"></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;"></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">STEP</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">COLUMNS</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">VALUES</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">TBL</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">EVAL</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">UNITS</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">PASS</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">FAIL</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">W</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">S</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">N</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="color: #666666; font-weight: bold;">EXT</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left" style="background-color: #4CA64C; height:  40px"></td>
-<td class="gt_row gt_right" style="color: #666666; font-size: 13px; font-weight: bold; height:  40px">1</td>
-<td class="gt_row gt_left" style="height:  40px"><div class='gt_from_md'><div aria-label="Expect that column `chr_area` is of type: character. " data-balloon-pos="right" style="width:fit-content;">
-  <div style="margin:0;padding:0;display:inline-block;height:30px;vertical-align:middle;"><svg width="30px" height="30px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <defs>        <path d="M10.712234,0.014669353 L56.712234,0.014669353 C62.2350815,0.014669353 66.712234,4.49182185 66.712234,10.0146694 L66.712234,66.0146694 L10.712234,66.0146694 C5.18938647,66.0146694 0.712233968,61.5375169 0.712233968,56.0146694 L0.712233968,10.0146694 C0.712233968,4.49182185 5.18938647,0.014669353 10.712234,0.014669353 Z" id="path-1"></path>    </defs>    <g id="pointblank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="col_is_character" transform="translate(-0.397206, 0.151308)">            <g id="rectangle">                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>                <path stroke="#000000" stroke-width="2" d="M65.712234,65.0146694 L65.712234,10.0146694 C65.712234,5.0441066 61.6827967,1.01466935 56.712234,1.01466935 L10.712234,1.01466935 C5.74167122,1.01466935 1.71223397,5.0441066 1.71223397,10.0146694 L1.71223397,56.0146694 C1.71223397,60.9852321 5.74167122,65.0146694 10.712234,65.0146694 L65.712234,65.0146694 Z"></path>            </g>            <rect id="column" fill="#000000" x="12.2117153" y="12.0146694" width="20" height="42" rx="1"></rect>            <text id="c" font-family="LucidaGrande, Lucida Grande" font-size="26" font-weight="normal" fill="#000000">                <tspan x="39.9695669" y="43.0146694">c</tspan>            </text>        </g>    </g></svg></div>
-  <code style="font-size:10px;">&nbsp;col_is_character()</code>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="chr_area" data-balloon-pos="left">
-  <p style="margin-top:0;margin-bottom:0;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:2em;">
-    <code><span style="color:purple;">&marker;</span>chr_area</code>
-  </p>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px">&mdash;</td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:0;color:#333333;vertical-align:middle;font-size:10px;border:none;border-radius:4px;" aria-label="No modifications of the table." data-balloon-pos="left"><svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: middle;">    <g id="unchanged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="unchanged" transform="translate(0.500000, 0.570147)">            <rect id="Rectangle" x="0.125132506" y="0" width="23.749735" height="23.7894737"></rect>            <path d="M5.80375046,8.18194736 C3.77191832,8.18194736 2.11875046,9.83495328 2.11875046,11.8669474 C2.11875046,13.8989414 3.77191832,15.5519474 5.80375046,15.5519474 C7.8355826,15.5519474 9.48875046,13.8989414 9.48875046,11.8669474 C9.48875046,9.83495328 7.83552863,8.18194736 5.80375046,8.18194736 Z M5.80375046,14.814915 C4.17821997,14.814915 2.85578285,13.4924778 2.85578285,11.8669474 C2.85578285,10.2414169 4.17821997,8.91897975 5.80375046,8.91897975 C7.42928095,8.91897975 8.75171807,10.2414169 8.75171807,11.8669474 C8.75171807,13.4924778 7.42928095,14.814915 5.80375046,14.814915 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>            <path d="M13.9638189,8.699335 C13.9364621,8.70430925 13.9091059,8.71176968 13.8842359,8.71923074 C13.7822704,8.73663967 13.6877654,8.77643115 13.6056956,8.83860518 L10.2433156,11.3852598 C10.0766886,11.5046343 9.97720993,11.6986181 9.97720993,11.9025491 C9.97720993,12.1064807 10.0766886,12.3004639 10.2433156,12.4198383 L13.6056956,14.966493 C13.891697,15.1803725 14.2970729,15.1231721 14.5109517,14.8371707 C14.7248313,14.5511692 14.6676309,14.145794 14.3816294,13.9319145 L12.5313257,12.5392127 L21.8812495,12.5392127 L21.8812495,11.2658854 L12.5313257,11.2658854 L14.3816294,9.87318364 C14.6377872,9.71650453 14.7497006,9.40066014 14.6477351,9.11714553 C14.5482564,8.83363156 14.262255,8.65954352 13.9638189,8.699335 Z" id="arrow" fill="#000000" transform="translate(15.929230, 11.894737) rotate(-180.000000) translate(-15.929230, -11.894737) "></path>        </g>    </g></svg></span></p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:5px;color:#4CA64C;vertical-align:middle;font-size:15px;border:none;" aria-label="No evaluation issues." data-balloon-pos="left">✓</span></p>
-</div></td>
-<td class="gt_row gt_right" style="font-size: 11px; height:  40px"><code>1</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>1</code><br><code>1.00</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>0</code><br><code>0.00</code></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td></tr>
-    <tr><td class="gt_row gt_left" style="background-color: #4CA64C; height:  40px"></td>
-<td class="gt_row gt_right" style="color: #666666; font-size: 13px; font-weight: bold; height:  40px">2</td>
-<td class="gt_row gt_left" style="height:  40px"><div class='gt_from_md'><div aria-label="Expect that column `chr_group_gender` is of type: character. " data-balloon-pos="right" style="width:fit-content;">
-  <div style="margin:0;padding:0;display:inline-block;height:30px;vertical-align:middle;"><svg width="30px" height="30px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <defs>        <path d="M10.712234,0.014669353 L56.712234,0.014669353 C62.2350815,0.014669353 66.712234,4.49182185 66.712234,10.0146694 L66.712234,66.0146694 L10.712234,66.0146694 C5.18938647,66.0146694 0.712233968,61.5375169 0.712233968,56.0146694 L0.712233968,10.0146694 C0.712233968,4.49182185 5.18938647,0.014669353 10.712234,0.014669353 Z" id="path-1"></path>    </defs>    <g id="pointblank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="col_is_character" transform="translate(-0.397206, 0.151308)">            <g id="rectangle">                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>                <path stroke="#000000" stroke-width="2" d="M65.712234,65.0146694 L65.712234,10.0146694 C65.712234,5.0441066 61.6827967,1.01466935 56.712234,1.01466935 L10.712234,1.01466935 C5.74167122,1.01466935 1.71223397,5.0441066 1.71223397,10.0146694 L1.71223397,56.0146694 C1.71223397,60.9852321 5.74167122,65.0146694 10.712234,65.0146694 L65.712234,65.0146694 Z"></path>            </g>            <rect id="column" fill="#000000" x="12.2117153" y="12.0146694" width="20" height="42" rx="1"></rect>            <text id="c" font-family="LucidaGrande, Lucida Grande" font-size="26" font-weight="normal" fill="#000000">                <tspan x="39.9695669" y="43.0146694">c</tspan>            </text>        </g>    </g></svg></div>
-  <code style="font-size:10px;">&nbsp;col_is_character()</code>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="chr_group_gender" data-balloon-pos="left">
-  <p style="margin-top:0;margin-bottom:0;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:2em;">
-    <code><span style="color:purple;">&marker;</span>chr_group_gender</code>
-  </p>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px">&mdash;</td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:0;color:#333333;vertical-align:middle;font-size:10px;border:none;border-radius:4px;" aria-label="No modifications of the table." data-balloon-pos="left"><svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: middle;">    <g id="unchanged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="unchanged" transform="translate(0.500000, 0.570147)">            <rect id="Rectangle" x="0.125132506" y="0" width="23.749735" height="23.7894737"></rect>            <path d="M5.80375046,8.18194736 C3.77191832,8.18194736 2.11875046,9.83495328 2.11875046,11.8669474 C2.11875046,13.8989414 3.77191832,15.5519474 5.80375046,15.5519474 C7.8355826,15.5519474 9.48875046,13.8989414 9.48875046,11.8669474 C9.48875046,9.83495328 7.83552863,8.18194736 5.80375046,8.18194736 Z M5.80375046,14.814915 C4.17821997,14.814915 2.85578285,13.4924778 2.85578285,11.8669474 C2.85578285,10.2414169 4.17821997,8.91897975 5.80375046,8.91897975 C7.42928095,8.91897975 8.75171807,10.2414169 8.75171807,11.8669474 C8.75171807,13.4924778 7.42928095,14.814915 5.80375046,14.814915 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>            <path d="M13.9638189,8.699335 C13.9364621,8.70430925 13.9091059,8.71176968 13.8842359,8.71923074 C13.7822704,8.73663967 13.6877654,8.77643115 13.6056956,8.83860518 L10.2433156,11.3852598 C10.0766886,11.5046343 9.97720993,11.6986181 9.97720993,11.9025491 C9.97720993,12.1064807 10.0766886,12.3004639 10.2433156,12.4198383 L13.6056956,14.966493 C13.891697,15.1803725 14.2970729,15.1231721 14.5109517,14.8371707 C14.7248313,14.5511692 14.6676309,14.145794 14.3816294,13.9319145 L12.5313257,12.5392127 L21.8812495,12.5392127 L21.8812495,11.2658854 L12.5313257,11.2658854 L14.3816294,9.87318364 C14.6377872,9.71650453 14.7497006,9.40066014 14.6477351,9.11714553 C14.5482564,8.83363156 14.262255,8.65954352 13.9638189,8.699335 Z" id="arrow" fill="#000000" transform="translate(15.929230, 11.894737) rotate(-180.000000) translate(-15.929230, -11.894737) "></path>        </g>    </g></svg></span></p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:5px;color:#4CA64C;vertical-align:middle;font-size:15px;border:none;" aria-label="No evaluation issues." data-balloon-pos="left">✓</span></p>
-</div></td>
-<td class="gt_row gt_right" style="font-size: 11px; height:  40px"><code>1</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>1</code><br><code>1.00</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>0</code><br><code>0.00</code></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td></tr>
-    <tr><td class="gt_row gt_left" style="background-color: #4CA64C; height:  40px"></td>
-<td class="gt_row gt_right" style="color: #666666; font-size: 13px; font-weight: bold; height:  40px">3</td>
-<td class="gt_row gt_left" style="height:  40px"><div class='gt_from_md'><div aria-label="Expect that column `fctr_group_age` is of type: factor. " data-balloon-pos="right" style="width:fit-content;">
-  <div style="margin:0;padding:0;display:inline-block;height:30px;vertical-align:middle;"><svg width="30px" height="30px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <defs>        <path d="M10.712234,0.014669353 L56.712234,0.014669353 C62.2350815,0.014669353 66.712234,4.49182185 66.712234,10.0146694 L66.712234,66.0146694 L10.712234,66.0146694 C5.18938647,66.0146694 0.712233968,61.5375169 0.712233968,56.0146694 L0.712233968,10.0146694 C0.712233968,4.49182185 5.18938647,0.014669353 10.712234,0.014669353 Z" id="path-1"></path>    </defs>    <g id="pointblank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="col_is_factor" transform="translate(0.116964, 0.726017)">            <g id="rectangle">                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>                <path stroke="#000000" stroke-width="2" d="M65.712234,65.0146694 L65.712234,10.0146694 C65.712234,5.0441066 61.6827967,1.01466935 56.712234,1.01466935 L10.712234,1.01466935 C5.74167122,1.01466935 1.71223397,5.0441066 1.71223397,10.0146694 L1.71223397,56.0146694 C1.71223397,60.9852321 5.74167122,65.0146694 10.712234,65.0146694 L65.712234,65.0146694 Z"></path>            </g>            <rect id="column" fill="#000000" x="12.2117153" y="12.0146694" width="20" height="42" rx="1"></rect>            <text id="f" font-family="LucidaGrande, Lucida Grande" font-size="26" font-weight="normal" fill="#000000">                <tspan x="41.8484732" y="43.0146694">f</tspan>            </text>        </g>    </g></svg></div>
-  <code style="font-size:11px;">&nbsp;col_is_factor()</code>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="fctr_group_age" data-balloon-pos="left">
-  <p style="margin-top:0;margin-bottom:0;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:2em;">
-    <code><span style="color:purple;">&marker;</span>fctr_group_age</code>
-  </p>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px">&mdash;</td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:0;color:#333333;vertical-align:middle;font-size:10px;border:none;border-radius:4px;" aria-label="No modifications of the table." data-balloon-pos="left"><svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: middle;">    <g id="unchanged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="unchanged" transform="translate(0.500000, 0.570147)">            <rect id="Rectangle" x="0.125132506" y="0" width="23.749735" height="23.7894737"></rect>            <path d="M5.80375046,8.18194736 C3.77191832,8.18194736 2.11875046,9.83495328 2.11875046,11.8669474 C2.11875046,13.8989414 3.77191832,15.5519474 5.80375046,15.5519474 C7.8355826,15.5519474 9.48875046,13.8989414 9.48875046,11.8669474 C9.48875046,9.83495328 7.83552863,8.18194736 5.80375046,8.18194736 Z M5.80375046,14.814915 C4.17821997,14.814915 2.85578285,13.4924778 2.85578285,11.8669474 C2.85578285,10.2414169 4.17821997,8.91897975 5.80375046,8.91897975 C7.42928095,8.91897975 8.75171807,10.2414169 8.75171807,11.8669474 C8.75171807,13.4924778 7.42928095,14.814915 5.80375046,14.814915 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>            <path d="M13.9638189,8.699335 C13.9364621,8.70430925 13.9091059,8.71176968 13.8842359,8.71923074 C13.7822704,8.73663967 13.6877654,8.77643115 13.6056956,8.83860518 L10.2433156,11.3852598 C10.0766886,11.5046343 9.97720993,11.6986181 9.97720993,11.9025491 C9.97720993,12.1064807 10.0766886,12.3004639 10.2433156,12.4198383 L13.6056956,14.966493 C13.891697,15.1803725 14.2970729,15.1231721 14.5109517,14.8371707 C14.7248313,14.5511692 14.6676309,14.145794 14.3816294,13.9319145 L12.5313257,12.5392127 L21.8812495,12.5392127 L21.8812495,11.2658854 L12.5313257,11.2658854 L14.3816294,9.87318364 C14.6377872,9.71650453 14.7497006,9.40066014 14.6477351,9.11714553 C14.5482564,8.83363156 14.262255,8.65954352 13.9638189,8.699335 Z" id="arrow" fill="#000000" transform="translate(15.929230, 11.894737) rotate(-180.000000) translate(-15.929230, -11.894737) "></path>        </g>    </g></svg></span></p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:5px;color:#4CA64C;vertical-align:middle;font-size:15px;border:none;" aria-label="No evaluation issues." data-balloon-pos="left">✓</span></p>
-</div></td>
-<td class="gt_row gt_right" style="font-size: 11px; height:  40px"><code>1</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>1</code><br><code>1.00</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>0</code><br><code>0.00</code></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td></tr>
-    <tr><td class="gt_row gt_left" style="background-color: #4CA64C; height:  40px"></td>
-<td class="gt_row gt_right" style="color: #666666; font-size: 13px; font-weight: bold; height:  40px">4</td>
-<td class="gt_row gt_left" style="height:  40px"><div class='gt_from_md'><div aria-label="Expect that column `int_group_count` is of type: integer. " data-balloon-pos="right" style="width:fit-content;">
-  <div style="margin:0;padding:0;display:inline-block;height:30px;vertical-align:middle;"><svg width="30px" height="30px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <defs>        <path d="M10.712234,0.014669353 L56.712234,0.014669353 C62.2350815,0.014669353 66.712234,4.49182185 66.712234,10.0146694 L66.712234,66.0146694 L10.712234,66.0146694 C5.18938647,66.0146694 0.712233968,61.5375169 0.712233968,56.0146694 L0.712233968,10.0146694 C0.712233968,4.49182185 5.18938647,0.014669353 10.712234,0.014669353 Z" id="path-1"></path>    </defs>    <g id="pointblank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="col_is_integer" transform="translate(-0.397206, 0.726017)">            <g id="rectangle">                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>                <path stroke="#000000" stroke-width="2" d="M65.712234,65.0146694 L65.712234,10.0146694 C65.712234,5.0441066 61.6827967,1.01466935 56.712234,1.01466935 L10.712234,1.01466935 C5.74167122,1.01466935 1.71223397,5.0441066 1.71223397,10.0146694 L1.71223397,56.0146694 C1.71223397,60.9852321 5.74167122,65.0146694 10.712234,65.0146694 L65.712234,65.0146694 Z"></path>            </g>            <rect id="column" fill="#000000" x="12.2117153" y="12.0146694" width="20" height="42" rx="1"></rect>            <text id="i" font-family="LucidaGrande, Lucida Grande" font-size="26" font-weight="normal" fill="#000000">                <tspan x="42.8704458" y="43.0146694">i</tspan>            </text>        </g>    </g></svg></div>
-  <code style="font-size:11px;">&nbsp;col_is_integer()</code>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="int_group_count" data-balloon-pos="left">
-  <p style="margin-top:0;margin-bottom:0;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:2em;">
-    <code><span style="color:purple;">&marker;</span>int_group_count</code>
-  </p>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px">&mdash;</td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:0;color:#333333;vertical-align:middle;font-size:10px;border:none;border-radius:4px;" aria-label="No modifications of the table." data-balloon-pos="left"><svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: middle;">    <g id="unchanged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="unchanged" transform="translate(0.500000, 0.570147)">            <rect id="Rectangle" x="0.125132506" y="0" width="23.749735" height="23.7894737"></rect>            <path d="M5.80375046,8.18194736 C3.77191832,8.18194736 2.11875046,9.83495328 2.11875046,11.8669474 C2.11875046,13.8989414 3.77191832,15.5519474 5.80375046,15.5519474 C7.8355826,15.5519474 9.48875046,13.8989414 9.48875046,11.8669474 C9.48875046,9.83495328 7.83552863,8.18194736 5.80375046,8.18194736 Z M5.80375046,14.814915 C4.17821997,14.814915 2.85578285,13.4924778 2.85578285,11.8669474 C2.85578285,10.2414169 4.17821997,8.91897975 5.80375046,8.91897975 C7.42928095,8.91897975 8.75171807,10.2414169 8.75171807,11.8669474 C8.75171807,13.4924778 7.42928095,14.814915 5.80375046,14.814915 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>            <path d="M13.9638189,8.699335 C13.9364621,8.70430925 13.9091059,8.71176968 13.8842359,8.71923074 C13.7822704,8.73663967 13.6877654,8.77643115 13.6056956,8.83860518 L10.2433156,11.3852598 C10.0766886,11.5046343 9.97720993,11.6986181 9.97720993,11.9025491 C9.97720993,12.1064807 10.0766886,12.3004639 10.2433156,12.4198383 L13.6056956,14.966493 C13.891697,15.1803725 14.2970729,15.1231721 14.5109517,14.8371707 C14.7248313,14.5511692 14.6676309,14.145794 14.3816294,13.9319145 L12.5313257,12.5392127 L21.8812495,12.5392127 L21.8812495,11.2658854 L12.5313257,11.2658854 L14.3816294,9.87318364 C14.6377872,9.71650453 14.7497006,9.40066014 14.6477351,9.11714553 C14.5482564,8.83363156 14.262255,8.65954352 13.9638189,8.699335 Z" id="arrow" fill="#000000" transform="translate(15.929230, 11.894737) rotate(-180.000000) translate(-15.929230, -11.894737) "></path>        </g>    </g></svg></span></p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:5px;color:#4CA64C;vertical-align:middle;font-size:15px;border:none;" aria-label="No evaluation issues." data-balloon-pos="left">✓</span></p>
-</div></td>
-<td class="gt_row gt_right" style="font-size: 11px; height:  40px"><code>1</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>1</code><br><code>1.00</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>0</code><br><code>0.00</code></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td></tr>
-    <tr><td class="gt_row gt_left" style="background-color: #4CA64C; height:  40px"></td>
-<td class="gt_row gt_right" style="color: #666666; font-size: 13px; font-weight: bold; height:  40px">5</td>
-<td class="gt_row gt_left" style="height:  40px"><div class='gt_from_md'><div aria-label="Expect that values in `chr_group_gender` should be in the set of `male`, `female`, `total`. " data-balloon-pos="right" style="width:fit-content;">
-  <div style="margin:0;padding:0;display:inline-block;height:30px;vertical-align:middle;"><svg width="30px" height="30px" viewBox="0 0 67 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <defs>        <path d="M10.712234,0 L56.712234,0 C62.2350815,-1.01453063e-15 66.712234,4.4771525 66.712234,10 L66.712234,66 L10.712234,66 C5.18938647,66 0.712233968,61.5228475 0.712233968,56 L0.712233968,10 C0.712233968,4.4771525 5.18938647,1.01453063e-15 10.712234,0 Z" id="path-1"></path>    </defs>    <g id="pointblank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="col_vals_in_set" transform="translate(-0.487938, 0.859210)">            <g id="rectangle">                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>                <path stroke="#000000" stroke-width="2" d="M65.712234,65 L65.712234,10 C65.712234,5.02943725 61.6827967,1 56.712234,1 L10.712234,1 C5.74167122,1 1.71223397,5.02943725 1.71223397,10 L1.71223397,56 C1.71223397,60.9705627 5.74167122,65 10.712234,65 L65.712234,65 Z"></path>            </g>            <path d="M44.127969,41.1538382 L31.0814568,41.1538382 C29.9510748,41.1536429 28.8827052,40.9256134 27.9079888,40.5136953 C26.4467442,39.8960136 25.19849,38.8599685 24.3189894,37.5577099 C23.8792391,36.906727 23.5314818,36.1899233 23.2936866,35.4252675 C23.2130217,35.16589 23.1460289,34.9005554 23.0913409,34.6307286 L44.1278714,34.6307286 C45.028466,34.6306309 45.7586488,33.9004481 45.7586488,32.9998535 C45.7586488,32.0992589 45.028466,31.3690761 44.1278714,31.3690761 L23.0905596,31.3690761 C23.1990567,30.8337194 23.3597028,30.3180894 23.5675173,29.8264831 C24.185199,28.3652386 25.2212442,27.1169844 26.5236004,26.2374838 C27.1745833,25.7977334 27.891387,25.4499762 28.6560428,25.2122786 C29.4208939,24.9744833 30.2334994,24.8459665 31.0813591,24.8459665 L44.1277737,24.8459665 C45.0283683,24.8459665 45.7585511,24.1157837 45.7585511,23.2151891 C45.7585511,22.3145945 45.0283683,21.5844117 44.1277737,21.5844117 L31.0813591,21.5844117 C29.5096643,21.5844117 28.0039858,21.9038483 26.6373711,22.4820765 C24.5866678,23.3498583 22.8469049,24.7950871 21.6163267,26.616296 C20.3856508,28.4362354 19.665136,30.6413347 19.6658196,33.0000488 C19.6656243,34.5717436 19.9852563,36.0774222 20.5635822,37.4440369 C21.4312663,39.4947402 22.8765927,41.2345031 24.697704,42.4650813 C26.5176434,43.6957572 28.7227427,44.4155883 31.0814568,44.4155883 L44.1278714,44.4155883 C45.028466,44.4155883 45.7586488,43.6854055 45.7586488,42.7848109 C45.7586488,41.8842163 45.0285636,41.1538382 44.127969,41.1538382 Z" id="set_of" fill="#000000" fill-rule="nonzero"></path>        </g>    </g></svg></div>
-  <code style="font-size:11px;">&nbsp;col_vals_in_set()</code>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="chr_group_gender" data-balloon-pos="left">
-  <p style="margin-top:0;margin-bottom:0;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;line-height:2em;">
-    <code><span style="color:purple;">&marker;</span>chr_group_gender</code>
-  </p>
-</div>
-</div></td>
-<td class="gt_row gt_left" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; height:  40px"><div class='gt_from_md'><div aria-label="male, female, total" data-balloon-pos="left"><p style="margin-top: 0px; margin-bottom: 0px; font-size: 11px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;"><code>male, female, total</code></p></div>
-</div></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:0;color:#333333;vertical-align:middle;font-size:10px;border:none;border-radius:4px;" aria-label="No modifications of the table." data-balloon-pos="left"><svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: middle;">    <g id="unchanged" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g id="unchanged" transform="translate(0.500000, 0.570147)">            <rect id="Rectangle" x="0.125132506" y="0" width="23.749735" height="23.7894737"></rect>            <path d="M5.80375046,8.18194736 C3.77191832,8.18194736 2.11875046,9.83495328 2.11875046,11.8669474 C2.11875046,13.8989414 3.77191832,15.5519474 5.80375046,15.5519474 C7.8355826,15.5519474 9.48875046,13.8989414 9.48875046,11.8669474 C9.48875046,9.83495328 7.83552863,8.18194736 5.80375046,8.18194736 Z M5.80375046,14.814915 C4.17821997,14.814915 2.85578285,13.4924778 2.85578285,11.8669474 C2.85578285,10.2414169 4.17821997,8.91897975 5.80375046,8.91897975 C7.42928095,8.91897975 8.75171807,10.2414169 8.75171807,11.8669474 C8.75171807,13.4924778 7.42928095,14.814915 5.80375046,14.814915 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>            <path d="M13.9638189,8.699335 C13.9364621,8.70430925 13.9091059,8.71176968 13.8842359,8.71923074 C13.7822704,8.73663967 13.6877654,8.77643115 13.6056956,8.83860518 L10.2433156,11.3852598 C10.0766886,11.5046343 9.97720993,11.6986181 9.97720993,11.9025491 C9.97720993,12.1064807 10.0766886,12.3004639 10.2433156,12.4198383 L13.6056956,14.966493 C13.891697,15.1803725 14.2970729,15.1231721 14.5109517,14.8371707 C14.7248313,14.5511692 14.6676309,14.145794 14.3816294,13.9319145 L12.5313257,12.5392127 L21.8812495,12.5392127 L21.8812495,11.2658854 L12.5313257,11.2658854 L14.3816294,9.87318364 C14.6377872,9.71650453 14.7497006,9.40066014 14.6477351,9.11714553 C14.5482564,8.83363156 14.262255,8.65954352 13.9638189,8.699335 Z" id="arrow" fill="#000000" transform="translate(15.929230, 11.894737) rotate(-180.000000) translate(-15.929230, -11.894737) "></path>        </g>    </g></svg></span></p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p><span style="background:transparent;padding:5px;color:#4CA64C;vertical-align:middle;font-size:15px;border:none;" aria-label="No evaluation issues." data-balloon-pos="left">✓</span></p>
-</div></td>
-<td class="gt_row gt_right" style="font-size: 11px; height:  40px"><code>14K</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>14K</code><br><code>1.00</code></td>
-<td class="gt_row gt_right" style="border-left-width: 1px; border-left-style: dashed; border-left-color: #E5E5E5; font-size: 11px; height:  40px"><code>0</code><br><code>0.00</code></td>
-<td class="gt_row gt_center" style="border-left-width: 1px; border-left-style: solid; border-left-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="border-right-width: 1px; border-right-style: solid; border-right-color: #D3D3D3; background-color: #FCFCFC; height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td>
-<td class="gt_row gt_center" style="height:  40px"><div class='gt_from_md'><p>—</p>
-</div></td></tr>
-  </tbody>
-  <tfoot class="gt_sourcenotes">
-    <tr>
-      <td class="gt_sourcenote" colspan="14"><span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-26 11:39:06 EDT</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-26 11:39:06 EDT</span></td>
-    </tr>
-  </tfoot>
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrlllccrrrcccc}
+\caption*{
+{\large Pointblank Validation} \\ 
+{\small {[}2022-03-29\textbar{}11:40:03{]}}
+} \\ 
+\toprule
+ &  & STEP & COLUMNS & VALUES & TBL & EVAL & UNITS & PASS & FAIL & W & S & N & EXT \\ 
+\midrule
+ & 1 &  &  & --- &                                                              & ✓ & <code>$1$</code> & <code>$1$</code><br><code>$1.00$</code> & <code>$0$</code><br><code>$0.00$</code> & --- & --- & --- & --- \\ 
+ & 2 &  &  & --- &                                                              & ✓ & <code>$1$</code> & <code>$1$</code><br><code>$1.00$</code> & <code>$0$</code><br><code>$0.00$</code> & --- & --- & --- & --- \\ 
+ & 3 &  &  & --- &                                                              & ✓ & <code>$1$</code> & <code>$1$</code><br><code>$1.00$</code> & <code>$0$</code><br><code>$0.00$</code> & --- & --- & --- & --- \\ 
+ & 4 &  &  & --- &                                                              & ✓ & <code>$1$</code> & <code>$1$</code><br><code>$1.00$</code> & <code>$0$</code><br><code>$0.00$</code> & --- & --- & --- & --- \\ 
+ & 5 &  &  &  &                                                              & ✓ & <code>$14K$</code> & <code>$14K$</code><br><code>$1.00$</code> & <code>$0$</code><br><code>$0.00$</code> & --- & --- & --- & --- \\ 
+ \bottomrule
+\end{longtable}
+\begin{minipage}{\linewidth}
+2022-03-29 11:40:03 EDT
+\textless{} 1 s
+2022-03-29 11:40:03 EDT\\ 
+\end{minipage}
 
 
 
@@ -1960,7 +1421,7 @@ html {
 tibble(name = c('Anne', 'Bethany', 'Stephen', 'William'),
        age_group = c('18-29', '30-44', '45-60', '60+'),
        )
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   name    age_group
 #>   <chr>   <chr>    
 #> 1 Anne    18-29    

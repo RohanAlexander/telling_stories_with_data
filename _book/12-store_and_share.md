@@ -72,7 +72,7 @@ library(tidyverse)
 starter_data <- read_csv("https://raw.githubusercontent.com/RohanAlexander/starter_folder/main/inputs/data/raw_data.csv")
 
 starter_data
-#> # A tibble: 1 × 3
+#> # A tibble: 1 x 3
 #>   first_col second_col third_col
 #>   <chr>     <chr>      <chr>    
 #> 1 some      raw        data
@@ -362,7 +362,7 @@ hashing <-
          modulo_eightfivethree = ppi_data %% 853)
 
 hashing
-#> # A tibble: 10 × 4
+#> # A tibble: 10 x 4
 #>    ppi_data modulo_ten modulo_eleven modulo_eightfivethree
 #>       <int>      <dbl>         <dbl>                 <dbl>
 #>  1        1          1             1                     1
@@ -401,19 +401,19 @@ openssl_hashing <-
   )
 
 openssl_hashing
-#> # A tibble: 10 × 3
+#> # A tibble: 10 x 3
 #>    names    md5                              sha512         
 #>    <chr>    <hash>                           <hash>         
-#>  1 Edward   243f63354f4c1cc25d50f6269b844369 5759ada975e7cb…
-#>  2 Helen    29e00d3659d1c5e75f99e892f0c1a1f1 6ee4156ca7e8e9…
-#>  3 Hugo     1b3840b0b70d91c17e70014c8537dbba b1e441a5486690…
-#>  4 Ian      245a58a5dc42397caf57bc06c2c0afd2 d3cf9cdaea6ffd…
-#>  5 Monica   09084cc0cda34fd80bfa3cc0ae8fe3dc 84250b971b8772…
-#>  6 Myles    fafdf519cb5877d4751b4cbe6f3f534a 4eae7c19d5c5d4…
-#>  7 Patricia 54a7b18f26374fc200ddedde0844f8ec e511593a2db805…
-#>  8 Roger    efc5c58b9a85926a31587140cbeb0220 f63ab236a5b013…
-#>  9 Rohan    02df8936eee3d4d2568857ed530671b2 5111e18391d41f…
-#> 10 Ruth     8e06843ec162b74a7902867dd4bca8c8 d7e7d23b69e372…
+#>  1 Edward   243f63354f4c1cc25d50f6269b844369 5759ada975e7cb~
+#>  2 Helen    29e00d3659d1c5e75f99e892f0c1a1f1 6ee4156ca7e8e9~
+#>  3 Hugo     1b3840b0b70d91c17e70014c8537dbba b1e441a5486690~
+#>  4 Ian      245a58a5dc42397caf57bc06c2c0afd2 d3cf9cdaea6ffd~
+#>  5 Monica   09084cc0cda34fd80bfa3cc0ae8fe3dc 84250b971b8772~
+#>  6 Myles    fafdf519cb5877d4751b4cbe6f3f534a 4eae7c19d5c5d4~
+#>  7 Patricia 54a7b18f26374fc200ddedde0844f8ec e511593a2db805~
+#>  8 Roger    efc5c58b9a85926a31587140cbeb0220 f63ab236a5b013~
+#>  9 Rohan    02df8936eee3d4d2568857ed530671b2 5111e18391d41f~
+#> 10 Ruth     8e06843ec162b74a7902867dd4bca8c8 d7e7d23b69e372~
 ```
 
 We could share either of these and be comfortable that, in general, it would be difficult for someone to use only that information to recover the names of our respondents. That is not to say that it is impossible. If we made a mistake, such as accidentally committing the original dataset to GitHub then they could be recovered. And of course, it is likely that various governments have the ability to reverse the cryptographic hashes used here.
@@ -442,19 +442,19 @@ openssl_hashing_with_salt <-
          )
 
 openssl_hashing_with_salt
-#> # A tibble: 10 × 3
+#> # A tibble: 10 x 3
 #>    names                md5                           sha512
 #>    <chr>                <hash>                        <hash>
-#>  1 Edward_is_a_person   9845500d4070c0cbba7c6b81ed30… e8ce0…
-#>  2 Helen_is_a_person    7e4a77b41fb6e108618f93fb9f47… b066b…
-#>  3 Hugo_is_a_person     b9b8c4e9870aca482cf062da4681… 07c18…
-#>  4 Ian_is_a_person      9b1ad8fbbc190c2e3ce74372029f… eb992…
-#>  5 Monica_is_a_person   50bb9dfffa926c855b830845ac61… ef429…
-#>  6 Myles_is_a_person    3635be5fe758ed1fc0d9c78fc0b2… 795dc…
-#>  7 Patricia_is_a_person 4e4a5ed8842fd7caad320c3a92bf… 1b446…
-#>  8 Roger_is_a_person    ea1d56e89771d8b0a7b598132442… 2f753…
-#>  9 Rohan_is_a_person    3ab064d7f746fde604122d072fd4… cc9c7…
-#> 10 Ruth_is_a_person     8b83f4285ac30a3efa5ede3636b7… 6d329…
+#>  1 Edward_is_a_person   9845500d4070c0cbba7c6b81ed30~ e8ce0~
+#>  2 Helen_is_a_person    7e4a77b41fb6e108618f93fb9f47~ b066b~
+#>  3 Hugo_is_a_person     b9b8c4e9870aca482cf062da4681~ 07c18~
+#>  4 Ian_is_a_person      9b1ad8fbbc190c2e3ce74372029f~ eb992~
+#>  5 Monica_is_a_person   50bb9dfffa926c855b830845ac61~ ef429~
+#>  6 Myles_is_a_person    3635be5fe758ed1fc0d9c78fc0b2~ 795dc~
+#>  7 Patricia_is_a_person 4e4a5ed8842fd7caad320c3a92bf~ 1b446~
+#>  8 Roger_is_a_person    ea1d56e89771d8b0a7b598132442~ 2f753~
+#>  9 Rohan_is_a_person    3ab064d7f746fde604122d072fd4~ cc9c7~
+#> 10 Ruth_is_a_person     8b83f4285ac30a3efa5ede3636b7~ 6d329~
 ```
 
 

@@ -273,15 +273,23 @@ The data section will also have figures and tables. Here some judgment is requir
 
 We discuss the components of graphs and tables, including titles and labels, in Chapter \@ref(static-communication). But here we will discuss captions, as they are between text and the graph or table. Captions need to be informative and self-contained. As @elementsofgraphingdata [p. 57] says, the 'interplay between graph, caption, and text is a delicate one', however the reader should be able to read only the caption and understand what the graph or table shows. A caption that is two of three lines long would is not necessarily inappropriate. And all aspects of the graph or table should be explained. For instance, consider Figures \@ref(fig:bowleygraphisnice) and \@ref(fig:bowleytableisnice) from @bowley [p. 151], which are both exceptionally clear, and self-contained.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/HANDIRIS3.png" alt="Example of a well-captioned figure" width="95%" />
-<p class="caption">(\#fig:bowleygraphisnice)Example of a well-captioned figure</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/HANDIRIS1.png" alt="Example of a well-captioned table" width="70%" />
-<p class="caption">(\#fig:bowleytableisnice)Example of a well-captioned table</p>
-</div>
+{\centering \includegraphics[width=0.95\linewidth]{/Users/rohanalexander/Documents/book/figures/HANDIRIS3} 
+
+}
+
+\caption{Example of a well-captioned figure}(\#fig:bowleygraphisnice)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{/Users/rohanalexander/Documents/book/figures/HANDIRIS1} 
+
+}
+
+\caption{Example of a well-captioned table}(\#fig:bowleytableisnice)
+\end{figure}
 
 The choice between a table and a graph comes down to how much information is to be conveyed. In general, if there is specific information that should be considered, such as a summary statistic, then a table is a good option, while if we are interested in the reader making comparisons and understanding trends then a graph is a good option [@gelman2002let]. 
 

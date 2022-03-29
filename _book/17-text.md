@@ -53,20 +53,20 @@ makeup <-
              "https://raw.githubusercontent.com/the-pudding/data/master/foundation-names/allNumbers.csv")
 
 makeup
-#> # A tibble: 3,117 × 9
+#> # A tibble: 3,117 x 9
 #>    brand  product name  specific lightness hex   lightToDark
 #>    <chr>  <chr>   <chr> <chr>        <dbl> <chr> <lgl>      
-#>  1 Makeu… Concea… <NA>  F0           0.949 #F2F… TRUE       
-#>  2 HOURG… Veil F… Porc… No. 0        0.818 #F6D… TRUE       
-#>  3 TOM F… Tracel… Pearl 0.0          0.851 #F0D… TRUE       
-#>  4 Arman… Neo Nu… <NA>  0            0.912 #F0E… TRUE       
-#>  5 TOM F… Tracel… Pearl 0.0          0.912 #FDE… TRUE       
-#>  6 Charl… Magic … <NA>  0            0.731 #D9A… TRUE       
-#>  7 Bobbi… Skin W… Porc… 0            0.822 #F3C… TRUE       
-#>  8 Given… Matiss… <NA>  N00          0.831 #F5D… TRUE       
-#>  9 Smash… Studio… <NA>  0.1          0.814 #F8C… TRUE       
-#> 10 Smash… Studio… <NA>  0.1          0.910 #F9E… TRUE       
-#> # … with 3,107 more rows, and 2 more variables:
+#>  1 Makeu~ Concea~ <NA>  F0           0.949 #F2F~ TRUE       
+#>  2 HOURG~ Veil F~ Porc~ No. 0        0.818 #F6D~ TRUE       
+#>  3 TOM F~ Tracel~ Pearl 0.0          0.851 #F0D~ TRUE       
+#>  4 Arman~ Neo Nu~ <NA>  0            0.912 #F0E~ TRUE       
+#>  5 TOM F~ Tracel~ Pearl 0.0          0.912 #FDE~ TRUE       
+#>  6 Charl~ Magic ~ <NA>  0            0.731 #D9A~ TRUE       
+#>  7 Bobbi~ Skin W~ Porc~ 0            0.822 #F3C~ TRUE       
+#>  8 Given~ Matiss~ <NA>  N00          0.831 #F5D~ TRUE       
+#>  9 Smash~ Studio~ <NA>  0.1          0.814 #F8C~ TRUE       
+#> 10 Smash~ Studio~ <NA>  0.1          0.910 #F9E~ TRUE       
+#> # ... with 3,107 more rows, and 2 more variables:
 #> #   numbers <dbl>, id <dbl>
 ```
 
@@ -101,7 +101,7 @@ makeup_by_words <-
                 token = "words")
 
 head(makeup_by_words)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   lightness lightness_above_half word      
 #>       <dbl> <chr>                <chr>     
 #> 1     0.949 Yes                  conceal   
@@ -123,7 +123,7 @@ makeup_by_words <-
 makeup_by_words |>
   filter(lightness_above_half == "Yes") |>
   slice(1:5)
-#> # A tibble: 5 × 3
+#> # A tibble: 5 x 3
 #>   lightness_above_half word           n
 #>   <chr>                <chr>      <int>
 #> 1 Yes                  foundation  2214
@@ -135,7 +135,7 @@ makeup_by_words |>
 makeup_by_words |>
   filter(lightness_above_half == "No") |>
   slice(1:5)
-#> # A tibble: 5 × 3
+#> # A tibble: 5 x 3
 #>   lightness_above_half word           n
 #>   <chr>                <chr>      <int>
 #> 1 No                   foundation   674
@@ -159,7 +159,7 @@ makeup_by_words_tf_idf <-
   arrange(-tf_idf)
 
 makeup_by_words_tf_idf
-#> # A tibble: 505 × 6
+#> # A tibble: 505 x 6
 #>    lightness_above_half word        n       tf   idf  tf_idf
 #>    <chr>                <chr>   <int>    <dbl> <dbl>   <dbl>
 #>  1 Yes                  cushion    25 0.00187  0.693 1.30e-3
@@ -172,7 +172,7 @@ makeup_by_words_tf_idf
 #>  8 Yes                  compact    13 0.000974 0.693 6.75e-4
 #>  9 Yes                  lifting    12 0.000899 0.693 6.23e-4
 #> 10 Yes                  satte      12 0.000899 0.693 6.23e-4
-#> # … with 495 more rows
+#> # ... with 495 more rows
 ```
 
 
@@ -181,12 +181,12 @@ makeup_by_words_tf_idf
 makeup_by_words_tf_idf |>
   group_by(lightness_above_half) |>
   slice(1:5)
-#> # A tibble: 10 × 6
+#> # A tibble: 10 x 6
 #> # Groups:   lightness_above_half [2]
 #>    lightness_above_half word         n      tf   idf  tf_idf
 #>    <chr>                <chr>    <int>   <dbl> <dbl>   <dbl>
 #>  1 No                   able         2 5.25e-4 0.693 3.64e-4
-#>  2 No                   concent…     2 5.25e-4 0.693 3.64e-4
+#>  2 No                   concent~     2 5.25e-4 0.693 3.64e-4
 #>  3 No                   marc         2 5.25e-4 0.693 3.64e-4
 #>  4 No                   re           2 5.25e-4 0.693 3.64e-4
 #>  5 No                   look         1 2.63e-4 0.693 1.82e-4
@@ -396,7 +396,7 @@ coefs <- model$glmnet.fit %>%
   filter(lambda == model$lambda.1se)
 
 coefs %>% head()
-#> # A tibble: 6 × 5
+#> # A tibble: 6 x 5
 #>   term         step estimate  lambda dev.ratio
 #>   <chr>       <dbl>    <dbl>   <dbl>     <dbl>
 #> 1 (Intercept)    36 -0.335   0.00597     0.562
@@ -422,7 +422,7 @@ coefs %>%
   scale_fill_brewer(palette = "Set1")
 ```
 
-<img src="17-text_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](17-text_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 Perhaps unsurprisingly, if a line mentions Alice then it is likely to be a Alice in Wonderland and if it mention Jane then it is likely to be Jane Eyre.
 
@@ -444,17 +444,15 @@ The key assumption behind the LDA method is that each statement, 'a document', i
 
 LDA considers each statement to be a result of a process where a person first chooses the topics they want to speak about. After choosing the topics, the person then chooses appropriate words to use for each of those topics. More generally, the LDA topic model works by considering each document as having been generated by some probability distribution over topics. For instance, if there were five topics and two documents, then the first document may be comprised mostly of the first few topics; the other document may be mostly about the final few topics (Figure \@ref(fig:topicsoverdocuments)).
 
-<div class="figure">
-<img src="17-text_files/figure-html/topicsoverdocuments-1.png" alt="Probability distributions over topics" width="50%" /><img src="17-text_files/figure-html/topicsoverdocuments-2.png" alt="Probability distributions over topics" width="50%" />
-<p class="caption">(\#fig:topicsoverdocuments)Probability distributions over topics</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{17-text_files/figure-latex/topicsoverdocuments-1} \includegraphics[width=0.5\linewidth]{17-text_files/figure-latex/topicsoverdocuments-2} \caption{Probability distributions over topics}(\#fig:topicsoverdocuments)
+\end{figure}
 
 Similarly, each topic could be considered a probability distribution over terms. To choose the terms used in each document the speaker picks terms from each topic in the appropriate proportion. For instance, if there were ten terms, then one topic could be defined by giving more weight to terms related to immigration; and some other topic may give more weight to terms related to the economy (Figure \@ref(fig:topicsoverterms)).
 
-<div class="figure">
-<img src="17-text_files/figure-html/topicsoverterms-1.png" alt="Probability distributions over terms" width="50%" /><img src="17-text_files/figure-html/topicsoverterms-2.png" alt="Probability distributions over terms" width="50%" />
-<p class="caption">(\#fig:topicsoverterms)Probability distributions over terms</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{17-text_files/figure-latex/topicsoverterms-1} \includegraphics[width=0.5\linewidth]{17-text_files/figure-latex/topicsoverterms-2} \caption{Probability distributions over terms}(\#fig:topicsoverterms)
+\end{figure}
 
 Following @BleiLafferty2009, @blei2012 and @GriffithsSteyvers2004, the process by which a document is generated is more formally considered to be:
 

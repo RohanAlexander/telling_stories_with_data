@@ -87,10 +87,14 @@ In 1798 the Reverend James Whitelaw conducted a survey of Dublin, Ireland, to co
 
 Instead, he found that the lists were 'frequently illegible, and generally short of the actual number by a third, or even one-half'. And so instead he recruited assistants, and they went door-to-door making their own counts. The resulting estimates are particularly informative (Figure \@ref(fig:whitelawsresults)). And the total population of Dublin in 1798 was estimated at 182,370.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/whitelaw.png" alt="Extract of the results that Reverend Whitelaw found in 1798" width="85%" />
-<p class="caption">(\#fig:whitelawsresults)Extract of the results that Reverend Whitelaw found in 1798</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/whitelaw} 
+
+}
+
+\caption{Extract of the results that Reverend Whitelaw found in 1798}(\#fig:whitelawsresults)
+\end{figure}
 
 One aspect worth noticing is that Reverend Whitelaw includes information about class. It is difficult to know how that was determined, but it played a large role in the data collection. Reverend Whitelaw describes how the houses of 'the middle and upper classes always contained some individual who was competent to the task [of making a list]'. But that 'among the lower class, which forms the great mass of the population of this city, the case was very different'. It is difficult to know how Reverend Whitelaw could have known that the upper and middle classes were not representing their number, while the lower class was. It is also difficult to imagine Reverend Whitelaw going into the houses of the upper class and counting their number, as he and his assistants did for the lower classes. As always, the issue of defining the target population is a difficult one, and it seems that there may have been slightly different approaches to each class. 
 
@@ -100,10 +104,14 @@ A little over one hundred years later, @bowley1913working was interested in coun
 
 @bowley1913working continues that they ended up with information about 622 working-class households. And, having judged, based on the census that there were about 18,000 households in Reading, @bowley1913working applies '[t]he multiplier twenty-one... to all the sample data to give estimates for the whole of Reading.' @bowley1913working explains that the reasonableness of the estimates depends 'not on its proportion to the whole, but on its own magnitude, if the conditions of random sampling are secured, as it is believed they have been in this inquiry'. Bowley is, for instance, able to furnish information about the rent paid per week (Figure \@ref(fig:bowleyrents)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/bowleyrents.png" alt="Extract of the results that Bowley found about rent paid by the working-class in Reading" width="85%" />
-<p class="caption">(\#fig:bowleyrents)Extract of the results that Bowley found about rent paid by the working-class in Reading</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/bowleyrents} 
+
+}
+
+\caption{Extract of the results that Bowley found about rent paid by the working-class in Reading}(\#fig:bowleyrents)
+\end{figure}
 
 
 
@@ -136,7 +144,7 @@ illustrative_sampling <-
              ))
 
 illustrative_sampling
-#> # A tibble: 100 × 2
+#> # A tibble: 100 x 2
 #>     unit simple_random_sampling
 #>    <int> <chr>                 
 #>  1     1 Not included          
@@ -149,7 +157,7 @@ illustrative_sampling
 #>  8     8 Not included          
 #>  9     9 Not included          
 #> 10    10 Not included          
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 With systematic sampling, as was used by @bowley1913working, we proceed by selecting some value, say 5. We randomly pick a starting point in units 1 to 5, say 3. And we then include every fifth unit. That starting point is usually randomly selecting.
@@ -172,7 +180,7 @@ illustrative_sampling <-
          )
 
 illustrative_sampling
-#> # A tibble: 100 × 3
+#> # A tibble: 100 x 3
 #>     unit simple_random_sampling systematic_sampling
 #>    <int> <chr>                  <chr>              
 #>  1     1 Not included           Included           
@@ -185,7 +193,7 @@ illustrative_sampling
 #>  8     8 Not included           Not included       
 #>  9     9 Not included           Not included       
 #> 10    10 Not included           Not included       
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 When we consider our population, it will typically have some grouping. This may be as straight-forward as a country having states, provinces, counties, or statistical districts; a university having faculties and departments; and humans having age-groups. A stratified structure is one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata.
@@ -216,8 +224,8 @@ illustrative_sampling <-
   )
 
 illustrative_sampling
-#> # A tibble: 100 × 4
-#>     unit simple_random_sa… systematic_samp… stratified_samp…
+#> # A tibble: 100 x 4
+#>     unit simple_random_sa~ systematic_samp~ stratified_samp~
 #>    <int> <chr>             <chr>            <chr>           
 #>  1     1 Not included      Included         Included        
 #>  2     2 Not included      Not included     Not included    
@@ -229,7 +237,7 @@ illustrative_sampling
 #>  8     8 Not included      Not included     Not included    
 #>  9     9 Not included      Not included     Included        
 #> 10    10 Not included      Not included     Not included    
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 And finally, we can also take advantage of some clusters that may exist in our dataset. Like strata, clusters are collectively exhaustive and mutually exclusive. Our examples from earlier, of states, departments, and age-groups remain valid as clusters. However, it is our intentions toward these groups that is different. Specific, with cluster sampling, we do not intend to collect data from every cluster, whereas with stratified sampling we do. With stratified sampling we look at every stratum and conduct simple random sampling within each strata to select the sample. With cluster sampling we conduct simple random sampling to select clusters of interest. We can then either sample every unit in those selected clusters or use simple random sampling, within the selected clusters, to select units. That all said, this difference can become less clear in practice, especially *ex post*.
@@ -256,8 +264,8 @@ illustrative_sampling <-
   select(-cluster)
 
 illustrative_sampling
-#> # A tibble: 100 × 5
-#>     unit simple_random_sa… systematic_samp… stratified_samp…
+#> # A tibble: 100 x 5
+#>     unit simple_random_sa~ systematic_samp~ stratified_samp~
 #>    <int> <chr>             <chr>            <chr>           
 #>  1     1 Not included      Included         Included        
 #>  2     2 Not included      Not included     Not included    
@@ -269,7 +277,7 @@ illustrative_sampling
 #>  8     8 Not included      Not included     Not included    
 #>  9     9 Not included      Not included     Included        
 #> 10    10 Not included      Not included     Not included    
-#> # … with 90 more rows, and 1 more variable:
+#> # ... with 90 more rows, and 1 more variable:
 #> #   cluster_sampling <chr>
 ```
 
@@ -315,10 +323,7 @@ illustrative_sampling_long |>
   theme(axis.text.y = element_blank())
 ```
 
-<div class="figure">
-<img src="08-farm_files/figure-html/samplingexamples-1.png" alt="Illustrative example of simple random sampling, systematic sampling, stratified sampling, and cluster sampling over the numbers from 1 to 100" width="672" />
-<p class="caption">(\#fig:samplingexamples)Illustrative example of simple random sampling, systematic sampling, stratified sampling, and cluster sampling over the numbers from 1 to 100</p>
-</div>
+![(\#fig:samplingexamples)Illustrative example of simple random sampling, systematic sampling, stratified sampling, and cluster sampling over the numbers from 1 to 100](08-farm_files/figure-latex/samplingexamples-1.pdf) 
 
 Having established our sample, we typically want to use it to make claims about the population. @neyman1934two [p. 561] goes further and says that '[o]bviously the problem of the representative method is *par excellence* the problem of statistical estimation. We are interested in characteristics of a certain population, such $\pi$, which it is either impossible or at least very difficult to study in detail, and we try to estimate these characteristics basing our judgment on the sample.'
 
@@ -346,16 +351,24 @@ illustrative_sampling_long |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:scaleup)Sum of the numbers in each sample, and implied sum of population
-
-|Sampling method        | Sum of sample| Implied population sum|
-|:----------------------|-------------:|----------------------:|
-|simple_random_sampling |           840|                  4,200|
-|systematic_sampling    |           970|                  4,850|
-|stratified_sampling    |           979|                  4,895|
-|cluster_sampling       |           910|                  4,550|
+\caption{(\#tab:scaleup)Sum of the numbers in each sample, and implied sum of population}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+Sampling method & Sum of sample & Implied population sum\\
+\hline
+simple\_random\_sampling & 840 & 4,200\\
+\hline
+systematic\_sampling & 970 & 4,850\\
+\hline
+stratified\_sampling & 979 & 4,895\\
+\hline
+cluster\_sampling & 910 & 4,550\\
+\hline
+\end{tabular}
+\end{table}
 
 The actual sum of the population is 5,050. We can obtain this using a trick, attributed to Euler, who noticed that the sum of 1 to any number can be quickly obtained by finding the middle number and then multiplying that by one plus the number. So, in this case, it `50*101`. Alternatively we can use R: `sum(1:100)`.
 
@@ -395,7 +408,7 @@ sleep <-
   )
 
 sleep
-#> # A tibble: 30 × 3
+#> # A tibble: 30 x 3
 #>    toddler_sleep difference parent_sleep
 #>            <int>      <int>        <int>
 #>  1            10          1            9
@@ -408,7 +421,7 @@ sleep
 #>  8             5          2            3
 #>  9             4          3            1
 #> 10             4          1            3
-#> # … with 20 more rows
+#> # ... with 20 more rows
 ```
 
 And the average of each is:
@@ -418,7 +431,7 @@ And the average of each is:
 sleep %>% 
   summarize(toddler_sleep_average = mean(toddler_sleep),
             parent_sleep_average = mean(parent_sleep))
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   toddler_sleep_average parent_sleep_average
 #>                   <dbl>                <dbl>
 #> 1                  6.17                  4.9
@@ -508,20 +521,20 @@ library(tidyverse)
 library(canlang)
 
 can_lang
-#> # A tibble: 214 × 6
+#> # A tibble: 214 x 6
 #>    category language mother_tongue most_at_home most_at_work
 #>    <chr>    <chr>            <dbl>        <dbl>        <dbl>
-#>  1 Aborigi… Aborigi…           590          235           30
-#>  2 Non-Off… Afrikaa…         10260         4785           85
-#>  3 Non-Off… Afro-As…          1150          445           10
-#>  4 Non-Off… Akan (T…         13460         5985           25
-#>  5 Non-Off… Albanian         26895        13135          345
-#>  6 Aborigi… Algonqu…            45           10            0
-#>  7 Aborigi… Algonqu…          1260          370           40
-#>  8 Non-Off… America…          2685         3020         1145
-#>  9 Non-Off… Amharic          22465        12785          200
-#> 10 Non-Off… Arabic          419890       223535         5585
-#> # … with 204 more rows, and 1 more variable:
+#>  1 Aborigi~ Aborigi~           590          235           30
+#>  2 Non-Off~ Afrikaa~         10260         4785           85
+#>  3 Non-Off~ Afro-As~          1150          445           10
+#>  4 Non-Off~ Akan (T~         13460         5985           25
+#>  5 Non-Off~ Albanian         26895        13135          345
+#>  6 Aborigi~ Algonqu~            45           10            0
+#>  7 Aborigi~ Algonqu~          1260          370           40
+#>  8 Non-Off~ America~          2685         3020         1145
+#>  9 Non-Off~ Amharic          22465        12785          200
+#> 10 Non-Off~ Arabic          419890       223535         5585
+#> # ... with 204 more rows, and 1 more variable:
 #> #   lang_known <dbl>
 ```
 
@@ -532,7 +545,7 @@ We can quickly see the top-10 most common languages to have as mother tongue.
 can_lang |>
   slice_max(mother_tongue, n = 10) |>
   select(language, mother_tongue)
-#> # A tibble: 10 × 2
+#> # A tibble: 10 x 2
 #>    language                     mother_tongue
 #>    <chr>                                <dbl>
 #>  1 English                           19460850
@@ -557,7 +570,7 @@ region_lang |>
   slice_max(mother_tongue, n = 5) |>
   select(region, language, mother_tongue, population) |>
   mutate(prop = mother_tongue / population)
-#> # A tibble: 5 × 5
+#> # A tibble: 5 x 5
 #>   region  language          mother_tongue population   prop
 #>   <chr>   <chr>                     <dbl>      <dbl>  <dbl>
 #> 1 Toronto English                 3061820    5928040 0.516 
@@ -572,7 +585,7 @@ region_lang |>
   slice_max(mother_tongue, n = 5) |>
   select(region, language, mother_tongue, population) |>
   mutate(prop = mother_tongue / population)
-#> # A tibble: 5 × 5
+#> # A tibble: 5 x 5
 #>   region     language mother_tongue population    prop
 #>   <chr>      <chr>            <dbl>      <dbl>   <dbl>
 #> 1 Belleville English          93655     103472 0.905  
@@ -605,7 +618,7 @@ ontario_population <-
 #> Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B     Downloading: 120 B
 
 ontario_population
-#> # A tibble: 0 × 0
+#> # A tibble: 0 x 0
 ```
 
 Data from the 1996, 2001, 2006, 2011, and 2016 censuses are available, and `list_census_datasets()` provides the metadata that we need to provide to `get_census()` to access these. Data are available based on a variety of regions, and `list_census_regions()` provides the metadata that we need. And finally, `list_census_vectors()` provides the metadata about the variables that available.
@@ -639,58 +652,85 @@ The requirement for a US Census is included in the US Constitution, and decent, 
 
 Go to [IPUMS](https://ipums.org), then 'IPUMS USA', and select 'get data' (Figure \@ref(fig:ipumsone)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_one.png" alt="The IPUMS homepage, with IPUMS USA shown in the top left box" width="85%" />
-<p class="caption">(\#fig:ipumsone)The IPUMS homepage, with IPUMS USA shown in the top left box</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_one} 
+
+}
+
+\caption{The IPUMS homepage, with IPUMS USA shown in the top left box}(\#fig:ipumsone)
+\end{figure}
 
 We are interested in a sample, so go to 'SELECT SAMPLE', and un-select 'Default sample from each year' and instead select '2019 ACS' and then 'SUBMIT SAMPLE SELECTIONS' (Figure \@ref(fig:ipumstwo)).
 
-<div class="figure">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_two.png" alt="Selecting a sample from IPUMS USA and specifying interest in the 2019 ACS" width="45%" /><img src="/Users/rohanalexander/Documents/book/figures/ipums_three.png" alt="Selecting a sample from IPUMS USA and specifying interest in the 2019 ACS" width="45%" />
-<p class="caption">(\#fig:ipumstwo)Selecting a sample from IPUMS USA and specifying interest in the 2019 ACS</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_two} \includegraphics[width=0.45\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_three} \caption{Selecting a sample from IPUMS USA and specifying interest in the 2019 ACS}(\#fig:ipumstwo)
+\end{figure}
 
 We might be interested in data based on state. So we would begin by looking at 'HOUSEHOLD' variables and selecting 'GEOGRAPHIC' (Figure \@ref(fig:ipumsfour)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_four.png" alt="Specifying that we are interested in the state" width="85%" />
-<p class="caption">(\#fig:ipumsfour)Specifying that we are interested in the state</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_four} 
+
+}
+
+\caption{Specifying that we are interested in the state}(\#fig:ipumsfour)
+\end{figure}
 
 We add 'STATEICP' to our 'cart' by clicking the plus, which will then turn into a tick (Figure \@ref(fig:ipumssix)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_six.png" alt="Adding STATEICP to our cart" width="85%" />
-<p class="caption">(\#fig:ipumssix)Adding STATEICP to our cart</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_six} 
+
+}
+
+\caption{Adding STATEICP to our cart}(\#fig:ipumssix)
+\end{figure}
 
 We might then be interested in data on a 'PERSON' basis, for instance, 'DEMOGRAPHIC' variables such as 'AGE', which we should add to our cart. Still on a 'PERSON' basis, we might be interested in 'INCOME', for instance, 'Total personal income' 'INCTOT' and we could add that to our cart (Figure \@ref(fig:ipumsseven)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_seven.png" alt="Adding additional demographic variables that are available on an individual basis" width="85%" />
-<p class="caption">(\#fig:ipumsseven)Adding additional demographic variables that are available on an individual basis</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_seven} 
+
+}
+
+\caption{Adding additional demographic variables that are available on an individual basis}(\#fig:ipumsseven)
+\end{figure}
 
 When we are done, we can 'VIEW CART', and then 'CREATE DATA EXTRACT' (Figure \@ref(fig:ipumseight)). At this point there are two aspects that we likely want to change:
 
 1. Change the 'DATA FORMAT' from dat to csv (Figure \@ref(fig:ipumsnine)).
 2. Customize the sample size as we likely do not need three million responses, and could just change it to, say, 500,000 (Figure \@ref(fig:ipumsten)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_eight.png" alt="Beginning the checkout process" width="85%" />
-<p class="caption">(\#fig:ipumseight)Beginning the checkout process</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_nine.png" alt="Specifying that we are interested in CSV files" width="85%" />
-<p class="caption">(\#fig:ipumsnine)Specifying that we are interested in CSV files</p>
-</div>
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_eight} 
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/ipums_ten.png" alt="Reducing the sample size from three million responses to half a million" width="85%" />
-<p class="caption">(\#fig:ipumsten)Reducing the sample size from three million responses to half a million</p>
-</div>
+}
+
+\caption{Beginning the checkout process}(\#fig:ipumseight)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_nine} 
+
+}
+
+\caption{Specifying that we are interested in CSV files}(\#fig:ipumsnine)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/ipums_ten} 
+
+}
+
+\caption{Reducing the sample size from three million responses to half a million}(\#fig:ipumsten)
+\end{figure}
 
 Finally, we want to include a descriptive name for the extract, for instance, '2022-02-06: Income based on state and age', which specifies the date we made the extract and what is in the extract. After that we can 'SUBMIT EXTRACT'.
 
@@ -706,7 +746,7 @@ ipums_extract
 
 
 ```
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>    YEAR STATEICP   AGE INCTOT
 #>   <dbl>    <dbl> <dbl>  <dbl>
 #> 1  2019       41    39   9000

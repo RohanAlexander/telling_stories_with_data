@@ -169,7 +169,7 @@
 <span class="header-section-number">15.2</span> Directed acyclic graphs<a class="anchor" aria-label="anchor" href="#directed-acyclic-graphs"><i class="fas fa-link"></i></a>
 </h2>
 <p>When we are discussing causality, it can help to be very specific about what we mean. It is easy to get caught up in observational data and trick ourselves. It is important to think hard, and to use all the tools available to us. For instance, in that earlier example, <span class="citation">Dagan et al. (<a href="references-1.html#ref-dagan2021bnt162b2" role="doc-biblioref">2021</a>)</span> were able to use experimental data as a guide. Most of the time, we will not be so lucky as to have both experimental data and observational data available to us. But one framework that can help with thinking hard about our data is the use of directed acyclic graph (DAG). DAGs are a fancy name for a flow diagram and involves drawing arrows and lines between the variables to indicate the relationship between them. Following <span class="citation">Igelström (<a href="references-1.html#ref-citeerik" role="doc-biblioref">2020</a>)</span> we use <code>DiagrammeR</code> <span class="citation">(<a href="references-1.html#ref-citeDiagrammeR" role="doc-biblioref">Iannone 2020</a>)</span> to build them here, because we can use the same skills outside of just DAGs and <code>DiagrammeR</code> provides quite a lot of control (Figure <a href="causality.html#fig:firstdag">15.1</a>). But <code>ggdag</code> is also useful <span class="citation">(<a href="references-1.html#ref-citeggdag" role="doc-biblioref">Barrett 2021b</a>)</span>.</p>
-<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rich-iannone/DiagrammeR">DiagrammeR</a></span><span class="op">)</span>
 
 <span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">"
@@ -185,13 +185,13 @@ digraph {
 "</span>, height <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:firstdag"></span>
-<div id="htmlwidget-cc5c1cbe9367999ca63c" style="width:75%;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cc5c1cbe9367999ca63c">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+<div id="htmlwidget-e2448520cec059d798c5" style="width:75%;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e2448520cec059d798c5">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Figure 15.1: Using a DAG to illustrate perceived relationships
 </p>
 </div>
 <p>In Figure <a href="causality.html#fig:firstdag">15.1</a>, we think that <em>x</em> causes <em>y</em>. We could build another DAG where the situation is less clear. To make the examples a little easier to follow, we will switch to fruits (Figure <a href="causality.html#fig:carrotasconfounder">15.2</a>).</p>
-<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">"
 digraph {
   graph [ranksep = 0.2]
@@ -208,8 +208,8 @@ digraph {
 "</span>, height <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:carrotasconfounder"></span>
-<div id="htmlwidget-09c219fa6c9a867d6957" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-09c219fa6c9a867d6957">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+<div id="htmlwidget-7ad5c7af6e4ef6d32719" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7ad5c7af6e4ef6d32719">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Figure 15.2: A DAG showing Carrot as a confounder
 </p>
 </div>
@@ -217,7 +217,7 @@ Figure 15.2: A DAG showing Carrot as a confounder
 <p><span class="citation">Hernan and Robins (<a href="references-1.html#ref-hernanrobins2020" role="doc-biblioref">2020, 83</a>)</span> discuss an interesting case where a researcher was interested in whether one person looking up at the sky makes others look up at the sky also. There was a clear relationship between the responses of both people. But it was also the case that there was noise in the sky. So, it was unclear whether the second person looked up because the first person looked up, or they both looked up because of the noise. When using experimental data, randomization allows us to avoid this concern, but with observational data we cannot rely on that. It is also not the case that bigger data necessarily get around this problem for us. Instead, it is important to think carefully about the situation.</p>
 <p>If there are confounders, but we are still interested in causal effects, then we need to adjust for them. One way is to include them in the regression. But the validity of this requires several assumptions. In particular, <span class="citation">Gelman and Hill (<a href="references-1.html#ref-gelmanandhill" role="doc-biblioref">2007, 169</a>)</span> warn that our estimate will only correspond to the average causal effect in the sample if we include all of the confounders and have the right model. Putting the second requirement to one side, and focusing only on the first, if we do not think about and observe a confounder, then it can be difficult to adjust for it. And this is an area where both domain expertise and theory can bring a lot to an analysis.</p>
 <p>In Figure <a href="causality.html#fig:carrotasmediator">15.3</a> we have a similar situation where again, we may think that <em>Apple</em> causes <em>Banana</em>. But in Figure <a href="causality.html#fig:carrotasmediator">15.3</a> <em>Apple</em> also causes <em>Carrot</em>, which itself causes <em>Banana</em>.</p>
-<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">"
 digraph {
   graph [ranksep = 0.2]
@@ -234,14 +234,14 @@ digraph {
 "</span>, height <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:carrotasmediator"></span>
-<div id="htmlwidget-77df259b2996fee50bc1" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-77df259b2996fee50bc1">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+<div id="htmlwidget-da1c3570b401df1328e8" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-da1c3570b401df1328e8">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Figure 15.3: A DAG showing Carrot as a mediator
 </p>
 </div>
 <p>In Figure <a href="causality.html#fig:carrotasmediator">15.3</a>, <em>Carrot</em> is called a ‘mediator’ and we would not adjust for it if we were interested in the effect of <em>Apple</em> on <em>Banana</em>. If we were to adjust for it, then some of what we are attributing to <em>Apple</em>, would be due to <em>Carrot</em>.</p>
 <p>Finally, in Figure <a href="causality.html#fig:carrotascollider">15.4</a> we have yet another similar situation, where we again, think that <em>Apple</em> causes <em>Banana</em>. But this time both <em>Apple</em> and <em>Banana</em> also cause <em>Carrot</em>.</p>
-<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">"
 digraph {
   graph [ranksep = 0.2]
@@ -258,8 +258,8 @@ digraph {
 "</span>, height <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:carrotascollider"></span>
-<div id="htmlwidget-717e7e198b675778c27e" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-717e7e198b675778c27e">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
+<div id="htmlwidget-cfd759fa686e39f84df2" style="width:75%;height:300px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfd759fa686e39f84df2">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><p class="caption">
 Figure 15.4: A DAG showing Carrot as a collider
 </p>
 </div>
@@ -276,7 +276,7 @@ Figure 15.4: A DAG showing Carrot as a collider
 </h3>
 <p>There are two situations where data can trick us that are so common that we will explicitly go through them. These are: 1) Simpson’s paradox, and 2) Berkson’s paradox. It is important to keep these situations in mind, and the use of DAGs can help identify them.</p>
 <p>Simpson’s paradox occurs when we estimate some relationship for subsets of our data, but a different relationship when we consider the entire dataset <span class="citation">(<a href="references-1.html#ref-simpson1951interpretation" role="doc-biblioref">Simpson 1951</a>)</span>. It is a particular case of the ecological fallacy, which is when we try to make claims about individuals, based on their group. For instance, it may be that there is a positive relationship between undergraduate grades and performance in graduate school in two departments when considering each department individually. But if undergraduate grades tended to be higher in one department than another while graduate school performance tended to be opposite, we may find a negative relationship between undergraduate grades and performance in graduate school. We can simulate some data to show this more clearly (Figure <a href="causality.html#fig:simpsonsparadox">15.5</a>).</p>
-<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -316,7 +316,7 @@ Figure 15.4: A DAG showing Carrot as a collider
 <span class="co">#&gt;  9     0.732 -0.0471 0.684 Department 1</span>
 <span class="co">#&gt; 10     0.738  0.0552 0.793 Department 1</span>
 <span class="co">#&gt; # … with 1,990 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">both_departments</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">undergrad</span>, y <span class="op">=</span> <span class="va">grad</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span>
@@ -336,7 +336,7 @@ Figure 15.5: Illustration of simulated data that shows Simpson’s paradox
 </p>
 </div>
 <p>Simpson’s paradox is often illustrated using real-world data from University of California, Berkeley, on graduate admissions <span class="citation">(<a href="references-1.html#ref-bickel1975sex" role="doc-biblioref">Bickel, Hammel, and O’Connell 1975</a>)</span>. <span class="citation">Bickel, Hammel, and O’Connell (<a href="references-1.html#ref-bickel1975sex" role="doc-biblioref">1975</a>)</span> include what might be one of the greatest sub-titles ever published: ‘Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation’. More recently, Dr Andrew Heiss, Assistant Professor, Georgia State University, points out that the ‘penguins’ dataset from <code>parlmerpenguins</code> <span class="citation">(<a href="references-1.html#ref-palmerpenguins" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span> provides an example of Simpson’s paradox, using real-world data (Figure <a href="causality.html#fig:simpsonsparadoxinpenguins">15.6</a>).</p>
-<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span>
 
 <span class="va">penguins</span> |&gt; 
@@ -363,7 +363,7 @@ Figure 15.6: Illustration of Simpson’s paradox in a dataset of penguin bill de
 <span class="header-section-number">15.3.2</span> Berkson’s paradox<a class="anchor" aria-label="anchor" href="#berksons-paradox"><i class="fas fa-link"></i></a>
 </h3>
 <p>Berkson’s paradox occurs when we estimate some relationship based on the dataset that we have. But because the dataset is so selected, the relationship is different in a more general dataset <span class="citation">(<a href="references-1.html#ref-citeberkson" role="doc-biblioref">Berkson 1946</a>)</span>. For instance, if we have a dataset of professional cyclists then we might find there is no relationship between their VO2 max and their chance of winning a bike race. But if we had a dataset of the general population then we might find a relationship between these two variables. The professional dataset has just been so selected that the relationship disappears; one cannot become a professional cyclist unless one has a good-enough VO2 max. Again, we can simulate some data to show this more clearly (Figure <a href="causality.html#fig:berksonsparadox">15.7</a>).</p>
-<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">number_of_pros</span> <span class="op">&lt;-</span> <span class="fl">100</span>
@@ -403,7 +403,7 @@ Figure 15.6: Illustration of Simpson’s paradox in a dataset of penguin bill de
 <span class="co">#&gt;  9 0.732             0.890 Professionals</span>
 <span class="co">#&gt; 10 0.738             0.821 Professionals</span>
 <span class="co">#&gt; # … with 1,090 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb503"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">professionals_and_public</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">VO2</span>, y <span class="op">=</span> <span class="va">chance_of_winning</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span>
@@ -446,7 +446,7 @@ Figure 15.7: Illustration of simulated data that shows Berkson’s paradox
 <span class="header-section-number">15.4.2</span> Simulated example<a class="anchor" aria-label="anchor" href="#simulated-example"><i class="fas fa-link"></i></a>
 </h3>
 <p>To be more specific about the situation, we simulate data. We will simulate a situation in which there is initially a difference of one between the serve speeds of the different people, and then after a new tennis racket, there is a difference of six. We can use a graph to illustrate the situation (Figure <a href="causality.html#fig:diffindifftennisracket">15.8</a>).</p>
-<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -496,7 +496,7 @@ Figure 15.7: Illustration of simulated data that shows Berkson’s paradox
 <span class="co">#&gt;  9      9 0     1                      6.13</span>
 <span class="co">#&gt; 10     10 0     1                      7.32</span>
 <span class="co">#&gt; # … with 1,990 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb505"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_difference_in_differences</span> |&gt;
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>,
              y <span class="op">=</span> <span class="va">serve_speed</span>,
@@ -515,7 +515,7 @@ Figure 15.8: Illustration of simulated data that shows a difference before and a
 </p>
 </div>
 <p>As it is a straight-forward example, we can obtain our estimate manually, by looking at the average difference of the differences. When we do that, we find that we estimate the effect of the new tennis racket to be 5.06, which is similar to what we simulated.</p>
-<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">average_differences</span> <span class="op">&lt;-</span>
   <span class="va">simulated_difference_in_differences</span> |&gt;
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">time</span>,
@@ -530,7 +530,7 @@ Figure 15.8: Illustration of simulated data that shows a difference before and a
 <p>And we can use linear regression to get the same result. The equation that we are interested in is:
 <span class="math display">\[Y_{i,t} = \beta_0 + \beta_1\mbox{Treatment binary}_i + \beta_2\mbox{Time binary}_t + \beta_3(\mbox{Treatment binary} \times\mbox{Time binary})_{i,t} + \epsilon_{i,t}\]</span></p>
 <p>While we should include the separate aspects as well, it is the estimate of the interaction that we are interested in. In this case it is <span class="math inline">\(\beta_3\)</span>. And we find that our estimated effect is 5.06.</p>
-<div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">diff_in_diff_example_regression</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">serve_speed</span> <span class="op">~</span> <span class="va">treatment_group</span><span class="op">*</span><span class="va">time</span>, 
      data <span class="op">=</span> <span class="va">simulated_difference_in_differences</span><span class="op">)</span>
@@ -584,7 +584,7 @@ Figure 15.8: Illustration of simulated data that shows a difference before and a
 <p>In this case study we introduce <span class="citation">Angelucci and Cagé (<a href="references-1.html#ref-angelucci2019newspapers" role="doc-biblioref">2019</a>)</span>, and replicate its main findings.</p>
 <p>The business model of newspapers was challenged by the internet and many local newspapers have closed. And this issue is not new. When television was introduced, there were similar concerns. <span class="citation">Angelucci and Cagé (<a href="references-1.html#ref-angelucci2019newspapers" role="doc-biblioref">2019</a>)</span> use the introduction of television advertising in France, announced in 1967, to examine the effect of decreased advertising revenue on newspapers. They create a dataset of French newspapers from 1960 to 1974 and then use difference in differences to examine the effect of the reduction in advertising revenues on newspapers’ content and prices. The change that they focus on is the introduction of television advertising, which they argue affected national newspapers more than local newspapers. They find that this change results in both less journalism-content in the newspapers and lower newspaper prices. Focusing on this change, and analyzing it using difference in differences, is important because it allows us to disentangle a few competing effects. For instance, did newspapers become redundant because they could no longer charge high prices for their advertisements, or because consumers preferred to get their news from the television?</p>
 <p>We can get free access to the <a href="https://www.openicpsr.org/openicpsr/project/116438/version/V1/view">data</a> that underpins <span class="citation">Angelucci and Cagé (<a href="references-1.html#ref-angelucci2019newspapers" role="doc-biblioref">2019</a>)</span> after registration. The dataset is in the Stata data format, ‘dta’, which we can read with <code><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta()</a></code> from <code>haven</code> <span class="citation">(<a href="references-1.html#ref-citehaven" role="doc-biblioref">Wickham and Miller 2020</a>)</span>. The file that we are interested in is ‘Angelucci_Cage_AEJMicro_dataset.dta’, which is the ‘dta’ folder.</p>
-<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb509"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
 
 <span class="va">newspapers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"Angelucci_Cage_AEJMicro_dataset.dta"</span><span class="op">)</span>
@@ -612,7 +612,7 @@ Figure 15.8: Illustration of simulated data that shows a difference before and a
 #&gt; #   R_sh_edu_primaire_ipo &lt;dbl&gt;, …</code></pre>
 <p>There are 1,196 observations in the dataset and 52 variables. <span class="citation">Angelucci and Cagé (<a href="references-1.html#ref-angelucci2019newspapers" role="doc-biblioref">2019</a>)</span> are interested in the 1960-1974 time-period which has around 100 newspapers. There are 14 national newspapers at the beginning of the period and 12 at the end. The key period is 1967, when the French government announced it would allow advertising on television. <span class="citation">Angelucci and Cagé (<a href="references-1.html#ref-angelucci2019newspapers" role="doc-biblioref">2019</a>)</span> argue that national newspapers were affected by this chance, but local newspapers were not. So, the national newspapers are the treatment group and the local newspapers are the control group.</p>
 <p>We focus just on the headline difference in differences result and construct summary statistics (Table <a href="causality.html#tab:frenchnewspaperssummarystatistics">15.1</a>).</p>
-<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">newspapers</span> <span class="op">&lt;-</span> 
   <span class="va">newspapers</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">id_news</span>, <span class="va">after_national</span>, <span class="va">local</span>, <span class="va">national</span>, <span class="co"># Diff in diff variables</span>
@@ -640,7 +640,7 @@ Figure 15.8: Illustration of simulated data that shows a difference before and a
 <span class="co">#&gt; #   ads_p4_cst &lt;dbl&gt;, ads_s &lt;dbl&gt;, ps_cst &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   po_cst &lt;dbl&gt;, qtotal &lt;dbl&gt;, qs_s &lt;dbl&gt;, rs_cst &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   ra_cst_div_qtotal &lt;dbl&gt;</span></code></pre></div>
-<div class="sourceCode" id="cb511"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/modelsummary/">modelsummary</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://vincentarelbundock.github.io/modelsummary/reference/datasummary_skim.html">datasummary_skim</a></span><span class="op">(</span><span class="va">newspapers</span>,
@@ -1050,7 +1050,7 @@ ra_cst_div_qtotal
 </tbody>
 </table></div>
 <p>We are interested in what happened from 1967 onward, especially in terms of advertising revenue, and whether that was different for national, compared with local newspapers (Figure <a href="causality.html#fig:frenchnewspapersrevenue">15.9</a>). We use <code>scales</code> to adjust the y axis <span class="citation">(<a href="references-1.html#ref-scales" role="doc-biblioref">Wickham and Seidel 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span>
 <span class="va">newspapers</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>type <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">local</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"Local"</span>, <span class="st">"National"</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -1072,7 +1072,7 @@ Figure 15.9: Revenue of French newspapers (1960-1974), by whether they were loca
 <p>The model that we are interested in estimating is:
 <span class="math display">\[\mbox{ln}(y_{n,t}) = \beta_0 + \beta_1(\mbox{National binary}\times\mbox{1967 onward binary}) + \lambda_n + \gamma_y + \epsilon.\]</span>
 It is the <span class="math inline">\(\beta_1\)</span> coefficient that we are especially interested in. We use <span class="math inline">\(\lambda_n\)</span> as fixed effect for each newspaper, and the <span class="math inline">\(\gamma_y\)</span> as a fixed effect for each year. We estimate the models using <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>.</p>
-<div class="sourceCode" id="cb513"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Advertising side</span>
 <span class="va">ad_revenue</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">ra_cst</span><span class="op">)</span> <span class="op">~</span> <span class="va">after_national</span> <span class="op">+</span> <span class="va">id_news</span> <span class="op">+</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">newspapers</span><span class="op">)</span>
@@ -1095,7 +1095,7 @@ It is the <span class="math inline">\(\beta_1\)</span> coefficient that we are e
 <span class="va">revenue_from_sales</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rs_cst</span><span class="op">)</span> <span class="op">~</span> <span class="va">after_national</span> <span class="op">+</span> <span class="va">id_news</span> <span class="op">+</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">newspapers</span><span class="op">)</span></code></pre></div>
 <p>Looking at the advertising-side variables (Table <a href="causality.html#tab:frenchnewspapersadvertising">15.2</a>) we find consistently negative coefficients for everything apart from advertising space.</p>
-<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">selected_variables</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"year"</span> <span class="op">=</span> <span class="st">"Year"</span>,
   <span class="st">"after_national1"</span> <span class="op">=</span> <span class="st">"Is after advertising change"</span><span class="op">)</span>
@@ -1322,7 +1322,7 @@ F
 </tbody>
 </table></div>
 <p>And looking at the advertising-side variables (Table <a href="causality.html#tab:frenchnewspapersconsumers">15.3</a>) we again, find consistently negative coefficients for everything apart from the share of subscriptions and unit price.</p>
-<div class="sourceCode" id="cb515"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">consumer_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
   <span class="st">"Subscription price"</span> <span class="op">=</span> <span class="va">subscription_price</span>,
   <span class="st">"Circulation"</span> <span class="op">=</span> <span class="va">circulation</span>,
@@ -1618,7 +1618,7 @@ F
 <p>Propensity score matching involves assigning some probability to each observation. We construct that probability based on the observation’s values for the independent variables, at their values before the treatment. That probability is our best guess at the probability of the observation being treated, regardless of whether it was treated or not. For instance, if 18-year-old males were treated but 19-year-old males were not, then as there is not much difference between 18-year-old males and 19-year-old males our assigned probability would be similar. We can then compare the outcomes of observations with similar propensity scores.</p>
 <p>One advantage of propensity score matching is that is allows us to easily consider many independent variables at once, and it can be constructed using logistic regression.</p>
 <p>To be more specific we can simulate some data. We will pretend that we work for a large online retailer. We are going to treat some individuals with free shipping to see what happens to their average purchase.</p>
-<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">10000</span>
@@ -1645,7 +1645,7 @@ F
                     sdlog <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
   <span class="op">)</span></code></pre></div>
 <p>Then we need to add some probability of being treated with free shipping. We will say that it depends on our variables and that younger, higher-income, male and Toronto-based individuals make this treatment slightly more likely.</p>
-<div class="sourceCode" id="cb517"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">purchase_data</span> <span class="op">&lt;-</span>
   <span class="va">purchase_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
@@ -1687,7 +1687,7 @@ F
   <span class="va">purchase_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">age_num</span>,<span class="op">-</span><span class="va">city_num</span>,<span class="op">-</span><span class="va">gender_num</span>,<span class="op">-</span><span class="va">income_num</span>,<span class="op">-</span><span class="va">sum_num</span>,<span class="op">-</span><span class="va">softmax_prob</span><span class="op">)</span></code></pre></div>
 <p>Finally, we need to have some measure of a person’s average spend. We want those with free shipping to be slightly higher than those without.</p>
-<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">purchase_data</span> <span class="op">&lt;-</span>
   <span class="va">purchase_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mean_spend <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">free_shipping</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fl">60</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -1714,7 +1714,7 @@ F
 <span class="co">#&gt; # … with 9,990 more rows, and 1 more variable:</span>
 <span class="co">#&gt; #   average_spend &lt;dbl&gt;</span></code></pre></div>
 <p>We use <code><a href="https://kosukeimai.github.io/MatchIt/reference/matchit.html">matchit()</a></code> from <code>MatchIt</code> <span class="citation">(<a href="references-1.html#ref-MatchIt" role="doc-biblioref">Ho et al. 2011</a>)</span> to implement logistic regression and create matched groups. We then use <code><a href="https://kosukeimai.github.io/MatchIt/reference/match.data.html">match.data()</a></code> to get the data of matches containing both all 371 people who were actually treated with free shipping and the untreated person who is considered as similar to them, based on propensity score, as possible. The result is a dataset of 742 observations.</p>
-<div class="sourceCode" id="cb519"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kosukeimai.github.io/MatchIt/">MatchIt</a></span><span class="op">)</span>
 
 <span class="va">matched_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kosukeimai.github.io/MatchIt/reference/matchit.html">matchit</a></span><span class="op">(</span><span class="va">free_shipping</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">city</span> <span class="op">+</span> <span class="va">gender</span> <span class="op">+</span> <span class="va">income</span>, 
@@ -1750,7 +1750,7 @@ F
 <span class="co">#&gt; #   average_spend &lt;dbl&gt;, distance &lt;dbl&gt;, weights &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   subclass &lt;fct&gt;</span></code></pre></div>
 <p>Finally, we can estimate the effect of being treated on average spend using linear regression. We are particularly interested in the coefficient associated with the treatment variable, in this case free shipping.</p>
-<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">propensity_score_regression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">average_spend</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">city</span> <span class="op">+</span> <span class="va">gender</span> <span class="op">+</span> <span class="va">income</span> <span class="op">+</span> <span class="va">free_shipping</span>, 
                                   data <span class="op">=</span> <span class="va">matched_dataset</span><span class="op">)</span>
 
@@ -1792,7 +1792,7 @@ F
 <span class="header-section-number">15.6.2</span> Simulated example<a class="anchor" aria-label="anchor" href="#simulated-example-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>To be more specific about the situation, we simulate data. We will consider the relationship between income and grades, and simulate there to be a change if a student gets at least 80 (Figure <a href="causality.html#fig:rddmarks">15.10</a>).</p>
-<div class="sourceCode" id="cb521"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -1828,7 +1828,7 @@ F
 <span class="co">#&gt;  9      9  78.6   9.53 0.671</span>
 <span class="co">#&gt; 10     10  78.8  10.6  2.46 </span>
 <span class="co">#&gt; # … with 990 more rows</span></code></pre></div>
-<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rdd_example_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mark</span>,
              y <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -1851,7 +1851,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 </p>
 </div>
 <p>We can use a binary variable with linear regression to estimate the effect. We expect the coefficient to be around two, which is what we simulated.</p>
-<div class="sourceCode" id="cb523"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rdd_example_data</span> <span class="op">&lt;-</span> 
   <span class="va">rdd_example_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>mark_80_and_over <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">mark</span> <span class="op">&lt;</span> <span class="fl">80</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> 
@@ -1880,7 +1880,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <span class="co">#&gt; F-statistic: 357.7 on 2 and 997 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
 <p>There are various caveats to this estimate that we will discuss, but the essentials of RDD are here. Given an appropriate set-up, and model, an RDD can compare favorably to randomized trials <span class="citation">(<a href="references-1.html#ref-bloombellreiman2020" role="doc-biblioref">Bloom, Bell, and Reiman 2020</a>)</span>.</p>
 <p>We could also implement RDD using <code>rdrobust</code> <span class="citation">(<a href="references-1.html#ref-rdrobust" role="doc-biblioref">Calonico et al. 2021</a>)</span>. The advantage of this approach is that many extensions are easily available.</p>
-<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rdrobust</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/rdrobust/man/rdrobust.html">rdrobust</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">rdd_example_data</span><span class="op">$</span><span class="va">income</span>, 
          x <span class="op">=</span> <span class="va">rdd_example_data</span><span class="op">$</span><span class="va">mark</span>, 
@@ -1943,7 +1943,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <p>It may be possible to deal with fuzzy RDD settings with appropriate choice of model or data. It may also be possible to deal with them using instrumental variables.</p>
 <p>We want as ‘sharp’ an effect as possible, but if the thresholds are known, then they will be gamed. For instance, there is a lot of evidence that people run for certain marathon times, and we know that people aim for certain grades. Similarly, from the other side, it is a lot easier for an instructor to just give out As than it is to have to justify Bs. One way to look at this is to consider how ‘balanced’ the sample is on either side of the threshold. We can do this using histograms with appropriate bins. For instance, think of the age-heaping that we found in the cleaned Kenyan census data in Chapter <a href="gather-data.html#gather-data">9</a></p>
 <p>Another key factor for RDD is the possible effect of the decision around the choice of model. To see this, consider the difference between a linear and polynomial.</p>
-<div class="sourceCode" id="cb525"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">1</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,
          running_variable <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span>,
@@ -1962,7 +1962,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span><span class="op">~</span><span class="va">x</span>, method <span class="op">=</span> <span class="st">'lm'</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="15-causality_from_obs_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
-<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
 <code class="sourceCode R">  
 <span class="va">both</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">running_variable</span>, y <span class="op">=</span> <span class="va">outcome</span>, color <span class="op">=</span> <span class="va">location</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -2045,7 +2045,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <p>Let us generate some data. We will explore a simulation related to the canonical example of health status, smoking, and tax rates. So we are looking to explain how healthy someone is based on the amount they smoke, via the tax rate on smoking. We are going to generate different tax rates by provinces. My understanding is that the tax rate on cigarettes is now pretty much the same in each of the provinces, but that this is fairly recent. So we will pretend that Alberta had a low tax, and Nova Scotia had a high tax.</p>
 <!-- We first want a count for the number of cigarettes that a person smokes. The Poisson distribution can provide a distribution over the integers, so we will sample from that.  -->
 <p>As a reminder, we are simulating data for illustrative purposes, so we need to impose the answer that we want. When you actually use instrumental variables you will be reversing the process.</p>
-<div class="sourceCode" id="cb527"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -2059,7 +2059,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
                                           replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
                           <span class="op">)</span></code></pre></div>
 <p>Now we need to relate the number of cigarettes that someone smoked to their health. We will model health status as a draw from the normal distribution, with either a high or low mean depending on whether the person smokes.</p>
-<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">iv_example_data</span> <span class="op">&lt;-</span> 
   <span class="va">iv_example_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>health <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">smoker</span> <span class="op">==</span> <span class="fl">0</span>,
@@ -2069,7 +2069,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
          <span class="op">)</span>
 <span class="co">## So health will be one standard deviation higher for people who do not or barely smoke.</span></code></pre></div>
 <p>Now we need a relationship between cigarettes and the province (because in this illustration, the provinces have different tax rates).</p>
-<div class="sourceCode" id="cb529"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">iv_example_data</span> <span class="op">&lt;-</span> 
   <span class="va">iv_example_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
@@ -2108,7 +2108,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <span class="co">#&gt; 5      5      0  0.617  Alberta       0.3</span>
 <span class="co">#&gt; 6      6      0  0.748  Nova Scotia   0.5</span></code></pre></div>
 <p>Now we can look at our data.</p>
-<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">iv_example_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>smoker <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">smoker</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">health</span>, fill <span class="op">=</span> <span class="va">smoker</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -2121,7 +2121,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">province</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="15-causality_from_obs_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
 <p>Finally, we can use the tax rate as an instrumental variable to estimate the effect of smoking on health.</p>
-<div class="sourceCode" id="cb531"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">health_on_tax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">health</span> <span class="op">~</span> <span class="va">tax</span>, data <span class="op">=</span> <span class="va">iv_example_data</span><span class="op">)</span>
 <span class="va">smoker_on_tax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">smoker</span> <span class="op">~</span> <span class="va">tax</span>, data <span class="op">=</span> <span class="va">iv_example_data</span><span class="op">)</span>
 
@@ -2130,7 +2130,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <span class="co">#&gt; -0.8554502</span></code></pre></div>
 <p>So we find, luckily, that if you smoke then your health is likely to be worse than if you do not smoke.</p>
 <p>Equivalently, we can think of instrumental variables in a two-stage regression context.</p>
-<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_stage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">smoker</span> <span class="op">~</span> <span class="va">tax</span>, data <span class="op">=</span> <span class="va">iv_example_data</span><span class="op">)</span>
 <span class="va">health_hat</span> <span class="op">&lt;-</span> <span class="va">first_stage</span><span class="op">$</span><span class="va">fitted.values</span>
 <span class="va">second_stage</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">health</span> <span class="op">~</span> <span class="va">health_hat</span>, data <span class="op">=</span> <span class="va">iv_example_data</span><span class="op">)</span>
@@ -2156,7 +2156,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <span class="co">#&gt; Multiple R-squared:  0.009134,   Adjusted R-squared:  0.009034 </span>
 <span class="co">#&gt; F-statistic: 92.16 on 1 and 9998 DF,  p-value: &lt; 2.2e-16</span></code></pre></div>
 <p>We can use <code><a href="https://declaredesign.org/r/estimatr/reference/iv_robust.html">iv_robust()</a></code> from <code>estimatr</code> <span class="citation">(<a href="references-1.html#ref-estimatr" role="doc-biblioref">G. Blair et al. 2021</a>)</span> to estimate IV. One nice reason for doing this is that it can help to keep everything organised and adjust the standard errors.</p>
-<div class="sourceCode" id="cb533"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://declaredesign.org/r/estimatr/">estimatr</a></span><span class="op">)</span>
 <span class="fu"><a href="https://declaredesign.org/r/estimatr/reference/iv_robust.html">iv_robust</a></span><span class="op">(</span><span class="va">health</span> <span class="op">~</span> <span class="va">smoker</span> <span class="op">|</span> <span class="va">tax</span>, data <span class="op">=</span> <span class="va">iv_example_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span>
@@ -2429,7 +2429,7 @@ Figure 15.10: Illustration of simulated data that shows an effect on income from
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

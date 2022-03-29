@@ -101,10 +101,14 @@ In everyday language, and for our purposes, an Application Programming Interface
 
 We focus on using APIs for gathering data. And so, with that focus, an API is a website that is set-up for another computer to be able to access, rather than a person. For instance, we could go to Google Maps: https://www.google.com/maps. And we could then scroll and click and drag to center the map on Canberra, Australia. Or we could paste this into the browser: https://www.google.com/maps/@-35.2812958,149.1248113,16z. We just used the Google Maps API, and the result should be a map similar to Figure \@ref(fig:focuson2020).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/googlemaps.png" alt="Example of Google Maps, as at 29 January 2022" width="90%" />
-<p class="caption">(\#fig:focuson2020)Example of Google Maps, as at 29 January 2022</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/googlemaps} 
+
+}
+
+\caption{Example of Google Maps, as at 29 January 2022}(\#fig:focuson2020)
+\end{figure}
 
 The advantage of using an API is that the data provider specifies exactly the data that they are willing to provide, and the terms under which they will provide it. These terms may include aspects such as rate limits (i.e. how often we can ask for data), and what we can do with the data, for instance, we might not be allowed to use it for commercial purposes, or to republish it. Additionally, because the API is being provided specifically for us to use it, it is less likely to be subject to unexpected changes or legal issues. Because of this it is ethically and legally clear that when an API is available we should try to use it rather than web scraping.
 
@@ -122,12 +126,12 @@ In this case study we will use an API provided by arXiv: https://arxiv.org. arXi
 ```r
 library(httr)
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.1 ──
-#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-#> ✓ tidyr   1.2.0     ✓ stringr 1.4.0
-#> ✓ readr   2.1.1     ✓ forcats 0.5.1
-#> ── Conflicts ────────────────────── tidyverse_conflicts() ──
+#> -- Attaching packages ------------------- tidyverse 1.3.1 --
+#> v ggplot2 3.3.5     v purrr   0.3.4
+#> v tibble  3.1.6     v dplyr   1.0.7
+#> v tidyr   1.2.0     v stringr 1.4.0
+#> v readr   2.1.1     v forcats 0.5.1
+#> -- Conflicts ---------------------- tidyverse_conflicts() --
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 library(xml2)
@@ -203,10 +207,10 @@ data_from_arxiv <-
       xml_attr("href")
   )
 data_from_arxiv
-#> # A tibble: 1 × 2
+#> # A tibble: 1 x 2
 #>   title                                                link 
 #>   <chr>                                                <chr>
-#> 1 "The Increased Effect of Elections and Changing Pri… http…
+#> 1 "The Increased Effect of Elections and Changing Pri~ http~
 ```
 
 Each day NASA provides the Astronomy Picture of the Day (APOD) through its APOD API. We can again use `GET()` to obtain the URL for the photo on particular dates and then display it. 
@@ -243,10 +247,14 @@ content(NASA_APOD_20190719)$url
 #> [1] "https://apod.nasa.gov/apod/image/1907/apollo11TranquilitybasePan600h.jpg"
 ```
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/JwstLaunch_Arianespace_1080.jpg" alt="Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API" width="50%" /><img src="/Users/rohanalexander/Documents/book/figures/apollo11TranquilitybasePan.jpg" alt="Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API" width="50%" />
-<p class="caption">(\#fig:nasaone)Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/JwstLaunch_Arianespace_1080} \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/apollo11TranquilitybasePan} 
+
+}
+
+\caption{Photo of the James Webb Space Telescope over Earth and another of Tranquility Base obtained from the NASA APOD API}(\#fig:nasaone)
+\end{figure}
 
 Finally, another common API response in semi-structured form is JSON. We can parse JSON with `jsonlite` [@jsonlite]. A Dataverse is a web application that makes it easier to share dataset. We can use an API go query a demonstration dataverse. For instance we might be interested in datasets related to politics.
 
@@ -259,20 +267,24 @@ politics_datasets <- fromJSON("https://demo.dataverse.org/api/search?q=politics"
 
 We can also look at the dataset using `View(politics_datasets)`, which allows us to expand the tree based on what we are interested in and even get the code that we need to focus on different aspects by hovering on the item and then clicking the icon with the green arrow (Figure \@ref(fig:jsonfirst)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/jsonlite.png" alt="Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element" width="90%" />
-<p class="caption">(\#fig:jsonfirst)Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/jsonlite} 
+
+}
+
+\caption{Example of hovering over an JSON element, 'items', where the icon with a green arrow can be clicked on to get the code that would focus on that element}(\#fig:jsonfirst)
+\end{figure}
 
 This tells us how to obtain the dataset of interest.
 
 
 ```r
 as_tibble(politics_datasets[["data"]][["items"]])
-#> # A tibble: 1 × 6
+#> # A tibble: 1 x 6
 #>   name       type  url   identifier description published_at
 #>   <chr>      <chr> <chr> <chr>      <chr>       <chr>       
-#> 1 China Arc… data… http… china-arc… Introducti… 2016-12-09T…
+#> 1 China Arc~ data~ http~ china-arc~ Introducti~ 2016-12-09T~
 ```
 
 
@@ -295,10 +307,14 @@ library(tidyverse)
 get_favorites(user = "RohanAlexander")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/rtweet.png" alt="rtweet authorisation page" width="90%" />
-<p class="caption">(\#fig:rtweetlogin)rtweet authorisation page</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/rtweet} 
+
+}
+
+\caption{rtweet authorisation page}(\#fig:rtweetlogin)
+\end{figure}
 
 Once the application is authorized, then we can use `get_favorites()` to actually get the favorites of a user and save them.
 
@@ -321,19 +337,19 @@ rohans_favorites |>
   arrange(desc(created_at)) |> 
   slice(1:10) |> 
   select(screen_name, text)
-#> # A tibble: 10 × 2
+#> # A tibble: 10 x 2
 #>    screen_name text                                         
 #>    <chr>       <chr>                                        
-#>  1 EconAndrew  "How much better are the investment opportun…
-#>  2 simonpcouch "There's a new release of #rstats broom up o…
-#>  3 MineDogucu  "🚨 New manuscript🚨\n📕 Content and Computi…
-#>  4 reid_nancy  "Latest issue. From the intro: \"... it has …
+#>  1 EconAndrew  "How much better are the investment opportun~
+#>  2 simonpcouch "There's a new release of #rstats broom up o~
+#>  3 MineDogucu  "🚨 New manuscript🚨\n📕 Content and Computi~
+#>  4 reid_nancy  "Latest issue. From the intro: \"... it has ~
 #>  5 tjmahr      "bathing is good, folks"                     
-#>  6 andrewheiss "finished hand washing that load in the bath…
+#>  6 andrewheiss "finished hand washing that load in the bath~
 #>  7 monkmanmh   "@CMastication https://t.co/3Eh0mLy44v"      
 #>  8 eplusgg     "Stares from Ontario https://t.co/swzYhaptF9"
 #>  9 ryancbriggs "Same. https://t.co/C9pNpXO0F9"              
-#> 10 flynnpolsci "I’m not great at coming up with assignments…
+#> 10 flynnpolsci "I’m not great at coming up with assignments~
 ```
 
 We can use `search_tweets()` to search for tweets about a particular topic. For instance, we could look at tweets using a hashtag commonly associated with R: '#rstats'. 
@@ -357,15 +373,15 @@ saveRDS(rstats_tweets, "rstats_tweets.rds")
 rstats_tweets |> 
   select(screen_name, text) |> 
   head()
-#> # A tibble: 6 × 2
+#> # A tibble: 6 x 2
 #>   screen_name     text                                      
 #>   <chr>           <chr>                                     
-#> 1 SuccessAnalytiX "The Science of Success \n\nhttps://t.co/…
-#> 2 babycoin_dev    "BabyCoin (BABY)\n\nGUI wallet v2.05 =&gt…
-#> 3 rstatsdata      "#rdata #rstats: Yield of 6 barley variet…
-#> 4 PDH_SciTechNews "#Coding Arm Puts Security Architecture t…
-#> 5 PDH_SciTechNews "#Coding Network Engineer: Skills, Roles …
-#> 6 PDH_SciTechNews "#Coding CockroachDB Strengthens Change D…
+#> 1 SuccessAnalytiX "The Science of Success \n\nhttps://t.co/~
+#> 2 babycoin_dev    "BabyCoin (BABY)\n\nGUI wallet v2.05 =&gt~
+#> 3 rstatsdata      "#rdata #rstats: Yield of 6 barley variet~
+#> 4 PDH_SciTechNews "#Coding Arm Puts Security Architecture t~
+#> 5 PDH_SciTechNews "#Coding Network Engineer: Skills, Roles ~
+#> 6 PDH_SciTechNews "#Coding CockroachDB Strengthens Change D~
 ```
 
 Other useful functions that can be used include `get_friends()` to get all the accounts that a user follows, and `get_timelines()` to get a user's recent tweets. Registering as a developer enables access to more API functionality. 
@@ -385,10 +401,14 @@ library(spotifyr)
 
 To access the Spotify API, we need a Spotify Developer Account: https://developer.spotify.com/dashboard/. This will require logging in with a Spotify account and then accepting the Developer Terms (Figure \@ref(fig:spotifyaccept)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/spotify.png" alt="Spotify Developer Account Terms agreement page" width="90%" />
-<p class="caption">(\#fig:spotifyaccept)Spotify Developer Account Terms agreement page</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/spotify} 
+
+}
+
+\caption{Spotify Developer Account Terms agreement page}(\#fig:spotifyaccept)
+\end{figure}
 
 Continuing with the registration process, in our case, we 'do not know' what we are building and so Spotify requires us to use a non-commercial agreement. To use the Spotify API we need a 'Client ID' and a 'Client Secret'. These are things that we want to keep to ourselves because anyone with the details could use our developer account as though they were us. One way to keep these details secret with a minimum of hassle is to keep them in our 'System Environment'. In this way, when we push to GitHub they should not be included. (We followed this process without explanation in Chapter \@ref(interactive-communication) when we used `mapdeck`.) We will use `usethis` [@citeusethis] to modify our System Environment. In particular, there is a file called '.Renviron' which we will open using `edit_r_environ()` and add our 'Client ID' and 'Client Secret' to.
 
@@ -454,10 +474,7 @@ radiohead |>
        ) 
 ```
 
-<div class="figure">
-<img src="09-gather_files/figure-html/readioovertime-1.png" alt="Length of each Radiohead song, over time, as gathered from Spotify" width="672" />
-<p class="caption">(\#fig:readioovertime)Length of each Radiohead song, over time, as gathered from Spotify</p>
-</div>
+![(\#fig:readioovertime)Length of each Radiohead song, over time, as gathered from Spotify](09-gather_files/figure-latex/readioovertime-1.pdf) 
 
 One interesting variable provided by Spotify about each song is 'valence'. The Spotify documentation describe this as a measure between 0 and 1 that signals the 'the musical positiveness' of the track with higher values being more positive. Further details are available at the documentation: https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features. We might be interested to compare valence over time between a few artists, for instance, the American rock band The National, and the American singer Taylor Swift.
 
@@ -500,10 +517,7 @@ three_artists |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="09-gather_files/figure-html/swiftyvsnationalvsradiohead-1.png" alt="Comparing valence, over time, for Radiohead, Taylor Swift, and The National" width="672" />
-<p class="caption">(\#fig:swiftyvsnationalvsradiohead)Comparing valence, over time, for Radiohead, Taylor Swift, and The National</p>
-</div>
+![(\#fig:swiftyvsnationalvsradiohead)Comparing valence, over time, for Radiohead, Taylor Swift, and The National](09-gather_files/figure-latex/swiftyvsnationalvsradiohead-1.pdf) 
 
 How amazing that we live in a world that all that information is available with very little effort or cost. And having gathered the data, there is a lot that could be done. For instance, @kaylinpavlik uses an expanded dataset to classify musical genres and @theeconomistonspotify looks at how language is associated with music streaming on Spotify. Our ability to gather such data enables us to answer questions that had to be considered experimentally in the past, for instance @salganik2006experimental had to use experimental data rather than the real data we are able to access. But at the same time, it is worth thinking about what valence is purporting to represent. Little information is available in the Spotify documentation about how this is being created. And it is doubtful that one number can completely represent how positive a song is. 
 
@@ -659,15 +673,23 @@ books_data
 
 To get the data into a tibble we first need to identify the data that we are interested in using html tags. If we look at the website then we need to focus on list items (Figure \@ref(fig:rohansbooks)). And we can look at the source, focusing particularly on looking for a list (Figure \@ref(fig:rohanssourceone)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/rohansbooks.png" alt="Books website as displayed" width="90%" />
-<p class="caption">(\#fig:rohansbooks)Books website as displayed</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/sourcetop.png" alt="HTML for the top of the books website and the list of books" width="50%" /><img src="/Users/rohanalexander/Documents/book/figures/sourcelist.png" alt="HTML for the top of the books website and the list of books" width="50%" />
-<p class="caption">(\#fig:rohanssourceone)HTML for the top of the books website and the list of books</p>
-</div>
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/rohansbooks} 
+
+}
+
+\caption{Books website as displayed}(\#fig:rohansbooks)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/sourcetop} \includegraphics[width=0.5\linewidth]{/Users/rohanalexander/Documents/book/figures/sourcelist} 
+
+}
+
+\caption{HTML for the top of the books website and the list of books}(\#fig:rohanssourceone)
+\end{figure}
 
 The tag for a list item is 'li', so we can use that to focus on the list.
 
@@ -682,7 +704,7 @@ all_books <-
   tibble(books = text_data)
 
 head(all_books)
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   books                     
 #>   <chr>                     
 #> 1 Academic                  
@@ -713,14 +735,14 @@ all_books <-
          )
 
 head(all_books)
-#> # A tibble: 6 × 2
+#> # A tibble: 6 x 2
 #>   author                               title                
 #>   <chr>                                <chr>                
-#> 1 Bryant, John, and Junni L. Zhang     Bayesian Demographic…
+#> 1 Bryant, John, and Junni L. Zhang     Bayesian Demographic~
 #> 2 Chan, Ngai Hang                      Time Series          
 #> 3 Clark, Greg                          The Son Also Rises   
-#> 4 Duflo, Esther                        Expérience, science …
-#> 5 Foster, Ghani, Jarmin, Kreuter, Lane Big Data and Social …
+#> 4 Duflo, Esther                        Expérience, science ~
+#> 5 Foster, Ghani, Jarmin, Kreuter, Lane Big Data and Social ~
 #> 6 Francois Chollet with JJ Allaire     Deep Learning with R
 ```
 
@@ -784,36 +806,41 @@ all_books |>
     )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:lettersofbooks)Distribution of first letter of author names in a collection of books
-
-|First letter | Number of times|
-|:------------|---------------:|
-|⭐           |              12|
-|A            |               6|
-|B            |               8|
-|C            |              13|
-|D            |               7|
-|E            |               5|
-|F            |               6|
-|G            |              13|
-|H            |               6|
-|I            |               3|
-|J            |               1|
-|K            |               3|
-|l            |               1|
-|L            |               4|
-|M            |               8|
-|N            |               2|
-|O            |               4|
-|P            |               7|
-|R            |               3|
-|S            |              12|
-|T            |               6|
-|W            |               9|
-|Y            |               1|
-|Z            |               1|
+\caption{(\#tab:lettersofbooks)Distribution of first letter of author names in a collection of books}
+\centering
+\begin{tabular}[t]{lr}
+\toprule
+First letter & Number of times\\
+\midrule
+⭐ & 12\\
+A & 6\\
+B & 8\\
+C & 13\\
+D & 7\\
+E & 5\\
+F & 6\\
+G & 13\\
+H & 6\\
+I & 3\\
+J & 1\\
+K & 3\\
+l & 1\\
+L & 4\\
+M & 8\\
+N & 2\\
+O & 4\\
+P & 7\\
+R & 3\\
+S & 12\\
+T & 6\\
+W & 9\\
+Y & 1\\
+Z & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
@@ -856,10 +883,14 @@ simulated_dataset <-
 
 One of the advantages of generating a simulated dataset is that if we are working in groups then one person can start making the graph, using the simulated dataset, while the other person gathers the data. In terms of a graph, we are aiming for something like Figure \@ref(fig:pmsgraphexample).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/pms_graph_plan.png" alt="Sketch of planned graph showing how long UK prime ministers lived" width="90%" />
-<p class="caption">(\#fig:pmsgraphexample)Sketch of planned graph showing how long UK prime ministers lived</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/pms_graph_plan} 
+
+}
+
+\caption{Sketch of planned graph showing how long UK prime ministers lived}(\#fig:pmsgraphexample)
+\end{figure}
 
 We are starting with a question that is of interest, which how long each UK prime minister lived. As such, we need to identify a source of data While there are plenty of data sources that have the births and deaths of each prime minister, we want one that we can trust, and as we are going to be scraping, we want one that has some structure to it. The Wikipedia page about UK prime ministers fits both these criteria: https://en.wikipedia.org/wiki/List_of_prime_ministers_of_the_United_Kingdom. As it is a popular page the information is more likely to be correct, and the data are available in a table.
 
@@ -884,10 +915,14 @@ As with the earlier case study we are looking for patterns in the HTML that we c
 
 One tool that may help is the SelectorGadget: https://rvest.tidyverse.org/articles/articles/selectorgadget.html. This allows us to pick and choose the elements that we want, and then gives us the input to give to `html_nodes()` (Figure \@ref(fig:selectorgadget))
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/uk_pms.png" alt="Using the Selector Gadget to identify the tag, as at 13 March 2020." width="90%" />
-<p class="caption">(\#fig:selectorgadget)Using the Selector Gadget to identify the tag, as at 13 March 2020.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/uk_pms} 
+
+}
+
+\caption{Using the Selector Gadget to identify the tag, as at 13 March 2020.}(\#fig:selectorgadget)
+\end{figure}
 
 
 
@@ -947,7 +982,7 @@ parsed_data <-
   )
 
 head(parsed_data)
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   raw_text                                                  
 #>   <chr>                                                     
 #> 1 "\nSir Robert Walpole(1676–1745)\n"                       
@@ -976,15 +1011,15 @@ initial_clean <-
             remove = FALSE)
 
 head(initial_clean)
-#> # A tibble: 6 × 5
+#> # A tibble: 6 x 5
 #>   raw_text                 Name  not_name Date  all_the_rest
 #>   <chr>                    <chr> <chr>    <chr> <chr>       
-#> 1 Sir Robert Walpole(1676… Sir … 1676–17… 1676… ""          
-#> 2 Spencer Compton1st Earl… Spen… 1673–17… 1673… ""          
-#> 3 Henry Pelham(1694–1754)  Henr… 1694–17… 1694… ""          
-#> 4 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""          
-#> 5 William Cavendish4th Du… Will… 1720–17… 1720… ""          
-#> 6 Thomas Pelham-Holles1st… Thom… 1693–17… 1693… ""
+#> 1 Sir Robert Walpole(1676~ Sir ~ 1676–17~ 1676~ ""          
+#> 2 Spencer Compton1st Earl~ Spen~ 1673–17~ 1673~ ""          
+#> 3 Henry Pelham(1694–1754)  Henr~ 1694–17~ 1694~ ""          
+#> 4 Thomas Pelham-Holles1st~ Thom~ 1693–17~ 1693~ ""          
+#> 5 William Cavendish4th Du~ Will~ 1720–17~ 1720~ ""          
+#> 6 Thomas Pelham-Holles1st~ Thom~ 1693–17~ 1693~ ""
 ```
 
 Finally, we need to clean up the columns.
@@ -1006,15 +1041,15 @@ initial_clean <-
   mutate(Name = str_remove(Name, "\\[b\\]"))
 
 head(initial_clean)
-#> # A tibble: 6 × 6
+#> # A tibble: 6 x 6
 #>   raw_text           Name  Title not_name Date  all_the_rest
 #>   <chr>              <chr> <chr> <chr>    <chr> <chr>       
-#> 1 Sir Robert Walpol… Sir … <NA>  1676–17… 1676… ""          
-#> 2 Spencer Compton1s… Spen… <NA>  1673–17… 1673… ""          
-#> 3 Henry Pelham(1694… Henr… <NA>  1694–17… 1694… ""          
-#> 4 Thomas Pelham-Hol… Thom… <NA>  1693–17… 1693… ""          
-#> 5 William Cavendish… Will… <NA>  1720–17… 1720… ""          
-#> 6 Thomas Pelham-Hol… Thom… <NA>  1693–17… 1693… ""
+#> 1 Sir Robert Walpol~ Sir ~ <NA>  1676–17~ 1676~ ""          
+#> 2 Spencer Compton1s~ Spen~ <NA>  1673–17~ 1673~ ""          
+#> 3 Henry Pelham(1694~ Henr~ <NA>  1694–17~ 1694~ ""          
+#> 4 Thomas Pelham-Hol~ Thom~ <NA>  1693–17~ 1693~ ""          
+#> 5 William Cavendish~ Will~ <NA>  1720–17~ 1720~ ""          
+#> 6 Thomas Pelham-Hol~ Thom~ <NA>  1693–17~ 1693~ ""
 ```
 
 
@@ -1037,7 +1072,7 @@ cleaned_data <-
   distinct() # Some of the PMs had two goes at it.
 
 head(cleaned_data)
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   Name                 Birth  Died Age_at_Death
 #>   <chr>                <int> <int>        <int>
 #> 1 Sir Robert Walpole    1676  1745           69
@@ -1061,69 +1096,74 @@ cleaned_data |>
     )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:canadianpmscleanddata)UK Prime Ministers, by how old they were when they died
-
-|Prime Minister               | Birth year| Death year| Age at death|
-|:----------------------------|----------:|----------:|------------:|
-|Sir Robert Walpole           |       1676|       1745|           69|
-|Spencer Compton              |       1673|       1743|           70|
-|Henry Pelham                 |       1694|       1754|           60|
-|Thomas Pelham-Holles         |       1693|       1768|           75|
-|William Cavendish            |       1720|       1764|           44|
-|John Stuart                  |       1713|       1792|           79|
-|George Grenville             |       1712|       1770|           58|
-|Charles Watson-Wentworth     |       1730|       1782|           52|
-|William Pitt the Elder       |       1708|       1778|           70|
-|Augustus FitzRoy             |       1735|       1811|           76|
-|Frederick NorthLord North    |       1732|       1792|           60|
-|William Petty                |       1737|       1805|           68|
-|William Cavendish-Bentinck   |       1738|       1809|           71|
-|William Pitt the Younger     |       1759|       1806|           47|
-|Henry Addington              |       1757|       1844|           87|
-|William Grenville            |       1759|       1834|           75|
-|Spencer Perceval             |       1762|       1812|           50|
-|Robert Jenkinson             |       1770|       1828|           58|
-|George Canning               |       1770|       1827|           57|
-|F. J. Robinson               |       1782|       1859|           77|
-|Arthur Wellesley             |       1769|       1852|           83|
-|Charles Grey                 |       1764|       1845|           81|
-|William Lamb                 |       1779|       1848|           69|
-|Sir Robert Peel              |       1788|       1850|           62|
-|Lord John Russell            |       1792|       1878|           86|
-|Edward Smith-Stanley         |       1799|       1869|           70|
-|George Hamilton-Gordon       |       1784|       1860|           76|
-|Henry John Temple            |       1784|       1865|           81|
-|John Russell                 |       1792|       1878|           86|
-|Benjamin Disraeli            |       1804|       1881|           77|
-|William Ewart Gladstone      |       1809|       1898|           89|
-|Robert Gascoyne-Cecil        |       1830|       1903|           73|
-|Archibald Primrose           |       1847|       1929|           82|
-|Arthur Balfour               |       1848|       1930|           82|
-|Sir Henry Campbell-Bannerman |       1836|       1908|           72|
-|H. H. Asquith                |       1852|       1928|           76|
-|David Lloyd George           |       1863|       1945|           82|
-|Bonar Law                    |       1858|       1923|           65|
-|Stanley Baldwin              |       1867|       1947|           80|
-|Ramsay MacDonald             |       1866|       1937|           71|
-|Neville Chamberlain          |       1869|       1940|           71|
-|Winston Churchill            |       1874|       1965|           91|
-|Clement Attlee               |       1883|       1967|           84|
-|Sir Winston Churchill        |       1874|       1965|           91|
-|Sir Anthony Eden             |       1897|       1977|           80|
-|Harold Macmillan             |       1894|       1986|           92|
-|Sir Alec Douglas-Home        |       1903|       1995|           92|
-|Harold Wilson                |       1916|       1995|           79|
-|Edward Heath                 |       1916|       2005|           89|
-|James Callaghan              |       1912|       2005|           93|
-|Margaret Thatcher            |       1925|       2013|           88|
-|John Major                   |       1943|         NA|           NA|
-|Tony Blair                   |       1953|         NA|           NA|
-|Gordon Brown                 |       1951|         NA|           NA|
-|David Cameron                |       1966|         NA|           NA|
-|Theresa May                  |       1956|         NA|           NA|
-|Boris Johnson                |       1964|         NA|           NA|
+\caption{(\#tab:canadianpmscleanddata)UK Prime Ministers, by how old they were when they died}
+\centering
+\begin{tabular}[t]{lrrr}
+\toprule
+Prime Minister & Birth year & Death year & Age at death\\
+\midrule
+Sir Robert Walpole & 1676 & 1745 & 69\\
+Spencer Compton & 1673 & 1743 & 70\\
+Henry Pelham & 1694 & 1754 & 60\\
+Thomas Pelham-Holles & 1693 & 1768 & 75\\
+William Cavendish & 1720 & 1764 & 44\\
+John Stuart & 1713 & 1792 & 79\\
+George Grenville & 1712 & 1770 & 58\\
+Charles Watson-Wentworth & 1730 & 1782 & 52\\
+William Pitt the Elder & 1708 & 1778 & 70\\
+Augustus FitzRoy & 1735 & 1811 & 76\\
+Frederick NorthLord North & 1732 & 1792 & 60\\
+William Petty & 1737 & 1805 & 68\\
+William Cavendish-Bentinck & 1738 & 1809 & 71\\
+William Pitt the Younger & 1759 & 1806 & 47\\
+Henry Addington & 1757 & 1844 & 87\\
+William Grenville & 1759 & 1834 & 75\\
+Spencer Perceval & 1762 & 1812 & 50\\
+Robert Jenkinson & 1770 & 1828 & 58\\
+George Canning & 1770 & 1827 & 57\\
+F. J. Robinson & 1782 & 1859 & 77\\
+Arthur Wellesley & 1769 & 1852 & 83\\
+Charles Grey & 1764 & 1845 & 81\\
+William Lamb & 1779 & 1848 & 69\\
+Sir Robert Peel & 1788 & 1850 & 62\\
+Lord John Russell & 1792 & 1878 & 86\\
+Edward Smith-Stanley & 1799 & 1869 & 70\\
+George Hamilton-Gordon & 1784 & 1860 & 76\\
+Henry John Temple & 1784 & 1865 & 81\\
+John Russell & 1792 & 1878 & 86\\
+Benjamin Disraeli & 1804 & 1881 & 77\\
+William Ewart Gladstone & 1809 & 1898 & 89\\
+Robert Gascoyne-Cecil & 1830 & 1903 & 73\\
+Archibald Primrose & 1847 & 1929 & 82\\
+Arthur Balfour & 1848 & 1930 & 82\\
+Sir Henry Campbell-Bannerman & 1836 & 1908 & 72\\
+H. H. Asquith & 1852 & 1928 & 76\\
+David Lloyd George & 1863 & 1945 & 82\\
+Bonar Law & 1858 & 1923 & 65\\
+Stanley Baldwin & 1867 & 1947 & 80\\
+Ramsay MacDonald & 1866 & 1937 & 71\\
+Neville Chamberlain & 1869 & 1940 & 71\\
+Winston Churchill & 1874 & 1965 & 91\\
+Clement Attlee & 1883 & 1967 & 84\\
+Sir Winston Churchill & 1874 & 1965 & 91\\
+Sir Anthony Eden & 1897 & 1977 & 80\\
+Harold Macmillan & 1894 & 1986 & 92\\
+Sir Alec Douglas-Home & 1903 & 1995 & 92\\
+Harold Wilson & 1916 & 1995 & 79\\
+Edward Heath & 1916 & 2005 & 89\\
+James Callaghan & 1912 & 2005 & 93\\
+Margaret Thatcher & 1925 & 2013 & 88\\
+John Major & 1943 & NA & NA\\
+Tony Blair & 1953 & NA & NA\\
+Gordon Brown & 1951 & NA & NA\\
+David Cameron & 1966 & NA & NA\\
+Theresa May & 1956 & NA & NA\\
+Boris Johnson & 1964 & NA & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 At this point we would like to make a graph that illustrates how long each prime minister lived. If they are still alive then we would like them to run to the end, but we would like to color them differently.
@@ -1148,7 +1188,7 @@ cleaned_data |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<img src="09-gather_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+![](09-gather_files/figure-latex/unnamed-chunk-45-1.pdf)<!-- --> 
 
 
 ### Case study: Downloading multiple files
@@ -1179,13 +1219,13 @@ statements_of_interest <-
   )
 
 statements_of_interest
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   address                                    local_save_name
 #>   <chr>                                      <chr>          
-#> 1 https://www.rba.gov.au/publications/smp/2… 2021-11.pdf    
-#> 2 https://www.rba.gov.au/publications/smp/2… 2021-08.pdf    
-#> 3 https://www.rba.gov.au/publications/smp/2… 2021-05.pdf    
-#> 4 https://www.rba.gov.au/publications/smp/2… 2021-02.pdf
+#> 1 https://www.rba.gov.au/publications/smp/2~ 2021-11.pdf    
+#> 2 https://www.rba.gov.au/publications/smp/2~ 2021-08.pdf    
+#> 3 https://www.rba.gov.au/publications/smp/2~ 2021-05.pdf    
+#> 4 https://www.rba.gov.au/publications/smp/2~ 2021-02.pdf
 ```
 
 Then we can apply the function `download.files()` to these four 
@@ -1241,10 +1281,14 @@ We will start by walking through several examples and then go through a case stu
 
 Figure \@ref(fig:firstpdfexample) is a PDF that consists of just the first sentence from Jane Eyre taken from Project Gutenberg [@janeeyre].
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/inputs/pdfs/first_example.png" alt="First sentence of Jane Eyre" width="90%" />
-<p class="caption">(\#fig:firstpdfexample)First sentence of Jane Eyre</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/inputs/pdfs/first_example} 
+
+}
+
+\caption{First sentence of Jane Eyre}(\#fig:firstpdfexample)
+\end{figure}
 
 If assume that it was saved as 'first_example.pdf', then we can `pdftools` [@citepdftools] to get the text from this one-page PDF into R.
 
@@ -1267,10 +1311,14 @@ We can see that the PDF has been correctly read in, as a character vector.
 
 We will now try a slightly more complicated example that consists of the first few paragraphs of Jane Eyre (Figure \@ref(fig:secondpdfexample)). Also notice that now we have the chapter heading as well.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/inputs/pdfs/second_example.png" alt="First few paragraphs of Jane Eyre" width="90%" />
-<p class="caption">(\#fig:secondpdfexample)First few paragraphs of Jane Eyre</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/inputs/pdfs/second_example} 
+
+}
+
+\caption{First few paragraphs of Jane Eyre}(\#fig:secondpdfexample)
+\end{figure}
 
 We use the same function as before.
 
@@ -1316,20 +1364,20 @@ We then want to separate the lines so that each line is an observation. We can d
 jane_eyre <- 
   separate_rows(jane_eyre, raw_text, sep = "\\n", convert = FALSE)
 jane_eyre
-#> # A tibble: 93 × 2
+#> # A tibble: 93 x 2
 #>    raw_text                                      page_number
 #>    <chr>                                               <int>
 #>  1 "CHAPTER I"                                             1
-#>  2 "There was no possibility of taking a walk t…           1
-#>  3 "leafless shrubbery an hour in the morning; …           1
-#>  4 "company, dined early) the cold winter wind …           1
-#>  5 "penetrating, that further out-door exercise…           1
+#>  2 "There was no possibility of taking a walk t~           1
+#>  3 "leafless shrubbery an hour in the morning; ~           1
+#>  4 "company, dined early) the cold winter wind ~           1
+#>  5 "penetrating, that further out-door exercise~           1
 #>  6 ""                                                      1
-#>  7 "I was glad of it: I never liked long walks,…           1
-#>  8 "coming home in the raw twilight, with nippe…           1
-#>  9 "chidings of Bessie, the nurse, and humbled …           1
+#>  7 "I was glad of it: I never liked long walks,~           1
+#>  8 "coming home in the raw twilight, with nippe~           1
+#>  9 "chidings of Bessie, the nurse, and humbled ~           1
 #> 10 "Eliza, John, and Georgiana Reed."                      1
-#> # … with 83 more rows
+#> # ... with 83 more rows
 ```
 
 
@@ -1344,17 +1392,25 @@ The US Department of Health and Human Services Vital Statistics Report provides 
 
 For instance, in the case of the year 2000 the table that we are interested in is on page 40 of a PDF that is available at https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf. The column of interest is labelled: "Total fertility rate" (Figure \@ref(fig:dhsexample)). 
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/dhs_example.png" alt="Example Vital Statistics Report, from 2000" width="90%" />
-<p class="caption">(\#fig:dhsexample)Example Vital Statistics Report, from 2000</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/dhs_example} 
+
+}
+
+\caption{Example Vital Statistics Report, from 2000}(\#fig:dhsexample)
+\end{figure}
 
 The first step when getting data out of a PDF is to sketch out what we eventually want. A PDF typically contains a lot of information, and so it is handy to be very clear about what you need. This helps keep you focused, and prevents scope creep, but it is also helpful when thinking about data checks. We literally write down on paper what we have in mind. In this case, what is needed is a table with a column for state, year and TFR (Figure \@ref(fig:tfrdesired)). 
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/tfr_dataset_sketch.png" alt="Planned dataset of TFR for each year and US state" width="40%" />
-<p class="caption">(\#fig:tfrdesired)Planned dataset of TFR for each year and US state</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\linewidth]{/Users/rohanalexander/Documents/book/figures/tfr_dataset_sketch} 
+
+}
+
+\caption{Planned dataset of TFR for each year and US state}(\#fig:tfrdesired)
+\end{figure}
 
 There are 19 different PDFs, and we are interested in a particular column in a particular table in each of them. Unfortunately, there is nothing magical about what is coming. This first step requires working out the link for each, and the page and column name that is of interest. In the end, this looks like this.
 
@@ -1368,468 +1424,34 @@ summary_tfr_dataset |>
   gt()
 ```
 
-```{=html}
-<div id="bnapnipxev" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#bnapnipxev .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#bnapnipxev .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#bnapnipxev .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#bnapnipxev .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#bnapnipxev .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#bnapnipxev .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#bnapnipxev .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#bnapnipxev .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#bnapnipxev .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#bnapnipxev .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#bnapnipxev .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#bnapnipxev .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#bnapnipxev .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#bnapnipxev .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bnapnipxev .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#bnapnipxev .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#bnapnipxev .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#bnapnipxev .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#bnapnipxev .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#bnapnipxev .gt_left {
-  text-align: left;
-}
-
-#bnapnipxev .gt_center {
-  text-align: center;
-}
-
-#bnapnipxev .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#bnapnipxev .gt_font_normal {
-  font-weight: normal;
-}
-
-#bnapnipxev .gt_font_bold {
-  font-weight: bold;
-}
-
-#bnapnipxev .gt_font_italic {
-  font-style: italic;
-}
-
-#bnapnipxev .gt_super {
-  font-size: 65%;
-}
-
-#bnapnipxev .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">page</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">table</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">column_name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">url</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_right">2000</td>
-<td class="gt_row gt_right">40</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50_05.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2001</td>
-<td class="gt_row gt_right">41</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr51/nvsr51_02.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2002</td>
-<td class="gt_row gt_right">46</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr52/nvsr52_10.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2003</td>
-<td class="gt_row gt_right">45</td>
-<td class="gt_row gt_right">10</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54_02.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2004</td>
-<td class="gt_row gt_right">52</td>
-<td class="gt_row gt_right">11</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr55/nvsr55_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2005</td>
-<td class="gt_row gt_right">52</td>
-<td class="gt_row gt_right">11</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr56/nvsr56_06.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2006</td>
-<td class="gt_row gt_right">49</td>
-<td class="gt_row gt_right">11</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr57/nvsr57_07.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2007</td>
-<td class="gt_row gt_right">41</td>
-<td class="gt_row gt_right">11</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr58/nvsr58_24.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2008</td>
-<td class="gt_row gt_right">43</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr59/nvsr59_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2009</td>
-<td class="gt_row gt_right">43</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr60/nvsr60_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2010</td>
-<td class="gt_row gt_right">42</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr61/nvsr61_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2011</td>
-<td class="gt_row gt_right">40</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr62/nvsr62_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2012</td>
-<td class="gt_row gt_right">38</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr62/nvsr62_09.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2013</td>
-<td class="gt_row gt_right">37</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr64/nvsr64_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2014</td>
-<td class="gt_row gt_right">38</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr64/nvsr64_12.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2015</td>
-<td class="gt_row gt_right">42</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr66/nvsr66_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2016</td>
-<td class="gt_row gt_right">29</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2016</td>
-<td class="gt_row gt_right">30</td>
-<td class="gt_row gt_right">8</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67_01.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2017</td>
-<td class="gt_row gt_right">23</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67_08-508.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2017</td>
-<td class="gt_row gt_right">24</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67_08-508.pdf</td></tr>
-    <tr><td class="gt_row gt_right">2018</td>
-<td class="gt_row gt_right">23</td>
-<td class="gt_row gt_right">12</td>
-<td class="gt_row gt_left">Total fertility rate</td>
-<td class="gt_row gt_left">https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68_13-508.pdf</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{rrrll}
+\toprule
+year & page & table & column\_name & url \\ 
+\midrule
+2000 & 40 & 10 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr50/nvsr50\_05.pdf \\ 
+2001 & 41 & 10 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr51/nvsr51\_02.pdf \\ 
+2002 & 46 & 10 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr52/nvsr52\_10.pdf \\ 
+2003 & 45 & 10 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54\_02.pdf \\ 
+2004 & 52 & 11 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr55/nvsr55\_01.pdf \\ 
+2005 & 52 & 11 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr56/nvsr56\_06.pdf \\ 
+2006 & 49 & 11 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr57/nvsr57\_07.pdf \\ 
+2007 & 41 & 11 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr58/nvsr58\_24.pdf \\ 
+2008 & 43 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr59/nvsr59\_01.pdf \\ 
+2009 & 43 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr60/nvsr60\_01.pdf \\ 
+2010 & 42 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr61/nvsr61\_01.pdf \\ 
+2011 & 40 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr62/nvsr62\_01.pdf \\ 
+2012 & 38 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr62/nvsr62\_09.pdf \\ 
+2013 & 37 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr64/nvsr64\_01.pdf \\ 
+2014 & 38 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr64/nvsr64\_12.pdf \\ 
+2015 & 42 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr66/nvsr66\_01.pdf \\ 
+2016 & 29 & 8 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67\_01.pdf \\ 
+2016 & 30 & 8 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67\_01.pdf \\ 
+2017 & 23 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67\_08-508.pdf \\ 
+2017 & 24 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr67/nvsr67\_08-508.pdf \\ 
+2018 & 23 & 12 & Total fertility rate & https://www.cdc.gov/nchs/data/nvsr/nvsr68/nvsr68\_13-508.pdf \\ 
+ \bottomrule
+\end{longtable}
 
 The first step is to get some code that works for one of them. I'll step through the code in a lot more detail than normal because we're going to use these pieces a lot. 
 
@@ -1863,15 +1485,15 @@ dhs_2000 <- pdf_text("year_2000.pdf")
 dhs_2000 <- tibble(raw_data = dhs_2000)
 
 head(dhs_2000)
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   raw_data                                                  
 #>   <chr>                                                     
-#> 1 "Volume 50, Number 5                                     …
-#> 2 "2   National Vital Statistics Report, Vol. 50, No. 5, Fe…
-#> 3 "                                                        …
-#> 4 "4   National Vital Statistics Report, Vol. 50, No. 5, Fe…
-#> 5 "                                                        …
-#> 6 "6   National Vital Statistics Report, Vol. 50, No. 5, Fe…
+#> 1 "Volume 50, Number 5                                     ~
+#> 2 "2   National Vital Statistics Report, Vol. 50, No. 5, Fe~
+#> 3 "                                                        ~
+#> 4 "4   National Vital Statistics Report, Vol. 50, No. 5, Fe~
+#> 5 "                                                        ~
+#> 6 "6   National Vital Statistics Report, Vol. 50, No. 5, Fe~
 ```
 
 Grab the page that is of interest (remembering that each page is a element of the character vector, hence a row in the tibble).
@@ -1883,10 +1505,10 @@ dhs_2000 <-
   slice(summary_tfr_dataset$page[1])
 
 head(dhs_2000)
-#> # A tibble: 1 × 1
+#> # A tibble: 1 x 1
 #>   raw_data                                                  
 #>   <chr>                                                     
-#> 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Rev…
+#> 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Rev~
 ```
 
 Now we want to separate the rows.
@@ -1898,15 +1520,15 @@ dhs_2000 <-
   separate_rows(raw_data, sep = "\\n", convert = FALSE)
 
 head(dhs_2000)
-#> # A tibble: 6 × 1
+#> # A tibble: 6 x 1
 #>   raw_data                                                  
 #>   <chr>                                                     
-#> 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Rev…
+#> 1 "40 National Vital Statistics Report, Vol. 50, No. 5, Rev~
 #> 2 ""                                                        
-#> 3 "Table 10. Number of births, birth rates, fertility rates…
+#> 3 "Table 10. Number of births, birth rates, fertility rates~
 #> 4 "United States, each State and territory, 2000"           
-#> 5 "[By place of residence. Birth rates are live births per …
-#> 6 "estimated in each area; total fertility rates are sums o…
+#> 5 "[By place of residence. Birth rates are live births per ~
+#> 6 "estimated in each area; total fertility rates are sums o~
 ```
 
 Now we are searching for patterns that we can use. Let us look at the first ten lines of content.
@@ -1914,19 +1536,19 @@ Now we are searching for patterns that we can use. Let us look at the first ten 
 
 ```r
 dhs_2000[13:22,]
-#> # A tibble: 10 × 1
+#> # A tibble: 10 x 1
 #>    raw_data                                                 
 #>    <chr>                                                    
-#>  1 "                                  State                …
-#>  2 "                                                       …
-#>  3 "                                                       …
+#>  1 "                                  State                ~
+#>  2 "                                                       ~
+#>  3 "                                                       ~
 #>  4 ""                                                       
 #>  5 ""                                                       
-#>  6 "United States 1 .......................................…
+#>  6 "United States 1 .......................................~
 #>  7 ""                                                       
-#>  8 "Alabama ...............................................…
-#>  9 "Alaska ................................................…
-#> 10 "Arizona ...............................................…
+#>  8 "Alabama ...............................................~
+#>  9 "Alaska ................................................~
+#> 10 "Arizona ...............................................~
 ```
 
 It does not get much better than this:
@@ -1948,15 +1570,15 @@ dhs_2000 <-
            )
 
 head(dhs_2000)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   raw_data                                       state data 
 #>   <chr>                                          <chr> <chr>
-#> 1 "40 National Vital Statistics Report, Vol. 50… "40 … <NA> 
+#> 1 "40 National Vital Statistics Report, Vol. 50~ "40 ~ <NA> 
 #> 2 ""                                             ""    <NA> 
-#> 3 "Table 10. Number of births, birth rates, fer… "Tab… <NA> 
-#> 4 "United States, each State and territory, 200… "Uni… <NA> 
-#> 5 "[By place of residence. Birth rates are live… "[By… <NA> 
-#> 6 "estimated in each area; total fertility rate… "est… <NA>
+#> 3 "Table 10. Number of births, birth rates, fer~ "Tab~ <NA> 
+#> 4 "United States, each State and territory, 200~ "Uni~ <NA> 
+#> 5 "[By place of residence. Birth rates are live~ "[By~ <NA> 
+#> 6 "estimated in each area; total fertility rate~ "est~ <NA>
 ```
 
 We get the expected warnings about the top and the bottom as they do not have multiple dots. (Another option here is to use `pdf_data()` which would allow us to use location rather than delimiters.)
@@ -1981,18 +1603,18 @@ dhs_2000 <-
            )
 
 head(dhs_2000)
-#> # A tibble: 6 × 10
+#> # A tibble: 6 x 10
 #>   raw_data           state data  number_of_births birth_rate
 #>   <chr>              <chr> <chr> <chr>            <chr>     
-#> 1 "40 National Vita… "40 … <NA>  <NA>             <NA>      
+#> 1 "40 National Vita~ "40 ~ <NA>  <NA>             <NA>      
 #> 2 ""                 ""    <NA>  <NA>             <NA>      
-#> 3 "Table 10. Number… "Tab… <NA>  <NA>             <NA>      
-#> 4 "United States, e… "Uni… <NA>  <NA>             <NA>      
-#> 5 "[By place of res… "[By… <NA>  <NA>             <NA>      
-#> 6 "estimated in eac… "est… <NA>  <NA>             <NA>      
-#> # … with 5 more variables: fertility_rate <chr>, TFR <chr>,
-#> #   teen_births_all <chr>, teen_births_15_17 <chr>,
-#> #   teen_births_18_19 <chr>
+#> 3 "Table 10. Number~ "Tab~ <NA>  <NA>             <NA>      
+#> 4 "United States, e~ "Uni~ <NA>  <NA>             <NA>      
+#> 5 "[By place of res~ "[By~ <NA>  <NA>             <NA>      
+#> 6 "estimated in eac~ "est~ <NA>  <NA>             <NA>      
+#> # ... with 5 more variables: fertility_rate <chr>,
+#> #   TFR <chr>, teen_births_all <chr>,
+#> #   teen_births_15_17 <chr>, teen_births_18_19 <chr>
 ```
 
 This is all looking fairly great. The only thing left is to clean up.
@@ -2006,20 +1628,20 @@ dhs_2000 <-
   mutate(year = 2000)
 
 dhs_2000
-#> # A tibble: 57 × 3
+#> # A tibble: 57 x 3
 #>    state                                         TFR    year
 #>    <chr>                                         <chr> <dbl>
-#>  1 "                                  State    … <NA>   2000
-#>  2 "                                           … <NA>   2000
-#>  3 "                                           … <NA>   2000
+#>  1 "                                  State    ~ <NA>   2000
+#>  2 "                                           ~ <NA>   2000
+#>  3 "                                           ~ <NA>   2000
 #>  4 ""                                            <NA>   2000
 #>  5 ""                                            <NA>   2000
-#>  6 "United States 1 "                            2,13…  2000
+#>  6 "United States 1 "                            2,13~  2000
 #>  7 ""                                            <NA>   2000
-#>  8 "Alabama "                                    2,02…  2000
-#>  9 "Alaska "                                     2,43…  2000
-#> 10 "Arizona "                                    2,65…  2000
-#> # … with 47 more rows
+#>  8 "Alabama "                                    2,02~  2000
+#>  9 "Alaska "                                     2,43~  2000
+#> 10 "Arizona "                                    2,65~  2000
+#> # ... with 47 more rows
 ```
 
 And we're done for that year. Now we want to take these pieces, put them into a function and then run that function over all 19 years.
@@ -2159,15 +1781,15 @@ raw_dhs_data <- purrr::pmap_dfr(summary_tfr_dataset |> select(pdf_name, page, ye
 #> [1] "Done with 2018"
 
 head(raw_dhs_data)
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   raw_data                          state data  year_of_data
 #>   <chr>                             <chr> <chr>        <dbl>
-#> 1 "40 National Vital Statistics Re… "40 … 50, …         2000
+#> 1 "40 National Vital Statistics Re~ "40 ~ 50, ~         2000
 #> 2 ""                                ""    <NA>          2000
-#> 3 "Table 10. Number of births, bir… "Tab… <NA>          2000
-#> 4 "United States, each State and t… "Uni… <NA>          2000
-#> 5 "[By place of residence. Birth r… "[By… <NA>          2000
-#> 6 "estimated in each area; total f… "est… <NA>          2000
+#> 3 "Table 10. Number of births, bir~ "Tab~ <NA>          2000
+#> 4 "United States, each State and t~ "Uni~ <NA>          2000
+#> 5 "[By place of residence. Birth r~ "[By~ <NA>          2000
+#> 6 "estimated in each area; total f~ "est~ <NA>          2000
 ```
 
 Now we need to clean up the state names and then filter on them.
@@ -2200,15 +1822,15 @@ raw_dhs_data <-
   filter(state %in% states)
 
 head(raw_dhs_data)
-#> # A tibble: 6 × 4
+#> # A tibble: 6 x 4
 #>   raw_data                          state data  year_of_data
 #>   <chr>                             <chr> <chr>        <dbl>
-#> 1 Alabama ........................… Alab… 63,2…         2000
-#> 2 Alaska .........................… Alas… 9,97…         2000
-#> 3 Arizona ........................… Ariz… 85,2…         2000
-#> 4 Arkansas .......................… Arka… 37,7…         2000
-#> 5 California .....................… Cali… 531,…         2000
-#> 6 Colorado .......................… Colo… 65,4…         2000
+#> 1 Alabama ........................~ Alab~ 63,2~         2000
+#> 2 Alaska .........................~ Alas~ 9,97~         2000
+#> 3 Arizona ........................~ Ariz~ 85,2~         2000
+#> 4 Arkansas .......................~ Arka~ 37,7~         2000
+#> 5 California .....................~ Cali~ 531,~         2000
+#> 6 Colorado .......................~ Colo~ 65,4~         2000
 ```
 
 The next step is to separate the data and get the correct column from it. We are going to separate based on spaces once it is cleaned up.
@@ -2224,16 +1846,16 @@ raw_dhs_data <-
            sep = " ",
            remove = FALSE)
 head(raw_dhs_data)
-#> # A tibble: 6 × 14
+#> # A tibble: 6 x 14
 #>   raw_data   state data  col_1 col_2 col_3 col_4 col_5 col_6
 #>   <chr>      <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
-#> 1 Alabama .… Alab… 63,2… 63,2… 14.4  65.0  2,02… 62.9  37.9 
-#> 2 Alaska ..… Alas… 9,97… 9,974 16.0  74.6  2,43… 42.4  23.6 
-#> 3 Arizona .… Ariz… 85,2… 85,2… 17.5  84.4  2,65… 69.1  41.1 
-#> 4 Arkansas … Arka… 37,7… 37,7… 14.7  69.1  2,14… 68.5  36.7 
-#> 5 Californi… Cali… 531,… 531,… 15.8  70.7  2,18… 48.5  28.6 
-#> 6 Colorado … Colo… 65,4… 65,4… 15.8  73.1  2,35… 49.2  28.6 
-#> # … with 5 more variables: col_7 <chr>, col_8 <chr>,
+#> 1 Alabama .~ Alab~ 63,2~ 63,2~ 14.4  65.0  2,02~ 62.9  37.9 
+#> 2 Alaska ..~ Alas~ 9,97~ 9,974 16.0  74.6  2,43~ 42.4  23.6 
+#> 3 Arizona .~ Ariz~ 85,2~ 85,2~ 17.5  84.4  2,65~ 69.1  41.1 
+#> 4 Arkansas ~ Arka~ 37,7~ 37,7~ 14.7  69.1  2,14~ 68.5  36.7 
+#> 5 Californi~ Cali~ 531,~ 531,~ 15.8  70.7  2,18~ 48.5  28.6 
+#> 6 Colorado ~ Colo~ 65,4~ 65,4~ 15.8  73.1  2,35~ 49.2  28.6 
+#> # ... with 5 more variables: col_7 <chr>, col_8 <chr>,
 #> #   col_9 <chr>, col_10 <chr>, year_of_data <dbl>
 ```
 
@@ -2247,7 +1869,7 @@ tfr_data <-
   select(state, year_of_data, TFR) |> 
   rename(year = year_of_data)
 head(tfr_data)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   state       year TFR    
 #>   <chr>      <dbl> <chr>  
 #> 1 Alabama     2000 2,021.0
@@ -2264,7 +1886,7 @@ Finally, we need to convert the case.
 
 ```r
 head(tfr_data)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   state       year TFR    
 #>   <chr>      <dbl> <chr>  
 #> 1 Alabama     2000 2,021.0
@@ -2280,7 +1902,7 @@ tfr_data <-
          TFR = as.numeric(TFR))
 
 head(tfr_data)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   state       year   TFR
 #>   <chr>      <dbl> <dbl>
 #> 1 Alabama     2000 2021 
@@ -2320,22 +1942,27 @@ tfr_data |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:tfrforthewin)First ten rows of a dataset of TFR by US state, 2000-2019
-
-|State                |  Year|   TFR|
-|:--------------------|-----:|-----:|
-|Alabama              | 2,000| 2,021|
-|Alaska               | 2,000| 2,437|
-|Arizona              | 2,000| 2,652|
-|Arkansas             | 2,000| 2,140|
-|California           | 2,000| 2,186|
-|Colorado             | 2,000| 2,356|
-|Connecticut          | 2,000| 1,932|
-|Delaware             | 2,000| 2,014|
-|District of Columbia | 2,000| 1,976|
-|Florida              | 2,000| 2,158|
+\caption{(\#tab:tfrforthewin)First ten rows of a dataset of TFR by US state, 2000-2019}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+State & Year & TFR\\
+\midrule
+Alabama & 2,000 & 2,021\\
+Alaska & 2,000 & 2,437\\
+Arizona & 2,000 & 2,652\\
+Arkansas & 2,000 & 2,140\\
+California & 2,000 & 2,186\\
+Colorado & 2,000 & 2,356\\
+Connecticut & 2,000 & 1,932\\
+Delaware & 2,000 & 2,014\\
+District of Columbia & 2,000 & 1,976\\
+Florida & 2,000 & 2,158\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
@@ -2376,10 +2003,14 @@ All of the above is predicated on having a PDF that is already 'digitized'. But 
 
 Let us see an example with a scan from the first page of Jane Eyre (Figure \@ref(fig:janescan)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/jane_scan.png" alt="Scan of first page of Jane Eyre" width="90%" />
-<p class="caption">(\#fig:janescan)Scan of first page of Jane Eyre</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{/Users/rohanalexander/Documents/book/figures/jane_scan} 
+
+}
+
+\caption{Scan of first page of Jane Eyre}(\#fig:janescan)
+\end{figure}
 
 
 ```r

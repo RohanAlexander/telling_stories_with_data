@@ -101,7 +101,7 @@ twenty_draws_from_normal_distribution <-
   tibble(draws = rnorm(n = 20, mean = 0, sd = 1))
   
 twenty_draws_from_normal_distribution
-#> # A tibble: 20 × 1
+#> # A tibble: 20 x 1
 #>      draws
 #>      <dbl>
 #>  1 -0.360 
@@ -201,10 +201,7 @@ tibble(
        y = 'Density')
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/normaldistributiontakingshape-1.png" alt="The Normal distribution takes its familiar shape as the number of draws increases" width="672" />
-<p class="caption">(\#fig:normaldistributiontakingshape)The Normal distribution takes its familiar shape as the number of draws increases</p>
-</div>
+![(\#fig:normaldistributiontakingshape)The Normal distribution takes its familiar shape as the number of draws increases](14-ijalm_files/figure-latex/normaldistributiontakingshape-1.pdf) 
 
 When we use simple linear regression, we assume that our relationship is characterized by the variables and the parameters. If we have two variables, $Y$ and $X$, then we could characterize a linear relationship between these as:
 $$Y \approx \beta_0 + \beta_1 X.$$
@@ -233,7 +230,7 @@ simulated_running_data <-
   select(-noise)
 
 simulated_running_data
-#> # A tibble: 100 × 2
+#> # A tibble: 100 x 2
 #>    five_km_time marathon_time
 #>           <dbl>         <dbl>
 #>  1         20.4          152.
@@ -246,7 +243,7 @@ simulated_running_data
 #>  8         18.6          150.
 #>  9         17.4          158.
 #> 10         17.8          147.
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 
@@ -260,10 +257,7 @@ simulated_running_data |>
   theme_classic()
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/fivekmvsmarathon-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathon)Simulated data of the relationship between the time to run five kilometers and a marathon</p>
-</div>
+![(\#fig:fivekmvsmarathon)Simulated data of the relationship between the time to run five kilometers and a marathon](14-ijalm_files/figure-latex/fivekmvsmarathon-1.pdf) 
 
 In this simulated example, we know what $\beta_0$ and $\beta_1$ are. But our challenge is to see if we can use only the data, and simple linear regression, to recover them. That is, can we use $x$, which is the five-kilometer time, to produce estimates of $y$, which is the marathon time, and which we will put a hat on to denote our estimate:
 
@@ -294,10 +288,7 @@ simulated_running_data |>
   theme_classic()
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/fivekmvsmarathonwithbestfit-1.png" alt="Simulated data of the relationship between the time to run five kilometers and a marathon" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathonwithbestfit)Simulated data of the relationship between the time to run five kilometers and a marathon</p>
-</div>
+![(\#fig:fivekmvsmarathonwithbestfit)Simulated data of the relationship between the time to run five kilometers and a marathon](14-ijalm_files/figure-latex/fivekmvsmarathonwithbestfit-1.pdf) 
 
 Underpinning our use of simple linear regression is a belief that there is some 'true' relationship between $X$ and $Y$, that is: 
 
@@ -361,7 +352,7 @@ simulated_running_data <-
           data = simulated_running_data)
 
 simulated_running_data
-#> # A tibble: 100 × 8
+#> # A tibble: 100 x 8
 #>    five_km_time marathon_time .fitted .resid   .hat .sigma
 #>           <dbl>         <dbl>   <dbl>  <dbl>  <dbl>  <dbl>
 #>  1         20.4          152.    170. -17.8  0.0108   17.0
@@ -374,8 +365,8 @@ simulated_running_data
 #>  8         18.6          150.    156.  -6.04 0.0152   17.0
 #>  9         17.4          158.    146.  11.1  0.0201   17.0
 #> 10         17.8          147.    150.  -2.68 0.0183   17.0
-#> # … with 90 more rows, and 2 more variables: .cooksd <dbl>,
-#> #   .std.resid <dbl>
+#> # ... with 90 more rows, and 2 more variables:
+#> #   .cooksd <dbl>, .std.resid <dbl>
 ```
 
 
@@ -403,10 +394,9 @@ ggplot(simulated_running_data,
        x = "Actual marathon time")
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-1.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-2.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" /><img src="14-ijalm_files/figure-html/fivekmvsmarathonresids-3.png" alt="Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon" width="49%" />
-<p class="caption">(\#fig:fivekmvsmarathonresids)Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.49\linewidth]{14-ijalm_files/figure-latex/fivekmvsmarathonresids-1} \includegraphics[width=0.49\linewidth]{14-ijalm_files/figure-latex/fivekmvsmarathonresids-2} \includegraphics[width=0.49\linewidth]{14-ijalm_files/figure-latex/fivekmvsmarathonresids-3} \caption{Residuals from the simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon}(\#fig:fivekmvsmarathonresids)
+\end{figure}
 
 We want our estimate to be unbiased. When we say our estimate is unbiased, we are trying to say that even though with some sample our estimate might be too high, and with another sample our estimate might be too low, eventually if we have a lot of data then our estimate would be the same as the population. An estimator is unbiased if it does not systematically over- or under-estimate [@islr, p. 65].
 
@@ -427,10 +417,7 @@ simulated_running_data |>
   theme_classic()
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/fivekmvsmarathonses-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathonses)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors</p>
-</div>
+![(\#fig:fivekmvsmarathonses)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, along with standard errors](14-ijalm_files/figure-latex/fivekmvsmarathonses-1.pdf) 
 
 From standard errors, we can compute a confidence interval. A 95 per cent confidence interval is a range, such that there is roughly a 0.95 probability that the interval happens to contain the population parameter, which is typically unknown. The lower end of this range is: $\hat{\beta_1} - 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$ and the upper end of this range is: $\hat{\beta_1} + 2 \times \mbox{SE}\left(\hat{\beta_1}\right)$.
 
@@ -469,7 +456,7 @@ simulated_running_data <-
   select(five_km_time, marathon_time, was_raining)
 
 simulated_running_data
-#> # A tibble: 100 × 3
+#> # A tibble: 100 x 3
 #>    five_km_time marathon_time was_raining
 #>           <dbl>         <dbl> <chr>      
 #>  1         20.4          152. No         
@@ -482,7 +469,7 @@ simulated_running_data
 #>  8         18.6          150. No         
 #>  9         17.4          158. No         
 #> 10         17.8          147. No         
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 We can add additional explanatory variables to `lm()` with `+`.
@@ -534,10 +521,7 @@ simulated_running_data |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/fivekmvsmarathonbinary-1.png" alt="Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining" width="672" />
-<p class="caption">(\#fig:fivekmvsmarathonbinary)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining</p>
-</div>
+![(\#fig:fivekmvsmarathonbinary)Simple linear regression with simulated data on the time someone takes to run five kilometers and a marathon, with a binary variable for whether it was raining](14-ijalm_files/figure-latex/fivekmvsmarathonbinary-1.pdf) 
 
 In addition to wanting to include additional explanatory variables, we may think that they are related with each another. For instance, if we were wanting to explain the amount of snowfall, then we may be interested in the humidity and the temperature, but those two variables may also interact. We can do this by using `*` instead of `+` when we specify the model. When we interact variables in this way, then we almost always need to include the individual variables as well and `lm()` will do this by default.
 
@@ -553,7 +537,7 @@ simulated_running_data <-
   ))
 
 simulated_running_data
-#> # A tibble: 100 × 4
+#> # A tibble: 100 x 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
 #>  1         20.4          152. No          Low     
@@ -566,7 +550,7 @@ simulated_running_data
 #>  8         18.6          150. No          Low     
 #>  9         17.4          158. No          High    
 #> 10         17.8          147. No          Low     
-#> # … with 90 more rows
+#> # ... with 90 more rows
 ```
 
 
@@ -630,121 +614,35 @@ modelsummary(list(simulated_running_data_first_model,
              title = "Explaining marathon time based on five-kilometer run times and weather features")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:modelsummaryruntimes)Explaining marathon time based on five-kilometer run times and weather features</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-   <th style="text-align:center;"> Model 2 </th>
-   <th style="text-align:center;"> Model 3 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 8.24 </td>
-   <td style="text-align:center;"> 9.10 </td>
-   <td style="text-align:center;"> 15.06 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (8.96) </td>
-   <td style="text-align:center;"> (9.01) </td>
-   <td style="text-align:center;"> (10.31) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> five_km_time </td>
-   <td style="text-align:center;"> 7.94 </td>
-   <td style="text-align:center;"> 7.87 </td>
-   <td style="text-align:center;"> 7.73 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.41) </td>
-   <td style="text-align:center;"> (0.42) </td>
-   <td style="text-align:center;"> (0.42) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> was_rainingYes </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 4.17 </td>
-   <td style="text-align:center;"> 15.60 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (4.50) </td>
-   <td style="text-align:center;"> (9.62) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> humidityLow </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −3.74 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (4.96) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> was_rainingYes × humidityLow </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −14.58 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (10.74) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 100 </td>
-   <td style="text-align:center;"> 100 </td>
-   <td style="text-align:center;"> 100 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.795 </td>
-   <td style="text-align:center;"> 0.797 </td>
-   <td style="text-align:center;"> 0.805 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> 0.793 </td>
-   <td style="text-align:center;"> 0.793 </td>
-   <td style="text-align:center;"> 0.797 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 854.0 </td>
-   <td style="text-align:center;"> 855.1 </td>
-   <td style="text-align:center;"> 854.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 861.8 </td>
-   <td style="text-align:center;"> 865.5 </td>
-   <td style="text-align:center;"> 870.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −423.993 </td>
-   <td style="text-align:center;"> −423.554 </td>
-   <td style="text-align:center;"> −421.405 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 380.262 </td>
-   <td style="text-align:center;"> 190.279 </td>
-   <td style="text-align:center;"> 98.314 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:modelsummaryruntimes)Explaining marathon time based on five-kilometer run times and weather features}
+\centering
+\begin{tabular}[t]{lccc}
+\toprule
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+(Intercept) & \num{8.24} & \num{9.10} & \num{15.06}\\
+ & (\num{8.96}) & (\num{9.01}) & (\num{10.31})\\
+five\_km\_time & \num{7.94} & \num{7.87} & \num{7.73}\\
+ & (\num{0.41}) & (\num{0.42}) & (\num{0.42})\\
+was\_rainingYes &  & \num{4.17} & \num{15.60}\\
+ &  & (\num{4.50}) & (\num{9.62})\\
+humidityLow &  &  & \num{-3.74}\\
+ &  &  & (\num{4.96})\\
+was\_rainingYes × humidityLow &  &  & \num{-14.58}\\
+ &  &  & (\num{10.74})\\
+\midrule
+Num.Obs. & \num{100} & \num{100} & \num{100}\\
+R2 & \num{0.795} & \num{0.797} & \num{0.805}\\
+R2 Adj. & \num{0.793} & \num{0.793} & \num{0.797}\\
+AIC & \num{854.0} & \num{855.1} & \num{854.8}\\
+BIC & \num{861.8} & \num{865.5} & \num{870.4}\\
+Log.Lik. & \num{-423.993} & \num{-423.554} & \num{-421.405}\\
+F & \num{380.262} & \num{190.279} & \num{98.314}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 When we are focused on prediction, we will often want to fit many models. One way to do this is to copy and paste code many times. There is nothing wrong with that. And that is the way that most people get started. But we need an approach that: 
 
@@ -778,7 +676,7 @@ Having split the data, we then create the training and test datasets.
 simulated_running_data_train <- training(simulated_running_data_split)
 
 simulated_running_data_train
-#> # A tibble: 80 × 4
+#> # A tibble: 80 x 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
 #>  1         17.4          158. No          High    
@@ -791,12 +689,12 @@ simulated_running_data_train
 #>  8         19.1          178. No          Low     
 #>  9         22.3          198. No          Low     
 #> 10         20.6          166. No          Low     
-#> # … with 70 more rows
+#> # ... with 70 more rows
 
 simulated_running_data_test <- testing(simulated_running_data_split)
 
 simulated_running_data_test
-#> # A tibble: 20 × 4
+#> # A tibble: 20 x 4
 #>    five_km_time marathon_time was_raining humidity
 #>           <dbl>         <dbl> <chr>       <chr>   
 #>  1         17            131. No          Low     
@@ -1031,7 +929,7 @@ day_or_night <-
   select(-noise)
   
 day_or_night
-#> # A tibble: 1,000 × 2
+#> # A tibble: 1,000 x 2
 #>    number_of_cars is_night
 #>             <dbl>    <dbl>
 #>  1             36        0
@@ -1044,7 +942,7 @@ day_or_night
 #>  8             24        0
 #>  9             16        0
 #> 10             19        0
-#> # … with 990 more rows
+#> # ... with 990 more rows
 ```
 
 As with linear regression, logistic regression with can use `glm()` from base to put together a quick model and `summary()` to look at it. In this case we will try to work out whether it is day or night, based on the number of cars we can see. We are interested in estimating Equation \@ref(eq:logisticexample):
@@ -1100,7 +998,7 @@ day_or_night <-
           type.predict = "response")
 
 day_or_night
-#> # A tibble: 1,000 × 8
+#> # A tibble: 1,000 x 8
 #>    number_of_cars is_night  .fitted        .resid .std.resid
 #>             <dbl>    <dbl>    <dbl>         <dbl>      <dbl>
 #>  1             36        0 3.06e- 6 -0.00247        -2.47e-3
@@ -1113,7 +1011,7 @@ day_or_night
 #>  8             24        0 5.39e-11 -0.0000104      -1.04e-5
 #>  9             16        0 2.22e-16 -0.0000000211   -2.11e-8
 #> 10             19        0 5.63e-13 -0.00000106     -1.06e-6
-#> # … with 990 more rows, and 3 more variables: .hat <dbl>,
+#> # ... with 990 more rows, and 3 more variables: .hat <dbl>,
 #> #   .sigma <dbl>, .cooksd <dbl>
 ```
 
@@ -1132,10 +1030,7 @@ day_or_night |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/dayornightprobs-1.png" alt="Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around" width="672" />
-<p class="caption">(\#fig:dayornightprobs)Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around</p>
-</div>
+![(\#fig:dayornightprobs)Logistic regression probability results with simulated data of whether it is day or night based on the number of cars that are around](14-ijalm_files/figure-latex/dayornightprobs-1.pdf) 
 
 We can use `tidymodels` to run this if we wanted. In order to do that, we first need to change the class of our dependent variable into a factor.
 
@@ -1295,10 +1190,7 @@ tibble(
        y = 'Density')
 ```
 
-<div class="figure">
-<img src="14-ijalm_files/figure-html/poissondistributiontakingshape-1.png" alt="The Poisson distribution is governed by the value of the mean, which is the same as its variance" width="672" />
-<p class="caption">(\#fig:poissondistributiontakingshape)The Poisson distribution is governed by the value of the mean, which is the same as its variance</p>
-</div>
+![(\#fig:poissondistributiontakingshape)The Poisson distribution is governed by the value of the mean, which is the same as its variance](14-ijalm_files/figure-latex/poissondistributiontakingshape-1.pdf) 
 
 For instance, if we look at the number of A+ grades that are awarded in each university course in a given term then for each course we would have a count.
 
@@ -1325,7 +1217,7 @@ count_of_A_plus <-
   )
 
 count_of_A_plus
-#> # A tibble: 78 × 3
+#> # A tibble: 78 x 3
 #>    department course  number_of_A_plus
 #>    <chr>      <chr>              <int>
 #>  1 1          DEP_1_a                9
@@ -1338,7 +1230,7 @@ count_of_A_plus
 #>  8 1          DEP_1_h                3
 #>  9 1          DEP_1_i                1
 #> 10 1          DEP_1_j                3
-#> # … with 68 more rows
+#> # ... with 68 more rows
 ```
 Our simulated dataset has the number of A+ grades awarded by courses, which are structured within departments. We can use `glm()` and `summary()` from base to quickly get a sense of the data.
 
@@ -1401,7 +1293,7 @@ a_plus_model_tidymodels <-
 a_plus_model_tidymodels
 #> parsnip model object
 #> 
-#> Fit time:  4ms 
+#> Fit time:  2ms 
 #> 
 #> Call:  stats::glm(formula = number_of_A_plus ~ department, family = stats::poisson, 
 #>     data = data)

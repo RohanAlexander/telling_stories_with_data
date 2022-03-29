@@ -88,17 +88,25 @@ a more general cloud option: Amazon Web Services (AWS). Often a particular busin
 
 Amazon Web Services is a cloud service from Amazon. To get started we need to create an AWS Developer account [here](https://aws.amazon.com/developer/) (Figure \@ref(fig:awsone)).
 
-<div class="figure" style="text-align: center">
-<img src="figures/aws_one.png" alt="AWS Developer website" width="95%" />
-<p class="caption">(\#fig:awsone)AWS Developer website</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{figures/aws_one} 
+
+}
+
+\caption{AWS Developer website}(\#fig:awsone)
+\end{figure}
 
 After we have created an account, we need to select a region where the computer that we will access is located. After this, we want to "Launch a virtual machine" with EC2 (Figure \@ref(fig:awstwo)).
 
-<div class="figure" style="text-align: center">
-<img src="figures/aws_two.png" alt="AWS Developer console" width="95%" />
-<p class="caption">(\#fig:awstwo)AWS Developer console</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{figures/aws_two} 
+
+}
+
+\caption{AWS Developer console}(\#fig:awstwo)
+\end{figure}
 
 The first step is to choose an Amazon Machine Image (AMI). This provides the details of the computer that you will be using. For instance, a local computer may be a MacBook running Monterey. Louis Aslett provides AMIs that are already set-up with R Studio and much else [here](http://www.louisaslett.com/RStudio_AMI/). We can either search for the AMI of the region that we registered for, or click on the relevant link on Aslett's website. For instance, to use the AMI set-up for the Canadian central region we search for 'ami-0bdd24fd36f07b638'. The benefit of using these AMIs is that they are set-up specifically for R Studio, but the trade-off is that they are a little outdated, as they were compiled in August 2020.
 
@@ -107,15 +115,23 @@ The first step is to choose an Amazon Machine Image (AMI). This provides the det
 In the next step we can choose how powerful the computer will be. The free tier is basic computer, but we can choose better ones when we need them. At this point we can pretty much just launch the instance (Figure \@ref(fig:awsthree)). If we start using AWS more seriously we could go back and select different options, especially around the security of the account. AWS relies on key pairs. And so we will need to create a PEM and save it locally (Figure \@ref(fig:awsfive)). We can then launch the instance.
 
 
-<div class="figure" style="text-align: center">
-<img src="figures/aws_three.png" alt="AWS Developer launch instance" width="95%" />
-<p class="caption">(\#fig:awsthree)AWS Developer launch instance</p>
-</div>
+\begin{figure}
 
-<div class="figure" style="text-align: center">
-<img src="figures/aws_five.png" alt="AWS Developer establishing a key-pair" width="95%" />
-<p class="caption">(\#fig:awsfive)AWS Developer establishing a key-pair</p>
-</div>
+{\centering \includegraphics[width=0.95\linewidth]{figures/aws_three} 
+
+}
+
+\caption{AWS Developer launch instance}(\#fig:awsthree)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{figures/aws_five} 
+
+}
+
+\caption{AWS Developer establishing a key-pair}(\#fig:awsfive)
+\end{figure}
 
 After a few minutes, the instance will be running. We can use it by pasting the 'public DNS' into a browser. The username is 'rstudio' and the password is the instance ID.
 

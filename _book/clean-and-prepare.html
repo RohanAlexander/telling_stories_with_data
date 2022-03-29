@@ -197,7 +197,7 @@ Figure 11.1: Planned dataset of US states and their populations
 </div>
 <p>In this case, the sketch forces us to decide whether we want full names or abbreviations for the state names, and that the population has been measured in millions. The process of sketching this end-point has forced us to make decisions early on, and be clear about our desired end state.</p>
 <p>We then implement that using code to simulate data. Again, this process forces us to think about what reasonable values look like in our dataset because we are literally forced to decide which functions to use. Thinking carefully about the membership of each column here, for instance if the column is meant to be ‘gender’ then values such as ‘male’, ‘female’, ‘other’, and ‘unknown’ may be expected, but a number such as ‘1,000’ would likely be unexpected. It also forces us to be explicit about variable names because we have to assign the outputs of those functions to a variable. For instance, we could simulate some data for the population data.</p>
-<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -241,22 +241,22 @@ Figure 11.1: Planned dataset of US states and their populations
 </h3>
 <p>Having thoroughly planned we can turn to the raw data that we are dealing with. Usually, regardless of what the raw data look like, we want to manipulate them into a rectangular dataset as quickly as possible. This allows us to use our family <code>dplyr</code> verbs and <code>tidyverse</code> approaches. For instance, let us assume that we are starting with some <code>.txt</code> file.</p>
 <p>The first step is to look for regularities in the dataset. We are wanting to end up with tabular data, which means that we need some type of delimiter to distinguish different columns. Ideally this might be features such as a comma, a semicolon, a tab, a double space, or a line break.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="clean-and-prepare.html#cb344-1" aria-hidden="true" tabindex="-1"></a>Alabama, <span class="dv">5</span></span>
-<span id="cb344-2"><a href="clean-and-prepare.html#cb344-2" aria-hidden="true" tabindex="-1"></a>Alaska, <span class="fl">0.7</span></span>
-<span id="cb344-3"><a href="clean-and-prepare.html#cb344-3" aria-hidden="true" tabindex="-1"></a>Arizona, <span class="dv">7</span></span>
-<span id="cb344-4"><a href="clean-and-prepare.html#cb344-4" aria-hidden="true" tabindex="-1"></a>Arkansas, <span class="dv">3</span></span>
-<span id="cb344-5"><a href="clean-and-prepare.html#cb344-5" aria-hidden="true" tabindex="-1"></a>California, <span class="dv">40</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="clean-and-prepare.html#cb345-1" aria-hidden="true" tabindex="-1"></a>Alabama, <span class="dv">5</span></span>
+<span id="cb345-2"><a href="clean-and-prepare.html#cb345-2" aria-hidden="true" tabindex="-1"></a>Alaska, <span class="fl">0.7</span></span>
+<span id="cb345-3"><a href="clean-and-prepare.html#cb345-3" aria-hidden="true" tabindex="-1"></a>Arizona, <span class="dv">7</span></span>
+<span id="cb345-4"><a href="clean-and-prepare.html#cb345-4" aria-hidden="true" tabindex="-1"></a>Arkansas, <span class="dv">3</span></span>
+<span id="cb345-5"><a href="clean-and-prepare.html#cb345-5" aria-hidden="true" tabindex="-1"></a>California, <span class="dv">40</span></span></code></pre></div>
 <p>In worse cases there may be some regular feature of the dataset that we can take advantage of. For instance, sometimes various text is repeated.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="clean-and-prepare.html#cb345-1" aria-hidden="true" tabindex="-1"></a>State is Alabama and population is <span class="dv">5</span> million.</span>
-<span id="cb345-2"><a href="clean-and-prepare.html#cb345-2" aria-hidden="true" tabindex="-1"></a>State is Alaska and population is <span class="fl">0.7</span> million.</span>
-<span id="cb345-3"><a href="clean-and-prepare.html#cb345-3" aria-hidden="true" tabindex="-1"></a>State is Arizona and population is <span class="dv">7</span> million.</span>
-<span id="cb345-4"><a href="clean-and-prepare.html#cb345-4" aria-hidden="true" tabindex="-1"></a>State is Arkansas and population is <span class="dv">3</span> million.</span>
-<span id="cb345-5"><a href="clean-and-prepare.html#cb345-5" aria-hidden="true" tabindex="-1"></a>State is California and population is <span class="dv">40</span> million.</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="clean-and-prepare.html#cb346-1" aria-hidden="true" tabindex="-1"></a>State is Alabama and population is <span class="dv">5</span> million.</span>
+<span id="cb346-2"><a href="clean-and-prepare.html#cb346-2" aria-hidden="true" tabindex="-1"></a>State is Alaska and population is <span class="fl">0.7</span> million.</span>
+<span id="cb346-3"><a href="clean-and-prepare.html#cb346-3" aria-hidden="true" tabindex="-1"></a>State is Arizona and population is <span class="dv">7</span> million.</span>
+<span id="cb346-4"><a href="clean-and-prepare.html#cb346-4" aria-hidden="true" tabindex="-1"></a>State is Arkansas and population is <span class="dv">3</span> million.</span>
+<span id="cb346-5"><a href="clean-and-prepare.html#cb346-5" aria-hidden="true" tabindex="-1"></a>State is California and population is <span class="dv">40</span> million.</span></code></pre></div>
 <p>In this case, although we do not have a traditional delimiter we can use the regularity of ‘State is’ and ’ and population is ’ to get what we need. A more difficult case is when we do not have line breaks.</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="clean-and-prepare.html#cb346-1" aria-hidden="true" tabindex="-1"></a>Alabama <span class="dv">5</span> Alaska <span class="fl">0.7</span> Arizona <span class="dv">7</span> Arkansas <span class="dv">3</span> California <span class="dv">40</span></span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="clean-and-prepare.html#cb347-1" aria-hidden="true" tabindex="-1"></a>Alabama <span class="dv">5</span> Alaska <span class="fl">0.7</span> Arizona <span class="dv">7</span> Arkansas <span class="dv">3</span> California <span class="dv">40</span></span></code></pre></div>
 <p>One way to approach this is to take advantage of the different classes and values that we are looking for. For instance, in this case, we know that we are after US states, so there are only 50 possible options, and we could use the existence of these as a delimiter. We could also use the fact that population is a number here, and so split based on a space followed by a number.</p>
 <p>We will now go through the process of converting this last example into tidy data using <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>.</p>
-<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Alabama 5 Alaska 0.7 Arizona 7 Arkansas 3 California 40'</span><span class="op">)</span>
 
@@ -301,14 +301,14 @@ Figure 11.1: Planned dataset of US states and their populations
 <p>Typically, we want to fix anything immediately obvious. For instance, remove commas that have been used to group digits in currencies. However, the situation will typically quickly become dire. What we need to do is to look at the membership of each group, and then triage what we will fix. We should probably make the decision of how to triage based on what is likely to have the largest impact. That usually means starting with the counts, sorting in descending order, and then dealing with each as they come.</p>
 <p>When the tests of membership are passed, then finally we can change the class, and run all the tests again. We are adapting this idea from the software development approach of unit testing. Tests are crucial because the enable us to understand whether software (or in this case data) is fit for purpose <span class="citation">(<a href="references-1.html#ref-buildingsoftwaretogether" role="doc-biblioref">Wilson 2021</a>)</span>.</p>
 <p>Let us run through an example with a collection of strings, some of which are slightly wrong. This type of output is typical of OCR, which often gets most of the way there, but not quite.</p>
-<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_string</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Patricia, Ptricia, PatricIa, Patncia, PatricIa, Patricia, Patricia, Patric1a, Patricia , 8atricia'</span><span class="op">)</span>
 
 <span class="va">messy_string</span>
 <span class="co">#&gt; [1] "Patricia, Ptricia, PatricIa, Patncia, PatricIa, Patricia, Patricia, Patric1a, Patricia , 8atricia"</span></code></pre></div>
 <p>As before, we first want to get this into a rectangular dataset.</p>
-<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>names <span class="op">=</span> <span class="va">messy_string</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_rows.html">separate_rows</a></span><span class="op">(</span><span class="va">names</span>, sep <span class="op">=</span> <span class="st">", "</span><span class="op">)</span> 
@@ -328,7 +328,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt;  9 "Patricia "</span>
 <span class="co">#&gt; 10 "8atricia"</span></code></pre></div>
 <p>We now need decide which of these errors we are going to fix. To help us decide which are most important, we will create a count.</p>
-<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">names</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 7 × 2</span>
@@ -342,7 +342,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt; 6 "Patricia "     1</span>
 <span class="co">#&gt; 7 "Ptricia"       1</span></code></pre></div>
 <p>The most common element is the correct one, which is great. The next one - ‘PatricIa’ - looks like the ‘i’ has been incorrectly capitalized, and the one after that - ‘8atricia’ - is distinguished by an ‘8’ instead of a ‘P’. Let us quickly fix these issues and then redo the count.</p>
-<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_data</span> <span class="op">&lt;-</span> 
   <span class="va">messy_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'PatricIa'</span>, <span class="st">'Patricia'</span><span class="op">)</span>,
@@ -360,7 +360,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt; 4 "Patricia "     1</span>
 <span class="co">#&gt; 5 "Ptricia"       1</span></code></pre></div>
 <p>Already this is much better and 60 per cent of the values are correct, compared with earlier where it was 30 per cent. There are two more obvious errors - ‘Ptricia’ and ‘Patncia’ - with the first missing an ‘a’ and the second having an ‘n’ where the ‘ri’ should be. Again, we can quickly update and fix those.</p>
-<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_data</span> <span class="op">&lt;-</span> 
   <span class="va">messy_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'Ptricia'</span>, <span class="st">'Patricia'</span><span class="op">)</span>,
@@ -376,7 +376,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt; 2 "Patric1a"      1</span>
 <span class="co">#&gt; 3 "Patricia "     1</span></code></pre></div>
 <p>We have achieved an 80 per cent fix with not too much effort. The two remaining issues are more subtle. The first - ‘Patric1a’ - has occurred because the ‘i’ has been incorrectly coded as an ‘1’. In some fonts this will show up, but in others it will be more difficult to see. This is a common issue, especially with OCR, and something to be aware of. The second - ‘Patricia’ - is similarly subtle and is occurring because there is a trailing space. Again, trailing and leading spaces are a common issue and we can address them with <code><a href="https://stringr.tidyverse.org/reference/str_trim.html">str_trim()</a></code>. After we fix these two remaining issues then we will have all entries corrected.</p>
-<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_data</span> <span class="op">&lt;-</span> 
   <span class="va">messy_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>names <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">names</span>, <span class="st">'Patric1a'</span>, <span class="st">'Patricia'</span><span class="op">)</span>,
@@ -390,7 +390,7 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt;</span>
 <span class="co">#&gt; 1 Patricia    10</span></code></pre></div>
 <p>We have been doing the tests in our head in this example. We know that we are hoping for ‘Patricia’. But we can start to document this test as well. One way is to look to see if values other than ‘Patricia’ exist in the dataset.</p>
-<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">check_me</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">names</span> <span class="op">!=</span> <span class="st">"Patricia"</span><span class="op">)</span>
@@ -399,11 +399,11 @@ Figure 11.1: Planned dataset of US states and their populations
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Still have values that are not Patricia!"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>We can make things a little more imposing by stopping our code execution if the condition is not met with <code><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot()</a></code>. To use that we define a condition that we would like met. We could implement this type of check throughout our code. For instance, if we expected there to be a certain number of rows in the dataset, or for a certain column to have various properties, such as being an integer, or a factor.</p>
-<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">check_me</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
 <p>We can use <code><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot()</a></code> to ensure that our script is working as expected as it goes through. Another way that is especially used</p>
 <p>Another way to write tests for our dataset is to use <code>testthat</code> <span class="citation">(<a href="references-1.html#ref-testthat" role="doc-biblioref">Wickham 2011</a>)</span>. Although developed for testing packages, we can use the same functionality to test our datasets. For instance, we can use <code><a href="https://testthat.r-lib.org/reference/expect_length.html">expect_length()</a></code> to check the length of a dataset and could use <code><a href="https://testthat.r-lib.org/reference/equality-expectations.html">expect_equal()</a></code> to check the content.</p>
-<div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://testthat.r-lib.org">testthat</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://testthat.r-lib.org/reference/expect_length.html">expect_length</a></span><span class="op">(</span><span class="va">check_me</span>, <span class="fl">1</span><span class="op">)</span>
@@ -427,14 +427,14 @@ Figure 11.1: Planned dataset of US states and their populations
 <span class="header-section-number">11.3.1</span> Gather and clean data<a class="anchor" aria-label="anchor" href="#gather-and-clean-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>To make this all more clear, let us gather, clean, and prepare some data from the 2019 Kenyan census. The distribution of population by age, sex, and administrative unit from the 2019 Kenyan census can be downloaded <a href="https://www.knbs.or.ke/?wpdmpro=2019-kenya-population-and-housing-census-volume-iii-distribution-of-population-by-age-sex-and-administrative-units">here</a>. While this format as a PDF makes it easy to look up a particular result, it is not overly useful if we want to model the data. In order to be able to do that, we need to convert a PDF of Kenyan census results of counts, by age and sex, by county and sub-county, into a tidy dataset that can be analyzed. We will use <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, <code>pdftools</code> <span class="citation">(<a href="references-1.html#ref-pdftools" role="doc-biblioref">Ooms 2019b</a>)</span>, <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019b</a>)</span>, and <code>stringi</code> <span class="citation">(<a href="references-1.html#ref-stringi" role="doc-biblioref">Gagolewski 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/pdftools/">pdftools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringi.gagolewski.com/">stringi</a></span><span class="op">)</span></code></pre></div>
 <p>And we can then download<a href="references-1.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> and read in the PDF of the 2019 Kenyan census. When we have a PDF and want to read the content into R, then <code><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text()</a></code> from <code>pdftools</code> <span class="citation">(<a href="references-1.html#ref-pdftools" role="doc-biblioref">Ooms 2019b</a>)</span> is useful. It works well for many recently produced PDFs because the content is text which it can extract. But if the PDF is an image, then <code><a href="https://docs.ropensci.org/pdftools/reference/pdftools.html">pdf_text()</a></code> will not work. Instead, the PDF will first need to go through OCR, which was covered in Chapter <a href="gather-data.html#gather-data">9</a>.</p>
-<div class="sourceCode" id="cb358"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>
   <span class="st">"https://www.knbs.or.ke/download/2019-kenya-population-and-housing-census-volume-iii-distribution-of-population-by-age-sex-and-administrative-units/?wpdmdl=5729&amp;refresh=620561f1ce3ad1644519921"</span>, 
   <span class="st">"2019_Kenya_census.pdf"</span>,
@@ -449,7 +449,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 </p>
 </div>
 <p>The first challenge is to get the dataset into a format that we can more easily manipulate. We will consider each page of the PDF and extract the relevant parts. To do this, we first write a function, and then apply it to each page.</p>
-<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># The function is going to take an input of a page</span>
 <span class="va">get_data</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span><span class="op">{</span>
   <span class="co"># i = 467</span>
@@ -520,12 +520,12 @@ Figure 11.2: Example page from the 2019 Kenyan census
   <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">demography_data_long</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>We now have a function that does what we need to each page of the PDF. We will use <code><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr()</a></code> from <code>purrr</code> <span class="citation">(<a href="references-1.html#ref-citepurrr" role="doc-biblioref">Henry and Wickham 2020</a>)</span> to apply that function to each page, and then combine all the outputs into one tibble.</p>
-<div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Run through each relevant page and get the data</span>
 <span class="va">pages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span><span class="op">:</span><span class="fl">513</span><span class="op">)</span>
 <span class="va">all_tables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">pages</span>, <span class="va">get_data</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">pages</span>, <span class="va">get_data</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span>
 <span class="co">#&gt; # A tibble: 59,532 × 7</span>
 <span class="co">#&gt;    age   male    female  total     area    table        page</span>
@@ -543,7 +543,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; # … with 59,522 more rows</span></code></pre></div>
 <p>Having got it into a rectangular format, we now need to clean the dataset to make it useful.</p>
 <p>The first step is to make the numbers into actual numbers, rather than characters. Before we can convert the type, we need to remove anything that is not a number otherwise that cell will be converted into an NA. We first identify any values that are not numbers so that we can remove them.</p>
-<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Need to convert male, female, and total to integers</span>
 <span class="co"># First find the characters that should not be in there</span>
 <span class="va">all_tables</span> |&gt; 
@@ -567,7 +567,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="va">all_tables</span><span class="op">$</span><span class="va">male</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">male</span> <span class="op">==</span> <span class="st">"15-Aug"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">4611</span></code></pre></div>
 <p>While we could use <code>janitor</code> here, it is worthwhile at least first looking at what is going on because sometimes there is odd stuff that <code>janitor</code> (and other packages) will deal with, but not in a way that we want. In this case, the Kenyan government used Excel or similar, and this has converted two entries into dates. If we just took the numbers from the column then we would have 23 and 15 here, but by inspecting the column we can use Excel to reverse the process and enter the correct values of 4,923 and 4,611, respectively.</p>
 <p>Having identified everything that needs to be removed, we can do the actual removal and convert our character column of numbers to integers.</p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span> <span class="op">&lt;-</span>
   <span class="va">all_tables</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_at</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">male</span>, <span class="va">female</span>, <span class="va">total</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span><span class="va">.</span>, <span class="st">","</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -591,14 +591,14 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 10 7      13268  13203   26471 Mombasa Table 2.3: Dis…    30</span>
 <span class="co">#&gt; # … with 59,522 more rows</span></code></pre></div>
 <p>The next thing to clean is the areas. We know that there are 47 counties in Kenya, and a large number of sub-counties. The Kenyan government purports to provide a list on pages 19 to 22 of the PDF (document pages 7 to 10). But this list is not complete, and there are a few minor issues that we will deal with later. In any case, we first need to fix a few inconsistencies.</p>
-<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Fix some area names</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Taita/ Taveta"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Taita/Taveta"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Elgeyo/ Marakwet"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Elgeyo/Marakwet"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">area</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Nairobi City"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Nairobi"</span></code></pre></div>
 <p>Kenya has 47 counties, each of which has sub-counties. The PDF has them arranged as the county data then the sub-counties, without designating which is which. We can use the names, to a certain extent, but in a handful of cases, there is a sub-county that has the same name as a county, so we need to first fix that.</p>
 <p>The PDF is made-up of three tables. So we can first get the names of the counties based on those final two tables and then reconcile them to get a list of the counties.</p>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span><span class="op">$</span><span class="va">table</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
@@ -608,7 +608,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt;                                                                       5535 </span>
 <span class="co">#&gt;       Table 2.4b: Distribution of Urban Population by Age, Sex* and County </span>
 <span class="co">#&gt;                                                                       5781</span></code></pre></div>
-<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">list_counties</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Table 2.4a: Distribution of Rural Population by Age, Sex* and County"</span>,
@@ -633,7 +633,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 10 Isiolo      </span>
 <span class="co">#&gt; # … with 37 more rows</span></code></pre></div>
 <p>As we hoped, there are 47 of them. But before we can add a flag based on those names, we need to deal with the sub-counties that share their name. We will do this based on the page, then looking it up and deciding which is the county page and which is the sub-county page.</p>
-<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">area</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Busia"</span>,
@@ -666,7 +666,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 10 Makueni      159</span>
 <span class="co">#&gt; # … with 14 more rows</span></code></pre></div>
 <p>Now we can add the flag for whether the area is a county, and adjust for the ones that are troublesome,</p>
-<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>area_type <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">area</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">list_counties</span><span class="op">$</span><span class="va">area</span>, <span class="st">"county"</span>, <span class="st">"sub-county"</span><span class="op">)</span><span class="op">)</span>
@@ -708,7 +708,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 10 7      13268  13203   26471 Mombasa Tabl…    30 county   </span>
 <span class="co">#&gt; # … with 59,522 more rows</span></code></pre></div>
 <p>Having dealt with the areas, we can deal with the ages. First, we need to fix some clear errors.</p>
-<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">)</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     0   0-4     1    10 10-14 10-19 </span>
@@ -723,7 +723,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"9-14"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"5-9"</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"10-19"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"10-14"</span></code></pre></div>
 <p>The census has done some of the work of putting together age-groups for us, but we want to make it easy to just focus on the counts by single-year-age. As such we will add a flag as to the type of age it is: an age group, such as “ages 0 to 5”, or a single age, such as “1”.</p>
-<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"-"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"age-group"</span>, <span class="st">"single-year"</span><span class="op">)</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span> <span class="op">&lt;-</span>
@@ -731,7 +731,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
           <span class="st">"age-group"</span>,
           <span class="va">all_tables</span><span class="op">$</span><span class="va">age_type</span><span class="op">)</span></code></pre></div>
 <p>At the moment, age is a character variable. We have a decision to make here. We do not want it to be a character variable (because it will not graph properly), but we do not want it to be numeric, because there is <code>total</code> and <code>100+</code> in there. For now, we will just make it into a factor, and at least that will be able to be nicely graphed.</p>
-<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="check-data" class="section level3" number="11.3.2">
@@ -739,7 +739,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="header-section-number">11.3.2</span> Check data<a class="anchor" aria-label="anchor" href="#check-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Having gathered and cleaned the data, we would like to run a few checks. Given the format of the data, we can check that ‘total’ is the sum of ‘male’ and ‘female’. (While we would prefer to use different groupings, this is what the Kenyan government collected and makes available.)</p>
-<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>check_sum <span class="op">=</span> <span class="va">male</span> <span class="op">+</span> <span class="va">female</span>,
@@ -747,14 +747,14 @@ Figure 11.2: Example page from the 2019 Kenyan census
          <span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">totals_match</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
 <p>And we can adjust the one that looks to be wrong.</p>
-<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># There is just one that looks wrong</span>
 <span class="va">all_tables</span><span class="op">$</span><span class="va">male</span><span class="op">[</span><span class="va">all_tables</span><span class="op">$</span><span class="va">age</span> <span class="op">==</span> <span class="st">"10"</span> <span class="op">&amp;</span> <span class="va">all_tables</span><span class="op">$</span><span class="va">page</span> <span class="op">==</span> <span class="fl">187</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">follow_up</span><span class="op">)</span></code></pre></div>
 <p>The Kenyan census provides different tables for the total of each county and sub-county; and then within each county, for the number in an urban area in that county, and the number in a urban area in that county. Some counties only have an urban count, but we would like to make sure that the sum of rural and urban counts equals the total count. This requires pivoting the data from long to wide.</p>
 <p>First, we construct different tables for each of the three.</p>
-<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Table 2.3</span>
 <span class="va">table_2_3</span> <span class="op">&lt;-</span> <span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.3: Distribution of Population by Age, Sex*, County and Sub- County"</span><span class="op">)</span>
@@ -763,7 +763,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="va">table_2_4b</span> <span class="op">&lt;-</span> <span class="va">all_tables</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">table</span> <span class="op">==</span> <span class="st">"Table 2.4b: Distribution of Urban Population by Age, Sex* and County"</span><span class="op">)</span></code></pre></div>
 <p>Then having constructed the constituent parts, we can join then based on age, area, and whether it is a county.</p>
-<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">both_2_4s</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span>
     <span class="va">table_2_4a</span>,
@@ -798,7 +798,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">both_2_4s</span>, <span class="va">table_2_3</span>, <span class="va">table_2_4a</span>, <span class="va">table_2_4b</span><span class="op">)</span></code></pre></div>
 <p>We can now check that the sum of rural and urban is the same as the total.</p>
-<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total_from_bits <span class="op">=</span> <span class="va">total_rural</span> <span class="op">+</span> <span class="va">total_urban</span>,
@@ -822,7 +822,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">follow_up</span><span class="op">)</span></code></pre></div>
 <p>There are just a few, but as they only have a difference of 1, we will just move on.</p>
 <p>Finally, we want to check that the single age counts sum to the age-groups.</p>
-<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">follow_up</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>groups <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">age</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"0-4"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"0-4"</span>,
@@ -879,7 +879,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="header-section-number">11.3.3</span> Tidy-up<a class="anchor" aria-label="anchor" href="#tidy-up"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now that we are confident that everything is looking good, we can just convert it to tidy format. This will make it easier to work with.</p>
-<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">all</span> <span class="op">&lt;-</span>
   <span class="va">all</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>male_total <span class="op">=</span> <span class="va">male</span>,
@@ -918,7 +918,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 5 Momb… county    rural        Total age-gro… female      NA</span>
 <span class="co">#&gt; 6 Momb… county    rural        Total age-gro… total       NA</span></code></pre></div>
 <p>The original purpose of cleaning this dataset was to make a table for <span class="citation">M. Alexander and Alkema (<a href="references-1.html#ref-alexander2021bayesian" role="doc-biblioref">2021</a>)</span>. Just to bring this all together, we could make a graph of single-year counts, by gender, for Nairobi (Figure <a href="clean-and-prepare.html#fig:monicasnairobigraph">11.3</a>).</p>
-<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">monicas_dataset</span> <span class="op">&lt;-</span> 
   <span class="va">all</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">area_type</span> <span class="op">==</span> <span class="st">"county"</span><span class="op">)</span> |&gt; 
@@ -936,7 +936,7 @@ Figure 11.2: Example page from the 2019 Kenyan census
 <span class="co">#&gt; 4 Mombasa 1     male    15805</span>
 <span class="co">#&gt; 5 Mombasa 1     female  15308</span>
 <span class="co">#&gt; 6 Mombasa 1     total   31113</span></code></pre></div>
-<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">monicas_dataset</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">area</span> <span class="op">==</span> <span class="st">"Nairobi"</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gender</span> <span class="op">!=</span> <span class="st">"total"</span><span class="op">)</span> |&gt;
@@ -971,7 +971,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 </h3>
 <p>Graphs are an invaluable tool when cleaning data, because they show each point in the dataset, in relation to the other points. They are especially useful for identifying when a value does not belong. For instance, if a value is expected to be numerical, but it is still a character then it will not plot and a warning will be displayed.</p>
 <p>Graphs will be especially useful for numerical data, but are still useful for text and categorical data. Let us pretend that we have a situation where we are interested in a person’s age, for some youth survey. We have the following data:</p>
-<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">17</span>, <span class="fl">22</span>, <span class="fl">13</span>, <span class="fl">21</span>, <span class="fl">16</span>, <span class="fl">16</span>, <span class="fl">6</span>, <span class="fl">16</span>, <span class="fl">11</span>, <span class="fl">150</span><span class="op">)</span><span class="op">)</span>
 
@@ -987,7 +987,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 </h3>
 <p>We want to focus on getting most of the data right. So we are interested in the counts of unique values. Hopefully a majority of the data are concentrated in the most common counts. But it can also be useful to invert it, and see what is especially uncommon. The extent to which we want to deal with these depends on what we need. Ultimately, each time we fix one we are getting very few additional observations, potentially even just one! Counts are especially useful with text or categorical data, but can be helpful with numerical as well.</p>
 <p>Let us see an example.</p>
-<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>country <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Australie'</span>, <span class="st">'Austrelia'</span>, <span class="st">'Australie'</span>, <span class="st">'Australie'</span>, <span class="st">'Aeustralia'</span>, <span class="st">'Austraia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>, <span class="st">'Australia'</span>
                   <span class="op">)</span>
@@ -1015,10 +1015,10 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <li>If doing cross-country analysis, then a list of country names that we know should be in our dataset would be useful. Our no-go conditions would then be if there were: 1) values not in that list in our dataset, or, vice versa; 2) countries that we expected to be in there that were not.</li>
 </ul>
 <p>To have a concrete example, let us consider if we were doing some analysis about the five largest counties in Kenya: ‘Nairobi’, ‘Kiambu’, ‘Nakuru’, ‘Kakamega’, ‘Bungoma’. Let us create that array first.</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">correct_counties</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Nairobi'</span>, <span class="st">'Kiambu'</span>, <span class="st">'Nakuru'</span>, <span class="st">'Kakamega'</span>, <span class="st">'Bungoma'</span><span class="op">)</span></code></pre></div>
 <p>We begin with the following dataset.</p>
-<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>county <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Nairobi'</span>, <span class="st">'Nairob1'</span>, <span class="st">'Nakuru'</span>, <span class="st">'Kakamega'</span>, <span class="st">'Nakuru'</span>, 
                       <span class="st">'Kiambu'</span>, <span class="st">'Kiambru'</span>, <span class="st">'Kabamega'</span>, <span class="st">'Bun8oma'</span>, <span class="st">'Bungoma'</span><span class="op">)</span>
@@ -1039,7 +1039,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; 8 Nairob1      1</span>
 <span class="co">#&gt; 9 Nairobi      1</span></code></pre></div>
 <p>Based on the count we know that we have to fix some of them and there are two with numbers that are obvious fixes.</p>
-<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span> <span class="op">&lt;-</span> 
   <span class="va">top_five_kenya</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>county <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">county</span>, <span class="st">'Nairob1'</span>, <span class="st">'Nairobi'</span><span class="op">)</span>,
@@ -1059,7 +1059,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; 6 Kiambru      1</span>
 <span class="co">#&gt; 7 Kiambu       1</span></code></pre></div>
 <p>At this point we can use our go/no-go conditions to decide whether we are finished or not.</p>
-<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">top_five_kenya</span><span class="op">$</span><span class="va">county</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Nairobi"  "Nakuru"   "Kakamega" "Kiambu"   "Kiambru" </span>
 <span class="co">#&gt; [6] "Kabamega" "Bungoma"</span>
@@ -1092,7 +1092,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <li>check that dates are correctly formatted.</li>
 </ul>
 <p>To understand why it is important to be clear about whether a value is a number or a factor, consider the following situation:</p>
-<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">some_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
          group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> |&gt; 
@@ -1100,7 +1100,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
          group_as_factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span>,
          <span class="op">)</span></code></pre></div>
 <p>Let us start with ‘group’ as an integer and look at a logistic regression.</p>
-<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">response</span><span class="op">~</span><span class="va">group_as_integer</span>, data <span class="op">=</span> <span class="va">some_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
@@ -1120,7 +1120,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; Multiple R-squared:  0.064,  Adjusted R-squared:  -0.06971 </span>
 <span class="co">#&gt; F-statistic: 0.4786 on 1 and 7 DF,  p-value: 0.5113</span></code></pre></div>
 <p>Now we can try it as a factor. The interpretation of the variable is completely different.</p>
-<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb390"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">response</span><span class="op">~</span><span class="va">group_as_factor</span>, data <span class="op">=</span> <span class="va">some_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; </span>
@@ -1164,7 +1164,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 </ol>
 <p>Machine readable names is an easier standard to meet, but usually means avoiding spaces and special characters. A space can be replaced with a underbar. Usually, special characters should just be removed because they can be inconsistent between different computers and languages. The names should also be unique within a dataset, and unique within a collection of datasets unless that particular column is being deliberately used as a key to join different datasets.</p>
 <p>An especially useful function to use to get closer to machine readable names is <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">janitor::clean_names()</a></code> which is from the <code>janitor</code> package <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. This deals with those issues mentioned above as well as a few others. We can see an example.</p>
-<div class="sourceCode" id="cb390"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">bad_names_good_names</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
     <span class="st">'First'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,
@@ -1190,7 +1190,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; 1     1                  1                1                1</span></code></pre></div>
 <p>Human readable names require an additional layer. We need to consider other cultures and how they may interpret some of the names that we are using. We also need to consider different experience levels that subsequent users of your dataset may have. This is both in terms of experience with programming and statistics, but also experience with similar datasets. For instance, a column of ‘flag’ is often used to signal that a column contains data that needs to be followed up with or treated carefully in some way. An experienced analyst will know this, but a beginner will not. Try to use meaningful names wherever possible <span class="citation">(<a href="references-1.html#ref-lin2020ten" role="doc-biblioref">Lin, Ali, and Wilson 2020</a>)</span>. It has been found that shorter names may take longer to comprehend <span class="citation">(<a href="references-1.html#ref-shorternamestakelonger" role="doc-biblioref">Hofmeister, Siegmund, and Holt 2017</a>)</span>, and so it is often useful to avoid abbreviations where possible.</p>
 <p>One interesting feature of R is that in certain cases partial matching on names is possible. For instance:</p>
-<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb392"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">never_use_partial_matching</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
     my_first_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,
@@ -1203,7 +1203,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
 <span class="co">#&gt; [1] 1 2</span></code></pre></div>
 <p>This behavior is not possible within the <code>tidyverse</code>, for instance if <code>data.frame</code> were replaced with <code>tibble</code> in the above code. Partial matching should almost never be used. It makes it more difficult to understand code after a break, and for others to come to it fresh.</p>
 <p><span class="citation">Riederer (<a href="references-1.html#ref-columnnamesascontracts" role="doc-biblioref">2020</a>)</span> advises using column names as contracts, through establishing a controlled vocabulary for column names. In this way, we would define a set of words that we can use in column names. In the controlled vocabulary of <span class="citation">Riederer (<a href="references-1.html#ref-columnnamesascontracts" role="doc-biblioref">2020</a>)</span> a column could start with an abbreviation for its class, then something specific to what it pertains to, and then various details. For instance, in the Kenyan data example earlier we have the following column names: “area”, “age”, “gender”, and “number”. If we were to use our column names as contracts, then these could be: “chr_area”, “fctr_group_age”, “chr_group_gender”, and “int_group_count”.</p>
-<div class="sourceCode" id="cb392"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">column_names_as_contracts</span> <span class="op">&lt;-</span> 
   <span class="va">monicas_dataset</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
@@ -1213,7 +1213,7 @@ Figure 11.3: Distribution of age and gender in Nairobi in 2019, based on Kenyan 
     <span class="st">"int_group_count"</span> <span class="op">=</span> <span class="st">"number"</span>
   <span class="op">)</span></code></pre></div>
 <p>We can then use <code>pointblank</code> <span class="citation">(<a href="references-1.html#ref-pointblank" role="doc-biblioref">Iannone and Vargas 2022</a>)</span> to set-up tests for us.</p>
-<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb394"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/pointblank/">pointblank</a></span><span class="op">)</span>
 
 <span class="va">agent</span> <span class="op">&lt;-</span>
@@ -1608,7 +1608,7 @@ html {
     </tr>
 <tr>
 <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;">
-<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-26|11:39:06]</span>
+<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2022-03-29|11:15:53]</span>
 <div style="height:25px;">
 <span style="background-color:#F1D35A;color:#222222;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">tibble</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #F1D35A;padding:2px 15px 2px 15px;font-size:smaller;">column_names_as_contracts</span>
@@ -1853,9 +1853,9 @@ html {
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="14">
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-26 11:39:06 EDT</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin-left:10px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;padding:2px 10px 2px 10px;">2022-03-29 11:15:53 EDT</span>
 <span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;margin:5px 1px 5px 0;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">&lt; 1 s</span>
-<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-26 11:39:06 EDT</span>
+<span style="background-color:#FFF;color:#444;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 1px 5px -1px;border:solid 1px #999999;font-variant-numeric:tabular-nums;border-radius:0;padding:2px 10px 2px 10px;">2022-03-29 11:15:54 EDT</span>
 </td>
     </tr></tfoot>
 </table></div>
@@ -1874,7 +1874,7 @@ html {
 <ol style="list-style-type: decimal">
 <li>Is the following an example of tidy data?</li>
 </ol>
-<div class="sourceCode" id="cb394"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Anne'</span>, <span class="st">'Bethany'</span>, <span class="st">'Stephen'</span>, <span class="st">'William'</span><span class="op">)</span>,
        age_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'18-29'</span>, <span class="st">'30-44'</span>, <span class="st">'45-60'</span>, <span class="st">'60+'</span><span class="op">)</span>,
        <span class="op">)</span>
@@ -1961,7 +1961,7 @@ html {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

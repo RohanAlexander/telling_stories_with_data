@@ -127,7 +127,7 @@ library(tidyverse)
 library(datasauRus)
 
 head(datasaurus_dozen)
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>   dataset     x     y
 #>   <chr>   <dbl> <dbl>
 #> 1 dino     55.4  97.2
@@ -138,7 +138,7 @@ head(datasaurus_dozen)
 #> 6 dino     38.7  84.9
 datasaurus_dozen |> 
   count(dataset)
-#> # A tibble: 13 × 2
+#> # A tibble: 13 x 2
 #>    dataset        n
 #>    <chr>      <int>
 #>  1 away         142
@@ -184,16 +184,21 @@ datasaurus_dozen |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:datasaurussummarystats)Mean and standard deviation for four 'datasaurus' datasets
-
-|Dataset  | x mean| x sd| y mean| y sd| correlation|
-|:--------|------:|----:|------:|----:|-----------:|
-|away     |   54.3| 16.8|   47.8| 26.9|        -0.1|
-|bullseye |   54.3| 16.8|   47.8| 26.9|        -0.1|
-|dino     |   54.3| 16.8|   47.8| 26.9|        -0.1|
-|star     |   54.3| 16.8|   47.8| 26.9|        -0.1|
+\caption{(\#tab:datasaurussummarystats)Mean and standard deviation for four 'datasaurus' datasets}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Dataset & x mean & x sd & y mean & y sd & correlation\\
+\midrule
+away & 54.3 & 16.8 & 47.8 & 26.9 & -0.1\\
+bullseye & 54.3 & 16.8 & 47.8 & 26.9 & -0.1\\
+dino & 54.3 & 16.8 & 47.8 & 26.9 & -0.1\\
+star & 54.3 & 16.8 & 47.8 & 26.9 & -0.1\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Despite the similarities of the summary statistics, it turns out the different 'datasets' are actually very different beasts when we graph the actual data (Figure \@ref(fig:datasaurusgraph)).
 
@@ -208,10 +213,7 @@ datasaurus_dozen |>
   labs(colour = "Dataset")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/datasaurusgraph-1.png" alt="Graph of four 'datasaurus' datasets" width="672" />
-<p class="caption">(\#fig:datasaurusgraph)Graph of four 'datasaurus' datasets</p>
-</div>
+![(\#fig:datasaurusgraph)Graph of four 'datasaurus' datasets](06-static_communication_files/figure-latex/datasaurusgraph-1.pdf) 
 
 This is a variant of the famous 'Anscombe's Quartet'. The key takeaway is that it is important to plot the actual data and not rely on summary statistics. The 'anscombe' dataset is built into R.
 
@@ -265,16 +267,21 @@ tidy_anscombe |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:anscombesummarystats)Mean and standard deviation for Anscombe
-
-|Dataset | x mean| x sd| y mean| y sd| correlation|
-|:-------|------:|----:|------:|----:|-----------:|
-|1       |      9|  3.3|    7.5|    2|         0.8|
-|2       |      9|  3.3|    7.5|    2|         0.8|
-|3       |      9|  3.3|    7.5|    2|         0.8|
-|4       |      9|  3.3|    7.5|    2|         0.8|
+\caption{(\#tab:anscombesummarystats)Mean and standard deviation for Anscombe}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Dataset & x mean & x sd & y mean & y sd & correlation\\
+\midrule
+1 & 9 & 3.3 & 7.5 & 2 & 0.8\\
+2 & 9 & 3.3 & 7.5 & 2 & 0.8\\
+3 & 9 & 3.3 & 7.5 & 2 & 0.8\\
+4 & 9 & 3.3 & 7.5 & 2 & 0.8\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
@@ -287,10 +294,7 @@ tidy_anscombe |>
   labs(colour = "Dataset")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/anscombegraph-1.png" alt="Recreation of Anscombe's Quartet" width="672" />
-<p class="caption">(\#fig:anscombegraph)Recreation of Anscombe's Quartet</p>
-</div>
+![(\#fig:anscombegraph)Recreation of Anscombe's Quartet](06-static_communication_files/figure-latex/anscombegraph-1.pdf) 
 
 We can add two specific evaluation options in an R Markdown chunk to have two graphs appear side-by-side (Figure \@ref(fig:anscombegraphsidebyside)). These are 'fig.show = "hold", out.width = "49%"'. Another helpful option is 'fig.align = "center"' which ensures the graph is placed in the horizonal center of the page.
 
@@ -311,10 +315,14 @@ tidy_anscombe |>
   labs(colour = "Dataset")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="06-static_communication_files/figure-html/anscombegraphsidebyside-1.png" alt="Two variants of Anscombe's Quartet" width="49%" /><img src="06-static_communication_files/figure-html/anscombegraphsidebyside-2.png" alt="Two variants of Anscombe's Quartet" width="49%" />
-<p class="caption">(\#fig:anscombegraphsidebyside)Two variants of Anscombe's Quartet</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.49\linewidth]{06-static_communication_files/figure-latex/anscombegraphsidebyside-1} \includegraphics[width=0.49\linewidth]{06-static_communication_files/figure-latex/anscombegraphsidebyside-2} 
+
+}
+
+\caption{Two variants of Anscombe's Quartet}(\#fig:anscombegraphsidebyside)
+\end{figure}
 
 
 
@@ -349,16 +357,16 @@ beps <-
 
 ```r
 head(beps)
-#> # A tibble: 6 × 11
-#>    ...1 vote     age economic.cond.n… economic.cond.h… Blair
+#> # A tibble: 6 x 11
+#>    ...1 vote     age economic.cond.n~ economic.cond.h~ Blair
 #>   <dbl> <chr>  <dbl>            <dbl>            <dbl> <dbl>
-#> 1     1 Liber…    43                3                3     4
+#> 1     1 Liber~    43                3                3     4
 #> 2     2 Labour    36                4                4     4
 #> 3     3 Labour    35                4                4     5
 #> 4     4 Labour    24                4                2     2
 #> 5     5 Labour    41                2                2     1
 #> 6     6 Labour    47                3                4     4
-#> # … with 5 more variables: Hague <dbl>, Kennedy <dbl>,
+#> # ... with 5 more variables: Hague <dbl>, Kennedy <dbl>,
 #> #   Europe <dbl>, political.knowledge <dbl>, gender <chr>
 ```
 
@@ -390,10 +398,7 @@ beps |>
   geom_bar()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/bepfitst-1.png" alt="Distribution of ages in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:bepfitst)Distribution of ages in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:bepfitst)Distribution of ages in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/bepfitst-1.pdf) 
 
 By default, `geom_bar()` has created a count of the number of times each age-group appears in the dataset. It does this because the default 'stat' for `geom_bar()` is 'count'. This saves us from having to create that statistic ourselves. But if we had already constructed a count (for instance, with `beps |> count(age)`), then we could also specify a column of values for the y-axis and then use `stat = "identity"`.
 
@@ -406,10 +411,7 @@ beps |>
   geom_bar()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/bepsecond-1.png" alt="Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:bepsecond)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:bepsecond)Distribution of ages, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/bepsecond-1.pdf) 
 
 The default is that these different groups are stacked, but they can be placed side-by-side with `position = "dodge"` (Figure \@ref(fig:bepthird)).
 
@@ -420,10 +422,7 @@ beps |>
   geom_bar(position = "dodge")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/bepthird-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:bepthird)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:bepthird)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/bepthird-1.pdf) 
 
 At this point, we may like to address the general look of the graph. There are various themes that are built into `ggplot2`. Some of these include `theme_bw()`, `theme_classic()`, `theme_dark()`, and `theme_minimal()`. A full list is available at the `ggplot2` [cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf). We can use these themes by adding them as a layer (Figure \@ref(fig:bepthemes)). Here we can use `patchwork` [@citepatchwork] to bring together multiple graphs. To do this we assign the graph to a name, and then use '+' to signal which should be next to each other, '/' to signal which would be on top, and brackets for precedence.
 
@@ -458,10 +457,7 @@ theme_minimal <-
 (theme_bw + theme_classic) / (theme_dark + theme_minimal)
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/bepthemes-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes" width="672" />
-<p class="caption">(\#fig:bepthemes)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes</p>
-</div>
+![(\#fig:bepthemes)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study, illustrating different themes](06-static_communication_files/figure-latex/bepthemes-1.pdf) 
 
 We can install themes from other packages, including `ggthemes` [@ggthemes], and `hrbrthemes` [@hrbrthemes]. And we can also build our own.
 
@@ -481,10 +477,7 @@ beps |>
        caption = "Source: 1997-2001 British Election Panel Study.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/withnicelabels-1.png" alt="Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:withnicelabels)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:withnicelabels)Distribution of age-groups, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/withnicelabels-1.pdf) 
 
 We use facets to create 'many little graphics that are variations of a single graphic' [@grammarofgraphics, p. 219]. They are especially useful when we want to specifically compare across some variable, but have already used color. For instance, we may be interested to explain vote, by age and gender (Figure \@ref(fig:facets)).
 
@@ -500,10 +493,7 @@ beps |>
   facet_wrap(vars(gender))
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/facets-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facets)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:facets)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/facets-1.pdf) 
 
 We could change `facet_wrap()` to wrap vertically instead of horizontally with `dir = "v"`. Alternatively, we could specify a number of rows, say `nrow = 2`, or a number of columns, say `ncol = 2`. Additionally, by default, both facets will have the same scales. We could enable both facets to have different scales with `scales = "free"`, or just the x-axis `scales = "free_x"`, or just the y-axis `scales = "free_y"` (Figure \@ref(fig:facetsfancy)). 
 
@@ -521,10 +511,7 @@ beps |>
              scales = "free")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/facetsfancy-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facetsfancy)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:facetsfancy)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/facetsfancy-1.pdf) 
 
 Finally, we can change the labels of the facets using `labeller()` (Figure \@ref(fig:facetsfancylabels)). 
 
@@ -545,10 +532,7 @@ beps |>
              labeller = labeller(gender = new_labels))
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/facetsfancylabels-1.png" alt="Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:facetsfancylabels)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:facetsfancylabels)Distribution of age-group by gender, and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/facetsfancylabels-1.pdf) 
 
 There are a variety of different ways to change the colors, and many palettes are available including from `RColorBrewer` [@RColorBrewer], which we specify with `scale_fill_brewer()`, and `viridis` [@viridis], which we specify with `scale_fill_viridis()` and is particularly focused on color-blind palettes (Figure \@ref(fig:usecolor)). 
 
@@ -602,10 +586,7 @@ viridismagma <-
   (viridis + viridismagma)
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/usecolor-1.png" alt="Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study" width="672" />
-<p class="caption">(\#fig:usecolor)Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study</p>
-</div>
+![(\#fig:usecolor)Distribution of age-group and vote preference, in the 1997-2001 British Election Panel Study](06-static_communication_files/figure-latex/usecolor-1.pdf) 
 
 Details of the variety of palettes available in `RColorBrewer` and `viridis` are available in their help files. Many different palettes are available, and we can also build our own. That said, color is something to be considered with a great deal of care and it should only be added to increase the amount of information that is communicated [@elementsofgraphingdata]. Colors should not be added to graphs unnecessarily---that is to say, they must play some role. Typically, that role is to distinguish different groups, and that implies making the colors dissimilar. Colors may also be appropriate if there is some relationship between the color and the variable, for instance if making a graph of sales of, say, mangoes and raspberries, it could help the reader if the colors were yellow and red, respectively [@franconeri2021science, p. 121].
 
@@ -695,7 +676,7 @@ world_bank_data <-
   select(-iso2c)
 
 head(world_bank_data)
-#> # A tibble: 6 × 6
+#> # A tibble: 6 x 6
 #>   country    year inflation gdp_growth population
 #>   <chr>     <dbl>     <dbl>      <dbl>      <dbl>
 #> 1 Australia  1960     3.73       NA      10276477
@@ -704,7 +685,7 @@ head(world_bank_data)
 #> 4 Australia  1963     0.641       6.21   10950000
 #> 5 Australia  1964     2.87        6.98   11167000
 #> 6 Australia  1965     3.41        5.98   11388000
-#> # … with 1 more variable: unemployment_rate <dbl>
+#> # ... with 1 more variable: unemployment_rate <dbl>
 ```
 
 To get started we can use `geom_point()` to make a scatterplot showing GDP growth and inflation, by country (Figure \@ref(fig:scattorplot)).
@@ -716,10 +697,7 @@ world_bank_data |>
   geom_point()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/scattorplot-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:scattorplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:scattorplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/scattorplot-1.pdf) 
 
 As with bar charts, we change the theme, and update the labels (Figure \@ref(fig:scatterplotnicer)), although again, we would normally not need both a caption and a title and would just use one.
 
@@ -736,10 +714,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/scatterplotnicer-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:scatterplotnicer)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:scatterplotnicer)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/scatterplotnicer-1.pdf) 
 
 Here we use 'color' instead of 'fill' because we are using dots rather than bars. This also then slightly affects how we change the palette (Figure \@ref(fig:scatterplotnicercolor)). 
 
@@ -797,10 +772,7 @@ RColorBrewerBrBG /
   viridismagma
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/scatterplotnicercolor-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:scatterplotnicercolor)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:scatterplotnicercolor)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/scatterplotnicercolor-1.pdf) 
 
 The points of a scatterplot sometimes overlap. We can address this situation in one of two ways: 
 
@@ -819,10 +791,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/alphaplot-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:alphaplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:alphaplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/alphaplot-1.pdf) 
 
 
 ```r
@@ -836,10 +805,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/jitterplot-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:jitterplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:jitterplot)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/jitterplot-1.pdf) 
 
 A common use case for a scatterplot is to illustrate a relationship between two variables. It can be useful to add a line of best fit using `geom_smooth()` (Figure \@ref(fig:scattorplottwo)). By default, `geom_smooth()` will use LOESS smoothing is used for datasets with less than 1,000 observations, but we can specify the relationship using 'method', change the color with 'color' and remove standard errors with 'se'. Using `geom_smooth()` adds a layer to the graph, and so it inherits aesthetics from `ggplot()`. For instance, that is why we initially have one line for each country in Figure \@ref(fig:scattorplottwo). We could overwrite that by specifying a particular color, which we do in the third graph of Figure \@ref(fig:scattorplottwo).
 
@@ -883,10 +849,7 @@ defaults /
   onestraightline
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/scattorplottwo-1.png" alt="Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US" width="672" />
-<p class="caption">(\#fig:scattorplottwo)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US</p>
-</div>
+![(\#fig:scattorplottwo)Relationship between inflation and GDP growth for Australia, Ethiopia, India, and the US](06-static_communication_files/figure-latex/scattorplottwo-1.pdf) 
 
 
 ### Line plots
@@ -901,10 +864,7 @@ world_bank_data |>
   geom_line()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/lineplot-1.png" alt="US GDP growth (1961-2020)" width="672" />
-<p class="caption">(\#fig:lineplot)US GDP growth (1961-2020)</p>
-</div>
+![(\#fig:lineplot)US GDP growth (1961-2020)](06-static_communication_files/figure-latex/lineplot-1.pdf) 
 
 As before, we can adjust the theme, say with `theme_minimal()` and labels with `labs()` (Figure \@ref(fig:lineplottwo)).
 
@@ -920,10 +880,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/lineplottwo-1.png" alt="US GDP growth (1961-2020)" width="672" />
-<p class="caption">(\#fig:lineplottwo)US GDP growth (1961-2020)</p>
-</div>
+![(\#fig:lineplottwo)US GDP growth (1961-2020)](06-static_communication_files/figure-latex/lineplottwo-1.pdf) 
 
 We can use a slight variant of `geom_line()`, `geom_step()` to focus attention on the change from year to year (Figure \@ref(fig:stepplot)).
 
@@ -939,10 +896,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/stepplot-1.png" alt="US GDP growth (1961-2020)" width="672" />
-<p class="caption">(\#fig:stepplot)US GDP growth (1961-2020)</p>
-</div>
+![(\#fig:stepplot)US GDP growth (1961-2020)](06-static_communication_files/figure-latex/stepplot-1.pdf) 
 
 The Phillips curve is the name given to plot of the relationship between unemployment and inflation over time. An inverse relationship is sometimes found in the data, for instance in the UK between 1861 and 1957 [@phillips1958relation]. We have a variety of ways to investigate this including:
 
@@ -969,10 +923,7 @@ world_bank_data |>
   theme(legend.position = "bottom")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/notphillips-1.png" alt="Unemployment and inflation for the US (1960-2020)" width="672" />
-<p class="caption">(\#fig:notphillips)Unemployment and inflation for the US (1960-2020)</p>
-</div>
+![(\#fig:notphillips)Unemployment and inflation for the US (1960-2020)](06-static_communication_files/figure-latex/notphillips-1.pdf) 
 
 
 
@@ -987,10 +938,7 @@ world_bank_data |>
        caption = "Data source: World Bank.")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/phillipsmyboy-1.png" alt="Phillips curve for the US (1960-2020)" width="672" />
-<p class="caption">(\#fig:phillipsmyboy)Phillips curve for the US (1960-2020)</p>
-</div>
+![(\#fig:phillipsmyboy)Phillips curve for the US (1960-2020)](06-static_communication_files/figure-latex/phillipsmyboy-1.pdf) 
 
 <!-- One of the issues with Figure \@ref(fig:phillipsmyboy) is that we do not have a good sense of the passage of time. Here, color could be useful (Figure \@ref(fig:phillipsmyboycolor)). -->
 
@@ -1021,10 +969,7 @@ world_bank_data |>
   geom_histogram()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/hisogramone-1.png" alt="Distribution of GDP in Ethiopia (1960-2020)" width="672" />
-<p class="caption">(\#fig:hisogramone)Distribution of GDP in Ethiopia (1960-2020)</p>
-</div>
+![(\#fig:hisogramone)Distribution of GDP in Ethiopia (1960-2020)](06-static_communication_files/figure-latex/hisogramone-1.pdf) 
 
 And again we can add a theme and labels (Figure \@ref(fig:hisogramtwo).
 
@@ -1042,10 +987,7 @@ world_bank_data |>
 #> `binwidth`.
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/hisogramtwo-1.png" alt="Distribution of GDP in Ethiopia (1960-2020)" width="672" />
-<p class="caption">(\#fig:hisogramtwo)Distribution of GDP in Ethiopia (1960-2020)</p>
-</div>
+![(\#fig:hisogramtwo)Distribution of GDP in Ethiopia (1960-2020)](06-static_communication_files/figure-latex/hisogramtwo-1.pdf) 
 
 The key component determining the shape of a histogram is the number of bins. This can be specified in one of two ways (Figure \@ref(fig:hisogrambins)): 
 
@@ -1119,10 +1061,7 @@ fivebinwidth <-
   (halfbinwidth + twobinwidth + fivebinwidth)
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/hisogrambins-1.png" alt="Distribution of GDP in Ethiopia (1960-2020)" width="672" />
-<p class="caption">(\#fig:hisogrambins)Distribution of GDP in Ethiopia (1960-2020)</p>
-</div>
+![(\#fig:hisogrambins)Distribution of GDP in Ethiopia (1960-2020)](06-static_communication_files/figure-latex/hisogrambins-1.pdf) 
 
 The histogram is smoothing the data, and the number of bins affects how much smoothing occurs. When there are only two bins then the data are very smooth, but we have lost a great deal of accuracy. More specifically, 'the histogram estimator is a piecewise constant function where the height of the function is proportional to the number of observations in each bin' [@wasserman, p. 303]. Too few bins result in a biased estimator, while too many bins results in an estimator with high variance. Our decision as to the number of bins, or their width, is concerned with trying to balance bias and variance. This will depend on a variety of concerns including the subject matter and the goal [@elementsofgraphingdata, p. 135].
 
@@ -1141,10 +1080,7 @@ world_bank_data |>
   scale_color_brewer(palette = "Set1") 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/freq-1.png" alt="Distribution of GDP in four countries (1960-2020)" width="672" />
-<p class="caption">(\#fig:freq)Distribution of GDP in four countries (1960-2020)</p>
-</div>
+![(\#fig:freq)Distribution of GDP in four countries (1960-2020)](06-static_communication_files/figure-latex/freq-1.pdf) 
 
 
 
@@ -1160,10 +1096,7 @@ world_bank_data |>
   scale_color_brewer(palette = "Set1") 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/dotplot-1.png" alt="Distribution of GDP in four countries (1960-2020)" width="672" />
-<p class="caption">(\#fig:dotplot)Distribution of GDP in four countries (1960-2020)</p>
-</div>
+![(\#fig:dotplot)Distribution of GDP in four countries (1960-2020)](06-static_communication_files/figure-latex/dotplot-1.pdf) 
 
 
 ### Boxplots
@@ -1202,10 +1135,7 @@ beta_distributions |>
   theme_classic()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/boxplotfirst-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
-<p class="caption">(\#fig:boxplotfirst)Data drawn from beta distributions with different parameters</p>
-</div>
+![(\#fig:boxplotfirst)Data drawn from beta distributions with different parameters](06-static_communication_files/figure-latex/boxplotfirst-1.pdf) 
 
 But if we plot the actual data then we can see how different they are (Figure \@ref(fig:freqpolyofdistributions)).
 
@@ -1217,10 +1147,7 @@ beta_distributions |>
   theme_classic()
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/freqpolyofdistributions-1.png" alt="Data drawn from beta distributions with different parameters" width="672" />
-<p class="caption">(\#fig:freqpolyofdistributions)Data drawn from beta distributions with different parameters</p>
-</div>
+![(\#fig:freqpolyofdistributions)Data drawn from beta distributions with different parameters](06-static_communication_files/figure-latex/freqpolyofdistributions-1.pdf) 
 
 One way forward, if a boxplot must be included, is to include the actual data as a layer on top of the boxplot. For instance, in Figure \@ref(fig:bloxplotandoverlay) we show the distribution of inflation across the four countries.
 
@@ -1237,10 +1164,7 @@ world_bank_data |>
   scale_color_brewer(palette = "Set1") 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/bloxplotandoverlay-1.png" alt="Distribution of unemployment data for four countries (1960-2020)" width="672" />
-<p class="caption">(\#fig:bloxplotandoverlay)Distribution of unemployment data for four countries (1960-2020)</p>
-</div>
+![(\#fig:bloxplotandoverlay)Distribution of unemployment data for four countries (1960-2020)](06-static_communication_files/figure-latex/bloxplotandoverlay-1.pdf) 
 
 <!-- Another solution is to graph the quantiles of each distribution against (Figure \@ref(fig:qqplotftw). The Q-Q plot was developed by @wilk1968probability and requires us to plot the distributions against each other. -->
 
@@ -1274,7 +1198,7 @@ We illustrate showing part of a dataset using `kable()` from `knitr` and drawing
 ```r
 library(knitr)
 head(world_bank_data)
-#> # A tibble: 6 × 6
+#> # A tibble: 6 x 6
 #>   country    year inflation gdp_growth population
 #>   <chr>     <dbl>     <dbl>      <dbl>      <dbl>
 #> 1 Australia  1960     3.73       NA      10276477
@@ -1283,7 +1207,7 @@ head(world_bank_data)
 #> 4 Australia  1963     0.641       6.21   10950000
 #> 5 Australia  1964     2.87        6.98   11167000
 #> 6 Australia  1965     3.41        5.98   11388000
-#> # … with 1 more variable: unemployment_rate <dbl>
+#> # ... with 1 more variable: unemployment_rate <dbl>
 ```
 
 To begin, we can display the first ten rows with the default `kable()` settings.
@@ -1296,19 +1220,31 @@ world_bank_data |>
 ```
 
 
-
-|country   | year|  inflation| gdp_growth| population| unemployment_rate|
-|:---------|----:|----------:|----------:|----------:|-----------------:|
-|Australia | 1960|  3.7288136|         NA|   10276477|                NA|
-|Australia | 1961|  2.2875817|   2.483271|   10483000|                NA|
-|Australia | 1962| -0.3194888|   1.294468|   10742000|                NA|
-|Australia | 1963|  0.6410256|   6.214949|   10950000|                NA|
-|Australia | 1964|  2.8662420|   6.978540|   11167000|                NA|
-|Australia | 1965|  3.4055728|   5.980893|   11388000|                NA|
-|Australia | 1966|  3.2934132|   2.381966|   11651000|                NA|
-|Australia | 1967|  3.4782609|   6.303650|   11799000|                NA|
-|Australia | 1968|  2.5210084|   5.095103|   12009000|                NA|
-|Australia | 1969|  3.2786885|   7.043526|   12263000|                NA|
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+country & year & inflation & gdp\_growth & population & unemployment\_rate\\
+\hline
+Australia & 1960 & 3.7288136 & NA & 10276477 & NA\\
+\hline
+Australia & 1961 & 2.2875817 & 2.483271 & 10483000 & NA\\
+\hline
+Australia & 1962 & -0.3194888 & 1.294468 & 10742000 & NA\\
+\hline
+Australia & 1963 & 0.6410256 & 6.214949 & 10950000 & NA\\
+\hline
+Australia & 1964 & 2.8662420 & 6.978540 & 11167000 & NA\\
+\hline
+Australia & 1965 & 3.4055728 & 5.980893 & 11388000 & NA\\
+\hline
+Australia & 1966 & 3.2934132 & 2.381966 & 11651000 & NA\\
+\hline
+Australia & 1967 & 3.4782609 & 6.303650 & 11799000 & NA\\
+\hline
+Australia & 1968 & 2.5210084 & 5.095103 & 12009000 & NA\\
+\hline
+Australia & 1969 & 3.2786885 & 7.043526 & 12263000 & NA\\
+\hline
+\end{tabular}
 
 
 In order to be able to cross-reference it in text, we need to add a caption with 'caption'. We can also make the column names more information with 'col.names' and specify the number of digits to be displayed (Table \@ref(tab:gdpfirst)).
@@ -1325,23 +1261,37 @@ world_bank_data |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:gdpfirst)First ten rows of a dataset of economic indicators for 
-    Australia, Ethiopia, India, and the US
-
-|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
-|:---------|----:|---------:|----------:|----------:|-----------------:|
-|Australia | 1960|       3.7|         NA|   10276477|                NA|
-|Australia | 1961|       2.3|        2.5|   10483000|                NA|
-|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
-|Australia | 1963|       0.6|        6.2|   10950000|                NA|
-|Australia | 1964|       2.9|        7.0|   11167000|                NA|
-|Australia | 1965|       3.4|        6.0|   11388000|                NA|
-|Australia | 1966|       3.3|        2.4|   11651000|                NA|
-|Australia | 1967|       3.5|        6.3|   11799000|                NA|
-|Australia | 1968|       2.5|        5.1|   12009000|                NA|
-|Australia | 1969|       3.3|        7.0|   12263000|                NA|
+\caption{(\#tab:gdpfirst)First ten rows of a dataset of economic indicators for 
+    Australia, Ethiopia, India, and the US}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r}
+\hline
+Country & Year & Inflation & GDP growth & Population & Unemployment rate\\
+\hline
+Australia & 1960 & 3.7 & NA & 10276477 & NA\\
+\hline
+Australia & 1961 & 2.3 & 2.5 & 10483000 & NA\\
+\hline
+Australia & 1962 & -0.3 & 1.3 & 10742000 & NA\\
+\hline
+Australia & 1963 & 0.6 & 6.2 & 10950000 & NA\\
+\hline
+Australia & 1964 & 2.9 & 7.0 & 11167000 & NA\\
+\hline
+Australia & 1965 & 3.4 & 6.0 & 11388000 & NA\\
+\hline
+Australia & 1966 & 3.3 & 2.4 & 11651000 & NA\\
+\hline
+Australia & 1967 & 3.5 & 6.3 & 11799000 & NA\\
+\hline
+Australia & 1968 & 2.5 & 5.1 & 12009000 & NA\\
+\hline
+Australia & 1969 & 3.3 & 7.0 & 12263000 & NA\\
+\hline
+\end{tabular}
+\end{table}
 
 When producing PDFs, the 'booktabs' option makes a host of small changes to the default display and results in tables that look better (Table \@ref(tab:gdpbookdtabs)). When using 'booktabs' we additionally should specify 'linesep' otherwise `kable()` adds a small space every five lines. (None of this will show up for html output.)
 
@@ -1359,23 +1309,28 @@ world_bank_data |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:gdpbookdtabs)First ten rows of a dataset of economic indicators for 
-    Australia, Ethiopia, India, and the US
-
-|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
-|:---------|----:|---------:|----------:|----------:|-----------------:|
-|Australia | 1960|       3.7|         NA|   10276477|                NA|
-|Australia | 1961|       2.3|        2.5|   10483000|                NA|
-|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
-|Australia | 1963|       0.6|        6.2|   10950000|                NA|
-|Australia | 1964|       2.9|        7.0|   11167000|                NA|
-|Australia | 1965|       3.4|        6.0|   11388000|                NA|
-|Australia | 1966|       3.3|        2.4|   11651000|                NA|
-|Australia | 1967|       3.5|        6.3|   11799000|                NA|
-|Australia | 1968|       2.5|        5.1|   12009000|                NA|
-|Australia | 1969|       3.3|        7.0|   12263000|                NA|
+\caption{(\#tab:gdpbookdtabs)First ten rows of a dataset of economic indicators for 
+    Australia, Ethiopia, India, and the US}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Country & Year & Inflation & GDP growth & Population & Unemployment rate\\
+\midrule
+Australia & 1960 & 3.7 & NA & 10276477 & NA\\
+Australia & 1961 & 2.3 & 2.5 & 10483000 & NA\\
+Australia & 1962 & -0.3 & 1.3 & 10742000 & NA\\
+Australia & 1963 & 0.6 & 6.2 & 10950000 & NA\\
+Australia & 1964 & 2.9 & 7.0 & 11167000 & NA\\
+Australia & 1965 & 3.4 & 6.0 & 11388000 & NA\\
+Australia & 1966 & 3.3 & 2.4 & 11651000 & NA\\
+Australia & 1967 & 3.5 & 6.3 & 11799000 & NA\\
+Australia & 1968 & 2.5 & 5.1 & 12009000 & NA\\
+Australia & 1969 & 3.3 & 7.0 & 12263000 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 ```r
@@ -1390,23 +1345,29 @@ world_bank_data |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:gdpbookdtabsnolinesep)First ten rows of a dataset of economic indicators for
-    Australia, Ethiopia, India, and the US
-
-|Country   | Year| Inflation| GDP growth| Population| Unemployment rate|
-|:---------|----:|---------:|----------:|----------:|-----------------:|
-|Australia | 1960|       3.7|         NA|   10276477|                NA|
-|Australia | 1961|       2.3|        2.5|   10483000|                NA|
-|Australia | 1962|      -0.3|        1.3|   10742000|                NA|
-|Australia | 1963|       0.6|        6.2|   10950000|                NA|
-|Australia | 1964|       2.9|        7.0|   11167000|                NA|
-|Australia | 1965|       3.4|        6.0|   11388000|                NA|
-|Australia | 1966|       3.3|        2.4|   11651000|                NA|
-|Australia | 1967|       3.5|        6.3|   11799000|                NA|
-|Australia | 1968|       2.5|        5.1|   12009000|                NA|
-|Australia | 1969|       3.3|        7.0|   12263000|                NA|
+\caption{(\#tab:gdpbookdtabsnolinesep)First ten rows of a dataset of economic indicators for
+    Australia, Ethiopia, India, and the US}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Country & Year & Inflation & GDP growth & Population & Unemployment rate\\
+\midrule
+Australia & 1960 & 3.7 & NA & 10276477 & NA\\
+Australia & 1961 & 2.3 & 2.5 & 10483000 & NA\\
+Australia & 1962 & -0.3 & 1.3 & 10742000 & NA\\
+Australia & 1963 & 0.6 & 6.2 & 10950000 & NA\\
+Australia & 1964 & 2.9 & 7.0 & 11167000 & NA\\
+\addlinespace
+Australia & 1965 & 3.4 & 6.0 & 11388000 & NA\\
+Australia & 1966 & 3.3 & 2.4 & 11651000 & NA\\
+Australia & 1967 & 3.5 & 6.3 & 11799000 & NA\\
+Australia & 1968 & 2.5 & 5.1 & 12009000 & NA\\
+Australia & 1969 & 3.3 & 7.0 & 12263000 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 We can specify the alignment of the columns using a character vector of 'l' (left), 'c' (centre), and 'r' (right) (Table \@ref(tab:gdpalign)). Additionally, we can change the formatting. For instance, we could specify groupings for numbers that are at least one thousand using 'format.args = list(big.mark = ",")'.
@@ -1429,23 +1390,28 @@ world_bank_data |>
   )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:gdpalign)First ten rows of a dataset of economic indicators for 
-    Australia, Ethiopia, India, and the US
-
-|Country   |Year | Inflation | GDP growth | Population| Unemployment rate|
-|:---------|:----|:---------:|:----------:|----------:|-----------------:|
-|Australia |1960 |    3.7    |     NA     | 10,276,477|                NA|
-|Australia |1961 |    2.3    |    2.5     | 10,483,000|                NA|
-|Australia |1962 |   -0.3    |    1.3     | 10,742,000|                NA|
-|Australia |1963 |    0.6    |    6.2     | 10,950,000|                NA|
-|Australia |1964 |    2.9    |    7.0     | 11,167,000|                NA|
-|Australia |1965 |    3.4    |    6.0     | 11,388,000|                NA|
-|Australia |1966 |    3.3    |    2.4     | 11,651,000|                NA|
-|Australia |1967 |    3.5    |    6.3     | 11,799,000|                NA|
-|Australia |1968 |    2.5    |    5.1     | 12,009,000|                NA|
-|Australia |1969 |    3.3    |    7.0     | 12,263,000|                NA|
+\caption{(\#tab:gdpalign)First ten rows of a dataset of economic indicators for 
+    Australia, Ethiopia, India, and the US}
+\centering
+\begin{tabular}[t]{llccrr}
+\toprule
+Country & Year & Inflation & GDP growth & Population & Unemployment rate\\
+\midrule
+Australia & 1960 & 3.7 & NA & 10,276,477 & NA\\
+Australia & 1961 & 2.3 & 2.5 & 10,483,000 & NA\\
+Australia & 1962 & -0.3 & 1.3 & 10,742,000 & NA\\
+Australia & 1963 & 0.6 & 6.2 & 10,950,000 & NA\\
+Australia & 1964 & 2.9 & 7.0 & 11,167,000 & NA\\
+Australia & 1965 & 3.4 & 6.0 & 11,388,000 & NA\\
+Australia & 1966 & 3.3 & 2.4 & 11,651,000 & NA\\
+Australia & 1967 & 3.5 & 6.3 & 11,799,000 & NA\\
+Australia & 1968 & 2.5 & 5.1 & 12,009,000 & NA\\
+Australia & 1969 & 3.3 & 7.0 & 12,263,000 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 We can use `kableExtra` [@citekableextra] to add extra functionality to `kable`. For instance, we could add a row that groups some of the columns (Table \@ref(tab:gdpalign)).
 
@@ -1468,106 +1434,30 @@ world_bank_data |>
   add_header_above(c(" " = 2, "Economic indicators" = 4))
 ```
 
-<table>
-<caption>(\#tab:gdpkableextra)First ten rows of a dataset of economic indicators for 
-    Australia, Ethiopia, India, and the US</caption>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economic indicators</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;"> Country </th>
-   <th style="text-align:left;"> Year </th>
-   <th style="text-align:center;"> Inflation </th>
-   <th style="text-align:center;"> GDP growth </th>
-   <th style="text-align:right;"> Population </th>
-   <th style="text-align:right;"> Unemployment rate </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1960 </td>
-   <td style="text-align:center;"> 3.7 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:right;"> 10276477 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1961 </td>
-   <td style="text-align:center;"> 2.3 </td>
-   <td style="text-align:center;"> 2.5 </td>
-   <td style="text-align:right;"> 10483000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1962 </td>
-   <td style="text-align:center;"> -0.3 </td>
-   <td style="text-align:center;"> 1.3 </td>
-   <td style="text-align:right;"> 10742000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1963 </td>
-   <td style="text-align:center;"> 0.6 </td>
-   <td style="text-align:center;"> 6.2 </td>
-   <td style="text-align:right;"> 10950000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1964 </td>
-   <td style="text-align:center;"> 2.9 </td>
-   <td style="text-align:center;"> 7.0 </td>
-   <td style="text-align:right;"> 11167000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1965 </td>
-   <td style="text-align:center;"> 3.4 </td>
-   <td style="text-align:center;"> 6.0 </td>
-   <td style="text-align:right;"> 11388000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1966 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 2.4 </td>
-   <td style="text-align:right;"> 11651000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1967 </td>
-   <td style="text-align:center;"> 3.5 </td>
-   <td style="text-align:center;"> 6.3 </td>
-   <td style="text-align:right;"> 11799000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1968 </td>
-   <td style="text-align:center;"> 2.5 </td>
-   <td style="text-align:center;"> 5.1 </td>
-   <td style="text-align:right;"> 12009000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:left;"> 1969 </td>
-   <td style="text-align:center;"> 3.3 </td>
-   <td style="text-align:center;"> 7.0 </td>
-   <td style="text-align:right;"> 12263000 </td>
-   <td style="text-align:right;"> NA </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:gdpkableextra)First ten rows of a dataset of economic indicators for 
+    Australia, Ethiopia, India, and the US}
+\centering
+\begin{tabular}[t]{llccrr}
+\toprule
+\multicolumn{2}{c}{ } & \multicolumn{4}{c}{Economic indicators} \\
+\cmidrule(l{3pt}r{3pt}){3-6}
+Country & Year & Inflation & GDP growth & Population & Unemployment rate\\
+\midrule
+Australia & 1960 & 3.7 & NA & 10276477 & NA\\
+Australia & 1961 & 2.3 & 2.5 & 10483000 & NA\\
+Australia & 1962 & -0.3 & 1.3 & 10742000 & NA\\
+Australia & 1963 & 0.6 & 6.2 & 10950000 & NA\\
+Australia & 1964 & 2.9 & 7.0 & 11167000 & NA\\
+Australia & 1965 & 3.4 & 6.0 & 11388000 & NA\\
+Australia & 1966 & 3.3 & 2.4 & 11651000 & NA\\
+Australia & 1967 & 3.5 & 6.3 & 11799000 & NA\\
+Australia & 1968 & 2.5 & 5.1 & 12009000 & NA\\
+Australia & 1969 & 3.3 & 7.0 & 12263000 & NA\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Another especially nice way to build tables is to use `gt` [@citegt].
 
@@ -1580,424 +1470,23 @@ world_bank_data |>
   gt() 
 ```
 
-```{=html}
-<div id="hocubwlzce" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#hocubwlzce .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#hocubwlzce .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#hocubwlzce .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#hocubwlzce .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#hocubwlzce .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#hocubwlzce .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#hocubwlzce .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#hocubwlzce .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hocubwlzce .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hocubwlzce .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#hocubwlzce .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#hocubwlzce .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#hocubwlzce .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#hocubwlzce .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hocubwlzce .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hocubwlzce .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#hocubwlzce .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#hocubwlzce .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hocubwlzce .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#hocubwlzce .gt_left {
-  text-align: left;
-}
-
-#hocubwlzce .gt_center {
-  text-align: center;
-}
-
-#hocubwlzce .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#hocubwlzce .gt_font_normal {
-  font-weight: normal;
-}
-
-#hocubwlzce .gt_font_bold {
-  font-weight: bold;
-}
-
-#hocubwlzce .gt_font_italic {
-  font-style: italic;
-}
-
-#hocubwlzce .gt_super {
-  font-size: 65%;
-}
-
-#hocubwlzce .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">inflation</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">gdp_growth</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">population</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">unemployment_rate</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1960</td>
-<td class="gt_row gt_right">3.7288136</td>
-<td class="gt_row gt_right">NA</td>
-<td class="gt_row gt_right">10276477</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1961</td>
-<td class="gt_row gt_right">2.2875817</td>
-<td class="gt_row gt_right">2.483271</td>
-<td class="gt_row gt_right">10483000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1962</td>
-<td class="gt_row gt_right">-0.3194888</td>
-<td class="gt_row gt_right">1.294468</td>
-<td class="gt_row gt_right">10742000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1963</td>
-<td class="gt_row gt_right">0.6410256</td>
-<td class="gt_row gt_right">6.214949</td>
-<td class="gt_row gt_right">10950000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1964</td>
-<td class="gt_row gt_right">2.8662420</td>
-<td class="gt_row gt_right">6.978540</td>
-<td class="gt_row gt_right">11167000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1965</td>
-<td class="gt_row gt_right">3.4055728</td>
-<td class="gt_row gt_right">5.980893</td>
-<td class="gt_row gt_right">11388000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1966</td>
-<td class="gt_row gt_right">3.2934132</td>
-<td class="gt_row gt_right">2.381966</td>
-<td class="gt_row gt_right">11651000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1967</td>
-<td class="gt_row gt_right">3.4782609</td>
-<td class="gt_row gt_right">6.303650</td>
-<td class="gt_row gt_right">11799000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1968</td>
-<td class="gt_row gt_right">2.5210084</td>
-<td class="gt_row gt_right">5.095103</td>
-<td class="gt_row gt_right">12009000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1969</td>
-<td class="gt_row gt_right">3.2786885</td>
-<td class="gt_row gt_right">7.043526</td>
-<td class="gt_row gt_right">12263000</td>
-<td class="gt_row gt_right">NA</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrrrrr}
+\toprule
+country & year & inflation & gdp\_growth & population & unemployment\_rate \\ 
+\midrule
+Australia & 1960 & 3.7288136 & NA & 10276477 & NA \\ 
+Australia & 1961 & 2.2875817 & 2.483271 & 10483000 & NA \\ 
+Australia & 1962 & -0.3194888 & 1.294468 & 10742000 & NA \\ 
+Australia & 1963 & 0.6410256 & 6.214949 & 10950000 & NA \\ 
+Australia & 1964 & 2.8662420 & 6.978540 & 11167000 & NA \\ 
+Australia & 1965 & 3.4055728 & 5.980893 & 11388000 & NA \\ 
+Australia & 1966 & 3.2934132 & 2.381966 & 11651000 & NA \\ 
+Australia & 1967 & 3.4782609 & 6.303650 & 11799000 & NA \\ 
+Australia & 1968 & 2.5210084 & 5.095103 & 12009000 & NA \\ 
+Australia & 1969 & 3.2786885 & 7.043526 & 12263000 & NA \\ 
+ \bottomrule
+\end{longtable}
 
 Again, we can add a caption and more informative column labels (Table \@ref(tab:dsdfweasdf)).
 
@@ -2017,425 +1506,23 @@ world_bank_data |>
     )
 ```
 
-```{=html}
-<div id="pylntqexnj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#pylntqexnj .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#pylntqexnj .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#pylntqexnj .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#pylntqexnj .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#pylntqexnj .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#pylntqexnj .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#pylntqexnj .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#pylntqexnj .gt_group_heading {
-  padding: 8px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pylntqexnj .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#pylntqexnj .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#pylntqexnj .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#pylntqexnj .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#pylntqexnj .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 12px;
-}
-
-#pylntqexnj .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pylntqexnj .gt_first_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#pylntqexnj .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#pylntqexnj .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding: 4px;
-}
-
-#pylntqexnj .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#pylntqexnj .gt_sourcenote {
-  font-size: 90%;
-  padding: 4px;
-}
-
-#pylntqexnj .gt_left {
-  text-align: left;
-}
-
-#pylntqexnj .gt_center {
-  text-align: center;
-}
-
-#pylntqexnj .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#pylntqexnj .gt_font_normal {
-  font-weight: normal;
-}
-
-#pylntqexnj .gt_font_bold {
-  font-weight: bold;
-}
-
-#pylntqexnj .gt_font_italic {
-  font-style: italic;
-}
-
-#pylntqexnj .gt_super {
-  font-size: 65%;
-}
-
-#pylntqexnj .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 65%;
-}
-</style>
-<table class="gt_table">
-  <caption>(#tab:dsdfweasdf)First ten rows of a dataset of economic indicators for Australia, Ethiopia, India, and the US</caption>
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Inflation</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">GDP growth</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Population</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Unemployment rate</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1960</td>
-<td class="gt_row gt_right">3.7288136</td>
-<td class="gt_row gt_right">NA</td>
-<td class="gt_row gt_right">10276477</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1961</td>
-<td class="gt_row gt_right">2.2875817</td>
-<td class="gt_row gt_right">2.483271</td>
-<td class="gt_row gt_right">10483000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1962</td>
-<td class="gt_row gt_right">-0.3194888</td>
-<td class="gt_row gt_right">1.294468</td>
-<td class="gt_row gt_right">10742000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1963</td>
-<td class="gt_row gt_right">0.6410256</td>
-<td class="gt_row gt_right">6.214949</td>
-<td class="gt_row gt_right">10950000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1964</td>
-<td class="gt_row gt_right">2.8662420</td>
-<td class="gt_row gt_right">6.978540</td>
-<td class="gt_row gt_right">11167000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1965</td>
-<td class="gt_row gt_right">3.4055728</td>
-<td class="gt_row gt_right">5.980893</td>
-<td class="gt_row gt_right">11388000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1966</td>
-<td class="gt_row gt_right">3.2934132</td>
-<td class="gt_row gt_right">2.381966</td>
-<td class="gt_row gt_right">11651000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1967</td>
-<td class="gt_row gt_right">3.4782609</td>
-<td class="gt_row gt_right">6.303650</td>
-<td class="gt_row gt_right">11799000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1968</td>
-<td class="gt_row gt_right">2.5210084</td>
-<td class="gt_row gt_right">5.095103</td>
-<td class="gt_row gt_right">12009000</td>
-<td class="gt_row gt_right">NA</td></tr>
-    <tr><td class="gt_row gt_left">Australia</td>
-<td class="gt_row gt_right">1969</td>
-<td class="gt_row gt_right">3.2786885</td>
-<td class="gt_row gt_right">7.043526</td>
-<td class="gt_row gt_right">12263000</td>
-<td class="gt_row gt_right">NA</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-```
+\captionsetup[table]{labelformat=empty,skip=1pt}
+\begin{longtable}{lrrrrr}
+\toprule
+Country & Year & Inflation & GDP growth & Population & Unemployment rate \\ 
+\midrule
+Australia & 1960 & 3.7288136 & NA & 10276477 & NA \\ 
+Australia & 1961 & 2.2875817 & 2.483271 & 10483000 & NA \\ 
+Australia & 1962 & -0.3194888 & 1.294468 & 10742000 & NA \\ 
+Australia & 1963 & 0.6410256 & 6.214949 & 10950000 & NA \\ 
+Australia & 1964 & 2.8662420 & 6.978540 & 11167000 & NA \\ 
+Australia & 1965 & 3.4055728 & 5.980893 & 11388000 & NA \\ 
+Australia & 1966 & 3.2934132 & 2.381966 & 11651000 & NA \\ 
+Australia & 1967 & 3.4782609 & 6.303650 & 11799000 & NA \\ 
+Australia & 1968 & 2.5210084 & 5.095103 & 12009000 & NA \\ 
+Australia & 1969 & 3.2786885 & 7.043526 & 12263000 & NA \\ 
+ \bottomrule
+\end{longtable}
 
 
 
@@ -2457,128 +1544,20 @@ world_bank_data |>
   datasummary_skim()
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Unique (#) </th>
-   <th style="text-align:right;"> Missing (%) </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> SD </th>
-   <th style="text-align:right;"> Min </th>
-   <th style="text-align:right;"> Median </th>
-   <th style="text-align:right;"> Max </th>
-   <th style="text-align:right;">    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 17.6 </td>
-   <td style="text-align:right;"> 1960.0 </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 2020.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="3.70" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.48" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.19" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.30" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.70" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.81" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.52" y="4.63" width="3.70" height="7.04" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:right;"> 238 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 6.1 </td>
-   <td style="text-align:right;"> 6.3 </td>
-   <td style="text-align:right;"> −9.8 </td>
-   <td style="text-align:right;"> 4.3 </td>
-   <td style="text-align:right;"> 44.4 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.62" y="11.30" width="4.10" height="0.36" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.72" y="11.23" width="4.10" height="0.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.82" y="3.22" width="4.10" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.92" y="7.23" width="4.10" height="4.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.02" y="9.44" width="4.10" height="2.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.12" y="11.02" width="4.10" height="0.64" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="26.22" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.32" y="11.52" width="4.10" height="0.14" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.42" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.52" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.62" y="11.59" width="4.10" height="0.072" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> gdp_growth </td>
-   <td style="text-align:right;"> 220 </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 4.2 </td>
-   <td style="text-align:right;"> 3.7 </td>
-   <td style="text-align:right;"> −11.1 </td>
-   <td style="text-align:right;"> 3.9 </td>
-   <td style="text-align:right;"> 13.9 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.26" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.81" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.37" y="11.42" width="3.56" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.92" y="11.54" width="3.56" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="10.83" width="3.56" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.03" y="10.23" width="3.56" height="1.43" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.59" y="9.40" width="3.56" height="2.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.14" y="3.22" width="3.56" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.70" y="6.43" width="3.56" height="5.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.25" y="7.62" width="3.56" height="4.04" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.81" y="10.00" width="3.56" height="1.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.36" y="10.71" width="3.56" height="0.95" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.92" y="11.07" width="3.56" height="0.59" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> population </td>
-   <td style="text-align:right;"> 244 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 304177482.9 </td>
-   <td style="text-align:right;"> 380093166.9 </td>
-   <td style="text-align:right;"> 10276477.0 </td>
-   <td style="text-align:right;"> 147817291.5 </td>
-   <td style="text-align:right;"> 1380004385.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.44" y="3.22" width="6.49" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.93" y="8.22" width="6.49" height="3.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.42" y="10.75" width="6.49" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.91" y="10.88" width="6.49" height="0.78" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.40" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.89" y="10.95" width="6.49" height="0.71" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.38" y="10.82" width="6.49" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> unemployment_rate </td>
-   <td style="text-align:right;"> 104 </td>
-   <td style="text-align:right;"> 52 </td>
-   <td style="text-align:right;"> 6.0 </td>
-   <td style="text-align:right;"> 1.9 </td>
-   <td style="text-align:right;"> 1.2 </td>
-   <td style="text-align:right;"> 5.7 </td>
-   <td style="text-align:right;"> 10.9 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.86" y="11.41" width="4.60" height="0.25" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.45" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.05" y="9.43" width="4.60" height="2.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.65" y="7.94" width="4.60" height="3.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.24" y="3.22" width="4.60" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.84" y="6.94" width="4.60" height="4.72" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.44" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.03" y="8.93" width="4.60" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.63" y="9.92" width="4.60" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.22" y="11.17" width="4.60" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lrrrrrrr>{}r}
+\toprule
+  & Unique (\#) & Missing (\%) & Mean & SD & Min & Median & Max &   \\
+\midrule
+year & 61 & 0 & \num{1990.0} & \num{17.6} & \num{1960.0} & \num{1990.0} & \num{2020.0} & \includegraphics[width=0.67in, height=0.17in]{06-static_communication_files/figure-latex//hist_176e6e3c0246.pdf}\\
+inflation & 238 & 3 & \num{6.1} & \num{6.3} & \num{-9.8} & \num{4.3} & \num{44.4} & \includegraphics[width=0.67in, height=0.17in]{06-static_communication_files/figure-latex//hist_176e3405ff45.pdf}\\
+gdp\_growth & 220 & 10 & \num{4.2} & \num{3.7} & \num{-11.1} & \num{3.9} & \num{13.9} & \includegraphics[width=0.67in, height=0.17in]{06-static_communication_files/figure-latex//hist_176e1000c3d9.pdf}\\
+population & 244 & 0 & \num{304177482.9} & \num{380093166.9} & \num{10276477.0} & \num{147817291.5} & \num{1380004385.0} & \includegraphics[width=0.67in, height=0.17in]{06-static_communication_files/figure-latex//hist_176e6986a6a.pdf}\\
+unemployment\_rate & 104 & 52 & \num{6.0} & \num{1.9} & \num{1.2} & \num{5.7} & \num{10.9} & \includegraphics[width=0.67in, height=0.17in]{06-static_communication_files/figure-latex//hist_176e531248f2.pdf}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 By default, `datasummary()` summarizes the 'numeric' variables, but we can ask for the 'categorical' variables (Table \@ref(tab:testdatasummary)). Additionally we can add cross-references in the same way as `kable()`, that is, include a title and then cross-reference the name of the R chunk.
 
@@ -2590,39 +1569,22 @@ world_bank_data |>
                    variables for four countries")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:testdatasummary)Summary of categorical economic indicator 
-                   variables for four countries</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> country </th>
-   <th style="text-align:right;"> N </th>
-   <th style="text-align:right;"> % </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Australia </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 25.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ethiopia </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 25.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> India </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 25.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> United States </td>
-   <td style="text-align:right;"> 61 </td>
-   <td style="text-align:right;"> 25.0 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:testdatasummary)Summary of categorical economic indicator 
+                   variables for four countries}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule
+country & N & \%\\
+\midrule
+Australia & 61 & \num{25.0}\\
+Ethiopia & 61 & \num{25.0}\\
+India & 61 & \num{25.0}\\
+United States & 61 & \num{25.0}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 We can create a table that shows the correlation between variables using `datasummary_correlation()` (Table \@ref(tab:correlationtable)).
 
@@ -2635,62 +1597,23 @@ world_bank_data |>
     )
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:correlationtable)Correlation between the economic indicator variables for 
-    four countries (Australia, Ethiopia, India, and the US)</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> year </th>
-   <th style="text-align:right;"> inflation </th>
-   <th style="text-align:right;"> gdp_growth </th>
-   <th style="text-align:right;"> population </th>
-   <th style="text-align:right;"> unemployment_rate </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:right;"> .00 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> gdp_growth </td>
-   <td style="text-align:right;"> .10 </td>
-   <td style="text-align:right;"> .00 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> . </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> population </td>
-   <td style="text-align:right;"> .24 </td>
-   <td style="text-align:right;"> .07 </td>
-   <td style="text-align:right;"> .15 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> . </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> unemployment_rate </td>
-   <td style="text-align:right;"> −.13 </td>
-   <td style="text-align:right;"> −.14 </td>
-   <td style="text-align:right;"> −.31 </td>
-   <td style="text-align:right;"> −.35 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:correlationtable)Correlation between the economic indicator variables for 
+    four countries (Australia, Ethiopia, India, and the US)}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+  & year & inflation & gdp\_growth & population & unemployment\_rate\\
+\midrule
+year & 1 & . & . & . & .\\
+inflation & \num{.00} & 1 & . & . & .\\
+gdp\_growth & \num{.10} & \num{.00} & 1 & . & .\\
+population & \num{.24} & \num{.07} & \num{.15} & 1 & .\\
+unemployment\_rate & \num{-.13} & \num{-.14} & \num{-.31} & \num{-.35} & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 We typically need a table of descriptive statistics that we could add to our paper (Table \@ref(tab:descriptivestats)). This contrasts with Table \@ref(tab:testdatasummary) which would likely not be included in a paper. We can add a note about the source of the data using 'notes'.
 
@@ -2702,88 +1625,25 @@ datasummary_balance(formula = ~country,
                     notes = "Data source: World Bank.")
 ```
 
-<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
-<caption>(\#tab:descriptivestats)Descriptive statistics for the inflation and GDP dataset</caption>
- <thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Australia (N=61)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Ethiopia (N=61)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">India (N=61)</div></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">United States (N=61)</div></th>
-</tr>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> Std. Dev. </th>
-   <th style="text-align:right;"> Mean  </th>
-   <th style="text-align:right;"> Std. Dev.  </th>
-   <th style="text-align:right;"> Mean   </th>
-   <th style="text-align:right;"> Std. Dev.   </th>
-   <th style="text-align:right;"> Mean    </th>
-   <th style="text-align:right;"> Std. Dev.    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 17.8 </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 17.8 </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 17.8 </td>
-   <td style="text-align:right;"> 1990.0 </td>
-   <td style="text-align:right;"> 17.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:right;"> 4.7 </td>
-   <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:right;"> 8.7 </td>
-   <td style="text-align:right;"> 10.4 </td>
-   <td style="text-align:right;"> 7.4 </td>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 3.7 </td>
-   <td style="text-align:right;"> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> gdp_growth </td>
-   <td style="text-align:right;"> 3.4 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:right;"> 6.4 </td>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 3.3 </td>
-   <td style="text-align:right;"> 2.9 </td>
-   <td style="text-align:right;"> 2.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> population </td>
-   <td style="text-align:right;"> 17244215.9 </td>
-   <td style="text-align:right;"> 4328625.6 </td>
-   <td style="text-align:right;"> 55662437.9 </td>
-   <td style="text-align:right;"> 27626912.1 </td>
-   <td style="text-align:right;"> 888774544.9 </td>
-   <td style="text-align:right;"> 292997809.4 </td>
-   <td style="text-align:right;"> 255028733.1 </td>
-   <td style="text-align:right;"> 45603604.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> unemployment_rate </td>
-   <td style="text-align:right;"> 6.8 </td>
-   <td style="text-align:right;"> 1.7 </td>
-   <td style="text-align:right;"> 2.6 </td>
-   <td style="text-align:right;"> 0.9 </td>
-   <td style="text-align:right;"> 3.5 </td>
-   <td style="text-align:right;"> 1.4 </td>
-   <td style="text-align:right;"> 6.0 </td>
-   <td style="text-align:right;"> 1.6 </td>
-  </tr>
-</tbody>
-<tfoot><tr><td style="padding: 0; " colspan="100%">
-<sup></sup> Data source: World Bank.</td></tr></tfoot>
-</table>
+\begin{table}
+
+\caption{(\#tab:descriptivestats)Descriptive statistics for the inflation and GDP dataset}
+\centering
+\begin{tabular}[t]{lrrrrrrrr}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Australia (N=61)} & \multicolumn{2}{c}{Ethiopia (N=61)} & \multicolumn{2}{c}{India (N=61)} & \multicolumn{2}{c}{United States (N=61)} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7} \cmidrule(l{3pt}r{3pt}){8-9}
+  & Mean & Std. Dev. & Mean  & Std. Dev.  & Mean   & Std. Dev.   & Mean    & Std. Dev.   \\
+\midrule
+year & 1990.0 & 17.8 & 1990.0 & 17.8 & 1990.0 & 17.8 & 1990.0 & 17.8\\
+inflation & 4.7 & 3.8 & 8.7 & 10.4 & 7.4 & 5.0 & 3.7 & 2.8\\
+gdp\_growth & 3.4 & 1.8 & 5.9 & 6.4 & 5.0 & 3.3 & 2.9 & 2.2\\
+population & 17244215.9 & 4328625.6 & 55662437.9 & 27626912.1 & 888774544.9 & 292997809.4 & 255028733.1 & 45603604.8\\
+unemployment\_rate & 6.8 & 1.7 & 2.6 & 0.9 & 3.5 & 1.4 & 6.0 & 1.6\\
+\bottomrule
+\multicolumn{9}{l}{\rule{0pt}{1em}Data source: World Bank.}\\
+\end{tabular}
+\end{table}
 
 
 
@@ -2801,60 +1661,27 @@ first_model <- lm(formula = gdp_growth ~ inflation,
 modelsummary(first_model)
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 4.157 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.352) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:center;"> −0.002 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.041) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 218 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> −0.005 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 1195.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 1205.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −594.554 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 0.002 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & Model 1\\
+\midrule
+(Intercept) & \num{4.157}\\
+ & (\num{0.352})\\
+inflation & \num{-0.002}\\
+ & (\num{0.041})\\
+\midrule
+Num.Obs. & \num{218}\\
+R2 & \num{0.000}\\
+R2 Adj. & \num{-0.005}\\
+AIC & \num{1195.1}\\
+BIC & \num{1205.3}\\
+Log.Lik. & \num{-594.554}\\
+F & \num{0.002}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 We can put a variety of different of different models together (Table \@ref(tab:twomodels)).
 
@@ -2870,133 +1697,37 @@ modelsummary(list(first_model, second_model, third_model),
              title = "Explaining GDP as a function of inflation")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:twomodels)Explaining GDP as a function of inflation</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-   <th style="text-align:center;"> Model 2 </th>
-   <th style="text-align:center;"> Model 3 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 4.157 </td>
-   <td style="text-align:center;"> 3.728 </td>
-   <td style="text-align:center;"> 3.668 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.352) </td>
-   <td style="text-align:center;"> (0.495) </td>
-   <td style="text-align:center;"> (0.494) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:center;"> −0.002 </td>
-   <td style="text-align:center;"> −0.075 </td>
-   <td style="text-align:center;"> −0.072 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.041) </td>
-   <td style="text-align:center;"> (0.041) </td>
-   <td style="text-align:center;"> (0.041) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryEthiopia </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 2.872 </td>
-   <td style="text-align:center;"> 2.716 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.757) </td>
-   <td style="text-align:center;"> (0.758) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryIndia </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 1.854 </td>
-   <td style="text-align:center;"> −0.561 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.655) </td>
-   <td style="text-align:center;"> (1.520) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryUnited States </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −0.524 </td>
-   <td style="text-align:center;"> −1.176 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.646) </td>
-   <td style="text-align:center;"> (0.742) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> population </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 0.000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.000) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 218 </td>
-   <td style="text-align:center;"> 218 </td>
-   <td style="text-align:center;"> 218 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.000 </td>
-   <td style="text-align:center;"> 0.110 </td>
-   <td style="text-align:center;"> 0.123 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> −0.005 </td>
-   <td style="text-align:center;"> 0.093 </td>
-   <td style="text-align:center;"> 0.102 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 1195.1 </td>
-   <td style="text-align:center;"> 1175.7 </td>
-   <td style="text-align:center;"> 1174.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 1205.3 </td>
-   <td style="text-align:center;"> 1196.0 </td>
-   <td style="text-align:center;"> 1198.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −594.554 </td>
-   <td style="text-align:center;"> −581.844 </td>
-   <td style="text-align:center;"> −580.266 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 0.002 </td>
-   <td style="text-align:center;"> 6.587 </td>
-   <td style="text-align:center;"> 5.939 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:twomodels)Explaining GDP as a function of inflation}
+\centering
+\begin{tabular}[t]{lccc}
+\toprule
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+(Intercept) & \num{4.157} & \num{3.728} & \num{3.668}\\
+ & (\num{0.352}) & (\num{0.495}) & (\num{0.494})\\
+inflation & \num{-0.002} & \num{-0.075} & \num{-0.072}\\
+ & (\num{0.041}) & (\num{0.041}) & (\num{0.041})\\
+countryEthiopia &  & \num{2.872} & \num{2.716}\\
+ &  & (\num{0.757}) & (\num{0.758})\\
+countryIndia &  & \num{1.854} & \num{-0.561}\\
+ &  & (\num{0.655}) & (\num{1.520})\\
+countryUnited States &  & \num{-0.524} & \num{-1.176}\\
+ &  & (\num{0.646}) & (\num{0.742})\\
+population &  &  & \num{0.000}\\
+ &  &  & (\num{0.000})\\
+\midrule
+Num.Obs. & \num{218} & \num{218} & \num{218}\\
+R2 & \num{0.000} & \num{0.110} & \num{0.123}\\
+R2 Adj. & \num{-0.005} & \num{0.093} & \num{0.102}\\
+AIC & \num{1195.1} & \num{1175.7} & \num{1174.5}\\
+BIC & \num{1205.3} & \num{1196.0} & \num{1198.2}\\
+Log.Lik. & \num{-594.554} & \num{-581.844} & \num{-580.266}\\
+F & \num{0.002} & \num{6.587} & \num{5.939}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 We can adjust the number of significant digits (Table \@ref(tab:twomodelstwo)).
@@ -3008,133 +1739,37 @@ modelsummary(list(first_model, second_model, third_model),
              title = "Two models of GDP as a function of inflation")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:twomodelstwo)Two models of GDP as a function of inflation</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-   <th style="text-align:center;"> Model 2 </th>
-   <th style="text-align:center;"> Model 3 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> 4.2 </td>
-   <td style="text-align:center;"> 3.7 </td>
-   <td style="text-align:center;"> 3.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.4) </td>
-   <td style="text-align:center;"> (0.5) </td>
-   <td style="text-align:center;"> (0.5) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> inflation </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> −0.1 </td>
-   <td style="text-align:center;"> −0.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.0) </td>
-   <td style="text-align:center;"> (0.0) </td>
-   <td style="text-align:center;"> (0.0) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryEthiopia </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 2.9 </td>
-   <td style="text-align:center;"> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.8) </td>
-   <td style="text-align:center;"> (0.8) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryIndia </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 1.9 </td>
-   <td style="text-align:center;"> −0.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.7) </td>
-   <td style="text-align:center;"> (1.5) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> countryUnited States </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> −0.5 </td>
-   <td style="text-align:center;"> −1.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> (0.6) </td>
-   <td style="text-align:center;"> (0.7) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> population </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 0.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.0) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 218 </td>
-   <td style="text-align:center;"> 218 </td>
-   <td style="text-align:center;"> 218 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.000 </td>
-   <td style="text-align:center;"> 0.110 </td>
-   <td style="text-align:center;"> 0.123 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> −0.005 </td>
-   <td style="text-align:center;"> 0.093 </td>
-   <td style="text-align:center;"> 0.102 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 1195.1 </td>
-   <td style="text-align:center;"> 1175.7 </td>
-   <td style="text-align:center;"> 1174.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 1205.3 </td>
-   <td style="text-align:center;"> 1196.0 </td>
-   <td style="text-align:center;"> 1198.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −594.554 </td>
-   <td style="text-align:center;"> −581.844 </td>
-   <td style="text-align:center;"> −580.266 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 0.002 </td>
-   <td style="text-align:center;"> 6.587 </td>
-   <td style="text-align:center;"> 5.939 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:twomodelstwo)Two models of GDP as a function of inflation}
+\centering
+\begin{tabular}[t]{lccc}
+\toprule
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+(Intercept) & \num{4.2} & \num{3.7} & \num{3.7}\\
+ & (\num{0.4}) & (\num{0.5}) & (\num{0.5})\\
+inflation & \num{0.0} & \num{-0.1} & \num{-0.1}\\
+ & (\num{0.0}) & (\num{0.0}) & (\num{0.0})\\
+countryEthiopia &  & \num{2.9} & \num{2.7}\\
+ &  & (\num{0.8}) & (\num{0.8})\\
+countryIndia &  & \num{1.9} & \num{-0.6}\\
+ &  & (\num{0.7}) & (\num{1.5})\\
+countryUnited States &  & \num{-0.5} & \num{-1.2}\\
+ &  & (\num{0.6}) & (\num{0.7})\\
+population &  &  & \num{0.0}\\
+ &  &  & (\num{0.0})\\
+\midrule
+Num.Obs. & \num{218} & \num{218} & \num{218}\\
+R2 & \num{0.000} & \num{0.110} & \num{0.123}\\
+R2 Adj. & \num{-0.005} & \num{0.093} & \num{0.102}\\
+AIC & \num{1195.1} & \num{1175.7} & \num{1174.5}\\
+BIC & \num{1205.3} & \num{1196.0} & \num{1198.2}\\
+Log.Lik. & \num{-594.554} & \num{-581.844} & \num{-580.266}\\
+F & \num{0.002} & \num{6.587} & \num{5.939}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
@@ -3216,7 +1851,7 @@ ggplot() +
        y = "Latitude")
 ```
 
-<img src="06-static_communication_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](06-static_communication_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 
 As is often the case with R, there are many different ways to get started creating static maps. We have seen how they can be built using only `ggplot2`, but `ggmap` brings additional functionality [@KahleWickham2013].
@@ -3251,7 +1886,7 @@ canberra_stamen_map <- get_stamenmap(bbox, zoom = 11, maptype = "toner-lite")
 ggmap(canberra_stamen_map)
 ```
 
-<img src="06-static_communication_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](06-static_communication_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
 
 Once we have a map then we can use `ggmap()` to plot it. Now we want to get some data that we plot on top of our tiles. We will just plot the location of the polling places, based on which 'division' it is. This is available [here](https://results.aec.gov.au/20499/Website/Downloads/HouseTppByPollingPlaceDownload-20499.csv). The Australian Electoral Commission (AEC) is the official government agency that is responsible for elections in Australia.
 
@@ -3266,7 +1901,7 @@ booths <-
   )
 
 head(booths)
-#> # A tibble: 6 × 15
+#> # A tibble: 6 x 15
 #>   State DivisionID DivisionNm PollingPlaceID
 #>   <chr>      <dbl> <chr>               <dbl>
 #> 1 ACT          318 Bean                93925
@@ -3275,7 +1910,7 @@ head(booths)
 #> 4 ACT          318 Bean                11452
 #> 5 ACT          318 Bean                 8761
 #> 6 ACT          318 Bean                 8763
-#> # … with 11 more variables: PollingPlaceTypeID <dbl>,
+#> # ... with 11 more variables: PollingPlaceTypeID <dbl>,
 #> #   PollingPlaceNm <chr>, PremisesNm <chr>,
 #> #   PremisesAddress1 <chr>, PremisesAddress2 <chr>,
 #> #   PremisesAddress3 <chr>, PremisesSuburb <chr>,
@@ -3320,7 +1955,7 @@ ggmap(canberra_stamen_map,
         panel.grid.minor = element_blank())
 ```
 
-<img src="06-static_communication_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](06-static_communication_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 We may like to save the map so that we do not have to draw it every time, and we can do that in the same way as any other graph, using `ggsave()`.
 
@@ -3349,16 +1984,16 @@ library(troopdata)
 bases <- get_basedata()
 
 head(bases)
-#> # A tibble: 6 × 9
+#> # A tibble: 6 x 9
 #>   countryname ccode iso3c basename   lat   lon  base lilypad
 #>   <chr>       <dbl> <chr> <chr>    <dbl> <dbl> <dbl>   <dbl>
-#> 1 Afghanistan   700 AFG   Bagram …  34.9  69.3     1       0
-#> 2 Afghanistan   700 AFG   Kandaha…  31.5  65.8     1       0
-#> 3 Afghanistan   700 AFG   Mazar-e…  36.7  67.2     1       0
+#> 1 Afghanistan   700 AFG   Bagram ~  34.9  69.3     1       0
+#> 2 Afghanistan   700 AFG   Kandaha~  31.5  65.8     1       0
+#> 3 Afghanistan   700 AFG   Mazar-e~  36.7  67.2     1       0
 #> 4 Afghanistan   700 AFG   Gardez    33.6  69.2     1       0
 #> 5 Afghanistan   700 AFG   Kabul     34.5  69.2     1       0
 #> 6 Afghanistan   700 AFG   Herat     34.3  62.2     1       0
-#> # … with 1 more variable: fundedsite <dbl>
+#> # ... with 1 more variable: fundedsite <dbl>
 ```
 
 We will look at the locations of US military bases in: Germany, Japan, and Australia. The `troopdata` dataset already has latitude and longitude of the base. We will use that as our item of interest. The first step is to define a bounding box for each of country.
@@ -3421,10 +2056,7 @@ ggmap(germany_stamen_map) +
   theme_minimal() 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/mapbasesingermany-1.png" alt="Map of US military bases in Germany" width="672" />
-<p class="caption">(\#fig:mapbasesingermany)Map of US military bases in Germany</p>
-</div>
+![(\#fig:mapbasesingermany)Map of US military bases in Germany](06-static_communication_files/figure-latex/mapbasesingermany-1.pdf) 
 
 
 ```r
@@ -3438,10 +2070,7 @@ ggmap(japan_stamen_map) +
   theme_minimal() 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/mapbasesinjapan-1.png" alt="Map of US military bases in Japan" width="672" />
-<p class="caption">(\#fig:mapbasesinjapan)Map of US military bases in Japan</p>
-</div>
+![(\#fig:mapbasesinjapan)Map of US military bases in Japan](06-static_communication_files/figure-latex/mapbasesinjapan-1.pdf) 
 
 
 
@@ -3456,10 +2085,7 @@ ggmap(australia_stamen_map) +
   theme_minimal() 
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/mapbasesinaustralia-1.png" alt="Map of US military bases in Australia" width="672" />
-<p class="caption">(\#fig:mapbasesinaustralia)Map of US military bases in Australia</p>
-</div>
+![(\#fig:mapbasesinaustralia)Map of US military bases in Australia](06-static_communication_files/figure-latex/mapbasesinaustralia-1.pdf) 
 
 
 
@@ -3480,7 +2106,7 @@ place_names <-
   )
 
 place_names
-#> # A tibble: 4 × 2
+#> # A tibble: 4 x 2
 #>   city     country  
 #>   <chr>    <chr>    
 #> 1 Canberra Australia
@@ -3499,7 +2125,7 @@ place_names <-
       method = 'osm')
 
 place_names
-#> # A tibble: 4 × 4
+#> # A tibble: 4 x 4
 #>   city     country       lat    long
 #>   <chr>    <chr>       <dbl>   <dbl>
 #> 1 Canberra Australia -35.3   149.   
@@ -3538,10 +2164,7 @@ ggplot() +
        y = "Latitude")
 ```
 
-<div class="figure">
-<img src="06-static_communication_files/figure-html/mynicemap-1.png" alt="Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain their locations" width="672" />
-<p class="caption">(\#fig:mynicemap)Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain their locations</p>
-</div>
+![(\#fig:mynicemap)Map of Accra, Canberra, Ottawa, and Quito after geocoding to obtain their locations](06-static_communication_files/figure-latex/mynicemap-1.pdf) 
 
 
 

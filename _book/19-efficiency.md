@@ -45,14 +45,14 @@ tic("First bit of code")
 print("Fast code")
 #> [1] "Fast code"
 toc()
-#> First bit of code: 0.052 sec elapsed
+#> First bit of code: 0.001 sec elapsed
 
 tic("Second bit of code")
 Sys.sleep(3)
 print("Slow code")
 #> [1] "Slow code"
 toc()
-#> Second bit of code: 3.009 sec elapsed
+#> Second bit of code: 3.01 sec elapsed
 ```
 
 And so we know that there is something slowing down the code; which in this artificial case is `Sys.sleep()` causing a delay of 3 seconds.
@@ -345,43 +345,43 @@ tic("CSV")
 write_csv(x = some_data,
           file = "some_data.csv")
 read_csv(file = "some_data.csv")
-#> # A tibble: 1,000,000 × 2
-#>     first second
-#>     <dbl> <chr> 
-#>  1 0.301  M     
-#>  2 0.526  Z     
-#>  3 0.355  K     
-#>  4 0.0258 R     
-#>  5 0.144  H     
-#>  6 0.950  S     
-#>  7 0.845  W     
-#>  8 0.234  D     
-#>  9 0.861  Q     
-#> 10 0.945  Y     
-#> # … with 999,990 more rows
+#> # A tibble: 1,000,000 x 2
+#>    first second
+#>    <dbl> <chr> 
+#>  1 0.564 Y     
+#>  2 0.644 Y     
+#>  3 0.460 W     
+#>  4 0.192 A     
+#>  5 0.905 P     
+#>  6 0.438 L     
+#>  7 0.160 E     
+#>  8 0.885 U     
+#>  9 0.536 Q     
+#> 10 0.935 N     
+#> # ... with 999,990 more rows
 toc()
-#> CSV: 0.323 sec elapsed
+#> CSV: 0.406 sec elapsed
 
 tic("parquet")
 write_parquet(x = some_data,
               sink = "some_data.parquet")
 read_parquet(file = "some_data.parquet")
-#> # A tibble: 1,000,000 × 2
-#>     first second
-#>     <dbl> <chr> 
-#>  1 0.301  M     
-#>  2 0.526  Z     
-#>  3 0.355  K     
-#>  4 0.0258 R     
-#>  5 0.144  H     
-#>  6 0.950  S     
-#>  7 0.845  W     
-#>  8 0.234  D     
-#>  9 0.861  Q     
-#> 10 0.945  Y     
-#> # … with 999,990 more rows
+#> # A tibble: 1,000,000 x 2
+#>    first second
+#>    <dbl> <chr> 
+#>  1 0.564 Y     
+#>  2 0.644 Y     
+#>  3 0.460 W     
+#>  4 0.192 A     
+#>  5 0.905 P     
+#>  6 0.438 L     
+#>  7 0.160 E     
+#>  8 0.885 U     
+#>  9 0.536 Q     
+#> 10 0.935 N     
+#> # ... with 999,990 more rows
 toc()
-#> parquet: 0.225 sec elapsed
+#> parquet: 0.313 sec elapsed
 ```
 
 

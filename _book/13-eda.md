@@ -244,25 +244,25 @@ library(visdat)
 
 all_2020_ttc_data |>
   summarise_all(list( ~ sum(is.na(.))))
-#> # A tibble: 1 × 10
+#> # A tibble: 1 x 10
 #>    date  time   day station  code min_delay min_gap bound
 #>   <int> <int> <int>   <int> <int>     <int>   <int> <int>
 #> 1     0     0     0       0     0         0       0  3272
-#> # … with 2 more variables: line <int>, vehicle <int>
+#> # ... with 2 more variables: line <int>, vehicle <int>
 
 vis_dat(x = all_2020_ttc_data,
          palette = "cb_safe"
          )
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 ```r
 
 vis_miss(all_2020_ttc_data)
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-9-2.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-9-2.pdf)<!-- --> 
 
 In this case we have many missing values in 'bound' and two in 'line'. For these known-unknowns, we are interested in whether the they are missing at random. We want to, ideally, show that data happened to just drop out. This is unlikely, and so we are usually trying to look at what is systematic about how our data are missing.
 
@@ -272,21 +272,21 @@ Sometime data happen to be duplicated. If we did not notice this then our analys
 ```r
 get_dupes(all_2020_ttc_data)
 #> No variable names specified - using all columns.
-#> # A tibble: 37 × 11
+#> # A tibble: 37 x 11
 #>    date                time   day    station code  min_delay
 #>    <dttm>              <time> <chr>  <chr>   <chr>     <dbl>
-#>  1 2020-02-10 00:00:00 06:00  Monday TORONT… MRO           0
-#>  2 2020-02-10 00:00:00 06:00  Monday TORONT… MRO           0
-#>  3 2020-02-10 00:00:00 06:00  Monday TORONT… MUO           0
-#>  4 2020-02-10 00:00:00 06:00  Monday TORONT… MUO           0
-#>  5 2020-03-10 00:00:00 23:00  Tuesd… YORK M… MUO           0
-#>  6 2020-03-10 00:00:00 23:00  Tuesd… YORK M… MUO           0
-#>  7 2020-03-26 00:00:00 13:20  Thurs… VAUGHA… MUNOA         3
-#>  8 2020-03-26 00:00:00 13:20  Thurs… VAUGHA… MUNOA         3
-#>  9 2020-03-26 00:00:00 18:32  Thurs… VAUGHA… MUNOA         3
-#> 10 2020-03-26 00:00:00 18:32  Thurs… VAUGHA… MUNOA         3
-#> # … with 27 more rows, and 5 more variables: min_gap <dbl>,
-#> #   bound <chr>, line <chr>, vehicle <dbl>,
+#>  1 2020-02-10 00:00:00 06:00  Monday TORONT~ MRO           0
+#>  2 2020-02-10 00:00:00 06:00  Monday TORONT~ MRO           0
+#>  3 2020-02-10 00:00:00 06:00  Monday TORONT~ MUO           0
+#>  4 2020-02-10 00:00:00 06:00  Monday TORONT~ MUO           0
+#>  5 2020-03-10 00:00:00 23:00  Tuesd~ YORK M~ MUO           0
+#>  6 2020-03-10 00:00:00 23:00  Tuesd~ YORK M~ MUO           0
+#>  7 2020-03-26 00:00:00 13:20  Thurs~ VAUGHA~ MUNOA         3
+#>  8 2020-03-26 00:00:00 13:20  Thurs~ VAUGHA~ MUNOA         3
+#>  9 2020-03-26 00:00:00 18:32  Thurs~ VAUGHA~ MUNOA         3
+#> 10 2020-03-26 00:00:00 18:32  Thurs~ VAUGHA~ MUNOA         3
+#> # ... with 27 more rows, and 5 more variables:
+#> #   min_gap <dbl>, bound <chr>, line <chr>, vehicle <dbl>,
 #> #   dupe_count <int>
 ```
 
@@ -323,7 +323,7 @@ all_2020_ttc_data |>
   geom_bar()
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 The largely empty graph suggests the presence of outliers. There are a variety of ways to try to understand what could be going on, but one quick way to proceed it to use a log, remembering that we would expect values of 0 to drop away.
 
@@ -335,7 +335,7 @@ all_2020_ttc_data |>
   scale_x_log10()
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
 
 This initial exploration further hints at an issue that we might like to explore further. We will join this dataset with 'delay_codes' to understand what is going on. 
 
@@ -378,20 +378,20 @@ all_2020_ttc_data |>
   arrange(-min_delay) |> 
   select(date, time, station, line, min_delay, code, code_desc)
 #> Joining, by = c("code", "code_desc")
-#> # A tibble: 14,335 × 7
+#> # A tibble: 14,335 x 7
 #>    date                time   station  line  min_delay code 
 #>    <dttm>              <time> <chr>    <chr>     <dbl> <chr>
-#>  1 2020-02-13 00:00:00 05:30  ST GEOR… YU          450 TUCC 
-#>  2 2020-05-08 00:00:00 16:16  ST CLAI… YU          446 MUO  
-#>  3 2020-01-22 00:00:00 05:57  KEELE S… BD          258 EUTR 
-#>  4 2020-03-19 00:00:00 11:26  ROYAL Y… BD          221 MUPR1
-#>  5 2020-11-12 00:00:00 23:10  SHEPPAR… YU          197 PUCSC
-#>  6 2020-12-13 00:00:00 21:37  MCCOWAN… SRT         167 PRSP 
-#>  7 2020-12-04 00:00:00 16:23  MCCOWAN… SRT         165 PRSP 
-#>  8 2020-01-18 00:00:00 05:48  SCARBOR… SRT         162 PRSL 
-#>  9 2020-02-22 00:00:00 05:16  SPADINA… YU          159 PUSWZ
-#> 10 2020-09-03 00:00:00 14:35  CASTLE … BD          150 MUPR1
-#> # … with 14,325 more rows, and 1 more variable:
+#>  1 2020-02-13 00:00:00 05:30  ST GEOR~ YU          450 TUCC 
+#>  2 2020-05-08 00:00:00 16:16  ST CLAI~ YU          446 MUO  
+#>  3 2020-01-22 00:00:00 05:57  KEELE S~ BD          258 EUTR 
+#>  4 2020-03-19 00:00:00 11:26  ROYAL Y~ BD          221 MUPR1
+#>  5 2020-11-12 00:00:00 23:10  SHEPPAR~ YU          197 PUCSC
+#>  6 2020-12-13 00:00:00 21:37  MCCOWAN~ SRT         167 PRSP 
+#>  7 2020-12-04 00:00:00 16:23  MCCOWAN~ SRT         165 PRSP 
+#>  8 2020-01-18 00:00:00 05:48  SCARBOR~ SRT         162 PRSL 
+#>  9 2020-02-22 00:00:00 05:16  SPADINA~ YU          159 PUSWZ
+#> 10 2020-09-03 00:00:00 14:35  CASTLE ~ BD          150 MUPR1
+#> # ... with 14,325 more rows, and 1 more variable:
 #> #   code_desc <chr>
 ```
 
@@ -408,10 +408,7 @@ ggplot(data = all_2020_ttc_data) +
   scale_x_log10()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/delaydensity-1.png" alt="Density of the distribution of delay, in minutes" width="672" />
-<p class="caption">(\#fig:delaydensity)Density of the distribution of delay, in minutes</p>
-</div>
+![(\#fig:delaydensity)Density of the distribution of delay, in minutes](13-eda_files/figure-latex/delaydensity-1.pdf) 
 
 Figure \@ref(fig:delaydensity) uses density so that we can look at the the distributions more comparably, but we should also be aware of differences in frequency (Figure \@ref(fig:delayfreq)). In this case, we will see that 'SHP' and 'SRT' have much smaller counts.
 
@@ -424,10 +421,7 @@ ggplot(data = all_2020_ttc_data) +
   scale_x_log10()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/delayfreq-1.png" alt="Frequency of the distribution of delay, in minutes" width="672" />
-<p class="caption">(\#fig:delayfreq)Frequency of the distribution of delay, in minutes</p>
-</div>
+![(\#fig:delayfreq)Frequency of the distribution of delay, in minutes](13-eda_files/figure-latex/delayfreq-1.pdf) 
 
 To group by another variable we can add facets (Figure \@ref(fig:delayfreqfacet)).
 
@@ -440,10 +434,7 @@ ggplot(data = all_2020_ttc_data) +
   facet_wrap(vars(day))
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/delayfreqfacet-1.png" alt="Frequency of the distribution of delay, in minutes, by day" width="672" />
-<p class="caption">(\#fig:delayfreqfacet)Frequency of the distribution of delay, in minutes, by day</p>
-</div>
+![(\#fig:delayfreqfacet)Frequency of the distribution of delay, in minutes, by day](13-eda_files/figure-latex/delayfreqfacet-1.pdf) 
 
 
 We can now plot the top five stations by mean delay.
@@ -465,7 +456,7 @@ all_2020_ttc_data |>
 #> using the `.groups` argument.
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 ### Dates
 
@@ -488,10 +479,7 @@ all_2020_ttc_data |>
              )
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/delaybyweek-1.png" alt="Average delay, in minutes, by week, for the Toronto subway" width="672" />
-<p class="caption">(\#fig:delaybyweek)Average delay, in minutes, by week, for the Toronto subway</p>
-</div>
+![(\#fig:delaybyweek)Average delay, in minutes, by week, for the Toronto subway](13-eda_files/figure-latex/delaybyweek-1.pdf) 
 
 Now let us look at the proportion of delays that were greater than 10 minutes (Figure \@ref(fig:longdelaybyweek)).
 
@@ -509,10 +497,7 @@ all_2020_ttc_data |>
              )
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/longdelaybyweek-1.png" alt="Delays longer than ten minutes, by week, for the Toronto subway" width="672" />
-<p class="caption">(\#fig:longdelaybyweek)Delays longer than ten minutes, by week, for the Toronto subway</p>
-</div>
+![(\#fig:longdelaybyweek)Delays longer than ten minutes, by week, for the Toronto subway](13-eda_files/figure-latex/longdelaybyweek-1.pdf) 
 
 These figures, tables, and analysis have no place in a final paper. Instead, they allow us to become comfortable with the data. We note aspects about each that stand out, as well as the warnings and any implications or aspects to return to.
 
@@ -529,10 +514,7 @@ all_2020_ttc_data |>
   scale_y_log10()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/delayvsgap-1.png" alt="Relationship between delay and gap for the Toronto subway in 2020" width="672" />
-<p class="caption">(\#fig:delayvsgap)Relationship between delay and gap for the Toronto subway in 2020</p>
-</div>
+![(\#fig:delayvsgap)Relationship between delay and gap for the Toronto subway in 2020](13-eda_files/figure-latex/delayvsgap-1.pdf) 
 
 The relationship between categorical variables takes more work, but we could also, for instance, look at the top five reasons for delay by station. In particular, we may be interested in whether they differ, and how any difference could be modeled (Figure \@ref(fig:categorical)).
 
@@ -552,10 +534,7 @@ all_2020_ttc_data |>
   coord_flip()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/categorical-1.png" alt="Relationship between categorical variables for the Toronto subway in 2020" width="672" />
-<p class="caption">(\#fig:categorical)Relationship between categorical variables for the Toronto subway in 2020</p>
-</div>
+![(\#fig:categorical)Relationship between categorical variables for the Toronto subway in 2020](13-eda_files/figure-latex/categorical-1.pdf) 
 
 Principal components analysis (PCA) is another powerful exploratory tool. It allows us to pick up potential clusters and outliers that can help to inform modeling. To see this, we can look at the types of delay by station. The delay categories are messy and there a lot of them, but as we are trying to come to terms with the dataset, we will just take the first word.
 
@@ -615,7 +594,7 @@ delay_pca <- prcomp(dwide[,3:ncol(dwide)])
 df_out <- as_tibble(delay_pca$x)
 df_out <- bind_cols(dwide |> select(line, station_clean), df_out)
 head(df_out)
-#> # A tibble: 6 × 32
+#> # A tibble: 6 x 32
 #> # Groups:   line, station_clean [6]
 #>   line  station_clean    PC1    PC2     PC3   PC4    PC5
 #>   <chr> <chr>          <dbl>  <dbl>   <dbl> <dbl>  <dbl>
@@ -625,7 +604,7 @@ head(df_out)
 #> 4 BD    BLOOR-DANFORTH 23.4  -20.2  20.4    -4.85 -0.429
 #> 5 BD    BROADVIEW       9.29  22.0  -0.0365  6.72  4.31 
 #> 6 BD    CASTLE         15.1    5.21  7.62   11.6  -1.17 
-#> # … with 25 more variables: PC6 <dbl>, PC7 <dbl>,
+#> # ... with 25 more variables: PC6 <dbl>, PC7 <dbl>,
 #> #   PC8 <dbl>, PC9 <dbl>, PC10 <dbl>, PC11 <dbl>,
 #> #   PC12 <dbl>, PC13 <dbl>, PC14 <dbl>, PC15 <dbl>,
 #> #   PC16 <dbl>, PC17 <dbl>, PC18 <dbl>, PC19 <dbl>,
@@ -647,7 +626,7 @@ ggplot(df_out,aes(x=PC1,y=PC2,color=line )) +
                   )
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
 
 We could also plot the factor loadings. We se some evidence that perhaps one is to do with the public, compared with another to do with the operator.
 
@@ -657,7 +636,7 @@ df_out_r <- as_tibble(delay_pca$rotation)
 df_out_r$feature <- colnames(dwide[,3:ncol(dwide)])
 
 df_out_r
-#> # A tibble: 30 × 31
+#> # A tibble: 30 x 31
 #>         PC1    PC2      PC3      PC4      PC5     PC6
 #>       <dbl>  <dbl>    <dbl>    <dbl>    <dbl>   <dbl>
 #>  1 -0.0279  0.125  -0.0576   0.0679  -0.0133   0.0307
@@ -670,7 +649,7 @@ df_out_r
 #>  8 -0.00377 0.0193 -0.00201 -0.0140  -0.0424   0.0751
 #>  9 -0.0167  0.120  -0.0367  -0.578    0.336    0.563 
 #> 10 -0.0708  0.276  -0.118    0.116   -0.368    0.435 
-#> # … with 20 more rows, and 25 more variables: PC7 <dbl>,
+#> # ... with 20 more rows, and 25 more variables: PC7 <dbl>,
 #> #   PC8 <dbl>, PC9 <dbl>, PC10 <dbl>, PC11 <dbl>,
 #> #   PC12 <dbl>, PC13 <dbl>, PC14 <dbl>, PC15 <dbl>,
 #> #   PC16 <dbl>, PC17 <dbl>, PC18 <dbl>, PC19 <dbl>,
@@ -683,7 +662,7 @@ ggplot(df_out_r,aes(x=PC1,y=PC2,label=feature )) + geom_text_repel()
 #> overlaps). Consider increasing max.overlaps
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 
 
@@ -1160,7 +1139,7 @@ airbnb_data_selected <-
          )
 
 airbnb_data_selected
-#> # A tibble: 18,265 × 21
+#> # A tibble: 18,265 x 21
 #>    host_id host_since host_response_time host_is_superhost
 #>      <dbl> <date>     <chr>              <lgl>            
 #>  1    1565 2008-08-08 N/A                FALSE            
@@ -1173,13 +1152,13 @@ airbnb_data_selected
 #>  8  183071 2010-07-28 within an hour     TRUE             
 #>  9  187320 2010-08-01 within a few hours TRUE             
 #> 10  192364 2010-08-05 N/A                FALSE            
-#> # … with 18,255 more rows, and 17 more variables:
+#> # ... with 18,255 more rows, and 17 more variables:
 #> #   host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <chr>, number_of_reviews <dbl>,
-#> #   has_availability <lgl>, review_scores_rating <dbl>, …
+#> #   has_availability <lgl>, review_scores_rating <dbl>, ...
 ```
 
 First we might be interested in price. It is a character at the moment and so we need to convert it to a numeric. This is a common problem, and we need to be a little careful that it does not all just convert to NAs. In our case if we just force the price data to be a numeric then it will go to NA because there are a lot of characters where it is unclear what the numeric equivalent is, such as '$'. So we need to remove those characters first.
@@ -1196,7 +1175,7 @@ airbnb_data_selected$price |> str_split("") |> unlist() |> unique()
 airbnb_data_selected |> 
   select(price) |> 
   filter(str_detect(price, ","))
-#> # A tibble: 145 × 1
+#> # A tibble: 145 x 1
 #>    price    
 #>    <chr>    
 #>  1 $1,724.00
@@ -1209,7 +1188,7 @@ airbnb_data_selected |>
 #>  8 $2,142.00
 #>  9 $2,000.00
 #> 10 $1,200.00
-#> # … with 135 more rows
+#> # ... with 135 more rows
 
 airbnb_data_selected <- 
   airbnb_data_selected |> 
@@ -1231,10 +1210,7 @@ airbnb_data_selected |>
        y = "Number of properties")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbpricesfirst-1.png" alt="Distribution of prices of Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbpricesfirst)Distribution of prices of Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbpricesfirst)Distribution of prices of Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbpricesfirst-1.pdf) 
 
 It is clear that there are outliers, so again we might like to consider it on the log scale (Figure \@ref(fig:airbnbpriceslog)). 
 
@@ -1249,10 +1225,7 @@ airbnb_data_selected |>
   scale_y_log10()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbpriceslog-1.png" alt="Distribution of log prices of Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbpriceslog)Distribution of log prices of Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbpriceslog)Distribution of log prices of Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbpriceslog-1.pdf) 
 
 
 If we focus on prices that are less than $1,000 then we see that the majority of properties have a nightly price less than $250. Interestingly it looks like there is some bunching of prices, possible around numbers ending in zero or nine. Let us just zoom in on prices between $90 and $210, out of interest, but change the bins to be smaller (Figure \@ref(fig:airbnbpricesbunch)).
@@ -1277,10 +1250,9 @@ airbnb_data_selected |>
        y = "Number of properties")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbpricesbunch-1.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%" /><img src="13-eda_files/figure-html/airbnbpricesbunch-2.png" alt="Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching" width="49%" />
-<p class="caption">(\#fig:airbnbpricesbunch)Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.49\linewidth]{13-eda_files/figure-latex/airbnbpricesbunch-1} \includegraphics[width=0.49\linewidth]{13-eda_files/figure-latex/airbnbpricesbunch-2} \caption{Distribution of prices less than $1000 for Toronto Airbnb rentals in January 2021 shows bunching}(\#fig:airbnbpricesbunch)
+\end{figure}
 
 For now, we will just remove all prices that are more than $999.
 
@@ -1297,7 +1269,7 @@ Superhosts are especially experienced Airbnb hosts, and we might be interested t
 ```r
 airbnb_data_selected |>
   filter(is.na(host_is_superhost))
-#> # A tibble: 11 × 21
+#> # A tibble: 11 x 21
 #>      host_id host_since host_response_time host_is_superhost
 #>        <dbl> <date>     <chr>              <lgl>            
 #>  1  23472830 NA         <NA>               NA               
@@ -1311,13 +1283,13 @@ airbnb_data_selected |>
 #>  9  23472830 NA         <NA>               NA               
 #> 10 266594170 NA         <NA>               NA               
 #> 11 118516038 NA         <NA>               NA               
-#> # … with 17 more variables: host_listings_count <dbl>,
+#> # ... with 17 more variables: host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
 #> #   has_availability <lgl>, review_scores_rating <dbl>,
-#> #   review_scores_accuracy <dbl>, …
+#> #   review_scores_accuracy <dbl>, ...
 ```
 
 We will also want to create a binary variable from this. It is true/false at the moment, which is fine for the modelling, but there are a handful of situations where it will be easier if we have a 0/1. And for now we will just remove anyone with an NA for whether they are a super host.
@@ -1344,10 +1316,7 @@ airbnb_data_selected |>
        y = "Number of properties")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbreviews-1.png" alt="Distribution of review scores rating for Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbreviews)Distribution of review scores rating for Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbreviews)Distribution of review scores rating for Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbreviews-1.pdf) 
 
 We would like to deal with the NAs in 'review_scores_rating', but this is more complicated as there are a lot of them. It may be that this is just because they do not have any reviews.
 
@@ -1383,7 +1352,7 @@ airbnb_data_selected |>
   vis_miss()
 ```
 
-<img src="13-eda_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+![](13-eda_files/figure-latex/unnamed-chunk-31-1.pdf)<!-- --> 
 
 Given it looks convincing that in almost all cases, the different types of reviews are missing for the same observation. One approach would be to just focus on those that are not missing and the main review score. It is clear that almost all the reviews are more than 80. Let us just zoom in on that 60 to 80 range to check what the distribution looks like in that range (Figure \@ref(fig:airbnbreviewsselected)).
 
@@ -1400,10 +1369,7 @@ airbnb_data_selected |>
        y = "Number of properties")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbreviewsselected-1.png" alt="Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbreviewsselected)Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbreviewsselected)Distribution of review scores, between 60 and 80, for Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbreviewsselected-1.pdf) 
 
 For now, we will remove anyone with an NA in their main review score, even though this will remove roughly 20 per cent of observations. And we will also focus only on those hosts with a main review score of at least 70. If we ended up using this dataset for actual analysis, then we would want to justify this decision in an appendix or similar.
 
@@ -1421,7 +1387,7 @@ Another important factor is how quickly a host responds to an enquiry. Airbnb al
 ```r
 airbnb_data_selected |>
   count(host_response_time)
-#> # A tibble: 5 × 2
+#> # A tibble: 5 x 2
 #>   host_response_time     n
 #>   <chr>              <int>
 #> 1 a few days or more   494
@@ -1455,10 +1421,7 @@ airbnb_data_selected |>
        y = "Number of properties")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbreviewsselectednasresponse-1.png" alt="Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbreviewsselectednasresponse)Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbreviewsselectednasresponse)Distribution of review scores for properties with NA response time, for Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbreviewsselectednasresponse-1.pdf) 
 
 For now, we will remove anyone with a NA in their response time. This will again removes roughly another 20 per cent of the observations.
 
@@ -1476,14 +1439,14 @@ There are two versions of a variable that suggest how many properties a host has
 airbnb_data_selected |> 
   mutate(listings_count_is_same = if_else(host_listings_count == host_total_listings_count, 1, 0)) |> 
   filter(listings_count_is_same == 0)
-#> # A tibble: 0 × 23
-#> # … with 23 variables: host_id <dbl>, host_since <date>,
+#> # A tibble: 0 x 23
+#> # ... with 23 variables: host_id <dbl>, host_since <date>,
 #> #   host_response_time <fct>, host_is_superhost <lgl>,
 #> #   host_listings_count <dbl>,
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
-#> #   price <int>, number_of_reviews <dbl>, …
+#> #   price <int>, number_of_reviews <dbl>, ...
 ```
 
 As there are no differences in this dataset, we can just remove one variable for now and have a look at the other one (Figure \@ref(fig:airbnbhostlisting)).
@@ -1500,10 +1463,7 @@ airbnb_data_selected |>
   scale_x_log10()
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/airbnbhostlisting-1.png" alt="Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:airbnbhostlisting)Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:airbnbhostlisting)Distribution of the number of properties a host has on Airbnb, for Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/airbnbhostlisting-1.pdf) 
 
 There are a large number who have somewhere in the 2-10 properties range, but the usual long tail. The number with 0 listings is unexpected and worth following up on. And there are a bunch with NA that we will need to deal with.
 
@@ -1512,7 +1472,7 @@ There are a large number who have somewhere in the 2-10 properties range, but th
 airbnb_data_selected |> 
   filter(host_total_listings_count == 0) |> 
   head()
-#> # A tibble: 6 × 21
+#> # A tibble: 6 x 21
 #>   host_id host_since host_response_time host_is_superhost
 #>     <dbl> <date>     <fct>              <lgl>            
 #> 1 3783106 2012-10-06 within an hour     FALSE            
@@ -1521,13 +1481,13 @@ airbnb_data_selected |>
 #> 4 2499198 2012-05-30 within a day       FALSE            
 #> 5 3268493 2012-08-15 within a day       FALSE            
 #> 6 8675040 2013-09-06 within an hour     TRUE             
-#> # … with 17 more variables:
+#> # ... with 17 more variables:
 #> #   host_total_listings_count <dbl>,
 #> #   host_neighbourhood <chr>, neighbourhood_cleansed <chr>,
 #> #   room_type <chr>, bathrooms <lgl>, bedrooms <dbl>,
 #> #   price <int>, number_of_reviews <dbl>,
 #> #   has_availability <lgl>, review_scores_rating <dbl>,
-#> #   review_scores_accuracy <dbl>, …
+#> #   review_scores_accuracy <dbl>, ...
 ```
 
 There is nothing that immediately jumps out as odd about the people with zero listings, but there must be something going on. For now, we will focus on only those with one property.
@@ -1561,10 +1521,7 @@ airbnb_data_selected |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="13-eda_files/figure-html/priceandreview-1.png" alt="Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021" width="672" />
-<p class="caption">(\#fig:priceandreview)Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021</p>
-</div>
+![(\#fig:priceandreview)Relationship between price and review and whether a host is a super host, for Toronto Airbnb rentals in January 2021](13-eda_files/figure-latex/priceandreview-1.pdf) 
 
 One of the aspects that may make someone a super host is how quickly they respond to inquiries. One could imagine that being a superhost involves quickly saying yes or no to inquiries. Let us look at the data. First, we want to look at the possible values of superhost by their response times. 
 
@@ -1574,7 +1531,7 @@ airbnb_data_selected |>
   count(host_is_superhost) |>
   mutate(proportion = n / sum(n),
          proportion = round(proportion, digits = 2))
-#> # A tibble: 2 × 3
+#> # A tibble: 2 x 3
 #>   host_is_superhost     n proportion
 #>   <lgl>             <int>      <dbl>
 #> 1 FALSE              1677       0.58
@@ -1656,76 +1613,31 @@ library(modelsummary)
 modelsummary(logistic_reg_superhost_response_review)
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Model 1 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:center;"> −18.931 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (1.273) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> host_response_timewithin a day </td>
-   <td style="text-align:center;"> 1.334 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.235) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> host_response_timewithin a few hours </td>
-   <td style="text-align:center;"> 1.932 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.227) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> host_response_timewithin an hour </td>
-   <td style="text-align:center;"> 2.213 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.219) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> review_scores_rating </td>
-   <td style="text-align:center;"> 0.173 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.013) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 2911 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> 3521.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> 3551.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> −1755.698 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 75.649 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering
+\begin{tabular}[t]{lc}
+\toprule
+  & Model 1\\
+\midrule
+(Intercept) & \num{-18.931}\\
+ & (\num{1.273})\\
+host\_response\_timewithin a day & \num{1.334}\\
+ & (\num{0.235})\\
+host\_response\_timewithin a few hours & \num{1.932}\\
+ & (\num{0.227})\\
+host\_response\_timewithin an hour & \num{2.213}\\
+ & (\num{0.219})\\
+review\_scores\_rating & \num{0.173}\\
+ & (\num{0.013})\\
+\midrule
+Num.Obs. & \num{2911}\\
+AIC & \num{3521.4}\\
+BIC & \num{3551.3}\\
+Log.Lik. & \num{-1755.698}\\
+F & \num{75.649}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 <!-- We might like to look at what our model predicts, compared with whether the person was actually a super host. We can do that in a variety of ways, but one way is to use `augment` from the `broom` package [@broom]. This will add the prediction and associated uncertainty to the data. For every row we will then have the probability that our model is estimating that they are a superhost. But ultimately, we need a binary forecast. There are a bunch of different options, but one is to just say that if the model estimates a probability of more than 0.5 then we bin it into a superhost, and other not. -->
 

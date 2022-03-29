@@ -203,7 +203,7 @@ Figure 8.2: Extract of the results that Bowley found about rent paid by the work
 </ul>
 <p>Often the difference between probability and non-probability sampling is one of degree. For instance, we cannot often forcibly obtain data and so there is almost always an aspect of volunteering. Even when there are penalties for not providing data, such as the case for completing a census form in many countries, it is difficult for even a government to force people to fill it out completely or truthfully. One reason that the Randomized Control Trial revolution, discussed in Chapter <a href="hunt-data.html#hunt-data">10</a>, was needed was due to a lack of probability sampling. The most important aspect to be clear about with probability sampling is the role of uncertainty. This allows us to make claims about the population, based on our sample, with known amounts of error. The trade-off is that probability sampling is often expensive and difficult.</p>
 <p>To add some more specificity to our discussion, following <span class="citation">Lohr (<a href="references-1.html#ref-lohr" role="doc-biblioref">2019, 27</a>)</span> it may help to consider the numbers 1 to 100 and let us define that as our target population. With simple random sampling, every unit has the same chance of being included. In this case it is 20 per cent. We would expect to have around 20 units in our sample, or around 1 in 5 compared with our target population.</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
@@ -234,7 +234,7 @@ Figure 8.2: Extract of the results that Bowley found about rent paid by the work
 <span class="co">#&gt; 10    10 Not included          </span>
 <span class="co">#&gt; # … with 90 more rows</span></code></pre></div>
 <p>With systematic sampling, as was used by <span class="citation">Bowley (<a href="references-1.html#ref-bowley1913working" role="doc-biblioref">1913</a>)</span>, we proceed by selecting some value, say 5. We randomly pick a starting point in units 1 to 5, say 3. And we then include every fifth unit. That starting point is usually randomly selecting.</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">starting_point</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, 
@@ -268,7 +268,7 @@ Figure 8.2: Extract of the results that Bowley found about rent paid by the work
 <p>When we consider our population, it will typically have some grouping. This may be as straight-forward as a country having states, provinces, counties, or statistical districts; a university having faculties and departments; and humans having age-groups. A stratified structure is one in which we can divide the population into mutually exclusive and collectively exhaustive sub-populations, or strata.</p>
 <p>We use stratification to help with the efficiency of sampling or with the balance of the survey. For instance, the population of the US is around 335 million, with 40 million being in California, while Wyoming as around half a million. So even a survey of 10,000 responses would only expect to have 15 responses from Wyoming, which could make inference about Wyoming difficult. We could use stratification to ensure there are 200 responses from each of the 50 US states. We would use random sampling within each state to select the person about whom data will be gathered.</p>
 <p>In our case, we will stratify our illustration, we will consider that our strata are the 10s, that is, 1 to 10 is one stratum, 11 to 20 is another, and so on. We will use simple random sampling within these strata to select two units.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">selected_within_strata</span> <span class="op">&lt;-</span>
@@ -305,7 +305,7 @@ Figure 8.2: Extract of the results that Bowley found about rent paid by the work
 <span class="co">#&gt; # … with 90 more rows</span></code></pre></div>
 <p>And finally, we can also take advantage of some clusters that may exist in our dataset. Like strata, clusters are collectively exhaustive and mutually exclusive. Our examples from earlier, of states, departments, and age-groups remain valid as clusters. However, it is our intentions toward these groups that is different. Specific, with cluster sampling, we do not intend to collect data from every cluster, whereas with stratified sampling we do. With stratified sampling we look at every stratum and conduct simple random sampling within each strata to select the sample. With cluster sampling we conduct simple random sampling to select clusters of interest. We can then either sample every unit in those selected clusters or use simple random sampling, within the selected clusters, to select units. That all said, this difference can become less clear in practice, especially <em>ex post</em>.</p>
 <p>In our case, we will cluster our illustration again based on the 10s. We will use simple random sampling to select two clusters for which we will use the entire cluster.</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">selected_clusters</span> <span class="op">&lt;-</span> 
@@ -340,7 +340,7 @@ Figure 8.2: Extract of the results that Bowley found about rent paid by the work
 <span class="co">#&gt; # … with 90 more rows, and 1 more variable:</span>
 <span class="co">#&gt; #   cluster_sampling &lt;chr&gt;</span></code></pre></div>
 <p>At this point we can illustrate the differences between our approaches (Figure <a href="farm-data.html#fig:samplingexamples">8.3</a>).</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>simple_random_sampling <span class="op">=</span> <span class="st">"Simple random sampling"</span>, 
                 systematic_sampling <span class="op">=</span> <span class="st">"Systematic sampling"</span>,
                 stratified_sampling <span class="op">=</span> <span class="st">"Stratified sampling"</span>,
@@ -388,7 +388,7 @@ Figure 8.3: Illustrative example of simple random sampling, systematic sampling,
 <!-- ADD estimators of population mean and variances, etc -->
 <p>Scaling up can be used when we are interested in using a count from our sample to imply some total count for the population. We saw this in <span class="citation">Bowley (<a href="references-1.html#ref-bowley1913working" role="doc-biblioref">1913</a>)</span> where the ratio of the number of households in the sample, compared with the number of households known from the census, is 21, and this information is used to scale up the sample.</p>
 <p>To consider an example, perhaps we were interested in the sum of the numbers from 1 to 100. We know that our samples are of size 20, and so need to be scaled up five times (Table <a href="farm-data.html#tab:scaleup">8.1</a>).</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">illustrative_sampling_long</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">in_sample</span> <span class="op">==</span> <span class="st">"Included"</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">sampling_method</span><span class="op">)</span> |&gt;
@@ -447,7 +447,7 @@ Figure 8.3: Illustrative example of simple random sampling, systematic sampling,
 <!-- $$f:f'::\frac{n}{c+m}:\frac{n'}{c'+m'}$$ -->
 <!-- ---a result agreeable to what is advanced in the text, since the terms of the latter ratio represent the fecundity of the population. -->
 <p>In particular, a ratio estimator of some population parameter is the ratio of two means. For instance, we may have some information on the number of hours that a toddler sleeps overnight, <span class="math inline">\(x\)</span>, and the number of hours their parents sleep overnight <span class="math inline">\(y\)</span> over a 30 day period.</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
 <span class="va">sleep</span> <span class="op">&lt;-</span> 
@@ -473,7 +473,7 @@ Figure 8.3: Illustrative example of simple random sampling, systematic sampling,
 <span class="co">#&gt; 10             4          1            3</span>
 <span class="co">#&gt; # … with 20 more rows</span></code></pre></div>
 <p>And the average of each is:</p>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sleep</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>toddler_sleep_average <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">toddler_sleep</span><span class="op">)</span>,
             parent_sleep_average <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">parent_sleep</span><span class="op">)</span><span class="op">)</span>
@@ -523,11 +523,11 @@ In this chapter we cover these datasets, which we term ‘farmed data’. They a
 </h3>
 <p>The first census in Canada was conducted in 1666. There were 3,215 inhabitants that were counted, and the census asked about age, sex, marital status, and occupation <span class="citation">(<a href="references-1.html#ref-statcanhistory" role="doc-biblioref">Statistics Canada 2017</a>)</span>. In association with Confederation, in 1867 a decennial census was required so that political representatives could be allocated for the new Parliament. Regular censuses have occurred since then, the most recent in 2021.</p>
 <p>We can explore some data on languages spoken in Canada from the 2016 Census using <code>canlang</code> <span class="citation">(<a href="references-1.html#ref-canlang" role="doc-biblioref">T. Timbers 2020</a>)</span>. This package is not yet available on CRAN, and so we install it from GitHub, using <code>devtools</code> <span class="citation">(<a href="references-1.html#ref-citeDevtools" role="doc-biblioref">Wickham, Hester, and Chang 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"ttimbers/canlang"</span><span class="op">)</span></code></pre></div>
 <p>We will start with the ‘can_lang’ dataset, which provides the number of Canadians who use that language for 214 languages.</p>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ttimbers.github.io/canlang/">canlang</a></span><span class="op">)</span>
 
@@ -548,7 +548,7 @@ In this chapter we cover these datasets, which we term ‘farmed data’. They a
 <span class="co">#&gt; # … with 204 more rows, and 1 more variable:</span>
 <span class="co">#&gt; #   lang_known &lt;dbl&gt;</span></code></pre></div>
 <p>We can quickly see the top-10 most common languages to have as mother tongue.</p>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">can_lang</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="va">mother_tongue</span>, n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">language</span>, <span class="va">mother_tongue</span><span class="op">)</span>
@@ -566,7 +566,7 @@ In this chapter we cover these datasets, which we term ‘farmed data’. They a
 <span class="co">#&gt;  9 German                              384040</span>
 <span class="co">#&gt; 10 Italian                             375635</span></code></pre></div>
 <p>We could combine two datasets together ‘region_lang’ and ‘region_data’, to see if the five most-common languages differ between the largest region, Toronto, and the smallest, Belleville.</p>
-<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">region_lang</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">region_data</span>, by <span class="op">=</span> <span class="st">"region"</span><span class="op">)</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span><span class="op">)</span> |&gt;
@@ -600,26 +600,26 @@ In this chapter we cover these datasets, which we term ‘farmed data’. They a
 <p>In general, data from Canadian censuses are not as easily available as in other countries. Statistics Canada, which is the government agency that is responsible for the census and other official statistics freely provides a Individuals File from the 2016 census as a Public Use Microdata File (PUMF), but only in response to a request. And while it is a 2.7 per cent sample from the 2016 census, this PUMF provides limited detail.</p>
 <p>Another way to access data from the Canadian census is to use <code>cancensus</code> <span class="citation">(<a href="references-1.html#ref-citecancensus" role="doc-biblioref">von Bergmann, Shkolnik, and Jacobs 2021</a>)</span>. This package can be installed from CRAN. It requires an API key, which can be requested by creating an <a href="https://censusmapper.ca/users/sign_up">account</a> and then going to ‘edit profile’. The package has a helper function <code>set_api_key("ADD_YOUR_API_KEY_HERE", install = TRUE)</code> that makes it easier to add the API key to an ‘.Renviron’ file, in the same way that we did in Chapter <a href="gather-data.html#gather-data">9</a>.</p>
 <p>We can use <code>get_census()</code> to get census data. We need to specify a census of interest, and a variety of other arguments. For instance, we could get data from the 2016 census about Ontario, which is the largest Canadian province by population.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="farm-data.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb248-2"><a href="farm-data.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
-<span id="cb248-3"><a href="farm-data.html#cb248-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb248-4"><a href="farm-data.html#cb248-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
-<span id="cb248-5"><a href="farm-data.html#cb248-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
-<span id="cb248-6"><a href="farm-data.html#cb248-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
-<span id="cb248-7"><a href="farm-data.html#cb248-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
-<span id="cb248-8"><a href="farm-data.html#cb248-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
-<span id="cb248-9"><a href="farm-data.html#cb248-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
-<span id="cb248-10"><a href="farm-data.html#cb248-10" aria-hidden="true" tabindex="-1"></a>             )</span>
-<span id="cb248-11"><a href="farm-data.html#cb248-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb248-12"><a href="farm-data.html#cb248-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
-<span id="cb248-13"><a href="farm-data.html#cb248-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
-<span id="cb248-14"><a href="farm-data.html#cb248-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
-<span id="cb248-15"><a href="farm-data.html#cb248-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
-<span id="cb248-16"><a href="farm-data.html#cb248-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
-<span id="cb248-17"><a href="farm-data.html#cb248-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B</span>
-<span id="cb248-18"><a href="farm-data.html#cb248-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb248-19"><a href="farm-data.html#cb248-19" aria-hidden="true" tabindex="-1"></a>ontario_population</span>
-<span id="cb248-20"><a href="farm-data.html#cb248-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 0 × 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="farm-data.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb249-2"><a href="farm-data.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cancensus)</span>
+<span id="cb249-3"><a href="farm-data.html#cb249-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-4"><a href="farm-data.html#cb249-4" aria-hidden="true" tabindex="-1"></a>ontario_population <span class="ot">&lt;-</span> </span>
+<span id="cb249-5"><a href="farm-data.html#cb249-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_census</span>(<span class="at">dataset =</span> <span class="st">"CA16"</span>,</span>
+<span id="cb249-6"><a href="farm-data.html#cb249-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">level =</span> <span class="st">"Regions"</span>,</span>
+<span id="cb249-7"><a href="farm-data.html#cb249-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vectors =</span> <span class="st">"v_CA16_1"</span>, </span>
+<span id="cb249-8"><a href="farm-data.html#cb249-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">regions =</span> <span class="fu">list</span>(<span class="at">PR=</span><span class="fu">c</span>(<span class="st">'35'</span>)</span>
+<span id="cb249-9"><a href="farm-data.html#cb249-9" aria-hidden="true" tabindex="-1"></a>                            )</span>
+<span id="cb249-10"><a href="farm-data.html#cb249-10" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb249-11"><a href="farm-data.html#cb249-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb249-12"><a href="farm-data.html#cb249-12" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
+<span id="cb249-13"><a href="farm-data.html#cb249-13" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
+<span id="cb249-14"><a href="farm-data.html#cb249-14" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
+<span id="cb249-15"><a href="farm-data.html#cb249-15" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
+<span id="cb249-16"><a href="farm-data.html#cb249-16" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B     </span>
+<span id="cb249-17"><a href="farm-data.html#cb249-17" aria-hidden="true" tabindex="-1"></a>Downloading<span class="sc">:</span> <span class="dv">120</span> B</span>
+<span id="cb249-18"><a href="farm-data.html#cb249-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-19"><a href="farm-data.html#cb249-19" aria-hidden="true" tabindex="-1"></a>ontario_population</span>
+<span id="cb249-20"><a href="farm-data.html#cb249-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 0 × 0</span></span></code></pre></div>
 <p>Data from the 1996, 2001, 2006, 2011, and 2016 censuses are available, and <code>list_census_datasets()</code> provides the metadata that we need to provide to <code>get_census()</code> to access these. Data are available based on a variety of regions, and <code>list_census_regions()</code> provides the metadata that we need. And finally, <code>list_census_vectors()</code> provides the metadata about the variables that available.</p>
 <!-- One especially nice aspect is that the package provides access to spatial data that can be mapped. For instance, -->
 <!-- ```{r} -->
@@ -702,7 +702,7 @@ Figure 8.11: Reducing the sample size from three million responses to half a mil
 </div>
 <p>Finally, we want to include a descriptive name for the extract, for instance, ‘2022-02-06: Income based on state and age’, which specifies the date we made the extract and what is in the extract. After that we can ‘SUBMIT EXTRACT’.</p>
 <p>We will be asked to log in or create an account, and after doing that will be able to submit the request. IPUMS will email when the extract is available, after which we can download it and read it into R in the usual way. It is critical that we cite this dataset when we use it <span class="citation">(<a href="references-1.html#ref-ipumsusa" role="doc-biblioref">Ruggles et al. 2021</a>)</span>.</p>
-<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">ipums_extract</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"usa_00010.csv"</span><span class="op">)</span>
 
@@ -809,7 +809,7 @@ Figure 8.11: Reducing the sample size from three million responses to half a mil
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

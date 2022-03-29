@@ -186,29 +186,28 @@ Figure 2.1: Opening R Studio Cloud for the first time
 <p>(You will be in ‘Your Workspace’, and you will not have an ‘Example Workspace’.) From here you should start a ‘New Project’. You can give the project a name by clicking on ‘Untitled Project’ and replacing it.</p>
 <p>We will now go through three worked examples: Australian elections, Toronto homelessness, and neonatal mortality. These examples build increasing complexity, but from the first one, we will be telling a story with data.</p>
 </div>
-<div id="canadian-elections" class="section level2" number="2.2">
+<div id="australian-elections" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.2</span> Canadian elections<a class="anchor" aria-label="anchor" href="#canadian-elections"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Australian elections<a class="anchor" aria-label="anchor" href="#australian-elections"><i class="fas fa-link"></i></a>
 </h2>
-<!-- https://results.aec.gov.au/24310/Website/Downloads/HouseTppByDivisionDownload-24310.csv -->
-<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Conservative’ – three minor parties – ‘Bloc Québécois’, ‘New Democratic’, and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
+<p>Australia is a parliamentary democracy with 151 seats in the House of Representativce, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Labor’ – two minor parties – ‘National’ and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
 <div id="plan" class="section level3" number="2.2.1">
 <h3>
 <span class="header-section-number">2.2.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan"><i class="fas fa-link"></i></a>
 </h3>
 <p>For this example, we need to plan two aspects. The first is what the dataset that we need will look like, and the second is what the final graph will look like.</p>
-<p>The basic requirement for the dataset is that it has the name of the seat (sometimes called a ‘riding’ in Canada) and the party of the person elected. So, a quick sketch of the dataset that we would need could look something like Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>.</p>
+<p>The basic requirement for the dataset is that it has the name of the seat (sometimes called a ‘division’ in Australia) and the party of the person elected. So, a quick sketch of the dataset that we would need could look something like Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:canadaexampledata"></span>
-<img src="figures/IMG_1815.png" alt="Quick sketch of a dataset that could be useful for analysing Canadian elections" width="40%"><p class="caption">
-Figure 2.2: Quick sketch of a dataset that could be useful for analysing Canadian elections
+<img src="figures/IMG_1815.png" alt="Quick sketch of a dataset that could be useful for analysing Australian elections" width="40%"><p class="caption">
+Figure 2.2: Quick sketch of a dataset that could be useful for analysing Australian elections
 </p>
 </div>
 <p>We also need to plan the graph that we are interested in. Given we want to display the number of seats that each party won, a quick sketch of what we might aim for is Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampletable">2.3</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:canadaexampletable"></span>
-<img src="figures/IMG_1814.png" alt="Quick sketch of a possible graph of the number of ridings won by each party" width="75%"><p class="caption">
-Figure 2.3: Quick sketch of a possible graph of the number of ridings won by each party
+<img src="figures/IMG_1814.png" alt="Quick sketch of a possible graph of the number of seats won by each party" width="75%"><p class="caption">
+Figure 2.3: Quick sketch of a possible graph of the number of seats won by each party
 </p>
 </div>
 </div>
@@ -217,7 +216,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="header-section-number">2.2.2</span> Simulate<a class="anchor" aria-label="anchor" href="#simulate"><i class="fas fa-link"></i></a>
 </h3>
 <p>We now simulate some data, to bring some specificity to our sketches.</p>
-<p>To get started, within R Studio Cloud, make a new R Markdown file (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown’). When you do this, you will be asked to install some packages, which you should agree to. For this example, we will put everything into this one R Markdown document. You should save it as ‘canadian_elections.Rmd’ (‘File’ -&gt; ‘Save As…’)</p>
+<p>To get started, within R Studio Cloud, make a new R Markdown file (‘File’ -&gt; ‘New File’ -&gt; ‘R Markdown’). When you do this, you will be asked to install some packages, which you should agree to. For this example, we will put everything into this one R Markdown document. You should save it as ‘australian_elections.Rmd’ (‘File’ -&gt; ‘Save As…’)</p>
 <p>In the R Markdown document create a new R code chunk (‘Code’ -&gt; ‘Insert Chunk’) and add preamble documentation that explains:</p>
 <ul>
 <li>the purpose of the document;</li>
@@ -228,12 +227,12 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <p>In R, lines that start with ‘#’ are comments. This means that they are not run as code by R, but are instead designed to be read by humans. Each line of this preamble should start with a ‘#’. Also make it clear that this is the preamble section by surrounding that with ‘####’.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
-<span class="co"># Purpose: Read in data from the 2019 Canadian Election and make a</span>
-<span class="co"># graph of the number of ridings each party won.</span>
+<span class="co"># Purpose: Read in data from the 2019 Australian Election and make a</span>
+<span class="co"># graph of the number of seats each party won.</span>
 <span class="co"># Author: Rohan Alexander</span>
 <span class="co"># Email: rohan.alexander@utoronto.ca</span>
 <span class="co"># Date: 1 January 2022</span>
-<span class="co"># Prerequisites: Need to know where to get Canadian elections data.</span></code></pre></div>
+<span class="co"># Prerequisites: Need to know where to get Australian elections data.</span></code></pre></div>
 <p>After this we need to set-up the workspace. This involves installing and loading any packages that will be needed. A package only needs to be installed once for each computer, but needs to be loaded each time it is to be used. In this case we are going to use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>. They will need to be installed because this is the first time they are being used, and then each will need to be loaded.</p>
 <p>An example of installing the packages follows (excessive comments have been added to be clear about what is going on; in general, this level of commenting is unnecessary). Run this code by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -252,103 +251,113 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sfirke/janitor">janitor</a></span><span class="op">)</span> <span class="co"># Helps clean datasets</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co"># Helps make tidy datasets</span></code></pre></div>
 <p>All packages contain a help file that provides information about them and their functions. It can be accessed by appending a question mark before the package name and then running that code. For instance <code><a href="https://tidyverse.tidyverse.org/reference/tidyverse-package.html">?tidyverse</a></code>.</p>
-<p>To simulate our data, we need to create a dataset with two columns: ‘Riding’ and ‘Party’, and some values for each. In the case of ‘Riding’ reasonable values would be a name of one of the 338 Canadian ridings. In the case of ‘Party’ reasonable values would be one of the following six: ‘Liberal’, ‘Conservative’, ‘Bloc Québécois’, ‘New Democratic’, ‘Green’, ‘Other’. Again, this code can be run by clicking the small green arrow associated with the R code chunk.</p>
+<p>To simulate our data, we need to create a dataset with two columns: ‘Division’ and ‘Party’, and some values for each. In the case of ‘Division’ reasonable values would be a name of one of the 151 Australian divisions. In the case of ‘Party’ reasonable values would be one of the following five: ‘Liberal’, ‘Labor’, ‘National’, ‘Green’, ‘Other’. Again, this code can be run by clicking the small green arrow associated with the R code chunk.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">simulated_data</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-    <span class="co"># Use 1 through to 338 to represent each riding</span>
-    <span class="st">'Riding'</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">338</span>,
-    <span class="co"># Randomly choose one of six options, with replacement, 338 times</span>
+    <span class="co"># Use 1 through to 151 to represent each riding</span>
+    <span class="st">'Riding'</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">151</span>,
+    <span class="co"># Randomly choose one of five options, with replacement, 151 times</span>
     <span class="st">'Party'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>
       x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
-        <span class="st">'Liberal'</span>,
-        <span class="st">'Conservative'</span>,
-        <span class="st">'Bloc Québécois'</span>,
-        <span class="st">'New Democratic'</span>,
-        <span class="st">'Green'</span>,
+        <span class="st">'Liberal'</span>, 
+        <span class="st">'Labor'</span>, 
+        <span class="st">'National'</span>, 
+        <span class="st">'Green'</span>, 
         <span class="st">'Other'</span>
       <span class="op">)</span>,
-      size <span class="op">=</span> <span class="fl">338</span>,
+      size <span class="op">=</span> <span class="fl">151</span>,
       replace <span class="op">=</span> <span class="cn">TRUE</span>
     <span class="op">)</span><span class="op">)</span>
 
 <span class="va">simulated_data</span>
-<span class="co">#&gt; # A tibble: 338 × 2</span>
-<span class="co">#&gt;    Riding Party         </span>
-<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;         </span>
-<span class="co">#&gt;  1      1 New Democratic</span>
-<span class="co">#&gt;  2      2 Bloc Québécois</span>
-<span class="co">#&gt;  3      3 Green         </span>
-<span class="co">#&gt;  4      4 Liberal       </span>
-<span class="co">#&gt;  5      5 Liberal       </span>
-<span class="co">#&gt;  6      6 Liberal       </span>
-<span class="co">#&gt;  7      7 Green         </span>
-<span class="co">#&gt;  8      8 Conservative  </span>
-<span class="co">#&gt;  9      9 Conservative  </span>
-<span class="co">#&gt; 10     10 New Democratic</span>
-<span class="co">#&gt; # … with 328 more rows</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 151 × 2</span>
+<span class="co">#&gt;    Riding Party   </span>
+<span class="co">#&gt;     &lt;int&gt; &lt;chr&gt;   </span>
+<span class="co">#&gt;  1      1 Liberal </span>
+<span class="co">#&gt;  2      2 Other   </span>
+<span class="co">#&gt;  3      3 Green   </span>
+<span class="co">#&gt;  4      4 National</span>
+<span class="co">#&gt;  5      5 National</span>
+<span class="co">#&gt;  6      6 Other   </span>
+<span class="co">#&gt;  7      7 Other   </span>
+<span class="co">#&gt;  8      8 National</span>
+<span class="co">#&gt;  9      9 Other   </span>
+<span class="co">#&gt; 10     10 Labor   </span>
+<span class="co">#&gt; # … with 141 more rows</span></code></pre></div>
+<p>At a certain point, your code will not run and you will want to ask others for help. We will discuss how to do this in Chapter <a href="reproducible-workflows.html#reproducible-workflows">4</a>, but for now, if you need help, then you should create a GitHub Gist. The first step is to create an account on GitHub: <a href="https://github.com" class="uri">https://github.com</a> (Figure <a href="drinking-from-a-fire-hose.html#fig:githubone">2.4</a>).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:githubone"></span>
+<img src="figures/github_1.png" alt="GitHub sign-up screen" width="95%"><p class="caption">
+Figure 2.4: GitHub sign-up screen
+</p>
+</div>
+<p>Then look for a ‘+’ in the top right, and then select ‘New gist’. It will look similar to Figure <a href="drinking-from-a-fire-hose.html#fig:githubgistone">2.5</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:githubgistone"></span>
+<img src="figures/githubgistone.png" alt="New GitHub Gist" width="95%"><p class="caption">
+Figure 2.5: New GitHub Gist
+</p>
+</div>
+<p>Then add all the code to that gist, not just the final bit that is giving an error. And give it a meaningful filename that includes ‘.R’ at the end, for instance, ‘australian_elections.R’. In Figure <a href="drinking-from-a-fire-hose.html#fig:githubgisttwo">2.6</a>, we have incorrect capitalization <code><a href="https://rdrr.io/r/base/library.html">library(Tidyverse)</a></code>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:githubgisttwo"></span>
+<img src="figures/githubgisttwo.png" alt="Create a public GitHub Gist to share code" width="95%"><p class="caption">
+Figure 2.6: Create a public GitHub Gist to share code
+</p>
+</div>
+<p>Click ‘Create public gist’. We can then share the URL to this Gist, explain what the problem is, and what we are trying to achieve. It will be much easier to help, because all the code is available.</p>
 </div>
 <div id="acquire" class="section level3" number="2.2.3">
 <h3>
 <span class="header-section-number">2.2.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now we want to get the actual data. The data we need is from Elections Canada, which is the non-partisan agency that organizes Canadian Federal elections. We can pass a website to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>. We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>. The ‘&lt;-’ or ‘assignment operator’ is allocating the output of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to an object called ‘raw_elections_data’.</p>
+<p>Now we want to get the actual data. The data we need is from the Australian Electoral Commission (AEC), which is the non-partisan agency that organizes Australian federal elections. We can pass a website to <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the <code>readr</code> package <span class="citation">(<a href="references-1.html#ref-citereadr" role="doc-biblioref">Wickham, Hester, and Bryan 2021</a>)</span>. We do not need to explicitly load the <code>readr</code> package because it is part of the <code>tidyverse</code>. The ‘&lt;-’ or ‘assignment operator’ is allocating the output of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to an object called ‘raw_elections_data’.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Read in the data ####</span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
     file <span class="op">=</span>
-      <span class="st">"https://www.elections.ca/res/rep/off/ovr2019app/51/data_donnees/table_tableau11.csv"</span>,
-    show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
+      <span class="st">"https://results.aec.gov.au/24310/Website/Downloads/HouseMembersElectedDownload-24310.csv"</span>,
+    show_col_types <span class="op">=</span> <span class="cn">FALSE</span>,
+    skip <span class="op">=</span> <span class="fl">1</span>
     <span class="op">)</span> 
 
-<span class="co"># We have read the data from the Elections Canada website. We may like</span>
+<span class="co"># We have read the data from the AEC website. We may like</span>
 <span class="co"># to save it in case something happens or they move it. </span>
 <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">raw_elections_data</span>, 
-  file <span class="op">=</span> <span class="st">"canadian_voting.csv"</span>
+  file <span class="op">=</span> <span class="st">"australian_voting.csv"</span>
   <span class="op">)</span></code></pre></div>
 <p>We can take a quick look at the dataset using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> which will show the first six rows, and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> which will show the last six rows.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_elections_data</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   Province      `Electoral Dis…` `Electoral Dis…` Population</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Newfoundland… Avalon                      10001      86494</span>
-<span class="co">#&gt; 2 Newfoundland… Bonavista--Buri…            10002      74116</span>
-<span class="co">#&gt; 3 Newfoundland… Coast of Bays--…            10003      77680</span>
-<span class="co">#&gt; 4 Newfoundland… Labrador                    10004      27197</span>
-<span class="co">#&gt; 5 Newfoundland… Long Range Moun…            10005      86553</span>
-<span class="co">#&gt; 6 Newfoundland… St. John's East…            10006      85697</span>
-<span class="co">#&gt; # … with 9 more variables: `Electors/Électeurs` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Polling Stations/Bureaux de scrutin` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Valid Ballots/Bulletins valides` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Rejected Ballots/Bulletins rejetés` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Total Ballots Cast/Total des bulletins déposés` &lt;dbl&gt;, …</span>
+<span class="co">#&gt; # A tibble: 6 × 8</span>
+<span class="co">#&gt;   DivisionID DivisionNm StateAb CandidateID GivenNm  Surname</span>
+<span class="co">#&gt;        &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  </span>
+<span class="co">#&gt; 1        179 Adelaide   SA            33019 Steve    GEORGA…</span>
+<span class="co">#&gt; 2        197 Aston      VIC           33330 Alan     TUDGE  </span>
+<span class="co">#&gt; 3        198 Ballarat   VIC           32326 Catheri… KING   </span>
+<span class="co">#&gt; 4        103 Banks      NSW           33334 David    COLEMAN</span>
+<span class="co">#&gt; 5        180 Barker     SA            33042 Tony     PASIN  </span>
+<span class="co">#&gt; 6        104 Barton     NSW           32681 Linda    BURNEY </span>
+<span class="co">#&gt; # … with 2 more variables: PartyNm &lt;chr&gt;, PartyAb &lt;chr&gt;</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">raw_elections_data</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   Province      `Electoral Dis…` `Electoral Dis…` Population</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 British Colu… Vancouver South…            59040     102927</span>
-<span class="co">#&gt; 2 British Colu… Victoria                    59041     117133</span>
-<span class="co">#&gt; 3 British Colu… West Vancouver-…            59042     119113</span>
-<span class="co">#&gt; 4 Yukon         Yukon                       60001      35874</span>
-<span class="co">#&gt; 5 Northwest Te… Northwest Terri…            61001      41786</span>
-<span class="co">#&gt; 6 Nunavut       Nunavut                     62001      35944</span>
-<span class="co">#&gt; # … with 9 more variables: `Electors/Électeurs` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Polling Stations/Bureaux de scrutin` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Valid Ballots/Bulletins valides` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Percentage of Valid Ballots /Pourcentage des bulletins valides` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Rejected Ballots/Bulletins rejetés` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Percentage of Rejected Ballots /Pourcentage des bulletins rejetés` &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   `Total Ballots Cast/Total des bulletins déposés` &lt;dbl&gt;, …</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 6 × 8</span>
+<span class="co">#&gt;   DivisionID DivisionNm StateAb CandidateID GivenNm  Surname</span>
+<span class="co">#&gt;        &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;  </span>
+<span class="co">#&gt; 1        152 Wentworth  NSW           33218 Dave     SHARMA </span>
+<span class="co">#&gt; 2        153 Werriwa    NSW           32756 Anne Ma… STANLEY</span>
+<span class="co">#&gt; 3        150 Whitlam    NSW           32632 Stephen  JONES  </span>
+<span class="co">#&gt; 4        178 Wide Bay   QLD           33200 Llew     O'BRIEN</span>
+<span class="co">#&gt; 5        234 Wills      VIC           32350 Peter    KHALIL </span>
+<span class="co">#&gt; 6        316 Wright     QLD           33376 Scott    BUCHHO…</span>
+<span class="co">#&gt; # … with 2 more variables: PartyNm &lt;chr&gt;, PartyAb &lt;chr&gt;</span></code></pre></div>
 <p>We need to clean the data so that we can use it. We are trying to make it similar to the dataset that we thought we wanted in the planning stage. While it is fine to move away from the plan, this needs to be a deliberate, reasoned, decision. After reading in the dataset that we saved, the first thing that we will do is adjust the names to make them easier to type. Removing the spaces helps to type column names. We will do this using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code> from <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span> which changes the names into ‘snake_case’.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Basic cleaning ####</span>
 <span class="va">raw_elections_data</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"canadian_voting.csv"</span>,
+  <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"australian_voting.csv"</span>,
            show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
            <span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -358,125 +367,109 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 
 <span class="co"># Have a look at the first six rows</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 13</span>
-<span class="co">#&gt;   province      electoral_distr… electoral_distr… population</span>
-<span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 Newfoundland… Avalon                      10001      86494</span>
-<span class="co">#&gt; 2 Newfoundland… Bonavista--Buri…            10002      74116</span>
-<span class="co">#&gt; 3 Newfoundland… Coast of Bays--…            10003      77680</span>
-<span class="co">#&gt; 4 Newfoundland… Labrador                    10004      27197</span>
-<span class="co">#&gt; 5 Newfoundland… Long Range Moun…            10005      86553</span>
-<span class="co">#&gt; 6 Newfoundland… St. John's East…            10006      85697</span>
-<span class="co">#&gt; # … with 9 more variables: electors_electeurs &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   polling_stations_bureaux_de_scrutin &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   valid_ballots_bulletins_valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   percentage_of_valid_ballots_pourcentage_des_bulletins_valides &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   rejected_ballots_bulletins_rejetes &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   percentage_of_rejected_ballots_pourcentage_des_bulletins_rejetes &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   total_ballots_cast_total_des_bulletins_deposes &lt;dbl&gt;, …</span></code></pre></div>
+<span class="co">#&gt; # A tibble: 6 × 8</span>
+<span class="co">#&gt;   division_id division_nm state_ab candidate_id given_nm </span>
+<span class="co">#&gt;         &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;    </span>
+<span class="co">#&gt; 1         179 Adelaide    SA              33019 Steve    </span>
+<span class="co">#&gt; 2         197 Aston       VIC             33330 Alan     </span>
+<span class="co">#&gt; 3         198 Ballarat    VIC             32326 Catherine</span>
+<span class="co">#&gt; 4         103 Banks       NSW             33334 David    </span>
+<span class="co">#&gt; 5         180 Barker      SA              33042 Tony     </span>
+<span class="co">#&gt; 6         104 Barton      NSW             32681 Linda    </span>
+<span class="co">#&gt; # … with 3 more variables: surname &lt;chr&gt;, party_nm &lt;chr&gt;,</span>
+<span class="co">#&gt; #   party_ab &lt;chr&gt;</span></code></pre></div>
 <p>The names are faster to type because R Studio will auto-complete them. To do this, we begin typing the name of a column and then use ‘tab’ to auto-complete it.</p>
-<p>There are many columns in the dataset, and we are primarily interested in two: ‘electoral_district_name_nom_de_circonscription’, and ‘elected_candidate_candidat_elu’. We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> which we loaded as part of the <code>tidyverse</code>. The ‘pipe operator’, <code>|&gt;</code>, pushes the output of one line to be the first input of the function on the next line.</p>
+<p>There are many columns in the dataset, and we are primarily interested in two: ‘division_nm’, and ‘party_nm’. We can choose certain columns of interest using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span> which we loaded as part of the <code>tidyverse</code>. The ‘pipe operator’, <code>|&gt;</code>, pushes the output of one line to be the first input of the function on the next line.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="co"># Select only certain columns</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">electoral_district_name_nom_de_circonscription</span>,
-         <span class="va">elected_candidate_candidat_elu</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">division_nm</span>,
+         <span class="va">party_nm</span>
          <span class="op">)</span>
 
 <span class="co"># Have a look at the first six rows</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   electoral_district_name_nom_de_circonscr… elected_candida…</span>
-<span class="co">#&gt;   &lt;chr&gt;                                     &lt;chr&gt;           </span>
-<span class="co">#&gt; 1 Avalon                                    McDonald, Kenne…</span>
-<span class="co">#&gt; 2 Bonavista--Burin--Trinity                 Rogers, Churenc…</span>
-<span class="co">#&gt; 3 Coast of Bays--Central--Notre Dame        Simms, Scott Li…</span>
-<span class="co">#&gt; 4 Labrador                                  Jones, Yvonne L…</span>
-<span class="co">#&gt; 5 Long Range Mountains                      Hutchings, Gudi…</span>
-<span class="co">#&gt; 6 St. John's East/St. John's-Est            Harris, Jack ND…</span></code></pre></div>
-<p>Some of the names of the columns are still quite long because they have both English and French in them. We can look at the names of the columns with <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>. And we can change the names using <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
+<span class="co">#&gt;   division_nm party_nm              </span>
+<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;                 </span>
+<span class="co">#&gt; 1 Adelaide    Australian Labor Party</span>
+<span class="co">#&gt; 2 Aston       Liberal               </span>
+<span class="co">#&gt; 3 Ballarat    Australian Labor Party</span>
+<span class="co">#&gt; 4 Banks       Liberal               </span>
+<span class="co">#&gt; 5 Barker      Liberal               </span>
+<span class="co">#&gt; 6 Barton      Australian Labor Party</span></code></pre></div>
+<p>Some of the names of the columns are still not obvious because they are abbreviated. We can look at the names of the columns with <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>. And we can change the names using <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
-<span class="co">#&gt; [1] "electoral_district_name_nom_de_circonscription"</span>
-<span class="co">#&gt; [2] "elected_candidate_candidat_elu"</span></code></pre></div>
+<span class="co">#&gt; [1] "division_nm" "party_nm"</span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_elections_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>
-    riding <span class="op">=</span> <span class="va">electoral_district_name_nom_de_circonscription</span>,
-    elected_candidate <span class="op">=</span> <span class="va">elected_candidate_candidat_elu</span>
+    division <span class="op">=</span> <span class="va">division_nm</span>,
+    elected_party <span class="op">=</span> <span class="va">party_nm</span>
     <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   riding                             elected_candidate      </span>
-<span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;                  </span>
-<span class="co">#&gt; 1 Avalon                             McDonald, Kenneth Libe…</span>
-<span class="co">#&gt; 2 Bonavista--Burin--Trinity          Rogers, Churence Liber…</span>
-<span class="co">#&gt; 3 Coast of Bays--Central--Notre Dame Simms, Scott Liberal/L…</span>
-<span class="co">#&gt; 4 Labrador                           Jones, Yvonne Liberal/…</span>
-<span class="co">#&gt; 5 Long Range Mountains               Hutchings, Gudie Liber…</span>
-<span class="co">#&gt; 6 St. John's East/St. John's-Est     Harris, Jack NDP-New D…</span></code></pre></div>
-<p>We will now look at this dataset, and the ‘elected_candidate’ column in particular.</p>
+<span class="co">#&gt;   division elected_party         </span>
+<span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;                 </span>
+<span class="co">#&gt; 1 Adelaide Australian Labor Party</span>
+<span class="co">#&gt; 2 Aston    Liberal               </span>
+<span class="co">#&gt; 3 Ballarat Australian Labor Party</span>
+<span class="co">#&gt; 4 Banks    Liberal               </span>
+<span class="co">#&gt; 5 Barker   Liberal               </span>
+<span class="co">#&gt; 6 Barton   Australian Labor Party</span></code></pre></div>
+<p>We will now look at this dataset, and the ‘elected_party’ column in particular.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">$</span><span class="va">elected_candidate</span><span class="op">)</span>
-<span class="co">#&gt; [1] "McDonald, Kenneth Liberal/Libéral"                                   </span>
-<span class="co">#&gt; [2] "Rogers, Churence Liberal/Libéral"                                    </span>
-<span class="co">#&gt; [3] "Simms, Scott Liberal/Libéral"                                        </span>
-<span class="co">#&gt; [4] "Jones, Yvonne Liberal/Libéral"                                       </span>
-<span class="co">#&gt; [5] "Hutchings, Gudie Liberal/Libéral"                                    </span>
-<span class="co">#&gt; [6] "Harris, Jack NDP-New Democratic Party/NPD-Nouveau Parti démocratique"</span></code></pre></div>
-<p>We can see that we have the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. We can break-up this column into its pieces using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">$</span><span class="va">elected_party</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Australian Labor Party" "Liberal"               </span>
+<span class="co">#&gt; [3] "Australian Labor Party" "Liberal"               </span>
+<span class="co">#&gt; [5] "Liberal"                "Australian Labor Party"</span></code></pre></div>
+<!-- We can see that we have the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. We can break-up this column into its pieces using `separate()` from `tidyr` [@citetidyr]. -->
+<!-- ```{r} -->
+<!-- cleaned_elections_data <-  -->
+<!--   cleaned_elections_data |>  -->
+<!--   # Separate the column into two based on the slash -->
+<!--   separate(col = elected_candidate, -->
+<!--            into = c('other', 'party'), -->
+<!--            sep = '/') |>  -->
+<!--   # Remove the 'other' column -->
+<!--   select(-other) -->
+<!-- head(cleaned_elections_data) -->
+<!-- ``` -->
+<p>Finally we want to simplify the party names to match what we simulated, using <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
-  <span class="va">cleaned_elections_data</span> |&gt; 
-  <span class="co"># Separate the column into two based on the slash</span>
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">elected_candidate</span>,
-           into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'other'</span>, <span class="st">'party'</span><span class="op">)</span>,
-           sep <span class="op">=</span> <span class="st">'/'</span><span class="op">)</span> |&gt; 
-  <span class="co"># Remove the 'other' column</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">other</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   riding                             party                  </span>
-<span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;                  </span>
-<span class="co">#&gt; 1 Avalon                             Libéral                </span>
-<span class="co">#&gt; 2 Bonavista--Burin--Trinity          Libéral                </span>
-<span class="co">#&gt; 3 Coast of Bays--Central--Notre Dame Libéral                </span>
-<span class="co">#&gt; 4 Labrador                           Libéral                </span>
-<span class="co">#&gt; 5 Long Range Mountains               Libéral                </span>
-<span class="co">#&gt; 6 St. John's East/St. John's-Est     NPD-Nouveau Parti démo…</span></code></pre></div>
-<p>Finally we want to change the party names from French to English to match what we simulated, using <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span>
   <span class="va">cleaned_elections_data</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
-    party <span class="op">=</span>
+    elected_party <span class="op">=</span>
       <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span>
-        <span class="va">party</span>,
-        <span class="st">'Conservateur'</span> <span class="op">=</span> <span class="st">'Conservative'</span>,
-        <span class="st">'Indépendant(e)'</span> <span class="op">=</span> <span class="st">'Other'</span>,
-        <span class="st">'Libéral'</span> <span class="op">=</span> <span class="st">'Liberal'</span>,
-        <span class="st">'NPD-Nouveau Parti démocratique'</span> <span class="op">=</span> <span class="st">'New Democratic'</span>,
-        <span class="st">'Parti Vert'</span> <span class="op">=</span> <span class="st">'Green'</span>
+        <span class="va">elected_party</span>,
+        <span class="st">"Australian Labor Party"</span> <span class="op">=</span> <span class="st">"Labor"</span>,
+        <span class="st">"Liberal National Party"</span> <span class="op">=</span> <span class="st">"Liberal"</span>,
+        <span class="st">"The Nationals"</span> <span class="op">=</span> <span class="st">"Nationals"</span>,
+        <span class="st">"The Greens"</span> <span class="op">=</span> <span class="st">"Greens"</span>,
+        <span class="st">"Independent"</span> <span class="op">=</span> <span class="st">"Other"</span>,
+        <span class="st">"Katter's Australian Party (KAP)"</span> <span class="op">=</span> <span class="st">"Other"</span>,
+        <span class="st">"Centre Alliance"</span> <span class="op">=</span> <span class="st">"Other"</span>
       <span class="op">)</span>
   <span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cleaned_elections_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   riding                             party         </span>
-<span class="co">#&gt;   &lt;chr&gt;                              &lt;chr&gt;         </span>
-<span class="co">#&gt; 1 Avalon                             Liberal       </span>
-<span class="co">#&gt; 2 Bonavista--Burin--Trinity          Liberal       </span>
-<span class="co">#&gt; 3 Coast of Bays--Central--Notre Dame Liberal       </span>
-<span class="co">#&gt; 4 Labrador                           Liberal       </span>
-<span class="co">#&gt; 5 Long Range Mountains               Liberal       </span>
-<span class="co">#&gt; 6 St. John's East/St. John's-Est     New Democratic</span></code></pre></div>
-<p>Our data now matches our plan (Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>) pretty well. For every electoral district we have the party of the person that won it.</p>
+<span class="co">#&gt;   division elected_party</span>
+<span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        </span>
+<span class="co">#&gt; 1 Adelaide Labor        </span>
+<span class="co">#&gt; 2 Aston    Liberal      </span>
+<span class="co">#&gt; 3 Ballarat Labor        </span>
+<span class="co">#&gt; 4 Banks    Liberal      </span>
+<span class="co">#&gt; 5 Barker   Liberal      </span>
+<span class="co">#&gt; 6 Barton   Labor</span></code></pre></div>
+<p>Our data now matches our plan (Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampledata">2.2</a>) pretty well. For every electoral division we have the party of the person that won it.</p>
 <p>Having now nicely cleaned the dataset, we should save it, so that we can start with that cleaned dataset in the next stage.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">cleaned_elections_data</span>,
   file <span class="op">=</span> <span class="st">"cleaned_elections_data.csv"</span>
@@ -488,7 +481,7 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
 </h3>
 <p>At this point we would like to explore the dataset that we created. One way to better understand a dataset is to make a graph. In particular, here we would like to build the graph that we planned in Figure <a href="drinking-from-a-fire-hose.html#fig:canadaexampletable">2.3</a>.</p>
 <p>First, we read in the dataset that we just created.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Read in the data ####</span>
 <span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -496,29 +489,28 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
 <p>We can get a quick count of how many seats each party won using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">elected_party</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 5 × 2</span>
+<span class="co">#&gt;   elected_party     n</span>
+<span class="co">#&gt;   &lt;chr&gt;         &lt;int&gt;</span>
+<span class="co">#&gt; 1 Greens            1</span>
+<span class="co">#&gt; 2 Labor            68</span>
+<span class="co">#&gt; 3 Liberal          67</span>
+<span class="co">#&gt; 4 Nationals        10</span>
+<span class="co">#&gt; 5 Other             5</span></code></pre></div>
+<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that we build graphs by adding layers using ‘+’, which we call the ‘add operator’. In particular we will create a bar chart using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">party</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 2</span>
-<span class="co">#&gt;   party              n</span>
-<span class="co">#&gt;   &lt;chr&gt;          &lt;int&gt;</span>
-<span class="co">#&gt; 1 Bloc Québécois    32</span>
-<span class="co">#&gt; 2 Conservative     121</span>
-<span class="co">#&gt; 3 Green              3</span>
-<span class="co">#&gt; 4 Liberal          157</span>
-<span class="co">#&gt; 5 New Democratic    24</span>
-<span class="co">#&gt; 6 Other              1</span></code></pre></div>
-<p>To build the graph that we are interested in, we will rely on the <code>ggplot2</code> package <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>. The key aspect of this package is that we build graphs by adding layers using ‘+’, which we call the ‘add operator’. In particular we will create a bar chart using <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> from <code>ggplot2</code> <span class="citation">(<a href="references-1.html#ref-citeggplot" role="doc-biblioref">Wickham 2016</a>)</span>.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># aes abbreviates aesthetics and enables us </span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">elected_party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># aes abbreviates aesthetics and enables us </span>
   <span class="co"># to specify the x axis variable</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="02-drinking_from_a_fire_hose_files/figure-html/unnamed-chunk-24-1.png" width="672"></div>
-<p>This accomplishes what we set out to do. But we can make it look a bit nicer by modifying the default options (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.4</a>).</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="02-drinking_from_a_fire_hose_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
+<p>This accomplishes what we set out to do. But we can make it look a bit nicer by modifying the default options (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.7</a>).</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_elections_data</span> |&gt; 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">elected_party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Make the theme neater</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co"># Swap the x and y axis to make parties easier to read</span>
@@ -526,8 +518,8 @@ Figure 2.3: Quick sketch of a possible graph of the number of ridings won by eac
        y <span class="op">=</span> <span class="st">"Number of seats"</span><span class="op">)</span> <span class="co"># Make the labels more meaningful</span></code></pre></div>
 <div class="figure">
 <span style="display:block;" id="fig:canadanice"></span>
-<img src="02-drinking_from_a_fire_hose_files/figure-html/canadanice-1.png" alt="Number of seats won, by political party, at the 2019 Canadian Federal Election" width="672"><p class="caption">
-Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federal Election
+<img src="02-drinking_from_a_fire_hose_files/figure-html/canadanice-1.png" alt="Number of seats won, by political party, at the 2019 Australian Federal Election" width="672"><p class="caption">
+Figure 2.7: Number of seats won, by political party, at the 2019 Australian Federal Election
 </p>
 </div>
 </div>
@@ -537,10 +529,10 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 </h3>
 <p>To this point we have downloaded some data, cleaned it, and made a graph. We would typically need to communicate what we have done at some length. In this case, we can write a few paragraphs about what we did, why we did it, and what we found. An example follows.</p>
 <blockquote>
-<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the house that forms government. There are two major parties—‘Liberal’ and ‘Conservative’—three minor parties—‘Bloc Québécois’, ‘New Democratic’, and ‘Green’—and many smaller parties. The 2019 Federal Election occurred on 21 October, and more than 17 million votes were cast. We were interested in the number of seats that were won by each party.</p>
-<p>We downloaded the results, on a seat-specific basis, from the Elections Canada website. We cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span> and <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. We then created a graph of the number of seats that each political party won (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.4</a>).</p>
-<p>We found that the Liberal Party won 157 seats, followed by the Conservative Party with 121 seats. The minor parties won the following number of seats: Bloc Québécois, 32 seats, New Democratic Party, 24 seats, and the Green Party, 3 seats. Finally, one independent candidate won a seat.</p>
-<p>The distribution of seats is skewed toward the two major parties which could reflect relatively stable preferences on the part of Canadian voters, or possibly inertia due to the benefits of already being a major party such a national network and funding, or some other reason. A better understanding the reasons for this distribution are of interest in future work. While the dataset consists of everyone who voted, it worth noting that in Canada some are systematically excluded from voting; and it is much difficult for some to vote than others.</p>
+<p>Australia is a parliamentary democracy with 151 seats in the House of Commons, which is the house that forms government. There are two major parties—‘Liberal’ and ‘Labor’—two minor parties—‘Nationals’ and ‘Greens’—and many smaller parties. The 2019 Federal Election occurred on 18 May, and more than 14 million votes were cast. We were interested in the number of seats that were won by each party.</p>
+<p>We downloaded the results, on a seat-specific basis, from the Australian Electoral Commission website. We cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span> as well as the packages <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-citetidyverse" role="doc-biblioref">Wickham et al. 2019a</a>)</span> and <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>. We then created a graph of the number of seats that each political party won (Figure <a href="drinking-from-a-fire-hose.html#fig:canadanice">2.7</a>).</p>
+<p>We found that the Labor Party won 68 seats, followed by the Liberal Party with 67 seats. The minor parties won the following number of seats: Nationals, 10 seats and the Green Party, 1 seats. Finally, candidates from five other parties were elected.</p>
+<p>The distribution of seats is skewed toward the two major parties which could reflect relatively stable preferences on the part of Australian voters, or possibly inertia due to the benefits of already being a major party such a national network and funding, or some other reason. A better understanding the reasons for this distribution are of interest in future work. While the dataset consists of everyone who voted, it worth noting that in Australia some are systematically excluded from voting; and it is much difficult for some to vote than others.</p>
 </blockquote>
 </div>
 </div>
@@ -553,18 +545,18 @@ Figure 2.4: Number of seats won, by political party, at the 2019 Canadian Federa
 <h3>
 <span class="header-section-number">2.3.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>The dataset that we are interested in would need to have date, the shelter, and the number of beds that were occupied that night. A quick sketch of a dataset that would work is Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>.</p>
+<p>The dataset that we are interested in would need to have date, the shelter, and the number of beds that were occupied that night. A quick sketch of a dataset that would work is Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.8</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:torontohomelessdataplan"></span>
 <img src="figures/IMG_1817.png" alt="Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto" width="50%"><p class="caption">
-Figure 2.5: Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto
+Figure 2.8: Quick sketch of a dataset that could be useful for understanding shelter usage in Toronto
 </p>
 </div>
-<p>We are interested in creating a table that has the monthly average number of beds occupied each night. The table would probably look something like Figure <a href="drinking-from-a-fire-hose.html#fig:houselessexampletable">2.6</a>.</p>
+<p>We are interested in creating a table that has the monthly average number of beds occupied each night. The table would probably look something like Figure <a href="drinking-from-a-fire-hose.html#fig:houselessexampletable">2.9</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:houselessexampletable"></span>
 <img src="figures/IMG_1818.png" alt="Quick sketch of a table of the average number of beds occupied each month" width="50%"><p class="caption">
-Figure 2.6: Quick sketch of a table of the average number of beds occupied each month
+Figure 2.9: Quick sketch of a table of the average number of beds occupied each month
 </p>
 </div>
 </div>
@@ -574,7 +566,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 </h3>
 <p>The next step is to simulate some data that could resemble our dataset.</p>
 <p>Within R Studio Cloud make a new R Markdown file, save it, and make a new R code chunk and add preamble documentation. Then install and/or load the libraries that are needed. We will again use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>. As those were installed earlier, they do not need to be installed again. In this example we will also use <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>, which is part of the <code>tidyverse</code> and so it does not need to be installed independently. We will also use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span>, and <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> and these will need to be installed.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
 <span class="co"># Purpose: Get data about 2021 houseless shelter usage and make a table</span>
 <span class="co"># Author: Rohan Alexander</span>
@@ -595,7 +587,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></code></pre></div>
 <p>To add a bit more detail to the earlier example, libraries contain code that other people have written. There are a few common ones that you will see regularly, especially the <code>tidyverse</code>. To use a package, we must first install it and then we need to load it. A package only needs to be installed once per computer but must be loaded every time. So, the packages that we installed earlier do not need to be reinstalled here.</p>
 <p>Given that folks freely gave up their time to make <code>R</code> and the packages that we use, it is important to cite them. To get the information that is needed, we can use <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>. When run without any arguments, that provides the citation information for <code>R</code> itself, and when run with an argument that is the name of a package, it provides the citation information for that package.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Get the citation information for R</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To cite R in publications use:</span>
@@ -638,7 +630,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt;     doi = {10.21105/joss.01686},</span>
 <span class="co">#&gt;   }</span></code></pre></div>
 <p>Turning to the simulation, we need three columns: ‘date’, ‘shelter’, and ‘occupancy’. This example will build on the earlier one by adding a seed using <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>. A seed enables us to always generate the same random data. Any integer can be used as the seed. In this case the seed will be 853. If you use that as your seed, then you should get the same random numbers as in this example. If you use a different seed, then you should expect different random numbers. Finally, we use <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> to repeat something a certain number of times. For instance, we repeat ‘Shelter 1’, 184 times which accounts for half a year.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>   
 
@@ -671,7 +663,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="header-section-number">2.3.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use data made available about Toronto homeless shelters by the City of Toronto. The premise of the data is that each night at 4am a count is made of the occupied beds. To access the data, we use <code>opendatatoronto</code> <span class="citation">(<a href="references-1.html#ref-citeSharla" role="doc-biblioref">Gelfand 2020</a>)</span> and then save our own copy.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Acquire ####</span>
 <span class="co"># Based on code from: </span>
 <span class="co"># https://open.toronto.ca/dataset/daily-shelter-overnight-service-occupancy-capacity/</span>
@@ -708,8 +700,8 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 #&gt; #   LOCATION_PROVINCE &lt;chr&gt;, PROGRAM_ID &lt;dbl&gt;,
 #&gt; #   PROGRAM_NAME &lt;chr&gt;, SECTOR &lt;chr&gt;, PROGRAM_MODEL &lt;chr&gt;,
 #&gt; #   OVERNIGHT_SERVICE_TYPE &lt;chr&gt;, PROGRAM_AREA &lt;chr&gt;, …</code></pre>
-<p>Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.5</a>). We need to change the names to make them easier to type using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code>, reduce the columns to only those that are relevant using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, and only keep the second half of the year using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<p>Not much needs to be done to this to make it similar to the dataset that we were interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:torontohomelessdataplan">2.8</a>). We need to change the names to make them easier to type using <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names()</a></code>, reduce the columns to only those that are relevant using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, and only keep the second half of the year using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">toronto_shelters</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">occupancy_date</span>, <span class="va">id</span>, <span class="va">occupied_beds</span><span class="op">)</span> |&gt; 
@@ -726,7 +718,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="co">#&gt; 5 2021-12-27     7323155            NA</span>
 <span class="co">#&gt; 6 2021-12-27     7323156            NA</span></code></pre></div>
 <p>All that remains is to save the cleaned dataset.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">toronto_shelters_clean</span>, 
   file <span class="op">=</span> <span class="st">"cleaned_toronto_shelters.csv"</span>
@@ -737,7 +729,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="header-section-number">2.3.4</span> Explore<a class="anchor" aria-label="anchor" href="#explore-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>First, we load the dataset that we just created.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Explore ####</span>
 <span class="va">toronto_shelters_clean</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -745,7 +737,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
 <p>The dataset is on a daily basis for each shelter. We are interested in understanding average usage for each month. To do this, we need to and add a month column, which we do using <code><a href="https://lubridate.tidyverse.org/reference/month.html">month()</a></code> from <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>. By default, <code><a href="https://lubridate.tidyverse.org/reference/month.html">month()</a></code> provides the number of the month, and so we include two arguments ‘label’ and ‘abbr’ to get the full name of the month. We remove rows that do not have any data for the number of beds using <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na()</a></code> from <code>tidyr</code>. And we then create a summary statistic on the basis of monthly groups, using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> from <code>dplyr</code> <span class="citation">(<a href="references-1.html#ref-citedplyr" role="doc-biblioref">Wickham et al. 2020</a>)</span>. We use <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable()</a></code> from <code>knitr</code> <span class="citation">(<a href="references-1.html#ref-citeknitr" role="doc-biblioref">Xie 2021</a>)</span> to create a table.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Based on code from Florence Vallée-Dubois and Lisa Lendway</span>
 <span class="va">toronto_shelters_clean</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
@@ -788,7 +780,7 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 </tbody>
 </table></div>
 <p>As with before, this looks fine, and achieves what we set out to do. But we can make some tweaks to the defaults to make it look even better (Table <a href="drinking-from-a-fire-hose.html#tab:homelessoccupancy">2.1</a>). We can add a caption, make the column names easier to read, only show an appropriate level of decimal places, and improve the formatting.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">toronto_shelters_clean</span> |&gt;
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>occupancy_month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html">month</a></span><span class="op">(</span><span class="va">occupancy_date</span>, 
                                  label <span class="op">=</span> <span class="cn">TRUE</span>, 
@@ -861,18 +853,18 @@ Figure 2.6: Quick sketch of a table of the average number of beds occupied each 
 <span class="header-section-number">2.4.1</span> Plan<a class="anchor" aria-label="anchor" href="#plan-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>For this example, we need to think about what our dataset should look like, and what the graph should look like.</p>
-<p>The dataset needs to have columns that specify the country, and the year. It also needs to have a column with the NMR estimate for that year for that country. Roughly, it should look like Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexampledata">2.7</a>.</p>
+<p>The dataset needs to have columns that specify the country, and the year. It also needs to have a column with the NMR estimate for that year for that country. Roughly, it should look like Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexampledata">2.10</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:nmrexampledata"></span>
 <img src="figures/IMG_1812.png" alt="Quick sketch of a potentially useful NMR dataset" width="40%"><p class="caption">
-Figure 2.7: Quick sketch of a potentially useful NMR dataset
+Figure 2.10: Quick sketch of a potentially useful NMR dataset
 </p>
 </div>
-<p>We are interested to make a graph with year on the x-axis and estimated NMR on the y-axis. Each country should have its own series Roughly similar to Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexamplegraph">2.8</a>.</p>
+<p>We are interested to make a graph with year on the x-axis and estimated NMR on the y-axis. Each country should have its own series Roughly similar to Figure <a href="drinking-from-a-fire-hose.html#fig:nmrexamplegraph">2.11</a>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:nmrexamplegraph"></span>
 <img src="figures/IMG_1813.png" alt="Quick sketch of a graph of NMR by country over time" width="75%"><p class="caption">
-Figure 2.8: Quick sketch of a graph of NMR by country over time
+Figure 2.11: Quick sketch of a graph of NMR by country over time
 </p>
 </div>
 </div>
@@ -882,7 +874,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 </h3>
 <p>We would like to simulate some data that aligns with our plan. In this case we will need three columns: country, year, and NMR.</p>
 <p>Within R Studio Cloud make a new R Markdown file and save it. Add preamble documentation and set-up the workspace. We will use <code>tidyverse</code> <span class="citation">(<a href="references-1.html#ref-Wickham2017" role="doc-biblioref">Wickham 2017</a>)</span>, <code>janitor</code> <span class="citation">(<a href="references-1.html#ref-janitor" role="doc-biblioref">Firke 2020</a>)</span>, and <code>lubridate</code> <span class="citation">(<a href="references-1.html#ref-GrolemundWickham2011" role="doc-biblioref">Grolemund and Wickham 2011</a>)</span>.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Preamble ####</span>
 <span class="co"># Purpose: Obtain and prepare data about neonatal mortality for four</span>
 <span class="co"># countries for the past fifty years and create a graph.</span>
@@ -896,17 +888,17 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 <p>The code contained in libraries can change from time to time as the authors update it and release new versions. We can see which version of a package we are using with <code><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion()</a></code>. For instance, we are using version 1.3.1 of the <code>tidyverse</code> and version 2.1.0 of <code>janitor</code>.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span>
 <span class="co">#&gt; [1] '1.3.1'</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">'janitor'</span><span class="op">)</span>
 <span class="co">#&gt; [1] '2.1.0'</span></code></pre></div>
 <p>To update the version of the package, we use <code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code>.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>This does not need to be run, say, every day, but from time-to-time it is worth updating packages. While many packages take care to ensure backward compatibility, at a certain point this does not become reasonable, and so it is important to be aware the updating packages can result in old code needing to be updated.</p>
 <p>Returning to the simulation, we repeat the name of each country 50 times with <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>, and enable the passing of 50 years. Finally, we draw from the uniform distribution with <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> to simulate an estimated NMR value for that year for that country.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate data ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -938,7 +930,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 5 Argentina  1975  3.74</span>
 <span class="co">#&gt; 6 Argentina  1976 40.4</span></code></pre></div>
 <p>While this simulation works, it would be time-consuming and error-prone if we decided that instead of fifty years, we were interested in simulating, say, sixty years. One way to make this easier is to replace all instances of 50 with a variable. An example follows.</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Simulate data ####</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">853</span><span class="op">)</span>
 
@@ -980,7 +972,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <li>That ‘nmr’ is a value somewhere between 0 and 1,000, and is a number.</li>
 </ol>
 <p>We can write a series of tests based on these features, that we expect that dataset to pass.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Tests for simulated data</span>
 <span class="va">simulated_nmr_data</span><span class="op">$</span><span class="va">country</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, 
@@ -1013,7 +1005,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="header-section-number">2.4.3</span> Acquire<a class="anchor" aria-label="anchor" href="#acquire-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR – <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a> – that we can download and save.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Acquire data ####</span>
 <span class="va">raw_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
@@ -1026,7 +1018,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
   file <span class="op">=</span> <span class="st">"igme.csv"</span>
   <span class="op">)</span></code></pre></div>
 <p>We can take a quick look to get a better sense of it. We might be interested in what the dataset seems to look like (using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> and <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code>), and what the names of the columns are (using <code><a href="https://rdrr.io/r/base/names.html">names()</a></code>).</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 × 29</span>
 <span class="co">#&gt;   `Geographic area` Indicator         Sex   `Wealth Quinti…`</span>
@@ -1061,7 +1053,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; [27] "STATUS"                 "YEAR_TO_ACHIEVE"       </span>
 <span class="co">#&gt; [29] "Model Used"</span></code></pre></div>
 <p>We would like to clean up the names and only keep the rows and columns that we are interested in. Based on our plan, we are interested in rows where ‘Sex’ is ‘Total’, ‘Series Name’ is ‘UN IGME estimate’, ‘Geographic area’ is one of ‘Argentina’, ‘Australia’, ‘Canada’, and ‘Kenya’, and the ‘Indicator’ is ‘Neonatal mortality rate’. After this we are interested in just a few columns: ‘geographic_area’, ‘time_period’, and ‘obs_value’.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://rdrr.io/pkg/janitor/man/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">raw_igme_data</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">sex</span> <span class="op">==</span> <span class="st">'Total'</span>,
@@ -1084,7 +1076,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 5 Argentina       1974-06          24.5</span>
 <span class="co">#&gt; 6 Argentina       1975-06          24.1</span></code></pre></div>
 <p>Finally, we need to fix two final aspects: the class of ‘time_period’ is character when we need it to be a year, and the name of ‘obs_value’ should be ‘nmr’ to be more informative.</p>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time_period <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="va">time_period</span>, <span class="st">"-06"</span><span class="op">)</span>,
@@ -1105,7 +1097,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="co">#&gt; 5 Argentina  1975  24.1</span>
 <span class="co">#&gt; 6 Argentina  1976  23.3</span></code></pre></div>
 <p>Finally, we can check that our dataset passes the tests that we developed based on the simulated dataset.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Test the cleaned dataset</span>
 <span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">country</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Argentina"</span>, 
@@ -1132,7 +1124,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="va">cleaned_igme_data</span><span class="op">$</span><span class="va">nmr</span> |&gt; <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="op">)</span> <span class="op">==</span> <span class="st">"numeric"</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>All that remains is to save the nicely cleaned dataset.</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">cleaned_igme_data</span>, 
   file <span class="op">=</span> <span class="st">"cleaned_igme_data.csv"</span>
@@ -1143,15 +1135,15 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <span class="header-section-number">2.4.4</span> Explore<a class="anchor" aria-label="anchor" href="#explore-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>We would like to make a graph of estimated NMR using the cleaned dataset. First, we read in the dataset.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#### Explore ####</span>
 <span class="va">cleaned_igme_data</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>
     file <span class="op">=</span> <span class="st">"cleaned_igme_data.csv"</span>,
     show_col_types <span class="op">=</span> <span class="cn">FALSE</span>
     <span class="op">)</span></code></pre></div>
-<p>We can now make the graph that we are interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We are interested in showing how NMR has changed over time and the difference between countries.</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<p>We can now make the graph that we are interested in (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.12</a>). We are interested in showing how NMR has changed over time and the difference between countries.</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cleaned_igme_data</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">nmr</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -1163,7 +1155,7 @@ Figure 2.8: Quick sketch of a graph of NMR by country over time
 <div class="figure">
 <span style="display:block;" id="fig:nmrgraph"></span>
 <img src="02-drinking_from_a_fire_hose_files/figure-html/nmrgraph-1.png" alt="Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)" width="672"><p class="caption">
-Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)
+Figure 2.12: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and Kenya, (1971-2020)
 </p>
 </div>
 </div>
@@ -1175,7 +1167,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <blockquote>
 <p>Neonatal mortality refers to a death that occurs within the first month of life. In particular, the neonatal mortality rate (NMR) is the number of neonatal deaths per 1,000 live births <span class="citation">(<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">M. Alexander and Alkema 2018</a>)</span>. We obtain estimates for NMR for four countries—Argentina, Australia, Canada, China, and Kenya—over the past fifty years.</p>
 <p>The UN Inter-agency Group for Child Mortality Estimation (IGME) provides estimates of the NMR at the website: <a href="https://childmortality.org/" class="uri">https://childmortality.org/</a>. We downloaded their estimates then cleaned and tidied the dataset using the statistical programming language R <span class="citation">(<a href="references-1.html#ref-citeR" role="doc-biblioref">R Core Team 2021</a>)</span>.</p>
-<p>We found considerable change in the estimated NMR over time and between the four countries of interest (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.9</a>). We found that the 1970s tended to be associated with reductions in the estimated NMR. Australia and Canada were estimated to have a low NMR at that point and remained there through 2020, with slight improvements. The estimates for Argentina and Kenya continued to have substantial reductions through 2020. Data were only available from 1990 for China and the estimates show a substantial reduction in the NMR, especially in the 1990s and 2000s.</p>
+<p>We found considerable change in the estimated NMR over time and between the four countries of interest (Figure <a href="drinking-from-a-fire-hose.html#fig:nmrgraph">2.12</a>). We found that the 1970s tended to be associated with reductions in the estimated NMR. Australia and Canada were estimated to have a low NMR at that point and remained there through 2020, with slight improvements. The estimates for Argentina and Kenya continued to have substantial reductions through 2020. Data were only available from 1990 for China and the estimates show a substantial reduction in the NMR, especially in the 1990s and 2000s.</p>
 <p>Our results suggest considerable improvements in estimated NMR over time. But it is worth emphasizing that estimates of the NMR are based on a statistical model and underlying data. The paradox of data availability is that often high-quality data are less easily available for countries with worse outcomes. For instance, <span class="citation">M. Alexander and Alkema (<a href="references-1.html#ref-alexander2018global" role="doc-biblioref">2018</a>)</span> say ‘[t]here is large variability in the availability of data on neonatal mortality’. Our conclusions are subject to the model that underpins the estimates, and the quality of the underlying data and we did not independently verify either of these.</p>
 </blockquote>
 </div>
@@ -1189,7 +1181,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <span class="header-section-number">2.5.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
-<li>Following <span class="citation">Barrett (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>, please write a stack of four or five atomic habits that you could implement this week.</li>
+<li>Following <span class="citation">Barrett (<a href="references-1.html#ref-citeBarrett" role="doc-biblioref">2021a</a>)</span>, please write a stack of four or five atomic habits, related to learning data science, that you could implement this week.</li>
 <li>What is not one of the four challenges for mitigating bias mentioned in <span class="citation">Hao (<a href="references-1.html#ref-hao2019" role="doc-biblioref">2019</a>)</span> (pick one)?
 <ol style="list-style-type: lower-alpha">
 <li>Unknown unknowns.</li>
@@ -1299,17 +1291,41 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <li>Each entry has four digits.</li>
 </ol>
 </li>
+<li>Please consider the following code, add a small mistake to it, and then create a GitHub Gist that contains all of the code, and submit the URL.</li>
 </ol>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="va">midwest</span> |&gt; 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">poptotal</span>, y <span class="op">=</span> <span class="va">popdensity</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="tutorial-1" class="section level3" number="2.5.2">
 <h3>
 <span class="header-section-number">2.5.2</span> Tutorial<a class="anchor" aria-label="anchor" href="#tutorial-1"><i class="fas fa-link"></i></a>
 </h3>
-<ol style="list-style-type: decimal">
-<li>Please pick either the seed-growing, or hair-length, example from Chapter <a href="telling-stories-with-data.html#telling-stories-with-data">1</a>. You should have already started to record some data, but you probably do not have much of it. First sketch an example of what the dataset could look like. Please use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to create a tibble that has twelve weeks’ worth of simulated data.</li>
-<li>Pretend that the dataset that you just generated is the actual data that you end up with. Please write a page or so to communicate what you did, why, and what you found.</li>
-<li>Reflecting on <span class="citation">Chambliss (<a href="references-1.html#ref-chambliss1989mundanity" role="doc-biblioref">1989</a>)</span>, please write a page or so about stratification and excellence as it relates to using programming languages, such as R or Python, for data science.</li>
-</ol>
+<p>The purpose of this tutorial is to provide an opportunity to do a small self-contained project. We will redo the Australian Elections worked example, but for Canada.</p>
+<p>Canada is a parliamentary democracy with 338 seats in the House of Commons, which is the lower house and that from which government is formed. There are two major parties – ‘Liberal’ and ‘Conservative’ – three minor parties – ‘Bloc Québécois’, ‘New Democratic’, and ‘Green’ – and many smaller parties and independents. In this example we will create a graph of the number of seats that each party won in the 2019 Federal Election.</p>
+<p>Begin by planning what the dataset that we need will look like, and what the final graph will look like. The basic requirement for the dataset is that it has the name of the seat (sometimes called a ‘riding’ in Canada) and the party of the person elected.</p>
+<p>Please do a quick sketch of the dataset that we would need. And then do a quick sketch of a graph that we might be interested in.</p>
+<p>Then put together an R Markdown document that simulates some data. Add preamble documentation, then load the packages that are needed: <code>tidyverse</code>, <code>janitor</code>, and <code>tidyr</code>. Add numbers for the riding, then use <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> to randomly choose one of six options, with replacement, 338 times.</p>
+<p>Next we need to get the actual data, from Elections Canada, and the file that we need to download is: “<a href="https://www.elections.ca/res/rep/off/ovr2019app/51/data_donnees/table_tableau11.csv" class="uri">https://www.elections.ca/res/rep/off/ovr2019app/51/data_donnees/table_tableau11.csv</a>”.</p>
+<p>Clean the names, and then select the two columns that are of interest: ‘electoral_district_name_nom_de_circonscription’, and ‘elected_candidate_candidat_elu’. Finally, rename the columns to remove the French and simplify the names.</p>
+<p>The column that we need is about the elected canadidates. That has the surname of the elected candidate, followed by a comma, followed by their first name, followed by a space, followed by the name of the party in both English and French, separated by a slash. Break-up this column into its pieces using <code><a href="https://tidyr.tidyverse.org/reference/separate.html">separate()</a></code> from <code>tidyr</code> <span class="citation">(<a href="references-1.html#ref-citetidyr" role="doc-biblioref">Wickham 2021c</a>)</span>.</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cleaned_elections_data</span> <span class="op">&lt;-</span> 
+  <span class="va">cleaned_elections_data</span> |&gt; 
+  <span class="co"># Separate the column into two based on the slash</span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span>col <span class="op">=</span> <span class="va">elected_candidate</span>,
+           into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'other'</span>, <span class="st">'party'</span><span class="op">)</span>,
+           sep <span class="op">=</span> <span class="st">'/'</span><span class="op">)</span> |&gt; 
+  <span class="co"># Remove the 'other' column</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">other</span><span class="op">)</span></code></pre></div>
+<p>Then recode the party names from French to English to match what we simulated.</p>
+<p>At this point we can make a nice graph of the number of ridings won by each party in the 2019 Canadian Federal Election.</p>
+
 </div>
 </div>
 </div>
@@ -1322,7 +1338,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <li><a class="nav-link" href="#drinking-from-a-fire-hose"><span class="header-section-number">2</span> Drinking from a fire hose</a></li>
 <li><a class="nav-link" href="#hello-world"><span class="header-section-number">2.1</span> Hello, World!</a></li>
 <li>
-<a class="nav-link" href="#canadian-elections"><span class="header-section-number">2.2</span> Canadian elections</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#australian-elections"><span class="header-section-number">2.2</span> Australian elections</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#plan"><span class="header-section-number">2.2.1</span> Plan</a></li>
 <li><a class="nav-link" href="#simulate"><span class="header-section-number">2.2.2</span> Simulate</a></li>
 <li><a class="nav-link" href="#acquire"><span class="header-section-number">2.2.3</span> Acquire</a></li>
@@ -1371,7 +1387,7 @@ Figure 2.9: Neonatal Mortality Rate (NMR), for Argentina, Australia, Canada, and
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

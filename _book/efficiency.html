@@ -134,20 +134,20 @@
 <p>By and large, worrying about performance is a waste of time. For the most part we are better off just pushing things into the cloud, letting them run for a reasonable time, and using that time to worry about other aspects of the pipeline. But, eventually this becomes unfeasible. For instance, if something takes more than a day, then it becomes a pain because of the need to completely switch tasks and then return to it. There is rarely a most common area for obvious performance gains. Instead it is important to develop the ability to measure and then refactor code.</p>
 <p>Being fast is valuable but it is mostly about being able to iterate fast not necessarily that the code runs fast. The first thing we should do if we find that the speed at which code is running is becoming a bottle neck is to shard. Then we should throw more machines at it. But eventually we should go back and refactor the code.</p>
 <p>To refactor code means to re-write it so that the new code achieves the same outcome as the old code, it is just that the new code does it better. We can use <code><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic()</a></code> and <code><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc()</a></code> from <code>tictoc</code> <span class="citation">(<a href="references-1.html#ref-Izrailev2014" role="doc-biblioref">Izrailev 2014</a>)</span> to time various aspects of our code and find where the largest delays are.</p>
-<div class="sourceCode" id="cb596"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/collectivemedia/tictoc">tictoc</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"First bit of code"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Fast code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Fast code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; First bit of code: 0.052 sec elapsed</span>
+<span class="co">#&gt; First bit of code: 0.053 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"Second bit of code"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Slow code"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Slow code"</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Second bit of code: 3.009 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; Second bit of code: 3.006 sec elapsed</span></code></pre></div>
 <p>And so we know that there is something slowing down the code; which in this artificial case is <code><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep()</a></code> causing a delay of 3 seconds.</p>
 <p>When we start to refactor our code, we want to make sure that the re-written code achieves the same outcomes as the original code. This means that it is important to have tests written. We generally want to reduce the size of functions, by breaking them into smaller ones.</p>
 <!-- Start with an example of bad code, and then how it gets fixed. -->
@@ -164,111 +164,111 @@
 <p>SQL is a straightforward variant of the <code>dplyr</code> verbs that we have used throughout this book. Having used <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> in the <code>tidyverse</code> means that much of the core commands will be familiar. That means that the main difficulty will be getting on top of the order of operations because SQL can be pedantic.</p>
 <p>SQL (“see-quell” or “S.Q.L.”) is used with relational databases. A relational database is just a collection of at least one table, and a table is just some data organized into rows and columns. If there is more than one table in the database, then there should be some column that links them. Using it feels a bit like HTML/CSS in terms of being halfway between markup and programming. One fun aspect is that line spaces mean nothing: include them or do not, but always end a SQL command in a semicolon;</p>
 <p>We can create an empty table of three columns of type: int, text, int:</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb597-1"><a href="efficiency.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> table_name (</span>
-<span id="cb597-2"><a href="efficiency.html#cb597-2" aria-hidden="true" tabindex="-1"></a>  column1 <span class="dt">INTEGER</span>,</span>
-<span id="cb597-3"><a href="efficiency.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  column2 TEXT,</span>
-<span id="cb597-4"><a href="efficiency.html#cb597-4" aria-hidden="true" tabindex="-1"></a>  column3 <span class="dt">INTEGER</span></span>
-<span id="cb597-5"><a href="efficiency.html#cb597-5" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb598-1"><a href="efficiency.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> table_name (</span>
+<span id="cb598-2"><a href="efficiency.html#cb598-2" aria-hidden="true" tabindex="-1"></a>  column1 <span class="dt">INTEGER</span>,</span>
+<span id="cb598-3"><a href="efficiency.html#cb598-3" aria-hidden="true" tabindex="-1"></a>  column2 TEXT,</span>
+<span id="cb598-4"><a href="efficiency.html#cb598-4" aria-hidden="true" tabindex="-1"></a>  column3 <span class="dt">INTEGER</span></span>
+<span id="cb598-5"><a href="efficiency.html#cb598-5" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
 <p>Add a row of data:</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb598-1"><a href="efficiency.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> table_name (column1, column2, column3)</span>
-<span id="cb598-2"><a href="efficiency.html#cb598-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">VALUES</span> (<span class="dv">1234</span>, <span class="st">'Gough Menzies'</span>, <span class="dv">32</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb599-1"><a href="efficiency.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> table_name (column1, column2, column3)</span>
+<span id="cb599-2"><a href="efficiency.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">VALUES</span> (<span class="dv">1234</span>, <span class="st">'Gough Menzies'</span>, <span class="dv">32</span>);</span></code></pre></div>
 <p>Add a column:</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb599-1"><a href="efficiency.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> table_name</span>
-<span id="cb599-2"><a href="efficiency.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ADD</span> <span class="kw">COLUMN</span> column4 TEXT;</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb600-1"><a href="efficiency.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> table_name</span>
+<span id="cb600-2"><a href="efficiency.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ADD</span> <span class="kw">COLUMN</span> column4 TEXT;</span></code></pre></div>
 <p>We can view particular aspects of the data, using SELECT in a similar way to <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb600-1"><a href="efficiency.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column2</span>
-<span id="cb600-2"><a href="efficiency.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>See two columns:</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb601-1"><a href="efficiency.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column1, column2</span>
+<div class="sourceCode" id="cb601"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb601-1"><a href="efficiency.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column2</span>
 <span id="cb601-2"><a href="efficiency.html#cb601-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>See all columns:</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb602-1"><a href="efficiency.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<p>See two columns:</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb602-1"><a href="efficiency.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column1, column2</span>
 <span id="cb602-2"><a href="efficiency.html#cb602-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>See unique rows in a column (similar to R’s distinct):</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb603-1"><a href="efficiency.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column2</span>
+<p>See all columns:</p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb603-1"><a href="efficiency.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb603-2"><a href="efficiency.html#cb603-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
+<p>See unique rows in a column (similar to R’s distinct):</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb604-1"><a href="efficiency.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> column2</span>
+<span id="cb604-2"><a href="efficiency.html#cb604-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
 <p>See the rows that match a criteria (similar idea to R’s which or filter):</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb604-1"><a href="efficiency.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb604-2"><a href="efficiency.html#cb604-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb604-3"><a href="efficiency.html#cb604-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column3 <span class="op">&gt;</span> <span class="dv">30</span>;</span></code></pre></div>
-<p>All the usual operators are fine with WHERE: =, !=, &gt;, &lt;, &gt;=, &lt;=. Just make sure the condition evaluates to true/false.</p>
-<p>See the rows that are pretty close to a criteria:</p>
 <div class="sourceCode" id="cb605"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb605-1"><a href="efficiency.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb605-2"><a href="efficiency.html#cb605-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb605-3"><a href="efficiency.html#cb605-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">LIKE</span>  <span class="st">'_ough Menzies'</span>;</span></code></pre></div>
-<p>The _ above is a wildcard that matches to any character e.g. ‘Cough Menzies’ would be matched here, as would ‘Gough Menzies’. LIKE is not case-sensitive: ‘Gough Menzies’ and ‘gough menzies’ would both match here.</p>
-<p>Use % as an anchor to matches pieces:</p>
+<span id="cb605-3"><a href="efficiency.html#cb605-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column3 <span class="op">&gt;</span> <span class="dv">30</span>;</span></code></pre></div>
+<p>All the usual operators are fine with WHERE: =, !=, &gt;, &lt;, &gt;=, &lt;=. Just make sure the condition evaluates to true/false.</p>
+<p>See the rows that are pretty close to a criteria:</p>
 <div class="sourceCode" id="cb606"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb606-1"><a href="efficiency.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb606-2"><a href="efficiency.html#cb606-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb606-3"><a href="efficiency.html#cb606-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">LIKE</span>  <span class="st">'%Menzies'</span>;</span></code></pre></div>
-<p>That matches anything ending with ‘Menzies’, so ‘Cough Menzies’, ‘Gough Menzies’, ‘Sir Menzies’ etc, would all be matched here. Use surrounding percentages to match within, e.g. %Menzies% would also match ‘Sir Menzies Jr’ whereas %Menzies would not.</p>
-<p>This is wild: NULL values (!) (True/False/NULL) are possible, not just True/False, but they need to be explicitly matched for:</p>
+<span id="cb606-3"><a href="efficiency.html#cb606-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">LIKE</span>  <span class="st">'_ough Menzies'</span>;</span></code></pre></div>
+<p>The _ above is a wildcard that matches to any character e.g. ‘Cough Menzies’ would be matched here, as would ‘Gough Menzies’. LIKE is not case-sensitive: ‘Gough Menzies’ and ‘gough menzies’ would both match here.</p>
+<p>Use % as an anchor to matches pieces:</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb607-1"><a href="efficiency.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb607-2"><a href="efficiency.html#cb607-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb607-3"><a href="efficiency.html#cb607-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre></div>
-<p>This too is wild: There’s an underlying ordering build into number, date and text fields that allows you to use BETWEEN on all those, not just numeric! The following looks for text that starts with a letter between A and M (not including M) so would match ‘Gough Menzies’, but not ‘Sir Gough Menzies’!</p>
+<span id="cb607-3"><a href="efficiency.html#cb607-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">LIKE</span>  <span class="st">'%Menzies'</span>;</span></code></pre></div>
+<p>That matches anything ending with ‘Menzies’, so ‘Cough Menzies’, ‘Gough Menzies’, ‘Sir Menzies’ etc, would all be matched here. Use surrounding percentages to match within, e.g. %Menzies% would also match ‘Sir Menzies Jr’ whereas %Menzies would not.</p>
+<p>This is wild: NULL values (!) (True/False/NULL) are possible, not just True/False, but they need to be explicitly matched for:</p>
 <div class="sourceCode" id="cb608"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb608-1"><a href="efficiency.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb608-2"><a href="efficiency.html#cb608-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb608-3"><a href="efficiency.html#cb608-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">BETWEEN</span> <span class="st">'A'</span> <span class="kw">AND</span> <span class="st">'M'</span>;</span></code></pre></div>
-<p>If you look for a numeric (as opposed to text) then BETWEEN is inclusive.</p>
-<p>Combine conditions with AND (both must be true to be returned) or OR (at least one must be true):</p>
+<span id="cb608-3"><a href="efficiency.html#cb608-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre></div>
+<p>This too is wild: There’s an underlying ordering build into number, date and text fields that allows you to use BETWEEN on all those, not just numeric! The following looks for text that starts with a letter between A and M (not including M) so would match ‘Gough Menzies’, but not ‘Sir Gough Menzies’!</p>
 <div class="sourceCode" id="cb609"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb609-1"><a href="efficiency.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb609-2"><a href="efficiency.html#cb609-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb609-3"><a href="efficiency.html#cb609-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">BETWEEN</span> <span class="st">'A'</span> <span class="kw">AND</span> <span class="st">'M'</span></span>
-<span id="cb609-4"><a href="efficiency.html#cb609-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> column3 <span class="op">=</span> <span class="dv">32</span>;</span></code></pre></div>
-<p>You can order the result:</p>
+<span id="cb609-3"><a href="efficiency.html#cb609-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">BETWEEN</span> <span class="st">'A'</span> <span class="kw">AND</span> <span class="st">'M'</span>;</span></code></pre></div>
+<p>If you look for a numeric (as opposed to text) then BETWEEN is inclusive.</p>
+<p>Combine conditions with AND (both must be true to be returned) or OR (at least one must be true):</p>
 <div class="sourceCode" id="cb610"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb610-1"><a href="efficiency.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb610-2"><a href="efficiency.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb610-3"><a href="efficiency.html#cb610-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3;</span></code></pre></div>
-<p>Ascending is the default, add DESC for alternative:</p>
+<span id="cb610-3"><a href="efficiency.html#cb610-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column2 <span class="kw">BETWEEN</span> <span class="st">'A'</span> <span class="kw">AND</span> <span class="st">'M'</span></span>
+<span id="cb610-4"><a href="efficiency.html#cb610-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> column3 <span class="op">=</span> <span class="dv">32</span>;</span></code></pre></div>
+<p>You can order the result:</p>
 <div class="sourceCode" id="cb611"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb611-1"><a href="efficiency.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb611-2"><a href="efficiency.html#cb611-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb611-3"><a href="efficiency.html#cb611-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3 <span class="kw">DESC</span>;</span></code></pre></div>
-<p>Restrict the return to a certain number of values by adding LIMIT at the end:</p>
+<span id="cb611-3"><a href="efficiency.html#cb611-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3;</span></code></pre></div>
+<p>Ascending is the default, add DESC for alternative:</p>
 <div class="sourceCode" id="cb612"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb612-1"><a href="efficiency.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb612-2"><a href="efficiency.html#cb612-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb612-3"><a href="efficiency.html#cb612-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3 <span class="kw">DESC</span></span>
-<span id="cb612-4"><a href="efficiency.html#cb612-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+<span id="cb612-3"><a href="efficiency.html#cb612-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3 <span class="kw">DESC</span>;</span></code></pre></div>
+<p>Restrict the return to a certain number of values by adding LIMIT at the end:</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb613-1"><a href="efficiency.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb613-2"><a href="efficiency.html#cb613-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
+<span id="cb613-3"><a href="efficiency.html#cb613-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> column3 <span class="kw">DESC</span></span>
+<span id="cb613-4"><a href="efficiency.html#cb613-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
 <p>(This doesn’t work all the time - only certain SQL databases.)</p>
 <p>We can modify data and use logic. For instance we can edit a value.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb613-1"><a href="efficiency.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> table_name</span>
-<span id="cb613-2"><a href="efficiency.html#cb613-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SET</span> column3 <span class="op">=</span> <span class="dv">33</span></span>
-<span id="cb613-3"><a href="efficiency.html#cb613-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column1 <span class="op">=</span> <span class="dv">1234</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb614-1"><a href="efficiency.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> table_name</span>
+<span id="cb614-2"><a href="efficiency.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SET</span> column3 <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb614-3"><a href="efficiency.html#cb614-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> column1 <span class="op">=</span> <span class="dv">1234</span>;</span></code></pre></div>
 <p>Implement if/else logic:</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb614-1"><a href="efficiency.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>,</span>
-<span id="cb614-2"><a href="efficiency.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span></span>
-<span id="cb614-3"><a href="efficiency.html#cb614-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> column2 <span class="op">=</span> <span class="st">'Gough Whitlam'</span> <span class="cf">THEN</span> <span class="st">'Labor'</span></span>
-<span id="cb614-4"><a href="efficiency.html#cb614-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> column2 <span class="op">=</span> <span class="st">'Robert Menzies'</span> <span class="cf">THEN</span> <span class="st">'Liberal'</span></span>
-<span id="cb614-5"><a href="efficiency.html#cb614-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> <span class="st">'Who knows'</span></span>
-<span id="cb614-6"><a href="efficiency.html#cb614-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span> <span class="kw">AS</span> <span class="st">'Party'</span></span>
-<span id="cb614-7"><a href="efficiency.html#cb614-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb615-1"><a href="efficiency.html#cb615-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>,</span>
+<span id="cb615-2"><a href="efficiency.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span></span>
+<span id="cb615-3"><a href="efficiency.html#cb615-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> column2 <span class="op">=</span> <span class="st">'Gough Whitlam'</span> <span class="cf">THEN</span> <span class="st">'Labor'</span></span>
+<span id="cb615-4"><a href="efficiency.html#cb615-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> column2 <span class="op">=</span> <span class="st">'Robert Menzies'</span> <span class="cf">THEN</span> <span class="st">'Liberal'</span></span>
+<span id="cb615-5"><a href="efficiency.html#cb615-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> <span class="st">'Who knows'</span></span>
+<span id="cb615-6"><a href="efficiency.html#cb615-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span> <span class="kw">AS</span> <span class="st">'Party'</span></span>
+<span id="cb615-7"><a href="efficiency.html#cb615-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
 <p>This returns a column called ‘Party’ that looks at the name of the person to return a party.</p>
 <p>Delete some rows:</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb615-1"><a href="efficiency.html#cb615-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> table_name</span>
-<span id="cb615-2"><a href="efficiency.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">WHERE</span> column3 <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb616-1"><a href="efficiency.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> table_name</span>
+<span id="cb616-2"><a href="efficiency.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">WHERE</span> column3 <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
 <p>Add an alias to a column name (this just shows in the output):</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb616-1"><a href="efficiency.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column2 <span class="kw">AS</span> <span class="st">'Names'</span></span>
-<span id="cb616-2"><a href="efficiency.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>We can use COUNT, SUM, MAX, MIN, AVG and ROUND in the place of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>. COUNT counts the number of rows that are not empty for some column by passing the column name, or for all using *.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb617-1"><a href="efficiency.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<div class="sourceCode" id="cb617"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb617-1"><a href="efficiency.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column2 <span class="kw">AS</span> <span class="st">'Names'</span></span>
 <span id="cb617-2"><a href="efficiency.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>Similarly, we can pass a column to SUM, MAX, MIN, and AVG.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb618-1"><a href="efficiency.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column1)</span>
+<p>We can use COUNT, SUM, MAX, MIN, AVG and ROUND in the place of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>. COUNT counts the number of rows that are not empty for some column by passing the column name, or for all using *.</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb618-1"><a href="efficiency.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
 <span id="cb618-2"><a href="efficiency.html#cb618-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
-<p>ROUND takes a column and an integer to specify how many decimal places.</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb619-1"><a href="efficiency.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(column1, <span class="dv">0</span>)</span>
+<p>Similarly, we can pass a column to SUM, MAX, MIN, and AVG.</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb619-1"><a href="efficiency.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">SUM</span>(column1)</span>
 <span id="cb619-2"><a href="efficiency.html#cb619-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
+<p>ROUND takes a column and an integer to specify how many decimal places.</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb620-1"><a href="efficiency.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">ROUND</span>(column1, <span class="dv">0</span>)</span>
+<span id="cb620-2"><a href="efficiency.html#cb620-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name;</span></code></pre></div>
 <p>SELECT and GROUP BY is similar to group_by in R.</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb620-1"><a href="efficiency.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column3, <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
-<span id="cb620-2"><a href="efficiency.html#cb620-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
-<span id="cb620-3"><a href="efficiency.html#cb620-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> column3;</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb621-1"><a href="efficiency.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> column3, <span class="fu">COUNT</span>(<span class="op">*</span>)</span>
+<span id="cb621-2"><a href="efficiency.html#cb621-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table_name</span>
+<span id="cb621-3"><a href="efficiency.html#cb621-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> column3;</span></code></pre></div>
 <p>We can GROUP BY column number instead of name e.g. 1 instead of column3 in the GROUP BY line or 2 instead of COUNT(*) if that was of interest.</p>
 <p>HAVING for aggregates, is similar to filter in R or the WHERE for rows from earlier. Use it after GROUP BY and before ORDER BY and LIMIT.</p>
 <p>We can combine two tables using JOIN or LEFT JOIN.</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb621-1"><a href="efficiency.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb621-2"><a href="efficiency.html#cb621-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table1_name</span>
-<span id="cb621-3"><a href="efficiency.html#cb621-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> table2_name</span>
-<span id="cb621-4"><a href="efficiency.html#cb621-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> table1_name.colum1 <span class="op">=</span> table2_name.column1;</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb622-1"><a href="efficiency.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb622-2"><a href="efficiency.html#cb622-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> table1_name</span>
+<span id="cb622-3"><a href="efficiency.html#cb622-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> table2_name</span>
+<span id="cb622-4"><a href="efficiency.html#cb622-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> table1_name.colum1 <span class="op">=</span> table2_name.column1;</span></code></pre></div>
 <p>Be careful to specify the matching columns using dot notation. Primary key columns uniquely identify rows and are: 1) never NULL; 2) unique; 3) only one column per table. A primary key can be primary in one table and foreign in another. Unique columns have a different value for every row and there can be many in one table.</p>
 <p>UNION is the equivalent of cbind if the tables are already fairly similar.</p>
 <!-- ### Feather -->
@@ -278,7 +278,7 @@
 <span class="header-section-number">19.3.2</span> Parquet<a class="anchor" aria-label="anchor" href="#parquet"><i class="fas fa-link"></i></a>
 </h3>
 <p>While the use of CSVs is great because they are so widely used and have very little overhead, they are also very minimal. This can lead to issues, especially in terms of class. There are various modern alternatives, including <code>arrow</code> <span class="citation">(<a href="references-1.html#ref-arrow" role="doc-biblioref">Richardson et al. 2022</a>)</span>. Where we use <code><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv()</a></code> and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> we can use <code><a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">write_parquet()</a></code> and <code><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">read_parquet()</a></code>. One advantage is that it should retain the class between R and Python. It should also be faster than CSV.</p>
-<div class="sourceCode" id="cb622"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb623"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/apache/arrow/">arrow</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/collectivemedia/tictoc">tictoc</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -298,19 +298,19 @@
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
 <span class="co">#&gt;     first second</span>
 <span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.301  M     </span>
-<span class="co">#&gt;  2 0.526  Z     </span>
-<span class="co">#&gt;  3 0.355  K     </span>
-<span class="co">#&gt;  4 0.0258 R     </span>
-<span class="co">#&gt;  5 0.144  H     </span>
-<span class="co">#&gt;  6 0.950  S     </span>
-<span class="co">#&gt;  7 0.845  W     </span>
-<span class="co">#&gt;  8 0.234  D     </span>
-<span class="co">#&gt;  9 0.861  Q     </span>
-<span class="co">#&gt; 10 0.945  Y     </span>
+<span class="co">#&gt;  1 0.0104 Y     </span>
+<span class="co">#&gt;  2 0.899  O     </span>
+<span class="co">#&gt;  3 0.246  S     </span>
+<span class="co">#&gt;  4 0.609  M     </span>
+<span class="co">#&gt;  5 0.268  V     </span>
+<span class="co">#&gt;  6 0.718  Z     </span>
+<span class="co">#&gt;  7 0.372  H     </span>
+<span class="co">#&gt;  8 0.983  S     </span>
+<span class="co">#&gt;  9 0.335  S     </span>
+<span class="co">#&gt; 10 0.674  J     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; CSV: 0.323 sec elapsed</span>
+<span class="co">#&gt; CSV: 0.386 sec elapsed</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">tic</a></span><span class="op">(</span><span class="st">"parquet"</span><span class="op">)</span>
 <span class="fu"><a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">write_parquet</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">some_data</span>,
@@ -319,19 +319,19 @@
 <span class="co">#&gt; # A tibble: 1,000,000 × 2</span>
 <span class="co">#&gt;     first second</span>
 <span class="co">#&gt;     &lt;dbl&gt; &lt;chr&gt; </span>
-<span class="co">#&gt;  1 0.301  M     </span>
-<span class="co">#&gt;  2 0.526  Z     </span>
-<span class="co">#&gt;  3 0.355  K     </span>
-<span class="co">#&gt;  4 0.0258 R     </span>
-<span class="co">#&gt;  5 0.144  H     </span>
-<span class="co">#&gt;  6 0.950  S     </span>
-<span class="co">#&gt;  7 0.845  W     </span>
-<span class="co">#&gt;  8 0.234  D     </span>
-<span class="co">#&gt;  9 0.861  Q     </span>
-<span class="co">#&gt; 10 0.945  Y     </span>
+<span class="co">#&gt;  1 0.0104 Y     </span>
+<span class="co">#&gt;  2 0.899  O     </span>
+<span class="co">#&gt;  3 0.246  S     </span>
+<span class="co">#&gt;  4 0.609  M     </span>
+<span class="co">#&gt;  5 0.268  V     </span>
+<span class="co">#&gt;  6 0.718  Z     </span>
+<span class="co">#&gt;  7 0.372  H     </span>
+<span class="co">#&gt;  8 0.983  S     </span>
+<span class="co">#&gt;  9 0.335  S     </span>
+<span class="co">#&gt; 10 0.674  J     </span>
 <span class="co">#&gt; # … with 999,990 more rows</span>
 <span class="fu"><a href="https://rdrr.io/pkg/tictoc/man/tic.html">toc</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; parquet: 0.225 sec elapsed</span></code></pre></div>
+<span class="co">#&gt; parquet: 0.224 sec elapsed</span></code></pre></div>
 <!-- ## Experimental efficiency -->
 <!-- Multi-armed bandit -->
 <!-- ## Other languages -->
@@ -403,7 +403,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 26 March, 2022.</p>
+    <p>"<strong>Telling Stories With Data</strong>" was written by Rohan Alexander. It was last built on 29 March, 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

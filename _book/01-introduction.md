@@ -104,10 +104,14 @@ The key elements of telling convincing stories with data are:
 
 These elements are the foundation on which the workflow are built (Figure \@ref(fig:iceberg)).
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/IMG_1820.png" alt="The workflow builds on various elements" width="85%" />
-<p class="caption">(\#fig:iceberg)The workflow builds on various elements</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/IMG_1820} 
+
+}
+
+\caption{The workflow builds on various elements}(\#fig:iceberg)
+\end{figure}
 
 This is a lot to master, but **communication** is the most important. Simple analysis, communicated well, is more valuable than complicated analysis communicated poorly. This is because the latter cannot be understood or trusted by others. A lack of clear communication sometimes reflects a failure by the researcher to understand what is going on, or even what they are doing. And so, while the level of the analysis should match the dataset, instruments, task, and skillset, when a trade-off is required between clarity and complication, it can be sensible to err on the side of clarity.
 
@@ -129,10 +133,14 @@ Most of the questions we are interested in will use data that are more complicat
 
 Pablo Picasso, the twentieth century Spanish painter, has a series of drawings where he depicts the outline of an animal using only one line (Figure \@ref(fig:lumpthedog)). Despite their simplicity, we recognize which animal is being depicted---the drawing is sufficient to tell the animal is a dog, not a cat.  Could this be used to determine whether the dog is sick? Probably not. We would likely want a more detailed drawing. The decision as to which features should be measured and collected, and which to ignore, turns on context and purpose.
 
-<div class="figure" style="text-align: center">
-<img src="/Users/rohanalexander/Documents/book/figures/lump.png" alt="This drawing is clearly a dog, even though it is just one line" width="85%" />
-<p class="caption">(\#fig:lumpthedog)This drawing is clearly a dog, even though it is just one line</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{/Users/rohanalexander/Documents/book/figures/lump} 
+
+}
+
+\caption{This drawing is clearly a dog, even though it is just one line}(\#fig:lumpthedog)
+\end{figure}
 
 **Data cleaning and preparation** is a critical part of using data. We need to massage the data available to us into a dataset that we can use. This requires making a lot of decisions. The data cleaning and preparation stage is critical, and worthy of as much attention and care as any other. 
 

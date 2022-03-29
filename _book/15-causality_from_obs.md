@@ -143,15 +143,9 @@ digraph {
 ", height = 200)
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-cc5c1cbe9367999ca63c" style="width:75%;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cc5c1cbe9367999ca63c">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    x\n    y\n  edge [minlen = 2, arrowhead = vee]\n    x->y\n  { rank = same; x; y }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:firstdag)Using a DAG to illustrate perceived relationships</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{15-causality_from_obs_files/figure-latex/firstdag-1} \caption{Using a DAG to illustrate perceived relationships}(\#fig:firstdag)
+\end{figure}
 
 In Figure \@ref(fig:firstdag), we think that *x* causes *y*. We could build another DAG where the situation is less clear. To make the examples a little easier to follow, we will switch to fruits (Figure \@ref(fig:carrotasconfounder)).
 
@@ -173,15 +167,9 @@ digraph {
 ", height = 300)
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-09c219fa6c9a867d6957" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-09c219fa6c9a867d6957">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Carrot->Apple\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotasconfounder)A DAG showing Carrot as a confounder</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{15-causality_from_obs_files/figure-latex/carrotasconfounder-1} \caption{A DAG showing Carrot as a confounder}(\#fig:carrotasconfounder)
+\end{figure}
 
 In Figure \@ref(fig:carrotasconfounder), we think *Apple* causes *Banana*. But we also think that *Carrot* causes *Banana*, and that *Carrot* also causes *Apple*. That relationship is a 'backdoor path', and would create spurious correlation in our analysis. We may think that changes in *Apple* are causing changes in *Banana*, but it could be that *Carrot* is changing them both. That variable, in this case, *Carrot*, is called a 'confounder'.
 
@@ -209,15 +197,9 @@ digraph {
 ", height = 300)
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-77df259b2996fee50bc1" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-77df259b2996fee50bc1">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Carrot->Banana\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotasmediator)A DAG showing Carrot as a mediator</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{15-causality_from_obs_files/figure-latex/carrotasmediator-1} \caption{A DAG showing Carrot as a mediator}(\#fig:carrotasmediator)
+\end{figure}
 
 In Figure \@ref(fig:carrotasmediator), *Carrot* is called a 'mediator' and we would not adjust for it if we were interested in the effect of *Apple* on *Banana*. If we were to adjust for it, then some of what we are attributing to *Apple*, would be due to *Carrot*.
 
@@ -241,15 +223,9 @@ digraph {
 ", height = 300)
 ```
 
-<div class="figure">
-
-```{=html}
-<div id="htmlwidget-717e7e198b675778c27e" style="width:75%;height:300px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-717e7e198b675778c27e">{"x":{"diagram":"\ndigraph {\n  graph [ranksep = 0.2]\n  node [shape = plaintext, fontsize = 10, fontname = Helvetica]\n    Apple\n    Banana\n    Carrot\n  edge [minlen = 2, arrowhead = vee]\n    Apple->Banana\n    Apple->Carrot\n    Banana->Carrot\n  { rank = same; Apple; Banana }\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-```
-
-<p class="caption">(\#fig:carrotascollider)A DAG showing Carrot as a collider</p>
-</div>
+\begin{figure}
+\includegraphics[width=0.75\linewidth]{15-causality_from_obs_files/figure-latex/carrotascollider-1} \caption{A DAG showing Carrot as a collider}(\#fig:carrotascollider)
+\end{figure}
 
 In this case, *Carrot* is called a 'collider' and if we were to condition on it, then we would create a misleading relationship.
 
@@ -290,7 +266,7 @@ department_two <-
 both_departments <- rbind(department_one, department_two)
 
 both_departments
-#> # A tibble: 2,000 × 4
+#> # A tibble: 2,000 x 4
 #>    undergrad   noise  grad type        
 #>        <dbl>   <dbl> <dbl> <chr>       
 #>  1     0.772 -0.0566 0.715 Department 1
@@ -303,7 +279,7 @@ both_departments
 #>  8     0.749  0.0527 0.801 Department 1
 #>  9     0.732 -0.0471 0.684 Department 1
 #> 10     0.738  0.0552 0.793 Department 1
-#> # … with 1,990 more rows
+#> # ... with 1,990 more rows
 ```
 
 
@@ -322,10 +298,7 @@ both_departments |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/simpsonsparadox-1.png" alt="Illustration of simulated data that shows Simpson's paradox" width="672" />
-<p class="caption">(\#fig:simpsonsparadox)Illustration of simulated data that shows Simpson's paradox</p>
-</div>
+![(\#fig:simpsonsparadox)Illustration of simulated data that shows Simpson's paradox](15-causality_from_obs_files/figure-latex/simpsonsparadox-1.pdf) 
 
 Simpson's paradox is often illustrated using real-world data from University of California, Berkeley, on graduate admissions [@bickel1975sex]. @bickel1975sex include what might be one of the greatest sub-titles ever published: 'Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation'. More recently, Dr Andrew Heiss, Assistant Professor, Georgia State University, points out that the 'penguins' dataset from `parlmerpenguins` [@palmerpenguins] provides an example of Simpson's paradox, using real-world data (Figure \@ref(fig:simpsonsparadoxinpenguins)).
 
@@ -347,10 +320,7 @@ penguins |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/simpsonsparadoxinpenguins-1.png" alt="Illustration of Simpson's paradox in a dataset of penguin bill depth compared with their body mass" width="672" />
-<p class="caption">(\#fig:simpsonsparadoxinpenguins)Illustration of Simpson's paradox in a dataset of penguin bill depth compared with their body mass</p>
-</div>
+![(\#fig:simpsonsparadoxinpenguins)Illustration of Simpson's paradox in a dataset of penguin bill depth compared with their body mass](15-causality_from_obs_files/figure-latex/simpsonsparadoxinpenguins-1.pdf) 
 
 ### Berkson's paradox
 
@@ -383,7 +353,7 @@ general_public <-
 professionals_and_public = rbind(professionals, general_public)
 
 professionals_and_public
-#> # A tibble: 1,100 × 3
+#> # A tibble: 1,100 x 3
 #>      VO2 chance_of_winning type         
 #>    <dbl>             <dbl> <chr>        
 #>  1 0.772             0.734 Professionals
@@ -396,7 +366,7 @@ professionals_and_public
 #>  8 0.749             0.750 Professionals
 #>  9 0.732             0.890 Professionals
 #> 10 0.738             0.821 Professionals
-#> # … with 1,090 more rows
+#> # ... with 1,090 more rows
 ```
 
 
@@ -414,10 +384,7 @@ professionals_and_public |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/berksonsparadox-1.png" alt="Illustration of simulated data that shows Berkson's paradox" width="672" />
-<p class="caption">(\#fig:berksonsparadox)Illustration of simulated data that shows Berkson's paradox</p>
-</div>
+![(\#fig:berksonsparadox)Illustration of simulated data that shows Berkson's paradox](15-causality_from_obs_files/figure-latex/berksonsparadox-1.pdf) 
 
 
 
@@ -479,7 +446,7 @@ simulated_difference_in_differences <-
   )
 
 simulated_difference_in_differences
-#> # A tibble: 2,000 × 4
+#> # A tibble: 2,000 x 4
 #> # Rowwise: 
 #>    person time  treatment_group serve_speed
 #>     <int> <fct> <fct>                 <dbl>
@@ -493,7 +460,7 @@ simulated_difference_in_differences
 #>  8      8 0     0                      5.77
 #>  9      9 0     1                      6.13
 #> 10     10 0     1                      7.32
-#> # … with 1,990 more rows
+#> # ... with 1,990 more rows
 ```
 
 
@@ -511,10 +478,7 @@ simulated_difference_in_differences |>
   scale_color_brewer(palette = "Set1")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/diffindifftennisracket-1.png" alt="Illustration of simulated data that shows a difference before and after getting a new tennis racket" width="672" />
-<p class="caption">(\#fig:diffindifftennisracket)Illustration of simulated data that shows a difference before and after getting a new tennis racket</p>
-</div>
+![(\#fig:diffindifftennisracket)Illustration of simulated data that shows a difference before and after getting a new tennis racket](15-causality_from_obs_files/figure-latex/diffindifftennisracket-1.pdf) 
 
 As it is a straight-forward example, we can obtain our estimate manually, by looking at the average difference of the differences. When we do that, we find that we estimate the effect of the new tennis racket to be 5.06, which is similar to what we simulated.
 
@@ -616,7 +580,7 @@ newspapers
 
 
 ```
-#> # A tibble: 1,196 × 52
+#> # A tibble: 1,196 x 52
 #>     year id_news local national after_national   Had po_cst
 #>    <dbl>   <dbl> <dbl>    <dbl>          <dbl> <dbl>  <dbl>
 #>  1  1960       1     1        0              0     0   2.60
@@ -629,13 +593,13 @@ newspapers
 #>  8  1967       1     1        0              0     0   3.27
 #>  9  1968       1     1        0              0     0   3.91
 #> 10  1969       1     1        0              0     0   3.67
-#> # … with 1,186 more rows, and 45 more variables:
+#> # ... with 1,186 more rows, and 45 more variables:
 #> #   ps_cst <dbl>, etotal_cst <dbl>, ra_cst <dbl>,
 #> #   ra_s <dbl>, rs_cst <dbl>, rtotal_cst <dbl>,
 #> #   profit_cst <dbl>, nb_journ <dbl>, qs_s <dbl>,
 #> #   qtotal <dbl>, pages <dbl>, ads_q <dbl>, ads_s <dbl>,
 #> #   news_hole <dbl>, share_Hard <dbl>, ads_p4_cst <dbl>,
-#> #   R_sh_edu_primaire_ipo <dbl>, …
+#> #   R_sh_edu_primaire_ipo <dbl>, ...
 ```
 
 There are 1,196 observations in the dataset and 52 variables. @angelucci2019newspapers are interested in the 1960-1974 time-period which has around 100 newspapers. There are 14 national newspapers at the beginning of the period and 12 at the end. The key period is 1967, when the French government announced it would allow advertising on television. @angelucci2019newspapers argue that national newspapers were affected by this chance, but local newspapers were not. So, the national newspapers are the treatment group and the local newspapers are the control group.
@@ -655,7 +619,7 @@ newspapers <-
   mutate(year = as.integer(year))
 
 newspapers
-#> # A tibble: 1,196 × 14
+#> # A tibble: 1,196 x 14
 #>     year id_news after_national local national    ra_cst
 #>    <int> <fct>   <fct>          <fct> <fct>        <dbl>
 #>  1  1960 1       0              1     0         52890272
@@ -668,7 +632,7 @@ newspapers
 #>  8  1967 1       0              1     0         80263152
 #>  9  1968 1       0              1     0         87165704
 #> 10  1969 1       0              1     0        102596384
-#> # … with 1,186 more rows, and 8 more variables:
+#> # ... with 1,186 more rows, and 8 more variables:
 #> #   ads_p4_cst <dbl>, ads_s <dbl>, ps_cst <dbl>,
 #> #   po_cst <dbl>, qtotal <dbl>, qs_s <dbl>, rs_cst <dbl>,
 #> #   ra_cst_div_qtotal <dbl>
@@ -683,234 +647,27 @@ datasummary_skim(newspapers,
                  title = "Summary statistics for French newspapers dataset (1960-1974)")
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:frenchnewspaperssummarystatistics)Summary statistics for French newspapers dataset (1960-1974)</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:right;"> Unique (#) </th>
-   <th style="text-align:right;"> Missing (%) </th>
-   <th style="text-align:right;"> Mean </th>
-   <th style="text-align:right;"> SD </th>
-   <th style="text-align:right;"> Min </th>
-   <th style="text-align:right;"> Median </th>
-   <th style="text-align:right;"> Max </th>
-   <th style="text-align:right;">    </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> year </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1967.0 </td>
-   <td style="text-align:right;"> 4.3 </td>
-   <td style="text-align:right;"> 1960.0 </td>
-   <td style="text-align:right;"> 1967.0 </td>
-   <td style="text-align:right;"> 1974.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="3.17" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.95" y="7.44" width="3.17" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.13" y="7.44" width="3.17" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.30" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.48" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.65" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.83" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.17" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.35" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.52" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.70" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.87" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.05" y="7.39" width="3.17" height="4.28" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ra_cst </td>
-   <td style="text-align:right;"> 1053 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 91531796.9 </td>
-   <td style="text-align:right;"> 137207312.4 </td>
-   <td style="text-align:right;"> 549717.2 </td>
-   <td style="text-align:right;"> 35994710.0 </td>
-   <td style="text-align:right;"> 864369088.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.75" y="3.22" width="5.15" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.89" y="9.89" width="5.15" height="1.77" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.04" y="10.76" width="5.15" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.18" y="11.38" width="5.15" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.33" y="11.61" width="5.15" height="0.056" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.48" y="11.61" width="5.15" height="0.056" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.62" y="11.58" width="5.15" height="0.078" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.77" y="11.57" width="5.15" height="0.090" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.91" y="11.56" width="5.15" height="0.10" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ads_p4_cst </td>
-   <td style="text-align:right;"> 558 </td>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 86.4 </td>
-   <td style="text-align:right;"> 75.3 </td>
-   <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:right;"> 69.0 </td>
-   <td style="text-align:right;"> 327.2 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.26" y="3.22" width="6.87" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.13" y="7.36" width="6.87" height="4.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="15.00" y="8.67" width="6.87" height="2.99" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.87" y="10.16" width="6.87" height="1.51" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.74" y="10.59" width="6.87" height="1.08" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.61" y="10.94" width="6.87" height="0.72" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.48" y="11.35" width="6.87" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ads_s </td>
-   <td style="text-align:right;"> 988 </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:right;"> 18.7 </td>
-   <td style="text-align:right;"> 9.7 </td>
-   <td style="text-align:right;"> 1.6 </td>
-   <td style="text-align:right;"> 16.9 </td>
-   <td style="text-align:right;"> 59.6 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.53" y="10.81" width="3.84" height="0.85" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.37" y="6.85" width="3.84" height="4.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="8.20" y="3.22" width="3.84" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.04" y="4.33" width="3.84" height="7.33" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="15.88" y="5.08" width="3.84" height="6.58" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.71" y="9.44" width="3.84" height="2.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.55" y="9.89" width="3.84" height="1.77" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.38" y="11.04" width="3.84" height="0.62" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.22" y="11.14" width="3.84" height="0.52" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.06" y="10.97" width="3.84" height="0.69" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.89" y="11.37" width="3.84" height="0.29" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.73" y="11.56" width="3.84" height="0.098" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ps_cst </td>
-   <td style="text-align:right;"> 665 </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:right;"> 2.8 </td>
-   <td style="text-align:right;"> 0.7 </td>
-   <td style="text-align:right;"> 0.7 </td>
-   <td style="text-align:right;"> 2.8 </td>
-   <td style="text-align:right;"> 5.6 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.15" y="11.36" width="4.49" height="0.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.64" y="11.10" width="4.49" height="0.57" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.13" y="10.94" width="4.49" height="0.72" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.62" y="3.22" width="4.49" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.11" y="7.85" width="4.49" height="3.81" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.60" y="6.44" width="4.49" height="5.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.09" y="8.90" width="4.49" height="2.76" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.58" y="11.01" width="4.49" height="0.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.07" y="11.55" width="4.49" height="0.11" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.56" y="11.55" width="4.49" height="0.11" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="45.05" y="11.64" width="4.49" height="0.022" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> po_cst </td>
-   <td style="text-align:right;"> 146 </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 3.2 </td>
-   <td style="text-align:right;"> 0.9 </td>
-   <td style="text-align:right;"> 0.8 </td>
-   <td style="text-align:right;"> 3.3 </td>
-   <td style="text-align:right;"> 9.3 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-2.49" y="11.55" width="5.21" height="0.11" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="2.73" y="11.14" width="5.21" height="0.52" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.94" y="3.22" width="5.21" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.15" y="3.91" width="5.21" height="7.76" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.36" y="9.08" width="5.21" height="2.59" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.58" y="11.46" width="5.21" height="0.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.79" y="11.61" width="5.21" height="0.056" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.00" y="11.63" width="5.21" height="0.037" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.21" y="11.64" width="5.21" height="0.019" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.42" y="11.63" width="5.21" height="0.037" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> qtotal </td>
-   <td style="text-align:right;"> 1052 </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 130817.5 </td>
-   <td style="text-align:right;"> 172954.3 </td>
-   <td style="text-align:right;"> 1480.0 </td>
-   <td style="text-align:right;"> 56775.2 </td>
-   <td style="text-align:right;"> 1143676.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.72" y="3.22" width="3.89" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.61" y="9.63" width="3.89" height="2.03" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.50" y="10.53" width="3.89" height="1.13" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.39" y="10.82" width="3.89" height="0.84" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="17.28" y="11.40" width="3.89" height="0.26" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.18" y="11.60" width="3.89" height="0.062" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.07" y="11.54" width="3.89" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.96" y="11.43" width="3.89" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.85" y="11.63" width="3.89" height="0.037" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.74" y="11.65" width="3.89" height="0.012" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.63" y="11.59" width="3.89" height="0.074" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.52" y="11.65" width="3.89" height="0.012" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> qs_s </td>
-   <td style="text-align:right;"> 914 </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 27.2 </td>
-   <td style="text-align:right;"> 22.7 </td>
-   <td style="text-align:right;"> 0.7 </td>
-   <td style="text-align:right;"> 22.5 </td>
-   <td style="text-align:right;"> 100.1 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.47" y="3.22" width="4.47" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.94" y="6.42" width="4.47" height="5.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.41" y="5.36" width="4.47" height="6.30" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.88" y="8.20" width="4.47" height="3.46" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.35" y="9.11" width="4.47" height="2.55" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="23.82" y="9.46" width="4.47" height="2.20" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.29" y="11.20" width="4.47" height="0.46" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="32.76" y="11.29" width="4.47" height="0.37" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.23" y="10.60" width="4.47" height="1.06" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.70" y="11.12" width="4.47" height="0.54" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="46.17" y="11.60" width="4.47" height="0.057" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> rs_cst </td>
-   <td style="text-align:right;"> 1047 </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:right;"> 97666503.6 </td>
-   <td style="text-align:right;"> 125257120.3 </td>
-   <td style="text-align:right;"> 255760.1 </td>
-   <td style="text-align:right;"> 40736368.0 </td>
-   <td style="text-align:right;"> 750715008.0 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.76" y="3.22" width="2.96" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.72" y="9.75" width="2.96" height="1.92" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.68" y="10.29" width="2.96" height="1.38" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.65" y="10.49" width="2.96" height="1.17" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.61" y="10.83" width="2.96" height="0.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.57" y="11.27" width="2.96" height="0.40" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="19.53" y="11.30" width="2.96" height="0.37" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.49" y="11.38" width="2.96" height="0.28" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.45" y="11.56" width="2.96" height="0.10" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.41" y="11.65" width="2.96" height="0.015" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.37" y="11.60" width="2.96" height="0.059" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="34.34" y="11.47" width="2.96" height="0.19" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="37.30" y="11.56" width="2.96" height="0.10" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.26" y="11.62" width="2.96" height="0.044" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.22" y="11.66" width="2.96" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="46.18" y="11.65" width="2.96" height="0.015" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ra_cst_div_qtotal </td>
-   <td style="text-align:right;"> 1049 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:right;"> 661.2 </td>
-   <td style="text-align:right;"> 352.7 </td>
-   <td style="text-align:right;"> 61.3 </td>
-   <td style="text-align:right;"> 596.6 </td>
-   <td style="text-align:right;"> 3048.4 </td>
-   <td style="text-align:right;">  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00"><defs><style type="text/css">
-    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
-      fill: none;
-      stroke: #000000;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-miterlimit: 10.00;
-    }
-  </style></defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
-</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="0.87" y="10.99" width="2.98" height="0.67" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.84" y="8.03" width="2.98" height="3.63" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="6.82" y="3.22" width="2.98" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.79" y="4.83" width="2.98" height="6.83" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.77" y="8.63" width="2.98" height="3.03" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="15.74" y="10.44" width="2.98" height="1.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.72" y="11.35" width="2.98" height="0.31" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="21.70" y="11.42" width="2.98" height="0.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.67" y="11.54" width="2.98" height="0.12" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.65" y="11.30" width="2.98" height="0.36" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="30.62" y="11.45" width="2.98" height="0.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.60" y="11.61" width="2.98" height="0.048" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.57" y="11.64" width="2.98" height="0.024" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.55" y="11.66" width="2.98" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.53" y="11.64" width="2.98" height="0.024" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="45.50" y="11.64" width="2.98" height="0.024" style="stroke-width: 0.38; fill: #000000;"></rect></g></svg>
-</td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:frenchnewspaperssummarystatistics)Summary statistics for French newspapers dataset (1960-1974)}
+\centering
+\begin{tabular}[t]{lrrrrrrr>{}r}
+\toprule
+  & Unique (\#) & Missing (\%) & Mean & SD & Min & Median & Max &   \\
+\midrule
+year & 15 & 0 & \num{1967.0} & \num{4.3} & \num{1960.0} & \num{1967.0} & \num{1974.0} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da666586db.pdf}\\
+ra\_cst & 1053 & 12 & \num{91531796.9} & \num{137207312.4} & \num{549717.2} & \num{35994710.0} & \num{864369088.0} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da5eaba3ea.pdf}\\
+ads\_p4\_cst & 558 & 32 & \num{86.4} & \num{75.3} & \num{3.8} & \num{69.0} & \num{327.2} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da34c83a55.pdf}\\
+ads\_s & 988 & 13 & \num{18.7} & \num{9.7} & \num{1.6} & \num{16.9} & \num{59.6} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da27b58a5f.pdf}\\
+ps\_cst & 665 & 13 & \num{2.8} & \num{0.7} & \num{0.7} & \num{2.8} & \num{5.6} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da23e3f087.pdf}\\
+po\_cst & 146 & 11 & \num{3.2} & \num{0.9} & \num{0.8} & \num{3.3} & \num{9.3} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da73a694c4.pdf}\\
+qtotal & 1052 & 11 & \num{130817.5} & \num{172954.3} & \num{1480.0} & \num{56775.2} & \num{1143676.0} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da4894d6de.pdf}\\
+qs\_s & 914 & 10 & \num{27.2} & \num{22.7} & \num{0.7} & \num{22.5} & \num{100.1} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da13eca81d.pdf}\\
+rs\_cst & 1047 & 13 & \num{97666503.6} & \num{125257120.3} & \num{255760.1} & \num{40736368.0} & \num{750715008.0} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da3abdc326.pdf}\\
+ra\_cst\_div\_qtotal & 1049 & 12 & \num{661.2} & \num{352.7} & \num{61.3} & \num{596.6} & \num{3048.4} & \includegraphics[width=0.67in, height=0.17in]{15-causality_from_obs_files/figure-latex//hist_19da54595b79.pdf}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 We are interested in what happened from 1967 onward, especially in terms of advertising revenue, and whether that was different for national, compared with local newspapers (Figure \@ref(fig:frenchnewspapersrevenue)). We use `scales` to adjust the y axis [@scales].
@@ -931,10 +688,7 @@ newspapers |>
   geom_vline(xintercept = 1966.5, linetype = "dashed")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/frenchnewspapersrevenue-1.png" alt="Revenue of French newspapers (1960-1974), by whether they were local or national" width="672" />
-<p class="caption">(\#fig:frenchnewspapersrevenue)Revenue of French newspapers (1960-1974), by whether they were local or national</p>
-</div>
+![(\#fig:frenchnewspapersrevenue)Revenue of French newspapers (1960-1974), by whether they were local or national](15-causality_from_obs_files/figure-latex/frenchnewspapersrevenue-1.pdf) 
 
 
 
@@ -994,97 +748,29 @@ modelsummary(
 )
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:frenchnewspapersadvertising)Effect of changed television advertising laws on revenue of French newspapers (1960-1974)</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Ad revenue </th>
-   <th style="text-align:center;"> Ad revenue over circulation </th>
-   <th style="text-align:center;"> Ad prices </th>
-   <th style="text-align:center;"> Ad space </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Year </td>
-   <td style="text-align:center;"> 0.05 </td>
-   <td style="text-align:center;"> 0.04 </td>
-   <td style="text-align:center;"> 0.04 </td>
-   <td style="text-align:center;"> 0.02 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Is after advertising change </td>
-   <td style="text-align:center;"> −0.23 </td>
-   <td style="text-align:center;"> −0.15 </td>
-   <td style="text-align:center;"> −0.31 </td>
-   <td style="text-align:center;"> 0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.03) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.03) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.07) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.05) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 1052 </td>
-   <td style="text-align:center;"> 1048 </td>
-   <td style="text-align:center;"> 809 </td>
-   <td style="text-align:center;"> 1046 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.985 </td>
-   <td style="text-align:center;"> 0.903 </td>
-   <td style="text-align:center;"> 0.892 </td>
-   <td style="text-align:center;"> 0.720 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> 0.984 </td>
-   <td style="text-align:center;"> 0.895 </td>
-   <td style="text-align:center;"> 0.882 </td>
-   <td style="text-align:center;"> 0.699 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> −526.7 </td>
-   <td style="text-align:center;"> −735.0 </td>
-   <td style="text-align:center;"> 705.4 </td>
-   <td style="text-align:center;"> 478.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> −120.1 </td>
-   <td style="text-align:center;"> −328.8 </td>
-   <td style="text-align:center;"> 1057.6 </td>
-   <td style="text-align:center;"> 849.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> 345.341 </td>
-   <td style="text-align:center;"> 449.524 </td>
-   <td style="text-align:center;"> −277.714 </td>
-   <td style="text-align:center;"> −164.012 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 814.664 </td>
-   <td style="text-align:center;"> 112.259 </td>
-   <td style="text-align:center;"> 83.464 </td>
-   <td style="text-align:center;"> 34.285 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:frenchnewspapersadvertising)Effect of changed television advertising laws on revenue of French newspapers (1960-1974)}
+\centering
+\begin{tabular}[t]{lcccc}
+\toprule
+  & Ad revenue & Ad revenue over circulation & Ad prices & Ad space\\
+\midrule
+Year & \num{0.05} & \num{0.04} & \num{0.04} & \num{0.02}\\
+ & (\num{0.00}) & (\num{0.00}) & (\num{0.00}) & (\num{0.00})\\
+Is after advertising change & \num{-0.23} & \num{-0.15} & \num{-0.31} & \num{0.01}\\
+ & (\num{0.03}) & (\num{0.03}) & (\num{0.07}) & (\num{0.05})\\
+\midrule
+Num.Obs. & \num{1052} & \num{1048} & \num{809} & \num{1046}\\
+R2 & \num{0.985} & \num{0.903} & \num{0.892} & \num{0.720}\\
+R2 Adj. & \num{0.984} & \num{0.895} & \num{0.882} & \num{0.699}\\
+AIC & \num{-526.7} & \num{-735.0} & \num{705.4} & \num{478.0}\\
+BIC & \num{-120.1} & \num{-328.8} & \num{1057.6} & \num{849.5}\\
+Log.Lik. & \num{345.341} & \num{449.524} & \num{-277.714} & \num{-164.012}\\
+F & \num{814.664} & \num{112.259} & \num{83.464} & \num{34.285}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
@@ -1108,109 +794,29 @@ modelsummary(
 )
 ```
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:frenchnewspapersconsumers)Effect of changed television advertising laws on consumers of French newspapers (1960-1974)</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;">   </th>
-   <th style="text-align:center;"> Subscription price </th>
-   <th style="text-align:center;"> Circulation </th>
-   <th style="text-align:center;"> Share of subscriptions </th>
-   <th style="text-align:center;"> Revenue from sales </th>
-   <th style="text-align:center;"> Unit price </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Year </td>
-   <td style="text-align:center;"> 0.05 </td>
-   <td style="text-align:center;"> 0.01 </td>
-   <td style="text-align:center;"> −0.01 </td>
-   <td style="text-align:center;"> 0.05 </td>
-   <td style="text-align:center;"> 0.05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-   <td style="text-align:center;"> (0.00) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Is after advertising change </td>
-   <td style="text-align:center;"> −0.04 </td>
-   <td style="text-align:center;"> −0.06 </td>
-   <td style="text-align:center;"> 0.19 </td>
-   <td style="text-align:center;"> −0.06 </td>
-   <td style="text-align:center;"> 0.06 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;box-shadow: 0px 1px">  </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.02) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.02) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.03) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.03) </td>
-   <td style="text-align:center;box-shadow: 0px 1px"> (0.02) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Num.Obs. </td>
-   <td style="text-align:center;"> 1044 </td>
-   <td style="text-align:center;"> 1070 </td>
-   <td style="text-align:center;"> 1072 </td>
-   <td style="text-align:center;"> 1046 </td>
-   <td style="text-align:center;"> 1063 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:center;"> 0.876 </td>
-   <td style="text-align:center;"> 0.991 </td>
-   <td style="text-align:center;"> 0.972 </td>
-   <td style="text-align:center;"> 0.988 </td>
-   <td style="text-align:center;"> 0.867 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R2 Adj. </td>
-   <td style="text-align:center;"> 0.865 </td>
-   <td style="text-align:center;"> 0.990 </td>
-   <td style="text-align:center;"> 0.970 </td>
-   <td style="text-align:center;"> 0.987 </td>
-   <td style="text-align:center;"> 0.856 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> AIC </td>
-   <td style="text-align:center;"> −1600.3 </td>
-   <td style="text-align:center;"> −1355.1 </td>
-   <td style="text-align:center;"> −477.8 </td>
-   <td style="text-align:center;"> −738.2 </td>
-   <td style="text-align:center;"> −1650.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> BIC </td>
-   <td style="text-align:center;"> −1194.3 </td>
-   <td style="text-align:center;"> −947.2 </td>
-   <td style="text-align:center;"> −64.7 </td>
-   <td style="text-align:center;"> −332.1 </td>
-   <td style="text-align:center;"> −1243.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Log.Lik. </td>
-   <td style="text-align:center;"> 882.140 </td>
-   <td style="text-align:center;"> 759.573 </td>
-   <td style="text-align:center;"> 321.907 </td>
-   <td style="text-align:center;"> 451.112 </td>
-   <td style="text-align:center;"> 907.285 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> F </td>
-   <td style="text-align:center;"> 84.659 </td>
-   <td style="text-align:center;"> 1392.863 </td>
-   <td style="text-align:center;"> 421.297 </td>
-   <td style="text-align:center;"> 1030.303 </td>
-   <td style="text-align:center;"> 79.888 </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:frenchnewspapersconsumers)Effect of changed television advertising laws on consumers of French newspapers (1960-1974)}
+\centering
+\begin{tabular}[t]{lccccc}
+\toprule
+  & Subscription price & Circulation & Share of subscriptions & Revenue from sales & Unit price\\
+\midrule
+Year & \num{0.05} & \num{0.01} & \num{-0.01} & \num{0.05} & \num{0.05}\\
+ & (\num{0.00}) & (\num{0.00}) & (\num{0.00}) & (\num{0.00}) & (\num{0.00})\\
+Is after advertising change & \num{-0.04} & \num{-0.06} & \num{0.19} & \num{-0.06} & \num{0.06}\\
+ & (\num{0.02}) & (\num{0.02}) & (\num{0.03}) & (\num{0.03}) & (\num{0.02})\\
+\midrule
+Num.Obs. & \num{1044} & \num{1070} & \num{1072} & \num{1046} & \num{1063}\\
+R2 & \num{0.876} & \num{0.991} & \num{0.972} & \num{0.988} & \num{0.867}\\
+R2 Adj. & \num{0.865} & \num{0.990} & \num{0.970} & \num{0.987} & \num{0.856}\\
+AIC & \num{-1600.3} & \num{-1355.1} & \num{-477.8} & \num{-738.2} & \num{-1650.6}\\
+BIC & \num{-1194.3} & \num{-947.2} & \num{-64.7} & \num{-332.1} & \num{-1243.1}\\
+Log.Lik. & \num{882.140} & \num{759.573} & \num{321.907} & \num{451.112} & \num{907.285}\\
+F & \num{84.659} & \num{1392.863} & \num{421.297} & \num{1030.303} & \num{79.888}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 In general, we are able to replicate the main results of @angelucci2019newspapers and find that in many cases there appears to be a difference from 1967 onward. Our results are similar to @angelucci2019newspapers.
 
@@ -1372,20 +978,20 @@ purchase_data <-
   mutate(across(c(city, gender, free_shipping), as.factor))
 
 purchase_data
-#> # A tibble: 10,000 × 7
+#> # A tibble: 10,000 x 7
 #>    unique_person_id   age city   gender income free_shipping
 #>               <int> <dbl> <fct>  <fct>   <dbl> <fct>        
-#>  1                1  47.5 Calga… Female  1.72  0            
-#>  2                2  27.8 Montr… Male    1.54  0            
-#>  3                3  57.7 Toron… Female  3.16  0            
-#>  4                4  43.9 Toron… Male    0.636 0            
-#>  5                5  21.1 Toron… Female  1.43  0            
-#>  6                6  51.1 Calga… Male    1.18  0            
-#>  7                7  28.7 Toron… Female  1.49  0            
-#>  8                8  37.9 Toron… Female  0.414 0            
-#>  9                9  31.0 Calga… Male    0.384 0            
-#> 10               10  33.5 Montr… Female  1.11  0            
-#> # … with 9,990 more rows, and 1 more variable:
+#>  1                1  47.5 Calga~ Female  1.72  0            
+#>  2                2  27.8 Montr~ Male    1.54  0            
+#>  3                3  57.7 Toron~ Female  3.16  0            
+#>  4                4  43.9 Toron~ Male    0.636 0            
+#>  5                5  21.1 Toron~ Female  1.43  0            
+#>  6                6  51.1 Calga~ Male    1.18  0            
+#>  7                7  28.7 Toron~ Female  1.49  0            
+#>  8                8  37.9 Toron~ Female  0.414 0            
+#>  9                9  31.0 Calga~ Male    0.384 0            
+#> 10               10  33.5 Montr~ Female  1.11  0            
+#> # ... with 9,990 more rows, and 1 more variable:
 #> #   average_spend <dbl>
 ```
 
@@ -1411,20 +1017,20 @@ matched_groups
 matched_dataset <- match.data(matched_groups)
 
 matched_dataset
-#> # A tibble: 742 × 10
+#> # A tibble: 742 x 10
 #>    unique_person_id   age city   gender income free_shipping
 #>               <int> <dbl> <fct>  <fct>   <dbl> <fct>        
-#>  1                5  21.1 Toron… Female  1.43  0            
-#>  2               20  30.0 Montr… Male    8.65  0            
-#>  3               22  22.8 Toron… Male    0.898 0            
-#>  4               38  41.3 Toron… Female  6.01  1            
-#>  5               43  24.7 Toron… Male    1.59  1            
-#>  6               76  56.4 Toron… Male   15.0   0            
-#>  7              102  48.1 Toron… Male    3.48  1            
-#>  8              105  76.7 Toron… Male    2.84  0            
-#>  9              118  26.7 Toron… Female  0.315 0            
-#> 10              143  36.3 Toron… Male   10.6   0            
-#> # … with 732 more rows, and 4 more variables:
+#>  1                5  21.1 Toron~ Female  1.43  0            
+#>  2               20  30.0 Montr~ Male    8.65  0            
+#>  3               22  22.8 Toron~ Male    0.898 0            
+#>  4               38  41.3 Toron~ Female  6.01  1            
+#>  5               43  24.7 Toron~ Male    1.59  1            
+#>  6               76  56.4 Toron~ Male   15.0   0            
+#>  7              102  48.1 Toron~ Male    3.48  1            
+#>  8              105  76.7 Toron~ Male    2.84  0            
+#>  9              118  26.7 Toron~ Female  0.315 0            
+#> 10              143  36.3 Toron~ Male   10.6   0            
+#> # ... with 732 more rows, and 4 more variables:
 #> #   average_spend <dbl>, distance <dbl>, weights <dbl>,
 #> #   subclass <fct>
 ```
@@ -1500,7 +1106,7 @@ rdd_example_data <-
   )
 
 rdd_example_data
-#> # A tibble: 1,000 × 4
+#> # A tibble: 1,000 x 4
 #>    person  mark income noise
 #>     <int> <dbl>  <dbl> <dbl>
 #>  1      1  79.4   9.43 1.87 
@@ -1513,7 +1119,7 @@ rdd_example_data
 #>  8      8  79.0  10.5  3.11 
 #>  9      9  78.6   9.53 0.671
 #> 10     10  78.8  10.6  2.46 
-#> # … with 990 more rows
+#> # ... with 990 more rows
 ```
 
 
@@ -1535,10 +1141,7 @@ rdd_example_data |>
        y = "Income ($)")
 ```
 
-<div class="figure">
-<img src="15-causality_from_obs_files/figure-html/rddmarks-1.png" alt="Illustration of simulated data that shows an effect on income from getting a mark that is 80, compared with 79" width="672" />
-<p class="caption">(\#fig:rddmarks)Illustration of simulated data that shows an effect on income from getting a mark that is 80, compared with 79</p>
-</div>
+![(\#fig:rddmarks)Illustration of simulated data that shows an effect on income from getting a mark that is 80, compared with 79](15-causality_from_obs_files/figure-latex/rddmarks-1.pdf) 
 
 We can use a binary variable with linear regression to estimate the effect. We expect the coefficient to be around two, which is what we simulated.
 
@@ -1671,7 +1274,7 @@ both |>
   geom_smooth(formula = y~x, method = 'lm')
 ```
 
-<img src="15-causality_from_obs_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](15-causality_from_obs_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
 
 ```r
   
@@ -1681,7 +1284,7 @@ both |>
   geom_smooth(formula = y ~ poly(x, 3), method = 'lm')
 ```
 
-<img src="15-causality_from_obs_files/figure-html/unnamed-chunk-18-2.png" width="672" />
+![](15-causality_from_obs_files/figure-latex/unnamed-chunk-18-2.pdf)<!-- --> 
 
 The result is that our estimate is dependent on the choice of model. We see this issue occur often in RDD [@gelmanonrdd].
 
@@ -1890,7 +1493,7 @@ iv_example_data$tax |> table()
 #> 6206 3794
 
 head(iv_example_data)
-#> # A tibble: 6 × 5
+#> # A tibble: 6 x 5
 #>   person smoker  health province      tax
 #>    <int>  <int>   <dbl> <chr>       <dbl>
 #> 1      1      0  1.11   Alberta       0.3
@@ -1917,7 +1520,7 @@ iv_example_data |>
   facet_wrap(vars(province))
 ```
 
-<img src="15-causality_from_obs_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](15-causality_from_obs_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 Finally, we can use the tax rate as an instrumental variable to estimate the effect of smoking on health.
 
