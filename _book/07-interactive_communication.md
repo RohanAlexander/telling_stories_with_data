@@ -26,7 +26,7 @@
 
 **Key concepts and skills**
 
-- Building a website using within the R environment using: `postcards` [@citepostcards], `distill` [@citedistill], and `blogdown` [@citeblogdown].
+- Building a website within the R environment using: `postcards` [@citepostcards], `distill` [@citedistill], and `blogdown` [@citeblogdown].
 - Adding interaction to maps, using `leaflet` [@ChengKarambelkarXie2017] and `mapdeck` [@citemapdeck]. 
 - Adding interaction to graphs, using `Shiny` [@citeshiny].
 
